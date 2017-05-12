@@ -11,7 +11,7 @@ smartcampus/
 │		  └————other(其他)/
 └————html/
 	 ├——index.html
-	 │	 ┆
+	 │	┆
 	 └——end
 
 1、添加文件夹
