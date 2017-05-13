@@ -16,3 +16,4 @@ smartcampus/
 
 1、添加文件夹
 2、测试sublime Git
+3、修改readme.txt
