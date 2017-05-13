@@ -15,3 +15,4 @@ smartcampus/
 	 └——end
 
 1、添加文件夹
+2、测试sublime Git
