@@ -14,38 +14,6 @@ em {
 .navbar-default {
 	border-color: #fff;
 }
-
-.smart-header {
-	position: relative;
-	z-index: 99;
-	width: 100%;
-	height: 50px;
-	text-align: center;
-}
-
-.smart-header a {
-	position: absolute;
-	width: 50px;
-	height: 50px;
-	left: 0;
-	top: 0;
-	z-index: 1;
-	padding: 10px;
-}
-
-.smart-header a img {
-	width: 100%;
-	vertical-align: top
-}
-
-.smart-header h1 {
-	display: inline-block;
-	color: #fff;
-	margin: 0;
-	font-size: 18px;
-	line-height: 50px;
-}
-
 .smart-tool {
 	position: absolute;
 	width: 100%;

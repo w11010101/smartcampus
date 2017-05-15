@@ -7,15 +7,14 @@
   <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
-  <title>付款码</title>
+  <title>支付设置</title>
 
   <!-- Bootstrap -->
 
   <link href="../content/plug/bootstap/css/bootstrap.min.css" rel="stylesheet">
 
   <link href="../content/custom/css/common.css" rel="stylesheet">
-  <link href="../content/custom/css/payment.css" rel="stylesheet">
-
+  <link href="../content/custom/css/setting.css" rel="stylesheet">
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
@@ -23,35 +22,48 @@
       <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
+<style type="text/css" media="screen">
+body {
+  background: #fff;
+}
+
+.smart-header {
+  border-bottom: 1px solid #a8a8a8;
+}
+
+.smart-header h1 {
+  color: #000;
+}
+</style>
 
 <body>
   <nav class="navbar">
     <div class="smart-header">
       <a href="">
-        <img src="../content/custom/img/back-1.png" alt="" class="smart-back">
+        <img src="../content/custom/img/back-2.png" alt="" class="smart-back">
       </a>
-      <h1>付款码</h1>
+      <h1>支付设置</h1>
     </div>
   </nav>
   <div class="smart-content">
-    <div class="smart-box">
-      <!-- 支付方式 -->
-      <h1>
-        <img src="../content/custom/img/scan-code.png" alt="" class="scan-code">
-        <label>向商家付款</label>
-        <img src="../content/custom/img/more.png" alt="" class="more">
-      </h1>
-      <!-- 扫码 -->
-      <div class="smart-box-content">
-        <h2>6633696085342396936</h2>
-        <img src="../content/custom/img/code-3.png" alt="" class="code-2">
-        <p>
-          <img src="../content/custom/img/card.png" alt="">
-          <label>电子账户</label>
-          <a href="" title="">更换</a>
-        </p>
-      </div>
-    </div>
+  <!-- set_target  设置跳转的页面 -->
+    <ul class="">
+      <li set_target = "">
+       支付顺序
+      </li>
+      <li set_target = "">
+        免密额度设置
+      </li>
+      <li set_target = "" >
+       交易密码设置
+      </li>
+      <li>
+       手势密码
+      </li>
+      <li>
+       指纹密码
+      </li>
+    </ul>
   </div>
 
 </body>

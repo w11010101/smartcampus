@@ -1,6 +1,56 @@
 body{
 	background: #efefef;
 }
+ul,ol,li{
+	list-style: none;
+}
+/* 标题 */
+.navbar{
+	margin:0; 
+}
+.smart-header {
+	position: relative;
+	z-index: 99;
+	width: 100%;
+	height: 50px;
+	text-align: center;
+}
+
+.smart-header .smart-back,.smart-header .smart-scan-code {
+	position: absolute;
+	width: 50px;
+	height: 50px;
+	left: 0;
+	top: 0;
+	z-index: 1;
+	padding: 10px;
+}
+
+.smart-header .smart-back img,.smart-header .smart-scan-code img {
+	width: 100%;
+	vertical-align: top
+}
+
+
+.smart-header h1 {
+	display: inline-block;
+	color: #fff;
+	margin: 0;
+	font-size: 18px;
+	line-height: 50px;
+}
+.smart-header .smart-cancel{
+	color:#a8a8a8;
+	font-size: 15px;
+	position: absolute;
+	width: 50px;
+	height: 50px;
+	right: 0;
+	top: 0;
+	z-index: 1;
+	padding: 10px;
+	line-height: 30px;
+}
 /* 弹出层提示 */
 .smart-tips{
 	display: none;

@@ -1,0 +1,57 @@
+body{
+	background: #8ec220;
+}
+.smart-box{
+	width: 90%;
+	background: #fff;
+	border-radius: 5px;
+	margin: 0 auto;
+
+}
+.smart-box h1{
+	font-size: 16px;
+	padding:20px 10px;
+	margin-bottom: 0;
+}
+.scan-code{
+	width: 35px;
+	height:35px;
+}
+
+.smart-box-content h2{
+	font-size: 14px;
+	text-align: center;
+	color:#8d8d8d;
+	margin-top: 15px;
+}
+
+.code-2{
+	display: block;
+	width:60%;
+	margin: 20px auto 15px ;
+}
+.smart-box-content p{
+	text-align: center;
+	padding-bottom: 20px;
+}
+.smart-box-content p a{
+	color:#a8a8a8;
+	padding:3px 20px;
+	display: inline-block;
+}
+.smart-box-content p a:first-child{
+	border-right:1px solid #a8a8a8;
+}
+.bill{
+	display: block;
+	text-align: center;
+	color:#fff;
+	padding-top: 20px;
+}
+.money-show p{
+	padding:0;
+	font-size:25px;
+}
+.money-show p:last-child{
+	font-size: 14px;
+}

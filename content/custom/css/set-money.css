@@ -1,0 +1,83 @@
+.navbar {
+	background: #fff;
+	margin: 0;
+}
+
+.smart-header {
+	border-bottom: 1px solid #a8a8a8;
+}
+
+.smart-header h1 {
+	color: #000;
+}
+
+.smart-content {}
+
+.smart-container {
+	position: relative;
+}
+
+.smart-container i {
+	font-size: 30px;
+	font-style: normal;
+	position: absolute;
+	top: 70px;
+	left: 20px;
+}
+
+.smart-container i:after {
+	content: " ";
+	height: 1px;
+	background: #efefef;
+	position: fixed;
+	width: 100%;
+	top: 158px;
+	left: 20px;
+}
+
+label {
+	display: block;
+	padding: 20px;
+	font-size: 16px;
+}
+
+input[type=tel] {
+	height: 20px;
+	font-size: 16px;
+	display: block;
+	border: none;
+	outline: none;
+	margin: 20px 0 0 5%;
+	text-indent: 2em;
+}
+
+.smart-container {
+	background: #fff;
+}
+
+textarea {
+	resize: none;
+	border: none;
+	display: block;
+	width: 100%;
+	margin-top: 20px;
+	padding:0 20px;
+	height: 60px
+}
+.smart-content button{
+	outline: none;
+	width: 80%;
+	display: block;
+	border-radius: 5px;
+	background-color: #dfdfdf;
+	border:none;
+	font-size: 16px;
+	margin: 20px auto;
+	padding: 10px 0;
+	color:#fff;
+	transition: background-color .2s ease-in;
+	-webkit-transition: background-color .2s ease-in;
+}
+.smart-content button:active{
+	background-color:red;
+}
