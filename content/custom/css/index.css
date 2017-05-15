@@ -1,0 +1,266 @@
+i,
+em {
+	font-style: normal;
+}
+
+.navbar {
+	top: 0;
+	height: 200px;
+	background: url(../img/nav-bg-1.jpg) no-repeat;
+	background-size: 100% 100%;
+	margin: 0;
+}
+
+.navbar-default {
+	border-color: #fff;
+}
+
+.smart-header {
+	position: relative;
+	z-index: 99;
+	width: 100%;
+	height: 50px;
+	text-align: center;
+}
+
+.smart-header a {
+	position: absolute;
+	width: 50px;
+	height: 50px;
+	left: 0;
+	top: 0;
+	z-index: 1;
+	padding: 10px;
+}
+
+.smart-header a img {
+	width: 100%;
+	vertical-align: top
+}
+
+.smart-header h1 {
+	display: inline-block;
+	color: #fff;
+	margin: 0;
+	font-size: 18px;
+	line-height: 50px;
+}
+
+.smart-tool {
+	position: absolute;
+	width: 100%;
+	top: 50px;
+	bottom: 0;
+	font-size: 0;
+}
+
+.smart-tool a {
+	display: inline-block;
+	width: 33%;
+	text-align: center;
+	font-size: 16px;
+	color: #fff;
+}
+
+.smart-tool a img {
+	display: block;
+	margin: 15px auto;
+}
+
+
+/* 内容 */
+
+.smart-content {
+	padding: 0 12.5px 22px 12.5px;
+	background: #fff;
+	padding
+}
+
+
+/* 卡片 */
+
+.smart-card {
+	width: 100%;
+	/*height: 214px;*/
+	border: 1px solid #e6e6e6;
+	border-radius: 5px;
+	margin-right: 12.5px;
+	padding-bottom: 10px;
+}
+
+.smart-info {
+	/*height: 90px;*/
+	font-size: 0;
+	position: relative;
+}
+
+.smart-info div {
+	display: inline-block;
+}
+
+
+/* 头像 */
+
+.smart-info-img {
+	padding: 0.7rem;
+}
+
+.smart-info-img,
+.smart-info-name {
+	vertical-align: middle;
+}
+
+.smart-info-name {
+	width: 100%;
+	position: absolute;
+	top: 0;
+	left:0;
+	padding: 0 0 0 6.5rem;
+}
+
+.smart-info-head {
+	width: 4.5rem;
+	height: 4.5rem;
+	border-radius: 50%;
+	border: 0px;
+}
+
+.smart-info-sex {
+	position: absolute;
+	top: 45px;
+	left: 45px;
+}
+
+.smart-accout {
+	/*height: 124px;*/
+}
+
+.smart-accout:before {
+	content: "";
+	width: 95%;
+	display: block;
+	height: 1px;
+	background: #e6e6e6;
+	margin: 0 auto;
+}
+
+.smart-info-name h1 {
+	font-size: 14px;
+	color: #000;
+}
+
+.smart-info-name h1 span {
+	max-width: 64px;
+	display: inline-block;
+	white-space:nowrap;
+	overflow:hidden;
+	text-overflow:ellipsis;
+}
+
+.smart-info-name h1 em {
+	color: #fff;
+	font-size: 12px;
+	background: #0082a5;
+	border-radius: 5px;
+	padding: 1px 5px;
+	margin: 0 0 0 2%;
+	vertical-align: top;
+	line-height: 14px;
+}
+
+.smart-info-name h1 i,
+.smart-info-name p {
+	font-size: 12px;
+	color: #a8a8a8;
+}
+.smart-info-name h1 i{
+	float:right;
+	padding-right: 10px;
+	line-height: 16px;
+}
+/* 账户余额 */
+
+
+/*.myTab{
+	width: 80%;
+}*/
+
+.tab-pane {
+	font-size: 25px;
+	color: #3c3c3c;
+	display: block;
+	text-align: center;
+}
+
+.tab-pane p {
+	margin: 0.5rem 0 0 0;
+}
+
+.smart-btn {
+	border-radius: 5rem;
+	border: 1px solid #e6e6e6;
+	background: #efefef;
+	color: #8d8d8d;
+	padding: 0px 10px;
+	font-size: 12px;
+	float: right;
+}
+
+.tab-pane span {
+	font-size: 14px;
+	color: #afafaf;
+	float: left;
+}
+
+.smart-peg {
+	padding: 0 15px;
+}
+
+.smart-peg:after {
+	display: block;
+	clear: both;
+	visibility: hidden;
+	height: 0;
+	content: '';
+}
+
+.nav-tabs>li.active>a,
+.nav-tabs>li.active>a:focus,
+.nav-tabs>li.active>a:hover {
+	border: #fff;
+	border-bottom: 2px solid #000;
+}
+
+.nav-tabs {
+	border-bottom: #fff
+}
+
+.nav>li>a {
+	padding: 10px 5px;
+	margin: 0 10px;
+}
+
+
+/* 常用工具 */
+
+.smart-list {
+	padding: 12px 0;
+	background: #fff;
+	margin-right: 0px;
+	margin-left: 0px;
+}
+
+.smart-list-1 {
+	margin-top: 10px;
+}
+
+.smart-list a {
+	font-size: 12px;
+	color: #333333;
+	text-align: center;
+}
+
+.smart-list img {
+	display: block;
+	margin: 0 auto;
+}
