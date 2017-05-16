@@ -24,8 +24,10 @@
 	top: 70px;
 	left: 20px;
 }
-
-.smart-container i:after {
+.smart-container i img{
+	vertical-align: top;
+}
+/*.smart-container i:after {
 	content: " ";
 	height: 1px;
 	background: #efefef;
@@ -33,7 +35,7 @@
 	width: 100%;
 	top: 158px;
 	left: 20px;
-}
+}*/
 
 label {
 	display: block;
