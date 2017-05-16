@@ -1,0 +1,6 @@
+.sortable-drag[draggable=true] {
+	background-color: rgba(218, 244, 255,.6)!important;
+}
+.sortable-ghost {
+	background-color: rgba(255, 115, 115,.2)!important;
+}

@@ -1,39 +1,49 @@
-.smart-content ul{
-	padding: 0;
-	background: #efefef;
+html,body {
+  background: #fff;
+  overflow: hidden;
 }
-.smart-content ul li {
-	height:50px;
-	display: block;
-	line-height: 50px;
-	padding:0 15px;
-	color:#3c3c3c;
-	margin-top: 10px;
-	background: #fff;
-	transition: background .1s ease-in;
-	-webkit-transition: background .1s ease-in;
-	position: relative;
+.sr-only{
+  font-size: 14px;
+  width: 30%;
+  min-width: 60px;
+  max-width: 60px;
+  height: 100%;
+  position: static;
+  font-weight: normal;
+   vertical-align: middle;
+
 }
-.smart-content ul li:first-child{
-	margin-top: 0;
+.smart-input{
+  display: inline-block;
+  width:65%;
+  vertical-align: middle;
+  border:0;
+  box-shadow: none;
+  font-size: 14px;
+  height: 34px;
+  outline: none;
+  margin-left: 5%;
 }
-.smart-content ul li:last-child{
-	border-bottom: 1px solid #efefef;
+.smart-btn{
+  width: 90%;
+  font-size: 16px;
+  padding:10px 0;
+  display: block;
+  margin: 4rem auto;
+  background-color:#e2e2e2;
+  border:1px solid;
+  border-color:#e2e2e2;
+  border-radius:5px;
+  color:#fff;
+  outline: normal;
+  transition: opacity .1s ease-in;
+  -webkit-transition: opacity .1s ease-in;
+/*  transition: background-color .1s ease-in, border-color.1s ease-in;
+  -webkit-transition: background-color .1s ease-in, border-color.1s ease-in;*/
+
 }
-.smart-content ul li:active{
-	text-decoration: none;
-	background: #efefef;
-}
-.smart-content ul li[set_target]:after{
-	content: " ";
-	background: url(../img/back-2.png) no-repeat;
-	background-size:100%;
-	position: absolute;
-	width: 20px;
-	height:20px;
-	transform: rotate(-180deg);
-	-webkit-transform: rotate(-180deg);
-	top:50%;
-	right:15px;
-	margin-top:-10px;
+.smart-btn:active{
+  opacity: .7;
+/*  background-color:#37d2fe;
+  border-color:#37d2fe;*/
 }

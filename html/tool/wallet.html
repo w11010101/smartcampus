@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+  <title>钱包</title>
+
+  <!-- Bootstrap -->
+
+  <link href="../../content/plug/bootstap/css/bootstrap.min.css" rel="stylesheet">
+
+  <link href="../../content/custom/css/common.css" rel="stylesheet">
+  <script type="text/javascript" src="../../content/plug/echarts/echarts.common.min.js"></script>
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<style type="text/css" media="screen">
+html,
+body {
+  background: #fff;
+  overflow: hidden;
+}
+
+.navbar .smart-header.smart-white {
+  border: none
+}
+
+.echats-main {
+  height: 300px;
+  /*padding: 20px；*/
+  margin:0 auto;
+}
+
+.smart-column-list > div {
+  padding: 15px 0;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  text-align: center;
+}
+
+.smart-column-list > div:nth-child(odd) {
+  border-top: 1px solid #efefef;
+  border-right: 1px solid #efefef;
+}
+
+.smart-column-list > div:nth-child(even) {
+  border-top: 1px solid #efefef;
+}
+
+.smart-column-list img {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.smart-column-list p {
+  display: inline-block;
+  vertical-align: top;
+  margin: 8px 0 0 0;
+  text-align: left;
+  color:#3c3c3c;
+  font-size: 14px;
+}
+
+.smart-column-list p em {
+  display: block;
+  text-align: left;
+  color:#a7a7a7;
+}
+</style>
+
+<body>
+  <nav class="navbar">
+    <div class="smart-header smart-white">
+      <a href="javascript:history.go(-1)" class="smart-back">
+        <img src="../../content/custom/img/back-2.png" alt="">
+      </a>
+      <h1>钱包</h1>
+    </div>
+  </nav>
+  <div class="smart-content">
+    <div class="echats-main">
+
+    </div>
+    <!-- 底部 -->
+    <div class="smart-foot">
+      <div class="row smart-column-list smart-column-list-1">
+        <div class="col-xs-6">
+          <a href="">
+            <img src="../../content/custom/img/wallet-1.png" alt="">
+            <p>
+              电子账户
+              <em>152.00</em>
+            </p>
+          </a>
+        </div>
+        <div class="col-xs-6">
+          <a href="">
+            <img src="../../content/custom/img/wallet-2.png" alt="">
+            <p>
+              校园卡
+              <em>15200.00</em>
+            </p>
+          </a>
+        </div>
+        <div class="col-xs-6">
+          <a href="">
+            <img src="../../content/custom/img/wallet-3.png" alt="">
+            <p>
+              补助账户
+              <em>152.00</em>
+            </p>
+          </a>
+        </div>
+        <div class="col-xs-6">
+          <a href="setting/setting.html">
+            <img src="../../content/custom/img/wallet-4.png" alt="">
+            <p>
+              上网余额
+              <em>152.00</em>
+            </p>
+          </a>
+        </div>
+      </div>
+      <button type="button" class="smart-btn">在线充值</button>
+    </div>
+  </div>
+
+</body>
+<script type="text/javascript" src="../../content/plug/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../content/custom/js/common.js"></script>
+<script type="text/javascript">
+// 基于准备好的dom，初始化echarts实例
+var myChart = echarts.init(document.querySelector('.echats-main'));
+
+// 指定图表的配置项和数据
+option = {
+  title: {
+    text: "￥2500.00",
+    subtext: "总资产",
+    x: 'center',
+    y: 'middle',
+    textStyle: {
+      fontSize: "16",
+      color:"#3c3c3c"
+    },
+    subtextStyle: {
+      fontSize: "14",
+      color:"#3c3c3c"
+    }
+  },
+  tooltip: {
+    trigger: 'item',
+    formatter: "{a} <br/>{b}: {c} ({d}%)"
+  },
+
+  color: ['#45d6c5', '#fdab07', '#ff5408', '#41c6f3'],
+  series: [{
+    name: '访问来源',
+    type: 'pie',
+    radius: ['40%', '55%'],
+    avoidLabelOverlap: false,
+    labelLine: {
+      normal: {
+        show: true,
+        smooth:0.5,
+        length:5,
+        length2:5
+      }
+    },
+    data: [{
+      value: 40,
+      name: '电子账户'
+    }, {
+      value: 30,
+      name: '校园卡'
+    }, {
+      value: 20,
+      name: '补助账户'
+    }, {
+      value: 50,
+      name: '上网余额'
+    }]
+  }]
+};
+
+
+// 使用刚指定的配置项和数据显示图表。
+myChart.setOption(option);
+</script>
+
+</html>
