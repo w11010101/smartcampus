@@ -7,6 +7,9 @@ ul,ol,li{
 em,i{
 	font-style: normal;
 }
+input,button,textarea{
+	outline: none;
+}
 ::-webkit-input-placeholder { /* WebKit browsers */ 
 color: #a8a8a8; 
 } 
@@ -77,6 +80,69 @@ color: #a8a8a8;
 
 .smart-header.smart-white h1 {
   color: #000;
+}
+/* 用户信息 */
+.smart-info{
+	font-size: 0;
+}
+.smart-info-img,.smart-info-name{
+	display: inline-block;
+	vertical-align: top;
+}
+.smart-info-img{
+	width: 30%;
+	position: relative;
+}
+.smart-info-img img{
+	/*width: 100%;*/
+	display: block;
+}
+.smart-info-name{
+	width: 70%;
+}
+.smart-info-head {
+	width: 4.5rem;
+	height: 4.5rem;
+	border-radius: 50%;
+	border: 0px;
+	margin: 15px auto;
+}
+.smart-info-sex {
+	position: absolute;
+	width:31px;
+	height: 31px;
+	top: 50px;
+	left: 50px;
+}
+.smart-info-name h1 {
+	font-size: 16px;
+	color: #000;
+	font-weight: 900
+}
+.smart-info-name p {
+	font-size: 13px;
+	color: #a8a8a8;
+}
+/* 底部 */
+.smart-foot{
+	position: fixed;
+	width: 100%;
+	bottom: 0;
+	right: 0;
+}
+.smart-foot .smart-btn{
+	width: 100%;
+	padding: 12px 0;
+	margin-top: -12px;
+	border:0;
+	background: rgba(115,210,254,1);
+	color:#fff;
+	font-size: 16px;
+	transition: background .1s ease-in;
+	-webkit-transition: background .1s ease-in;	
+}
+.smart-foot .smart-btn:active{
+	background: rgba(115,210,254,.7);
 }
 /* 弹出层提示 */
 .smart-tips{
@@ -220,6 +286,7 @@ color: #a8a8a8;
 	background: #fff;
 	margin-right: 0px;
 	margin-left: 0px;
+
 }
 
 .smart-column-list-1 {
@@ -227,6 +294,7 @@ color: #a8a8a8;
 }
 
 .smart-column-list a {
+	display: block;
 	font-size: 12px;
 	color: #333333;
 	text-align: center;
