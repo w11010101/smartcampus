@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+  <title>我的账单</title>
+
+  <!-- Bootstrap -->
+
+  <link href="../../content/plug/bootstap/css/bootstrap.min.css" rel="stylesheet">
+
+  <link href="../../content/custom/css/common.css" rel="stylesheet">
+  <link href="../../content/custom/css/setting.css" rel="stylesheet">
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<style type="text/css" media="screen">
+.panel-group {
+  margin-top: 40px;
+}
+
+#accordion a {
+  text-decoration: none;
+}
+</style>
+
+<body onload="load_charts_bar();">
+  <nav class="navbar">
+    <div class="smart-header smart-white">
+      <a href="javascript:history.go(-1)" class="smart-back">
+        <img src="../../content/custom/img/back-2.png" alt="">
+      </a>
+      <h1>我的账单</h1>
+    </div>
+  </nav>
+  <div class="smart-content ">
+    <!-- 筛选 -->
+    <div class="smart-screen">
+      <div class="row smart-column-list">
+        <div class="col-xs-4">所有账单</div>
+        <div class="col-xs-4">所有流水</div>
+        <div class="col-xs-4">按月查询</div>
+      </div>
+      <!-- 筛选内容 -->
+      <div class="row smart-screen-list">
+      </div>
+      <!-- 遮罩 -->
+      <div class="smart-screen-mask"></div>
+    </div>
+    <!-- bootstap accordion 折叠面板 -->
+    <div class="panel-group smart-accordion" id="accordion">
+      <!-- 一组 -->
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+            <!-- 日期 -->
+            <div class="smart-accordion-head">4月
+              <span>2017</span>
+            </div>
+            <!-- 柱形图表 -->
+            <div class="smart-accordion-content" >
+              <div class="smart-accordion-bar" income="1000" pay="10000">
+
+              </div>
+            </div>
+            <!-- 尾 -->
+            <div class="smart-accordion-foot">
+              <img src="../../content/custom/img/charts.png" alt="" set-terget="" class="" isShow="false">
+            </div>
+          </a>
+        </div>
+        <div id="collapseOne" class="panel-collapse collapse in">
+          <div class="panel-body">
+            Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo.
+          </div>
+        </div>
+      </div>
+      <!-- 一组 -->
+      <div class="panel panel-default">
+        <div class="panel-heading">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+              <!-- 日期 -->
+              <div class="smart-accordion-head">3月
+                <span>2017</span>
+              </div>
+              <!-- 柱形图表 -->
+              <div class="smart-accordion-content" >
+                <div class="smart-accordion-bar" income="5000" pay="1000">
+
+                </div>
+              </div>
+              <!-- 尾 -->
+              <div class="smart-accordion-foot">
+                <img src="../../content/custom/img/charts.png" alt="">
+              </div>
+            </a>
+        </div>
+        <div id="collapseTwo" class="panel-collapse collapse">
+          <div class="panel-body">
+            Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo.
+          </div>
+        </div>
+      </div>
+      <!-- 一组 -->
+      <div class="panel panel-default">
+        <div class="panel-heading">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+              点击我进行展开，再次点击我进行折叠。第 3 部分
+            </a>
+        </div>
+        <div id="collapseThree" class="panel-collapse collapse">
+          <div class="panel-body">
+            Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+<script type="text/javascript" src="../../content/plug/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../content/plug/bootstap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../content/plug/echarts/echarts.common.min.js"></script>
+<script type="text/javascript" src="../../content/custom/js/common.js"></script>
+<script type="text/javascript">
+$('.panel-group').collapse();
+
+
+</script>
+
+</html>

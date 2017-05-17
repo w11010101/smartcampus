@@ -1,63 +1,42 @@
-.navbar {
-	background: #fff;
-	margin: 0;
-}
-
-.smart-header {
-	border-bottom: 1px solid #a8a8a8;
-}
-
-.smart-header h1 {
-	color: #000;
-}
-
-.smart-content {}
-
 .smart-container {
 	position: relative;
+	overflow: hidden;
 }
 
-.smart-container i {
+.smart-container .smart-container-icon {
 	font-size: 30px;
 	font-style: normal;
 	position: absolute;
 	top: 70px;
 	left: 20px;
 }
-.smart-container i img{
+.smart-container .smart-container-icon img{
 	vertical-align: top;
 }
-/*.smart-container i:after {
-	content: " ";
-	height: 1px;
-	background: #efefef;
-	position: fixed;
-	width: 100%;
-	top: 158px;
-	left: 20px;
-}*/
 
-label {
+.smart-container .smart-container-title {
 	display: block;
 	padding: 20px;
 	font-size: 16px;
 }
 
-input[type=tel] {
-	height: 20px;
+.smart-container input[type=number] {
+	height: 42px;
 	font-size: 16px;
 	display: block;
+	width: 100%;
 	border: none;
 	outline: none;
-	margin: 20px 0 0 5%;
-	text-indent: 2em;
+	margin: 10px 0 0 20px;
+	border-bottom: 1px solid #efefef;
+	padding-left: 35px;
 }
 
 .smart-container {
 	background: #fff;
 }
 
-textarea {
+.smart-container .smart-container-text {
 	resize: none;
 	border: none;
 	display: block;
@@ -66,7 +45,7 @@ textarea {
 	padding:0 20px;
 	height: 60px
 }
-.smart-content button{
+.smart-content .smart-container-sure-btn{
 	outline: none;
 	width: 80%;
 	display: block;
@@ -80,6 +59,6 @@ textarea {
 	transition: background-color .2s ease-in;
 	-webkit-transition: background-color .2s ease-in;
 }
-.smart-content button:active{
+.smart-content .smart-container-sure-btn:active{
 	background-color:red;
 }

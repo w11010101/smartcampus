@@ -14,7 +14,7 @@
   <link href="../../content/plug/bootstap/css/bootstrap.min.css" rel="stylesheet">
 
   <link href="../../content/custom/css/common.css" rel="stylesheet">
-  <link href="../../content/custom/css/set-money.css" rel="stylesheet">
+  <link href="../../content/custom/css/smart-container.css" rel="stylesheet">
 
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -23,7 +23,20 @@
       <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
+<style>
+  .navbar {
+    background: #fff;
+    margin: 0;
+  }
 
+  .smart-header {
+    border-bottom: 1px solid #a8a8a8;
+  }
+
+  .smart-header h1 {
+    color: #000;
+  }
+</style>
 <body>
   <nav class="navbar">
     <div class="smart-header">
@@ -37,12 +50,12 @@
   <div class="smart-content">
     <div class="smart-container">
 
-      <label>收款金额</label>
-      <i><img src="../../content/custom/img/rmb.png" alt=""></i>
-      <input type="tel" name="">
-      <textarea placeholder="添加收款理由"></textarea>
+      <label class="smart-container-title">收款金额</label>
+      <i class="smart-container-icon"><img src="../../content/custom/img/rmb.png" alt=""></i>
+      <input type="number" name="">
+      <textarea placeholder="添加收款理由" class="smart-container-text"></textarea>
     </div>
-    <button type="button">确定</button>
+    <button type="button" class="smart-container-sure-btn">确定</button>
   </div>
 
 </body>
