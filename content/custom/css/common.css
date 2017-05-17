@@ -83,41 +83,47 @@ color: #a8a8a8;
 }
 /* 用户信息 */
 .smart-info{
+	background: #fff;
 	font-size: 0;
+	position: relative;
 }
 .smart-info-img,.smart-info-name{
 	display: inline-block;
 	vertical-align: top;
 }
 .smart-info-img{
-	width: 30%;
 	position: relative;
+	padding:20px;
 }
 .smart-info-img img{
-	/*width: 100%;*/
 	display: block;
 }
 .smart-info-name{
-	width: 70%;
+	width: 100%;
+	position: absolute;
+	top: 0;
+	left:0;
+	height: 100%;
+	padding-left:96px; 
 }
 .smart-info-head {
-	width: 4.5rem;
-	height: 4.5rem;
+	width: 56px;
+	height: 56px;
 	border-radius: 50%;
 	border: 0px;
-	margin: 15px auto;
 }
 .smart-info-sex {
 	position: absolute;
 	width:31px;
 	height: 31px;
-	top: 50px;
+	top: 55px;
 	left: 50px;
 }
 .smart-info-name h1 {
 	font-size: 16px;
 	color: #000;
-	font-weight: 900
+	font-weight: 900;
+	margin-top: 30px
 }
 .smart-info-name p {
 	font-size: 13px;
@@ -210,6 +216,9 @@ color: #a8a8a8;
     border-color: #37d2fe;
     background-color: #37d2fe;
 }
+.smart-list-item i{
+	position: absolute;
+}
 .smart-list-item .smart-switch{
 	position: absolute;
     top: 50%;
@@ -286,7 +295,6 @@ color: #a8a8a8;
 	background: #fff;
 	margin-right: 0px;
 	margin-left: 0px;
-
 }
 
 .smart-column-list-1 {
@@ -302,7 +310,7 @@ color: #a8a8a8;
 
 .smart-column-list img {
 	display: block;
-	margin: 0 auto;
+	margin: 5px auto;
 }
 /* 列表 */
 
@@ -329,40 +337,19 @@ color: #a8a8a8;
 .smart-list .smart-list-item:first-child,.smart-sub-list .smart-sub-list-item:first-child{
 	margin-top: 0;
 }
-/*.smart-list .smart-list-item:last-child,.smart-sub-list .smart-sub-list-item:last-child{
-	border-bottom: 1px solid #efefef;
-}*/
+
 .smart-list .smart-list-item[set-terget]:active{
 	text-decoration: none;
 	background: #efefef;
 }
-.smart-list.smart-list-continue .smart-list-item[set-terget]:after{
-	content: " ";
-	background: url(../img/continue-1.png) no-repeat;
-	background-size:100%;
-	position: absolute;
-	width: 24px;
-	height: 24px;
-	top:50%;
-	right:15px;
-	margin-top:-12px;
-}
+
 .smart-list .smart-list-item .smart-list-item-content,.smart-sub-list .smart-sub-list-item .smart-list-item-content{
-	position: relative;
+	position: absolute;
+	top:0;
 	float: right;
-	right: 25px;
+	right: 20px;
 	color:#8d8d8d;
 }
-.smart-list .smart-list-item .smart-list-item-content:not(.smart-icon-sure):after{
-	content:" ";
-	position: absolute;
-	width: 24px;
-	height: 24px;
-	background: url(../img/continue-1.png) no-repeat;
-	top:50%;
-	right:-24px;
-	margin-top: -12px;
-}	
 
 /* sub list*/
 
@@ -380,9 +367,10 @@ color: #a8a8a8;
 	bottom: 0;
 	background: #efefef;
 }
-.smart-sub-list .smart-sub-list-item .smart-list-item-content{
-	right:0;
+.smart-list.smart-list-space .smart-list-item{
+	margin:0;
 }
+
 /* smart-sure */
 .smart-list .smart-list-item .smart-icon-sure,.smart-sub-list .smart-sub-list-item .smart-icon-sure{
 	position: absolute;
@@ -400,19 +388,21 @@ color: #a8a8a8;
 .smart-list .smart-list-item .smart-icon-sure.smart-active,.smart-sub-list .smart-sub-list-item .smart-icon-sure.smart-active{
 	opacity: 1;
 }
-.smart-list.smart-list-space .smart-list-item{
-	margin:0;
-}
+
 /* 输入框眼睛 */
+.smart-icon-eye{
+	position: absolute;
+	width: 30px;
+	height: 100%;
+	right: 10px;
+}
 .smart-icon-eye:before,.smart-icon-eye-hide:before,.smart-icon-eye-clear:before{
 	content:" ";
 	position: absolute;
-	width: 31px;
-	height: 31px;
+	width: 30px;
+	height: 30px;
 	top:50%;
-	/*right:20px;*/
-	margin-top: -22px;
-
+	margin-top: -15px;
 }
 .smart-icon-eye:before{
 	background: url(../img/show.png) no-repeat;
@@ -447,4 +437,165 @@ color: #a8a8a8;
 }
 .smart-list .smart-list-item.smart-list-expand.smart-list-expand-foot:before{
 	height: 0px;
+}
+
+/* 列表开头图片 */
+.smart-list-icon{
+
+}
+.smart-list-icon .sr-only{
+	max-width:80px;
+}
+.smart-list-icon .smart-input{
+	width: 60%;
+}
+/* 表单填充 */
+.form-signin-fill{
+	position: absolute;
+    width: 100%;
+    top:150px;
+    bottom: 0;
+    background: #fff;
+}
+/* smart-screen 筛选*/
+.smart-screen{
+	width: 100%;
+	position: absolute;
+	z-index: 2;
+	top:45px;
+	left:0;
+}
+.smart-screen-mask{
+	display: none;
+ 	position: fixed;
+ 	z-index: 1;
+ 	width: 100%;
+ 	height: 100%;
+ 	background: rgba(0,0,0,.6);
+}
+.smart-screen .smart-column-list{
+	padding: 0;
+	height: 40px;
+	line-height: 40px;
+	/*border:1px solid #efefef;*/
+}
+.smart-screen div[class^="col-xs"]{
+	text-align: center;
+	color:#6d6d6d;
+	transition: color .2s ease-in;
+	-webkit-transition: color .2s ease-in;
+
+}
+.smart-screen div[class^="col-xs-4"]:after{
+	content:" ";
+	background: url(../../custom/img/screen-1.png) no-repeat center;
+	vertical-align: middle;
+	margin-top: -2px;
+	width: 20px;
+	height: 20px;
+	display: inline-block;
+	transform: rotateX(0deg);
+	-webkit-transform: rotateX(0deg);
+	transition: transform .2s ease-in,background .1s ease-in;
+	-webkit-transition: transform .2s ease-in,background .1s ease-in;
+}
+.smart-screen div[class^="col-xs-4"].smart-active{
+	color:#73d2fe;
+}
+.smart-screen div[class^="col-xs-4"].smart-active:after{
+	background: url(../../custom/img/screen-2.png) no-repeat center;
+	transform: rotateX(-180deg);
+	-webkit-transform: rotateX(-180deg);
+}
+.smart-screen .smart-screen-list{
+	display: none;
+}
+.smart-screen div[class^="col-xs-12"]{
+	font-size: 15px;
+	color:#3c3c3c;
+	height: 45px;
+	line-height: 45px;
+	background: rgba(255,255,255,1);
+	border-bottom:1px solid #e0e0e0;
+	transition: background .1s ease-in;
+	-webkit-transition: background .1s ease-in;
+}
+.smart-screen div[class^="col-xs-12"]:first-child{
+	border-top:1px solid #e0e0e0;
+}
+.smart-screen div[class^="col-xs-12"]:active{
+	background: rgba(222,222,222,1);
+}
+/* 手风琴 accordion */
+.smart-accordion{
+	font-size: 0;
+	
+}
+.smart-accordion a[data-toggle]{
+	display: block;
+	height: 30px;
+	position: relative;
+}
+.smart-accordion .smart-accordion-head,.smart-accordion .smart-accordion-content,.smart-accordion .smart-accordion-foot{
+	display:inline-block;
+}
+.smart-accordion .smart-accordion-head{
+	color:#0f0f0f;
+	width:28px;
+	font-size: 14px;
+	text-align: center;
+	height: 100%;
+	line-height: 15px;
+}
+.smart-accordion .smart-accordion-head span{
+	font-size: 12px;
+	color:#8d8d8d;
+	display: block;
+}
+.smart-accordion .panel-group .panel,
+.smart-accordion .panel-heading{
+	border-radius: 0px;
+}
+.smart-accordion .panel-default>.panel-heading,.smart-accordion .panel-default{
+	border:none;
+	background: #fff;
+}
+.smart-accordion .smart-accordion-content{
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	top:0;
+	left:0;
+	padding:0 60px 0 40px ;
+}
+.smart-accordion .smart-accordion-content .smart-accordion-bar{
+	height: 100%;
+	margin-left: -10%;
+}
+.smart-accordion .smart-accordion-foot{
+	position: relative;
+	z-index: 1;
+	float: right;
+	height: 30px;
+}
+.smart-accordion .smart-accordion-foot img{
+	height: 100%;
+	vertical-align: middle;
+}
+.smart-accordion .smart-accordion-foot:after{
+	content: " ";
+	display:inline-block;
+	width: 20px;
+	height: 20px;
+	background: url(../../custom/img/screen-1.png) no-repeat center;
+	vertical-align: middle;
+	transform: rotateX(0deg);
+	-webkit-transform: rotateX(0deg);
+	transition: transform .2s ease-in,background .1s ease-in;
+	-webkit-transition: transform .2s ease-in,background .1s ease-in;
+}
+.smart-accordion .smart-accordion-foot.smart-active:after{
+	background: url(../../custom/img/screen-2.png) no-repeat center;
+	transform: rotateX(-180deg);
+	-webkit-transform: rotateX(-180deg);
 }

@@ -56,23 +56,14 @@ em {
 	padding-bottom: 10px;
 }
 
-.smart-info {
-	/*height: 90px;*/
-	font-size: 0;
-	position: relative;
-}
-
 .smart-info div {
 	display: inline-block;
-
 }
-
 
 /* 头像 */
 
 .smart-info .smart-info-img {
-	padding: 0.7rem;
-	width: 25%;
+	padding: 12px;
 }
 
 .smart-info-img,
@@ -81,16 +72,10 @@ em {
 }
 
 .smart-info .smart-info-name {
-	width: 75%;
-	/*position: absolute;
-	top: 0;
-	left:0;
-	padding: 0 0 0 6.5rem;*/
+	padding: 0 0 0 79px;
 }
 
 .smart-info .smart-info-head {
-	width: 4.5rem;
-	height: 4.5rem;
 	border-radius: 50%;
 	border: 0px;
 	margin:0;
@@ -100,9 +85,8 @@ em {
 	position: absolute;
 	width:31px;
 	height: 31px;
-	top: 45px;
-	left: 40px;
-
+	top: 47px;
+	left: 42px;
 }
 
 .smart-accout:before {
@@ -118,6 +102,8 @@ em {
 	font-size: 14px;
 	color: #000;
 	font-weight: normal;
+	margin-top: 27px;
+	margin-bottom: 5px;
 }
 
 .smart-info-name h1 span {
@@ -155,7 +141,6 @@ em {
 /*.myTab{
 	width: 80%;
 }*/
-
 .tab-pane {
 	font-size: 25px;
 	color: #3c3c3c;
@@ -205,7 +190,8 @@ em {
 }
 
 .nav-tabs {
-	border-bottom: #fff
+	border-bottom: #fff;
+	padding:0 5px;
 }
 
 .nav>li>a {

@@ -14,7 +14,7 @@
   <link href="../../content/plug/bootstap/css/bootstrap.min.css" rel="stylesheet">
 
   <link href="../../content/custom/css/common.css" rel="stylesheet">
-  <link href="../../content/custom/css/setting.css" rel="stylesheet">
+  <link href="../../content/custom/css/setting.css" rel="stylesheet"> 
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
@@ -22,7 +22,15 @@
       <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
+<style>
+  html,body{
+    background: #efefef;
+  }
+  .navbar{
+    background: #fff;
+  }
 
+</style>
 <body>
   <nav class="navbar">
     <div class="smart-header smart-white">
@@ -45,8 +53,21 @@
         <p>校园卡号：1456456789645789</p>
       </div>
     </div>
+    <!-- 列表 -->
+    <form class="form-signin form-signin-fill">
+    <!-- border-bottom: 1px solid #efefef; -->
+      <ul class="smart-list smart-list-continue smart-list-space smart-list-icon">
+        <li class="smart-list-item">
+          
+          <label for="inputPassword" class="sr-only"><img src="../../content/custom/img/card-3.png" alt="">卡密码</label>
+          <input type="password" id="inputPassword" class="smart-input" placeholder="请输入6为数字密码" required maxlength="6">
+          <span class="glyphicon smart-icon-eye smart-icon-eye-hide"></span>
+        </li>
+      </ul>
+      <button class="smart-btn" type="submit">确 认</button>
+      <!-- <button class="btn btn-lg btn-primary btn-block" type="submit">确 认</button> -->
+    </form>
   </div>
-
 </body>
 <script type="text/javascript" src="../../content/plug/jquery/jquery.min.js"></script>
 <script type="text/javascript" src="../../content/custom/js/common.js"></script>
