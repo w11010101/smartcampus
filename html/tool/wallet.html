@@ -79,7 +79,7 @@ body {
 <body>
   <nav class="navbar">
     <div class="smart-header smart-white">
-      <a href="javascript:history.go(-1)" class="smart-back">
+      <a href="javascript:history.go(-1)" class="smart-back smart-icon-left">
         <img src="../../content/custom/img/back-2.png" alt="">
       </a>
       <h1>钱包</h1>
@@ -137,63 +137,39 @@ body {
 <script type="text/javascript" src="../../content/plug/jquery/jquery.min.js"></script>
 <script type="text/javascript" src="../../content/custom/js/common.js"></script>
 <script type="text/javascript">
-// 基于准备好的dom，初始化echarts实例
-var myChart = echarts.init(document.querySelector('.echats-main'));
-
-// 指定图表的配置项和数据
-option = {
-  title: {
-    text: "￥2500.00",
-    subtext: "总资产",
-    x: 'center',
-    y: 'middle',
-    textStyle: {
-      fontSize: "16",
-      color:"#3c3c3c"
-    },
-    subtextStyle: {
-      fontSize: "14",
-      color:"#3c3c3c"
-    }
-  },
-  tooltip: {
-    trigger: 'item',
-    formatter: "{a} <br/>{b}: {c} ({d}%)"
-  },
-
-  color: ['#45d6c5', '#fdab07', '#ff5408', '#41c6f3'],
-  series: [{
-    name: '访问来源',
-    type: 'pie',
+var parameter_bar = {
+    color: ['#45d6c5', '#fdab07', '#ff5408', '#41c6f3'],
     radius: ['40%', '55%'],
-    avoidLabelOverlap: false,
-    labelLine: {
-      normal: {
-        show: true,
-        smooth:0.5,
-        length:5,
-        length2:5
+    title: {
+      text: "￥2500.00",
+      subtext: "总资产",
+      x: 'center',
+      y: 'middle',
+      textStyle: {
+        fontSize: "16",
+        color: "#3c3c3c"
+      },
+      subtextStyle: {
+        fontSize: "14",
+        color: "#3c3c3c"
       }
     },
+    avoidLabelOverlap: false,
     data: [{
-      value: 40,
-      name: '电子账户'
-    }, {
-      value: 30,
-      name: '校园卡'
-    }, {
-      value: 20,
-      name: '补助账户'
-    }, {
-      value: 50,
-      name: '上网余额'
-    }]
-  }]
-};
-
-
-// 使用刚指定的配置项和数据显示图表。
-myChart.setOption(option);
+        value: 40,
+        name: '电子账户'
+      }, {
+        value: 30,
+        name: '校园卡'
+      }, {
+        value: 20,
+        name: '补助账户'
+      }, {
+        value: 50,
+        name: '上网余额'
+      }]
+  }
+  smart_charts_pie(document.querySelector(".echats-main"),parameter_bar);
 </script>
 
 </html>

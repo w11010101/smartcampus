@@ -1,0 +1,72 @@
+/* 开关按钮 */
+
+.smart-switch{
+	position: relative;
+    display: block;
+    width: 50px;
+    height: 24px;
+    -webkit-transition-timing-function: ease-in-out;
+    transition-timing-function: ease-in-out;
+    -webkit-transition-duration: .2s;
+    transition-duration: .2s;
+    -webkit-transition-property: background-color,border;
+    transition-property: background-color,border;
+    border: 2px solid #ddd;
+    border-radius: 20px;
+    background-color: #ddd;
+    background-clip: padding-box;
+}
+.smart-switch.smart-active {
+    border-color: #37d2fe;
+    background-color: #37d2fe;
+}
+.smart-list-item i{
+	position: absolute;
+}
+.smart-list-item .smart-switch{
+	position: absolute;
+    top: 50%;
+    right: 15px;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+.smart-switch:before {
+    font-size: 13px;
+    position: absolute;
+    top: 3px;
+    right: 11px;
+    /*content: 'Off';*/
+	content: ' ';
+    text-transform: uppercase;
+    color: #999;
+    line-height: 22px
+}
+.smart-switch.smart-active:before {
+    right: auto;
+    left: 12px;
+    /*content: 'On';*/
+    content: ' ';
+    color: #fff;
+}
+
+.smart-switch .smart-switch-handle {
+    position: absolute;
+    z-index: 1;
+    top: 0px;
+    left: 1px;
+    width: 20px;
+    height: 20px;
+    -webkit-transition: .2s ease-in-out;
+    transition: .2s ease-in-out;
+    -webkit-transition-property: -webkit-transform,width,left;
+    transition-property: transform,width,left;
+    border-radius: 16px;
+    background-color: #fff;
+    background-clip: padding-box;
+    /*-webkit-box-shadow: 0 2px 5px rgba(0,0,0,.4);
+    box-shadow: 0 2px 5px rgba(0,0,0,.4);*/
+}
+.smart-switch.smart-active .smart-switch-handle {
+    -webkit-transform: translate(24px,0);
+    transform: translate(24px,0);
+}

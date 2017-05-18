@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+  <title>转账支付</title>
+
+  <!-- Bootstrap -->
+
+  <link href="../../content/plug/bootstap/css/bootstrap.min.css" rel="stylesheet">
+
+  <link href="../../content/custom/css/common.css" rel="stylesheet">
+  <link href="../../content/custom/css/setting.css" rel="stylesheet">
+  <link href="../../content/custom/css/smart-form.css" rel="stylesheet">
+  <link href="../../content/custom/css/smart-container.css" rel="stylesheet">
+  <link href="../../content/custom/css/zf-confirm.css" rel="stylesheet">
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<style>
+html,
+body {
+  background: #efefef;
+}
+
+.navbar {
+  background: #fff;
+}
+
+.smart-content .smart-account {
+  font-size: 16px;
+  color: #3c3c3c;
+  padding: 0 25px;
+  height: 58px;
+  line-height: 58px;
+  background: #fff;
+  margin: 0;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.smart-content .smart-account em {
+  color: #8d8d8d;
+  padding: 0 0 0 40px;
+}
+.smart-info{
+  margin-top: 10px;
+}
+.form-signin-fill {
+  top: 245px;
+}
+</style>
+
+
+<body>
+  <nav class="navbar">
+    <div class="smart-header smart-white">
+      <a href="javascript:history.go(-1)" class="smart-back smart-icon-left">
+        <img src="../../content/custom/img/back-2.png" alt="">
+      </a>
+      <h1>转账支付</h1>
+      <a href="" class="smart-scan-code smart-icon-right">
+        <img src="../../content/custom/img/scan-code-1.png" alt="">
+      </a>
+    </div>
+  </nav>
+  <div class="smart-content ">
+    <div class="smart-help">
+      实施实时转入对方电子账户，不可撤销
+    </div>
+    <h1 class="smart-account">对方账户
+      <em>2017132561356564</em>
+    </h1>
+
+    <div class="smart-info">
+      <div class="smart-info-img">
+        <img src="../../content/custom/img/head.jpg" alt="" class="smart-info-head">
+        <!-- <img src="../../content/custom/img/man.png" alt="" class="smart-info-sex"> -->
+      </div>
+      <div class="smart-info-name">
+        <h1>
+          <span>大馒头小咸菜</span>
+        </h1>
+        <p>一卡通帐号：1456456789645789</p>
+      </div>
+    </div>
+    <form class="form-signin form-signin-fill">
+    <div class="smart-container">
+
+      <label class="smart-container-title">转账金额</label>
+      <i class="smart-container-icon">
+        <img src="../../content/custom/img/rmb.png" alt="">
+      </i>
+      <input type="number" name="">
+      <textarea placeholder="添加转账说明" class="smart-container-text"></textarea>
+    </div>
+    <button type="button" class="smart-container-sure-btn">确定转账</button>
+    <!-- 切换 -->
+    <div class="smart-change">
+      <img src="../../content/custom/img/wallet-1.png" alt="">
+      <label>电子账户</label>
+      <span class="list-back">更换</span>
+    </div>
+    </form>
+  </div>
+  <!--选择校园卡-->
+      <div class="layer-xyk">
+        <div class="con-header">
+          <i class="con-back"></i>
+          <h1>更换付款方式</h1>
+        </div>
+        <div class="car-list">
+          <div class="row has-feedback">
+            <div class="col-xs-2">
+              <img src="../../content/custom/img/wallet-2.png">
+            </div>
+            <div class="col-xs-10">校园卡</div>
+            <span name="flag" class="glyphicon glyphicon-ok form-control-feedback"></span>
+          </div>
+          <div class="row has-feedback">
+            <div class="col-xs-2">
+              <img src="../../content/custom/img/wallet-1.png">
+            </div>
+            <div class="col-xs-10">电子账户</div>
+            <span name="flag" class="glyphicon glyphicon-ok form-control-feedback"></span>
+          </div>
+          <div class="row has-feedback">
+            <div class="col-xs-2">
+              <img class="car-fang" src="../../content/custom/img/BOC.png">
+            </div>
+            <div class="col-xs-10">绑定的中国银行银行卡</div>
+            <span name="flag" class="glyphicon glyphicon-ok form-control-feedback"></span>
+          </div>
+          <div class="row has-feedback active">
+            <div class="col-xs-2">
+              <img class="car-fang" src="../../content/custom/img/zfb.png">
+            </div>
+            <div class="col-xs-10">支付宝</div>
+            <span name="flag" class="glyphicon glyphicon-ok form-control-feedback"></span>
+          </div>
+        </div>
+      </div>
+      <div class="backdrop" style="display: none;"></div>
+</body>
+<script type="text/javascript" src="../../content/plug/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../content/custom/js/common.js"></script>
+<script type="text/javascript" src="../../content/custom/js/zf-confirm.js"></script>
+
+</html>
