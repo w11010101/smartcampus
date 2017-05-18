@@ -16,6 +16,7 @@
   <link href="../../content/custom/css/common.css" rel="stylesheet">
   <link href="../../content/custom/css/setting.css" rel="stylesheet">
   <link href="../../content/custom/css/smart-form.css" rel="stylesheet">
+  <link href="../../content/plug/jquery/toast/css/jquery.toast.css" rel="stylesheet">
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
@@ -55,7 +56,7 @@
       </div>
     </div>
     <!-- 列表 -->
-    <form class="form-signin form-signin-fill">
+    <div class="form-signin form-signin-fill">
     <!-- border-bottom: 1px solid #efefef; -->
       <ul class="smart-list smart-list-continue smart-list-space smart-list-title-icon">
         <li class="smart-list-item">
@@ -65,12 +66,28 @@
           <span class="glyphicon smart-icon-eye smart-icon-eye-hide"></span>
         </li>
       </ul>
-      <button class="smart-btn" type="submit">确 认</button>
-      <!-- <button class="btn btn-lg btn-primary btn-block" type="submit">确 认</button> -->
-    </form>
+      <button class="smart-btn">确 认</button>
+    </div>
   </div>
 </body>
 <script type="text/javascript" src="../../content/plug/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../content/plug/jquery/toast/js/jquery.toast.js"></script>
 <script type="text/javascript" src="../../content/custom/js/common.js"></script>
-
+<script>
+  $(".smart-btn").on("click",function(){
+    console.log($("input[type=password]").val().length)
+    if($("input[type=password]").val().length == 6){
+      window.location.href = 'ka-loss-repair.html';
+    }else if($("input[type=password]").val().length < 6){
+      $.toast({
+          text: '密码不足6位！',
+          allowToastClose: true, // Boolean value true or false
+          hideAfter: 3000, // false to make it sticky or number 
+          position: 'bottom-center', 
+          textAlign: 'center',
+          loader: false,
+      });
+    }
+  })
+</script>
 </html>

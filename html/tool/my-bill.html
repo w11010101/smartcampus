@@ -17,7 +17,7 @@
   <link href="../../content/custom/css/smart-accordion.css" rel="stylesheet">
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-  <!--[if lt IE 9]>
+  <!--[if lt IE 9]> param.month = getOtherDate(getM);
       <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
@@ -25,8 +25,9 @@
 <style type="text/css" media="screen">
 html,
 body {
+  overflow-x: hidden;
   overflow-y: auto;
-  background: #efefef
+  background: #efefef;
 }
 </style>
 
@@ -548,6 +549,8 @@ $(".smart-accordion .panel-heading").on("click", function() {
           }
         })
       }, 2000);
+    }else{
+      console.log(10)
     }
   })
   // 加载中

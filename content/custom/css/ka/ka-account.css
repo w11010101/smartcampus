@@ -1,0 +1,148 @@
+.con-header {
+	background-color: #73D2FE;
+	border: none !important;
+}
+
+.con-header h1 {
+	color: #FFFFFF !important;
+}
+
+.con-header i {
+	background: url(../../img/comm/header-back.png) no-repeat;
+	background-size: 30px 30px;
+	background-position: 10px 7px;
+}
+
+.car-acccon {
+	background-color: #73D2FE;
+	color: #FFFFFF;
+	width: 100%;
+	height: auto;
+	padding: 20px 40px;
+}
+
+.car-acccon .car-acccon-ye p {
+	font-size: 14px;
+}
+
+.car-acccon .car-acccon-ye span {
+	font-size: 35px;
+}
+
+.car-acccon-je {
+	padding: 30px 0 0 0;
+	font-size: 14px;
+}
+
+.car-acccon-je .col-xs-5 {
+	padding-left: 0;
+}
+
+.car-acccon-je .col-xs-5 {
+	border-right: 1px solid #FFFFFF;
+}
+
+.car-acccon-je .col-xs-7 {
+	padding-left: 50px;
+}
+
+.car-acccon-je p {
+	margin-bottom: 10px;
+}
+
+.car-acccon-je span {
+	font-size: 16px;
+	margin-bottom: 10px;
+}
+
+.con-tip {
+	background-color: #73D2FE;
+	padding: 45px 0 25px 0;
+	margin-left: -15px;
+}
+
+.con-tip i {
+	background-color: #FFFFFF !important;
+	color: #73D2FE !important;
+}
+
+.con-tip .tip-tetle {
+	color: #FFFFFF !important;
+}
+
+.form-horizontal .form-group{
+	margin: 0;
+	line-height: 45px;
+	
+}
+.form-horizontal .form-group.icon-tzjt{
+	border-bottom: .5px solid #E0E0E0;
+}
+.form-horizontal .col-xs-3 {
+	padding-left: 0;
+	padding-right: 0;
+	font-size: 16px;
+	color: #3C3C3C;
+	font-weight: normal;
+	margin: 0;
+}
+
+.form-horizontal .col-xs-9 {
+	padding-left: 0px;
+}
+
+.form-horizontal .col-xs-9 input {
+	border: none;
+	height: 45px;
+	box-shadow: none!important;
+	font-size: 16px;
+}
+.form-list{
+	padding: 0 20px;
+	border-bottom: .5px solid #E0E0E0;
+}
+.form-list>p {
+	font-size: 14px;
+	color: #5cb199;
+	padding: 8px 20px;
+	border-bottom: .5px solid #E0E0E0;
+	margin-left: -20px;
+}
+
+.icon-tzjt {
+	background: url(../../img/zf/listback.png) no-repeat;
+	background-size: 50px 50px;
+	background-position: right;
+}
+
+.icon-tzjt .col-xs-9 {
+	padding-right: 40px;
+}
+
+.con-button {
+	margin-top: 40px;
+}
+
+.con-gstip {
+	width: 100%;
+	height: auto;
+	padding: 10px 25px;
+	margin-top: 30px;
+}
+
+.con-gstip blockquote {
+	padding: 0 10px;
+	border-left: 7px solid #02e699;
+	margin-bottom: 10px;
+}
+
+.con-gstip blockquote p {
+	font-size: 16px;
+	color: #6d6d6d;
+}
+
+.con-gstip span {
+	color: #A8A8A8;
+	font-size: 12px;
+	padding-left: 20px;
+}
