@@ -29,31 +29,32 @@ color: #a8a8a8;
 	min-height: 45px;
 }
 .smart-header {
-	position: relative;
+	position: fixed;
 	z-index: 99;
 	width: 100%;
 	height: 45px;
 	min-height: 45px;
 	text-align: center;
 }
-
-.smart-header .smart-back,.smart-header .smart-scan-code {
+.smart-icon-right,.smart-icon-left{
 	position: absolute;
 	width: 45px;
 	height: 45px;
 	min-height: 45px;
-	left: 0;
 	top: 0;
 	z-index: 1;
 	padding: 10px;
 }
-
+.smart-header .smart-icon-right{
+	right:0;
+}
+.smart-header .smart-icon-left{
+	left:0;
+}
 .smart-header .smart-back img,.smart-header .smart-scan-code img {
-	width:100%;
+	/*width:100%;*/
 	vertical-align: top;
 }
-
-
 .smart-header h1 {
 	display: inline-block;
 	color: #fff;
@@ -75,11 +76,165 @@ color: #a8a8a8;
 }
 
 .smart-header.smart-white {
-  border-bottom: 1px solid #a8a8a8;
+	background: #fff;
+ 	border-bottom: 1px solid #a8a8a8;
 }
 
 .smart-header.smart-white h1 {
   color: #000;
+}
+/* 加载中 */
+.smart-loading{
+	text-align: center;
+	padding: 10px;
+}
+.smart-loading:after{
+	content:"加载中 . . .";
+	display: block;
+	color:#afafaf;
+}
+.smart-loading .mui-waiting {
+	display: block;
+	margin: 0 auto;
+	
+}
+.smart-waiting {
+	display: inline-block;
+	width: 24px;
+	height: 24px;
+	-webkit-transform-origin: 50%;
+	transform-origin: 50%;
+	-webkit-animation: waiting-spin 1s step-end infinite;
+	animation: waiting-spin 1s step-end infinite
+}
+
+.smart-waiting:after {
+	display: block;
+	width: 100%;
+	height: 100%;
+	content: '';
+	background-image: url('data:image/svg+xml;charset=utf-8,<svg viewBox=\'0 0 120 120\' xmlns=\'http://www.w3.org/2000/svg\' xmlns:xlink=\'http://www.w3.org/1999/xlink\'><defs><line id=\'l\' x1=\'60\' x2=\'60\' y1=\'7\' y2=\'27\' stroke=\'%236c6c6c\' stroke-width=\'11\' stroke-linecap=\'round\'/></defs><g><use xlink:href=\'%23l\' opacity=\'.27\'/><use xlink:href=\'%23l\' opacity=\'.27\' transform=\'rotate(30 60,60)\'/><use xlink:href=\'%23l\' opacity=\'.27\' transform=\'rotate(60 60,60)\'/><use xlink:href=\'%23l\' opacity=\'.27\' transform=\'rotate(90 60,60)\'/><use xlink:href=\'%23l\' opacity=\'.27\' transform=\'rotate(120 60,60)\'/><use xlink:href=\'%23l\' opacity=\'.27\' transform=\'rotate(150 60,60)\'/><use xlink:href=\'%23l\' opacity=\'.37\' transform=\'rotate(180 60,60)\'/><use xlink:href=\'%23l\' opacity=\'.46\' transform=\'rotate(210 60,60)\'/><use xlink:href=\'%23l\' opacity=\'.56\' transform=\'rotate(240 60,60)\'/><use xlink:href=\'%23l\' opacity=\'.66\' transform=\'rotate(270 60,60)\'/><use xlink:href=\'%23l\' opacity=\'.75\' transform=\'rotate(300 60,60)\'/><use xlink:href=\'%23l\' opacity=\'.85\' transform=\'rotate(330 60,60)\'/></g></svg>');
+	background-repeat: no-repeat;
+	background-position: 50%;
+	background-size: 100%
+}
+/* 加载结果 nothing */
+.smart-nothing .smart-waiting{
+	display: none;
+}
+.smart-nothing:after{
+	content:"无结果";
+	color:#afafaf;
+}
+/*
+.smart-waiting-white:after {
+	background-image: url('data:image/svg+xml;charset=utf-8,<svg viewBox=\'0 0 120 120\' xmlns=\'http://www.w3.org/2000/svg\' xmlns:xlink=\'http://www.w3.org/1999/xlink\'><defs><line id=\'l\' x1=\'60\' x2=\'60\' y1=\'7\' y2=\'27\' stroke=\'%23fff\' stroke-width=\'11\' stroke-linecap=\'round\'/></defs><g><use xlink:href=\'%23l\' opacity=\'.27\'/><use xlink:href=\'%23l\' opacity=\'.27\' transform=\'rotate(30 60,60)\'/><use xlink:href=\'%23l\' opacity=\'.27\' transform=\'rotate(60 60,60)\'/><use xlink:href=\'%23l\' opacity=\'.27\' transform=\'rotate(90 60,60)\'/><use xlink:href=\'%23l\' opacity=\'.27\' transform=\'rotate(120 60,60)\'/><use xlink:href=\'%23l\' opacity=\'.27\' transform=\'rotate(150 60,60)\'/><use xlink:href=\'%23l\' opacity=\'.37\' transform=\'rotate(180 60,60)\'/><use xlink:href=\'%23l\' opacity=\'.46\' transform=\'rotate(210 60,60)\'/><use xlink:href=\'%23l\' opacity=\'.56\' transform=\'rotate(240 60,60)\'/><use xlink:href=\'%23l\' opacity=\'.66\' transform=\'rotate(270 60,60)\'/><use xlink:href=\'%23l\' opacity=\'.75\' transform=\'rotate(300 60,60)\'/><use xlink:href=\'%23l\' opacity=\'.85\' transform=\'rotate(330 60,60)\'/></g></svg>')
+}*/
+
+@-webkit-keyframes waiting-spin {
+	0% {
+		-webkit-transform: rotate(0deg)
+	}
+	8.33333333% {
+		-webkit-transform: rotate(30deg)
+	}
+	16.66666667% {
+		-webkit-transform: rotate(60deg)
+	}
+	25% {
+		-webkit-transform: rotate(90deg)
+	}
+	33.33333333% {
+		-webkit-transform: rotate(120deg)
+	}
+	41.66666667% {
+		-webkit-transform: rotate(150deg)
+	}
+	50% {
+		-webkit-transform: rotate(180deg)
+	}
+	58.33333333% {
+		-webkit-transform: rotate(210deg)
+	}
+	66.66666667% {
+		-webkit-transform: rotate(240deg)
+	}
+	75% {
+		-webkit-transform: rotate(270deg)
+	}
+	83.33333333% {
+		-webkit-transform: rotate(300deg)
+	}
+	91.66666667% {
+		-webkit-transform: rotate(330deg)
+	}
+	100% {
+		-webkit-transform: rotate(360deg)
+	}
+}
+
+@keyframes waiting-spin {
+	0% {
+		transform: rotate(0deg)
+	}
+	8.33333333% {
+		transform: rotate(30deg)
+	}
+	16.66666667% {
+		transform: rotate(60deg)
+	}
+	25% {
+		transform: rotate(90deg)
+	}
+	33.33333333% {
+		transform: rotate(120deg)
+	}
+	41.66666667% {
+		transform: rotate(150deg)
+	}
+	50% {
+		transform: rotate(180deg)
+	}
+	58.33333333% {
+		transform: rotate(210deg)
+	}
+	66.66666667% {
+		transform: rotate(240deg)
+	}
+	75% {
+		transform: rotate(270deg)
+	}
+	83.33333333% {
+		transform: rotate(300deg)
+	}
+	91.66666667% {
+		transform: rotate(330deg)
+	}
+	100% {
+		transform: rotate(360deg)
+	}
+}
+
+/* 页尾 */
+.smart-pageEnd{
+	color: #afafaf;
+	font-size:14px;
+	position: relative;
+	text-align: center;
+}
+.smart-pageEnd:before,.smart-pageEnd:after{
+	content:" ";
+	background: #e6e6e6;
+	position: absolute;
+	height: 1px;
+	width: 20%;
+	top:50%;
+}
+.smart-pageEnd:before{
+	left:10%;
+}
+.smart-pageEnd:after{
+	right:10%;
 }
 /* 用户信息 */
 .smart-info{
@@ -163,13 +318,8 @@ color: #a8a8a8;
 	padding:15%;
 }
 .smart-tips-box{
-	/*width: 80%;*/
 	background: #fff;
 	border-radius: 5px;
-	/* position: absolute; */
-	/*top:50%;
-	left:50%;
-	margin: -70% 0 0 -40%;*/
 }
 .smart-tips h1{
 	color:#000;
@@ -194,78 +344,7 @@ color: #a8a8a8;
 	border-radius: 5rem;
 	margin:5rem auto;
 }
-/* 开关按钮 */
 
-.smart-switch{
-	position: relative;
-    display: block;
-    width: 50px;
-    height: 24px;
-    -webkit-transition-timing-function: ease-in-out;
-    transition-timing-function: ease-in-out;
-    -webkit-transition-duration: .2s;
-    transition-duration: .2s;
-    -webkit-transition-property: background-color,border;
-    transition-property: background-color,border;
-    border: 2px solid #ddd;
-    border-radius: 20px;
-    background-color: #ddd;
-    background-clip: padding-box;
-}
-.smart-switch.smart-active {
-    border-color: #37d2fe;
-    background-color: #37d2fe;
-}
-.smart-list-item i{
-	position: absolute;
-}
-.smart-list-item .smart-switch{
-	position: absolute;
-    top: 50%;
-    right: 15px;
-    -webkit-transform: translateY(-50%);
-    transform: translateY(-50%);
-}
-.smart-switch:before {
-    font-size: 13px;
-    position: absolute;
-    top: 3px;
-    right: 11px;
-    /*content: 'Off';*/
-	content: ' ';
-    text-transform: uppercase;
-    color: #999;
-    line-height: 22px
-}
-.smart-switch.smart-active:before {
-    right: auto;
-    left: 12px;
-    /*content: 'On';*/
-    content: ' ';
-    color: #fff;
-}
-
-.smart-switch .smart-switch-handle {
-    position: absolute;
-    z-index: 1;
-    top: 0px;
-    left: 1px;
-    width: 20px;
-    height: 20px;
-    -webkit-transition: .2s ease-in-out;
-    transition: .2s ease-in-out;
-    -webkit-transition-property: -webkit-transform,width,left;
-    transition-property: transform,width,left;
-    border-radius: 16px;
-    background-color: #fff;
-    background-clip: padding-box;
-    /*-webkit-box-shadow: 0 2px 5px rgba(0,0,0,.4);
-    box-shadow: 0 2px 5px rgba(0,0,0,.4);*/
-}
-.smart-switch.smart-active .smart-switch-handle {
-    -webkit-transform: translate(24px,0);
-    transform: translate(24px,0);
-}
 /* 小标题 */
 .smart-subtitle-h1{
   background: #f6f6f6;
@@ -343,13 +422,6 @@ color: #a8a8a8;
 	background: #efefef;
 }
 
-.smart-list .smart-list-item .smart-list-item-content,.smart-sub-list .smart-sub-list-item .smart-list-item-content{
-	position: absolute;
-	top:0;
-	float: right;
-	right: 20px;
-	color:#8d8d8d;
-}
 
 /* sub list*/
 
@@ -365,7 +437,7 @@ color: #a8a8a8;
 	width: 100%;
 	left:15px;
 	bottom: 0;
-	background: #efefef;
+	background: #e0e0e0;
 }
 .smart-list.smart-list-space .smart-list-item{
 	margin:0;
@@ -389,33 +461,6 @@ color: #a8a8a8;
 	opacity: 1;
 }
 
-/* 输入框眼睛 */
-.smart-icon-eye{
-	position: absolute;
-	width: 30px;
-	height: 100%;
-	right: 10px;
-}
-.smart-icon-eye:before,.smart-icon-eye-hide:before,.smart-icon-eye-clear:before{
-	content:" ";
-	position: absolute;
-	width: 30px;
-	height: 30px;
-	top:50%;
-	margin-top: -15px;
-}
-.smart-icon-eye:before{
-	background: url(../img/show.png) no-repeat;
-	background-size:100%;
-}
-.smart-icon-eye-hide:before{
-	background: url(../img/hide.png) no-repeat;
-	background-size:100%;
-}
-.smart-icon-eye-clear:before{
-	background: url(../img/clear.png) no-repeat;
-	background-size:100%;
-}
 .smart-list .smart-list-item.smart-list-expand{
 	margin-top: 0;
 	display: none;
@@ -424,7 +469,7 @@ color: #a8a8a8;
 	content:" ";
 	position: absolute;
 	height: 1px;
-	background: #efefef;
+	background: #e0e0e0;
 	width: 100%;
 	top:0;
 	left:20px;
@@ -438,16 +483,27 @@ color: #a8a8a8;
 .smart-list .smart-list-item.smart-list-expand.smart-list-expand-foot:before{
 	height: 0px;
 }
-
+/* 列表图片 */
 /* 列表开头图片 */
-.smart-list-icon{
+.smart-list-title-icon{
 
 }
-.smart-list-icon .sr-only{
+.smart-list-title-icon .sr-only{
 	max-width:80px;
 }
-.smart-list-icon .smart-input{
+.smart-list-title-icon .smart-input{
 	width: 60%;
+}
+/* 列表结尾图片 */
+.smart-list-end-icon{
+	position: absolute;
+	top:0;
+	height: 100%;
+	right: 20px;
+	color:#8d8d8d;
+}
+.smart-list-end-icon img{
+	vertical-align: middle;
 }
 /* 表单填充 */
 .form-signin-fill{
@@ -457,145 +513,49 @@ color: #a8a8a8;
     bottom: 0;
     background: #fff;
 }
-/* smart-screen 筛选*/
-.smart-screen{
-	width: 100%;
-	position: absolute;
-	z-index: 2;
-	top:45px;
-	left:0;
-}
-.smart-screen-mask{
-	display: none;
- 	position: fixed;
- 	z-index: 1;
- 	width: 100%;
- 	height: 100%;
- 	background: rgba(0,0,0,.6);
-}
-.smart-screen .smart-column-list{
-	padding: 0;
-	height: 40px;
-	line-height: 40px;
-	/*border:1px solid #efefef;*/
-}
-.smart-screen div[class^="col-xs"]{
-	text-align: center;
-	color:#6d6d6d;
-	transition: color .2s ease-in;
-	-webkit-transition: color .2s ease-in;
 
+/* smart-help 帮助 */
+.smart-help{
+	height: 35px;
+	line-height: 35px;
+	background: #fff6b6;
+	color:#8d8d8d;
+	font-size: 14px;
+	padding: 0 40px;
+	position: relative;
 }
-.smart-screen div[class^="col-xs-4"]:after{
-	content:" ";
-	background: url(../../custom/img/screen-1.png) no-repeat center;
-	vertical-align: middle;
-	margin-top: -2px;
-	width: 20px;
-	height: 20px;
-	display: inline-block;
-	transform: rotateX(0deg);
-	-webkit-transform: rotateX(0deg);
-	transition: transform .2s ease-in,background .1s ease-in;
-	-webkit-transition: transform .2s ease-in,background .1s ease-in;
+.smart-help:after{
+	content:"i";
+	position: absolute;
+	width: 13px;
+	height: 13px;
+	background: #abe0e1;
+	border:0;
+	border-radius: 5rem;
+	color:#fff;
+	font-size:12px;
+	text-align: center;
+	line-height: 14px;
+	left:18px;
+	top:50%;
+	margin-top: -8px;
 }
-.smart-screen div[class^="col-xs-4"].smart-active{
+/* smart-change */
+.smart-change{
+	text-align: center;
+}
+.smart-change label{
+ 	font-weight: normal;
+ 	color:#8d8d8d;
+}
+.smart-change span{
 	color:#73d2fe;
 }
-.smart-screen div[class^="col-xs-4"].smart-active:after{
-	background: url(../../custom/img/screen-2.png) no-repeat center;
-	transform: rotateX(-180deg);
-	-webkit-transform: rotateX(-180deg);
-}
-.smart-screen .smart-screen-list{
-	display: none;
-}
-.smart-screen div[class^="col-xs-12"]{
-	font-size: 15px;
-	color:#3c3c3c;
-	height: 45px;
-	line-height: 45px;
-	background: rgba(255,255,255,1);
-	border-bottom:1px solid #e0e0e0;
-	transition: background .1s ease-in;
-	-webkit-transition: background .1s ease-in;
-}
-.smart-screen div[class^="col-xs-12"]:first-child{
-	border-top:1px solid #e0e0e0;
-}
-.smart-screen div[class^="col-xs-12"]:active{
-	background: rgba(222,222,222,1);
-}
-/* 手风琴 accordion */
-.smart-accordion{
-	font-size: 0;
-	
-}
-.smart-accordion a[data-toggle]{
-	display: block;
-	height: 30px;
-	position: relative;
-}
-.smart-accordion .smart-accordion-head,.smart-accordion .smart-accordion-content,.smart-accordion .smart-accordion-foot{
-	display:inline-block;
-}
-.smart-accordion .smart-accordion-head{
-	color:#0f0f0f;
-	width:28px;
-	font-size: 14px;
-	text-align: center;
-	height: 100%;
-	line-height: 15px;
-}
-.smart-accordion .smart-accordion-head span{
-	font-size: 12px;
-	color:#8d8d8d;
-	display: block;
-}
-.smart-accordion .panel-group .panel,
-.smart-accordion .panel-heading{
-	border-radius: 0px;
-}
-.smart-accordion .panel-default>.panel-heading,.smart-accordion .panel-default{
-	border:none;
-	background: #fff;
-}
-.smart-accordion .smart-accordion-content{
-	position: absolute;
-	height: 100%;
-	width: 100%;
-	top:0;
-	left:0;
-	padding:0 60px 0 40px ;
-}
-.smart-accordion .smart-accordion-content .smart-accordion-bar{
-	height: 100%;
-	margin-left: -10%;
-}
-.smart-accordion .smart-accordion-foot{
-	position: relative;
-	z-index: 1;
-	float: right;
-	height: 30px;
-}
-.smart-accordion .smart-accordion-foot img{
-	height: 100%;
-	vertical-align: middle;
-}
-.smart-accordion .smart-accordion-foot:after{
+.smart-change span:after{
 	content: " ";
-	display:inline-block;
+	display: inline-block;
+	background: url(../../custom/img/continue-1.png) no-repeat center;
 	width: 20px;
 	height: 20px;
-	background: url(../../custom/img/screen-1.png) no-repeat center;
 	vertical-align: middle;
-	transform: rotateX(0deg);
-	-webkit-transform: rotateX(0deg);
-	transition: transform .2s ease-in,background .1s ease-in;
-	-webkit-transition: transform .2s ease-in,background .1s ease-in;
-}
-.smart-accordion .smart-accordion-foot.smart-active:after{
-	background: url(../../custom/img/screen-2.png) no-repeat center;
-	transform: rotateX(-180deg);
-	-webkit-transform: rotateX(-180deg);
 }

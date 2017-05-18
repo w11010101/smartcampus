@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+  <title>我的账单——图表</title>
+
+  <!-- Bootstrap -->
+
+  <link href="../../content/plug/bootstap/css/bootstrap.min.css" rel="stylesheet">
+
+  <link href="../../content/custom/css/common.css" rel="stylesheet">
+  <link href="../../content/custom/css/smart-container.css" rel="stylesheet">
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<style>
+.navbar {
+  background: #fff;
+  margin: 0;
+}
+
+.smart-header {
+  border-bottom: 1px solid #a8a8a8;
+}
+
+.smart-header h1 {
+  color: #000;
+}
+
+
+/* 日期齿轮 */
+
+.smart-gear {
+  background: #fff;
+  padding: 10px;
+  margin: 0;
+  text-align: center;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.smart-gear * {
+  display: inline-block;
+  font-size: 16px;
+}
+
+.smart-gear h1 {
+  height: 30px;
+  background: url(../../content/custom/img/date.png) no-repeat center left;
+  padding-left: 35px;
+  margin: 0;
+  line-height: 30px;
+}
+
+.smart-gear .smart-gear-right {
+  transform: rotateY(180deg);
+}
+
+
+/*  线型图 */
+
+.smart-line-chart,
+.smart-bar-chart {
+  height: 200px;
+  background: #fff!important;
+  padding: 10px;
+}
+.smart-line-chart-switch{
+  color:#a8a8a8;
+  float:right;
+  margin:10px 
+}
+
+/* 柱形图 */
+
+.smart-bar-chart {
+  margin-top: 10px;
+  
+}
+</style>
+
+<body>
+  <nav class="navbar">
+    <div class="smart-header">
+      <a href="javascript:history.go(-1)" class="smart-back smart-icon-left">
+        <img src="../../content/custom/img/back-2.png" alt="">
+      </a>
+      <h1>我的账单</h1>
+      <a href="javascript:history.go(-1)" class="smart-icon-right">
+        <img src="../../content/custom/img/more-1.png" alt="">
+      </a>
+    </div>
+  </nav>
+  <div class="smart-content">
+    <div class="smart-gear">
+      <img src="../../content/custom/img/icon-1.png" alt="" class="smart-gear-left">
+      <h1>2017.02</h1>
+      <img src="../../content/custom/img/icon-1.png" alt="" class="smart-gear-right">
+    </div>
+    <!-- 线型图 -->
+    <div class="smart-line-chart-switch">切换收支情况</div>
+    <div class="smart-line-chart">
+
+    </div>
+    <!-- 柱形图 -->
+    <div class="smart-bar-chart">
+
+    </div>
+  </div>
+  <script type="text/javascript" src="../../content/plug/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="../../content/plug/echarts/echarts.common.min.js"></script>
+  <script type="text/javascript" src="../../content/custom/js/common.js"></script>
+  <script type="text/javascript">
+  // line
+
+  var myChart_line = echarts.init(document.querySelector(".smart-line-chart"));
+  var option_line = {
+    title: {
+      text: '月收入',
+      textStyle: {
+        color: "#3c3c3c",
+        fontSize: 14,
+        fontWeight: "normal",
+      },
+    },
+    xAxis: {
+      type: 'category',
+      data: ['1月','2月', '3月', '4月', '5月'],
+      axisLine: {
+        show: false,
+
+      },
+      axisTick: {
+        show: false
+
+      },
+      splitArea: {
+        show: false
+      },
+       splitLine:{
+            show:false
+        }
+    },
+    yAxis: {
+      type: 'value',
+      axisLabel: {
+        show: false,
+      },
+      axisLine: {
+        show: false
+      },
+      axisTick: {
+        show: false
+      },
+      splitArea: {
+        show: false
+      },
+       splitLine:{
+            show:false
+        }
+    },
+    series: [{
+      type: 'line',
+      label: {
+        normal: {
+          show: true,
+          position: [0, -20],
+          textStyle:{
+            color:"#000",
+            fontSize:14
+          }
+        }
+      },
+      symbol:"emptyCircle",
+      symbolSize:8,
+      symbolRotate :10,
+      itemStyle: {
+        normal: {
+          show: true,
+          borderWidth:3,
+          color:"#f8be41"
+        }
+      },
+      lineStyle:{
+        normal:{
+            color:"#000"
+        }  
+      },
+      data: [{
+        name: "155",
+        value: "123",
+      },{
+        name: "123",
+        value: "123",
+        symbol:"circle", // 当前
+        symbolSize:14,
+        itemStyle: {
+          normal: {
+            color:"#ee5b16"
+          }
+        }
+      }, {
+        name: "181",
+        value: "181"
+      }, {
+        name: "200",
+        value: "200"
+      }, {
+        name: "150",
+        value: "150"
+        
+      }],
+      
+    }]
+  };
+  myChart_line.setOption(option_line);
+  // bar
+  var myChart_bar = echarts.init(document.querySelector(".smart-bar-chart"));
+  var option_bar = {
+    title: {
+      text: '收入支出',
+      textStyle: {
+        color: "#3c3c3c",
+        fontSize: 14,
+        fontWeight: "normal",
+      },
+    },
+    color: ['#02e699', '#4ac4ed'],
+    itemStyle: {
+      normal: {
+        borderColor: "#fff",
+        borderWidth: 5
+      }
+    },
+    series: [{
+      name: '访问来源',
+      type: 'pie',
+      radius: ['25%', '70%'],
+      avoidLabelOverlap: true,
+      labelLine: {
+        normal: {
+          show: true,
+          length: 10,
+          length2: 10
+        }
+      },
+      data: [{
+        value: 200,
+        name: '收入',
+        label: {
+          normal: {
+            formatter: function(value) {
+              console.log(value.data.value)
+              return value.data.value + '\n' + '——' + '\n' + '收入';
+            },
+          }
+        },
+        itemStyle: {
+          normal: {
+            borderColor: "#fff",
+            borderWidth: 5
+          }
+        }
+      }, {
+        value: 500,
+        name: '支出',
+        label: {
+          normal: {
+            formatter: function(value) {
+              console.log(value.data.value)
+              return value.data.value + '\n' + '——' + '\n' + '支出';
+            },
+          }
+        },
+        itemStyle: {
+          normal: {
+            borderColor: "#fff",
+            borderWidth: 5
+          }
+        }
+      }]
+    }]
+  }
+  myChart_bar.setOption(option_bar);
+  </script>
+</body>
+
+</html>
