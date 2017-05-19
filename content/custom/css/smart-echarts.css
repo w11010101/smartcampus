@@ -1,0 +1,62 @@
+.navbar {
+  background: #fff;
+  margin: 0;
+}
+
+.smart-header h1 {
+  color: #000;
+}
+
+
+/* 日期齿轮 */
+
+.smart-gear {
+  background: #fff;
+  padding: 10px;
+  margin: 0;
+  text-align: center;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.smart-gear * {
+  display: inline-block;
+  font-size: 16px;
+}
+
+.smart-gear h1 {
+  height: 30px;
+  background: url(../img/date.png) no-repeat center left;
+  padding-left: 35px;
+  margin: 0;
+  line-height: 30px;
+}
+
+.smart-gear .smart-gear-right {
+  transform: rotateY(180deg);
+}
+
+
+/*  线型图 */
+
+.smart-line-chart,
+.smart-bar-chart {
+  height: 200px;
+  background: #fff!important;
+  padding: 10px;
+}
+.smart-line-chart-switch{
+  color:#a8a8a8;
+  position: absolute;
+  z-index: 111;
+  padding:10px 10px 10px 25px;
+  right: 10px;
+  background: url(../img/switch.png) no-repeat center left;
+ 
+}
+
+/* 柱形图 */
+
+.smart-bar-chart {
+  margin-top: 10px;
+  
+}

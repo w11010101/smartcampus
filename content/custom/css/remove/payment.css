@@ -1,0 +1,95 @@
+.smart-payment {
+	background: #73d2fe;
+}
+
+.smart-box {
+	width: 90%;
+	background: #fff;
+	border-radius: 5px;
+	margin: 0 auto;
+}
+
+.smart-box h1 {
+	font-size: 16px;
+	padding: 20px 10px;
+}
+
+.scan-code,
+.more {
+	width: 35px;
+	height: 35px;
+}
+
+.more {
+	float: right;
+}
+
+.smart-box-content h2 {
+	font-size: 16px;
+	text-align: center;
+	color: #8d8d8d;
+}
+
+.code-1 {
+	display: block;
+	width: 80%;
+	margin: 0 auto;
+}
+
+.code-2 {
+	display: block;
+	width: 55%;
+	margin: 30px auto 15px;
+}
+
+.smart-box-content p {
+	text-align: center;
+}
+
+.smart-box-content p label {
+	color: #000;
+	font-weight: normal;
+	font-size: 14px;
+	padding-bottom: 30px;
+}
+
+.smart-box-content p a {
+	font-size: 14px;
+	color: #a8a8a8;
+	position: relative;
+}
+
+.smart-box-content p img {
+	margin-left: -18px;
+}
+
+.smart-box-content p a:after {
+	content: " ";
+	background: url(../img/back-2.png) no-repeat center;
+	position: absolute;
+	width: 16px;
+	height: 16px;
+	top: 0px;
+	transform: rotate(-180deg);
+	-webkit-transform: rotate(-180deg);
+}
+.smart-box-content p a {
+	font-size: 14px;
+	color: #a8a8a8;
+	position: relative;
+}
+
+.smart-box-content p img {
+	margin-left: -18px;
+}
+
+.smart-box-content p a:after {
+	content: " ";
+	background: url(../img/back-2.png) no-repeat center;
+	position: absolute;
+	width: 16px;
+	height: 16px;
+	top: 0px;
+	transform: rotate(-180deg);
+	-webkit-transform: rotate(-180deg);
+}

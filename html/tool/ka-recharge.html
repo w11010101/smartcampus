@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>在线充值</title>
+		<link rel="stylesheet" href="../../content/plug/bootstap/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="../../content/custom/css/zf/zf-common.css" />
+		<link rel="stylesheet" href="../../content/custom/css/zf/zf-confirm.css" />
+		<link rel="stylesheet" href="../../content/plug/jquery/toast/css/jquery.toast.css" />
+		<link rel="stylesheet" href="../../content/custom/css/ka/ka-recharge.css" />
+		<style type="text/css">
+
+			.con-button{
+				padding-bottom: 50px;
+			}
+		</style>
+	</head>
+	<body>
+		<header class="con-header">
+			<a href="javascript:history.go(-1)"><i class="con-back"></i></a>
+			<h1>在线充值</h1>
+			<a href="#" class="header-link">记录</a>
+		</header>
+		<div class="container">
+			<div class="con-tip">
+				<i class="tip-img">i</i>
+				<span class="tip-tetle">您可以对电子账户进行充值</span>
+			</div>
+			<div class="con-xz">
+				<h3>选择充值金额</h3>
+				<div class="row con-col-3padidng">
+					<div class="col-xs-4">
+						<input type="button" class="button log-btn" value="50元" />
+					</div>
+					<div class="col-xs-4">
+						<input type="button" class="button log-btn btn-opcity" value="100元" />
+					</div>
+					<div class="col-xs-4">
+						<input type="button" class="button log-btn btn-opcity" value="200元" />
+					</div>
+				</div>
+			</div>
+			<div class="con-xz con-inpt">
+				<h3>其他金额</h3>
+				<input type="text" value="" placeholder="请输入0-200元充值金额" />
+			</div>
+			<div class="con-list layer-xyk">
+				<div class="list-tiele">
+					支付账户
+				</div>
+				<div class="car-list">
+					<div class="row has-feedback">
+						<div class="col-xs-2">
+							<img src="../../content/custom/img/zf/icon-xyk.png">
+						</div>
+						<div class="col-xs-10">校园卡</div>
+						<span name="flag" class="glyphicon glyphicon-ok form-control-feedback"></span>
+					</div>
+					<div class="row has-feedback">
+						<div class="col-xs-2">
+							<img src="../../content/custom/img/zf/icon-dzzh.png">
+						</div>
+						<div class="col-xs-10">电子账户</div>
+						<span name="flag" class="glyphicon glyphicon-ok form-control-feedback"></span>
+					</div>
+					<div class="row has-feedback">
+						<div class="col-xs-2">
+							<img class="car-fang" src="../../content/custom/img/zf/icon-bdzy.png">
+						</div>
+						<div class="col-xs-10">绑定的中国银行银行卡</div>
+						<span name="flag" class="glyphicon glyphicon-ok form-control-feedback"></span>
+					</div>
+					<div class="row has-feedback active">
+						<div class="col-xs-2">
+							<img class="car-fang" src="../../content/custom/img/zf/icon-zfb.png">
+						</div>
+						<div class="col-xs-10">支付宝</div>
+						<span name="flag" class="glyphicon glyphicon-ok form-control-feedback"></span>
+					</div>
+				</div>
+			</div>
+			<div class="con-button">
+				<input id="btn" type="button" type="button" class="button log-btn con-btn btn-hui" value="完成" />
+			</div>
+		</div>
+		
+	</body>
+	<script type="text/javascript" src="../../content/plug/jquery/jquery.min.js" ></script>
+	<script>
+		//单选按钮
+		$(".con-col-3padidng .button").click(function(e) {
+			console.log($(this).val())
+			$(this).removeClass("btn-opcity").parent().siblings().children().addClass("btn-opcity");
+		})
+		//单选列表
+		$(".car-list .row").click(function(e) {
+			$(this).addClass("active").siblings().removeClass("active");
+		})
+	</script>
+</html>

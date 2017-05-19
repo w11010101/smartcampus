@@ -115,9 +115,7 @@
 .smart-accordion .panel-default>.panel-heading,.smart-accordion .panel-default{
 	border:none;
 	background: #fff;
-}
-.smart-accordion .panel-default{
-	border-bottom:1px solid #e0e0e0;
+	position: relative;
 }
 .smart-accordion .smart-accordion-content{
 	position: absolute;
@@ -192,9 +190,9 @@
 .smart-accordion .smart-sub-list .smart-sub-list-item:nth-last-of-type(2):after{
 	height: 0;
 }
-.smart-accordion .smart-sub-list .smart-sub-list-item:first-child{
+/*.smart-accordion .smart-sub-list .smart-sub-list-item:first-child{
 	border-top: 1px solid #e0e0e0;
-}
+}*/
 .smart-accordion .smart-sub-list .smart-sub-list-item .smart-accordion-content{
 	height: 60px;
 	padding:10px 58px;

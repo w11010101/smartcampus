@@ -149,7 +149,7 @@ em {
 }
 
 .tab-pane p {
-	margin: 0.5rem 0 0 0;
+	margin: 1rem 0 ;
 }
 .tab-pane p a{
 	color:#3c3c3c;
@@ -197,6 +197,7 @@ em {
 .nav>li>a {
 	padding: 10px 5px;
 	margin: 0 10px;
+	color:#8d8d8d;
 }
 
 

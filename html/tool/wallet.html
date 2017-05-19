@@ -23,20 +23,10 @@
     <![endif]-->
 </head>
 <style type="text/css" media="screen">
-html,
-body {
-  background: #fff;
-  overflow: hidden;
-}
-
-.navbar .smart-header.smart-white {
-  border: none
-}
-
 .echats-main {
   height: 300px;
-  /*padding: 20px；*/
-  margin:0 auto;
+  padding: 20px;
+  margin: 0 auto;
 }
 
 .smart-column-list > div {
@@ -65,20 +55,20 @@ body {
   vertical-align: top;
   margin: 8px 0 0 0;
   text-align: left;
-  color:#3c3c3c;
+  color: #3c3c3c;
   font-size: 14px;
 }
 
 .smart-column-list p em {
   display: block;
   text-align: left;
-  color:#a7a7a7;
+  color: #a7a7a7;
 }
 </style>
 
-<body>
+<body class="smart-wallet">
   <nav class="navbar">
-    <div class="smart-header smart-white">
+    <div class="smart-header smart-white smart-border-0">
       <a href="javascript:history.go(-1)" class="smart-back smart-icon-left">
         <img src="../../content/custom/img/back-2.png" alt="">
       </a>
@@ -86,90 +76,55 @@ body {
     </div>
   </nav>
   <div class="smart-content">
+    <!-- 图表 -->
     <div class="echats-main">
 
     </div>
+    <!-- 表格 -->
+    <div class="row smart-column-list smart-column-list-1">
+      <div class="col-xs-6">
+
+        <img src="../../content/custom/img/wallet-1.png" alt="">
+        <p>
+          电子账户
+          <em>152.00</em>
+        </p>
+      </div>
+      <div class="col-xs-6">
+
+        <img src="../../content/custom/img/wallet-2.png" alt="">
+        <p>
+          校园卡
+          <em>15200.00</em>
+        </p>
+      </div>
+      <div class="col-xs-6">
+        <img src="../../content/custom/img/wallet-3.png" alt="">
+        <p>
+          补助账户
+          <em>152.00</em>
+        </p>
+      </div>
+      <div class="col-xs-6">
+        <img src="../../content/custom/img/wallet-4.png" alt="">
+        <p>
+          上网余额
+          <em>152.00</em>
+        </p>
+      </div>
+    </div>
     <!-- 底部 -->
     <div class="smart-foot">
-      <div class="row smart-column-list smart-column-list-1">
-        <div class="col-xs-6">
-          <a href="">
-            <img src="../../content/custom/img/wallet-1.png" alt="">
-            <p>
-              电子账户
-              <em>152.00</em>
-            </p>
-          </a>
-        </div>
-        <div class="col-xs-6">
-          <a href="">
-            <img src="../../content/custom/img/wallet-2.png" alt="">
-            <p>
-              校园卡
-              <em>15200.00</em>
-            </p>
-          </a>
-        </div>
-        <div class="col-xs-6">
-          <a href="">
-            <img src="../../content/custom/img/wallet-3.png" alt="">
-            <p>
-              补助账户
-              <em>152.00</em>
-            </p>
-          </a>
-        </div>
-        <div class="col-xs-6">
-          <a href="setting/setting.html">
-            <img src="../../content/custom/img/wallet-4.png" alt="">
-            <p>
-              上网余额
-              <em>152.00</em>
-            </p>
-          </a>
-        </div>
-      </div>
-      <button type="button" class="smart-btn">在线充值</button>
+      <button type="button" class="smart-btn" set-terget="ka-recharge.html">在线充值</button>
     </div>
   </div>
 
 </body>
 <script type="text/javascript" src="../../content/plug/jquery/jquery.min.js"></script>
 <script type="text/javascript" src="../../content/custom/js/common.js"></script>
+
 <script type="text/javascript">
-var parameter_bar = {
-    color: ['#45d6c5', '#fdab07', '#ff5408', '#41c6f3'],
-    radius: ['40%', '55%'],
-    title: {
-      text: "￥2500.00",
-      subtext: "总资产",
-      x: 'center',
-      y: 'middle',
-      textStyle: {
-        fontSize: "16",
-        color: "#3c3c3c"
-      },
-      subtextStyle: {
-        fontSize: "14",
-        color: "#3c3c3c"
-      }
-    },
-    avoidLabelOverlap: false,
-    data: [{
-        value: 40,
-        name: '电子账户'
-      }, {
-        value: 30,
-        name: '校园卡'
-      }, {
-        value: 20,
-        name: '补助账户'
-      }, {
-        value: 50,
-        name: '上网余额'
-      }]
-  }
-  smart_charts_pie(document.querySelector(".echats-main"),parameter_bar);
+  smart_charts_pie(document.querySelector(".echats-main"));
 </script>
 
 </html>

@@ -7,7 +7,7 @@
 html,
 body {
 	height: 100%;
-	overflow: hidden;
+	/*overflow: hidden;*/
 }
 
 .clearfix:after {
@@ -39,22 +39,20 @@ body {
 .layer-xyk {
 	position: absolute;
 	left: 50%;
-	float: left;
-	bottom: -300px;
+	bottom: -100%;
 	width: 100%;
 	max-width: 640px;
 	height: auto;
-	z-index: 101;
+	z-index: 111;
 	-webkit-transform: translateX(-50%);
 	transform: translateX(-50%);
 	background-color: #FFFFFF;
-	display: none;
 }
 .layer-pwd{
 	position: absolute;
 	float: left;
 	left: 50%;
-	bottom: -460px;
+	bottom: 0;
 	width: 100%;
 	max-width: 640px;
 	height: auto;
@@ -62,7 +60,7 @@ body {
 	-webkit-transform: translateX(-50%);
 	transform: translateX(-50%);
 	background-color: #FFFFFF;
-	display: none;
+	/*display: none;*/
 }
 
 .con-header {
@@ -96,7 +94,8 @@ body {
 }
 
 .con-number i,
-.con-number {
+.con-number,
+.con-number span {
 	font-style: normal;
 	font-size: 30px;
 	color: #3C3C3C;
@@ -148,22 +147,12 @@ form {
 }
 
 .list-back {
-	/*background: url(../img/continue-1.png) no-repeat;
+	background: url(../../img/back-2.png) no-repeat;
 	background-size: 50px 50px;
 	background-position: right;
-	background-origin: border-box;*/
+	background-origin: border-box;
 }
-.backdrop {
-    position: fixed;
-    z-index: 10;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background-color: rgba(0, 0, 0, .3);
-    z-index: 100;
 
-}
 .con-type .form-group {
 	padding-right: 25px;
 }
@@ -171,8 +160,7 @@ form {
 	display: block;
 	width: 50px;
 	height: 50px;
-	background: url(../img/back-2.png) no-repeat;
-	/*background: url(../img/close.png) no-repeat;*/
+	background: url(../../img/back-2.png) no-repeat;
 	background-size: 25px 25px;
 	float: left;
 	background-position: 15px 12px;
@@ -204,8 +192,8 @@ form {
 	right: 20px;	
 }
 .glyphicon-ok{
-	background: url(../img/sure.png) no-repeat;
-	background-size: 35px 25px;
+	background: url(../../img/sure.png) no-repeat;
+	/*background-size: 35px 25px;*/
 	margin-top: 10px;
 	display: none;
 }

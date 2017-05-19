@@ -62,33 +62,46 @@ $(function () {
 		var arr = [];
 		// var sum = 0;
 		$(".smart-input,input[type=number],input[type=password]").on("keyup", function (e) {
-			if (e.keyCode != 8) {
-				// 不是删除键 
-				var l = $(".smart-input").length;
-				if (this.value.length != 0) {
-					$(this).next().addClass("smart-icon-eye-clear");
-					if ($(".smart-icon-eye-clear").length == l) { // input都填写了
-						$(".smart-btn,.smart-container-sure-btn").css({
-							"background-color": "#73d2fe",
-							"border-color": "#73d2fe"
-						});
-					} else {
-						$(".smart-container-sure-btn").css({
-							"background-color": "#73d2fe",
-							"border-color": "#73d2fe"
-						});
+				if (e.keyCode != 8) {
+					// 不是删除键 
+					var l = $(".smart-input").length;
+					if (this.value.length != 0) {
+						$(this).next().addClass("smart-icon-eye-clear");
+						if ($(".smart-icon-eye-clear").length == l) { // input都填写了
+							$(".smart-btn,.smart-container-sure-btn").css({
+								"background-color": "#73d2fe",
+								"border-color": "#73d2fe"
+							});
+						} else {
+							$(".smart-container-sure-btn").css({
+								"background-color": "#73d2fe",
+								"border-color": "#73d2fe"
+							});
+						}
+					}
+				} else {
+					// 删除键
+					if (this.value.length == 0) {
+						$(".smart-btn,.smart-container-sure-btn").removeAttr("style");
+						$(this).next().removeClass("smart-icon-eye-clear");
 					}
 				}
-			} else {
-				// 删除键
-				if (this.value.length == 0) {
-					$(".smart-btn,.smart-container-sure-btn").removeAttr("style");
-					$(this).next().removeClass("smart-icon-eye-clear");
+			})
+			// 转账支付
+		$(".first-start .smart-container-sure-btn").on("click", function () {
+				var val = $(".smart-account-input").val();
+				if (val.length != 0) {
+					if (val.length < 10) {
+						tips("卡号长度不够！");
+						return;
+					}
+					$("body").removeClass("first-start");
+					$(".smart-content .smart-account em").text($(".smart-account-input").val());
+				} else {
+					tips("不能为空");
 				}
-			}
-		})
-
-		// 功能:停止事件冒泡  
+			})
+			// 功能:停止事件冒泡  
 		function stopBubble(e) {
 			// 如果提供了事件对象，则这是一个非IE浏览器
 			if (e && e.stopPropagation) {
@@ -112,26 +125,17 @@ $(function () {
 			return false;
 		}
 	})
-	// 获取money，以及分型的地址  
-	// function GetRequest() {
-	// 	var url = location.search;
-	// 	console.log(url)
-	// 	var theRequest = new Object();
-	// 	if (url.indexOf("?") != -1) {
-	// 		var str = url.substr(1);
-	// 		//alert(str);  
-	// 		var strs = new Array();
-	// 		strs = str.split('&');
-	// 		var money = strs[0].substring(6);
-	// 		fxurl = (strs[1].substring(4)).trim();
-	// 		//alert(fxurl);  
-	// 		var view = money + "元";
-	// 		$("#jieguo1m").html(view);
-	// 	}
-	// }
-	// GetRequest();
-	// 
-
+	// 提示信息
+function tips(val) {
+	$.toast({
+		text: val,
+		allowToastClose: false, // Boolean value true or false
+		hideAfter: 3000, // false to make it sticky or number 
+		position: 'bottom-center',
+		textAlign: 'center',
+		loader: false
+	});
+}
 // 加载图表
 function load_charts_bar() {
 	var objs = document.querySelectorAll(".smart-accordion-bar");
@@ -189,7 +193,7 @@ function smart_charts_bar(obj) {
 					},
 					offset: [5, 8],
 					textStyle: {
-						color: (income / pay) > 0.4 ? "#fff" : "#000",
+						color: (income / pay) > 0.2 ? "#fff" : "#a5a5a5",
 						fontSize: "10"
 					}
 				}
@@ -215,7 +219,8 @@ function smart_charts_bar(obj) {
 					},
 					offset: [5, -12],
 					textStyle: {
-						color: (income / pay) > 0.4 ? "#000" : "#fff",
+						// color:"#01e699",
+						color: (income / pay) > 2 ? "#a5a5a5" : "#fff",
 						fontSize: "10"
 					}
 				}
@@ -251,22 +256,55 @@ function smart_charts_bar(obj) {
 // }
 
 
-function smart_charts_pie(obj,parameter) {
+function smart_charts_pie(obj, parameter) {
+
 	// 基于准备好的dom，初始化echarts实例
 	var myChart = echarts.init(obj);
 	// 指定图表的配置项和数据
 	option = {
-		title: parameter.title,
-		color:parameter.color,
+		title: {
+			text: "￥2500.00",
+			subtext: "总资产",
+			x: 'center',
+			y: 'middle',
+			textStyle: {
+				fontSize: "14",
+				color: "#3c3c3c"
+			},
+			subtextStyle: {
+				fontSize: "12",
+				color: "#3c3c3c"
+			}
+		},
+		color: ['#45d6c5', '#41c6f3', '#ff5408', '#fdab07'],
 		series: [{
 			name: '访问来源',
 			type: 'pie',
-			radius: parameter.radius,
-			avoidLabelOverlap: parameter.avoidLabelOverlap,
-			labelLine: parameter.labelLine,
-			data:parameter.data
+			radius: ['35%', '50%'],
+			avoidLabelOverlap: false,
+			labelLine: {
+				normal: {
+					length: 5,
+					lenght2: 5,
+					smooth: true
+				}
+			},
+			data: [{
+				value: 140,
+				name: '电子账户', // 当name值相同，加空格区分（颜色）
+			}, {
+				value: 140,
+				name: '校园卡' // 当name值相同，加空格区分（颜色）
+			}, {
+				value: 120,
+				name: '补助账户'
+			}, {
+				value: 50,
+				name: '上网余额'
+			}]
 		}]
 	}
-	// 使用刚指定的配置项和数据显示图表。
+	console.log(option)
+		// 使用刚指定的配置项和数据显示图表。
 	myChart.setOption(option);
 }
