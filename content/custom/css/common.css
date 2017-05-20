@@ -31,6 +31,7 @@ color: #a8a8a8;
 	margin:0; 
 	border: none;
 	min-height: 45px;
+	z-index: 1;
 }
 .smart-header {
 	position: fixed;
@@ -99,7 +100,8 @@ color: #a8a8a8;
 .smart-list:after,
 .smart-sub-list:after,
 .smart-content .smart-account:after,
-.smart-payment-box:after{
+.smart-payment-box:after,
+.smart-keyboard-head:after{
 	content:" ";
 	height: 1px;
  	position: absolute;
@@ -123,7 +125,8 @@ color: #a8a8a8;
 .smart-accordion .panel-default:after,
 .smart-sub-list .smart-sub-list-item:not(:last-child):after, .smart-list.smart-list-space .smart-list-item:not(:last-child):after,
 .smart-content .smart-account:after,
-.smart-payment-box:after{
+.smart-payment-box:after,
+.smart-keyboard-head:after{
  	bottom: 0;
 }
 .smart-header.smart-white h1 {
@@ -850,6 +853,9 @@ color: #a8a8a8;
 	overflow-x:hidden;
 	overflow-y: auto; 
 }
+.smart-bill .navbar{
+	z-index: 3;
+}
 /* smart-screen 筛选*/
 .smart-screen{
 	width: 100%;
@@ -864,6 +870,8 @@ color: #a8a8a8;
  	z-index: 1;
  	width: 100%;
  	height: 100%;
+ 	top:0;
+ 	left:0;
  	background: rgba(0,0,0,.6);
 }
 .smart-screen .smart-column-list{
@@ -1143,6 +1151,12 @@ color: #a8a8a8;
 .smart-transfer .smart-content .smart-account em {
   color: #8d8d8d;
   padding: 0 0 0 40px;
+  max-width: 200px;
+  vertical-align: top;
+  display:inline-block;
+  white-space:nowrap; 
+  overflow:hidden; 
+  text-overflow:ellipsis;
 }
 .smart-transfer .smart-account-input{
   height: 100%;
@@ -1169,3 +1183,152 @@ color: #a8a8a8;
   margin-left:-40%;
 }
 /* 更换支付 */
+/* 键盘 */
+.smart-keyboard{
+	padding: 0;
+	margin: 0;
+	background: #fff; 
+	position: fixed;
+	z-index: 111;
+	width: 100%;
+	height: 350px;
+	bottom:0;
+	text-align: center;
+	display: none
+}
+.smart-keyboard .smart-keyboard-head{
+	height: 40px;
+	line-height: 40px;
+	position: relative;
+}
+.smart-keyboard h1{
+	font-size: 16px;
+	height:inherit;
+	line-height: inherit;
+	text-align: center;
+	font-weight: normal;
+	color:#8d8d8d;
+	margin: 0;
+}
+.smart-keyboard .smart-keyboard-head a{
+	position: absolute;
+	width: 40px;
+	height: 100%;
+	left:0;
+	background: url(../img/close.png) no-repeat center;
+}
+.smart-keyboard .smart-password-box{
+	font-size: 0;
+	border:1px solid #e0e0e0;
+	display: inline-block;
+	border-radius: 5px;
+	margin: 30px 0 15px 0;
+}
+.smart-keyboard .smart-password-box li{
+	display: inline-block;
+	width: 35px;
+	height: 35px;
+	border-right:1px solid #e0e0e0;
+	text-align: center;
+	line-height: 35px;
+	font-size:20px;
+	color:#73d2fe;
+	vertical-align: top;
+}
+.smart-keyboard .smart-password-box li:last-child{
+	border-right:0;
+}
+.smart-keyboard .smart-other-pay{
+	height: 30px;
+	text-align: center;
+}
+.smart-keyboard .smart-other-pay span{
+	color:#8d8d8d;
+	font-size:14px;
+	padding:1px 10px;
+}
+.smart-keyboard .smart-other-pay span:first-child{
+	border-right:1px solid #e0e0e0;
+}
+.smart-keyboard-nums{
+	font-size:0;
+	padding: 0;
+	border-top:1px solid #e0e0e0;
+}
+.smart-keyboard-nums li{
+	font-size:16px;
+	display: inline-block;
+	width: 33.33%;
+	border-right:1px solid #e0e0e0;
+	border-bottom:1px solid #e0e0e0;
+	height: 50px;
+	vertical-align: top;
+	line-height: 50px;
+	background: #fff;
+	transition:background .1s ease-in-out;
+	-webkit-transition:background .1s ease-in-out; 
+}
+.smart-keyboard-nums li:nth-child(3n){
+	border-right: 0
+}
+.smart-keyboard-nums li:last-child img{
+	width: 25%;
+}
+.smart-keyboard-nums li:nth-child(10){
+	font-size: 30px;
+	line-height: 30px;
+}
+.smart-keyboard-nums li.smart-active:active{
+	background: #efefef;
+}
+/* 挂失loss */
+.smart-loss{
+	/*background: #fff;*/
+	overflow: hidden;
+}
+.smart-loss .smart-info:before{
+	height: 0;
+}
+.smart-loss .con-img{
+	display: none;
+	width: 100%;
+	height: auto;
+	padding: 40px;
+	background: #fff;
+	position: absolute;
+	top:140px;
+	bottom:0;
+}
+.smart-loss .con-img img{
+	width: 100%;
+}
+.smart-loss .con-img span{
+	display: block;
+	color: #A8A8A8;
+	font-size: 16px;
+	padding: 10px 60px;
+	text-align: center;
+}
+.smart-loss .con-button{
+	display: none;
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+
+}
+.smart-loss .con-button .button{
+	color:#fff;
+	width: 100%;
+	border-radius: 0 !important;
+	background:#73d2fe;
+	border: 0;
+	font-size: 16px;
+	transition: background .1s ease-in-out;
+	-webkit-transition: background .1s ease-in-out;
+}
+.smart-loss .con-button .button:active{
+	background:#a9edff;
+}
+.smart-loss input.log-btn,.smart-loss button.log-btn{
+	padding: 13px;
+}

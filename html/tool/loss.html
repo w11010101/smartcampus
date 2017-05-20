@@ -15,9 +15,8 @@
 
   <link href="../../content/custom/css/common.css" rel="stylesheet">
   <link href="../../content/custom/css/setting.css" rel="stylesheet">
-  <link href="../../content/custom/css/smart-form.css" rel="stylesheet">
   <link href="../../content/plug/jquery/toast/css/jquery.toast.css" rel="stylesheet">
-  <link href="../../content/custom/css/loss.css" rel="stylesheet">
+  <!-- <link href="../../content/custom/css/loss.css" rel="stylesheet"> -->
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
@@ -34,7 +33,7 @@
   }
 
 </style>
-<body>
+<body class="smart-loss">
   <nav class="navbar">
     <div class="smart-header smart-white">
       <a href="javascript:history.go(-1)" class="smart-back smart-icon-left">
@@ -83,12 +82,13 @@
 <script type="text/javascript" src="../../content/plug/jquery/toast/js/jquery.toast.js"></script>
 <script type="text/javascript" src="../../content/custom/js/common.js"></script>
 <script>
+  smartObj.tips("为显示效果，当前的逻辑是：当密码不足6位时，跳转到 “ 预约挂失 ” ！");
   var setStatus;
   $(".smart-btn").on("click",function(){
     if($("input[type=password]").val().length == 6){
       if(setStatus){
         console.log(1);
-        window.location.href = 'ka-loss.html';
+        smartObj.jump("ka-loss.html");
       }else{
         console.log(2);
         $(".smart-list,.smart-btn").hide(0);
@@ -97,15 +97,9 @@
 
       setStatus = !setStatus;
     }else if($("input[type=password]").val().length < 6){
-      $.toast({
-          text: '密码不足6位！',
-          allowToastClose: false, // Boolean value true or false
-          hideAfter: 3000, // false to make it sticky or number 
-          position: 'bottom-center', 
-          textAlign: 'center',
-          loader: false
-      });
-      }
+      smartObj.tips("密码不足6位！");
+      smartObj.jump("ka-loss.html");
+    }
   })
 </script>
 </html>

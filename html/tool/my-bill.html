@@ -38,11 +38,11 @@
         <div class="col-xs-4">按月查询</div>
       </div>
       <!-- 筛选内容 -->
-      <div class="row smart-screen-list">
+      <div class="row smart-screen-list smart-popup">
       </div>
-      <!-- 遮罩 -->
-      <div class="smart-screen-mask"></div>
     </div>
+    <!-- 遮罩 -->
+    <div class="smart-screen-mask"></div>
     <!-- bootstap accordion 折叠面板 -->
     <div class="panel-group smart-accordion" id="accordion">
       <!-- 一组 -->
@@ -491,19 +491,16 @@ lists.on("click", function() {
       smart_screen_toggle("hide");
     })
   })
-  // 隐藏筛选
-$(".smart-screen-mask").on("click", function() {
-  smart_screen_toggle("hide");
-})
+
 
 function smart_screen_toggle(type) {
   if (type == "hide") {
     // hide
-    $(".smart-screen-list").slideUp(200);
+    $(".smart-popup").slideUp(200);
     $(".smart-screen-mask").fadeOut(200);
   } else {
     // show
-    $(".smart-screen-list").slideDown(200);
+    $(".smart-popup").slideDown(200);
     $(".smart-screen-mask").fadeIn(200);
   }
 }

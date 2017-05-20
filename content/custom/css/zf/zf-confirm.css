@@ -25,7 +25,7 @@ body {
 	position: absolute;
 	float: left;
 	left: 50%;
-	bottom: -460px;
+	bottom: 0;
 	width: 100%;
 	max-width: 640px;
 	height: auto;
@@ -39,7 +39,7 @@ body {
 .layer-xyk {
 	position: absolute;
 	left: 50%;
-	bottom: -100%;
+	bottom: 0;
 	width: 100%;
 	max-width: 640px;
 	height: auto;
@@ -47,6 +47,7 @@ body {
 	-webkit-transform: translateX(-50%);
 	transform: translateX(-50%);
 	background-color: #FFFFFF;
+	display: none;
 }
 .layer-pwd{
 	position: absolute;
@@ -65,13 +66,13 @@ body {
 
 .con-header {
 	width: 100%;
-	height: 50px;
+	height: 40px;
 	border-bottom: .5px #E0E0E0 solid;
 }
 
 .con-header h1 {
 	font-size: 16px;
-	line-height: 50px;
+	line-height: 40px;
 	text-align: center;
 	margin: 0 50px;
 	color: #3C3C3C;
@@ -79,17 +80,15 @@ body {
 
 .con-delete {
 	display: block;
-	width: 50px;
-	height: 50px;
-	background: url(../../img/zf/delete.png) no-repeat;
-	background-size: 25px 25px;
+	width: 40px;
+	height: 40px;
+	background: url(../../img/close.png) no-repeat center;
 	float: left;
-	background-position: 15px 12px;
 }
 
 .con-number {
 	width: 100%;
-	padding: 33px;
+	padding: 20px;
 	text-align: center;
 }
 
@@ -158,12 +157,10 @@ form {
 }
 .con-back{
 	display: block;
-	width: 50px;
-	height: 50px;
-	background: url(../../img/back-2.png) no-repeat;
-	background-size: 25px 25px;
-	float: left;
-	background-position: 15px 12px;
+	width: 40px;
+	height: 40px;
+	background: url(../../img/back-2.png) no-repeat center;
+	float: left;/
 }
 .layer-xyk .row{
 	padding: 12px 0;
