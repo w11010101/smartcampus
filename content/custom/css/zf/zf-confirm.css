@@ -67,7 +67,7 @@ body {
 .con-header {
 	width: 100%;
 	height: 40px;
-	border-bottom: .5px #E0E0E0 solid;
+	/*border-bottom: .5px #E0E0E0 solid;*/
 }
 
 .con-header h1 {

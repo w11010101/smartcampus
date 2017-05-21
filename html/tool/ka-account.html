@@ -1,77 +1,87 @@
 <!DOCTYPE html>
 <html>
 
-	<head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>挂失</title>
-		<link rel="stylesheet" href="../../content/plug/bootstap/css/bootstrap.min.css" />
-		<link rel="stylesheet" href="../../content/custom/css/zf/zf-common.css" />
-		<link rel="stylesheet" href="../../content/plug/jquery/toast/css/jquery.toast.css" />
-		<link rel="stylesheet" href="../../content/custom/css/ka/ka-recharge.css" />
-		<link rel="stylesheet" href="../../content/custom/css/ka/ka-account.css" />
-		<style type="text/css">
-			
-		</style>
-	</head>
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>挂失</title>
+    <link rel="stylesheet" href="../../content/plug/bootstap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../../content/custom/css/zf/zf-common.css" />
+    <link rel="stylesheet" href="../../content/plug/jquery/toast/css/jquery.toast.css" />
+    <link rel="stylesheet" href="../../content/custom/css/ka/ka-recharge.css" />
+    <link rel="stylesheet" href="../../content/custom/css/ka/ka-account.css" />
+    <style type="text/css">
 
-	<body>
-		<header class="con-header">
-			<a href="javascript:history.go(-1)">
-			<i class="con-back"></i>
-			<h1>转卡账户</h1>
-			</a>
-		</header>
-		<div class="container">
-			<div class="car-acccon">
-				<div class="car-acccon-ye">
-					<p>可转卡总额(元)</p>
-					<span>180.00</span>
-				</div>
-				<div class="car-acccon-je row">
-					<div class="col-xs-5">
-						<p>电子账户金额</p>
-						<span>80.00元</span>
-					</div>
-					<div class="col-xs-7">
-						<p>转账金额</p>
-						<span>100.00</span>
-					</div>
-				</div>
-				<div class="con-tip">
-				<i class="tip-img">i</i>
-					<span class="tip-tetle">您有100.00元转账金额未领取</span>
-				</div>
-			</div>
-			<div class="form-list">
-				<p>转入一卡通账户</p>
-				<form class="form-horizontal">
-					<div class="form-group icon-tzjt x-xian">
-						<label for="inputPassword3" class="col-xs-3 control-label">校一卡通</label>
-						<div class="col-xs-9">
-							<input type="number" class="form-control" id="inputPassword3" placeholder="请输入卡号">
-						</div>
-					</div>
-					<div class="form-group">
-						<label for="inputPassword3" class="col-xs-3 control-label">转账金额</label>
-						<div class="col-xs-9">
-							<input type="" class="form-control" id="inputPassword3" placeholder="请输入金额">
-						</div>
-					</div>
-				</form>
-			</div>
-			<div class="con-button">
-				<input id="btn" type="button" type="button" class="button log-btn con-btn btn-hui" value="确认转账" />
-			</div>
-			<div class="con-gstip">
-				<blockquote>
-				    <p>温馨提示</p>
-				</blockquote>
-				<span>转账后需要到任意的POS或者自助机上领取才能使用。</span>
-			</div>
-		</div>
+    </style>
+</head>
 
-	</body>
-	<script type="text/javascript" src="../../content/plug/jquery/jquery.min.js"></script>
+<body>
+    <header class="con-header">
+        <a href="javascript:history.go(-1)">
+            <i class="con-back"></i>
+            <h1>转卡账户</h1>
+        </a>
+    </header>
+    <div class="container">
+        <div class="car-acccon">
+            <div class="car-acccon-ye">
+                <p>可转卡总额(元)</p>
+                <span>180.00</span>
+            </div>
+            <div class="car-acccon-je row">
+                <div class="col-xs-5">
+                    <p>电子账户金额</p>
+                    <span>80.00元</span>
+                </div>
+                <div class="col-xs-7">
+                    <p>转账金额</p>
+                    <span>100.00</span>
+                </div>
+            </div>
+            <div class="con-tip">
+                <i class="tip-img">i</i>
+                <span class="tip-tetle">您有100.00元转账金额未领取</span>
+            </div>
+        </div>
+        <div class="form-list">
+            <p>转入一卡通账户</p>
+            <form class="form-horizontal">
+                <div class="form-group icon-tzjt x-xian">
+                    <label for="inputPassword3" class="col-xs-3 control-label">校一卡通</label>
+                    <div class="col-xs-9">
+                    	<span id="account-change" class="set-change" onclick="">校园卡</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputPassword3" class="col-xs-3 control-label">转账金额</label>
+                    <div class="col-xs-9">
+                        <input type="" class="form-control" id="inputPassword3" placeholder="请输入金额">
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="con-button">
+            <input id="btn" type="button" type="button" class="button log-btn con-btn btn-hui" value="确认转账" />
+        </div>
+        <div class="con-gstip">
+            <blockquote>
+                <p>温馨提示</p>
+            </blockquote>
+            <span>转账后需要到任意的POS或者自助机上领取才能使用。</span>
+        </div>
+    </div>
+
+    <div class="smart-screen-mask"></div>
+</body>
+<script type="text/javascript" src="../../content/plug/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../content/custom/js/common.js"></script>
+<script type="text/javascript" src="../../content/plug/jquery/toast/js/jquery.toast.js"></script>
+<script type="text/javascript">
+$("#account-change").on("click",function(){
+	var arr = ["卡1","卡2","卡3","卡4"];
+	smartObj.accountChange(arr);
+})
+</script>
 
 </html>

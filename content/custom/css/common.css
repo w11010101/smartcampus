@@ -33,6 +33,18 @@ color: #a8a8a8;
 	min-height: 45px;
 	z-index: 1;
 }
+.smart-message{
+
+}
+.smart-message-true:after{
+	content: "●";
+	color:red;
+	font-size: 20px;
+	position: absolute;
+	top:0px;
+	right: 0;
+}
+
 .smart-header {
 	position: fixed;
 	z-index: 99;
@@ -615,6 +627,7 @@ color: #a8a8a8;
 	font-size: 14px;
 	padding: 0 40px;
 	position: relative;
+
 }
 .smart-help:after{
 	content:"i";
@@ -844,10 +857,53 @@ color: #a8a8a8;
 }
 
 /* 钱包 */
+
 .smart-wallet .smart-content{
-	background: #fff
+	background: #fff;
+}
+.smart-wallet .smart-column-list{
+	margin: 0;
+	position: fixed;
+	bottom:46px;
+	width: 100%;
+	left:0;
+	padding: 0;
+}
+.smart-wallet .smart-column-list > div {
+  padding: 15px 0;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  text-align: center;
 }
 
+.smart-wallet .smart-column-list > div:nth-child(odd) {
+  border-top: 1px solid #efefef;
+  border-right: 1px solid #efefef;
+}
+
+.smart-wallet .smart-column-list > div:nth-child(even) {
+  border-top: 1px solid #efefef;
+}
+
+.smart-wallet .smart-column-list img {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.smart-wallet .smart-column-list p {
+  display: inline-block;
+  vertical-align: top;
+  margin: 8px 0 0 0;
+  text-align: left;
+  color: #3c3c3c;
+  font-size: 14px;
+}
+
+.smart-wallet .smart-column-list p em {
+  display: block;
+  text-align: left;
+  color: #a7a7a7;
+}
 /* 我的账单 */
 .smart-bill{
 	overflow-x:hidden;
@@ -856,6 +912,7 @@ color: #a8a8a8;
 .smart-bill .navbar{
 	z-index: 3;
 }
+
 /* smart-screen 筛选*/
 .smart-screen{
 	width: 100%;
@@ -977,6 +1034,10 @@ color: #a8a8a8;
 	background: #fff;
 	position: relative;
 }
+.smart-accordion .panel-default:first-child .collapse .smart-sub-list{
+	display: block
+}
+
 .smart-accordion .smart-accordion-content{
 	position: absolute;
 	height: 100%;
@@ -1137,6 +1198,9 @@ color: #a8a8a8;
 .smart-transfer{
 	background: #fff;
 }
+.smart-transfer .smart-header:after{
+	height: 0
+}
 .smart-transfer .smart-content .smart-account {
   font-size: 16px;
   color: #3c3c3c;
@@ -1166,6 +1230,10 @@ color: #a8a8a8;
 .smart-transfer .list-back{
   background: none;
 }
+
+.first-start .smart-info{
+	margin-bottom: 10px;
+}
 .first-start .smart-container,
 .first-start .smart-change,
 .first-start .smart-content .smart-account em,
@@ -1181,6 +1249,15 @@ color: #a8a8a8;
   bottom:40%;
   left:50%;
   margin-left:-40%;
+}
+#zf_value:after{
+	content: " ";
+	position: absolute;
+	height: 21px;
+	width: 21px;
+	top:50%;
+	margin-top:-10px;
+	background: url(../img/continue-1.png) no-repeat center;
 }
 /* 更换支付 */
 /* 键盘 */
@@ -1331,4 +1408,56 @@ color: #a8a8a8;
 }
 .smart-loss input.log-btn,.smart-loss button.log-btn{
 	padding: 13px;
+}
+/* 账号切换 */
+.smart-account-change {
+	position: fixed;
+	bottom:0;
+	width:100%;
+	background: #fff;
+	display: none;
+	z-index: 111;
+}
+.smart-account-change ul,.smart-account-change ul li{
+	padding: 0;
+	text-align: center;
+	position: relative;
+	margin: 0;
+}
+.smart-account-change ul:before,
+.smart-account-change ul li:before{
+	content:" ";
+	height: 1px;
+ 	position: absolute;
+ 	left:0;
+ 	width: 100%;
+ 	background: #e0e0e0;
+	transform: rotateX(45deg);
+	-webkit-transform: rotateX(45deg);
+	top:0;
+}
+.smart-account-change ul li{
+	font-size:16px;
+	color: #3c3c3c;
+	height: 40px;
+	line-height: 40px;
+	padding: 0 50px;
+	display:block;
+	white-space:nowrap; 
+	overflow:hidden; 
+	text-overflow:ellipsis;
+}
+.smart-account-change ul li:before{
+	bottom: 0;
+}
+.smart-account-change ul li.smart-active:after{
+	content:" ";
+	width: 25px;
+	position: absolute;
+	height:25px;
+	right:20px;
+	top:50%;
+	margin-top: -12px;
+	background: url(../../custom/img/sure.png) no-repeat center;
+	background-size: 100%;
 }

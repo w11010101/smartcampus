@@ -15,6 +15,7 @@
 
   <link href="../../content/custom/css/common.css" rel="stylesheet">
   <link href="../../content/custom/css/setting.css" rel="stylesheet">
+  <link href="../../content/plug/jquery/toast/css/jquery.toast.css" rel="stylesheet">
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
@@ -22,7 +23,6 @@
       <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
-
 <body>
   <nav class="navbar">
     <div class="smart-header smart-white">
@@ -35,14 +35,21 @@
   <div class="smart-content">
     <h1 class="smart-subtitle-h1">小额免密设置</h1>
     <ul class="smart-list">
-      <li class="smart-list-item" set-terget="set-quota-list.html">
+      <li class="smart-list-item">
         免额金额
-        <em class="smart-list-end-icon">10元/笔<img src="../../content/custom/img/continue-1.png" alt=""></em>
+        <em class="smart-list-end-icon"><em class="set-change">10元/笔</em><img src="../../content/custom/img/continue-1.png" alt=""></em>
       </li>
     </ul>
   </div>
-
+  <div class="smart-screen-mask"></div>
 </body>
 <script type="text/javascript" src="../../content/plug/jquery/jquery.min.js"></script>
 <script type="text/javascript" src="../../content/custom/js/common.js"></script>
+<script type="text/javascript" src="../../content/plug/jquery/toast/js/jquery.toast.js"></script>
+<script type="text/javascript">
+ $(".smart-list li").on("click",function(){
+  var arr = ["10元/笔","50元/笔","100元/笔","200元/笔","500元/笔"];
+  smartObj.accountChange(arr);
+ })
+</script>
 </html>
