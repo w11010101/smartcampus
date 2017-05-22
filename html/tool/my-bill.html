@@ -251,7 +251,7 @@
             </div>
           </a>
           <em class="smart-list-end-icon">
-            <img src="../../content/custom/img/charts.png" alt="" set-terget="my-bill-charts.html">
+            <img src="../../content/custom/img/charts.png" alt="" set-terget="../../my-bill-charts.html">
           </em>
         </div>
         <div id="collapseTwo" class="panel-collapse collapse">
@@ -442,7 +442,7 @@
             </div>
           </a>
           <em class="smart-list-end-icon">
-            <img src="../../content/custom/img/charts.png" alt="" set-terget="my-bill-charts.html">
+            <img src="../../content/custom/img/charts.png" alt="" set-terget="../../my-bill-charts.html">
           </em>
         </div>
         <div id="collapseThree" class="panel-collapse collapse">
@@ -464,7 +464,8 @@
 <script type="text/javascript" src="../../content/plug/echarts/echarts.common.min.js"></script>
 <script type="text/javascript" src="../../content/custom/js/common.js"></script>
 <script type="text/javascript">
-$('.panel-group').collapse();
+
+
 // 向下展开筛选
 var screen_list = [
   ["所有账户", "电子账户", "一卡通账户", "校园其他账户"],
@@ -487,7 +488,7 @@ lists.on("click", function() {
     }
     // 隐藏筛选
     $(".smart-screen-list div,.smart-screen-mask").off().on("click", function() {
-      $(".smart-screen .smart-active").removeClass('smart-active');
+      $(".smart-active").removeClass('smart-active');
       smart_screen_toggle("hide");
     })
   })
@@ -504,16 +505,24 @@ function smart_screen_toggle(type) {
     $(".smart-screen-mask").fadeIn(200);
   }
 }
+// 手风琴
+$('.panel-group').on('show.bs.collapse', function (e) {
+  console.log($(e.target).prev().toggleClass("smart-active"));
+})
+
+$('.panel-group').on('hide.bs.collapse', function (e) {
+  console.log($(e.target).prev().toggleClass("smart-active"));
+})
 // 手风琴效果监听 —— 我的账单
 $(".smart-accordion .panel-heading").on("click", function() {
     // 先显示加载中图标
-    $(".smart-accordion .panel-heading").not($(this)).removeClass("smart-active");
-    $(this).toggleClass("smart-active");
+    // 加载并显示列表
+
     if (!$(this).next().find(".smart-loading").length) {
       $(this).next().find(".panel-body").append(loading());
       var that = $(this);
       // 1000毫秒后加载列表数据
-      setTimeout(function() {
+      // setTimeout(function() {
         // 测试是先把列表隐藏（css样式隐藏），再显示出来；
          that.next().find(".smart-sub-list").slideDown(200);
 
@@ -522,10 +531,6 @@ $(".smart-accordion .panel-heading").on("click", function() {
           that.next().find(".smart-loading").addClass("smart-nothing");
           return;
         }
-        // 加载并显示列表
-        
-        // that.toggleClass("smart-active");
-
         // 加载完成后隐藏——加载中
         that.next().find(".smart-loading").hide(0);
         // 手风琴列表 —— 我的账单详情
@@ -536,9 +541,9 @@ $(".smart-accordion .panel-heading").on("click", function() {
             hasSub.slideToggle(200);
           }
         })
-      }, 2000);
+      // }, 2000);
     }else{
-      console.log(10)
+      // console.log(10)
     }
   })
   // 加载中

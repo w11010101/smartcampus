@@ -12,7 +12,6 @@ input,button,textarea{
 }
 a:active,a:hover{
 	text-decoration: none;
-	color:#c6c6c6;
 }
 ::-webkit-input-placeholder { /* WebKit browsers */ 
 color: #a8a8a8; 
@@ -840,7 +839,7 @@ color: #a8a8a8;
 }
 .smart-content .smart-container-sure-btn{
 	outline: none;
-	width: 80%;
+	width: 85%;
 	display: block;
 	border-radius: 5px;
 	background-color: #dfdfdf;
@@ -917,14 +916,14 @@ color: #a8a8a8;
 .smart-screen{
 	width: 100%;
 	position: absolute;
-	z-index: 2;
+	z-index: 3;
 	top:45px;
 	left:0;
 }
 .smart-screen-mask{
 	display: none;
  	position: fixed;
- 	z-index: 1;
+ 	z-index: 2;
  	width: 100%;
  	height: 100%;
  	top:0;
@@ -996,6 +995,8 @@ color: #a8a8a8;
 }
 #accordion a {
   text-decoration: none;
+  position: relative;
+  z-index: 1
 }
 .smart-accordion{
 	font-size: 0;
@@ -1045,6 +1046,7 @@ color: #a8a8a8;
 	top:0;
 	left:0;
 	padding:0 60px 0 40px ;
+	z-index: 
 }
 .smart-accordion .smart-accordion-content .smart-accordion-bar{
 	height: 100%;
@@ -1058,6 +1060,7 @@ color: #a8a8a8;
 /*手风琴效果的结尾图标*/
 .smart-accordion .panel-heading .smart-list-end-icon{
 	right:35px;
+	/*z-index: 0*/
 }
 .smart-accordion .panel-heading .smart-list-end-icon:after{
 	content: " ";
@@ -1248,7 +1251,7 @@ color: #a8a8a8;
   position: fixed;
   bottom:40%;
   left:50%;
-  margin-left:-40%;
+  margin-left:-42.5%;
 }
 #zf_value:after{
 	content: " ";
