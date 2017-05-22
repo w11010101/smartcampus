@@ -1,4 +1,4 @@
-body{
+﻿body{
 	background: #efefef;
 }
 ul,ol,li{
@@ -996,7 +996,6 @@ color: #a8a8a8;
 #accordion a {
   text-decoration: none;
   position: relative;
-  z-index: 1
 }
 .smart-accordion{
 	font-size: 0;

@@ -89,7 +89,7 @@ $(function() {
             // 隐藏筛选
         $(".smart-screen-mask").on("click", function() {
         	$(".smart-popup").slideUp(200,function(){
-        		$(".smart-popup").remove()
+        		$(".smart-popup").remove();
         	})
         	$(".smart-screen-mask").fadeOut(200);
         })
@@ -399,7 +399,7 @@ var smartObj = {
         html.push('</ul></div>');
 
         if ($("body").find(".smart-account-change").length == 0) {
-             $("body").append(html.join(" "));
+            $("body").append(html.join(" "));
         }
         $(".smart-account-change").slideDown(200);
         $(".smart-screen-mask").fadeIn(200);
@@ -408,7 +408,6 @@ var smartObj = {
             $(".set-change").text($(this).text());
             smartObj.boxToggle($(this).parents(".smart-popup"),"hide");
             $(".smart-screen-mask").fadeOut(200);
-
         })
     },
     boxClose: function() {
