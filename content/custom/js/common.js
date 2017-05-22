@@ -76,7 +76,7 @@ $(function() {
                         $(".smart-container-sure-btn").css({
                             "background-color": "#73d2fe",
                             "border-color": "#73d2fe"
-                        });
+                        }).removeClass("btn-hui");
                     }
                 } else {
                     // 删除键
@@ -91,7 +91,6 @@ $(function() {
         	$(".smart-popup").slideUp(200,function(){
         		$(".smart-popup").remove()
         	})
-            // smartObj.boxToggle($(".smart-popup"),"hide");
         	$(".smart-screen-mask").fadeOut(200);
         })
         // 转账支付
@@ -112,9 +111,9 @@ $(function() {
                 }
             } else {
                 if ($(".smart-payment-box input").val().length) {
-                    var param = {
-                        money: $(".smart-payment-box input").val()
-                    }
+                   
+                    param.money = $(".smart-payment-box input").val();
+                    
                     smartObj.payInfo(param);
 
                     $(".smart-screen-mask").show(0);
@@ -125,6 +124,7 @@ $(function() {
             }
         });
     })
+var param = {};
 function payChange(){
 	smartObj.pay_change();
     $(".smart-screen-mask").show(0);
@@ -286,8 +286,11 @@ var smartObj = {
 	},
     // 更改支付方式
     pay_change: function() {
+        
+        smartObj.boxToggle( $(".smart-popup"),"hide");
         var html = [];
-        html.push('<div class="layer-xyk smart-popup"><div class="con-header"><i class="con-back"></i><h1>更换付款方式</h1></div><div class="car-list">');
+        // <i class="con-delete back-delete smart-pay-close"></i>
+        html.push('<div class="layer-xyk smart-popup"><div class="con-header"><h1>更换付款方式</h1></div><div class="car-list">');
         var payArr = ["校园卡", "电子账户", "中国银行", "支付宝"];
         var payImgArr = ["../../content/custom/img/wallet-2.png", "../../content/custom/img/wallet-1.png", "../../content/custom/img/BOC.png", "../../content/custom/img/zfb.png"];
         for (var i in payArr) {
@@ -296,18 +299,18 @@ var smartObj = {
         html.push('</div></div>');
         if ($("body").find(".layer-xyk").length == 0) {
             $("body").append(html.join(""));
-            $(".layer-xyk").slideDown(200);
-        } else {
-        	$(".layer-xyk").slideDown(200);
         }
+        $(".layer-xyk").slideDown(200);
         $(".car-list .row").on("click",function(e) {
 			var listdom = $(".car-list .row");
 			$(this).addClass("active").siblings().removeClass("active");
 			smartObj.boxToggle($(this).parents(".smart-popup"),"hide");
+            $(".smart-change label,.con-btn-cartyp span").text($(this).find(".col-xs-10").text());
             $(".smart-screen-mask").fadeOut(200);
-			
 		})
-        $(".has-feedback").eq(0).addClass('active');
+        // 添加默认选中
+        // $(".has-feedback").eq(0).addClass('active');
+        smartObj.boxClose();
     },
     // 键盘
     keyboard: function(callback) {
@@ -318,7 +321,8 @@ var smartObj = {
             html.push('<li></li>'); //●
             i++;
         }
-        html.push('</ul><div class="smart-other-pay"><span>手势支付</span><span>指纹支付</span></div><ol class="smart-keyboard-nums">');
+        // <div class="smart-other-pay"><span>手势支付</span><span>指纹支付</span></div>
+        html.push('</ul><ol class="smart-keyboard-nums">');
         while (x < 12) {
             x++;
             html.push('<li>' + (x == 10 ? "." : (x == 11 ? 0 : (x == 12 ? '<img src="../../content/custom/img/delet-number.png" alt="">' : x))) + '</li>'); //●
@@ -327,10 +331,8 @@ var smartObj = {
         
         if ($("body").find(".smart-keyboard").length == 0) {
             $("body").append(html.join(""));
-            $(".smart-keyboard").slideDown(200);
-        } else {
-            $(".smart-keyboard").slideDown(200);
         }
+        $(".smart-keyboard").slideDown(200);
         // 键盘点击事件
         var val = []; // 密码
         $(".smart-keyboard-nums li").on("click", function() {
@@ -363,18 +365,15 @@ var smartObj = {
 					</div><div class="con-number"><i>￥</i><span>' + param.money + '</span></div><div class="con-type">\
 					<form class="form-horizontal" role="form"><div class="form-group"><label class="col-sm-4 col-xs-4 control-label">缴费名称</label>\
 					<div class="col-sm-8 col-xs-8"><p class="form-control-static">支付通用模板</p></div>\
-					</div><div class="form-group list-back"><label class="col-sm-4 col-xs-4 control-label">支付方式</label>\
-					<div class="col-sm-8 col-xs-8"><p id="zf_value" class="form-control-static">支付方式通用模板</p>\
+					</div><div class="form-group"><label class="col-sm-4 col-xs-4 control-label">支付方式</label>\
+					<div class="col-sm-8 col-xs-8"><p id="zf_value" class="form-control-static" onclick="payChange()">'+$(".smart-change label,.con-btn-cartyp span").text()+'</p>\
 					</div></div><div class="con-button"><input id="btn_jf" type="button" type="button" class="button log-btn con-btn" value="立即缴费" />\
 					</div></form></div></div>';
 
 		if ($("body").find(".layer-zf").length == 0) {
-             $("body").append(html);
-            $(".layer-zf").slideDown(200);
-        } else {
-            $(".layer-zf").slideDown(200);
+            $("body").append(html);
         }
-   
+        $(".layer-zf").slideDown(200);
         $("#btn_jf").off().on("click", function() {
         	smartObj.boxToggle($(this).parents(".smart-popup"),"hide");
             smartObj.keyboard(function(data) {
@@ -389,6 +388,28 @@ var smartObj = {
         })
         smartObj.boxClose();
 
+    },
+    accountChange:function(arr){
+        var html = [];
+        html.push('<div class="smart-account-change smart-popup"><ul>');
+
+        for(var i in arr){
+            html.push('<li>'+arr[i]+'</li>');
+        }
+        html.push('</ul></div>');
+
+        if ($("body").find(".smart-account-change").length == 0) {
+             $("body").append(html.join(" "));
+        }
+        $(".smart-account-change").slideDown(200);
+        $(".smart-screen-mask").fadeIn(200);
+        $(".smart-account-change li").on("click",function(){
+            $(this).addClass('smart-active').siblings().removeClass('smart-active');
+            $(".set-change").text($(this).text());
+            smartObj.boxToggle($(this).parents(".smart-popup"),"hide");
+            $(".smart-screen-mask").fadeOut(200);
+
+        })
     },
     boxClose: function() {
         $(".smart-pay-close").on("click", function() {

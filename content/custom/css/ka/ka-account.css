@@ -73,10 +73,33 @@
 .form-horizontal .form-group{
 	margin: 0;
 	line-height: 45px;
-	
+	padding: 0 20px;
+	height: 45px;
+}
+.form-list,
+.form-horizontal .form-group.icon-tzjt,
+.form-list>p{
+	position: relative;
+}
+.form-list:after,
+.form-horizontal .form-group.icon-tzjt:after,
+.form-list>p:after{
+	content:" ";
+	height: 1px;
+ 	position: absolute;
+ 	left:0;
+ 	width: 100%;
+ 	background: #e0e0e0;
+	transform: rotateX(45deg);
+	-webkit-transform: rotateX(45deg);
+	bottom: 0;
+}
+.form-horizontal .form-group.icon-tzjt:after{
+	left:15px;
 }
 .form-horizontal .form-group.icon-tzjt{
-	border-bottom: .5px solid #E0E0E0;
+	padding: 0 20px;
+	/*border-bottom: .5px solid #E0E0E0;*/
 }
 .form-horizontal .col-xs-3 {
 	padding-left: 0;
@@ -98,15 +121,15 @@
 	font-size: 16px;
 }
 .form-list{
-	padding: 0 20px;
-	border-bottom: .5px solid #E0E0E0;
+	/*padding: 0 20px;*/
+	/*border-bottom: .5px solid #E0E0E0;*/
 }
 .form-list>p {
 	font-size: 14px;
 	color: #5cb199;
 	padding: 8px 20px;
-	border-bottom: .5px solid #E0E0E0;
-	margin-left: -20px;
+	/*border-bottom: .5px solid #E0E0E0;*/
+	/*margin-left: -20px;*/
 }
 
 .icon-tzjt {
@@ -145,4 +168,91 @@
 	color: #A8A8A8;
 	font-size: 12px;
 	padding-left: 20px;
+}
+/*  */
+html {
+    overflow-x: hidden;
+}
+::-webkit-input-placeholder { /* WebKit browsers */ 
+color: #a8a8a8; 
+} 
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */ 
+color: #a8a8a8; 
+} 
+::-moz-placeholder { /* Mozilla Firefox 19+ */ 
+color: #a8a8a8; 
+} 
+:-ms-input-placeholder { /* Internet Explorer 10+ */ 
+color: #a8a8a8; 
+} 
+.form-control[disabled] {
+    background-color: #fff;
+}
+.form-group #account-change{
+	display: block;
+	font-size: 16px;
+	height: 45px;
+	padding: 0px 12px;
+	color:#a8a8a8;
+}
+.smart-screen-mask{
+	display: none;
+ 	position: fixed;
+ 	z-index: 1;
+ 	width: 100%;
+ 	height: 100%;
+ 	top:0;
+ 	left:0;
+ 	background: rgba(0,0,0,.6);
+}
+.smart-account-change {
+	position: fixed;
+	bottom:0;
+	width:100%;
+	background: #fff;
+	display: none;
+	z-index: 111;
+}
+.smart-account-change ul,.smart-account-change ul li{
+	padding: 0;
+	text-align: center;
+	position: relative;
+	margin: 0;
+}
+.smart-account-change ul:before,
+.smart-account-change ul li:before{
+	content:" ";
+	height: 1px;
+ 	position: absolute;
+ 	left:0;
+ 	width: 100%;
+ 	background: #e0e0e0;
+	transform: rotateX(45deg);
+	-webkit-transform: rotateX(45deg);
+	top:0;
+}
+.smart-account-change ul li{
+	font-size:16px;
+	color: #3c3c3c;
+	height: 40px;
+	line-height: 40px;
+	padding: 0 50px;
+	display:block;
+	white-space:nowrap; 
+	overflow:hidden; 
+	text-overflow:ellipsis;
+}
+.smart-account-change ul li:before{
+	bottom: 0;
+}
+.smart-account-change ul li.smart-active:after{
+	content:" ";
+	width: 25px;
+	position: absolute;
+	height:25px;
+	right:20px;
+	top:50%;
+	margin-top: -12px;
+	background: url(../../img/sure.png) no-repeat center;
+	background-size: 100%;
 }

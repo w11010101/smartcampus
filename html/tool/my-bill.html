@@ -47,7 +47,7 @@
     <div class="panel-group smart-accordion" id="accordion">
       <!-- 一组 -->
       <div class="panel panel-default">
-        <div class="panel-heading">
+        <div class="panel-heading smart-active">
           <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
             <!-- 日期 -->
             <div class="smart-accordion-head">4月
@@ -63,7 +63,7 @@
             <img src="../../content/custom/img/charts.png" alt="" set-terget="my-bill-charts.html">
           </em>
         </div>
-        <div id="collapseOne" class="panel-collapse collapse">
+        <div id="collapseOne" class="panel-collapse collapse in">
           <div class="panel-body">
             <!-- 列表 -->
             <ul class="smart-sub-list">
@@ -111,7 +111,7 @@
               <!-- 列表一组 -->
               <li class="smart-sub-list-item">
                 <!-- 日期 -->
-                <div class="smart-accordion-head">今天
+                <div class="smart-accordion-head">昨天
                   <span>14:11</span>
                 </div>
                 <!-- 列表内容 -->
@@ -152,7 +152,7 @@
               <!-- 列表一组 -->
               <li class="smart-sub-list-item">
                 <!-- 日期 -->
-                <div class="smart-accordion-head">今天
+                <div class="smart-accordion-head">5日
                   <span>14:11</span>
                 </div>
                 <!-- 列表内容 -->
@@ -193,7 +193,7 @@
               <!-- 列表一组 -->
               <li class="smart-sub-list-item">
                 <!-- 日期 -->
-                <div class="smart-accordion-head">今天
+                <div class="smart-accordion-head">4日
                   <span>14:11</span>
                 </div>
                 <!-- 列表内容 -->
@@ -251,7 +251,7 @@
             </div>
           </a>
           <em class="smart-list-end-icon">
-            <img src="../../content/custom/img/charts.png" alt="" set-terget="../../my-bill-charts.html">
+            <img src="../../content/custom/img/charts.png" alt="" set-terget="my-bill-charts.html">
           </em>
         </div>
         <div id="collapseTwo" class="panel-collapse collapse">
@@ -442,7 +442,7 @@
             </div>
           </a>
           <em class="smart-list-end-icon">
-            <img src="../../content/custom/img/charts.png" alt="" set-terget="../../my-bill-charts.html">
+            <img src="../../content/custom/img/charts.png" alt="" set-terget="my-bill-charts.html">
           </em>
         </div>
         <div id="collapseThree" class="panel-collapse collapse">
@@ -469,7 +469,7 @@ $('.panel-group').collapse();
 var screen_list = [
   ["所有账户", "电子账户", "一卡通账户", "校园其他账户"],
   ["所有流水", "收入", "支出", "提现", "充值"],
-  ["按月查询", "当日消费"]
+  ["按月查询", "当日查询"]
 ]
 var lists = $(".smart-screen div[class^=col-xs-4]");
 
@@ -486,8 +486,8 @@ lists.on("click", function() {
       smart_screen_toggle("hide");
     }
     // 隐藏筛选
-    $(".smart-screen-list div").off().on("click", function() {
-      console.log(this)
+    $(".smart-screen-list div,.smart-screen-mask").off().on("click", function() {
+      $(".smart-screen .smart-active").removeClass('smart-active');
       smart_screen_toggle("hide");
     })
   })
@@ -507,6 +507,8 @@ function smart_screen_toggle(type) {
 // 手风琴效果监听 —— 我的账单
 $(".smart-accordion .panel-heading").on("click", function() {
     // 先显示加载中图标
+    $(".smart-accordion .panel-heading").not($(this)).removeClass("smart-active");
+    $(this).toggleClass("smart-active");
     if (!$(this).next().find(".smart-loading").length) {
       $(this).next().find(".panel-body").append(loading());
       var that = $(this);
@@ -521,8 +523,8 @@ $(".smart-accordion .panel-heading").on("click", function() {
           return;
         }
         // 加载并显示列表
-        $(".smart-accordion .panel-heading").not(that).removeClass("smart-active");
-        that.toggleClass("smart-active");
+        
+        // that.toggleClass("smart-active");
 
         // 加载完成后隐藏——加载中
         that.next().find(".smart-loading").hide(0);

@@ -85,20 +85,6 @@
 	font-size: 16px;
 	padding: 0 20px;
 }
-
-.layer-xyk {
-	position: inherit;
-	left: 0;
-	bottom: -300px;
-	width: 100%;
-	max-width: 640px;
-	height: auto;
-	z-index: 20;
-	-webkit-transform: translateX(0);
-	transform: translateX(0);
-	display: block !important;
-}
-
 .con-button {
 	width: 100%;
 	text-align: center;
