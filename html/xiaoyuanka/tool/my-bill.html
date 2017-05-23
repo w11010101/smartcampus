@@ -11,8 +11,8 @@
 
   <!-- Bootstrap -->
 
-  <link href="../../content/plug/bootstap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="../../content/custom/css/common.css" rel="stylesheet">
+  <link href="../../../content/plug/bootstap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../../../content/custom/css/common.css" rel="stylesheet">
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]> param.month = getOtherDate(getM);
@@ -24,7 +24,7 @@
   <nav class="navbar">
     <div class="smart-header smart-white">
       <a href="javascript:history.go(-1)" class="smart-back smart-icon-left">
-        <img src="../../content/custom/img/back-2.png" alt="">
+        <img src="../../../content/custom/img/back-2.png" alt="">
       </a>
       <h1>我的账单</h1>
     </div>
@@ -38,8 +38,7 @@
         <div class="col-xs-4">按月查询</div>
       </div>
       <!-- 筛选内容 -->
-      <div class="row smart-screen-list set-popup
-../../content/custom/css/xiaoyuanka/">
+      <div class="row smart-screen-list set-popup">
       </div>
     </div>
     <!-- 遮罩 -->
@@ -61,7 +60,7 @@
             </div>
           </a>
           <em class="smart-list-end-icon">
-            <img src="../../content/custom/img/charts.png" alt="" set-terget="my-bill-charts.html">
+            <img src="../../../content/custom/img/charts.png" alt="" set-terget="my-bill-charts.html">
           </em>
         </div>
         <div id="collapseOne" class="panel-collapse collapse in">
@@ -252,7 +251,7 @@
             </div>
           </a>
           <em class="smart-list-end-icon">
-            <img src="../../content/custom/img/charts.png" alt="" set-terget="../../my-bill-charts.html">
+            <img src="../../../content/custom/img/charts.png" alt="" set-terget="../../../my-bill-charts.html">
           </em>
         </div>
         <div id="collapseTwo" class="panel-collapse collapse">
@@ -443,7 +442,7 @@
             </div>
           </a>
           <em class="smart-list-end-icon">
-            <img src="../../content/custom/img/charts.png" alt="" set-terget="../../my-bill-charts.html">
+            <img src="../../../content/custom/img/charts.png" alt="" set-terget="../../../my-bill-charts.html">
           </em>
         </div>
         <div id="collapseThree" class="panel-collapse collapse">
@@ -460,10 +459,10 @@
   </div>
 
 </body>
-<script type="text/javascript" src="../../content/plug/jquery/jquery.min.js"></script>
-<script type="text/javascript" src="../../content/plug/bootstap/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="../../content/plug/echarts/echarts.common.min.js"></script>
-<script type="text/javascript" src="../../content/custom/js/common.js"></script>
+<script type="text/javascript" src="../../../content/plug/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../content/plug/bootstap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../../content/plug/echarts/echarts.common.min.js"></script>
+<script type="text/javascript" src="../../../content/custom/js/common.js"></script>
 <script type="text/javascript">
 
 
@@ -498,13 +497,11 @@ lists.on("click", function() {
 function smart_screen_toggle(type) {
   if (type == "hide") {
     // hide
-    $(".set-popup
-../../content/custom/css/xiaoyuanka/").slideUp(200);
+    $(".set-popup").slideUp(200);
     $(".smart-screen-mask").fadeOut(200);
   } else {
     // show
-    $(".set-popup
-../../content/custom/css/xiaoyuanka/").slideDown(200);
+    $(".set-popup").slideDown(200);
     $(".smart-screen-mask").fadeIn(200);
   }
 }

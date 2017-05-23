@@ -6,14 +6,12 @@
     <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <title>挂失</title>
-    <link rel="stylesheet" href="../../content/plug/bootstap/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="../../content/custom/css/zf/zf-common.css" />
-    <link rel="stylesheet" href="../../content/plug/jquery/toast/css/jquery.toast.css" />
-    <link rel="stylesheet" href="../../content/custom/css/ka/ka-recharge.css" />
-    <link rel="stylesheet" href="../../content/custom/css/ka/ka-account.css" />
-    <style type="text/css">
+    <link rel="stylesheet" href="../../../content/plug/bootstap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../../../content/custom/css/zf/zf-common.css" />
+    <link rel="stylesheet" href="../../../content/plug/jquery/toast/css/jquery.toast.css" />
+    <link rel="stylesheet" href="../../../content/custom/css/ka/ka-recharge.css" />
+    <link rel="stylesheet" href="../../../content/custom/css/ka/ka-account.css" />
 
-    </style>
 </head>
 
 <body>
@@ -25,24 +23,23 @@
     </header>
     <div class="container">
         <div class="car-acccon">
-            <div class="car-acccon-ye">
-                <p>可转卡总额(元)</p>
-                <span>180.00</span>
-            </div>
+
             <div class="car-acccon-je row">
                 <div class="col-xs-5">
                     <p>电子账户金额</p>
                     <span>80.00元</span>
                 </div>
                 <div class="col-xs-7">
-                    <p>转账金额</p>
+                    <p>待写卡金额</p>
                     <span>100.00</span>
                 </div>
             </div>
+			<!--注意：当待写卡金额为0时，没有下面这条提示块-->
             <div class="con-tip">
                 <i class="tip-img">i</i>
-                <span class="tip-tetle">您有100.00元转账金额未领取</span>
+                <span class="tip-tetle">您有100.00元转账金额需要到自助机上领取。</span>
             </div>
+			<!--注意：当待写卡金额为0时，没有上面这条提示块-->
         </div>
         <div class="form-list">
             <p>转入一卡通账户</p>
@@ -74,9 +71,9 @@
 
     <div class="smart-screen-mask"></div>
 </body>
-<script type="text/javascript" src="../../content/plug/jquery/jquery.min.js"></script>
-<script type="text/javascript" src="../../content/custom/js/common.js"></script>
-<script type="text/javascript" src="../../content/plug/jquery/toast/js/jquery.toast.js"></script>
+<script type="text/javascript" src="../../../content/plug/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../content/custom/js/common.js"></script>
+<script type="text/javascript" src="../../../content/plug/jquery/toast/js/jquery.toast.js"></script>
 <script type="text/javascript">
 $("#account-change").on("click",function(){
 	var arr = ["卡1","卡2","卡3","卡4"];

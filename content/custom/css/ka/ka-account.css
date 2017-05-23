@@ -18,7 +18,7 @@
 	color: #FFFFFF;
 	width: 100%;
 	height: auto;
-	padding: 20px 40px;
+	padding: 20px 20px 20px 40px;
 }
 
 .car-acccon .car-acccon-ye p {
@@ -256,3 +256,5 @@ color: #a8a8a8;
 	background: url(../../img/sure.png) no-repeat center;
 	background-size: 100%;
 }
+
+.car-acccon-je span {color:#fff;}
