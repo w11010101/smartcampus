@@ -1,8 +1,8 @@
 // 校园卡对象
 var campus = function(){
-	var html = [];
+	// var html = [];
 	// var this = this;
-	var obj = {};
+	// var obj = {};
 	// 弹窗层
 	// this.popup = function(arr,callback){
 	// 	html.push('<div class="camput-popup popup-box"><ul>');
@@ -22,7 +22,8 @@ var campus = function(){
  //            callback($(this));
  //        })
 	// };
-	// 隐藏弹窗层
+	 
+	// 切换显示或隐藏弹窗层
 	this.togglePopup = function(type){
 		if(type == "hide"){
 			$(".popup-box").slideUp(200,function(){
@@ -39,19 +40,18 @@ var campus = function(){
 			});
 		}
 	};
-	this.popup_1 = function(option,callback){
+	// 弹窗
+	this.popup = function(option,callback){
 		var dom = this.getHtml(option.type,function(e){
 			callback(e);
 		});
-		dom += '<div class="popup-mask"></div>';
-		$("body").append(dom);
 		this.togglePopup("show");
 	};
 	this.getHtml = function(type,callback){
 		switch (type){
 			case "keyboard":
 				// 键盘
-				$("body").append(this.keyboard());
+				$("body").append(this.keyboard()+'<div class="popup-mask"></div>');
 				this.keyboardEvent(function(e){
 					callback(e);
 				});
@@ -68,6 +68,7 @@ var campus = function(){
 		}
 		this.boxClose();
 	}
+	//
 	this.keyboard=function() {
         var html = [];
         html.push('<div class="popup-keyboard popup-box"><div class="popup-keyboard-head"><a class="smart-pay-close"></a><h1>请输入支付密码</h1></div><ul class="popup-password-box">');
@@ -85,6 +86,7 @@ var campus = function(){
         
         return html.join("");
     }
+
     this.keyboardEvent = function(callback){
     	var val = [];
 		$(".popup-keyboard-nums li").on("click", function() {
@@ -105,17 +107,18 @@ var campus = function(){
                 if ($(this).index() != 9) {
                     $(".popup-password-box li").eq(val.length - 1).text(" ");
                     val.splice(val.length - 1);
-
                 }
             }
         })
     }
+    // 
     this.boxClose = function() {
         $(".smart-pay-close").on("click", function() {
         	$(this).parents(".popup-box").remove();
         	$(".popup-mask").fadeOut(200);
         })
     }
+    // 
     this.tips = function(val){
     	// if($(".jq-toast-wrap").length == 0){
 	    	$.toast({

@@ -129,7 +129,12 @@
       campus.popup(setArr,function(e){
         that.find(".mart-list-layer-2").html('<h3>'+e.text()+'</h3>');
         that.attr("select",true);
-        $(".campus-index-screen-title").prepend('<em class="campus-index-screen-label">'+e.text()+'</em>')
+        $.each($(".campus-index-screen-title em"),function(i,e){
+          if($(e).attr("label-type") == type){
+            $(e).remove();
+          }
+        })
+        $(".campus-index-screen-title").prepend('<em class="campus-index-screen-label" label-type="'+type+'">'+e.text()+'</em>')
         if($("*[select=true]").length == 3){
           $(".smart-container-sure-btn").addClass("smart-btn-active");
         }

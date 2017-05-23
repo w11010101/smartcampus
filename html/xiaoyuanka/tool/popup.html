@@ -41,13 +41,17 @@ $('.keyboard').on("click", function() {
     var option = {
         type:"keyboard"
     }
-    campus.popup_1(option,function(data){
+
+    campus.popup(option,function(data){
+
         console.log(data);
+  
         if (data.password == "000000") {
             campus.tips("密码正确~！");
         } else {
             campus.tips("密码错误~！");
         }
+
     });
 })
 
