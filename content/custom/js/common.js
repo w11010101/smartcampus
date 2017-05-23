@@ -384,10 +384,8 @@ var smartObj = {
                     smartObj.tips("密码错误~！");
                 }
             });
-
         })
         smartObj.boxClose();
-
     },
     accountChange:function(arr){
         var html = [];

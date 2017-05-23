@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>test</title>
+    <!-- Bootstrap -->
+    <link href="../../../content/plug/bootstap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../../content/custom/css/common.css" rel="stylesheet">
+    <link href="../../../content/custom/css/popup.css" rel="stylesheet">
+    <link href="../../../content/plug/jquery/toast/css/jquery.toast.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<style>
+.popup-keyboard{
+    display: block
+}
+</style>
+
+<body>
+    <button class="keyboard" popupType="keyboard">密码键盘</button>
+    <button class="info" popupType="info">支付信息</button>
+    <button class="change" popupType="change">更换支付方式</button>
+    <button class="select" popupType="select">选择</button>
+</body>
+<script type="text/javascript" src="../../../content/plug/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../content/custom/js/popup.js"></script>
+<script type="text/javascript" src="../../../content/custom/js/common.js"></script>
+<script type="text/javascript" src="../../../content/plug/jquery/toast/js/jquery.toast.js"></script>
+<script type="text/javascript">
+$('.keyboard').on("click", function() {
+    var option = {
+        type:"keyboard"
+    }
+    campus.popup_1(option,function(data){
+        console.log(data);
+        if (data.password == "000000") {
+            campus.tips("密码正确~！");
+        } else {
+            campus.tips("密码错误~！");
+        }
+    });
+})
+
+
+
+// var Person = function(){
+//     var that = {};
+//     that.abc = function(){
+//         alert(10);
+//     }
+//     that.abcefafa = function(){
+//     }
+//     return that;
+// }
+// var p = Person();
+
+// var Teacher = function(){
+//     var that = Person();
+//     // var ABC = that.abc;
+//     that.abc = function(){
+//         // ABC.call(that);
+//         alert(123);
+//     }
+//     return that;
+// }
+// var t = Teacher();
+// t.abc();
+</script>
+
+</html>

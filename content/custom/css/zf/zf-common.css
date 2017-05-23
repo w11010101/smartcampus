@@ -84,7 +84,9 @@ input{
 	color: #FFFFFF !important;
 }
 input.log-btn,button.log-btn{
-	width: 100%;
+	display:block;
+	width: 85%;
+	margin:10px auto;
 	padding: 10px;
 	outline:none;
 	font-size: 17px;

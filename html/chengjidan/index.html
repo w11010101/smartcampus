@@ -101,7 +101,9 @@
   // 筛选
   $(".smart-screen").on("click",function(){
     var setArr = ["大二上学期成绩","大二下学期成绩","大一上学期成绩","大一下学期成绩"];
-    campus.popup(setArr);
+    campus.popup(setArr,function(e){
+      $(".navbar h1").text(e.text());
+    });
   })
   </script>
 </body>
