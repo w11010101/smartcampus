@@ -33,4 +33,5 @@ smartcampus/
 	2、解决弹窗问题
 	3、修改css
 	4、同步svn和github
+	5、添加成绩单
 	
