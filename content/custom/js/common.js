@@ -76,7 +76,7 @@ $(function() {
                         $(".smart-container-sure-btn").css({
                             "background-color": "#73d2fe",
                             "border-color": "#73d2fe"
-                        });
+                        }).removeClass("btn-hui");
                     }
                 } else {
                     // 删除键
@@ -89,9 +89,8 @@ $(function() {
             // 隐藏筛选
         $(".smart-screen-mask").on("click", function() {
         	$(".smart-popup").slideUp(200,function(){
-        		$(".smart-popup").remove()
+        		$(".smart-popup").remove();
         	})
-            // smartObj.boxToggle($(".smart-popup"),"hide");
         	$(".smart-screen-mask").fadeOut(200);
         })
         // 转账支付
@@ -287,7 +286,11 @@ var smartObj = {
 	},
     // 更改支付方式
     pay_change: function() {
+<<<<<<< HEAD
        
+=======
+        
+>>>>>>> 01c572475178d9ef8d73b1fb682b945ceb10fedb
         smartObj.boxToggle( $(".smart-popup"),"hide");
         var html = [];
         // <i class="con-delete back-delete smart-pay-close"></i>
@@ -306,10 +309,15 @@ var smartObj = {
 			var listdom = $(".car-list .row");
 			$(this).addClass("active").siblings().removeClass("active");
 			smartObj.boxToggle($(this).parents(".smart-popup"),"hide");
+<<<<<<< HEAD
             param.money = $(".smart-payment-box input").val();
             smartObj.payInfo(param);
             // $(".smart-screen-mask").fadeOut(200);
 			
+=======
+            $(".smart-change label,.con-btn-cartyp span").text($(this).find(".col-xs-10").text());
+            $(".smart-screen-mask").fadeOut(200);
+>>>>>>> 01c572475178d9ef8d73b1fb682b945ceb10fedb
 		})
         // 添加默认选中
         // $(".has-feedback").eq(0).addClass('active');
@@ -368,8 +376,13 @@ var smartObj = {
 					</div><div class="con-number"><i>￥</i><span>' + param.money + '</span></div><div class="con-type">\
 					<form class="form-horizontal" role="form"><div class="form-group"><label class="col-sm-4 col-xs-4 control-label">缴费名称</label>\
 					<div class="col-sm-8 col-xs-8"><p class="form-control-static">支付通用模板</p></div>\
+<<<<<<< HEAD
 					</div><div class="form-group list-back"><label class="col-sm-4 col-xs-4 control-label">支付方式</label>\
 					<div class="col-sm-8 col-xs-8"><p id="zf_value" class="form-control-static" onclick="payChange()">支付方式通用模板</p>\
+=======
+					</div><div class="form-group"><label class="col-sm-4 col-xs-4 control-label">支付方式</label>\
+					<div class="col-sm-8 col-xs-8"><p id="zf_value" class="form-control-static" onclick="payChange()">'+$(".smart-change label,.con-btn-cartyp span").text()+'</p>\
+>>>>>>> 01c572475178d9ef8d73b1fb682b945ceb10fedb
 					</div></div><div class="con-button"><input id="btn_jf" type="button" type="button" class="button log-btn con-btn" value="立即缴费" />\
 					</div></form></div></div>';
 
@@ -402,13 +415,22 @@ var smartObj = {
         html.push('</ul></div>');
 
         if ($("body").find(".smart-account-change").length == 0) {
+<<<<<<< HEAD
              $("body").append(html.join(" "));
+=======
+            $("body").append(html.join(" "));
+>>>>>>> 01c572475178d9ef8d73b1fb682b945ceb10fedb
         }
         $(".smart-account-change").slideDown(200);
         $(".smart-screen-mask").fadeIn(200);
         $(".smart-account-change li").on("click",function(){
             $(this).addClass('smart-active').siblings().removeClass('smart-active');
             $(".set-change").text($(this).text());
+<<<<<<< HEAD
+=======
+            smartObj.boxToggle($(this).parents(".smart-popup"),"hide");
+            $(".smart-screen-mask").fadeOut(200);
+>>>>>>> 01c572475178d9ef8d73b1fb682b945ceb10fedb
         })
     },
     boxClose: function() {

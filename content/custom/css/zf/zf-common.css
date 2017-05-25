@@ -64,7 +64,7 @@ input.button,button.button{
 }
 input.button:active,button.button:active{
 	background-color: #a9edff;
-	border: none;
+	/*border: none;*/
 	transition: all initial .2s; 
 	-webkit-transform: all .2s;
 	outline:none;
