@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+  <title>成绩单</title>
+
+  <!-- Bootstrap -->
+
+  <link href="../../content/plug/bootstap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../../content/custom/css/common/common.css" rel="stylesheet">
+  <link href="../../content/custom/css/chengjidan/index.css" rel="stylesheet">
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elkements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body class="campus-index campus-CJ">
+  <!-- 导航 -->
+  <nav class="navbar">
+    <div class="smart-header smart-white">
+      <a href="javascript:history.go(-1)" class="smart-back smart-icon-left">
+        <img src="../../content/custom/img/back-2.png" alt="">
+      </a>
+      <h1>成绩单</h1>
+      <a href="javascript:history.go(-1)" class="smart-screen smart-icon-right">
+        筛选
+      </a>
+    </div>
+  </nav>
+  <!-- 内容 content -->
+  <div class="smart-content">
+    <div class="row campus-CJ-info">
+      <div class="col-xs-4">
+        总学分：76
+      </div>
+      <div class="col-xs-4">
+        总成绩：18
+      </div>
+      <div class="col-xs-4">
+        已修学分：3
+      </div>
+    </div>
+    <div class="table-responsive campus-CJ-table">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>课程名</th>
+            <th>成绩</th>
+            <th>学分</th>
+            <th>绩点</th>
+            <th>课属性</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>工程制图</td>
+            <td>99.0</td>
+            <td>2</td>
+            <td>2</td>
+            <td>必修</td>
+          </tr>
+          <tr>
+            <td>高级语言程序设计（一）</td>
+            <td>99.0</td>
+            <td>2</td>
+            <td>2</td>
+            <td>必修</td>
+          </tr>
+          <tr>
+            <td>思想道德修养</td>
+            <td>99.0</td>
+            <td>2</td>
+            <td>2</td>
+            <td>必修</td>
+          </tr>
+          <tr>
+            <td>工程制图</td>
+            <td>99.0</td>
+            <td>2</td>
+            <td>2</td>
+            <td>必修</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    </table>
+  </div>
+
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="../../content/plug/jquery/jquery.min.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="../../content/custom/js/campusCard.js"></script>
+  <script type="text/javascript">
+  // 筛选
+  $(".smart-screen").on("click",function(){
+    var setArr = ["大二上学期成绩","大二下学期成绩","大一上学期成绩","大一下学期成绩"];
+    campus.popup(setArr,function(e){
+      $(".navbar h1").text(e.text());
+    });
+  })
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+  <title>付款码</title>
+
+  <!-- Bootstrap -->
+
+  <link href="../../../content/plug/bootstap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../../../content/custom/css/zf/zf-common.css" rel="stylesheet">
+  <link href="../../../content/custom/css/zf/zf-confirm.css" rel="stylesheet">
+  <link href="../../../content/custom/css/common.css" rel="stylesheet">
+  <link href="../../../content/plug/jquery/toast/css/jquery.toast.css" rel="stylesheet">
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body class="smart-payment" pay-change="true">
+  <nav class="navbar">
+    <div class="smart-header">
+      <a href="javascript:history.go(-1)" class="smart-back smart-icon-left">
+        <img src="../../../content/custom/img/back-3.png" alt="">
+      </a>
+      <h1>付款码</h1>
+    </div>
+  </nav>
+  <div class="smart-content">
+    <div class="smart-box">
+      <!-- 支付方式 -->
+      <h1>
+        <img src="../../../content/custom/img/scan-code.png" alt="" class="scan-code">
+        <label>向商家付款</label>
+        <img src="../../../content/custom/img/more.png" alt="" class="more">
+      </h1>
+      <!-- 扫码 -->
+      <div class="smart-box-content">
+        <h2>6633696085342396936</h2>
+        <img src="../../../content/custom/img/code-1.png" alt="" class="code-1">
+        <img src="../../../content/custom/img/code-3.png" alt="" class="code-2">
+
+        <div class="smart-change">
+            <img src="../../../content/custom/img/wallet-1.png" alt="">
+            <label>电子账户</label>
+            <span onclick="payChange()">更换</span>
+        </div>
+      </div>
+    </div>
+    <a href="collect.html" title="" class="fast-way-right">收款</a>
+  </div>
+  <div class="smart-screen-mask"></div>
+  <script type="text/javascript" src="../../../content/plug/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="../../../content/custom/js/common.js"></script>
+  <script type="text/javascript" src="../../../content/plug/jquery/toast/js/jquery.toast.js"></script>
+
+</body>
+</html>

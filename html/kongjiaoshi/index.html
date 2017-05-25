@@ -12,7 +12,8 @@
   <!-- Bootstrap -->
 
   <link href="../../content/plug/bootstap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="../../content/custom/css/kongjiaoshi/common.css" rel="stylesheet">
+  <link href="../../content/custom/css/common/common.css" rel="stylesheet">
+  <link href="../../content/custom/css/kongjiaoshi/index.css" rel="stylesheet">
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elkements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
@@ -107,35 +108,9 @@
   <script src="../../content/plug/jquery/jquery.min.js"></script>
   <!-- Include all compiled plugins (below), or include individual files as needed -->
   <script src="../../content/custom/js/campusCard.js"></script>
+  <script src="../../content/custom/js/kongjiaoshi/index.js"></script>
   <script type="text/javascript">
-    $(".smart-list-item div[set-type]").on("click",function(){
-      var that = $(this);
-      var type = $(this).attr("set-type");
-      var setArr = new Array;
-      switch (type){
-        case "time":
-          // 选择时间
-          setArr = ["1小时后","2小时后","3小时后","4小时后","8小时后"];
-        break;
-        case "campus":
-          // 选择校区
-          setArr = ["东校区","南校区","西校区","北校区"];
-        break;
-        case "floor":
-          // 选择楼栋
-          setArr = ["1号教学楼","2号教学楼","3号教学楼","4号教学楼","科技教学楼"];
-        break;
-      }
-      campus.popup(setArr,function(e){
-        that.find(".mart-list-layer-2").html('<h3>'+e.text()+'</h3>');
-        that.attr("select",true);
-        $(".campus-index-screen-title").prepend('<em class="campus-index-screen-label">'+e.text()+'</em>')
-        if($("*[select=true]").length == 3){
-          $(".smart-container-sure-btn").addClass("smart-btn-active");
-        }
-      });
-      
-    })
+    
   </script>
 </body>
 

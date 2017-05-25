@@ -84,7 +84,7 @@ color: #a8a8a8;
 	font-size: 16px;
 	line-height: 45px;
 }
-.smart-header .smart-cancel{
+.smart-header .smart-cancel,.smart-header .smart-screen,.smart-header .smart-edit{
 	color:#a8a8a8;
 	font-size: 15px;
 	position: absolute;
@@ -96,6 +96,15 @@ color: #a8a8a8;
 	padding: 0px;
 	line-height: 45px;
 	font-weight: normal;
+}
+.smart-cancel.smart-icon-left,
+.smart-screen.smart-icon-left,
+.smart-edit.smart-icon-left{
+	text-align: right;
+}
+.smart-cancel.smart-icon-right,
+.smart-screen.smart-icon-right,
+.smart-edit.smart-icon-right{
 	text-align: left;
 }
 .smart-header.smart-white{
@@ -119,8 +128,8 @@ color: #a8a8a8;
  	left:0;
  	width: 100%;
  	background: #e0e0e0;
-	transform: rotateX(45deg);
-	-webkit-transform: rotateX(45deg);
+	transform: rotateX(60deg);
+	-webkit-transform: rotateX(60deg);
 }
 /* 上边框 */
 
@@ -873,7 +882,6 @@ color: #a8a8a8;
   box-sizing: border-box;
   -webkit-box-sizing: border-box;
   text-align: center;
-<<<<<<< HEAD
 }
 
 .smart-wallet .smart-column-list > div:nth-child(odd) {
@@ -899,33 +907,7 @@ color: #a8a8a8;
   font-size: 14px;
 }
 
-=======
-}
 
-.smart-wallet .smart-column-list > div:nth-child(odd) {
-  border-top: 1px solid #efefef;
-  border-right: 1px solid #efefef;
-}
-
-.smart-wallet .smart-column-list > div:nth-child(even) {
-  border-top: 1px solid #efefef;
-}
-
-.smart-wallet .smart-column-list img {
-  display: inline-block;
-  vertical-align: top;
-}
-
-.smart-wallet .smart-column-list p {
-  display: inline-block;
-  vertical-align: top;
-  margin: 8px 0 0 0;
-  text-align: left;
-  color: #3c3c3c;
-  font-size: 14px;
-}
-
->>>>>>> 01c572475178d9ef8d73b1fb682b945ceb10fedb
 .smart-wallet .smart-column-list p em {
   display: block;
   text-align: left;

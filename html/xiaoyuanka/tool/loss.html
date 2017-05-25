@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+  <title>挂失补卡</title>
+
+  <!-- Bootstrap -->
+
+  <link href="../../../content/plug/bootstap/css/bootstrap.min.css" rel="stylesheet">
+
+  <link href="../../../content/custom/css/common.css" rel="stylesheet">
+  <link href="../../../content/custom/css/setting.css" rel="stylesheet">
+  <link href="../../../content/plug/jquery/toast/css/jquery.toast.css" rel="stylesheet">
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<style>
+  html,body{
+    background: #efefef;
+  }
+  .navbar{
+    background: #fff;
+  }
+
+</style>
+<body class="smart-loss first-start">
+  <nav class="navbar">
+    <div class="smart-header smart-white">
+      <a href="javascript:history.go(-1)" class="smart-back smart-icon-left">
+        <img src="../../../content/custom/img/back-2.png" alt="">
+      </a>
+      <h1>挂失补卡</h1>
+    </div>
+  </nav>
+  <div class="smart-content ">
+    <div class="smart-info">
+      <div class="smart-info-img">
+        <img src="../../../content/custom/img/head.jpg" alt="" class="smart-info-head">
+        <img src="../../../content/custom/img/man.png" alt="" class="smart-info-sex">
+      </div>
+      <div class="smart-info-name">
+        <h1>
+          <span>大馒头小咸菜</span>
+        </h1>
+        <p>校园卡号：1456456789645789</p>
+      </div>
+    </div>
+    <!-- 列表 -->
+    <div class="form-signin form-signin-fill">
+    <!-- border-bottom: 1px solid #efefef; -->
+      <ul class="smart-list smart-list-continue smart-list-space smart-list-title-icon">
+        <li class="smart-list-item">
+          <label for="inputPassword" class="sr-only"><img src="../../../content/custom/img/card-3.png" alt="">卡密码</label>
+          <input type="password" id="inputPassword" class="smart-input" placeholder="请输入6为数字密码" required maxlength="6">
+          <span class="glyphicon smart-icon-eye smart-icon-eye-hide"></span>
+        </li>
+      </ul>
+      <button class="smart-btn">确 认</button>
+
+
+        <div class="con-img">
+          <img src="../../../content/custom/img/ka/xyk-gs.png" />
+          <span>您的校园卡挂失成功，请您及时办新卡</span>
+        </div>
+        <div class="con-button">
+          <input id="btn" type="button" type="button" class="button log-btn con-btn" value="预约补卡" />
+        </div>  
+    </div>
+  </div>
+</body>
+<script type="text/javascript" src="../../../content/plug/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../content/plug/jquery/toast/js/jquery.toast.js"></script>
+<script type="text/javascript" src="../../../content/custom/js/common.js"></script>
+<script>
+  smartObj.tips("为显示效果，当前的逻辑是：当密码不足6位时，跳转到 “ 预约挂失 ” ！");
+  var setStatus;
+  $(".smart-btn").on("click",function(){
+    if($("input[type=password]").val().length == 6){
+      if(setStatus){
+        console.log(1);
+        smartObj.jump("ka-loss.html");
+      }else{
+        console.log(2);
+        $(".smart-list,.smart-btn").hide(0);
+        $(".con-img,.con-button").show(0);
+      }
+
+      setStatus = !setStatus;
+    }else if($("input[type=password]").val().length < 6){
+      smartObj.tips("密码不足6位！");
+      smartObj.jump("ka-loss.html");
+    }
+  })
+</script>
+</html>

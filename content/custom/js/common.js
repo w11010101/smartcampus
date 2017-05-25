@@ -88,8 +88,8 @@ $(function() {
             })
             // 隐藏筛选
         $(".smart-screen-mask").on("click", function() {
-        	$(".smart-popup").slideUp(200,function(){
-        		$(".smart-popup").remove();
+        	$(".smart-popup,.set-popup").slideUp(200,function(){
+        		$(".smart-popup,.set-popup").remove();
         	})
         	$(".smart-screen-mask").fadeOut(200);
         })
@@ -286,17 +286,12 @@ var smartObj = {
 	},
     // 更改支付方式
     pay_change: function() {
-<<<<<<< HEAD
-       
-=======
-        
->>>>>>> 01c572475178d9ef8d73b1fb682b945ceb10fedb
         smartObj.boxToggle( $(".smart-popup"),"hide");
         var html = [];
         // <i class="con-delete back-delete smart-pay-close"></i>
         html.push('<div class="layer-xyk smart-popup"><div class="con-header"><h1>更换付款方式</h1></div><div class="car-list">');
         var payArr = ["校园卡", "电子账户", "中国银行", "支付宝"];
-        var payImgArr = ["../../content/custom/img/wallet-2.png", "../../content/custom/img/wallet-1.png", "../../content/custom/img/BOC.png", "../../content/custom/img/zfb.png"];
+        var payImgArr = ["../../../content/custom/img/wallet-2.png", "../../../content/custom/img/wallet-1.png", "../../../content/custom/img/BOC.png", "../../../content/custom/img/zfb.png"];
         for (var i in payArr) {
             html.push('<div class="row has-feedback"><div class="col-xs-2"><img src="' + payImgArr[i] + '"></div><div class="col-xs-10">' + payArr[i] + '</div><span name="flag" class="glyphicon glyphicon-ok form-control-feedback"></span></div>');
         }
@@ -309,15 +304,9 @@ var smartObj = {
 			var listdom = $(".car-list .row");
 			$(this).addClass("active").siblings().removeClass("active");
 			smartObj.boxToggle($(this).parents(".smart-popup"),"hide");
-<<<<<<< HEAD
-            param.money = $(".smart-payment-box input").val();
-            smartObj.payInfo(param);
-            // $(".smart-screen-mask").fadeOut(200);
-			
-=======
+
             $(".smart-change label,.con-btn-cartyp span").text($(this).find(".col-xs-10").text());
             $(".smart-screen-mask").fadeOut(200);
->>>>>>> 01c572475178d9ef8d73b1fb682b945ceb10fedb
 		})
         // 添加默认选中
         // $(".has-feedback").eq(0).addClass('active');
@@ -336,7 +325,7 @@ var smartObj = {
         html.push('</ul><ol class="smart-keyboard-nums">');
         while (x < 12) {
             x++;
-            html.push('<li>' + (x == 10 ? "." : (x == 11 ? 0 : (x == 12 ? '<img src="../../content/custom/img/delet-number.png" alt="">' : x))) + '</li>'); //●
+            html.push('<li>' + (x == 10 ? "." : (x == 11 ? 0 : (x == 12 ? '<img src="../../../content/custom/img/delet-number.png" alt="">' : x))) + '</li>'); //●
         }
         html.push('</ol></div>');
         
@@ -371,18 +360,11 @@ var smartObj = {
         smartObj.boxClose();
     },
     payInfo: function(param) {
-
+        var val = $(".smart-change label,.con-btn-cartyp span").text();
         var html = '<div class="layer-zf smart-popup"><div class="con-header"><i class="con-delete back-delete smart-pay-close"></i><h1>确认付款</h1>\
 					</div><div class="con-number"><i>￥</i><span>' + param.money + '</span></div><div class="con-type">\
 					<form class="form-horizontal" role="form"><div class="form-group"><label class="col-sm-4 col-xs-4 control-label">缴费名称</label>\
 					<div class="col-sm-8 col-xs-8"><p class="form-control-static">支付通用模板</p></div>\
-<<<<<<< HEAD
-					</div><div class="form-group list-back"><label class="col-sm-4 col-xs-4 control-label">支付方式</label>\
-					<div class="col-sm-8 col-xs-8"><p id="zf_value" class="form-control-static" onclick="payChange()">支付方式通用模板</p>\
-=======
-					</div><div class="form-group"><label class="col-sm-4 col-xs-4 control-label">支付方式</label>\
-					<div class="col-sm-8 col-xs-8"><p id="zf_value" class="form-control-static" onclick="payChange()">'+$(".smart-change label,.con-btn-cartyp span").text()+'</p>\
->>>>>>> 01c572475178d9ef8d73b1fb682b945ceb10fedb
 					</div></div><div class="con-button"><input id="btn_jf" type="button" type="button" class="button log-btn con-btn" value="立即缴费" />\
 					</div></form></div></div>';
 
@@ -400,10 +382,8 @@ var smartObj = {
                     smartObj.tips("密码错误~！");
                 }
             });
-
         })
         smartObj.boxClose();
-
     },
     accountChange:function(arr){
         var html = [];
@@ -415,22 +395,15 @@ var smartObj = {
         html.push('</ul></div>');
 
         if ($("body").find(".smart-account-change").length == 0) {
-<<<<<<< HEAD
-             $("body").append(html.join(" "));
-=======
             $("body").append(html.join(" "));
->>>>>>> 01c572475178d9ef8d73b1fb682b945ceb10fedb
         }
         $(".smart-account-change").slideDown(200);
         $(".smart-screen-mask").fadeIn(200);
         $(".smart-account-change li").on("click",function(){
             $(this).addClass('smart-active').siblings().removeClass('smart-active');
             $(".set-change").text($(this).text());
-<<<<<<< HEAD
-=======
             smartObj.boxToggle($(this).parents(".smart-popup"),"hide");
             $(".smart-screen-mask").fadeOut(200);
->>>>>>> 01c572475178d9ef8d73b1fb682b945ceb10fedb
         })
     },
     boxClose: function() {

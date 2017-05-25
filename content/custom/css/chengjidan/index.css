@@ -1,0 +1,54 @@
+/* 成绩单 */
+.campus-CJ-info{
+	background: #73d2fe;
+	color:#fff;
+	text-align: center;
+	padding: 0 10px;
+	height: 75px;
+	line-height: 75px;
+	font-size: 14px;
+}
+.campus-CJ-table{
+	font-size: 12px;
+	background: #fff;
+	border:0;
+}
+.campus-CJ-table tr{
+	height: 50px;
+	/*overflow: hidden;*/
+}
+.campus-CJ-table thead{
+	padding:10px;
+	border:0;
+}
+.campus-CJ-table thead tr th{
+	font-weight: normal;
+	color:#6d6d6d;
+	border:0;
+	padding:0 15px;
+	height: 50px;
+	vertical-align: middle;
+	position: relative;
+}
+.campus-CJ-table tbody{
+}
+.campus-CJ-table tbody tr{
+}
+.campus-CJ-table tbody tr td{
+	vertical-align: middle;
+	color:#6d6d6d;
+	border:0;
+	padding:0 0 0 15px;
+	position: relative;
+}
+.campus-CJ-table tbody tr td:first-child{
+	white-space: pre-wrap;
+	color:#3c3c3c;
+}
+.campus-CJ-table tbody tr td:first-child:after{
+	left:15px;
+}
+.campus-CJ-table tbody tr td:nth-child(2){
+	white-space: pre-wrap;
+	color:#a8a8a8;
+}
