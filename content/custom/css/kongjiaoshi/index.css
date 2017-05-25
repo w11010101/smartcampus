@@ -1,0 +1,119 @@
+/* 空教室查询 */
+.campus-index-bg{
+	width: 100%
+}
+.campus-index .smart-list-card{
+	position: relative;
+	margin-top:-30px;
+	background: #fff;
+	
+}
+.smart-list-radius{
+	margin: 0 10px;
+	background: none;
+	border-radius: 5px;
+	overflow: hidden;
+	position: relative;
+}
+.smart-list:after{
+	height: 0
+}
+.smart-list-card .smart-list{
+	background: #fff;
+	border:0;
+}
+.smart-list-card .smart-list .smart-list-item{
+	padding: 0!important;
+	margin: 0 20px!important;
+	overflow: hidden;
+}
+.smart-list-card .smart-list .smart-list-item label{
+	color:#3c3c3c;
+}
+.smart-list-card .smart-list-item:after{
+	display: block;
+	margin:0 20px 0 30px;
+}
+.sr-only {
+    font-size: 16px;
+    width: 30%;
+    min-width: 60px;
+    max-width: 60px;
+    height: 100%;
+    position: static;
+    font-weight: normal;
+    vertical-align: middle;
+}
+.smart-list-end-icon{
+	right:20px;
+}
+.mart-list-layer-2{
+	display: inline-block;
+	vertical-align: middle;
+	padding-right: 10px;
+
+}
+.mart-list-layer-2 h3,.mart-list-layer-2 p{
+	margin: 0;
+	padding:0;
+	line-height: 16px;
+	text-align: left;
+}
+.mart-list-layer-2 h3{
+	font-size: 16px;
+	margin: 0 0 2px 0;
+	color:#3c3c3c;
+}
+
+.mart-list-layer-2 p{
+	font-size: 12px;
+	color:#a8a8a8;
+}
+.smart-list-end-icon .mart-list-layer-2  h3{
+	color:#8d8d8d;
+}
+.smart-list-end-icon h3,.smart-list-end-icon p{
+	text-align: right;
+}
+.smart-list-end-icon:after{
+	content: " ";
+	background: url(../../img/continue-1.png) no-repeat center;
+	position: absolute;
+	width: 26px;
+	height:26px;
+	top:50%;
+	right: -21px;
+	margin-top: -13px;
+	transform: rotateX(0deg);
+	-webkit-transform: rotateX(0deg);
+	transition: transform .2s ease-in,background .1s ease-in;
+	-webkit-transition: transform .2s ease-in,background .1s ease-in;
+}
+.campus-index-screen-title{
+	padding:0 10px;
+}
+.campus-index .smart-subtitle-h1{
+	background: none;
+	display: inline-block;
+	padding-left: 10px;
+}
+.campus-index-screen{
+	overflow: hidden;
+}
+.campus-index-screen .smart-list-item:not(:last-child):after{
+	left:20px!important;
+}
+.campus-index-screen .campus-index-screen-label{
+	max-width:68px;
+	font-size: 12px;
+	color:#73d2fe;
+	border:1px solid #73d2fe;
+	border-radius: 3px;
+	padding: 1px 3px;
+	white-space:nowrap;
+	overflow:hidden; 
+	text-overflow:ellipsis;
+	float:right;
+	margin-top:10px;
+	margin-left:5px;
+}

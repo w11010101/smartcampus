@@ -1,0 +1,255 @@
+html,body{
+	overflow-x: hidden;
+	overflow-y: scroll;
+}
+.navbar{
+	position:fixed;
+	z-index: 10
+}
+.smart-header,.smart-header a{
+	color:#000!important;
+}
+.smart-content{
+	padding-top: 45px;
+}
+.smart-search{
+	height: 55px;
+	margin:0;
+	border:0;
+	padding:10px 15px;
+	background: #fff;
+	border-radius: 0;
+	transition: height .2s ease-in-out;
+	-webkit-transition: height .2s ease-in-out;
+}
+.smart-search input{
+	border: 1px solid #a8a8a8;
+    border-radius: 5px;
+    height: 35px;
+}
+.smart-search button{
+	font-size: 16px;
+	margin: -31px 10px 0 0;
+}
+.smart-accordion-head{
+	color:#8d8d8d;
+	font-size: 14px
+}
+.smart-accordion-head em{
+	float:right;
+	min-width: 20px;
+	height: 40px;
+	padding-right:26px;
+	line-height: 40px;
+	font-size: 0;
+	color:#515151;
+	position: relative;
+}
+
+.smart-accordion-head em:after{
+	content:" ";
+	position: absolute;
+	width: 25px;
+	height:100%;
+	background: url(../../img/yingyongdating/accordion-3x.png) no-repeat right center ;
+	background-size: 25px;
+	transform: rotateZ(0deg);
+	-webkit-transform: rotateZ(0deg);
+	transition: transform .2s ease-in;
+	-webkit-transition: transform .2s ease-in;
+}
+.panel{
+	box-shadow:none;
+}
+.panel-group{
+	margin-top: 20px;
+}
+.panel-group .panel{
+	border:none;
+}
+.panel-default,.layer,.box{
+	position: relative;
+	padding: 5px 0;
+	background: #fff;
+}
+.panel-default:after,.layer:after,.box:after{
+	content:" ";
+	height: 1px;
+	background: #e0e0e0;
+	position: absolute;
+	width: 100%;
+	bottom: 0;
+	left:15px;
+	transform: rotateX(60deg);
+    -webkit-transform: rotateX(60deg);
+}
+
+.panel-default>.panel-heading{
+	border:none;
+	background: #fff;
+	padding:10px 0 ;
+}
+.panel-group .panel-heading+.panel-collapse>.list-group, .panel-group .panel-heading+.panel-collapse>.panel-body{
+	border:none;
+}
+.panel-body{
+	padding: 0
+}
+.advanced-box{
+	
+	position: relative;
+	z-index: 2;
+	top:0;
+	transition: top .2s ease-in-out;
+	-webkit-transition: top .2s ease-in-out;
+}
+.tool-box{
+	/*background: #fff;*/
+	position: absolute;
+	width: 100%;
+	top:0;
+	transition: top .2s ease-in-out;
+	-webkit-transition: top .2s ease-in-out;
+}
+.smart-accordion-head{
+	height: 40px;
+	line-height: 40px;
+	padding:0 15px;
+}
+.advanced-box ul,.tool-box ul{
+	font-size:0;
+	padding: 0 15px;
+	margin: 0;
+}
+.advanced-box ul li,.tool-box ul li{
+	display: inline-block;
+	font-size: 12px;
+	width: 22%;
+	padding-bottom: 22%;
+	text-align: center;
+	margin:1.5%;
+	position: relative;
+}
+.advanced-box ul li span,.tool-box ul li span{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top:0;
+	left:0;
+}
+.advanced-box ul li img,.tool-box ul li img{
+	display: block;
+	width: 40%;
+	margin:10px auto 5px;
+}
+/*#advanced{
+	margin:0;
+	transition: margin .2s ease-in-out;
+	-webkit-transition: margin .2s ease-in-out;
+}*/
+
+/*编辑应用*/
+.campus-active{
+
+}
+.campus-active .smart-search{
+	height: 55px;
+}
+.campus-active #box-1 .smart-accordion-head em{
+	font-size: 14px;
+}
+.smart-accordion-head.smart-active em:after{
+	transform: rotateZ(180deg);
+	-webkit-transform: rotateZ(180deg);
+}
+
+.campus-active .advanced-box{
+	box-shadow: 0px 5px 5px #a8a8a8;
+	top:-55px;
+}
+.campus-active #wrapper {
+	position: absolute;
+	z-index: 1;
+	
+	bottom: 0px;
+	left: 0;
+	width: 100%;
+	overflow: hidden;
+}
+
+.campus-active #scroller {
+	position: absolute;
+	z-index: 1;
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+	width: 100%;
+	-webkit-transform: translateZ(0);
+	-moz-transform: translateZ(0);
+	-ms-transform: translateZ(0);
+	-o-transform: translateZ(0);
+	transform: translateZ(0);
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	-webkit-text-size-adjust: none;
+	-moz-text-size-adjust: none;
+	-ms-text-size-adjust: none;
+	-o-text-size-adjust: none;
+	text-size-adjust: none;
+}
+.campus-active .tool-box{
+}
+.campus-active #advanced{
+	/*margin:-55px 0 0 0 ;*/
+	/*position: relative;
+	width: 100%;
+	background:#fff;
+	z-index: 1;
+	top:45px;*/
+	
+}
+.campus-active #advanced .box{
+	/*padding: 0;*/
+}
+.campus-active .advanced {
+
+}
+.campus-active .advanced li{
+	background: #f7f7f7;
+}
+.campus-active .advanced li .smart-sortable-icon{
+	content:" ";
+	position: absolute;
+	width: 20px;
+	height: 20px;
+	top:0;
+	right:0;
+	z-index: 1;
+}
+.campus-active .advanced li.smart-sortable-add .smart-sortable-icon{
+	background:url(../../img/yingyongdating/add-3x.png) no-repeat;
+	background-size:contain; 
+}
+
+.campus-active .advanced li.smart-sortable-remove .smart-sortable-icon{
+	background:url(../../img/yingyongdating/remove-3x.png) no-repeat;
+	background-size:contain; 
+}
+
+.campus-active .advanced li.smart-sortable-select .smart-sortable-icon{
+	background:url(../../img/yingyongdating/select-3x.png) no-repeat;
+	background-size:contain; 
+}
+
+
+
+
+
+
+
+
+
+
+
+

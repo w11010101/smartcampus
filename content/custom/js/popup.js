@@ -47,11 +47,13 @@ var campus = function(){
 		});
 		this.togglePopup("show");
 	};
+	// 获取html结构
 	this.getHtml = function(type,callback){
+		var mask = '<div class="popup-mask"></div>';
 		switch (type){
 			case "keyboard":
 				// 键盘
-				$("body").append(this.keyboard()+'<div class="popup-mask"></div>');
+				$("body").append(this.keyboard()+mask);
 				this.keyboardEvent(function(e){
 					callback(e);
 				});
@@ -64,11 +66,15 @@ var campus = function(){
 			break;
 			case "select":
 				// 单选列表
+				$("body").append(this.selects()+mask);
+				this.selectsEvent(function(e){
+					callback(e);
+				})
 			break;
 		}
 		this.boxClose();
 	}
-	//
+	// 键盘html结构
 	this.keyboard=function() {
         var html = [];
         html.push('<div class="popup-keyboard popup-box"><div class="popup-keyboard-head"><a class="smart-pay-close"></a><h1>请输入支付密码</h1></div><ul class="popup-password-box">');
@@ -86,7 +92,7 @@ var campus = function(){
         
         return html.join("");
     }
-
+    // 键盘点击事件
     this.keyboardEvent = function(callback){
     	var val = [];
 		$(".popup-keyboard-nums li").on("click", function() {
@@ -110,8 +116,33 @@ var campus = function(){
                 }
             }
         })
-    }
-    // 
+    };
+    // 单选html结构
+    this.selects = function(arr,callback){
+		html.push('<div class="camput-popup smart-popup"><ul>');
+		for(var i in arr){
+			var val = typeof arr[i] == "string"?arr[i]:arr[i].name;
+			var key = typeof arr[i] == "string"?arr[i]:arr[i].key;
+            html.push('<li key="'+key+'">'+val+'</li>');
+        }
+        html.push('</ul></div><div class="smart-screen-mask"></div>');
+        return html.join("");
+	};
+	// 单选点击事件
+	this.selectsEvent = function(callback){
+		$(".smart-popup li").on("click",function(){
+            $(this).addClass('smart-active').siblings().removeClass('smart-active');
+            that.togglePopup("hide");
+            obj = {
+            	key:$(this).attr("key"),
+            	name:$(this).text()
+            }
+            callback(obj);
+        })
+	}
+	
+	// 隐藏弹窗
+    // 关闭
     this.boxClose = function() {
         $(".smart-pay-close").on("click", function() {
         	$(this).parents(".popup-box").remove();
