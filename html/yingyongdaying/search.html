@@ -1,0 +1,150 @@
+<div>
+  <!DOCTYPE html>
+  <html lang="zh-CN">
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>搜索</title>
+
+    <!-- Bootstrap -->
+
+    <link href="../../content/plug/bootstap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- <link href="../../content/plug/jquery/ui/css/jquery-ui.min.css" rel="stylesheet"> -->
+    <link href="../../content/plug/sortable/css/sortable.css" rel="stylesheet">
+
+    <link href="../../content/custom/css/common/common.css" rel="stylesheet">
+    <link href="../../content/custom/css/yingyongdating/index.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elkements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+      <![endif]-->
+  </head>
+
+  <body class="campus-search">
+    <nav class="navbar">
+      <div class="smart-header smart-white">
+        <a class="smart-back smart-icon-left" href="javascript.history.go(-1)">
+          <img src="../../content/custom/img/back-2.png" alt="">
+        </a>
+        <h1>
+          <input type="" name="" placeholder="查询应用">
+        </h1>
+        <a class="smart-cancel smart-icon-right">
+          取消
+        </a>
+      </div>
+    </nav>
+    <div class="smart-content">
+      <div class="smart-search-ass">
+        <h2>热门应用</h2>
+        <span>换一换</span>
+      </div>
+      <!-- 热门应用 -->
+      <div class="smart-hot-box">
+        <ul>
+          <li>
+            <a>
+              <img src="../../content/custom/img/yingyongdating/keyu/icon-2-3x.png" alt="">
+              <span>百团争艺</span>
+            </a>
+          </li>
+          <li>
+            <a>
+              <img src="../../content/custom/img/yingyongdating/zhushou/icon-1-3x.png" alt="">
+              <span>校园简介</span>
+            </a>
+          </li>
+          <li>
+            <a>
+              <img src="../../content/custom/img/yingyongdating/xuesheng/icon-3-3x.png" alt="">
+              <span>在线学习</span>
+            </a>
+          </li>
+          <li>
+            <a>
+              <img src="../../content/custom/img/yingyongdating/xiaowu/icon-3-3x.png" alt="">
+              <span>密码管理</span>
+            </a>
+          </li>
+          <li>
+            <a>
+              <img src="../../content/custom/img/yingyongdating/zhushou/icon-4-3x.png" alt="">
+              <span>预定查询</span>
+            </a>
+          </li>
+          <li>
+            <a>
+              <img src="../../content/custom/img/yingyongdating/xuesheng/icon-4-3x.png" alt="">
+              <span>上课签到</span>
+            </a>
+          </li>
+          <li>
+            <a>
+              <img src="../../content/custom/img/yingyongdating/keyu/icon-1-3x.png" alt="">
+              <span>校园社区</span>
+            </a>
+          </li>
+          <li>
+            <a>
+              <img src="../../content/custom/img/yingyongdating/jiaoshi/icon-2-3x.png" alt="">
+              <span>学期课表</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!-- 搜索列表 -->
+    <div class="smart-search-list">
+      <ul class="smart-sub-list">
+        <li class="smart-sub-list-item">
+          <img src="../../content/custom/img/yingyongdating/keyu/icon-2-3x.png" alt="">
+          <span>百团争艺</span>
+        </li>
+        <li class="smart-sub-list-item">
+          <img src="../../content/custom/img/yingyongdating/xuesheng/icon-4-3x.png" alt="">
+          <span>上课签到</span>
+        </li>
+        <li class="smart-sub-list-item">
+          <img src="../../content/custom/img/yingyongdating/xuesheng/icon-3-3x.png" alt="">
+          <span>在线学习</span>
+        </li>
+        <li class="smart-sub-list-item">
+          <img src="../../content/custom/img/yingyongdating/xuesheng/icon-4-3x.png" alt="">
+          <span>上课签到</span>
+        </li>
+      </ul>
+    </div>
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="../../content/plug/jquery/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="../../content/plug/bootstap/js/bootstrap.min.js"></script>
+    <script src="../../content/plug/bootstap/js/bootstrap.min.js"></script>
+    <!-- <script src="../../content/plug/jquery/tab/js/iscroll.js"></script> -->
+    <!-- <script src="../../content/plug/sortable/Sortable.min.js"></script> -->
+    <!-- <script src="../../content/custom/js/yingyongdating/index.js"></script> -->
+    <script type="text/javascript">
+    $(".smart-header input").on("keyup", function() {
+      $(".smart-cancel").text("搜索").removeClass("smart-cancel").addClass("smart-search-btn");
+      // 搜索事件
+      $(".smart-search-btn").off().on("click",function(){
+        $(".smart-hot-box").fadeOut(0);
+        $(".smart-search-list").fadeIn(200);
+      })
+    });
+    $(".smart-search-ass").off().on("click",function(){
+      $(".smart-search-list").fadeOut(0);
+      $(".smart-hot-box").fadeIn(200);
+    })
+    </script>
+  </body>
+
+  </html>
+</div>

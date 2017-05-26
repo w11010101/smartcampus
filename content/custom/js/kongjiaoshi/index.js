@@ -61,7 +61,6 @@ $(".smart-list-item div[set-type]").on("click", function () {
       })
     }
     break;
-
   }
 
   campus.popup(newArr, function (data) {

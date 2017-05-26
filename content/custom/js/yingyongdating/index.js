@@ -22,17 +22,6 @@ var app = function () {
       var that = Sortable.create(this.byId('advanced-1'));
       return that;
     }
-    // 切换应用状态
-  this.sortableStatus = function (getStatus) {
-      switch (getStatus) {
-      case "show":
-
-        break;
-      case "hide":
-
-        break;
-      }
-    }
     // 默认行为
   this.setDefault = function (e) {
     e.preventDefault();
@@ -63,8 +52,24 @@ var app = function () {
     }
     // 设置top
   this.getTop = function (type) {
-    return $("#box-1")[0].clientHeight + $(".smart-search")[0].clientHeight + 45;
+    return $("#advanced")[0].clientHeight + $(".smart-search")[0].clientHeight + 45;
     // return $("#box-1")[0].clientHeight + (!type?$(".smart-search")[0].clientHeight:0) + 45;
+  }
+  // scorllTop
+  this.scrollTo = function(){
+    $("#advanced-1").scrollTop($("#advanced-1")[0].scrollHeight);
+  }
+  // 重置iscroll
+  this.refresh = function(type){
+
+    $(".tool-box").css("top",this.getTop());
+    type && true;
+    if(type){
+      setTimeout(function(){
+        console.log(1);
+        that.myScroll.refresh();
+      },500);
+    }
   }
 }
 var app = new app();

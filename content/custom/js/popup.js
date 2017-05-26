@@ -1,7 +1,7 @@
 // 校园卡对象
 var campus = function(){
 	// var html = [];
-	// var this = this;
+	var that = this;
 	// var obj = {};
 	// 弹窗层
 	// this.popup = function(arr,callback){
@@ -42,15 +42,15 @@ var campus = function(){
 	};
 	// 弹窗
 	this.popup = function(option,callback){
-		var dom = this.getHtml(option.type,function(e){
+		var dom = this.getHtml(option,function(e){
 			callback(e);
 		});
 		this.togglePopup("show");
 	};
 	// 获取html结构
-	this.getHtml = function(type,callback){
+	this.getHtml = function(option,callback){
 		var mask = '<div class="popup-mask"></div>';
-		switch (type){
+		switch (option.type){
 			case "keyboard":
 				// 键盘
 				$("body").append(this.keyboard()+mask);
@@ -63,10 +63,12 @@ var campus = function(){
 			break;
 			case "change":
 				// 更换支付方式
+				$("body").append(this.change(option.value)+mask);
+
 			break;
 			case "select":
 				// 单选列表
-				$("body").append(this.selects()+mask);
+				$("body").append(this.selects(option.value)+mask);
 				this.selectsEvent(function(e){
 					callback(e);
 				})
@@ -118,29 +120,62 @@ var campus = function(){
         })
     };
     // 单选html结构
-    this.selects = function(arr,callback){
-		html.push('<div class="camput-popup smart-popup"><ul>');
+    this.selects = function(arr){
+    	var html = [];
+		html.push('<div class="popup-select popup-box"><ul>');
 		for(var i in arr){
 			var val = typeof arr[i] == "string"?arr[i]:arr[i].name;
 			var key = typeof arr[i] == "string"?arr[i]:arr[i].key;
-            html.push('<li key="'+key+'">'+val+'</li>');
+            html.push('<li key="'+key+'" >'+val+'</li>');
         }
-        html.push('</ul></div><div class="smart-screen-mask"></div>');
+        html.push('</ul></div>');
         return html.join("");
 	};
 	// 单选点击事件
 	this.selectsEvent = function(callback){
-		$(".smart-popup li").on("click",function(){
-            $(this).addClass('smart-active').siblings().removeClass('smart-active');
-            that.togglePopup("hide");
-            obj = {
-            	key:$(this).attr("key"),
-            	name:$(this).text()
-            }
-            callback(obj);
+		$(".popup-box li").on("click",function(){
+			// console.log(this);
+			var obj = this;
+            $(this).addClass('popup-active').siblings().removeClass('popup-active');
+            setTimeout(function(){
+				that.togglePopup("hide");
+				var data = {
+	            	key:$(obj).attr("key"),
+	            	name:$(obj).text()
+	            }
+	            callback(data);
+            },200);            
         })
 	}
-	
+	// 更改支付方式 change
+	this.change = function(arr){
+		// 判断对应图标
+		var imgArr = [];
+		var img = "";
+		for(var i in arr){
+			switch (arr[i]){
+				case "校园卡":
+					img = "../../custom/img/card.png";
+				break;
+				case "电子账户":
+					img = "../../custom/img/wallet-2.png";
+				break;
+				case "中国银行":
+					img = "../../custom/img/BOC.png";
+				break;
+				case "支付宝":
+					img = "../../custom/img/zfb.png";
+				break;
+
+			}
+			imgArr.push(img);
+		}
+		console.log(imgArr);
+
+	};
+	this.changeEvent = function(){
+
+	};
 	// 隐藏弹窗
     // 关闭
     this.boxClose = function() {
@@ -151,7 +186,7 @@ var campus = function(){
     }
     // 
     this.tips = function(val){
-    	// if($(".jq-toast-wrap").length == 0){
+    	if($(".jq-toast-wrap").length <= 0){
 	    	$.toast({
 	            text: val,
 	            allowToastClose: false, // Boolean value true or false
@@ -160,7 +195,7 @@ var campus = function(){
 	            textAlign: 'center',
 	            loader: false
 	        });
-        // }
+        }
     }
 }
 var campus = new campus();

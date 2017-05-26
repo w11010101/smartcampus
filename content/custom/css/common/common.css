@@ -87,7 +87,7 @@ color: #a8a8a8;
 	font-size: 16px;
 	line-height: 45px;
 }
-.smart-header .smart-cancel,.smart-header .smart-screen,.smart-header .smart-edit{
+.smart-header .smart-cancel,.smart-header .smart-screen,.smart-header .smart-edit,.smart-header .smart-search-btn{
 	color:#a8a8a8;
 	font-size: 15px;
 	position: absolute;
@@ -102,12 +102,14 @@ color: #a8a8a8;
 }
 .smart-cancel.smart-icon-left,
 .smart-screen.smart-icon-left,
-.smart-edit.smart-icon-left{
+.smart-edit.smart-icon-left,
+.smart-search-btn.smart-icon-left{
 	text-align: right;
 }
 .smart-cancel.smart-icon-right,
 .smart-screen.smart-icon-right,
-.smart-edit.smart-icon-right{
+.smart-edit.smart-icon-right,
+.smart-search-btn.smart-icon-right{
 	text-align: left;
 }
 .smart-header.smart-white{

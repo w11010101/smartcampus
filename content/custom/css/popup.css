@@ -1,3 +1,4 @@
+
 .popup-mask{
 	display: none;
  	position: fixed;
@@ -8,8 +9,24 @@
  	left:0;
  	background: rgba(0,0,0,.6);
 }
+/* 边框 */
+.popup-box.popup-select li{
+	position: relative;
+}
+.popup-box.popup-select li:after{
+	content: " ";
+	position: absolute;
+	height: 1px;
+	width: 100%;
+	left:0;
+	background: #e0e0e0;
+	
+}
+.popup-box.popup-select li:after{
+	top:0;
+}
 /* 键盘 */
-.popup-keyboard{
+.popup-box{
 	padding: 0;
 	margin: 0;
 	background: #fff; 
@@ -20,6 +37,11 @@
 	text-align: center;
 	display: none
 }
+.popup-box ul{
+	padding:0;
+	margin: 0;
+}
+
 .popup-keyboard .popup-keyboard-head{
 	height: 40px;
 	line-height: 40px;
@@ -106,4 +128,24 @@
 }
 .popup-keyboard-nums li.popup-active:active{
 	background: #efefef;
+}
+/* 单选列表 */
+.popup-box ul.popup-select{
+
+}
+.popup-box.popup-select li{
+	height: 40px;
+	line-height: 40px;
+	font-size:14px;
+	/*margin:0 30px;*/
+	padding:0 60px;
+	white-space:nowrap; 
+	overflow:hidden; 
+	text-overflow:ellipsis;
+
+}
+.popup-box.popup-select li.popup-active{
+	background: url(../img/sure.png) no-repeat right 25px center;
+	
+
 }

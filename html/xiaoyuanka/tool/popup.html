@@ -40,7 +40,7 @@
 // 键盘
 $('.keyboard').on("click", function() {
     var option = {
-        type:"keyboard"
+        type:$(this).attr("popupType")
     }
     campus.popup(option,function(data){
         console.log(data);
@@ -53,32 +53,27 @@ $('.keyboard').on("click", function() {
 })
 // 单选
 $('.select').on("click", function(data) {
-    console.log(data);
+    var option = {
+        type:$(this).attr("popupType"),
+        value:["卡1","卡2","卡3","卡4"]
+    }
+    campus.popup(option,function(data){
+        console.log(data);
+    });
+})
+// 更改支付方式
+$('.change').on("click", function(data) {
+    var option = {
+        type:$(this).attr("popupType"),
+        value:["校园卡", "电子账户", "中国银行", "支付宝"]
+    }
+    campus.popup(option,function(data){
+        console.log(data);
+    });
 })
 
 
-// var Person = function(){
-//     var that = {};
-//     that.abc = function(){
-//         alert(10);
-//     }
-//     that.abcefafa = function(){
-//     }
-//     return that;
-// }
-// var p = Person();
 
-// var Teacher = function(){
-//     var that = Person();
-//     // var ABC = that.abc;
-//     that.abc = function(){
-//         // ABC.call(that);
-//         alert(123);
-//     }
-//     return that;
-// }
-// var t = Teacher();
-// t.abc();
 </script>
 
 </html>
