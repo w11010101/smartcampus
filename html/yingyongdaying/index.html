@@ -274,7 +274,11 @@
         app.scrollStart();
         // 添加删减图片 
         app.sortableStatus("show");
-        $(".tool-box").css("top",app.getTop(1));
+        // 展开所有隐藏的板块
+        $(".advanced").slideDown(200,function(){
+          $(".tool-box").css("top",app.getTop());
+        });
+
       }() : function() {
         // 销毁拖动
         sortableObjArr.destroy();
@@ -283,8 +287,6 @@
         app.myScroll.destroy();
 
         $(".tool-box").css("top",app.getTop());
-
-
         document.removeEventListener('touchmove', app.setDefault, false);
       }()
   
@@ -292,6 +294,14 @@
       setStart = !setStart;
     });
     // 折叠
+    function eachFold(){
+      $.each($(".smart-accordion-head"),function(i,e){
+        if($(e).next().length){
+          $(e).addClass("smart-active");
+        }
+      })
+    }
+    eachFold();
     $.each($(".smart-accordion-head"),function(i,e){
       if($(e).next().length){
         $(e).addClass("smart-active");
@@ -300,11 +310,8 @@
     $(".smart-accordion-head").on("click",function(){
       // slideToggle
       // fadeToggle
-      
       $(this).toggleClass("smart-active").next($(".advanced")).slideToggle(200,function(){
-        console.log(app.getTop())
         $(".tool-box").css("top",app.getTop());
-
       });
     })
     
