@@ -286,7 +286,6 @@ var smartObj = {
 	},
     // 更改支付方式
     pay_change: function() {
-        
         smartObj.boxToggle( $(".smart-popup"),"hide");
         var html = [];
         // <i class="con-delete back-delete smart-pay-close"></i>
@@ -305,6 +304,7 @@ var smartObj = {
 			var listdom = $(".car-list .row");
 			$(this).addClass("active").siblings().removeClass("active");
 			smartObj.boxToggle($(this).parents(".smart-popup"),"hide");
+
             $(".smart-change label,.con-btn-cartyp span").text($(this).find(".col-xs-10").text());
             $(".smart-screen-mask").fadeOut(200);
 		})
@@ -365,8 +365,6 @@ var smartObj = {
 					</div><div class="con-number"><i>￥</i><span>' + param.money + '</span></div><div class="con-type">\
 					<form class="form-horizontal" role="form"><div class="form-group"><label class="col-sm-4 col-xs-4 control-label">缴费名称</label>\
 					<div class="col-sm-8 col-xs-8"><p class="form-control-static">支付通用模板</p></div>\
-					</div><div class="form-group"><label class="col-sm-4 col-xs-4 control-label">支付方式</label>\
-					<div class="col-sm-8 col-xs-8"><p id="zf_value" class="form-control-static" onclick="payChange()">'+(val == ""?"更换支付方式":val)+'</p>\
 					</div></div><div class="con-button"><input id="btn_jf" type="button" type="button" class="button log-btn con-btn" value="立即缴费" />\
 					</div></form></div></div>';
 
