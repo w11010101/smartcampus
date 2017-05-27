@@ -362,11 +362,13 @@ var smartObj = {
     payInfo: function(param) {
         var val = $(".smart-change label,.con-btn-cartyp span").text();
         var html = '<div class="layer-zf smart-popup"><div class="con-header"><i class="con-delete back-delete smart-pay-close"></i><h1>确认付款</h1>\
-					</div><div class="con-number"><i>￥</i><span>' + param.money + '</span></div><div class="con-type">\
-					<form class="form-horizontal" role="form"><div class="form-group"><label class="col-sm-4 col-xs-4 control-label">缴费名称</label>\
-					<div class="col-sm-8 col-xs-8"><p class="form-control-static">支付通用模板</p></div>\
-					</div></div><div class="con-button"><input id="btn_jf" type="button" type="button" class="button log-btn con-btn" value="立即缴费" />\
-					</div></form></div></div>';
+                    </div><div class="con-number"><i>￥</i><span>' + param.money + '</span></div><div class="con-type">\
+                    <form class="form-horizontal" role="form"><div class="form-group"><label class="col-sm-4 col-xs-4 control-label">缴费名称</label>\
+                    <div class="col-sm-8 col-xs-8"><p class="form-control-static">支付通用模板</p></div>\
+                    </div><div class="form-group"><label class="col-sm-4 col-xs-4 control-label">支付方式</label>\
+                    <div class="col-sm-8 col-xs-8"><p id="zf_value" class="form-control-static" onclick="payChange()">'+(val == ""?"更换支付方式":val)+'</p>\
+                    </div></div><div class="con-button"><input id="btn_jf" type="button" type="button" class="button log-btn con-btn" value="立即缴费" />\
+                    </div></form></div></div>';
 
 		if ($("body").find(".layer-zf").length == 0) {
             $("body").append(html);

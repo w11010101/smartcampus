@@ -34,41 +34,58 @@ var campus = function(){
         	});
         	html = [];
 		}else{
+			console.log(type)
 			$(".popup-box").slideDown(200);
         	$(".popup-mask").fadeIn(200).off().on("click",function(){
 				campus.togglePopup("hide");
 			});
 		}
 	};
+	// 绑定事件
+	
+	this.on = function(){
+		console.log(this);
+	}
+
 	// 弹窗
 	this.popup = function(option,callback){
 		var dom = this.getHtml(option,function(e){
 			callback(e);
+			console.log(this)
+			this.togglePopup("show");
 		});
-		this.togglePopup("show");
+		
 	};
 	// 获取html结构
 	this.getHtml = function(option,callback){
+		// 遮罩层
 		var mask = '<div class="popup-mask"></div>';
 		switch (option.type){
 			case "keyboard":
 				// 键盘
 				$("body").append(this.keyboard()+mask);
-				this.keyboardEvent(function(e){
-					callback(e);
-				});
+				// this.keyboardEvent(function(e){
+				// 	callback(e);
+				// });
+				
+				console.log($(".popup-mask").fadeIn(120));
 			break;
 			case "info":
 				// 支付信息
+				$("body").append(this.info(option)+mask);
+
 			break;
 			case "change":
 				// 更换支付方式
-				$("body").append(this.change(option.value)+mask);
-
+				$("body").append(this.change(option)+mask);
+				this.selectsEvent(function(e){
+					callback(e);
+				})
 			break;
 			case "select":
 				// 单选列表
-				$("body").append(this.selects(option.value)+mask);
+				$("body").append(this.selects(option)+mask);
+				// 和选择一样
 				this.selectsEvent(function(e){
 					callback(e);
 				})
@@ -79,7 +96,7 @@ var campus = function(){
 	// 键盘html结构
 	this.keyboard=function() {
         var html = [];
-        html.push('<div class="popup-keyboard popup-box"><div class="popup-keyboard-head"><a class="smart-pay-close"></a><h1>请输入支付密码</h1></div><ul class="popup-password-box">');
+        html.push('<div class="popup-keyboard popup-box"><div class="popup-head"><a class="smart-pay-close"></a><h1>请输入支付密码</h1></div><ul class="popup-password-box">');
         var x = i = 0;
         while (i < 6) {
             html.push('<li></li>'); //●
@@ -120,9 +137,11 @@ var campus = function(){
         })
     };
     // 单选html结构
-    this.selects = function(arr){
+    this.selects = function(option){
     	var html = [];
-		html.push('<div class="popup-select popup-box"><ul>');
+    	var title = this.title(option);
+		html.push('<div class="popup-select popup-box">'+title+'<ul>');
+		var arr = option.value;
 		for(var i in arr){
 			var val = typeof arr[i] == "string"?arr[i]:arr[i].name;
 			var key = typeof arr[i] == "string"?arr[i]:arr[i].key;
@@ -134,7 +153,6 @@ var campus = function(){
 	// 单选点击事件
 	this.selectsEvent = function(callback){
 		$(".popup-box li").on("click",function(){
-			// console.log(this);
 			var obj = this;
             $(this).addClass('popup-active').siblings().removeClass('popup-active');
             setTimeout(function(){
@@ -148,41 +166,67 @@ var campus = function(){
         })
 	}
 	// 更改支付方式 change
-	this.change = function(arr){
+	this.change = function(option){
 		// 判断对应图标
 		var imgArr = [];
 		var img = "";
+		var html = [];
+		var arr = option.value;
 		for(var i in arr){
 			switch (arr[i]){
 				case "校园卡":
-					img = "../../custom/img/card.png";
+					img = "../../../content/custom/img/card.png";
 				break;
 				case "电子账户":
-					img = "../../custom/img/wallet-2.png";
+					img = "../../../content/custom/img/wallet-2.png";
 				break;
 				case "中国银行":
-					img = "../../custom/img/BOC.png";
+					img = "../../../content/custom/img/BOC.png";
 				break;
 				case "支付宝":
-					img = "../../custom/img/zfb.png";
+					img = "../../../content/custom/img/zfb.png";
 				break;
-
 			}
 			imgArr.push(img);
 		}
-		console.log(imgArr);
 
-	};
-	this.changeEvent = function(){
+		var title = this.title(option);
 
+		html.push('<div class="popup-change popup-box">'+title+'<ul>');
+		for(var i in arr){
+			html.push('<li pay-type="'+option.payType+'"><img src="'+imgArr[i]+'" alt="">'+arr[i]+'</li>');
+		}
+		html.push('</ul></div>');
+        return html.join("");
 	};
-	// 隐藏弹窗
+	// 支付信息
+	this.info = function(option){
+		var html = [];
+		var title = this.title(option);
+		html.push('<div class="popup-info popup-box">'+title+'<ul>');
+		html.push('<div class="popup-info-pay">'+123123+'</div>');
+
+		html.push('</div>');
+        return html.join("");
+
+	}
     // 关闭
     this.boxClose = function() {
         $(".smart-pay-close").on("click", function() {
         	$(this).parents(".popup-box").remove();
         	$(".popup-mask").fadeOut(200);
         })
+    }
+    // 添加标题
+    this.title = function(option){
+    	if(!option["title"]) return " ";
+    	if(option["title"].trim().length){
+			console.log("有");
+			return '<div class="popup-head"><a class="smart-pay-close"></a><h1>'+option.title+'</h1></div>';
+		}else{
+			console.log("没有");
+			return;
+		}
     }
     // 
     this.tips = function(val){

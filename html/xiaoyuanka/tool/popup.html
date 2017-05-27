@@ -21,7 +21,7 @@
     <![endif]-->
 </head>
 <style>
-.popup-keyboard{
+.popup-keyboard {
     display: block
 }
 </style>
@@ -31,49 +31,65 @@
     <button class="info" popupType="info">支付信息</button>
     <button class="change" popupType="change">更换支付方式</button>
     <button class="select" popupType="select">选择</button>
+
+
+
 </body>
-<script type="text/javascript" src="../../../content/plug/jquery/jquery.min.js"></script>
+<!-- <script type="text/javascript" src="../../../content/plug/jquery/jquery.min.js"></script> -->
+<!-- <script type="text/javascript" src="../../../content/plug/jquery/jquery-3.2.1.min.js"></script> -->
+<script type="text/javascript" src="../../../content/plug/jquery/jquery.3.0.min.js"></script>
 <script type="text/javascript" src="../../../content/custom/js/popup.js"></script>
-<script type="text/javascript" src="../../../content/custom/js/common.js"></script>
-<script type="text/javascript" src="../../../content/plug/jquery/toast/js/jquery.toast.js"></script>
+<!-- <script type="text/javascript" src="../../../content/custom/js/common.js"></script> -->
+<!-- <script type="text/javascript" src="../../../content/plug/jquery/toast/js/jquery.toast.js"></script> -->
 <script type="text/javascript">
 // 键盘
 $('.keyboard').on("click", function() {
-    var option = {
-        type:$(this).attr("popupType")
-    }
-    campus.popup(option,function(data){
-        console.log(data);
-        if (data.password == "000000") {
-            campus.tips("密码正确~！");
-        } else {
-            campus.tips("密码错误~！");
+    console.log($(this))
+        $(this).fadeOut(200);
+        var option = {
+            type: $(this).attr("popupType")
         }
-    });
-})
-// 单选
+        campus.popup(option, function(data) {
+            console.log(data);
+            if (data.password == "000000") {
+                campus.tips("密码正确~！");
+            } else {
+                campus.tips("密码错误~！");
+            }
+        });
+    })
+    // 单选
 $('.select').on("click", function(data) {
-    var option = {
-        type:$(this).attr("popupType"),
-        value:["卡1","卡2","卡3","卡4"]
-    }
-    campus.popup(option,function(data){
-        console.log(data);
-    });
-})
-// 更改支付方式
+        var option = {
+            type: $(this).attr("popupType"),
+            value: ["卡1", "卡2", "卡3", "卡4"]
+        }
+        campus.popup(option, function(data) {
+            console.log(data);
+        });
+    })
+    // 更改支付方式
 $('.change').on("click", function(data) {
+        var option = {
+            type: $(this).attr("popupType"),
+            title: "更换支付方式",
+            value: ["校园卡", "电子账户", "中国银行", "支付宝"]
+        }
+        campus.popup(option, function(data) {
+            console.log(data);
+        });
+    })
+    // 支付信息
+$('.info').on("click", function(data) {
     var option = {
-        type:$(this).attr("popupType"),
-        value:["校园卡", "电子账户", "中国银行", "支付宝"]
+        type: $(this).attr("popupType"),
+        title: "确认支付",
+        // value: ["校园卡", "电子账户", "中国银行", "支付宝"]
     }
-    campus.popup(option,function(data){
+    campus.popup(option, function(data) {
         console.log(data);
     });
 })
-
-
-
 </script>
 
 </html>
