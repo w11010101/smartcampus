@@ -1,28 +1,6 @@
 // 校园卡对象
 var campus = function(){
-	// var html = [];
 	var that = this;
-	// var obj = {};
-	// 弹窗层
-	// this.popup = function(arr,callback){
-	// 	html.push('<div class="camput-popup popup-box"><ul>');
-	// 	for(var i in arr){
- //            html.push('<li>'+arr[i]+'</li>');
- //        }
- //        html.push('</ul></div><div class="smart-screen-mask"></div>');
-	// 	if ($(".popup-box").length == 0) {
- //            $("body").append(html.join(" "));
- //        }
-        
- // 		this.togglePopup("show");
-
- //        $(".popup-box li").on("click",function(){
- //            $(this).addClass('popup-active').siblings().removeClass('popup-active');
- //            this.togglePopup("hide");
- //            callback($(this));
- //        })
-	// };
-	 
 	// 切换显示或隐藏弹窗层
 	this.togglePopup = function(type){
 		if(type == "hide"){
@@ -37,8 +15,9 @@ var campus = function(){
 			console.log(type)
 			$(".popup-box").slideDown(200);
         	$(".popup-mask").fadeIn(200).off().on("click",function(){
-				campus.togglePopup("hide");
+				
 			});
+			// campus.togglePopup("show");
 		}
 	};
 	// 绑定事件
@@ -52,7 +31,8 @@ var campus = function(){
 		var dom = this.getHtml(option,function(e){
 			callback(e);
 			console.log(this)
-			this.togglePopup("show");
+			
+			campus.togglePopup("show");
 		});
 		
 	};
@@ -64,9 +44,9 @@ var campus = function(){
 			case "keyboard":
 				// 键盘
 				$("body").append(this.keyboard()+mask);
-				// this.keyboardEvent(function(e){
-				// 	callback(e);
-				// });
+				this.keyboardEvent(function(e){
+					callback(e);
+				});
 				
 				console.log($(".popup-mask").fadeIn(120));
 			break;
