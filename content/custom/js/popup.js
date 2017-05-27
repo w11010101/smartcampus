@@ -15,26 +15,20 @@ var campus = function(){
 			console.log(type)
 			$(".popup-box").slideDown(200);
         	$(".popup-mask").fadeIn(200).off().on("click",function(){
-				
+        		console.log(1230)
+				campus.togglePopup("hide");
 			});
-			// campus.togglePopup("show");
+			
 		}
 	};
-	// 绑定事件
-	
-	this.on = function(){
-		console.log(this);
-	}
-
 	// 弹窗
 	this.popup = function(option,callback){
 		var dom = this.getHtml(option,function(e){
-			callback(e);
-			console.log(this)
-			
-			campus.togglePopup("show");
+			callback(e); 
 		});
-		
+		// campus.togglePopup("show");
+		console.log($(".popup-mask"))
+		$(".popup-mask").fadeIn(200);
 	};
 	// 获取html结构
 	this.getHtml = function(option,callback){
@@ -47,8 +41,6 @@ var campus = function(){
 				this.keyboardEvent(function(e){
 					callback(e);
 				});
-				
-				console.log($(".popup-mask").fadeIn(120));
 			break;
 			case "info":
 				// 支付信息
@@ -223,3 +215,4 @@ var campus = function(){
     }
 }
 var campus = new campus();
+

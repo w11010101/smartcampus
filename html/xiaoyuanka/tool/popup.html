@@ -48,7 +48,7 @@ $('.keyboard').on("click", function() {
             type: $(this).attr("popupType")
         }
         campus.popup(option, function(data) {
-            console.log(data);
+            console.log(data)
             if (data.password == "000000") {
                 campus.tips("密码正确~！");
             } else {
