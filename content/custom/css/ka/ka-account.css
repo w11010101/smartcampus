@@ -76,6 +76,10 @@
 	padding: 0 20px;
 	height: 45px;
 }
+.ka-account .form-horizontal .form-group{
+	height: auto;
+	line-height: auto;
+}
 .form-list,
 .form-horizontal .form-group.icon-tzjt,
 .form-list>p{

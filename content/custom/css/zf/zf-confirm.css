@@ -144,7 +144,9 @@ label {
 form {
 	padding-bottom: 50px;
 }
-
+.ka-account form{
+	padding-bottom:0;
+}
 .list-back {
 	background: url(../../img/back-2.png) no-repeat;
 	background-size: 50px 50px;

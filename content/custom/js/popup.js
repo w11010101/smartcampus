@@ -3,22 +3,19 @@ var campus = function(){
 	var that = this;
 	// 切换显示或隐藏弹窗层
 	this.togglePopup = function(type){
+		$(".popup-box").stop().slideToggle(200);
 		if(type == "hide"){
-			$(".popup-box").slideUp(200,function(){
+			$(".popup-mask").stop().fadeOut(200,function(){
 				$(this).remove();
+				$(".popup-box").remove();
 			});
-        	$(".popup-mask").fadeOut(200,function(){
-        		$(this).remove();
-        	});
         	html = [];
 		}else{
-			console.log(type)
-			$(".popup-box").slideDown(200);
-        	$(".popup-mask").fadeIn(200).off().on("click",function(){
-        		console.log(1230)
-				campus.togglePopup("hide");
+			$(".popup-mask").stop().fadeIn(200,function(){
+				$(this).on("click",function(){
+					campus.togglePopup("hide");
+				});
 			});
-			
 		}
 	};
 	// 弹窗
@@ -26,14 +23,12 @@ var campus = function(){
 		var dom = this.getHtml(option,function(e){
 			callback(e); 
 		});
-		// campus.togglePopup("show");
-		console.log($(".popup-mask"))
-		$(".popup-mask").fadeIn(200);
+		campus.togglePopup("show");
 	};
 	// 获取html结构
 	this.getHtml = function(option,callback){
 		// 遮罩层
-		var mask = '<div class="popup-mask"></div>';
+		var mask = $(".popup-mask").length<=0?'<div class="popup-mask"></div>':"";
 		switch (option.type){
 			case "keyboard":
 				// 键盘
@@ -45,19 +40,21 @@ var campus = function(){
 			case "info":
 				// 支付信息
 				$("body").append(this.info(option)+mask);
-
+				this.infoEvent(function(e){
+					callback(e);
+				},option.flow)
 			break;
 			case "change":
 				// 更换支付方式
 				$("body").append(this.change(option)+mask);
+				// 和选择一样
 				this.selectsEvent(function(e){
 					callback(e);
-				})
+				},option.flow)
 			break;
 			case "select":
-				// 单选列表
+				// 选择列表
 				$("body").append(this.selects(option)+mask);
-				// 和选择一样
 				this.selectsEvent(function(e){
 					callback(e);
 				})
@@ -108,7 +105,7 @@ var campus = function(){
             }
         })
     };
-    // 单选html结构
+    // 选择html结构
     this.selects = function(option){
     	var html = [];
     	var title = this.title(option);
@@ -122,9 +119,9 @@ var campus = function(){
         html.push('</ul></div>');
         return html.join("");
 	};
-	// 单选点击事件
-	this.selectsEvent = function(callback){
-		$(".popup-box li").on("click",function(){
+	// 选择点击事件
+	this.selectsEvent = function(callback,flow){
+		$(".popup-select li,.popup-change li").on("click",function(){
 			var obj = this;
             $(this).addClass('popup-active').siblings().removeClass('popup-active');
             setTimeout(function(){
@@ -132,6 +129,19 @@ var campus = function(){
 				var data = {
 	            	key:$(obj).attr("key"),
 	            	name:$(obj).text()
+	            }
+	            if(flow){
+	            	campus.popup({
+	            		type:"info",
+	            		title:"确认支付",
+	            		payType:data.name,
+	            		money:"123123"
+	            	}, function(data) {
+	            		callback(data);
+				    });
+				    $(".popup-change").remove();
+	            }else{
+					console.log(flow);
 	            }
 	            callback(data);
             },200);            
@@ -175,12 +185,32 @@ var campus = function(){
 	this.info = function(option){
 		var html = [];
 		var title = this.title(option);
-		html.push('<div class="popup-info popup-box">'+title+'<ul>');
-		html.push('<div class="popup-info-pay">'+123123+'</div>');
-
-		html.push('</div>');
+		html.push('<div class="popup-info popup-box">'+title);
+		html.push('<div class="popup-info-pay">'+(option.money||0)+'</div><ul>');
+		html.push('<li><label>缴费名称</label><em>'+(option.payName||'支付通用模版')+'</em></li><li><label>支付方式</label><em class="popup-info-changeBtn" popupType="change" popupFlow="true" >'+(option.payType||'电子账户')+'</em></li>');
+		html.push('</ul><button>立即缴费</button></div>');
         return html.join("");
+	}
+	// 信息事件
+	this.infoEvent = function(callback){
+		// 更换支付方式
+		$(".popup-info-changeBtn").on("click",function(){
+			change(this);
+			$(".popup-info").remove();
+		})
+		// 立即缴费
+		$(".popup-info button").on("click",function(){
+			var data = {
+				money:$(".popup-info-pay").text(),
+				payName:$(".popup-info li").eq(0).find("em").text(),
+				payNameId:"",
+				payType:$(".popup-info li").eq(1).find("em").text(),
+				payTypeId:"",
 
+			}
+			callback(data);
+			campus.togglePopup("hide");
+		})
 	}
     // 关闭
     this.boxClose = function() {
@@ -193,10 +223,8 @@ var campus = function(){
     this.title = function(option){
     	if(!option["title"]) return " ";
     	if(option["title"].trim().length){
-			console.log("有");
 			return '<div class="popup-head"><a class="smart-pay-close"></a><h1>'+option.title+'</h1></div>';
 		}else{
-			console.log("没有");
 			return;
 		}
     }

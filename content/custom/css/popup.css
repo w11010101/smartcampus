@@ -1,6 +1,5 @@
 
 .popup-mask{
-	display: none;
  	position: fixed;
  	z-index: 2;
  	width: 100%;
@@ -8,14 +7,35 @@
  	top:0;
  	left:0;
  	background: rgba(0,0,0,.6);
+ 	/*opacity: 0;*/
+ 	display: none;
+}
+.popup-mask.popup-mask-show{
+	-webkit-animation: popup-mask-show .2s ease-in forwards;
+ 	-o-animation: popup-mask-show .2s ease-in forwards;
+ 	animation: popup-mask-show .2s ease-in forwards;
+}
+@-webkit-keyframes popup-mask-show{
+	0%{opacity: 0;}
+	100%{opacity: 1;}
+}
+@-moz-keyframes popup-mask-show{
+	0%{opacity: 0;}
+	100%{opacity: 1;}
+}
+@keyframes popup-mask-show{
+	0%{opacity: 0;}
+	100%{opacity: 1;}
 }
 /* 边框 */
 .popup-box.popup-select li,
-.popup-box.popup-change li{
+.popup-box.popup-change li,
+.popup-box.popup-info ul li{
 	position: relative;
 }
 .popup-box.popup-select li:after,
-.popup-box.popup-change li:after{
+.popup-box.popup-change li:after,
+.popup-box.popup-info ul li:after{
 	content: " ";
 	position: absolute;
 	height: 1px;
@@ -28,6 +48,7 @@
 .popup-box.popup-change li:after{
 	top:0;
 }
+
 /* 键盘 */
 .popup-box{
 	padding: 0;
@@ -38,7 +59,7 @@
 	width: 100%;
 	bottom:0;
 	text-align: center;
-	display: none
+	display: none;
 }
 .popup-box ul{
 	padding:0;
@@ -132,15 +153,11 @@
 .popup-keyboard-nums li.popup-active:active{
 	background: #efefef;
 }
-/* 单选列表 */
-.popup-box ul.popup-select{
-
-}
+/* 选择列表 */
 .popup-box.popup-select li,.popup-box.popup-change li{
 	height: 40px;
 	line-height: 40px;
 	font-size:14px;
-	/*margin:0 30px;*/
 	padding:0 60px;
 	white-space:nowrap; 
 	overflow:hidden; 
@@ -161,6 +178,63 @@
 
 }
 .popup-info-pay{
+	display: inline-block;
 	font-size:30px; 
-	padding:20px;
+	padding:0px 40px;
+	margin: 20px 0; 
+	line-height: 30px;
+	background: url(../../custom/img/rmb.png) no-repeat left 10px bottom;
+	background-size: 15%;
+
+}
+.popup-info ul{
+
+}
+.popup-info ul li{
+	height: 50px;
+	line-height: 50px;
+	font-size: 16px;
+	padding:0 20px;
+	text-align:left;
+}
+.popup-info ul li label{
+	font-weight: normal;
+	margin: 0;
+	padding-left:10px;
+	color:#3c3c3c;
+}
+.popup-info ul li em{
+	float:right;
+	padding-right: 20px;
+	color:#8d8d8d;
+}
+.popup-box.popup-info ul li:after{
+	bottom: 0;
+	left:20px;
+}
+.popup-info-changeBtn{
+	background: url(../../custom/img/continue-1.png) no-repeat right center;
+}
+.popup-info button{
+	display: block;
+	width: 85%;
+	margin: 50px auto 20px;
+	border:0;
+	background: #73d2fe;
+	border-radius: 	5px;
+	font-size: 16px;
+	color:#fff;
+	height: 45px;
+	line-height: 45px;
+	transition:background .1s ease-in-out;
+	-webkit-transition:background .1s ease-in-out; 
+}
+.popup-info button:active{
+	background: #a9edff;
+}
+
+/**/
+.popup-change,.popup-select{
+	max-height: 300px;
+	overflow-y: scroll;
 }
