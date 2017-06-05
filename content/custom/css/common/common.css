@@ -28,6 +28,16 @@ color: #a8a8a8;
 :-ms-input-placeholder { /* Internet Explorer 10+ */ 
 color: #a8a8a8; 
 } 
+
+/* 禁止选中 */
+* {
+-webkit-touch-callout: none; /* iOS Safari */
+-webkit-user-select: none; /* Chrome/Safari/Opera */
+-khtml-user-select: none; /* Konqueror */
+-moz-user-select: none; /* Firefox */
+-ms-user-select: none; /* Internet Explorer/Edge */
+user-select: none; /* Non-prefixed version, currently not supported by any browser */
+}
 /* 标题 */
 .navbar{
 	margin:0; 
