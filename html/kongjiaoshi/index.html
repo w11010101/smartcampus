@@ -2,128 +2,228 @@
 <html lang="zh-CN">
 
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-  <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
-  <title>空教室查询</title>
-
-  <!-- Bootstrap -->
-
-  <link href="../../content/plug/bootstap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="../../content/custom/css/common/common.css" rel="stylesheet">
-  <link href="../../content/custom/css/kongjiaoshi/index.css" rel="stylesheet">
-  <link href="../../content/custom/css/popup.css" rel="stylesheet"> 
-  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elkements and media queries -->
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-  <!--[if lt IE 9]>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>空教室查询</title>
+    <!-- Bootstrap -->
+    <link href="../../content/plug/bootstap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../content/custom/css/common/common.css" rel="stylesheet">
+    <link href="../../content/custom/css/kongjiaoshi/index.css" rel="stylesheet">
+    <link href="../../content/custom/css/popup.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elkements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
       <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
+
 <body class="campus-index">
-  <!-- 导航 -->
-  <nav class="navbar">
-    <div class="smart-header smart-white">
-      <a href="javascript:history.go(-1)" class="smart-back smart-icon-left">
-        <img src="../../content/custom/img/back-2.png" alt="">
-      </a>
-      <h1>空教室查询</h1>
-    </div>
-  </nav>
-  <!-- 内容 content -->
-  <div class="smart-content">
-    <img src="../../content/custom/img/kongjiaoshi/bg-1-3x.png" alt="" class="campus-index-bg">
-    <div class="smart-list-card smart-list-radius">  
-      <ul class="smart-list smart-list-continue smart-list-space smart-list-title-icon">
-        <li class="smart-list-item">
-          <label class="sr-only">
-            <img src="../../content/custom/img/kongjiaoshi/icon-1-3x.png" alt=""> 时间
-          </label>
-
-          <div class="smart-list-end-icon" set-type="time">
-            <div class="mart-list-layer-2">
-              <h3>请选择时间</h3>
-              <p>从现在以后的时间段</p>
-            </div>
-          </div>
-        </li>
-        <li class="smart-list-item">
-          <label class="sr-only">
-            <img src="../../content/custom/img/kongjiaoshi/icon-2-3x.png" alt=""> 校区
-          </label>
-          <div class="smart-list-end-icon" set-type="campus">
-            <div class="mart-list-layer-2">
-              <h3>请选择校区</h3>
-            </div>
-          </div>
-        </li>
-        <li class="smart-list-item">
-          <label class="sr-only">
-            <img src="../../content/custom/img/kongjiaoshi/icon-3-3x.png" alt=""> 楼栋
-          </label>
-          <div class="smart-list-end-icon" set-type="floor">
-            <div class="mart-list-layer-2">
-              <h3>请选择楼栋</h3>
-            </div>
-          </div>
-        </li>
-      </ul>
-      <button type="button" class="smart-container-sure-btn">确 认</button>
-    </div>
-    <div class="campus-index-screen">
-      <div class="campus-index-screen-title">
-        <h1 class="smart-subtitle-h1">可选空教室</h1>
-        <!-- <em class="campus-index-screen-label">多媒体教学</em>
-        <em class="campus-index-screen-label">南江南校区</em>
-        <em class="campus-index-screen-label">8小时后</em> -->
+    <!-- 导航 -->
+    <nav class="navbar">
+        <div class="smart-header smart-white">
+            <a href="javascript:history.go(-1)" class="smart-back smart-icon-left">
+                <img src="../../content/custom/img/back-2.png" alt="">
+            </a>
+            <h1>空教室查询</h1>
+        </div>
+    </nav>
+    <div class="scroll-screen">
+        <!-- banner -->
+        <img src="../../content/custom/img/kongjiaoshi/bg-1-3x.png" alt="" class="campus-index-bg">
+        <!-- screen -->
+        <div class="smart-list-card smart-list-radius">
+            <ul class="smart-list smart-list-continue smart-list-space smart-list-title-icon">
+                <li class="smart-list-item">
+                    <label class="sr-only">
+                        <img src="../../content/custom/img/kongjiaoshi/icon-1-3x.png" alt=""> 时间
+                    </label>
+                    <div class="smart-list-end-icon" set-type="time" popupType="select">
+                        <div class="mart-list-layer-2">
+                            <h3>请选择时间</h3>
+                            <p>从现在以后的时间段</p>
+                        </div>
+                    </div>
+                </li>
+                <li class="smart-list-item">
+                    <label class="sr-only">
+                        <img src="../../content/custom/img/kongjiaoshi/icon-2-3x.png" alt=""> 校区
+                    </label>
+                    <div class="smart-list-end-icon" set-type="campus" popupType="select">
+                        <div class="mart-list-layer-2">
+                            <h3>请选择校区</h3>
+                        </div>
+                    </div>
+                </li>
+                <li class="smart-list-item">
+                    <label class="sr-only">
+                        <img src="../../content/custom/img/kongjiaoshi/icon-3-3x.png" alt=""> 楼栋
+                    </label>
+                    <div class="smart-list-end-icon" set-type="floor" popupType="select">
+                        <div class="mart-list-layer-2">
+                            <h3>请选择楼栋</h3>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            <button type="button" class="smart-container-sure-btn">确 认</button>
+        </div>
+        <!-- screen title 标题 -->
+        <div class="screen-title">
+          筛选
+          <img src="../../content/custom/img/screen-1.png" alt="">
+        </div>
       </div>
-    
-      <ul class="smart-list smart-list-continue smart-list-space smart-list-title-icon">
-        <li class="smart-list-item">
-          <div class="mart-list-layer-2">
-            <h3>物理楼502教室</h3>
-            <p>东校区</p>
-          </div>
-        </li>
-        <li class="smart-list-item">
-          <div class="mart-list-layer-2">
-            <h3>多媒体楼1202教室</h3>
-            <p>西校区</p>
-          </div>
-        </li>
-        <li class="smart-list-item">
-          <div class="mart-list-layer-2">
-            <h3>物理楼502教室</h3>
-            <p>南校区</p>
-          </div>
-        </li>
-        <li class="smart-list-item">
-          <div class="mart-list-layer-2">
-            <h3>物理楼502教室</h3>
-            <p>南校区</p>
-          </div>
-        </li>
-        <li class="smart-list-item">
-          <div class="mart-list-layer-2">
-            <h3>物理楼502教室</h3>
-            <p>南校区</p>
-          </div>
-        </li>
-      </ul>
+    <!-- 内容 content -->
+    <div class="smart-content">
+
+        <!-- outcome 结果 -->
+        <div class="campus-index-screen">
+            <div class="campus-index-screen-title">
+                <h1 class="smart-subtitle-h1">可选空教室</h1>
+                <em class="campus-index-screen-label">多媒体教学</em>
+                <em class="campus-index-screen-label">南江南校区</em>
+                <em class="campus-index-screen-label">8小时后</em>
+            </div>
+            <ul class="smart-list smart-list-continue smart-list-space smart-list-title-icon">
+                <li class="smart-list-item">
+                    <div class="mart-list-layer-2">
+                        <h3>物理楼502教室</h3>
+                        <p>东校区</p>
+                    </div>
+                </li>
+                <li class="smart-list-item">
+                    <div class="mart-list-layer-2">
+                        <h3>多媒体楼1202教室</h3>
+                        <p>西校区</p>
+                    </div>
+                </li>
+                <li class="smart-list-item">
+                    <div class="mart-list-layer-2">
+                        <h3>物理楼502教室</h3>
+                        <p>南校区</p>
+                    </div>
+                </li>
+                <li class="smart-list-item">
+                    <div class="mart-list-layer-2">
+                        <h3>物理楼502教室</h3>
+                        <p>南校区</p>
+                    </div>
+                </li>
+                <li class="smart-list-item">
+                    <div class="mart-list-layer-2">
+                        <h3>物理楼502教室</h3>
+                        <p>南校区</p>
+                    </div>
+                </li>
+                <li class="smart-list-item">
+                    <div class="mart-list-layer-2">
+                        <h3>物理楼502教室</h3>
+                        <p>南校区</p>
+                    </div>
+                </li>
+                <li class="smart-list-item">
+                    <div class="mart-list-layer-2">
+                        <h3>物理楼502教室</h3>
+                        <p>南校区</p>
+                    </div>
+                </li>
+                <li class="smart-list-item">
+                    <div class="mart-list-layer-2">
+                        <h3>物理楼502教室</h3>
+                        <p>南校区</p>
+                    </div>
+                </li>
+                <li class="smart-list-item">
+                    <div class="mart-list-layer-2">
+                        <h3>物理楼502教室</h3>
+                        <p>南校区</p>
+                    </div>
+                </li>
+                <li class="smart-list-item">
+                    <div class="mart-list-layer-2">
+                        <h3>物理楼502教室</h3>
+                        <p>南校区</p>
+                    </div>
+                </li>
+                <li class="smart-list-item">
+                    <div class="mart-list-layer-2">
+                        <h3>物理楼502教室</h3>
+                        <p>南校区</p>
+                    </div>
+                </li>
+
+            </ul>
+        </div>
     </div>
-  </div>
-
-  <script src="../../content/plug/jquery/jquery-3.2.1.min.js"></script>
-  <script src="../../content/plug/fastclick/fastclick.js"></script>
-  <!-- <script src="../../content/plug/jquery/jquery.touchSwipe.min.js"></script> -->
-
-  <script src="../../content/custom/js/popup.js"></script>
-  <script src="../../content/custom/js/kongjiaoshi/index.js"></script>
-  <script type="text/javascript">
-    
-  </script>
+    <script src="../../content/plug/jquery/jquery-3.2.1.min.js"></script>
+    <script src="../../content/plug/fastclick/fastclick.js"></script>
+    <!-- <script src="../../content/custom/js/kongjiaoshi/headhesive.js"></script> -->
+    <script src="../../content/plug/scrollstop/jquery.scrollstop.js"></script>
+    <script src="../../content/custom/js/popup.js"></script>
+    <script src="../../content/custom/js/kongjiaoshi/index.js"></script>
+    <script type="text/javascript">
+    // // Set options
+    // var options = {
+    //     offset: '#showHere',
+    //     classes: {
+    //         clone:   'banner--clone',
+    //         stick:   'banner--stick',
+    //         unstick: 'banner--unstick'
+    //     }
+    // };
+    // // Initialise with options
+    // var banner = new Headhesive('.banner', options);
+    // // Headhesive destroy
+    // // banner.destroy();
+    $(window).on("scrollstart",function(event){
+      console.log("scrollstart")
+      $(".scroll-screen").css({
+        "z-index": '-1'
+      });
+    })
+    $(window).scroll(function(event) {
+        /* Act on the event */
+        var t = $(this).scrollTop();
+        var top = 45+$(".screen-title")[0].clientHeight+$(".campus-index-bg")[0].clientHeight;
+        var screenH = $(".scroll-screen")[0].clientHeight+45-top;
+        console.log(t)
+        if(t > screenH){          
+          $(".smart-content").addClass('smart-content-scroll').css("top",top);
+          $(".smart-list-radius").hide(0);
+          $(".screen-title").css("opacity",1);
+        }else{
+          $(".screen-title").css({
+            "opacity":t/top
+          })
+          $(".smart-list-radius").css({
+            "opacity":(top-t)/top
+          })
+        }
+    });
+    $(window).on("scrollstop",function(event){
+      // $(".scroll-screen").css({
+      //   "z-index": '1'
+      // });
+      // $(".smart-list-radius").css("opacity",0);
+      // $(".screen-title").css("opacity",1);
+      
+    })
+    $(window).swipe({
+      // swipeDown:function(){
+      //   console.log(this.scrollY)
+      //   var offsetTop = $(".smart-content")[0].offsetTop;
+      //   $(".smart-content").removeClass('smart-content-scroll').removeAttr('style');
+      //   // $(".smart-content").removeAttr('style').css({
+      //   //   "top":"auto",
+      //   //   "margin-top":offsetTop
+      //   // });
+      // }
+    })
+    </script>
 </body>
 
 </html>

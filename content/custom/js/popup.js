@@ -1,6 +1,21 @@
 // 校园卡对象
 var campus = function(){
 	var that = this;
+	// console.log(option);
+
+	// var option = {
+	// 	value:[1,2,3,4,5,6],	// 数组
+	// 	title:"标题",			// string
+	// 	type:"类型",			// 弹窗类型 keyboard,info,change,select 
+	// 	flow:"true||false"		// 业务流程回转
+	// }
+	// 弹窗
+	this.popup = function(option,callback){
+		var dom = this.getHtml(option,function(e){
+			callback(e); 
+		});
+		campus.togglePopup("show");
+	};
 	// 切换显示或隐藏弹窗层
 	this.togglePopup = function(type){
 		$(".popup-box").stop().slideToggle(200);
@@ -18,13 +33,7 @@ var campus = function(){
 			});
 		}
 	};
-	// 弹窗
-	this.popup = function(option,callback){
-		var dom = this.getHtml(option,function(e){
-			callback(e); 
-		});
-		campus.togglePopup("show");
-	};
+	
 	// 获取html结构
 	this.getHtml = function(option,callback){
 		// 遮罩层

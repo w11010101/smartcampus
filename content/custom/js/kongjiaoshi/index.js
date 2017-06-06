@@ -3,7 +3,8 @@ $(function () {
 });
 
 var value;
-$(".smart-list-item div[set-type]").on("click", function () {
+$(".smart-list-end-icon").on("click", function () {
+  // console.log(this);
   var that = $(this);
   var type = $(this).attr("set-type");
   var setArr = [];
@@ -66,7 +67,11 @@ $(".smart-list-item div[set-type]").on("click", function () {
     break;
   }
 
-  campus.popup(newArr, function (data) {
+  var option = {
+    value:newArr,
+    type:$(this).attr("popupType")
+  }
+  campus.popup(option, function (data) {
     console.log(data);
     // 添加自定义属性
     that.find(".mart-list-layer-2").html('<h3 key="' + data.key + '">' + data.name + '</h3>');
@@ -86,54 +91,12 @@ $(".smart-list-item div[set-type]").on("click", function () {
   });
 })
 
-$(".smart-container-sure-btn").on("click", function () {
 
-})
 
 // 滑动效果
-var startX, startY, endX, endY;
-$(window).on("touchstart", function (e) {
-
-  startY = e.changedTouches[0].pageY;
-  startX = e.changedTouches[0].pageX;
-}).on("touchmove", function (e) {
-
-  endY = e.changedTouches[0].pageY;
-  endX = e.changedTouches[0].pageX;
-}).on("touchend", function (e) {
-
-  endY = e.changedTouches[0].pageY;
-  endX = e.changedTouches[0].pageX;
-
-  console.log(endY - startY);
-  var Y = endY - startY;
-  var X = endX - startX;
-  if (X == 0) {
-    // 点击无效果
-    console.log("点击无效果");
-  } else if (Y > 0 && Math.abs(Y) > 0) {
-    // 向下
-    console.log("向右");
-  } else if (Y < 0 && Math.abs(Y) > 0) {
-    // 向上
-    console.log("向左");
-  }
-
-  if (Y == 0) {
-    // 点击无效果
-    console.log("点击无效果");
-  } else if (Y > 0 && Math.abs(Y) > 0) {
-    // 向下
-    console.log("向下");
-  } else if (Y < 0 && Math.abs(Y) > 0) {
-    // 向上
-    console.log("向上");
-  }
-})
-
-$.fn.swipe = function (option) {
-  // console.log(value);
-  var defaults  = {
+var Swipe = function(element,option){
+  this.ele = element,
+  this.defaults = {
     swipeUp : function(){
       console.log("swipeUp");
     },
@@ -145,40 +108,65 @@ $.fn.swipe = function (option) {
     },
     swipeRight : function(){
       console.log("swipeRight");
+    },
+    noResponse:function(){
+      console.log("No response");
     }
 
   }
+  this.options = $.extend({},this.defaults,option);
 
-  var obj = $.extend(defaults,option);
-  // this.swipeUp = function(){
-  //   console.log("swipeUp");
-  // }
-
-  // this.swipeDown = function(){
-  //   console.log("swipeDown");
-  // }
-
-  // this.swipeLeft = function(){
-  //   console.log("swipeLeft");
-  // }
-
-  // this.swipeRight = function(){
-  //   console.log("swipeRight");
-  // }
-  // callback(obj);
-  return obj;
 }
-// console.log($(window).swipe({
-//   swipeUp:function(){
-//     console.log(0)
-//   }
-// }))
-$(window).swipe({
-  swipeUp: function () {
-    console.log("swipeDown");
-  },
-  swipeDown: function () {
-    console.log("swipeDown");
+Swipe.prototype = {
+  swipe:function(){
+    var startX, startY, endX, endY;
+    var objs = this;
+    var objsOption = objs.options;
+    return this.ele.on("touchstart", function (e) {
+      startY = e.changedTouches[0].pageY;
+      startX = e.changedTouches[0].pageX;
+    }).on("touchmove", function (e) {
+      endY = e.changedTouches[0].pageY;
+      endX = e.changedTouches[0].pageX;
+    }).on("touchend", function (e) {
+      endY = e.changedTouches[0].pageY;
+      endX = e.changedTouches[0].pageX;
+      // console.log(endY - startY);
+      var Y = endY - startY;
+      var X = endX - startX;
+      // if (X == 0) {
+      //   // 点击无效果
+      //   objsOption.noResponse();
+      // } else if (X > 0) {
+      //   // 向右
+      //   objsOption.swipeRight();
+      // } else if (X < 0) {
+      //   // 向左
+      //   objsOption.swipeLeft();
+      // }
+
+      if (Y == 0) {
+        // 点击无效果
+        objsOption.noResponse();
+      } else if (Y > 0) {
+        // 向下
+        objsOption.swipeDown();
+      } else if (Y < 0) {
+        // 向上s
+        objsOption.swipeUp();
+      }
+      // Swipe.apply(objs);
+      objsOption["scrollX"]=X;
+      objsOption["scrollY"]=Y;
+    });
+
   }
-})
+}
+
+$.fn.swipe = function (option) {
+  var swipe = new Swipe(this,option);
+  return swipe.swipe();
+}
+
+
 

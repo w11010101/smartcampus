@@ -1,18 +1,17 @@
+html,body{
+	/*height: 100%;*/
+	overflow-x: hidden;
+}
 /* 空教室查询 */
 .campus-index-bg{
 	width: 100%
 }
 .campus-index .smart-list-card{
 	position: relative;
-	/*margin-top:-30px;*/
 	background: #fff;
-	
 }
-
 .smart-list-radius{
-	/*margin: 0 10px;*/
 	background: none;
-	/*border-radius: 5px;*/
 	overflow: hidden;
 	position: relative;
 }
@@ -100,6 +99,7 @@
 }
 .campus-index-screen-title{
 	padding:0 10px;
+	background: #efefef;
 }
 .campus-index .smart-subtitle-h1{
 	background: none;
@@ -107,7 +107,7 @@
 	padding-left: 10px;
 }
 .campus-index-screen{
-	overflow: hidden;
+	/*overflow: hidden;*/
 }
 .campus-index-screen .smart-list-item:not(:last-child):after{
 	left:20px!important;
@@ -130,4 +130,79 @@
 	margin: 10px auto;
 	padding: 0;
 	height: 40px;
+	/*overflow-y: scroll;*/
+}
+/*  */
+/*.campus-index-bg{
+	position: fixed;
+	width: 100%;
+	top:45px;
+}
+.campus-index .smart-list-card{
+	position: fixed;
+	width: 100%;
+	top:105px;
+}*/
+.screen-title{
+	width: 100%;
+	height: 40px;
+	line-height: 30px;
+	padding:5px 20px;
+	background: #fff;
+	color:#a8a8a8;
+	position: absolute;
+	top:96px;
+	opacity: 0;
+	z-index: 1
+}
+.smart-list-radius{
+	position: absolute;
+	opacity: 1;
+	z-index: 2
+}
+.screen-title img{
+	float:right;
+}
+.scroll-screen{
+	position: fixed;
+	z-index: 1;
+}
+.scroll-screen > div{
+	/*position: fixed;*/
+	}
+
+.smart-container-sure-btn{
+	outline: none;
+	width: 85%;
+	display: block;
+	border-radius: 5px;
+	background-color: #dfdfdf;
+	border:none;
+	font-size: 16px;
+	margin: 10px auto;
+	height: 40px;
+	color:#fff;
+	transition: background-color .2s ease-in;
+	-webkit-transition: background-color .2s ease-in;
+}
+.smart-content{
+	/*margin-top: 306px;*/
+	position: absolute;
+	width: 100%;
+	top:351px;
+	left:0;
+	z-index: 2
+}
+.smart-content.smart-content-scroll{
+	bottom:0;
+	width: 100%;
+	z-index: 2;
+	overflow-y:scroll; 
+	overflow-x:hidden; 
+}
+.campus-index-screen{
+	width: 100%;
+	height: 100%;
+	overflow-y:hidden; 
+	overflow-x:hidden; 
 }
