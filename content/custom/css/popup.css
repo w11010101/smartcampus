@@ -67,9 +67,18 @@
 }
 
 .popup-head{
-	height: 40px;
-	line-height: 40px;
-	position: relative;
+	height: 50px;
+	line-height: 50px;
+	position: fixed;
+	width: 100%;
+	background: #fff;
+	z-index: 1
+}
+.popup-head + ul,.popup-head+.popup-info-pay{
+	padding-top: 50px;
+}
+.popup-keyboard .popup-head+.popup-password-box{
+	margin-top:80px;
 }
 .popup-box h1{
 	font-size: 16px;
@@ -78,6 +87,7 @@
 	text-align: center;
 	font-weight: normal;
 	color:#8d8d8d;
+	background: #fff;
 	margin: 0;
 }
 .popup-head a{
@@ -155,8 +165,8 @@
 }
 /* 选择列表 */
 .popup-box.popup-select li,.popup-box.popup-change li{
-	height: 40px;
-	line-height: 40px;
+	height: 50px;
+	line-height: 50px;
 	font-size:14px;
 	padding:0 60px;
 	white-space:nowrap; 
