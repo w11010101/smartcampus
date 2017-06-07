@@ -33,7 +33,7 @@
     </nav>
     <div class="scroll-screen">
         <!-- banner -->
-        <img src="../../content/custom/img/kongjiaoshi/bg-1-3x.png" alt="" class="campus-index-bg">
+        <img src="../../content/custom/img/kongjiaoshi/bg-1.png" alt="" class="campus-index-bg">
         <!-- screen -->
         <div class="smart-list-card smart-list-radius">
             <ul class="smart-list smart-list-continue smart-list-space smart-list-title-icon">
@@ -48,6 +48,7 @@
                         </div>
                     </div>
                 </li>
+
                 <li class="smart-list-item">
                     <label class="sr-only">
                         <img src="../../content/custom/img/kongjiaoshi/icon-2-3x.png" alt=""> 校区
@@ -161,67 +162,65 @@
     </div>
     <script src="../../content/plug/jquery/jquery-3.2.1.min.js"></script>
     <script src="../../content/plug/fastclick/fastclick.js"></script>
-    <!-- <script src="../../content/custom/js/kongjiaoshi/headhesive.js"></script> -->
     <script src="../../content/plug/scrollstop/jquery.scrollstop.js"></script>
     <script src="../../content/custom/js/popup.js"></script>
     <script src="../../content/custom/js/kongjiaoshi/index.js"></script>
     <script type="text/javascript">
-    // // Set options
-    // var options = {
-    //     offset: '#showHere',
-    //     classes: {
-    //         clone:   'banner--clone',
-    //         stick:   'banner--stick',
-    //         unstick: 'banner--unstick'
-    //     }
-    // };
-    // // Initialise with options
-    // var banner = new Headhesive('.banner', options);
-    // // Headhesive destroy
-    // // banner.destroy();
+
     $(window).on("scrollstart",function(event){
-      console.log("scrollstart")
-      $(".scroll-screen").css({
-        "z-index": '-1'
-      });
+      $(".scroll-screen").css("z-index", -1);
     })
     $(window).scroll(function(event) {
-        /* Act on the event */
         var t = $(this).scrollTop();
         var top = 45+$(".screen-title")[0].clientHeight+$(".campus-index-bg")[0].clientHeight;
         var screenH = $(".scroll-screen")[0].clientHeight+45-top;
-        console.log(t)
+        if(t == 0) return;
         if(t > screenH){          
-          $(".smart-content").addClass('smart-content-scroll').css("top",top);
-          $(".smart-list-radius").hide(0);
-          $(".screen-title").css("opacity",1);
+            $(".smart-content").addClass('smart-content-scroll').css("top",top);
+            $(".screen-title").css("opacity",1);
         }else{
-          $(".screen-title").css({
-            "opacity":t/top
-          })
-          $(".smart-list-radius").css({
-            "opacity":(top-t)/top
-          })
+            var max = (t/top).toFixed(1);
+            $(".screen-title").css({
+                "opacity":max,
+                "z-index":1
+            })
+            var min = ((top-t)/top).toFixed(1);
+            $(".smart-list-radius").css({
+                "opacity":min,
+                "z-index":-1
+            })
+            console.log("t = " + t + " | " + "top = " + top + " | "+ "max = " + max);
+            $(".campus-index-screen").css("overflow-y","scroll");
         }
     });
     $(window).on("scrollstop",function(event){
-      // $(".scroll-screen").css({
-      //   "z-index": '1'
-      // });
-      // $(".smart-list-radius").css("opacity",0);
-      // $(".screen-title").css("opacity",1);
-      
+        $(".scroll-screen").css("z-index", 1);
+        var t = $(this).scrollTop();
+        var h = $(".smart-list-radius")[0].clientHeight-40;
+
+        if(t>h/2){
+            $('body').animate({
+              scrollTop: "190px"
+            },200);
+        }else{
+            $('body').animate({
+              scrollTop: "0"
+            },200);
+        }
     })
-    $(window).swipe({
-      // swipeDown:function(){
-      //   console.log(this.scrollY)
-      //   var offsetTop = $(".smart-content")[0].offsetTop;
-      //   $(".smart-content").removeClass('smart-content-scroll').removeAttr('style');
-      //   // $(".smart-content").removeAttr('style').css({
-      //   //   "top":"auto",
-      //   //   "margin-top":offsetTop
-      //   // });
-      // }
+    $(".screen-title").on("click",function(){
+        $(".screen-title").animate({
+            "opacity":0,
+            "z-index":-1
+        },200);
+        $(".smart-list-radius").animate({
+            "opacity":1,
+            "z-index":1
+        },200);
+        $(".smart-content").removeClass("smart-content-scroll").animate({
+            top:"315px"
+        },200);
+        $(".campus-index-screen").css("overflow-y","hidden");
     })
     </script>
 </body>

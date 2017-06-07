@@ -92,7 +92,7 @@ $(".smart-list-end-icon").on("click", function () {
 })
 
 
-
+/*
 // 滑动效果
 var Swipe = function(element,option){
   this.ele = element,
@@ -168,5 +168,5 @@ $.fn.swipe = function (option) {
   return swipe.swipe();
 }
 
-
+*/
 

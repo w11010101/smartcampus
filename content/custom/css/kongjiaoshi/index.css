@@ -4,7 +4,8 @@ html,body{
 }
 /* 空教室查询 */
 .campus-index-bg{
-	width: 100%
+	width: 100%;
+	height:60px;
 }
 .campus-index .smart-list-card{
 	position: relative;
@@ -151,7 +152,7 @@ html,body{
 	background: #fff;
 	color:#a8a8a8;
 	position: absolute;
-	top:96px;
+	top:60px;
 	opacity: 0;
 	z-index: 1
 }
@@ -186,17 +187,16 @@ html,body{
 	-webkit-transition: background-color .2s ease-in;
 }
 .smart-content{
-	/*margin-top: 306px;*/
 	position: absolute;
 	width: 100%;
-	top:351px;
+	top:315px;
 	left:0;
-	z-index: 2
+	z-index: 3;
 }
 .smart-content.smart-content-scroll{
 	bottom:0;
 	width: 100%;
-	z-index: 2;
+	z-index: 3;
 	overflow-y:scroll; 
 	overflow-x:hidden; 
 }
