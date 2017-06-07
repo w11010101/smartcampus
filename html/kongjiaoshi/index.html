@@ -75,9 +75,9 @@
         <!-- screen title 标题 -->
         <div class="screen-title">
           筛选
-          <img src="../../content/custom/img/screen-1.png" alt="">
+            <img src="../../content/custom/img/screen-1.png" alt="">
         </div>
-      </div>
+    </div>
     <!-- 内容 content -->
     <div class="smart-content">
 
@@ -166,11 +166,15 @@
     <script src="../../content/custom/js/popup.js"></script>
     <script src="../../content/custom/js/kongjiaoshi/index.js"></script>
     <script type="text/javascript">
-
-    $(window).on("scrollstart",function(event){
-      $(".scroll-screen").css("z-index", -1);
+    // touchstart
+    // scrollstart
+    $(window).on("touchstart",function(event){
+        $(".scroll-screen").css({
+            "z-index": -1,
+            "position":"fixed"
+        });
     })
-    $(window).scroll(function(event) {
+    $(window).on("scroll",function(event) {
         var t = $(this).scrollTop();
         var top = 45+$(".screen-title")[0].clientHeight+$(".campus-index-bg")[0].clientHeight;
         var screenH = $(".scroll-screen")[0].clientHeight+45-top;
@@ -193,7 +197,9 @@
             $(".campus-index-screen").css("overflow-y","scroll");
         }
     });
-    $(window).on("scrollstop",function(event){
+    // touchend
+    // scrollstop
+    $(window).on("touchend",function(event){
         $(".scroll-screen").css("z-index", 1);
         var t = $(this).scrollTop();
         var h = $(".smart-list-radius")[0].clientHeight-40;
