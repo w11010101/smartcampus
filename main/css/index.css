@@ -1,0 +1,106 @@
+/* 修改导航 */
+.navbar-default{
+	background: none;
+}
+.container-fluid{
+	background:#17181c; 
+	padding:0 15px;
+}
+.navbar-header{
+	background:#17181c;
+	/*padding:0 15px; */
+}
+.navbar-collapse{
+
+}
+.container-fluid,.navbar-header{
+	height: inherit;
+}
+#navbar{
+	width: 50%;
+	margin-left: 50%;
+}
+
+.navbar-brand img{
+	height: 100%; 
+}
+.navbar-default .navbar-nav>li>a{
+	color:#fff;
+}
+.navbar-right{
+	padding-right: 15px
+}
+
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover{
+	background: #17181c;
+	color:#fff;
+}
+.navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:hover{
+	color:#777;
+}
+.navbar-default .navbar-toggle{
+	background: #17181c;
+}
+.navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover{
+	background: #777;
+}
+
+.navbar-toggle{
+	border:0;
+}
+.navbar-nav>li>.language-change{
+	height: 55px;
+	line-height: 55px;
+	font-size: 18px;
+	padding:0 15px;
+	vertical-align: middle;
+}
+.nav-tool{
+	/*display: none;*/
+}
+.nav-tool>li>a:hover{
+	cursor:pointer;
+}
+.dropdown-menu>li{
+	padding:5px 0;
+}
+/* 修改 container */
+.container{
+	
+}
+/* media min-width: 768px */
+@media (min-width: 768px){
+	.navbar-default{
+		height: 130px;
+	}
+	.navbar-brand{
+		height: 70px;
+		margin-top:30px;
+	}
+	.navbar-default .navbar-collapse{
+		height: inherit;
+		text-align: right;
+	}
+	.navbar-nav{
+		margin-top: 40px;
+		height: inherit;
+	}
+	.nav-list{
+		float: none;
+		display: inline-block;
+	}
+	.nav-tool{
+		margin-left: 5%;
+		display: block;
+	}
+	.navbar-nav>li{
+		display: inline-block;
+	}
+	.navbar-nav>li>a{
+		height: 100%;
+		color:#fff;
+	}
+	.container{
+		padding-top: 140px;
+	}
+}

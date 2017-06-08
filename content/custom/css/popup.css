@@ -77,6 +77,9 @@
 .popup-head + ul,.popup-head+.popup-info-pay{
 	padding-top: 50px;
 }
+.popup-box .popup-head+.popup-content{
+	padding-top: 50px;
+}
 .popup-keyboard .popup-head+.popup-password-box{
 	margin-top:80px;
 }
@@ -247,4 +250,36 @@
 .popup-change,.popup-select{
 	max-height: 300px;
 	overflow-y: scroll;
+}
+/* 取消 */
+.popup-box.popup-box-cancel .popup-content{
+	padding-bottom: 50px;
+}
+.popup-box.popup-box-cancel .popup-cancel{
+	margin: 0;
+	width: 100%;
+	padding:0;
+	font-size: 16px;
+	height: 50px;
+	line-height: 55px;
+	position: fixed;
+	bottom: 0;
+	z-index: 1;
+	left:0;
+	background: #fff;
+	transition: all .1s ease-in-out;
+	color:#3c3c3c;
+	border:0;
+}
+.popup-box.popup-box-cancel .popup-cancel:before{
+	content: " ";
+	height: 5px;
+	width: 100%;
+	position: absolute;
+	left:0;
+	background: #efefef;
+
+}
+.popup-box.popup-box-cancel .popup-cancel:active{
+	background:#efefef;
 }

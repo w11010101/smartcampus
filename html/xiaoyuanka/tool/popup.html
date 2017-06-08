@@ -89,6 +89,34 @@ function select(obj) {
             "campusid": "1",
             "key": "14",
             "name": "东区4号楼"
+        },{
+            "campusid": "1",
+            "key": "14",
+            "name": "东区4号楼"
+        },{
+            "campusid": "1",
+            "key": "14",
+            "name": "东区4号楼"
+        },{
+            "campusid": "1",
+            "key": "14",
+            "name": "东区4号楼"
+        },{
+            "campusid": "1",
+            "key": "14",
+            "name": "东区4号楼"
+        },{
+            "campusid": "1",
+            "key": "14",
+            "name": "东区4号楼"
+        },{
+            "campusid": "1",
+            "key": "14",
+            "name": "东区4号楼"
+        },{
+            "campusid": "1",
+            "key": "14",
+            "name": "东区4号楼"
         }]
 
     }
@@ -102,7 +130,9 @@ function change(obj) {
         type: $(obj).attr("popupType"),
         title: "更换支付方式",
         value: ["校园卡", "电子账户", "中国银行", "支付宝", "微信支付", "百度钱包"],
-        flow: $(obj).attr("popupFlow") || false
+        payType:[],
+        flow: $(obj).attr("popupFlow") || false,
+        cancel:true
     }
     campus.popup(option, function(data) {
         console.log(data);
@@ -115,7 +145,8 @@ function info(obj) {
         type: $(obj).attr("popupType"),
         title: "确认支付",
         money: 132456,
-        flow: true
+        flow: true,
+        cancel:true
     }
     campus.popup(option, function(data) {
         console.log(data);
