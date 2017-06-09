@@ -123,12 +123,9 @@
 .content-2-content .row-1 h4{
 	font-weight: bold;
 }
-.content-2-content .row-1 {
 
-}
 .content-2-content .row-1 p{
-	color:#fff;
-	font-size: 12px;
+	font-size: 14px;
 	line-height: 24px;
 	color:#f6f6f6;
 }
@@ -255,7 +252,7 @@
 /* 典型政企客户 */
 .content-3 .row-4{
 	margin-top: 40px;
-	padding:  20px;
+	padding: 20px 40px;
 	background: url(../img/bg-1.png) ;
 }
 .content-3 .row-4 h2{
@@ -296,6 +293,7 @@
 }
 .row-4-list p{
 	padding-left: 40px;
+	padding-right: 40px;
 	font-size: 12px;
 	line-height: 24px;
 	color:#080808;
@@ -361,9 +359,7 @@
 	width: 100%;
 }
 /* 成功合作案例 */
-.content-6{
 
-}
 .content-6 .row .col-md-6{
 	margin: 20px 0 ;
 }
@@ -450,7 +446,7 @@
 	}
 	.row-3-bottom .row-3-bottom-box{
 		border:0;
-		width: 70%;
+		width: 75%;
 		margin:0 auto;
 		padding: 0 20px;
 		background: #fff;
@@ -476,12 +472,23 @@
 	.content-5 ul li:before{
 		left:35px;
 	}
+	.content-6{
+		padding-left: 40px;
+		padding-right: 40px;
+	}
 	.content-6 .content-6-box img{
 		width: 70%;
 	}
-	.content-6 .row .col-md-6:last-child img{
+	.content-6 .row .col-md-6:last-child img{ 
 		width: 80%;
 		margin-top: 100px;
+	}
+	.content-2-content .row-1 .col-md-8{
+		padding-right: 40px;
+	}
+	.content-2-content .row-1 .col-md-4{
+		padding-left: 40px;
+		padding-right: 0px;
 	}
 }
 
@@ -514,7 +521,7 @@
 	}
 	.row-3-bottom .row-3-bottom-box{
 		border:0;
-		width: 70%;
+		width: 75%;
 		margin:0 auto;
 		padding: 0 20px;
 		background: #fff;
@@ -540,11 +547,22 @@
 	.content-5 ul li:before{
 		left:35px;
 	}
+	.content-6{
+		padding-left: 40px;
+		padding-right: 40px;
+	}
 	.content-6 .content-6-box img{
 		width: 70%;
 	}
 	.content-6 .row .col-md-6:last-child img{
 		width: 80%;
 		margin-top: 100px;
+	}
+	.content-2-content .row-1 .col-md-8{
+		padding-right: 40px;
+	}
+	.content-2-content .row-1 .col-md-4{
+		padding-left: 40px;
+		padding-right: 0px;
 	}
 }
