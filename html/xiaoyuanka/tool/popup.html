@@ -31,7 +31,7 @@
     <button class="info" popupType="info" onclick="info(this);">支付信息</button>
     <button class="change" popupType="change" onclick="change(this);">更换支付方式</button>
     <button class="select" popupType="select" onclick="select(this);">选择</button>
-
+    <button class="alert" popupType="alert" onclick="alert(this);">alert</button>
 </body>
 <!-- <script type="text/javascript" src="../../../content/plug/jquery/jquery.min.js"></script> -->
 <script type="text/javascript" src="../../../content/plug/jquery/jquery-3.2.1.min.js"></script>
@@ -147,6 +147,15 @@ function info(obj) {
         money: 132456,
         flow: true,
         cancel:true
+    }
+    campus.popup(option, function(data) {
+        console.log(data);
+    });
+}
+// alert
+function alert(obj){
+    var option = {
+        type: $(obj).attr("popupType"),
     }
     campus.popup(option, function(data) {
         console.log(data);

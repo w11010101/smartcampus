@@ -142,7 +142,8 @@ user-select: none; /* Non-prefixed version, currently not supported by any brows
 .campus-CJ-table thead:after,
 .campus-CJ-table tbody tr:after,
 .campus-CJ-table thead tr th:after,
-.campus-CJ-table tbody tr td:after{
+.campus-CJ-table tbody tr td:after,
+.smart-border:after{
 	content:" ";
 	height: 1px;
  	position: absolute;

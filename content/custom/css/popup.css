@@ -35,14 +35,15 @@
 }
 .popup-box.popup-select li:after,
 .popup-box.popup-change li:after,
-.popup-box.popup-info ul li:after{
+.popup-box.popup-info ul li:after,
+.popup-head:after{
 	content: " ";
 	position: absolute;
 	height: 1px;
 	width: 100%;
 	left:0;
 	background: #e0e0e0;
-	
+	transform: rotateX(60deg);
 }
 .popup-box.popup-select li:after,
 .popup-box.popup-change li:after{
@@ -73,6 +74,11 @@
 	width: 100%;
 	background: #fff;
 	z-index: 1
+}
+.popup-head:after{
+	bottom: 0;
+	width: 100%;
+	left:0;
 }
 .popup-head + ul,.popup-head+.popup-info-pay{
 	padding-top: 50px;
@@ -158,6 +164,10 @@
 }
 .popup-keyboard-nums li:last-child img{
 	width: 25%;
+}
+.popup-keyboard-nums li:last-child{
+	background: url(../img/delet-number.png) no-repeat center;
+	background-size: 30%;
 }
 .popup-keyboard-nums li:nth-child(10){
 	font-size: 30px;

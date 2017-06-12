@@ -1,0 +1,146 @@
+.smart-pay{
+	background: #fff;
+}
+.panel {
+	border-radius: 0;
+	border:0;
+	box-shadow: none;
+}
+.panel-default>.panel-heading{
+	background: #fff;
+	height: 65px;
+	
+}
+.panel-heading{
+	border:0;
+	
+}
+.panel-heading:after{
+	
+}
+.panel-heading,
+.popup-content .pay-type,
+.popup-content .pay-type li{
+	position: relative;
+}
+.panel-heading:after,
+.popup-content .pay-type:after,
+.popup-content .pay-type li:after,
+.popup-head:after{
+	position: absolute;
+	content: " ";
+	height: 1px;
+	background:#e0e0e0;
+	transform: rotateX(60deg);
+}
+.panel-heading.active:after{
+	bottom: 0;
+	left:25px;
+	right: 20px;
+}
+
+.panel .panel-title{
+	position: relative;
+}
+.panel .panel-title a{
+	padding-left: 10px;
+	line-height: 45px;
+	display: block;
+	position: relative;
+	z-index: 1;
+}
+.panel .panel-title a span{
+	color:#ff0000;
+	font-size: 24px;
+}
+.panel .panel-title a span:after{
+	content: "元";
+	color:#ff0000;
+	font-size: 12px;
+	margin-left: 5px;
+
+}
+
+.panel .panel-title:after{
+	content: " ";
+	position: absolute;
+	width: 20px;
+	height:20px;
+	background: url(../../img/screen-1.png) no-repeat center;
+	right: 0;
+	top:50%;
+	margin-top: -10px;
+	transform: rotateZ(0deg);
+	transition: all .1s ease-in;
+}
+.panel-heading.active .panel-title:after{
+	transform: rotateZ(180deg);
+}
+.panel-body table{
+	color:#8d8d8d;
+	margin-left: 20px;
+	margin-bottom: 20px;
+}
+.panel-body table .td-label{
+	width: 80px;
+}
+.panel-body table tr{
+	line-height: 24px;
+	vertical-align: top;
+}
+.popup-content{
+	overflow:hidden;
+}
+.smart-subtitle-h1{
+	padding-left: 30px;
+}
+.popup-content .pay-type{
+	padding:0;
+	margin-bottom: 0;
+}
+.popup-content .pay-type:after{
+	width: 100%;
+	bottom: 0;
+}
+.popup-content .pay-type li{
+	padding-left: 25px;
+	height: 50px;
+	line-height: 50px;
+	transition: all .1s ease-in;
+}
+.popup-content .pay-type li.active{
+	/*background: #f6f6f6;*/
+}
+.popup-content .pay-type li:after{
+	width: 100%;
+	left:25px;
+	bottom: 0;
+}
+.popup-content .pay-type li.active:before{
+	content: " ";
+	position: absolute;
+	width: 30px;
+	height: 30px;
+	top:50%;
+	right: 20px;
+	margin-top: -15px;
+	background: url(../../img/sure-1.png) no-repeat center;
+	background-size: 100%;
+
+}
+.popup-content .pay-type li:last-child:after{
+	height:0;
+}
+.smart-content .smart-container-sure-btn{
+	text-align: center;
+	background: rgba(115, 210, 254,1);
+	transition: all .1s ease-in;
+}
+.smart-content .smart-container-sure-btn:active{
+	background: rgba(115, 210, 254,.7);
+}
+.popup-head:after{
+	width: 100%;
+	bottom: 0;
+	left:0;
+}

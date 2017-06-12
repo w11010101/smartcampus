@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+  <title>index</title>
+
+  <!-- Bootstrap -->
+
+  <link href="../../../content/plug/bootstap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../../../content/custom/css/common/common.css" rel="stylesheet">
+  <link href="../../../content/custom/css/popup.css" rel="stylesheet">
+  <link href="../../../content/plug/jquery/toast/css/jquery.toast.css" rel="stylesheet">
+  <link href="../../../content/custom/css/zhifu/zhifu.css" rel="stylesheet">
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elkements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body class="smart-pay">
+  <nav class="navbar">
+    <div class="smart-header smart-white">
+      <a href="javascript:history.go(-1)" class="smart-back smart-icon-left">
+        <img src="../../../content/custom/img/back-2.png" alt="">
+      </a>
+      <h1>我的收银台</h1>
+    </div>
+  </nav>
+  <div class="smart-content">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+            需支付：
+            <span>50.00</span>
+
+          </a>
+        </h4>
+      </div>
+      <div id="collapseOne" class="panel-collapse collapse">
+        <div class="panel-body">
+          <!-- 支付信息 -->
+          <table>
+            <tbody>
+              <tr class="">
+                <td class="td-label">订单号</td>
+                <td class="td-content">456456456645645</td>
+              </tr>
+              <tr class="">
+                <td class="td-label">流水号</td>
+                <td class="td-content">13213245645613245645687</td>
+              </tr>
+              <tr class="">
+                <td class="td-label">缴费项目</td>
+                <td class="td-content">校园缴费</td>
+              </tr>
+              <tr class="">
+                <td class="td-label">缴费名称</td>
+                <td class="td-content">电费</td>
+              </tr>
+              <tr class="">
+                <td class="td-label">备注</td>
+                <td class="td-content">每月教一次，无特殊内容做备注每月教一次，无特殊内容做备注每月教一次，无特殊内容做备注每月教一次，无特殊内容做备注每月教一次，无特殊内容做备注</td>
+              </tr>
+            </tbody>
+          </table>
+
+        </div>
+      </div>
+      <!-- 支付方式 -->
+      <h1 class="smart-subtitle-h1">选择支付方式</h1>
+        <div class="popup-content">
+          <ul class="pay-type">
+            <li class="">
+              <img src="../../../content/custom/img/card.png" alt="">校园卡</li>
+            <li class="">
+              <img src="../../../content/custom/img/wallet-2.png" alt="">电子账户</li>
+            <li class="">
+              <img src="../../../content/custom/img/BOC.png" alt="">中国银行</li>
+            <li class="">
+              <img src="../../../content/custom/img/zfb.png" alt="">支付宝</li>
+            <li class="">
+              <img src="../../../content/custom/img/zfb.png" alt="">微信支付</li>
+            <li class="">
+              <img src="../../../content/custom/img/zfb.png" alt="">百度钱包</li>
+          </ul>
+        </div>
+        <!-- 按钮 -->
+        <button class="smart-container-sure-btn" popuptype="keyboard" onclick="keyboard(this);">确认支付</button>
+    </div>
+  </div>
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="../../../content/plug/jquery/jquery.min.js"></script>
+  <script src="../../../content/plug/fastclick/fastclick.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="../../../content/plug/bootstap/js/bootstrap.min.js"></script>
+  <script src="../../../content/plug/jquery/toast/js/jquery.toast.js"></script>
+  <script src="../../../content/custom/js/popup.js"></script>
+  <script type="text/javascript"> 
+    // 折叠
+    $('.panel-default').on('show.bs.collapse', function (e) {
+      $(e.target).prev().toggleClass("active");
+    });
+
+    $('.panel-default').on('hide.bs.collapse', function (e) {
+      $(e.target).prev().toggleClass("active");
+    });
+    // 列表
+    $(".popup-content ul li").on("click",function(){
+      $(this).toggleClass("active").siblings().removeClass("active");
+    })
+    // 键盘
+    function keyboard(obj) {
+    var option = {
+        type: $(obj).attr("popupType")
+    }
+    campus.popup(option, function(data) {
+        // 返回值data
+        console.log(data);
+        if (data.password == "000000") {
+            campus.tips("密码正确~！");
+        } else {
+            campus.tips("密码错误~！");
+        }
+    });
+}
+
+
+  </script>
+
+</body>
+
+</html>

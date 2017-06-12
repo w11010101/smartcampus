@@ -72,6 +72,13 @@ var campus = function(){
 					callback(e);
 				})
 			break;
+			case "alert":
+				// 选择列表
+				$("body").append(this.alert(option)+mask);
+				// this.selectsEvent(function(e){
+				// 	callback(e);
+				// })
+			break;
 		}
 		var cancel = this.cancel(option);
 		$(".popup-box").append(cancel);
@@ -91,7 +98,7 @@ var campus = function(){
         html.push('</ul><ol class="popup-keyboard-nums">');
         while (x < 12) {
             x++;
-            html.push('<li>' + (x == 10 ? "." : (x == 11 ? 0 : (x == 12 ? '<img src="../../../content/custom/img/delet-number.png" alt="">' : x))) + '</li>'); //●
+            html.push('<li>' + (x == 10 ? "." : (x == 11 ? 0 : (x == 12 ? '' : x))) + '</li>'); //●
         }
         html.push('</ol></div></div>');
         
@@ -103,7 +110,7 @@ var campus = function(){
 		$(".popup-keyboard-nums li").on("click", function() {
             if ($(this).index() != 11 && $(this).index() != 9) {
                 if (val.length < 6) {
-                    $(this).addClass('popup-active');
+                    $(this).addClass('popup-active').siblings().removeClass("popup-active");
                     val.push($(this).text());
                     $(".popup-password-box li").eq(val.length - 1).text("●");
                 }
@@ -202,7 +209,6 @@ var campus = function(){
 	this.info = function(option){
 		var html = [];
 		var title = this.title(option);
-
 		html.push('<div class="popup-info popup-box">'+title);
 		html.push('<div class="popup-content"><div class="popup-info-pay">'+(option.money||0)+'</div><ul>');
 		html.push('<li><label>缴费名称</label><em>'+(option.payName||'支付通用模版')+'</em></li><li><label>支付方式</label><em class="popup-info-changeBtn" popupType="change" popupFlow="true" >'+(option.payType||'电子账户')+'</em></li>');
@@ -231,6 +237,11 @@ var campus = function(){
 			$(".popup-info").remove();
 		})
 	}
+	// alert
+    this.alert = function(){
+    	var html = [];
+    	html.push('<div class="popup-info popup-box">');
+    }
     // 关闭
     this.boxClose = function() {
         $(".smart-pay-close,.popup-cancel").on("click", function() {
@@ -268,6 +279,7 @@ var campus = function(){
 	        });
         }
     }
+
 }
 var campus = new campus();
 
