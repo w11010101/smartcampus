@@ -136,8 +136,12 @@ var campus = function(){
 		html.push('<div class="popup-select popup-box">'+title+'<div class="popup-content"><ul>');
 		var arr = option.value;
 		for(var i in arr){
-			var val = typeof arr[i] == "string"?arr[i]:arr[i].name;
-			var key = typeof arr[i] == "string"?arr[i]:arr[i].key;
+			console.log(arr[i]);
+			var val = typeof arr[i] == "object"?arr[i].name:arr[i];
+			var key = typeof arr[i] == "object"?arr[i].key:arr[i];
+			
+			// var val = typeof arr[i] == "string"?arr[i]:typeof arr[i] == "number"?arr[i]:arr[i].name;
+			// var key = typeof arr[i] == "string"?arr[i]:arr[i].key;
             html.push('<li key="'+key+'" >'+val+'</li>');
         }
         html.push('</ul></div></div>');

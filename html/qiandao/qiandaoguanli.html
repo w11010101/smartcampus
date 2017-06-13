@@ -70,17 +70,17 @@
     </div>
     <!--  -->
     <div class="row">
-      <div class="col-xs-6 active">
-        开始签到
+      <div class="col-xs-6">
+        <a href="kaishi.html" title="">开始签到</a>
       </div>
       <div class="col-xs-6">
-        NFC签到
+        <a href="" title="">NFC签到</a>
+      </div>
+      <div class="col-xs-6" popupType="select" onclick="select(this);">
+        <a title="">随机签到</a>
       </div>
       <div class="col-xs-6">
-        随机签到
-      </div>
-      <div class="col-xs-6">
-        签到统计
+        <a href="" title="">签到统计</a>
       </div>
     </div>
   </div>
@@ -92,13 +92,21 @@
   <script src="../../content/plug/jquery/toast/js/jquery.toast.js"></script>
   <script src="../../content/custom/js/popup.js"></script>
   <script type="text/javascript">
-  $(".smart-btn").on("click", function() {
-    $("body").addClass("smart-signedIn");
-    $(".smart-flag").text("正在上课")
-    campus.tips("签到成功");
-  })
+  $(".smart-sign-adm .row div").on("click",function(){
+    $(this).addClass("active").siblings().removeClass("active");
+  });
+// 随机选择
+function select(obj) {
+    var option = {
+        type: $(obj).attr("popupType"),
+        value:[10,20,30,40,50],
+        cancel:true
+    };
+    campus.popup(option, function(data) {
+        console.log(data);
+    });
+}
+
   </script>
-
 </body>
-
 </html>

@@ -61,8 +61,6 @@
 .smart-signedIn .smart-sign-box ul{
 	background: rgba(115, 210, 254,1);
 	color:#fff;
-	/*border:1px solid #fff;*/
-	/*border:none;*/
 }
 .smart-signedIn .smart-sign-box ul *{
 	color:#fff;
@@ -141,22 +139,190 @@
 	width: 100%;
 	text-align: center;
 	position: absolute;
-	bottom: 0
+	bottom: 0;
 }
 
 .row div{
 	height: 50px;
 	line-height: 50px;
 	border-top:1px solid #73d2fe;
-	color:#73d2fe;
 	font-size: 16px;
 	transition: all .1s ease-in;
-	/*font-weight: 600*/
+}
+.row div a{
+	color:#73d2fe;
 }
 .row div:nth-child(even){
 	border-left:1px solid #73d2fe;
 }
 .row div.active{
 	background:#73d2fe;
+}
+.row div.active a{
+	color:#fff;
+}
+/* 开始签到 */
+.smart-sign-start{
+	overflow:hidden;
+}
+.panel-body{
+	padding:0;
+}
+.panel-heading{
+	position: relative;
+	background: #fff!important;
+	height: 50px;
+}
+.panel{
+	border:0;
+	border-radius: 0;
+	position: relative;
+
+}
+.panel-group .panel+.panel{
+	margin-top: 0;
+}
+.panel-heading a{
+	display: block;
+	line-height: 30px;
+	color:#3c3c3c;
+	position: relative;
+	z-index: 1;
+}
+.smart-sub-list .smart-sub-list-item{
+	height: 58px;
+	line-height: 58px;
+	padding-right:20px;
+	padding-left:15px;
+}
+.smart-sub-list .smart-sub-list-item img{
+	width: 36px;
+	height: 36px;
+	margin-right: 10px;
+}
+.smart-sub-list .smart-sub-list-item button{
+	font-size: 14px;
+	width: 63px;
+	text-align: center;
+	height: 25px;
+	color:#45d6c5;
+	border:1px solid #45d6c5;
+	border-radius: 5px;
+	background: #fff;
+	line-height: 25px;
+	float:right;
+	margin-top: 17px;
+	padding:0;
+	transition: all .1s ease-in;
+}
+.smart-sub-list .smart-sub-list-item button.active,
+.smart-sub-list .smart-sub-list-item button:active{
+	background: #45d6c5;
+	color:#fff;
+}
+.smart-sub-list .smart-sub-list-item.cancel button{
+	background: rgba(200,200,200,1);
+	color:#fff;
+	border-color:#c8c8c8;
+
+}
+.smart-sub-list .smart-sub-list-item.cancel button:active{
+	background: rgba(200,200,200,.7);
+}
+.smart-sub-list .smart-sub-list-item:before{
+	display: none;
+}
+.smart-sub-list .smart-sub-list-item:after{
+	left:60px!important;
+}
+.smart-list-end-icon{
+	line-height: 50px;
+	right: 40px;
+	color:#727272;5
+}
+.smart-list-end-icon:after{
+	content: " ";
+    background: url(../../../custom/img/screen-1.png) no-repeat center;
+    position: absolute;
+    width: 26px;
+    height: 26px;
+    top: 50%;
+    right: -30px;
+    margin-top: -13px;
+    transform: rotateX(0deg);
+    -webkit-transform: rotateX(0deg);
+    transition: transform .2s ease-in,background .1s ease-in;
+    -webkit-transition: transform .2s ease-in,background .1s ease-in;
+}
+.panel-heading.active .smart-list-end-icon:after {
+    transform: rotateX(-180deg);
+    -webkit-transform: rotateX(-180deg);
+}
+/* 弹窗 */
+.smart-alert{
+	position: fixed;
+	width: 70%;
+	top:50%;
+	left:50%;
+	margin-top:-50%;
+	margin-left:-35%;
+	z-index: 9999;
+	background: #fff;
+	border-radius: 5px;
+	overflow:hidden;
+	font-size: 0;
+	display: none
+}
+.smart-alert h1{
+	text-align: center;
+	font-size: 18px;
+	position: relative;
+	margin-bottom: 30px;
+	color:#0f0f0f;
+}
+.smart-alert h1:before,.smart-alert h1:after{
+	content: " ";
+	position: absolute;
+	height: 1px;
+	background: #3c3c3c;
+	top:50%;
+	width: 18px;
+}
+.smart-alert h1:before{
+	left: 25%;
+}
+.smart-alert h1:after{
+	right: 25%;
+}
+.smart-alert-div{
+	display: inline-block;
+	width: 50%;
+	font-size: 16px;
+	text-align: center;
+	color:#0f0f0f;
+}
+.smart-alert-div span{
+	padding:0 5px;
+}
+.smart-alert-div-1 span{
+	color:#45d6c5;
+}
+.smart-alert-div-2 span{
+	color:#ff5408;
+}
+.smart-alert button{
+	margin-top: 30px;
+	font-size: 16px;
+	display: block;
+	width: 100%;
+	border:0;
+	border-top:1px solid #c8c8c8;
+	background: #fff;
+	height: 40px;
+	line-height: 40px;
+	transition: all .1s ease-in;
+}
+.smart-alert button:active{
+	background: #c8c8c8;
 	color:#fff;
 }

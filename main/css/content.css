@@ -1,5 +1,12 @@
+html,body{
+	background: #000;
+}
+body{
+	padding-top: 130px;
+}
 *{
 	font-family: "微软雅黑";
+
 }
 .container{
 	padding: 0
@@ -13,64 +20,81 @@
 
 .content h2{
 	text-align: center;
-	font-size: 24px;
+	font-size: 30px;
 	margin-bottom: 20px;
 }
 .content h3{
-	font-size: 18px;
+	font-size: 22px;
 	font-weight: 300;
 	margin-bottom: 20px;
 }
 .content h4{
-	font-size: 14px;
-	font-weight: 300;
-	/*margin-bottom: 20px;*/
+	font-size: 18px;
+	font-weight: normal;
 }
 /* content-1 */
+.content-1{
+	background: #fff;
+}
+.content-1 .row{
+	/*padding-right: 15px;*/
+}
 .content-1 h2{
 	color:#080808;
 	text-align: left;
-	margin-top: 30px;
-	margin-bottom: 40px;
-	padding-left: 15px;
+	margin-top: 25px;
+	margin-bottom: 30px;
+	/*padding-left: 15px;*/
 }
 .content-1 .col-md-7 p{
 	text-indent: 2em;
-	font-size: 14px;
-	line-height: 24px;
+	font-size: 16px;
+	line-height: 32px;
 	color:#080808;
 	text-align:justify;
-	padding-left: 15px;
+	/*width: 654px;*/
+	/*padding-left: 15px;*/
 }
-.content-1 .col-md-5 >img{
-	width: 300px;
+.content-tel{
+	background: #fff;
+}
+.container > .content-tel{
+	padding:20px 0;
+	margin-top: 0;
+}
+.container > .content-tel>div{
+	margin-top: 0px;
+}
+.content-tel >img{
+	width: 80%;
 	display: block;
-	margin:0 auto;
+	margin:20px auto;
 }
-.content-1 .col-md-5 >div{
+.content-tel >div{
 	text-align: center;
 	margin-top: 30px;
 }
-.content-1 .col-md-5 >div img{
-	width: 18px;
-	display: inline-block;
-	vertical-align: bottom;
-}
-
-.content-1 .col-md-5 >div span{
-	font-weight: bold;
-	font-size: 16px;
-	padding:0 5px;
-	display: inline-block;
-	vertical-align: bottom;
-}
-.content-1 .col-md-5 >div >div{
+.content-tel >div img{
+	width: 25px;
 	display: inline-block;
 	vertical-align: middle;
 }
-.content-1 .col-md-5 >div em{
-	font-size: 24px;
-	line-height: 24px;
+
+.content-tel >div span{
+	font-weight: bold;
+	font-size: 20px;
+	line-height: 20px;
+	padding:0 5px;
+	display: inline-block;
+	vertical-align: middle;
+}
+.content-tel >div >div{
+	display: inline-block;
+	vertical-align: middle;
+}
+.content-tel >div em{
+	font-size: 32px;
+	line-height: 32px;
 	font-weight: bold;
 	display: inline-block;
 	vertical-align: bottom;
@@ -121,7 +145,10 @@
 	background: #17181c;
 }
 .content-2-content h3{
-	padding:0 15px;
+	/*padding:0 15px;*/
+}
+.content-2-content .col-md-8{
+	padding-left: 0
 }
 .content-2-content .row-1 h2,.content-2-content .row-1 h3,.content-2-content .row-1 h4{
 	color:#f6f6f6;
@@ -131,8 +158,8 @@
 }
 
 .content-2-content .row-1 p{
-	font-size: 14px;
-	line-height: 24px;
+	font-size: 16px;
+	line-height: 32px;
 	color:#f6f6f6;
 	margin-bottom: 20px;
 }
@@ -241,10 +268,12 @@
 	border:1px solid #a8a8a8;
 }
 .row-3-bottom .row-3-bottom-box p{
+	font-size: 14px;
 	padding-bottom: 5px;
 	border-bottom:1px solid #a8a8a8;
 }
 .row-3-bottom span{
+	font-size: 16px;
 	color:#080808;
 	font-weight: bold;
 }
@@ -253,47 +282,52 @@
 	height: 1px;
 	position: absolute;
 	top:50%;
-	left: 20px;
-	right: 20px;
+	left: 50px;
+	right: 50px;
 	background: #cdcdcd;
 	display: none;
+	margin-top: -15px;
 }
 /* 典型政企客户 */
-.content-3 .row-4{
-	margin-top: 40px;
-	padding: 30px 40px;
+.content-3 {
 	background: url(../img/bg-1.png) ;
 }
+.content-3 .row-4{
+	/*margin-top: 40px;*/
+	padding: 30px 65px;
+	
+}
 .content-3 .row-4 h2{
-	margin-top:20px;
-	margin-bottom: 50px;
+	margin-top:0;
+	margin-bottom: 40px;
 	text-align: center;
 }
 
 .row-4-list h3{
 	margin: 10px 0;
-	padding:1px 0 1px 40px;
+	padding:1px 0 1px 50px;
 	color:#db6865;
+	font-size: 20px;
 }
 .row-4-list:nth-child(2) h3{
-	background: url(../img/icon-6.png) no-repeat left 10px center;
-	background-size: contain;
+	background: url(../img/icon-6.png) no-repeat left 10px top;
+	background-size: 24px;
 }
 .row-4-list:nth-child(3) h3{
-	background: url(../img/icon-7.png) no-repeat left 10px center;
-	background-size: contain;
+	background: url(../img/icon-7.png) no-repeat left 10px top;
+	background-size: 24px;
 }
 .row-4-list:nth-child(4) h3{
-	background: url(../img/icon-8.png) no-repeat left 10px center;
-	background-size: contain;
+	background: url(../img/icon-8.png) no-repeat left 10px top;
+	background-size: 24px;
 }
 .row-4-list:nth-child(5) h3{
-	background: url(../img/icon-9.png) no-repeat left 10px center;
-	background-size: contain;
+	background: url(../img/icon-9.png) no-repeat left 10px top;
+	background-size: 24px;
 }
 .row-4-list:nth-child(6) h3{
-	background: url(../img/icon-10.png) no-repeat left 10px center;
-	background-size: contain;
+	background: url(../img/icon-10.png) no-repeat left 10px top;
+	background-size: 24px;
 }
 .row-4-list h3 img{
 	width: 24px;
@@ -301,10 +335,10 @@
 	vertical-align: middle;
 }
 .row-4-list p{
-	padding-left: 40px;
-	padding-right: 40px;
-	font-size: 12px;
-	line-height: 24px;
+	padding-left: 50px;
+	padding-right: 0px;
+	font-size: 14px;
+	line-height: 28px;
 	color:#080808;
 }
 /* 政企云一卡通云平台层次结构图 */
@@ -315,6 +349,7 @@
 	/*background: linear-gradient(170deg,#fff 30.5%,#17181c 30.6%,#17181c 70%,#fff 35%);*/
 	position: relative;
 	overflow: hidden;
+	background: #fff;
 }
 .content-4:before{
 	position: absolute;
@@ -327,14 +362,16 @@
 	margin-left: -100%;
 	background: #17181c;
 	transform: rotate(-10deg);
-	z-index: -1;
+	/*z-index: -1;*/
 }
 .content-4 h2{
 	color:#080808;
+	margin-top: 35px;
 	margin-bottom: 35px;
 }
 .content-4 img {
-	
+	position: relative;
+	z-index: 1;
 	display: block;
 	margin: 0 auto;
 }
@@ -344,33 +381,35 @@
 .content-4 .content-4-img-2 {
 	width: 65%;
 	margin: 115px auto 50px;
-	box-shadow: 0px 20px 20px #ddd;
+	/*box-shadow: 0px 20px 20px #ddd;*/
 }
 /* 政企云一卡通服务特点 */
 .content-5{
 	background: url(../img/bg-1.png);
+
 }
 .content-5 h2{
 	margin-top: 30px;
-	margin-bottom: 70px;
+	margin-bottom: 60px;
 }
 .content-5 ul{
 	padding-left: 0px;
 	list-style: none;
 }
 .content-5 ul li{
-	padding-left: 20px;
+	padding-left: 25px;
 	list-style: none;
 	color:#080808;
-	line-height: 16px;
+	font-size: 16px;
+	line-height: 20px;
 	margin-bottom: 15px;
 	position: relative;
 }
 .content-5 ul li:before{
 	position: absolute;
 	content: " ";
-	width: 10px;
-	height: 10px;
+	width: 13px;
+	height: 13px;
 	border:1px solid #a8a8a8;
 	background: #fff;
 	border-radius: 50%;
@@ -380,14 +419,16 @@
 
 }
 .content-5 ul .content-5-main{
-	font-size: 16px;
+	font-size: 18px;
 	color:#db6865;
 }
 .content-5 img{
 	width: 100%;
 }
 /* 成功合作案例 */
-
+.content-6{
+	background: #fff;
+}
 .content-6 .row .col-md-6{
 	margin: 20px 0 ;
 }
@@ -427,7 +468,7 @@
 		padding-left: 60px; 
 	}
 	.content-5 ul li{
-		padding-left: 60px;
+		padding-left: 65px;
 	}
 	.content-5 ul li:before{
 		left:35px;
@@ -474,7 +515,7 @@
 	.row-3-bottom .row-3-bottom-box{
 		border:0;
 		width: 75%;
-		margin:0 auto;
+		margin:0 auto 30px;
 		padding: 0 20px;
 		background: #fff;
 		position: relative;
@@ -490,6 +531,8 @@
 	.row-4-list{
 		width: 20%;
 	}
+	/**/
+
 	.content-5 ul{
 		padding-left: 60px; 
 	}
@@ -499,6 +542,7 @@
 	.content-5 ul li:before{
 		left:35px;
 	}
+	/**/
 	.content-6{
 		padding-left: 40px;
 		padding-right: 40px;
@@ -514,7 +558,8 @@
 		padding-right: 40px;
 	}
 	.content-2-content .row-1 .col-md-4{
-		padding-left: 40px;
+		margin-left: 25px;
+		margin-right: -25px;
 		padding-right: 0px;
 	}
 }
@@ -522,8 +567,6 @@
 @media (min-width: 1200px){
 	.container {
 	    width: 1264px;
-	    padding-left: 15px;
-	    padding-right: 15px;
 	}
 	.content-2:before,.content-2:after{
 		display: block
@@ -549,7 +592,7 @@
 	.row-3-bottom .row-3-bottom-box{
 		border:0;
 		width: 75%;
-		margin:0 auto;
+		margin:0 auto 30px;
 		padding: 0 20px;
 		background: #fff;
 		position: relative;
@@ -566,10 +609,10 @@
 		width: 20%;
 	}
 	.content-5 ul{
-		padding-left: 60px; 
+		padding-left: 70px; 
 	}
 	.content-5 ul li{
-		padding-left: 60px;
+		padding-left: 65px;
 	}
 	.content-5 ul li:before{
 		left:35px;
@@ -589,7 +632,8 @@
 		padding-right: 40px;
 	}
 	.content-2-content .row-1 .col-md-4{
-		padding-left: 40px;
+		margin-left: 25px;
+		margin-right: -25px;
 		padding-right: 0px;
 	}
 }
