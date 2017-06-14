@@ -1,7 +1,7 @@
 
 .popup-mask{
  	position: fixed;
- 	z-index: 9998;
+ 	z-index: 8998;
  	width: 100%;
  	height: 100%;
  	top:0;
@@ -56,7 +56,7 @@
 	margin: 0;
 	background: #fff; 
 	position: fixed;
-	z-index: 9999;
+	z-index: 8999;
 	width: 100%;
 	bottom:0;
 	text-align: center;
@@ -156,25 +156,49 @@
 	vertical-align: top;
 	line-height: 50px;
 	background: #fff;
+	
+}
+.popup-keyboard-nums button{
+	display: block;
+	width: 100%;
+	height: 100%;
+	border:0;
+	background: none;
 	transition:background .1s ease-in-out;
 	-webkit-transition:background .1s ease-in-out; 
 }
 .popup-keyboard-nums li:nth-child(3n){
 	border-right: 0
 }
-.popup-keyboard-nums li:last-child img{
+/*.popup-keyboard-nums li:last-child img{
 	width: 25%;
+}*/
+.popup-keyboard-nums li:last-child button{
+	position: relative;
+	
 }
-.popup-keyboard-nums li:last-child{
+.popup-keyboard-nums li:last-child button:after{
+	position: absolute;
+	content: " ";
+	width: 30%;
+	height: 100%;
 	background: url(../img/delet-number.png) no-repeat center;
-	background-size: 30%;
+	background-size: contain;
+	top:0%;
+	left:50%;
+	margin-left: -15%;
 }
-.popup-keyboard-nums li:nth-child(10){
+.popup-keyboard-nums li:nth-child(10) button{
 	font-size: 30px;
+	padding-bottom: 15px;
 	line-height: 30px;
 }
-.popup-keyboard-nums li.popup-active:active{
+.popup-keyboard-nums li:not(:last-child) button:active{
 	background: #efefef;
+}
+.popup-keyboard-nums li:last-child button:active:after{
+	background: url(../img/delet-number-active.png) no-repeat center;
+	background-size: contain;
 }
 /* 选择列表 */
 .popup-box.popup-select li,.popup-box.popup-change li{
@@ -185,12 +209,11 @@
 	white-space:nowrap; 
 	overflow:hidden; 
 	text-overflow:ellipsis;
-
+	transition: all .1s ease-in;
+	-webkit-transition: all .1s ease-in;
 }
 .popup-box.popup-select li.popup-active,.popup-box.popup-change li.popup-active{
 	background: url(../img/sure.png) no-repeat right 25px center;
-	
-
 }
 .popup-box.popup-change li{
 	padding: 0 30px;

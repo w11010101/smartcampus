@@ -98,7 +98,7 @@ var campus = function(){
         html.push('</ul><ol class="popup-keyboard-nums">');
         while (x < 12) {
             x++;
-            html.push('<li>' + (x == 10 ? "." : (x == 11 ? 0 : (x == 12 ? '' : x))) + '</li>'); //●
+            html.push('<li><button>' + (x == 10 ? "." : (x == 11 ? 0 : (x == 12 ? '' : x))) + '</button></li>'); //●
         }
         html.push('</ol></div></div>');
         
@@ -108,6 +108,10 @@ var campus = function(){
     this.keyboardEvent = function(callback){
     	var val = [];
 		$(".popup-keyboard-nums li").on("click", function() {
+			var numBtn = $(".popup-keyboard-nums li:not(:last-child) button");
+			if(val.length == 6){
+				numBtn.attr("disabled",true);
+			}
             if ($(this).index() != 11 && $(this).index() != 9) {
                 if (val.length < 6) {
                     $(this).addClass('popup-active').siblings().removeClass("popup-active");
@@ -119,11 +123,13 @@ var campus = function(){
                         password: val.join("")
                     }
                     callback(data);
+                    numBtn.attr("disabled",true);
                 }
             } else {
                 // 删除键
                 if ($(this).index() != 9) {
                     $(".popup-password-box li").eq(val.length - 1).text(" ");
+                    numBtn.attr("disabled",false);
                     val.splice(val.length - 1);
                 }
             }
@@ -136,12 +142,8 @@ var campus = function(){
 		html.push('<div class="popup-select popup-box">'+title+'<div class="popup-content"><ul>');
 		var arr = option.value;
 		for(var i in arr){
-			console.log(arr[i]);
 			var val = typeof arr[i] == "object"?arr[i].name:arr[i];
 			var key = typeof arr[i] == "object"?arr[i].key:arr[i];
-			
-			// var val = typeof arr[i] == "string"?arr[i]:typeof arr[i] == "number"?arr[i]:arr[i].name;
-			// var key = typeof arr[i] == "string"?arr[i]:arr[i].key;
             html.push('<li key="'+key+'" >'+val+'</li>');
         }
         html.push('</ul></div></div>');
@@ -266,7 +268,6 @@ var campus = function(){
     // 添加取消按钮
     this.cancel = function(option){
     	if(!option["cancel"]) return;
-    	console.log(option);
     	$(".popup-box").addClass("popup-box-cancel");
     	return '<button class="popup-cancel">取消</button>';
     }
@@ -282,6 +283,13 @@ var campus = function(){
 	            loader: false
 	        });
         }
+        // else{
+        // 	$(".jq-toast-single").fadeIn(200,function(){
+        // 		setTimeout(function(){
+	       //  		$(this).fadeOut(200);
+	       //  	},2000);
+        // 	});
+        // }
     }
 
 }

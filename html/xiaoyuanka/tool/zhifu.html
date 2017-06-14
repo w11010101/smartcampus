@@ -76,24 +76,24 @@
       </div>
       <!-- 支付方式 -->
       <h1 class="smart-subtitle-h1">选择支付方式</h1>
-        <div class="popup-content">
-          <ul class="pay-type">
-            <li class="">
-              <img src="../../../content/custom/img/card.png" alt="">校园卡</li>
-            <li class="">
-              <img src="../../../content/custom/img/wallet-2.png" alt="">电子账户</li>
-            <li class="">
-              <img src="../../../content/custom/img/BOC.png" alt="">中国银行</li>
-            <li class="">
-              <img src="../../../content/custom/img/zfb.png" alt="">支付宝</li>
-            <li class="">
-              <img src="../../../content/custom/img/zfb.png" alt="">微信支付</li>
-            <li class="">
-              <img src="../../../content/custom/img/zfb.png" alt="">百度钱包</li>
-          </ul>
-        </div>
-        <!-- 按钮 -->
-        <button class="smart-container-sure-btn" popuptype="keyboard" onclick="keyboard(this);">确认支付</button>
+      <div class="popup-content">
+        <ul class="pay-type">
+          <li class="">
+            <img src="../../../content/custom/img/card.png" alt="">校园卡</li>
+          <li class="">
+            <img src="../../../content/custom/img/wallet-2.png" alt="">电子账户</li>
+          <li class="">
+            <img src="../../../content/custom/img/BOC.png" alt="">中国银行</li>
+          <li class="">
+            <img src="../../../content/custom/img/zfb.png" alt="">支付宝</li>
+          <li class="">
+            <img src="../../../content/custom/img/zfb.png" alt="">微信支付</li>
+          <li class="">
+            <img src="../../../content/custom/img/zfb.png" alt="">百度钱包</li>
+        </ul>
+      </div>
+      <!-- 按钮 -->
+      <button class="smart-container-sure-btn" popuptype="keyboard" onclick="keyboard(this);">确认支付</button>
     </div>
   </div>
   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -103,36 +103,34 @@
   <script src="../../../content/plug/bootstap/js/bootstrap.min.js"></script>
   <script src="../../../content/plug/jquery/toast/js/jquery.toast.js"></script>
   <script src="../../../content/custom/js/popup.js"></script>
-  <script type="text/javascript"> 
-    // 折叠
-    $('.panel-default').on('show.bs.collapse', function (e) {
-      $(e.target).prev().toggleClass("active");
-    });
+  <script type="text/javascript">
+  // 折叠
+  $('.panel-default').on('show.bs.collapse', function(e) {
+    $(e.target).prev().toggleClass("active");
+  });
 
-    $('.panel-default').on('hide.bs.collapse', function (e) {
-      $(e.target).prev().toggleClass("active");
-    });
-    // 列表
-    $(".popup-content ul li").on("click",function(){
+  $('.panel-default').on('hide.bs.collapse', function(e) {
+    $(e.target).prev().toggleClass("active");
+  });
+  // 列表
+  $(".popup-content ul li").on("click", function() {
       $(this).toggleClass("active").siblings().removeClass("active");
     })
     // 键盘
-    function keyboard(obj) {
+  function keyboard(obj) {
     var option = {
-        type: $(obj).attr("popupType")
+      type: $(obj).attr("popupType")
     }
     campus.popup(option, function(data) {
-        // 返回值data
-        console.log(data);
-        if (data.password == "000000") {
-            campus.tips("密码正确~！");
-        } else {
-            campus.tips("密码错误~！");
-        }
+      // 返回值data
+      console.log(data);
+      if (data.password == "000000") {
+        campus.tips("密码正确~！");
+      } else {
+        campus.tips("密码错误~！");
+      }
     });
-}
-
-
+  }
   </script>
 
 </body>

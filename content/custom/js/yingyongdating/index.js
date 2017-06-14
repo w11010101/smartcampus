@@ -52,8 +52,13 @@ var app = function () {
     }
     // 设置top
   this.getTop = function (type) {
-    return $("#advanced")[0].clientHeight + $(".smart-search")[0].clientHeight + 45;
-    // return $("#box-1")[0].clientHeight + (!type?$(".smart-search")[0].clientHeight:0) + 45;
+    var top = 0;
+    $.each($("*[getHeight]"),function(i,e){
+      if($(e).attr("getHeight")){
+        top += e.clientHeight
+      }
+    });
+    return top;
   }
   // scorllTop
   this.scrollTo = function(){

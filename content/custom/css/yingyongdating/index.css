@@ -9,7 +9,7 @@ html,body{
 .smart-header,.smart-header a{
 	color:#000!important;
 }
-.smart-content{
+.navbar+.smart-content{
 	padding-top: 45px;
 }
 .smart-search{
@@ -97,7 +97,6 @@ html,body{
 	padding: 0
 }
 .advanced-box{
-	
 	position: relative;
 	z-index: 2;
 	top:0;
@@ -105,10 +104,10 @@ html,body{
 	-webkit-transition: top .2s ease-in-out;
 }
 .tool-box{
-	/*background: #fff;*/
 	position: absolute;
 	width: 100%;
 	top:0;
+	/*padding-top:40px;*/
 	transition: top .2s ease-in-out;
 	-webkit-transition: top .2s ease-in-out;
 }
