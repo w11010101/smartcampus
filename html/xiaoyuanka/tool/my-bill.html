@@ -20,6 +20,7 @@
       <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
+
 <body onload="load_charts_bar();" class="smart-bill">
   <nav class="navbar">
     <div class="smart-header smart-white">
@@ -464,8 +465,6 @@
 <script type="text/javascript" src="../../../content/plug/echarts/echarts.common.min.js"></script>
 <script type="text/javascript" src="../../../content/custom/js/common.js"></script>
 <script type="text/javascript">
-
-
 // 向下展开筛选
 var screen_list = [
   ["所有账户", "电子账户", "一卡通账户", "校园其他账户"],
@@ -475,23 +474,23 @@ var screen_list = [
 var lists = $(".smart-screen div[class^=col-xs-4]");
 
 lists.on("click", function() {
-    $(this).toggleClass("smart-active").siblings().removeClass("smart-active");
+  $(this).toggleClass("smart-active").siblings().removeClass("smart-active");
 
-    $(".smart-screen-list div").remove();
-    for (var i in screen_list[$(this).index()]) {
-      $(".smart-screen-list").append('<div class="col-xs-12">' + screen_list[$(this).index()][i] + '</div>');
-    }
-    if ($(this).hasClass("smart-active")) {
-      smart_screen_toggle("show");
-    } else {
-      smart_screen_toggle("hide");
-    }
-    // 隐藏筛选
-    $(".smart-screen-list div,.smart-screen-mask").off().on("click", function() {
-      $(".smart-active").removeClass('smart-active');
-      smart_screen_toggle("hide");
-    })
+  $(".smart-screen-list div").remove();
+  for (var i in screen_list[$(this).index()]) {
+    $(".smart-screen-list").append('<div class="col-xs-12">' + screen_list[$(this).index()][i] + '</div>');
+  }
+  if ($(this).hasClass("smart-active")) {
+    smart_screen_toggle("show");
+  } else {
+    smart_screen_toggle("hide");
+  }
+  // 隐藏筛选
+  $(".smart-screen-list div,.smart-screen-mask").off().on("click", function() {
+    $(".smart-active").removeClass('smart-active');
+    smart_screen_toggle("hide");
   })
+})
 
 
 function smart_screen_toggle(type) {
@@ -506,14 +505,14 @@ function smart_screen_toggle(type) {
   }
 }
 // 手风琴
-$('.panel-group').on('show.bs.collapse', function (e) {
+$('.panel-group').on('show.bs.collapse', function(e) {
   console.log($(e.target).prev().toggleClass("smart-active"));
 })
 
-$('.panel-group').on('hide.bs.collapse', function (e) {
-  console.log($(e.target).prev().toggleClass("smart-active"));
-})
-// 手风琴效果监听 —— 我的账单
+$('.panel-group').on('hide.bs.collapse', function(e) {
+    console.log($(e.target).prev().toggleClass("smart-active"));
+  })
+  // 手风琴效果监听 —— 我的账单
 $(".smart-accordion .panel-heading").on("click", function() {
     // 先显示加载中图标
     // 加载并显示列表
@@ -523,34 +522,34 @@ $(".smart-accordion .panel-heading").on("click", function() {
       var that = $(this);
       // 1000毫秒后加载列表数据
       // setTimeout(function() {
-        // 测试是先把列表隐藏（css样式隐藏），再显示出来；
-         that.next().find(".smart-sub-list").slideDown(200);
+      // 测试是先把列表隐藏（css样式隐藏），再显示出来；
+      that.next().find(".smart-sub-list").slideDown(200);
 
-        if (!that.next().find("li").length) {
-          // 如果没有数据
-          that.next().find(".smart-loading").addClass("smart-nothing");
-          return;
-        }
-        // 加载完成后隐藏——加载中
-        that.next().find(".smart-loading").hide(0);
-        // 手风琴列表 —— 我的账单详情
-        $(".smart-sub-list-item").off().on("click", function() {
-          var hasSub = $(this).next();
-          if (hasSub.hasClass("smart-sub-list-item-content")) {
-            $(".smart-sub-list-item-content").not(hasSub).slideUp(200);
-            hasSub.slideToggle(200);
-          }
-        })
+      if (!that.next().find("li").length) {
+        // 如果没有数据
+        that.next().find(".smart-loading").addClass("smart-nothing");
+        return;
+      }
+      // 加载完成后隐藏——加载中
+      that.next().find(".smart-loading").hide(0);
+
       // }, 2000);
-    }else{
+    } else {
       // console.log(10)
+    }
+  })
+  // 手风琴列表 —— 我的账单详情
+$(".smart-sub-list-item").off().on("click", function() {
+    var hasSub = $(this).next();
+    if (hasSub.hasClass("smart-sub-list-item-content")) {
+      $(".smart-sub-list-item-content").not(hasSub).slideUp(200);
+      hasSub.slideToggle(200);
     }
   })
   // 加载中
 function loading() {
   return '<!-- 加载中 --><div class="smart-loading"><div class="smart-waiting"></div></div>';
 }
-
 </script>
 
 </html>
