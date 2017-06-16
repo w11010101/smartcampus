@@ -40,23 +40,23 @@
         <li class="smart-list-item">
           <div class="smart-accounts">
             <label class="sr-only">账户名</label>
-            <input type="text" class="smart-input" placeholder="请输入6为数字密码" required oninput="if(value.length>16) value=value.slice(0,16);" >
+            <input type="text" class="smart-input" inputType="asscount" required oninput="if(value.length>16) value=value.slice(0,16);" >
             <p>账户名字母开头5-16位，只能用数字、小写字母、点号、下划线和减号</p>
             <span class="glyphicon smart-icon-srue"></span>
           </div>
         </li>
         <li class="smart-list-item">
           <label for="inputPassword" class="sr-only">暗号</label>
-          <input type="password" class="smart-input" placeholder="请输入6为数字密码" required oninput="if(value.length>6) value=value.slice(0,6);">
+          <input type="password" class="smart-input" inputType="firstPWD" placeholder="请输入6为数字密码" required oninput="if(value.length>6) value=value.slice(0,6);">
           <span class="glyphicon smart-icon-srue"></span>
         </li>
         <li class="smart-list-item">
           <label for="inputPassword"  class="sr-only">确认暗号</label>
-          <input type="password" class="smart-input" placeholder="请再次输入6为数字密码" required oninput="if(value.length>6) value=value.slice(0,6);">
+          <input type="password" class="smart-input " inputType="refreshPWD" placeholder="请再次输入6为数字密码" required oninput="if(value.length>6) value=value.slice(0,6);">
           <span class="glyphicon smart-icon-srue"></span>
         </li>
       </ul>
-      <button class="smart-btn" type="submit">确 认</button>
+      <button class="smart-btn">确 认</button>
       <!-- <button class="btn btn-lg btn-primary btn-block" type="submit">确 认</button> -->
     </form>
   </div>

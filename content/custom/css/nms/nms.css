@@ -1,6 +1,9 @@
 body{
 	overflow-x:hidden;
 }
+html *,.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6{
+	font-weight: normal;
+}
 /*首页*/
 .smart-nms{
 	background: #fff
@@ -219,8 +222,7 @@ body{
 	margin-top: 15%;
 }
 .smart-nms[sign=noSignIn] .noSignIn p{
-	color:#a8a8a8;
-	text-align: center;
+	color:#a8a8a8; text-align: center;
 	margin-top: 10px;
 	margin-bottom: 15%;
 }
@@ -277,13 +279,24 @@ body{
     transition: opacity .1s ease-in;
     -webkit-transition: opacity .1s ease-in;
 }
+.smart-btn.smart-btn-sure{
+	background:rgba(115, 210, 254,1);
+	border-color: #73d2fe;
+	color:#fff;
+	transition: all .1s ease-in;
+    -webkit-transition: all .1s ease-in;
+}
+.smart-btn.smart-btn-sure:active{
+	background:rgba(115, 210, 254,.7);
+	border-color:#9ddffe;
+}
 .smart-nms-anhao .smart-list .smart-list-item:not(:first-child):after{
  	left:20px!important;
 }
 .smart-nms-anhao .smart-list .smart-list-item:first-child:after{
 
 }
-.smart-list-item:first-child{
+.smart-nms-anhao .smart-list-item:first-child{
 	height: auto;
 	line-height: normal;
 }
