@@ -1,8 +1,8 @@
-html,body{
+﻿html,body{
 	background: #000;
 }
 body{
-	padding-top: 130px;
+	/*padding-top: 130px;*/
 }
 *{
 	font-family: "微软雅黑";
@@ -147,9 +147,7 @@ body{
 .content-2-content h3{
 	/*padding:0 15px;*/
 }
-.content-2-content .col-md-8{
-	padding-left: 0
-}
+
 .content-2-content .row-1 h2,.content-2-content .row-1 h3,.content-2-content .row-1 h4{
 	color:#f6f6f6;
 }
@@ -183,7 +181,9 @@ body{
 	font-size: 24px;
 	padding:28px 20px 20px 20px;
 }
-
+.content-2-content .row-2 .col-md-3:nth-child(4) h3{
+	line-height: 50px;
+}
 .content-2-content .row-2 .col-md-3 p{
 	padding:10px;
 	text-align: justify;
@@ -293,8 +293,7 @@ body{
 	background: url(../img/bg-1.png) ;
 }
 .content-3 .row-4{
-	/*margin-top: 40px;*/
-	padding: 30px 65px;
+	padding: 30px 20px;
 	
 }
 .content-3 .row-4 h2{
@@ -500,11 +499,17 @@ body{
 	.content-2-content .row-3-1 .col-md-3 img,.content-2-content .row-3-2 .col-md-3 img{
 		height: 80%;
 	}
+	.content-2-content .col-md-8{
+		padding-left: 0
+	}
 	.content-2-content .row-3 .col-md-3 p{
 		font-size: 16px;
 	}
 	.content-2-content .row-1{
 		background: none;
+	}
+	.content-3 .row-4{
+		padding: 30px 65px;
 	}
 	.row-3-bottom{
 		padding: 10px 20px;
@@ -580,8 +585,14 @@ body{
 	.content-2-content .row-3 .col-md-3 p{
 		font-size: 16px;
 	}
+	.content-2-content .col-md-8{
+		padding-left: 0
+	}
 	.content-2-content .row-1{
 		background: none;
+	}
+	.content-3 .row-4{
+		padding: 30px 65px;
 	}
 	.row-3-bottom{
 		padding: 10px 20px;
