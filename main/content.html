@@ -8,7 +8,7 @@
   <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
   <meta name="description" content="">
   <meta name="author" content="">
-  <link rel="icon" href="../../favicon.ico">
+  <!-- <link rel="icon" href="../../favicon.ico"> -->
 
   <title>Static Top Navbar Example for Bootstrap</title>
 
@@ -28,20 +28,318 @@
 </head>
 
 <body>
+  <!-- Static navbar -->
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#example-navbar-collapse">
+          <span class="sr-only">切换导航</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">
+          <img src="img/logo.png" alt="">
+        </a>
+      </div>
+      <div class="collapse navbar-collapse" id="example-navbar-collapse">
 
+
+        <!-- nav -->
+        <ul class="nav navbar-nav nav-list">
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle1" data-toggle="dropdown1">
+              解决方案
+            </a>
+            <ul class="dropdown-menu">
+              <li>
+                <a href="#" class="dropdown-box">智能高校</a>
+                <ul class="dropdown-sub-menu">
+                  <li>
+                    <a href="down">一卡通V3.0（大型院校）</a>
+                  </li>
+                  <li>
+                    <a href="">一卡通标准版（普通校园）</a>
+                  </li>
+                  <li>
+                    <a href="">手机NFC一卡通</a>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a href="#" class="dropdown-box">智能中小学</a>
+                <ul class="dropdown-sub-menu">
+                  <li>
+                    <a href="">中小学智慧校园信息管理系统</a>
+                  </li>
+                  <li>
+                    <a href="">基础教育云平台</a>
+                  </li>
+                  <li>
+                    <a href="">一卡通标准版（中小学）</a>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a href="#" class="dropdown-box">智能交通</a>
+                <ul class="dropdown-sub-menu">
+                  <li>
+                    <a href="">智慧交通整体解决方案</a>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a href="#" class="dropdown-box">智能园区</a>
+                <ul class="dropdown-sub-menu">
+                  <li>
+                    <a href="">智慧园区</a>
+                  </li>
+                  <li>
+                    <a href="">政企云平台</a>
+                  </li>
+                  <li>
+                    <a href="">一卡通标准版（企业）</a>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a href="#" class="dropdown-box">智能公安</a>
+                <ul class="dropdown-sub-menu">
+                  <li>
+                    <a href="">平安城市整体解决方案</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle1" data-toggle="dropdown1">
+              系列产品
+            </a>
+            <ul class="dropdown-menu">
+              <li>
+                <a href="#" class="dropdown-box">一卡通系统 - 平台软件</a>
+                <ul class="dropdown-sub-menu">
+                  <li>
+                    <a href="">数据资源中心</a>
+                  </li>
+                  <li>
+                    <a href="">身份认证中心</a>
+                  </li>
+                  <li>
+                    <a href="">服务大厅</a>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a href="#" class="dropdown-box">一卡通系统 - 应用软件</a>
+                <ul class="dropdown-sub-menu">
+                  <li>
+                    <a href="">迎新/注册/离校系统</a>
+                  </li>
+                  <li>
+                    <a href="">门禁管理平台</a>
+                  </li>
+                  <li>
+                    <a href="">教务考勤系统</a>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a href="#" class="dropdown-box">一卡通系统 - 消费终端</a>
+                <ul class="dropdown-sub-menu">
+                  <li>
+                    <a href="">消费POS SKJ-126/226系统</a>
+                  </li>
+                  <li>
+                    <a href="">手持POS SKJ-1-223 SZC</a>
+                  </li>
+                  <li>
+                    <a href="">车载POS-CL1306</a>
+                  </li>
+                  <li>
+                    <a href="">WG-126/226型商务网关</a>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a href="#" class="dropdown-box">一卡通系统 - 自动服务终端</a>
+                <ul class="dropdown-sub-menu">
+                  <li>
+                    <a href="">现金充值机</a>
+                  </li>
+                  <li>
+                    <a href="">圈存机</a>
+                  </li>
+                  <li>
+                    <a href="">自助补卡机</a>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a href="#" class="dropdown-box">智能水电</a>
+                <ul class="dropdown-sub-menu">
+                  <li>
+                    <a href="">智能控水</a>
+                  </li>
+                  <li>
+                    <a href="">智能控电</a>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a href="#" class="dropdown-box">二代证阅读机</a>
+                <ul class="dropdown-sub-menu">
+                  <li>
+                    <a href="">F200</a>
+                  </li>
+                  <li>
+                    <a href="">F200A</a>
+                  </li>
+                  <li>
+                    <a href="">DKQ-A16D</a>
+                  </li>
+                  <li>
+                    <a href="">DKQ-A16D(DOL)</a>
+                  </li>
+                  <li>
+                    <a href="">手持机DKQ718D</a>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a href="#" class="dropdown-box">智慧交通</a>
+                <ul class="dropdown-sub-menu">
+                  <li>
+                    <a href="">治安卡口设备</a>
+                  </li>
+                  <li>
+                    <a href="">电子警察</a>
+                  </li>
+                  <li>
+                    <a href="">智慧交通高清摄像头</a>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a href="#" class="dropdown-box">智慧公安</a>
+                <ul class="dropdown-sub-menu">
+                  <li>
+                    <a href="">200万超低照度（星光级）摄像机</a>
+                  </li>
+                  <li>
+                    <a href="">鹰眼</a>
+                  </li>
+                  <li>
+                    <a href="">云存储</a>
+                  </li>
+                  <li>
+                    <a href="">枪球联动</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <!-- <li>
+            <a href="#">云业务</a>
+          </li> -->
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle1" data-toggle="dropdown1">
+              云业务
+            </a>
+            <ul class="dropdown-menu">
+              <li>
+                <a href="#">2C业务</a>
+              </li>
+              <li>
+                <a href="#">2M业务</a>
+              </li>
+            </ul>
+          </li>
+          <!-- <li>
+            <a href="#">服务</a>
+          </li> -->
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle1" data-toggle="dropdown1">
+              服务
+            </a>
+            <ul class="dropdown-menu">
+              <li>
+                <a href="#">售后服务</a>
+              </li>
+              <li>
+                <a href="#">运维服务</a>
+              </li>
+              <li>
+                <a href="#">开发者服务</a>
+              </li>
+            </ul>
+          </li>
+          <!-- <li>
+            <a href="#">关于新中新</a>
+          </li> -->
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle1" data-toggle="dropdown1">
+              关于新中新
+            </a>
+            <ul class="dropdown-menu">
+              <li>
+                <a href="#" class="dropdown-box">企业概况</a>
+                <ul class="dropdown-sub-menu">
+                  <li>
+                    <a href="">公司概况</a>
+                  </li>
+                  <li>
+                    <a href="">创新研发</a>
+                  </li>
+                  <li>
+                    <a href="">资质荣誉</a>
+                  </li>
+                  <li>
+                    <a href="">合作伙伴</a>
+                  </li>
+                  <li>
+                    <a href="">发展历程</a>
+                  </li>
+                  <li>
+                    <a href="">招贤纳士</a>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a href="#">企业文化</a>
+              </li>
+              <li>
+                <a href="#">集团党建</a>
+              </li>
+              <li>
+                <a href="#">新闻动态</a>
+              </li>
+              <li>
+                <a href="#">投资者关系</a>
+              </li>
+              <li>
+                <a href="#">联系我们</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <!-- nav right -->
+        <ul class="nav navbar-nav navbar-right nav-tool">
+          <li>
+            <a>
+              <img src="img/search.png" alt="">
+            </a>
+          </li>
+          <li>
+            <a class="language-change">EN</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
   <div class="container">
-
-    <!-- Main component for a primary marketing message or call to action -->
-    <!--  <div class="jumbotron">
-      <h1>Navbar example</h1>
-      <p>This example is a quick exercise to illustrate how the default, static and fixed to top navbar work. It includes the responsive CSS and HTML, so it also adapts to your viewport and device.</p>
-      <p>To see the difference between static and fixed top navbars, just scroll.</p>
-      <p>3764
-        <a class="btn btn-lg btn-primary" href="../../components/#navbar" role="button">View navbar docs &raquo;</a>
-      </p>
-    </div> -->
-
     <!-- 内容1 -->
     <div class="content content-1">
       <div class="row">
@@ -225,7 +523,7 @@
             <p>新中新与扬州移动合作，建设了扬州移动政企一卡通云平台项目，为当地众多企事业单位提供员工卡门禁、消费信息管理等功能。移动运营商统一投资建设政企一卡通云平台，为其实也单位节约了支出成本，提高了管理消息，提升了服务水平，此模式已经与多家运营商合作，在全国向百家企业提供了云一卡通服务</p>
             <img src="img/img-13.png" alt="">
           </div>
-          
+
         </div>
         <div class="col-md-6">
           <div class="content-6-box">
@@ -247,9 +545,10 @@
       </div>
     </div>
   </div>
-
-  <!-- /container -->
-
+  <!-- 回到顶部 -->
+  <div class="back-top">
+    
+  </div>
 
   <!-- Bootstrap core JavaScript
     ================================================== -->
@@ -260,7 +559,22 @@
   <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
   <script src="js/assets/ie10-viewport-bug-workaround.js"></script>
   <script type="text/javascript">
-  // alert(0);
+    // 一级导航
+    $(".dropdown").hover(function(){
+      $(".dropdown-menu",this).stop().slideDown(200);
+    },function(){
+      $(".dropdown-menu",this).stop().slideUp(200);
+    });
+    // 二级导航
+    $(".dropdown-menu li").hover(function(e){
+      $(".dropdown-sub-menu",this).stop().slideDown(200);
+    },function(){
+      $(".dropdown-sub-menu",this).stop().slideUp(200);
+    })
+    // 返回顶部
+    $(".back-top").on("click",function(){
+      window.scrollTo(0,0);
+    })
   </script>
 </body>
 
