@@ -784,6 +784,21 @@ color: #a8a8a8;
 }
 
 /* 设置金额 */
+.merchant-box{
+	text-align: center;
+	padding-top: 50px;
+	padding-bottom: 40px;
+	background: #efefefl;
+}
+.merchant-box img{
+	width: 75px;
+}
+.merchant-box p{
+	font-size: 16px;
+	color:#6d6d6d;
+	padding-top:22px;
+	margin:0
+}
 .smart-container {
 	position: relative;
 	overflow: hidden;
@@ -862,6 +877,10 @@ color: #a8a8a8;
 }
 .smart-content .smart-container-sure-btn:active{
 	background-color:#73d2fe;
+}
+.smart-content .smart-container-sure-btn.active{
+	background-color:#73d2fe;
+    border-color: #73d2fe;
 }
 
 /* 钱包 */
