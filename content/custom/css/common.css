@@ -1,5 +1,5 @@
 ﻿body{
-	background: #efefef;
+	background: #f6f6f6;
 }
 ul,ol,li{
 	list-style: none;
@@ -10,20 +10,23 @@ em,i{
 input,button,textarea{
 	outline: none;
 }
+html *{
+	font-weight: normal;
+}
 a:active,a:hover{
 	text-decoration: none;
 }
 ::-webkit-input-placeholder { /* WebKit browsers */ 
-color: #a8a8a8; 
+	color: #a8a8a8; 
 } 
 :-moz-placeholder { /* Mozilla Firefox 4 to 18 */ 
-color: #a8a8a8; 
+	color: #a8a8a8; 
 } 
 ::-moz-placeholder { /* Mozilla Firefox 19+ */ 
-color: #a8a8a8; 
+	color: #a8a8a8; 
 } 
 :-ms-input-placeholder { /* Internet Explorer 10+ */ 
-color: #a8a8a8; 
+	color: #a8a8a8; 
 } 
 /* 标题 */
 .navbar{
@@ -816,8 +819,8 @@ color: #a8a8a8;
 	font-size: 30px;
 	font-style: normal;
 	position: relative;
-	width:15%;
-	text-align: center;
+	width:10%;
+	text-align: left;
 }
 .smart-payment-box{
 	position: relative;
@@ -869,20 +872,21 @@ color: #a8a8a8;
 	background-color: #dfdfdf;
 	border:none;
 	font-size: 16px;
-	margin: 20px auto;
+	margin: 40px auto;
 	padding: 10px 0;
 	color:#fff;
 	transition: background-color .2s ease-in;
 	-webkit-transition: background-color .2s ease-in;
 }
-.smart-content .smart-container-sure-btn:active{
-	background-color:#73d2fe;
-}
 .smart-content .smart-container-sure-btn.active{
-	background-color:#73d2fe;
+	background-color:rgba(115,210,254,1);
     border-color: #73d2fe;
+    transition: background-color .1s ease-in;
+	-webkit-transition: background-color .1s ease-in;
 }
-
+.smart-content .smart-container-sure-btn.active:active{
+	background-color:rgba(115,210,254,.7);
+}
 /* 钱包 */
 
 .smart-wallet .smart-content{

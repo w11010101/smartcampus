@@ -60,33 +60,27 @@ $(function() {
         var arr = [];
         // var sum = 0;
         $(".smart-input,input[type=number],input[type=password]").on("keyup", function(e) {
-                if (e.keyCode != 8) {
-                    // 不是删除键 
-                    var l = $(".smart-input").length;
-                    if (this.value.length != 0) {
-                        $(this).next().addClass("smart-icon-eye-clear");
-                        if ($(".smart-icon-eye-clear").length == l) { // input都填写了
-                            $(".smart-btn,.smart-container-sure-btn").css({
-                                "background-color": "#73d2fe",
-                                "border-color": "#73d2fe"
-                            });
-                        } else {
+            if (e.keyCode != 8) {
+                // 不是删除键 
+                var l = $(".smart-input").length;
+                if (this.value.length != 0) {
+                    $(this).next().addClass("smart-icon-eye-clear");
+                    if ($(".smart-icon-eye-clear").length == l) { // input都填写了
+                        $(".smart-btn,.smart-container-sure-btn").addClass("active");
+                    } else {
 
-                        }
-                        $(".smart-container-sure-btn").css({
-                            "background-color": "#73d2fe",
-                            "border-color": "#73d2fe"
-                        }).removeClass("btn-hui");
                     }
-                } else {
-                    // 删除键
-                    if (this.value.length == 0) {
-                        $(".smart-btn,.smart-container-sure-btn").removeAttr("style");
-                        $(this).next().removeClass("smart-icon-eye-clear");
-                    }
+                    // $(".smart-container-sure-btn").removeClass("active");
                 }
-            })
-            // 隐藏筛选
+            } else {
+                // 删除键
+                if (this.value.length == 0) {
+                    $(".smart-btn,.smart-container-sure-btn").removeClass("active");
+                    $(this).next().removeClass("smart-icon-eye-clear");
+                }
+            }
+        })
+        // 隐藏筛选
         $(".smart-screen-mask").on("click", function() {
         	$(".smart-popup,.set-popup").slideUp(200,function(){
         		$(".smart-popup,.set-popup").remove();
@@ -104,6 +98,7 @@ $(function() {
                         smartObj.tips("卡号长度不够！");
                         return;
                     }
+                    $(this).removeClass("active");
                     $("body").removeClass("first-start").addClass('old-start');
                     $(".smart-content .smart-account em").text($(".smart-account-input").val());
                 } else {

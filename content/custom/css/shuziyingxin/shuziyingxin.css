@@ -1,0 +1,60 @@
+.smart-header .smart-back img{
+	width:80%;
+	vertical-align: middle;
+}
+#myCarousel{
+	max-height: 134px;
+}
+#myCarousel .carousel-inner{
+	max-height: inherit;
+}
+#myCarousel .carousel-inner .item{
+	max-height: inherit;
+}
+#myCarousel .carousel-inner img{
+	max-height: inherit;
+	height:134px;
+	width: 100%;
+}
+.carousel-indicators{
+	margin-bottom: 0;
+}
+/* 商户信息 */
+.smart-info {
+	background: #fff;
+	padding: 20px 0;
+}
+.smart-info .smart-subtitle-h1{
+	background: #fff;
+	font-size: 16px;
+	color:#333;
+	height:43px;
+	line-break: 43px;
+	// font-weight: normal;
+}
+.smart-info >div{
+	margin-bottom: 20px;
+}
+.smart-info .smart-info-address ul{
+	padding: 10px 20px;
+	
+}
+.smart-info .smart-info-address ul li{
+	display:table-row;
+}
+.smart-info .smart-info-address ul li div{
+	display:table-cell;
+	vertical-align:  middle;
+}
+.smart-info .smart-info-address ul li div img{
+	padding:20px 0;
+	width: 30px;
+}
+.smart-info p{
+	margin:0;
+	padding:20px;
+	text-align: justify;
+}
+.smart-info .smart-info-address ul li div p{
+	padding: 20px 0 20px 20px ;
+}

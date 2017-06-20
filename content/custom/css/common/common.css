@@ -1,5 +1,5 @@
 body{
-	background: #efefef;
+	background: #f6f6f6;
 }
 .campus-CJ{
 	overflow: hidden;
@@ -87,7 +87,7 @@ user-select: none; /* Non-prefixed version, currently not supported by any brows
 	left:0;
 }
 .smart-header .smart-back img,.smart-header .smart-scan-code img {
-	/*width:100%;*/
+	width:100%;
 	vertical-align: top;
 }
 .smart-header h1 {

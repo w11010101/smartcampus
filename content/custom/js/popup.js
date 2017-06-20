@@ -17,11 +17,16 @@ var campus = function(){
 		var dom = this.getHtml(option,function(e){
 			callback(e); 
 		});
-		campus.togglePopup("show");
+		campus.togglePopup("show",option.type);
 	};
 	// 切换显示或隐藏弹窗层
-	this.togglePopup = function(type){
-		$(".popup-box").stop().slideToggle(200);
+	this.togglePopup = function(type,showType){
+		if(showType == "alert"){
+			$(".popup-box").stop().fadeToggle(200);
+		}else{
+			$(".popup-box").stop().slideToggle(200);
+		}
+		// $(".popup-box").stop().slideToggle(200);
 		if(type == "hide"){
 			$(".popup-mask").stop().fadeOut(200,function(){
 				$(this).remove();
@@ -31,7 +36,7 @@ var campus = function(){
 		}else{
 			$(".popup-mask").stop().fadeIn(200,function(){
 				$(this).on("click",function(){
-					campus.togglePopup("hide");
+					campus.togglePopup("hide",showType);
 				});
 			});
 		}
@@ -75,6 +80,8 @@ var campus = function(){
 			case "alert":
 				// 选择列表
 				$("body").append(this.alert(option)+mask);
+				// // 配置css
+				// $(".popup-alert")
 				// this.selectsEvent(function(e){
 				// 	callback(e);
 				// })
@@ -244,9 +251,25 @@ var campus = function(){
 		})
 	}
 	// alert
-    this.alert = function(){
+    this.alert = function(option){
+    	console.log(option)
     	var html = [];
-    	html.push('<div class="popup-info popup-box">');
+    	html.push('<div class="popup-alert popup-box">');
+    	var imgStyle = option.title.imgStyle;
+    	console.log(imgStyle);
+    	for(var i in imgStyle){
+    		console.log(imgStyle[i]);
+    	}
+    	// $.each(imgStyle,function(i,e){
+    	// 	console.log(i);
+    	// });
+    	var h1_val = option.title.img.trim()?'<img src="'+option.title.img+'" alt="" style="">':option.title.val;
+    	html.push('<h1>'+h1_val+'</h1>');
+    	html.push('<p>'+option.content+'</p>');
+    	html.push('</div>');
+
+
+    	return html.join("");
     }
     // 关闭
     this.boxClose = function() {
