@@ -1,55 +1,66 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-  <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
-  <title>免密额度设置</title>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+		<title>免密额度设置</title>
 
-  <!-- Bootstrap -->
+		<!-- Bootstrap -->
 
-  <link href="../../../content/plug/bootstap/css/bootstrap.min.css" rel="stylesheet">
+		<link href="../../../content/plug/bootstap/css/bootstrap.min.css" rel="stylesheet">
 
-  <link href="../../../content/custom/css/common.css" rel="stylesheet">
-  <link href="../../../content/custom/css/setting.css" rel="stylesheet">
-  <link href="../../../content/plug/jquery/toast/css/jquery.toast.css" rel="stylesheet">
-  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-  <!--[if lt IE 9]>
+		<link href="../../../content/custom/css/common.css" rel="stylesheet">
+		<link href="../../../content/custom/css/setting.css" rel="stylesheet">
+		<link href="../../../content/plug/jquery/toast/css/jquery.toast.css" rel="stylesheet">
+		<link href="../../../content/custom/css/popup.css" rel="stylesheet">
+		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
       <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-</head>
-<body>
-  <nav class="navbar">
-    <div class="smart-header smart-white">
-      <a href="javascript:history.go(-1)" class="smart-back smart-icon-left">
-        <img src="../../../content/custom/img/back-2.png" alt="" >
-      </a>
-      <h1>免密额度设置</h1>
-    </div>
-  </nav>
-  <div class="smart-content">
-    <h1 class="smart-subtitle-h1">小额免密设置</h1>
-    <ul class="smart-list">
-      <li class="smart-list-item">
-        免额金额
-        <em class="smart-list-end-icon"><em class="set-change">10元/笔</em><img src="../../../content/custom/img/continue-1.png" alt=""></em>
-      </li>
-    </ul>
-  </div>
-  <div class="smart-screen-mask"></div>
-</body>
-<script type="text/javascript" src="../../../content/plug/jquery/jquery.min.js"></script>
-<script type="text/javascript" src="../../../content/custom/js/common.js"></script>
-<script type="text/javascript" src="../../../content/plug/jquery/toast/js/jquery.toast.js"></script>
-<script type="text/javascript">
- $(".smart-list li").on("click",function(){
-  var arr = ["10元/笔","50元/笔","100元/笔","200元/笔","500元/笔"];
-  smartObj.accountChange(arr);
- })
-</script>
+	</head>
+
+	<body>
+		<nav class="navbar">
+			<div class="smart-header smart-white smart-border">
+				<a href="javascript:history.go(-1)" class="smart-back smart-icon-left">
+					<img src="../../../content/custom/img/common/back-2.png" alt="">
+				</a>
+				<h1>免密额度设置</h1>
+			</div>
+		</nav>
+		<div class="smart-content">
+			<h1 class="smart-subtitle-h1">小额免密设置</h1>
+			<ul class="smart-list">
+				<li class="smart-list-item">
+					免额金额
+					<em class="smart-list-end-icon"><span>10元/笔</span><img src="../../../content/custom/img/common/continue-2x.png" alt=""></em>
+				</li>
+			</ul>
+		</div>
+		<div class="smart-screen-mask"></div>
+	</body>
+	<script type="text/javascript" src="../../../content/plug/jquery/jquery.min.js"></script>
+	<script type="text/javascript" src="../../../content/custom/js/common.js"></script>
+	<script type="text/javascript" src="../../../content/plug/jquery/toast/js/jquery.toast.js"></script>
+	<script type="text/javascript" src="../../../content/custom/js/popup.js"></script>
+	<script type="text/javascript">
+		$(".smart-list li").on("click", function() {
+			
+			var option = {
+				 type: "select",
+				 value : ["10元/笔", "50元/笔", "100元/笔", "200元/笔", "500元/笔"],
+			}
+			campus.popup(option, function(data) {
+        console.log(data);
+        $(".smart-list-end-icon span").text(data.key);
+    	});
+		})
+	</script>
+
 </html>
