@@ -25,6 +25,7 @@
   line-height: 34px;
   outline: none;
   margin-left: 5%;
+  ime-mode:disabled;
 }
 
 .smart-btn {
@@ -121,4 +122,7 @@
 .smart-switch.smart-active .smart-switch-handle {
   -webkit-transform: translate(24px, 0);
   transform: translate(24px, 0);
+}
+.form-signin .smart-list:before{
+  display: none;
 }

@@ -76,7 +76,7 @@ a:active,a:hover{
 .smart-header .smart-icon-left{
 	left:0;
 }
-.smart-icon-left img{
+.smart-icon-left img,.smart-icon-right img{
 	max-width: 25px;
 	vertical-align: top;
 }
@@ -122,13 +122,16 @@ a:active,a:hover{
 .smart-list.smart-list-space .smart-list-item:not(:last-child),
 .smart-subtitle-h1,
 .popup-select .popup-content >ul >li,
-.popup-change .popup-content >ul >li{
+.popup-change .popup-content >ul >li,
+.panel,
+.panel-body{
 	position: relative;
 	overflow: hidden;
 }
-.smart-header.smart-border{
-	position:fixed;
-}
+// .smart-header.smart-border{
+// 	position:fixed;
+// }
+.smart-header.smart-white:after,
 .smart-border:after,
 .smart-list.smart-list-space:after,
 .smart-sub-list:after,
@@ -138,7 +141,9 @@ a:active,a:hover{
 .smart-list.smart-list-space .smart-list-item:not(:last-child):after,
 .smart-subtitle-h1:after,
 .popup-select .popup-content >ul >li:after,
-.popup-change .popup-content >ul >li:after{
+.popup-change .popup-content >ul >li:after,
+.panel:after,
+.panel-body:before{
 	content:" ";
 	height: 1px;
  	position: absolute;
@@ -148,22 +153,28 @@ a:active,a:hover{
 	transform: rotateX(60deg);
 	-webkit-transform: rotateX(60deg);
 }
+.smart-header.smart-white:after,
+.smart-border:after,
 .smart-header.smart-border:after,
 .popup-head.smart-border:after,
 .smart-sub-list .smart-sub-list-item:not(:last-child):after, 
 .smart-list.smart-list-space .smart-list-item:not(:last-child):after,
 .smart-subtitle-h1:after,
 .popup-select .popup-content >ul >li:after,
-.popup-change .popup-content >ul >li:after{
+.popup-change .popup-content >ul >li:after,
+.panel:after{
 	bottom: 0;
+	z-index: 1;
 }
 .smart-sub-list .smart-sub-list-item:not(:last-child):after, 
 .smart-list.smart-list-space .smart-list-item:not(:last-child):after{
 	left:20px;
 }
 .smart-list.smart-list-space:before,
-.smart-sub-list:before{
-	top:0
+.smart-sub-list:before,
+.panel-body:before{
+	top:0;
+	z-index: 1;
 }
 /*.smart-gear:after,
 .smart-accordion .smart-sub-list .smart-sub-list-item:first-child:before,
@@ -523,11 +534,11 @@ a:active,a:hover{
 	display: block;
 	width: 40px;
 	height: 40px;
-	background: url(../img/close-1.png) no-repeat;
+	background: url(../img/xiaoyuanka/close.png) no-repeat;
 	background-size: 100%;
 	border:2px solid #fff;
 	border-radius: 5rem;
-	margin:5rem auto;
+	margin:4rem auto;
 }
 
 /* 小标题 */
@@ -546,7 +557,7 @@ a:active,a:hover{
 	margin:0;
 	padding:9px 20px;
 	color:#505050; 
-	border-bottom: 1px solid #efefef;
+	// border-bottom: 1px solid #efefef;
 	box-sizing: border-box;
 	background: #fff;
 }
@@ -989,6 +1000,7 @@ a:active,a:hover{
 .smart-wallet .smart-column-list p {
   display: inline-block;
   vertical-align: top;
+  width: 70px;
   margin: 8px 0 0 0;
   text-align: left;
   color: #3c3c3c;
@@ -1043,7 +1055,8 @@ a:active,a:hover{
 }
 .smart-screen div[class^="col-xs-4"]:after{
 	content:" ";
-	background: url(../../custom/img/screen-1.png) no-repeat center;
+	background: url(../../custom/img/xiaoyuanka/screen-1-2x.png) no-repeat center;
+	background-size: 35px;
 	vertical-align: middle;
 	margin-top: -2px;
 	width: 20px;
@@ -1058,7 +1071,8 @@ a:active,a:hover{
 	color:#73d2fe;
 }
 .smart-screen div[class^="col-xs-4"].smart-active:after{
-	background: url(../../custom/img/screen-2.png) no-repeat center;
+	background: url(../../custom/img/xiaoyuanka/screen-2-2x.png) no-repeat center;
+	background-size: 35px;
 	transform: rotateX(-180deg);
 	-webkit-transform: rotateX(-180deg);
 }
@@ -1157,11 +1171,11 @@ a:active,a:hover{
 /*手风琴效果的结尾图标*/
 .smart-accordion .panel-heading .smart-list-end-icon{
 	right:35px;
-	/*z-index: 0*/
 }
 .smart-accordion .panel-heading .smart-list-end-icon:after{
 	content: " ";
-	background: url(../../custom/img/screen-1.png) no-repeat center;
+	background: url(../../custom/img/xiaoyuanka/screen-1-2x.png) no-repeat center;
+	background-size:35px;
 	position: absolute;
 	width: 26px;
 	height:26px;
@@ -1279,15 +1293,15 @@ a:active,a:hover{
 	margin-top: -15px;
 }
 .smart-icon-eye:before{
-	background: url(../img/show.png) no-repeat;
+	background: url(../img/xiaoyuanka/eye-show.png) no-repeat;
 	background-size:100%;
 }
 .smart-icon-eye-hide:before{
-	background: url(../img/hide.png) no-repeat;
+	background: url(../img/xiaoyuanka/eye-hide.png) no-repeat;
 	background-size:100%;
 }
 .smart-icon-eye-clear:before{
-	background: url(../img/clear.png) no-repeat;
+	background: url(../img/xiaoyuanka/clear.png) no-repeat;
 	background-size:100%;
 }
 .form-signin .list-back{

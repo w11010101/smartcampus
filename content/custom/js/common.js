@@ -51,7 +51,7 @@ $(function() {
             } else {
                 that.toggleClass("smart-icon-eye-hide");
                 if (!that.hasClass("smart-icon-eye-hide")) { // 隐藏还是显示
-                    that.prev("input").attr("type", "number");
+                    that.prev("input").attr("type", "tel");
                 } else {
                     that.prev("input").attr("type", "password");
                 }
@@ -95,14 +95,14 @@ $(function() {
                 var val = $(".smart-account-input").val();
                 if (val.length != 0) {
                     if (val.length < 6) {
-                        smartObj.tips("卡号长度不够！");
+                        campus.tips("卡号长度不够！");
                         return;
                     }
                     $(this).removeClass("active");
                     $("body").removeClass("first-start").addClass('old-start');
                     $(".smart-content .smart-account em").text($(".smart-account-input").val());
                 } else {
-                    smartObj.tips("不能为空");
+                    campus.tips("不能为空");
                 }
             } else {
                 if ($(".smart-payment-box input").val().length) {

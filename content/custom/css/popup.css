@@ -27,28 +27,6 @@
 	0%{opacity: 0;}
 	100%{opacity: 1;}
 }
-/* 边框 */
-/*.popup-box.popup-select li,
-.popup-box.popup-change li,
-.popup-box.popup-info ul li{
-	position: relative;
-}
-.popup-box.popup-select li:after,
-.popup-box.popup-change li:after,
-.popup-box.popup-info ul li:after,
-.popup-head:after{
-	content: " ";
-	position: absolute;
-	height: 1px;
-	width: 100%;
-	left:0;
-	background: #e0e0e0;
-	transform: rotateX(60deg);
-}
-.popup-box.popup-select li:after,
-.popup-box.popup-change li:after{
-	top:0;
-}*/
 
 /* 键盘 */
 .popup-box{
@@ -95,7 +73,7 @@
 	line-height: inherit;
 	text-align: center;
 	font-weight: normal;
-	color:#8d8d8d;
+	color:#3c3c3c;
 	background: #fff;
 	margin: 0;
 }
@@ -110,21 +88,29 @@
 .popup-keyboard .popup-password-box{
 	font-size: 0;
 	border:1px solid #e0e0e0;
-	display: inline-block;
-	border-radius: 5px;
-	margin: 30px 0 15px 0;
-	padding: 0
+	width: 80%;
+	border-radius: 8px;
+	margin: 30px auto;
+	padding: 0;
 }
 .popup-keyboard .popup-password-box li{
 	display: inline-block;
-	width: 35px;
-	height: 35px;
+	width: 16.66%;
+	padding-bottom: 16.66%;
 	border-right:1px solid #e0e0e0;
 	text-align: center;
-	line-height: 35px;
-	font-size:20px;
-	color:#73d2fe;
 	vertical-align: top;
+	position: relative;
+}
+.popup-keyboard .popup-password-box li em{
+	position:absolute;
+	width: 100%; 
+	color:#73d2fe;
+	font-size: 20px;
+	top:50%;
+	left:0;
+	height:28px;
+	margin-top:-14px;
 }
 .popup-keyboard .popup-password-box li:last-child{
 	border-right:0;

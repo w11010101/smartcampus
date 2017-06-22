@@ -22,20 +22,17 @@
   display: inline-block;
   font-size: 16px;
 }
-
+.smart-gear-left,.smart-gear-right{
+  width: 31px;
+}
 .smart-gear h1 {
   height: 30px;
-  background: url(../img/date.png) no-repeat center left;
+  background: url(../img/xiaoyuanka/date-2x.png) no-repeat center left;
+  background-size: 31px;
   padding-left: 35px;
   margin: 0;
   line-height: 30px;
 }
-
-.smart-gear .smart-gear-right {
-  transform: rotateY(180deg);
-}
-
-
 /*  线型图 */
 
 .smart-line-chart,
@@ -50,13 +47,12 @@
   z-index: 111;
   padding:10px 10px 10px 25px;
   right: 10px;
-  background: url(../img/switch.png) no-repeat center left;
- 
+  background: url(../img/xiaoyuanka/switch-2x.png) no-repeat center left;
+  background-size: 25px;
 }
 
 /* 柱形图 */
 
 .smart-bar-chart {
   margin-top: 10px;
-  
 }

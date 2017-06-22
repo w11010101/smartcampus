@@ -114,7 +114,7 @@ var campus = function () {
 		html.push(title + '<div class="popup-content"><ul class="popup-password-box">');
 		var x = i = 0;
 		while (i < 6) {
-			html.push('<li></li>'); //●
+			html.push('<li><em><em></li>'); //●
 			i++;
 		}
 		html.push('</ul><ol class="popup-keyboard-nums">');
@@ -138,7 +138,7 @@ var campus = function () {
 				if (val.length < 6) {
 					$(this).addClass('popup-active').siblings().removeClass("popup-active");
 					val.push($(this).text());
-					$(".popup-password-box li").eq(val.length - 1).text("●");
+					$(".popup-password-box li em").eq(val.length - 1).text("●");
 				}
 				if (val.length == 6) {
 					var data = {
@@ -150,7 +150,7 @@ var campus = function () {
 			} else {
 				// 删除键
 				if ($(this).index() != 9) {
-					$(".popup-password-box li").eq(val.length - 1).text(" ");
+					$(".popup-password-box li em").eq(val.length - 1).text(" ");
 					numBtn.attr("disabled", false);
 					val.splice(val.length - 1);
 				}
