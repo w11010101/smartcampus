@@ -100,13 +100,16 @@ $(function() {
                     }
                     $(this).removeClass("active");
                     $("body").removeClass("first-start").addClass('old-start');
+                    // $(".smart-account-input").attr("readonly","readonly");
+                    $(".smart-account-input").attr("disabled","disabled");
                     $(".smart-content .smart-account em").text($(".smart-account-input").val());
+
                 } else {
                     campus.tips("不能为空");
                 }
             } else {
                 if ($(".smart-payment-box input").val().length) {
-                   
+                    
                     param.money = $(".smart-payment-box input").val();
                     
                     smartObj.payInfo(param);

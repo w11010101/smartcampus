@@ -82,7 +82,7 @@ body {
 	display: block;
 	width: 40px;
 	height: 40px;
-	background: url(../../img/close.png) no-repeat center;
+	background: url(../../img/common/close.png) no-repeat center;
 	float: left;
 }
 
@@ -148,7 +148,7 @@ form {
 	padding-bottom:0;
 }
 .list-back {
-	background: url(../../img/back-2.png) no-repeat;
+	background: url(../../img/common/back-2.png) no-repeat;
 	background-size: 50px 50px;
 	background-position: right;
 	background-origin: border-box;
@@ -161,7 +161,7 @@ form {
 	display: block;
 	width: 40px;
 	height: 40px;
-	background: url(../../img/back-2.png) no-repeat center;
+	background: url(../../img/common/back-2.png) no-repeat center;
 	float: left;/
 }
 .layer-xyk .row{
@@ -180,19 +180,21 @@ form {
 	left: -10px;
 }
 .layer-xyk .row img{
-	width: 25px;
-	height: 23px;
+	width: 31px;
+	// height: 23px;
 }
 .layer-xyk .row .car-fang{
-	width: 25px;
-	height: 24px;
+	// width: 25px;
+	// height: 24px;
+	width: 31px;
 }
 .form-control-feedback{
 	right: 20px;	
 }
 .glyphicon-ok{
-	background: url(../../img/sure.png) no-repeat;
-	/*background-size: 35px 25px;*/
+	background: url(../../img/common/sure.png) no-repeat center;
+
+	background-size: 25px;
 	margin-top: 10px;
 	display: none;
 }

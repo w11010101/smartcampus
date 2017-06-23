@@ -36,7 +36,7 @@
   <nav class="navbar">
     <div class="smart-header smart-white">
       <a href="javascript:history.go(-1)" class="smart-back smart-icon-left">
-        <img src="../../../content/custom/img/back-2.png" alt="">
+        <img src="../../../content/custom/img/common/back-2.png" alt="">
       </a>
       <h1>挂失补卡</h1>
     </div>
@@ -44,8 +44,8 @@
   <div class="smart-content ">
     <div class="smart-info">
       <div class="smart-info-img">
-        <img src="../../../content/custom/img/head.jpg" alt="" class="smart-info-head">
-        <img src="../../../content/custom/img/man.png" alt="" class="smart-info-sex">
+        <img src="../../../content/custom/img/common/head.jpg" alt="" class="smart-info-head">
+        <img src="../../../content/custom/img/xiaoyuanka/man.png" alt="" class="smart-info-sex">
       </div>
       <div class="smart-info-name">
         <h1>
@@ -59,7 +59,7 @@
     <!-- border-bottom: 1px solid #efefef; -->
       <ul class="smart-list smart-list-continue smart-list-space smart-list-title-icon">
         <li class="smart-list-item">
-          <label for="inputPassword" class="sr-only"><img src="../../../content/custom/img/card-3.png" alt="">卡密码</label>
+          <label for="inputPassword" class="sr-only"><img src="../../../content/custom/img/xiaoyuanka/card-3.png" alt="">卡密码</label>
           <input type="password" id="inputPassword" class="smart-input" placeholder="请输入6为数字密码" required maxlength="6">
           <span class="glyphicon smart-icon-eye smart-icon-eye-hide"></span>
         </li>
@@ -68,7 +68,7 @@
 
 
         <div class="con-img">
-          <img src="../../../content/custom/img/ka/xyk-gs.png" />
+          <img src="../../../content/custom/img/xiaoyuanka/xyk-gs.png" />
           <span>您的校园卡挂失成功，请您及时办新卡</span>
         </div>
         <div class="con-button">
@@ -80,8 +80,9 @@
 <script type="text/javascript" src="../../../content/plug/jquery/jquery.min.js"></script>
 <script type="text/javascript" src="../../../content/plug/jquery/toast/js/jquery.toast.js"></script>
 <script type="text/javascript" src="../../../content/custom/js/common.js"></script>
+<script type="text/javascript" src="../../../content/custom/js/popup.js"></script>
 <script>
-  smartObj.tips("为显示效果，当前的逻辑是：当密码不足6位时，跳转到 “ 预约挂失 ” ！");
+  campus.tips("为显示效果，当前的逻辑是：当密码不足6位时，跳转到 “ 预约挂失 ” ！");
   var setStatus;
   $(".smart-btn").on("click",function(){
     if($("input[type=password]").val().length == 6){
@@ -96,7 +97,7 @@
 
       setStatus = !setStatus;
     }else if($("input[type=password]").val().length < 6){
-      smartObj.tips("密码不足6位！");
+      campus.tips("密码不足6位！");
       smartObj.jump("ka-loss.html");
     }
   })

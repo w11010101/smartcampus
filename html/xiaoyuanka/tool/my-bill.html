@@ -61,7 +61,7 @@
             </div>
           </a>
           <em class="smart-list-end-icon">
-            <img src="../../../content/custom/img/xiaoyuanka/charts-2x.png" alt="" set-terget="my-bill-charts.html">
+            <img src="../../../content/custom/img/xiaoyuanka/charts.png" alt="" set-terget="my-bill-charts.html">
           </em>
         </div>
         <div id="collapseOne" class="panel-collapse collapse in">
@@ -252,7 +252,7 @@
             </div>
           </a>
           <em class="smart-list-end-icon">
-            <img src="../../../content/custom/img/xiaoyuanka/charts-2x.png" alt="" set-terget="../../../my-bill-charts.html">
+            <img src="../../../content/custom/img/xiaoyuanka/charts.png" alt="" set-terget="../../../my-bill-charts.html">
           </em>
         </div>
         <div id="collapseTwo" class="panel-collapse collapse">
@@ -443,7 +443,7 @@
             </div>
           </a>
           <em class="smart-list-end-icon">
-            <img src="../../../content/custom/img/xiaoyuanka/charts-2x.png" alt="" set-terget="../../../my-bill-charts.html">
+            <img src="../../../content/custom/img/xiaoyuanka/charts.png" alt="" set-terget="../../../my-bill-charts.html">
           </em>
         </div>
         <div id="collapseThree" class="panel-collapse collapse">
@@ -478,20 +478,24 @@ lists.on("click", function() {
 
   $(".smart-screen-list div").remove();
   for (var i in screen_list[$(this).index()]) {
-    $(".smart-screen-list").append('<div class="col-xs-12">' + screen_list[$(this).index()][i] + '</div>');
+    $(".smart-screen-list").append('<div class="col-xs-12" type="list" onclick="hideBox(this);">' + screen_list[$(this).index()][i] + '</div>');
   }
   if ($(this).hasClass("smart-active")) {
     smart_screen_toggle("show");
   } else {
     smart_screen_toggle("hide");
   }
-  // 隐藏筛选
-  $(".smart-screen-list div,.smart-screen-mask").off().on("click", function() {
-    $(".smart-active").removeClass('smart-active');
-    smart_screen_toggle("hide");
-  })
-})
 
+})
+// 隐藏筛选
+function hideBox(obj){
+  $(".smart-active").removeClass('smart-active');
+  smart_screen_toggle("hide");
+}
+
+$(".smart-screen-mask").on("click", function() {
+  hideBox();
+})
 
 function smart_screen_toggle(type) {
   if (type == "hide") {

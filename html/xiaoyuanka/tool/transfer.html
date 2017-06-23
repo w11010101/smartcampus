@@ -38,7 +38,7 @@
             实施实时转入对方电子账户，不可撤销
         </div>
         <h1 class="smart-account">对方账户
-            <em>2017132561356564</em>
+            <!-- <em>2017132561356564</em> -->
             <input type="number" name="" class="smart-account-input" placeholder="请输入对方帐号">
         </h1>
         <!--  -->
@@ -58,7 +58,7 @@
             <label class="smart-container-title">转账金额</label>
             <div class="smart-payment-box smart-border">
                 <i class="smart-container-icon">
-                    <img src="../../../content/custom/img/xiaoyuanka/rmb-2x.png" alt="">
+                    <img src="../../../content/custom/img/xiaoyuanka/rmb.png" alt="">
                 </i>
                 <input type="number" name="" oninput="if(value.length>6) value=value.slice(0,6);">
             </div>
@@ -67,10 +67,10 @@
         <button type="button" class="smart-container-sure-btn">确定转账</button>
         <!-- 切换 -->
         <div class="smart-change">
-            <img src="../../../content/custom/img/wallet-1.png" alt="">
+            <img src="../../../content/custom/img/common/wallet-1.png" alt="">
             <label>电子账户</label>
             <!-- <span class="list-back">更换</span> -->
-            <span onclick="payChange()">更换</span>
+            <span onclick="payChange(this)" popupType="select">更换</span>
         </div>
     </div>
     <div class="smart-screen-mask"></div>
@@ -79,4 +79,7 @@
 <script type="text/javascript" src="../../../content/plug/jquery/toast/js/jquery.toast.js"></script>
 <script type="text/javascript" src="../../../content/custom/js/popup.js"></script>
 <script type="text/javascript" src="../../../content/custom/js/common.js"></script>
+<script type="text/javascript">
+    
+</script>
 </html>

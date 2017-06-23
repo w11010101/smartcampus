@@ -209,16 +209,16 @@ var campus = function () {
 		for (var i in arr) {
 			switch (arr[i]) {
 			case "校园卡":
-				img = "../../../content/custom/img/common/wallet-1-2x.png";
+				img = "../../../content/custom/img/common/wallet-1.png";
 				break;
 			case "电子账户":
-				img = "../../../content/custom/img/common/wallet-2-2x.png";
+				img = "../../../content/custom/img/common/wallet-2.png";
 				break;
 			case "中国银行":
-				img = "../../../content/custom/img/common/BOC-2x.png";
+				img = "../../../content/custom/img/common/BOC.png";
 				break;
 			case "支付宝":
-				img = "../../../content/custom/img/common/zfb-2x.png";
+				img = "../../../content/custom/img/common/zfb.png";
 				break;
 			}
 			imgArr.push(img);
