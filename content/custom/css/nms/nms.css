@@ -110,9 +110,9 @@ html *,.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6{
 }
 .smart-nms .signIn,.smart-nms .noSignIn{
 	position: relative;
-	padding-top: 10px;
+	padding-top: 10px
 }
-.smart-nms .signIn:after,.smart-nms .noSignIn:after{
+.smart-nms .signIn:after,.smart-nms .smart-content > .noSignIn:after{
 	position: absolute;
 	content: " ";
 	width: 100%;
@@ -123,9 +123,13 @@ html *,.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6{
 .signIn{
 	display: block;
 }
-.noSignIn{
+.smart-nms[sign=signIn] .smart-content .signIn .noSignIn,.smart-nms[sign=noSignIn] .smart-content >.noSignIn{
+	display: block;
+}
+.smart-nms[sign=signIn] .smart-content >.noSignIn,.smart-nms[sign=noSignIn] .smart-content .signIn .noSignIn{
 	display: none;
 }
+
 .smart-nms .smart-subtitle-h2{
 	background:#fff;
 	height:40px;
@@ -217,16 +221,43 @@ html *,.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6{
 .smart-nms[sign=noSignIn] .noSignIn{
 	display: block;
 }
-.smart-nms[sign=noSignIn] .noSignIn img{
+.smart-nms .noSignIn img{
+	display: block;
 	width: 100%;
-	margin-top: 15%;
+	// margin-top: 15%;
 }
-.smart-nms[sign=noSignIn] .noSignIn p{
+.smart-nms .noSignIn p{
 	color:#a8a8a8; text-align: center;
 	margin-top: 10px;
 	margin-bottom: 15%;
 }
+.smart-nms-input{
+	font-size: 0;
+	padding: 10px 20px; 
 
+}
+.smart-nms-input input{
+	display: inline-block;
+	width: 60%;
+	margin-right: 10%;
+	font-size: 14px;
+	vertical-align: middle;
+	height: 25px;
+}
+.smart-nms-input button{
+	display: inline-block;
+	height: 25px;
+	width: 30%;
+	font-size: 14px;
+	vertical-align: middle;
+	border: 1px solid #73d2fe;
+	border-radius:5px;
+	background: #73d2fe;
+	color:#fff;
+}
+.signIn[search=false] h2,.signIn[search=false] .smart-list{
+	display: none;
+}
 /* 改暗号 */
 .smart-nms-anhao{
 	background: #fff
@@ -259,7 +290,7 @@ html *,.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6{
     width: 30px;
     height: 100%;
     right: 20px;
-    background: url(../../img/nms/icon-4.png) no-repeat center;
+    background: url(../../img/nms/common/icon-4.png) no-repeat center;
     background-size: contain;
     display: none;
 }
