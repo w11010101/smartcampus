@@ -1,0 +1,174 @@
+.con-tip {
+	margin-top: -1px;
+	width: 100%;
+	height: 35px;
+	background-color: #fff6b6;
+	color: #3C3C3C;
+	/*line-height: 35px;*/
+	padding: 7PX 15px;
+}
+
+.con-tip .tip-img {
+	display: block;
+	width: 15px;
+	height: 15px;
+	border-radius: 50%;
+	background-color: #aae0e0;
+	color: #FFFFFF;
+	font-style: normal;
+	text-align: center;
+	font-size: 12px;
+	margin-top: 3px;
+	float: left;
+}
+
+.con-tip .tip-tetle {
+	font-size: 14px;
+	color: #8D8D8D;
+	padding-left: 10px;
+}
+
+.con-xz {
+	width: 100%;
+	height: auto;
+	padding: 20px;
+}
+
+.con-xz h3 {
+	font-weight: normal;
+	font-size: 16px;
+}
+
+.con-inpt input[type=text] {
+	width: 100%;
+	height: 40px;
+	border: none;
+	border-bottom: .5px solid #E0E0E0;
+	margin-top: 10px;
+	font-size: 16px;
+	/*padding-left: 10px;*/
+}
+
+.con-inpt input[type=text]::-webkit-input-placeholder {
+	/* WebKit browsers */
+	color: #a8a8a8;
+}
+
+.con-inpt input[type=text]:-moz-placeholder {
+	/* Mozilla Firefox 4 to 18 */
+	color: #a8a8a8;
+}
+
+.con-inpt input[type=text]::-moz-placeholder {
+	/* Mozilla Firefox 19+ */
+	color: #a8a8a8;
+}
+
+.con-inpt input[type=text]:-ms-input-placeholder {
+	/* Internet Explorer 10+ */
+	color: #a8a8a8;
+}
+
+.con-list {
+	width: 100%;
+	height: auto;
+	border-bottom: .5px solid #E0E0E0;
+}
+
+.con-list .list-tiele {
+	width: 100%;
+	height: 40px;
+	line-height: 40px;
+	background-color: #efefef;
+	color: #a8a8a8;
+	font-size: 16px;
+	padding: 0 20px;
+}
+
+.con-button {
+	width: 100%;
+	text-align: center;
+	padding-right: 0;
+}
+
+.con-button input {
+	width: 85%;
+}
+
+.con-btn {
+	margin-top: 30px;
+}
+
+html,
+body {
+	background: #fff;
+}
+
+.con-card {
+	width: 100%;
+	height: auto;
+	padding: 40px 0 30px 30px;
+	overflow: hidden;
+}
+
+.con-card img {
+	width: 40px;
+	height: 40px;
+	float: left;
+}
+
+.car-content {
+	float: left;
+	margin-left: 15px;
+}
+
+.car-content .car-con-tit {
+	color: #3C3C3C;
+	font-size: 17px;
+	margin-top: -5px;
+	margin-bottom: 5px;
+}
+
+.car-content .car-con-numb {
+	color: #a8a8a8;
+	font-size: 14px;
+}
+
+.con-btn-car {
+	width: 100%;
+	height: 35px;
+	margin-top: 20px;
+	overflow: hidden;
+}
+
+.con-btn-car .con-btn-cartyp {
+	width: auto;
+	overflow: hidden;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.con-btn-car .con-btn-cartyp img {
+	width: 30px;
+	vertical-align: middle;
+}
+
+.con-btn-car .con-btn-cartyp span {
+	font-size: 14px;
+	color: #3C3C3C;
+	width: auto;
+	height: 20px;
+	line-height: 20px;
+	vertical-align: middle;
+}
+
+.con-btn-car a {
+	font-size: 14px;
+	color: #a8a8a8;
+	width: 60px;
+	height: 20px;
+	padding-right: 20px;
+	background: url(../../content/custom/img/common/continue.png) no-repeat right center;
+	background-size: 20px;
+	vertical-align: middle;
+}
