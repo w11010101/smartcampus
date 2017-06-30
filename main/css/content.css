@@ -547,7 +547,7 @@ body {
 
 .row-4-list h3 {
 	margin: 10px 0;
-	padding: 1px 0 1px 50px;
+	padding: 1px 0 1px 40px;
 	color: #db6865;
 	font-size: 20px;
 }
@@ -584,7 +584,7 @@ body {
 }
 
 .row-4-list p {
-	padding-left: 50px;
+	padding-left: 40px;
 	padding-right: 0px;
 	font-size: 14px;
 	line-height: 28px;
@@ -1161,7 +1161,7 @@ body {
 		background: none;
 	}
 	.content-3 .row-4 {
-		padding: 30px 65px;
+		padding: 0px;
 	}
 	.row-3-bottom {
 		padding: 10px 20px;
