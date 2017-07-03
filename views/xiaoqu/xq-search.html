@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>校趣查询</title>
+		<link rel="stylesheet" href="../../content/style/frame/bootstrap/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="../../content/style/common/css/common.css" />
+		<link rel="stylesheet" href="../../content/style/frame/jquery/toast/css/jquery.toast.css" />
+		<link rel="stylesheet" href="../../content/style/white/xq/css/xq.css" />
+		<link rel="stylesheet" href="../../content/style/common/css/zf-common.css" />
+		<style type="text/css">
+			html,
+			body {
+				width: 100%;
+				height: 100%;
+				background-color: #F6F6F6;
+			}
+		</style>
+	</head>
+	<body class="xq-search">
+		<header class="con-header">
+			<a href="javascript:history.go(-1)" class="con-back"></a>
+			<input id="input-search" type="search" class="header-input input-search" placeholder="关键字" />
+		</header>
+		<div class="container">
+			<h3 class="rmso">热门搜索</h3>
+			<ul>
+				<li>腾讯科技频道</li>
+				<li>腾讯科技频道</li>
+				<li>腾讯科技频道</li>
+			</ul>
+		</div>
+	</body>
+	<script type="text/javascript" src="../../content/style/frame/jquery/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="../../content/style/frame/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="../../content/style/frame/jquery/toast/js/jquery.toast.js"></script>
+	<script>
+		//点击搜索按钮获取搜索框的值
+		document.addEventListener("keydown",function(e){
+			console.log(event.keyCode);
+			if(event.keyCode==13){
+				var val = document.getElementById("input-search").value;
+				$.toast({
+				    text: val,
+				    showHideTransition: 'fade', // fade, slide or plain
+				    allowToastClose: false, // Boolean value true or false
+				    hideAfter: 3000, // false to make it sticky or number representing the miliseconds as time after which toast needs to be hidden
+				    stack: false, 
+				    position: 'bottom-center', 
+				    textAlign: 'center',
+				    loader: false,
+				});
+			}
+		})
+	</script>
+</html>

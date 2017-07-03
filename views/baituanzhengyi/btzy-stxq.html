@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>百团争艺-社团详情</title>
+		<link rel="stylesheet" href="../../content/style/frame/bootstrap/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="../../content/style/common/css/common.css" />
+		<link rel="stylesheet" href="../../content/style/frame/mui/css/mui.min.css" />
+		<link rel="stylesheet" href="../../content/style/common/css/popup.css" />
+		<link rel="stylesheet" href="../../content/style/frame/jquery/tab/css/scroller.css" />
+		<link rel="stylesheet" href="../../content/style/white/baituanzhengyi/css/btzy.css" />
+	</head>
+
+	<body class="znmj btzy-hdxq btzy-stxq ">
+		<nav class="navbar">
+			<div class="smart-header smart-white">
+				<a href="javascript:history.go(-1)" class="smart-back smart-icon-left">
+					<img src="../../content/style/common/images/back-2.png" />
+				</a>
+				<h1>某某社团详情</h1>
+				<a class="smart-edit smart-icon-right" href="btzy-stlb.html">
+					<img src="../../content/style/white/baituanzhengyi/images/icon-time.png" />
+				</a>
+			</div>
+		</nav>
+		<div class="container">
+			<div class="st-contant">
+				<div class="row">
+					<div class="col-xs-2">
+						<img class="css-height" src="../../content/style/white/baituanzhengyi/images/login-st1.png" />
+					</div>
+					<div class="col-xs-10">
+						<h3 class="title-h3">某某社团名称</h3>
+						<p>创始于：2015-05-03</p>
+						<p><span>创始人：张飞</span><span>成员数：80人</span></p>
+					</div>
+				</div>
+				<div class="contant-bar">
+					机遇总是有的，如果把握不住，不要怨天忧人，只因自己不够优秀；不要把时间当垃圾处理，唯有珍惜光阴，才能提升生命的质量；两点之间未必直线最短，有时迂回曲折能够更快地抵达终点；如果错了，那就停止，如果得不到，那就放弃；赶路并非越快越好，把握正确的方向最重要。 2、 这个世界是蹂躏、践踏、埋葬我们尊严的地方，是产生并破碎、制造并毁灭我们梦想的地方。在别人维护你的尊严之前，不要妄谈尊严；在梦想没有成真之前，不要痴迷幻想。太在乎自己，亦是一种自我伤害，只有把自己放到这个残酷的世界中，去打拼，去历练，去忍受，最终你才能含泪播种，含笑收获。
+				</div>
+				<div class="a-xqcontant" clickvalue="1">
+					<a class="xia">显示更多</a>
+				</div>
+
+			</div>
+			<div class="hui-bar"></div>
+			<div class="cylb-list st-contant">
+				<div class="title-bar">成员列表
+					<a class="right-href big-width bg-icon" href="btzy-stlb.html">历届领导班子</a>
+				</div>
+				<ul class="mui-table-view laout-li-3 user-list-header">
+					<li class="mui-table-view-cell mui-media">
+						<a class="laout-width-70" href="javascript:;">
+							<img class="mui-media-object mui-pull-left" src="../../content/custom/img/img-eee.jpg">
+							<div class="mui-media-body">
+								张三
+								<p class="mui-ellipsis">航海学院</p>
+							</div>
+							
+						</a>
+						<div class="laout-width-30 text-type-hui">
+							<span class="text-span">社长</span>
+						</div>
+					</li>
+					<li class="mui-table-view-cell mui-media">
+						<a class="laout-width-70" href="javascript:;">
+							<img class="mui-media-object mui-pull-left" src="../../content/custom/img/img-eee.jpg">
+							<div class="mui-media-body">
+								王二
+								<p class="mui-ellipsis">航海学院</p>
+							</div>
+						</a>
+						<div class="laout-width-30 text-type-hui">
+							<span class="text-span">社长</span>
+						</div>
+					</li>
+					<li class="mui-table-view-cell mui-media">
+						<a class="laout-width-70" href="javascript:;">
+							<img class="mui-media-object mui-pull-left" src="../../content/custom/img/img-eee.jpg">
+							<div class="mui-media-body">
+								张三王二
+								<p class="mui-ellipsis">航海学院</p>
+							</div>
+						</a>
+						<div class="laout-width-30 text-type-hui">
+							<span class="text-span">社长</span>
+						</div>
+					</li>
+				</ul>
+				<p class="p">只有该社团成员才能查看所有名单</p>
+			</div>
+			<div class="foot-bottom">
+				<input type="button" class="button" value="申请加入社团" />
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="../../content/style/frame/jquery/jquery-3.2.1.min.js" ></script>
+	<script type="text/javascript" src="../../content/style/common/js/popup.js" ></script>
+	<script>
+		$(".a-xqcontant").click(function() {
+			if($(this).attr("clickvalue") == "1") {
+				console.log($(this).attr("clickvalue"))
+				$(this).attr("clickvalue", "0");
+				$(".a-xqcontant a").text("收起全部").removeClass("xia").addClass("shang");
+				$(".contant-bar").css("max-height", "inherit");
+			} else {
+				console.log($(this).attr("clickvalue"))
+				$(this).attr("clickvalue", "1");
+				$(".a-xqcontant a").text("显示更多").removeClass("shang").addClass("xia")
+				$(".contant-bar").css("max-height", "105px");
+			}
+		})
+		//根据图片宽度设置高度
+		$(".css-height").css("height", $(".css-height").width());
+		//点击申请加入
+		$(".foot-bottom .button").click(function() {
+			console.log("****")
+			alertBox();
+		})
+
+		function alertBox() {
+			var option = {
+				type: "alert",
+				boxStyle: {
+					"background": "url(../../content/custom/img/1/bg.png) repeat-x top #fff",
+					"background-size": "100%",
+					"border-radius": "10px"
+				},
+				title: {
+					val: "社团申请发送成功",
+					//img: "../../../content/custom/img/1/1.png",
+					imgStyle: {
+						"margin-top": "0%",
+						"width": "100%"
+					}
+				},
+				content: {
+					val: "等待社长批准后才能成为正式成员哦",
+					contentStyle: {
+						"text-align": "left"
+					}
+				},
+				btns: {
+					cancel: false,
+					sureVal: "我知道了",
+				}
+
+			}
+			campus.popup(option, function(data) {
+				console.log(data);
+				campus.togglePopup("hide", "alert");
+			});
+		}
+	</script>
+
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>失物招领</title>
+		
+		<link rel="stylesheet" href="../../content/style/frame/bootstrap/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="../../content/style/frame/jquery/toast/css/jquery.toast.css" />
+		<link rel="stylesheet" href="../../content/style/common/css/common.css" />
+		<link rel="stylesheet" href="../../content/style/common/css/popup.css" />
+		<link rel="stylesheet" href="../../content/style/white/shiwuzhaoling/css/swzl.css" />
+		<style>
+			.contant-input {
+				width: 80%;
+				text-align: center;
+				margin: 0 auto;
+			}
+			.contant-input i{
+				
+				right: 0 !important;
+				left: 55px !important;
+			}
+			.contant-input input{
+				height: 30px;
+				padding-left: 40px;
+			}
+			.smart-edit.smart-icon-right{
+				text-align: center;
+			}
+			.lishi{
+				padding: 20px;
+			}
+			.lishi h3{
+				font-size: 16px;
+				line-height: 20px;
+				color: #3C3C3C;
+				margin: 0;
+				font-family: "微软雅黑";
+				
+			}
+			.lishi-delete{
+				display: block;
+				width: 20px;
+				height: 20px;
+				float: right;
+				background: url(../../content/style/white/shiwuzhaoling/images/img-del.png) no-repeat;
+				background-position: right;
+				background-size: 20px;
+			}
+			.lishi ul{
+				padding: 10px;
+			}
+			.lishi ul li{
+				line-height: 35px;
+				color: #A8A8A8;
+				font-size: 15px;
+			}
+		</style>
+	</head>
+
+	<body class="znmj">
+		<nav class="navbar">
+			<div class="smart-header smart-white">
+				<a href="javascript:history.go(-1)" class="smart-back smart-icon-left">
+					<img src="../../content/style/common/images/back-2.png" alt="">
+				</a>
+				<div class="contant-input">
+					<i></i>
+					<input type="search" id="search" placeholder="请输入搜索的内容">
+				</div>
+				<a class="smart-edit smart-icon-right">
+					搜索
+				</a>
+			</div>
+		</nav>
+		<div class="container">
+			<div class="lishi">
+				<h3>历史搜索<i class="lishi-delete"></i></h3>
+				<ul>
+					<li>校园卡</li>
+					<li>笔记本电脑</li>
+					<li>钱包</li>
+				</ul>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="../../content/style/frame/jquery/jquery-3.2.1.min.js" ></script>
+	<script>
+		$(".lishi-delete").click(function(){
+			$("ul").remove()
+		})
+	</script>
+</html>

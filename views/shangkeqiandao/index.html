@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+  <title>上课签到</title>
+
+  <!-- Bootstrap -->
+
+  <link href="../../content/style/frame/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../../content/style/common/css/common.css" rel="stylesheet">
+  <link href="../../content/style/common/css/popup.css" rel="stylesheet">
+  <link href="../../content/style/frame/jquery/toast/css/jquery.toast.css" rel="stylesheet">
+  <link href="../../content/style/white/qiandao/css/qiandao.css" rel="stylesheet">
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elkements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<style>
+  /* 有课 */
+  .smart-sign-yes{
+    display: block;
+  }
+  /* 没课 */
+  .smart-sign-no{
+    display: none;
+  }
+</style>
+<body class="smart-sign">
+  <nav class="navbar">
+    <div class="smart-header smart-white">
+      <a href="javascript:history.go(-1);" class="smart-back smart-icon-left">
+        <img src="../../content/style/common/images/back-2.png" alt="">
+      </a>
+      <h1>上课签到</h1>
+      <a class="smart-back smart-icon-right" href="tongji.html">
+        <img src="../../content/style/white/xiaoyuanka/images/charts.png" alt="">
+      </a>
+    </div>
+  </nav>
+  <div class="smart-content">
+    <!-- 有课 -->
+    <div class="smart-sign-yes">
+      <div class="smart-help">尚未签到，请及时联系老师，以免作为旷课处理</div>
+      <div class="smart-sign-box">
+        <ul>
+          <li>
+            <label>课程</label>
+            <p>形势与政治H26</p>
+          </li>
+          <li>
+            <label>地点</label>
+            <p>多媒体教室203</p>
+          </li>
+          <li>
+            <label>备注</label>
+            <p>这节课会预留作业提前做好预习这节课会预留作业提前做好预习这节课会预留作业提前做好预习</p>
+          </li>
+        </ul>
+        <span class="smart-flag">即将开始</span>
+        <div class="smart-foot">
+          <button type="button" class="smart-btn" set-terget="">签到</button>
+        </div>
+      </div>
+    </div>
+    <!-- 没课 -->
+    <div class="smart-sign-no">
+      <img src="../../content/style/white/qiandao/images/no.png" alt="">
+      <p>今儿没课啦！说好的，好好玩耍呢~</p>
+    </div>
+  </div>
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="../../content/style/frame/jquery/jquery-3.2.1.min.js"></script>
+  <script src="../../content/style/frame/fastclick/fastclick.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="../../content/style/frame/bootstrap/js/bootstrap.min.js"></script>
+  <script src="../../content/style/frame/jquery/toast/js/jquery.toast.js"></script>
+  <script src="../../content/style/common/js/popup.js"></script>
+  <script src="../../content/style/white/qiandao/js/qiandao.js"></script>
+
+</body>
+
+</html>

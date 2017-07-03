@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>校园社区-发布</title>
+		<link rel="stylesheet" href="../../content/plug/bootstap/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="../../content/plug/jquery/toast/css/jquery.toast.css" />
+		<link rel="stylesheet" href="../../content/plug/uploder/css/zyUpload.css" />
+		<link rel="stylesheet" href="../../content/custom/css/popup.css" />
+		<link rel="stylesheet" href="../../content/custom/css/common.css" />
+		<link rel="stylesheet" href="../../content/custom/css/shiwuzhaoling/swzl.css" />
+		<style>
+			.znmj-fb .input-shuru textarea{
+				font-size: 16px;
+			}
+		</style>
+	</head>
+
+	<body class="znmj znmj-fb">
+		<nav class="navbar">
+			<div class="smart-header smart-white">
+				<a href="javascript:history.go(-1)" class="smart-back smart-icon-left">
+					<img src="../../content/custom/img/back-2.png" alt="">
+				</a>
+				<h1>发布</h1>
+				<a class="smart-edit smart-icon-right">
+					确定
+				</a>
+			</div>
+		</nav>
+		<div class="container">
+			
+			<div class="input-shuru">
+				<textarea rows="5" placeholder="善意回帖 理想发言 礼貌用语..."></textarea>
+				<div id="demo" class="demo"></div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="../../content/plug/jquery/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="../../content/custom/js/popup.js"></script>
+	<script type="text/javascript" src="../../content/plug/jquery/toast/js/jquery.toast.js"></script>
+	<script type="text/javascript" src="../../content/plug/uploder/js/zyUpload.js"></script>
+	<script type="text/javascript" src="../../content/custom/js/shiwuzhaoling/zwzl.js"></script>
+	<script>
+		//点击弹出选择发布类型
+		var option2 = {
+			value: ["找东西", "找失主"], // 数组
+			type: "select", // 弹窗类型 keyboard,info,change,select 
+			cancel: true
+		}
+		$("#type-choice").on("click", function() {
+			campus.popup(option2, function(e) {
+				$(".list-back").text(e.name);
+			})
+		});
+	</script>
+
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="../../content/style/frame/mui/css/mui.min.css" />
+		<link rel="stylesheet" href="../../content/style/common/css/common.css" />
+		<link rel="stylesheet" href="../../content/style/white/baituanzhengyi/css/btzy.css" />
+		<title>百团争艺-活动地点</title>
+	</head>
+	<body class="btzy-hddd ">
+		<nav class="navbar">
+			<div class="smart-header smart-white">
+				<a href="javascript:history.go(-1)" class="smart-back smart-icon-left">
+					<img src="../../content/style/common/images/back-2.png" />
+				</a>
+				<h1>活动地点</h1>
+			</div>
+		</nav>
+		<div class="mui-content">
+			<div class="serch-bar">
+				<input id="btzy-hddd-serch" type="text" placeholder="找不到地点？点这里" />
+				<i class="btzy-hddd-serch-i">取消</i>
+			</div>
+			<ul class="mui-table-view mui-table-view-radio ul-list-active">
+				<li class="mui-table-view-cell">
+					<a class="mui-navigate-right">
+						<span>校园主楼</span>
+						<p>辽宁省大连市甘子井区凌海路一号</p>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-selected">
+					<a class="mui-navigate-right">
+						<span>校园主楼</span>
+						<p>辽宁省大连市甘子井区凌海路一号</p>
+					</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a class="mui-navigate-right">
+						<span>校园主楼</span>
+						<p>辽宁省大连市甘子井区凌海路一号</p>
+					</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a class="mui-navigate-right">
+						<span>校园主楼</span>
+						<p>辽宁省大连市甘子井区凌海路一号</p>
+					</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a class="mui-navigate-right">
+						<span>校园主楼</span>
+						<p>辽宁省大连市甘子井区凌海路一号</p>
+					</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a class="mui-navigate-right">
+						<span>校园主楼</span>
+						<p>辽宁省大连市甘子井区凌海路一号</p>
+					</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a class="mui-navigate-right">
+						<span>校园主楼</span>
+						<p>辽宁省大连市甘子井区凌海路一号</p>
+					</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a class="mui-navigate-right">
+						<span>校园主楼</span>
+						<p>辽宁省大连市甘子井区凌海路一号</p>
+					</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a class="mui-navigate-right">
+						<span>校园主楼</span>
+						<p>辽宁省大连市甘子井区凌海路一号</p>
+					</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a class="mui-navigate-right">
+						<span>校园主楼</span>
+						<p>辽宁省大连市甘子井区凌海路一号</p>
+					</a>
+				</li>
+			</ul>
+		</div>
+		<div class="popup-mask-bar"></div>
+	</body>
+	<script type="text/javascript" src="../../content/style/frame/jquery/jquery-3.2.1.min.js" ></script>
+	<script type="text/javascript" src="../../content/style/frame/mui/js/mui.min.js" ></script>
+	<script>
+		
+		//点击搜索框
+		$("#btzy-hddd-serch").click(function(){
+			$(".popup-mask-bar").css("display","block");
+			$(".serch-bar").animate({top:"0"});
+			$(this).animate({width:"82%"})
+		})
+		//点击取消按钮
+		$(".btzy-hddd-serch-i,.popup-mask-bar").click(function(){
+			$(".serch-bar").animate({top:"45px"});
+			$("#btzy-hddd-serch").animate({width:"94%"})
+			$(".popup-mask-bar").css("display","none");
+		})
+		document.querySelector('.mui-table-view.mui-table-view-radio').addEventListener('selected',function(e){
+			mui.toast("当前选中的为："+e.detail.el.innerText);
+		});
+	</script>
+</html>

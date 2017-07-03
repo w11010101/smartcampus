@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+  <title>签到统计</title>
+
+  <!-- Bootstrap -->
+
+  <link href="../../content/style/frame/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../../content/style/common/css/common.css" rel="stylesheet">
+  <link href="../../content/style/frame/jquery/toast/css/jquery.toast.css" rel="stylesheet">
+  <link href="../../content/style/white/qiandao/css/qiandao.css" rel="stylesheet">
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elkements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+
+<body class="smart-sign-tj">
+  <nav class="navbar">
+    <div class="smart-header smart-white">
+      <a href="javascript:history.go(-1)" class="smart-back smart-icon-left">
+        <img src="../../content/style/common/images/back-2.png" alt="">
+      </a>
+      <h1>签到管理</h1>
+    </div>
+  </nav>
+  <div class="smart-content">
+    <!-- 课程信息 -->
+    <div class="row smart-tj-info">
+      <div class="col-xs-9">
+        <h2>形势与政治（轮机航海专业）</h2>
+        <div class="smart-sign-info">
+          <span>课程：<em>5/20</em></span>
+          <span>缺少点名次：<em>3</em></span>
+        </div>
+      </div>
+      <div class="col-xs-3">
+          <h2>总人数</h2>
+          <div class="smart-sign-info">80</div>          
+      </div>
+    </div>
+    <!-- 手风琴 + 列表 -->
+    <div class="panel-group smart-accordion" id="accordion">
+      <!-- 一组 -->
+      <div class="panel panel-default smart-border">
+        <div class="panel-heading active">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+            迟到人次
+          </a>
+          <em class="smart-list-end-icon">4</em>
+        </div>
+        <div id="collapseOne" class="panel-collapse collapse in">
+          <div class="panel-body">
+            <!-- 列表 -->
+            <ul class="smart-sub-list">
+              <!-- 列表一组 -->
+              <li class="smart-sub-list-item">
+                <img src="../../content/style/common/images/head.jpg" alt="">
+                <span>张小斐</span>
+                <em>1234567890</em>
+                <i>03/10 12:12</i>
+              </li>
+              <!-- 列表一组 -->
+              <li class="smart-sub-list-item cancel">
+                <img src="../../content/style/common/images/head.jpg" alt="">
+                <span>李小萌</span>
+                <em>1234567890</em>
+                <i>03/10 12:12</i>
+              </li>
+              <!-- 列表一组 -->
+              <li class="smart-sub-list-item">
+                <img src="../../content/style/common/images/head.jpg" alt="">
+                <span>张小斐</span>
+                <em>1234567890</em>
+                <i>03/10 12:12</i>
+              </li>
+              <!-- 列表一组 -->
+              <li class="smart-sub-list-item">
+                <img src="../../content/style/common/images/head.jpg" alt="">
+                <span>李小萌</span>
+                <em>1234567890</em>
+                <i>03/10 12:12</i>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!-- 一组 -->
+      <div class="panel panel-default smart-border">
+        <div class="panel-heading">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+            旷课人次
+          </a>
+          <em class="smart-list-end-icon">20</em>
+        </div>
+        <div id="collapseTwo" class="panel-collapse collapse">
+          <div class="panel-body">
+            <!-- 列表 -->
+            <ul class="smart-sub-list">
+              <!-- 列表一组 -->
+              <li class="smart-sub-list-item">
+                <img src="../../content/style/common/images/head.jpg" alt="">
+                <span>张小斐</span>
+                <em>1234567890</em>
+                <i>03/10 12:12</i>
+              </li>
+              <!-- 列表一组 -->
+              <li class="smart-sub-list-item cancel">
+                <img src="../../content/style/common/images/head.jpg" alt="">
+                <span>李小萌</span>
+                <em>1234567890</em>
+                <i>03/10 12:12</i>
+              </li>
+              <!-- 列表一组 -->
+              <li class="smart-sub-list-item">
+                <img src="../../content/style/common/images/head.jpg" alt="">
+                <span>张小斐</span>
+                <em>1234567890</em>
+                <i>03/10 12:12</i>
+              </li>
+              <!-- 列表一组 -->
+              <li class="smart-sub-list-item">
+                <img src="../../content/style/common/images/head.jpg" alt="">
+                <span>李小萌</span>
+                <em>1234567890</em>
+                <i>03/10 12:12</i>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="../../content/style/frame/jquery/jquery-3.2.1.min.js"></script>
+  <script src="../../content/style/frame/fastclick/fastclick.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="../../content/style/frame/bootstrap/js/bootstrap.min.js"></script>
+  <script src="../../content/style/white/qiandao/js/qiandao.js"></script>
+</body>
+
+</html>

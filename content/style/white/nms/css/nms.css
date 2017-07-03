@@ -1,0 +1,382 @@
+body{
+	overflow-x:hidden;
+}
+html *,.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6{
+	font-weight: normal;
+}
+/*首页*/
+.smart-nms{
+	background: #fff
+}
+.smart-nms .navbar{
+	background: url(../images/bg-1.png) no-repeat;
+	background-size: cover;
+}
+.smart-nms .smart-header{
+	position: static;
+}
+.smart-icon-right+.smart-icon-right{
+	right: 50px
+}
+.smart-nms .smart-header .smart-text{
+	color:#fff;
+}
+.smart-nms-info{
+	margin-top: 20px;
+	margin-right: 16px;
+	margin-left: 20px;
+	margin-bottom: 32px;
+	position: relative;
+}
+.smart-nms-info-header{
+	width:60px;
+	padding-bottom:60px;
+	position: relative;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.smart-nms-info-header img{
+	position: absolute;
+	width: 100%;
+	overflow: hidden;
+	border-radius: 50%;
+}
+.smart-nms-info-header img[sexType]{
+	width: 35px;
+	height: 35px;
+	right: -10px;
+	bottom: -10px;
+}
+.smart-nms-info-name{
+	display: inline-block;
+	font-size: 16px;
+	vertical-align: middle;
+	padding-left: 12px;
+	color:#fff;
+	margin:0;
+}
+.smart-nms-info-assets{
+	display: inline-block;
+	font-size: 16px;
+	height: 25px;
+	max-width: 120px;
+	/*overflow: hidden;*/
+	color:#fff;
+	vertical-align: middle;
+	background: url(../images/iocn-3.png) no-repeat left center;
+	background-size: contain;
+	line-height: 25px;
+	padding-left: 30px;
+	position: absolute;
+	right: 0px;
+	top:50%;
+	margin-top: -12.5px;
+}
+.smart-nms .smart-content >.row{
+	text-align: center;
+	color:#a8a8a8;
+	padding:20px 0; 
+	background: #fff;
+}
+.smart-nms .smart-content >.row img{
+	width: 40px;
+	margin-bottom: 10px;
+}
+.smart-nms .smart-content >.row >div{
+	position: relative;
+}
+.smart-nms .smart-content >.row >div a{
+	display: block;
+	padding-top:45px; 
+	color:#a8a8a8;
+}
+.smart-nms .smart-content >.row >div:first-child{
+	background: url(../images/icon-1-1.png) no-repeat top center;
+	background-size: 40px;
+}
+.smart-nms .smart-content >.row >div:last-child{
+	background: url(../images/icon-2-1.png) no-repeat top center;
+	background-size: 40px;
+}
+.smart-nms .smart-content >.row >div:first-child:after{
+	position: absolute;
+	content: " ";
+	width: 1px;
+	height: 60%;
+	background: #e0e0e0;
+	top:20%;
+	right: 0;
+}
+.smart-nms .signIn,.smart-nms .noSignIn{
+	position: relative;
+	padding-top: 10px
+}
+.smart-nms .signIn:after,.smart-nms .smart-content > .noSignIn:after{
+	position: absolute;
+	content: " ";
+	width: 100%;
+	height: 10px;
+	background: #f6f6f6;
+	top:0;
+}
+.signIn{
+	display: block;
+}
+.smart-nms[sign=signIn] .smart-content .signIn .noSignIn,.smart-nms[sign=noSignIn] .smart-content >.noSignIn{
+	display: block;
+}
+.smart-nms[sign=signIn] .smart-content >.noSignIn,.smart-nms[sign=noSignIn] .smart-content .signIn .noSignIn{
+	display: none;
+}
+
+.smart-nms .smart-subtitle-h2{
+	background:#fff;
+	height:40px;
+	line-height: 40px;
+	padding:0 20px;
+}
+.smart-nms-bill{
+	position: relative;
+}
+.smart-nms-bill .smart-list-item:after{
+	left:20px!important;
+}
+.smart-nms-bill li,.smart-nms-bill li div{
+	line-height: normal;
+}
+.smart-subtitle-h2 a{
+	color:#a8a8a8;
+	float:right;
+}
+.smart-nms .smart-nms-bill li{
+	font-size: 0;
+	height: 60px;
+}
+.smart-nms-bill h3{
+	margin:0;
+	font-size: 16px;
+	color:#3c3c3c;
+}
+.smart-nms-bill p{
+	margin:5px 0 0 0;
+	color:#a8a8a8;
+}
+.smart-nms-bill li div,.smart-nms-bill li span{
+	display: inline-block;
+	vertical-align: middle;
+}
+.smart-nms-bill li div{
+	font-size: 14px;
+	width: 70%;
+}
+.smart-nms-bill li span{
+	font-size: 16px;
+	height: 100%;
+	float: right;
+	width: 30%;
+	text-align: right;
+}
+.smart-nms-bill li[billType=income] span{
+	color:#ee5b17;
+}
+.smart-nms-bill li[billType=exp] span{
+	color:#01e699;
+}
+/* 未登录 */
+.smart-nms[sign=noSignIn] .smart-nms-info-header:after{
+	position: absolute;
+	content: " ";
+	width: 100%;
+	height: 100%;
+	background: url(../images/header-no.png) no-repeat center;
+	background-size:100%;
+	top:0;
+	z-index: -1;
+}
+.smart-nms[sign=noSignIn] .smart-nms-info-header img:first-child{
+	display: none;
+}
+.smart-nms[sign=noSignIn] .smart-header a:nth-last-child(2){
+	display: none;
+}
+
+.smart-nms[sign=noSignIn] .smart-nms-info-name{
+
+}
+.smart-nms[sign=noSignIn] .smart-nms-info-assets{
+	display: none
+}
+.smart-nms[sign=noSignIn] .smart-content >.row >div:first-child{
+	background: url(../images/icon-1-2.png) no-repeat top center;
+	background-size: 40px;
+}
+.smart-nms[sign=noSignIn] .smart-content >.row >div:last-child{
+	background: url(../images/icon-2-2.png) no-repeat top center;
+	background-size: 40px;
+}
+.smart-nms[sign=noSignIn] .signIn{
+	display: none;
+}
+.smart-nms[sign=noSignIn] .noSignIn{
+	display: block;
+}
+.smart-nms .noSignIn img{
+	display: block;
+	width: 100%;
+	// margin-top: 15%;
+}
+.smart-nms .noSignIn p{
+	color:#a8a8a8; text-align: center;
+	margin-top: 10px;
+	margin-bottom: 15%;
+}
+.smart-nms-input{
+	font-size: 0;
+	padding: 10px 20px; 
+
+}
+.smart-nms-input input{
+	display: inline-block;
+	width: 60%;
+	margin-right: 10%;
+	font-size: 14px;
+	vertical-align: middle;
+	height: 25px;
+}
+.smart-nms-input button{
+	display: inline-block;
+	height: 25px;
+	width: 30%;
+	font-size: 14px;
+	vertical-align: middle;
+	border: 1px solid #73d2fe;
+	border-radius:5px;
+	background: #73d2fe;
+	color:#fff;
+}
+.signIn[search=false] h2,.signIn[search=false] .smart-list{
+	display: none;
+}
+/* 改暗号 */
+.smart-nms-anhao{
+	background: #fff
+}
+.sr-only {
+    font-size: 14px;
+    width: 30%;
+    min-width: 60px;
+    max-width: 60px;
+    height: 100%;
+    position: static;
+    font-weight: normal;
+    vertical-align: middle;
+}
+.smart-input {
+    display: inline-block;
+    width: 60%;
+    vertical-align: middle;
+    border: 0;
+    box-shadow: none;
+    font-size: 14px;
+    height: 34px;
+    line-height: 34px;
+    outline: none;
+    margin-left: 5%;
+}
+
+.smart-icon-srue {
+    position: absolute;
+    width: 30px;
+    height: 100%;
+    right: 20px;
+    background: url(../images/icon-4.png) no-repeat center;
+    background-size: contain;
+    display: none;
+}
+
+.smart-btn {
+    width: 85%;
+    font-size: 16px;
+    padding: 10px 0;
+    display: block;
+    margin: 4rem auto;
+    background-color: #e2e2e2;
+    border: 1px solid;
+    border-color: #e2e2e2;
+    border-radius: 5px;
+    color: #fff;
+    outline: normal;
+    transition: opacity .1s ease-in;
+    -webkit-transition: opacity .1s ease-in;
+}
+.smart-btn.smart-btn-sure{
+	background:rgba(115, 210, 254,1);
+	border-color: #73d2fe;
+	color:#fff;
+	transition: all .1s ease-in;
+    -webkit-transition: all .1s ease-in;
+}
+.smart-btn.smart-btn-sure:active{
+	background:rgba(115, 210, 254,.7);
+	border-color:#9ddffe;
+}
+.smart-nms-anhao .smart-list .smart-list-item:not(:first-child):after{
+ 	left:20px!important;
+}
+.smart-nms-anhao .smart-list .smart-list-item:first-child:after{
+
+}
+.smart-nms-anhao .smart-list-item:first-child{
+	height: auto;
+	line-height: normal;
+}
+.smart-list-item .smart-accounts{
+	padding-top: 10px;
+	padding-bottom: 15px;
+}
+.smart-accounts .smart-icon-srue{
+	height: 30px;
+	top:10px;
+
+}
+.smart-accounts p{
+	color:#a8a8a8;
+	font-size: 12px;
+	padding-left: 20px;
+	margin:0;
+	background: url(../images/icon-5.png) no-repeat left -7px top -7px;
+	background-size: 30px;
+}
+
+#wrapper {
+	position: absolute;
+	z-index: 1;
+	top: 45px;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	overflow: hidden;
+}
+
+#scroller {
+	position: absolute;
+	z-index: 1;
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+	width: 100%;
+	-webkit-transform: translateZ(0);
+	-moz-transform: translateZ(0);
+	-ms-transform: translateZ(0);
+	-o-transform: translateZ(0);
+	transform: translateZ(0);
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	-webkit-text-size-adjust: none;
+	-moz-text-size-adjust: none;
+	-ms-text-size-adjust: none;
+	-o-text-size-adjust: none;
+	text-size-adjust: none;
+}

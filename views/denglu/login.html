@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>登录</title>
+		<link href="../../content/style/frame/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+		<link href="../../content/style/frame/mui/css/mui.min.css" rel="stylesheet">
+		<link href="../../content/style/common/css/common.css" rel="stylesheet">
+		<link href="../../content/style/white/login/css/login.css" rel="stylesheet">
+	</head>
+
+	<body class="">
+		<div class="container mui-content">
+			<div class="logo-bar">
+				<img src="../../content/style/white/login/images/logo.png" />
+			</div>
+			<form class="form">
+				<div class="mui-input-row form-number">
+				    <label>
+				    	<img src="../../content/style/white/login/images/icon-numb.png" />
+				    </label>
+				    <input type="text" class="mui-input-clear" placeholder="请输入学工号">
+				</div>
+				<div class="mui-input-row form-pwd">
+			        <label>
+				    	<img src="../../content/style/white/login/images/icon-pwd.png" />
+				    </label>
+			        <input type="password" class="mui-input-clear" placeholder="请输入一卡通密码">
+			    </div>
+			    <button type="button" class="mui-btn mui-btn-blue mui-btn-block">登 录</button>
+			</form>
+		</div>
+	</body>
+	<script src="../../content/style/frame/mui/js/mui.min.js"></script>
+	<script>
+		mui.init();
+		mui("body").on("tap",".mui-btn-blue",function(){
+			if(document.querySelector(".form-number input").value == ""){
+				mui.toast("请填写学工号");
+			}else if(document.querySelector(".form-pwd input").value == ""){
+				mui.toast("请填写密码");
+			}
+		})
+	</script>
+</html>

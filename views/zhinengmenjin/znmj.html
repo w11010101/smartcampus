@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>智能门禁</title>
+		<link rel="stylesheet" href="../../content/style/frame/bootstrap/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="../../content/style/common/css/common.css" />
+		<link rel="stylesheet" href="../../content/style/common/css/zf-common.css" />
+		<link rel="stylesheet" href="../../content/style/white/zhinengmenjin/css/znmj.css" />
+		
+		<style>
+			
+		</style>
+	</head>
+	<body class="znmj">
+		<nav class="navbar">
+			<div class="smart-header smart-white">
+				<a href="javascript:history.go(-1)" class="smart-back smart-icon-left">
+					<img src="../../content/style/common/images/back-2.png" alt="">
+				</a>
+				<h1>智能门禁</h1>
+			</div>
+		</nav>
+		<div class="container">
+			<div class="content">
+				<div class="select onlink1">
+					<p data-value="航海楼">航海楼</p>
+					<ul class="cssheight">
+						<li data-value="航海楼" class="Selected">航海楼</li>
+						<li data-value="天涯楼">天涯楼</li>
+						<li data-value="无涯楼">无涯楼</li>
+						<li data-value="海枯楼">海枯楼</li>
+						<li data-value="山岚楼">山岚楼</li>
+						<li data-value="不平楼">不平楼</li>
+						<li data-value="作业楼">作业楼</li>
+					</ul>
+				</div>
+				<div class="select onlink2">
+					<p data-value="三层">三层</p>
+					<ul class="cssheight">
+						<li data-value="一层">一层</li>
+						<li data-value="二层">二层</li>
+						<li data-value="三层" class="Selected">三层</li>
+						<li data-value="四层">四层</li>
+						<li data-value="五层">五层</li>
+						<li data-value="六层">六层</li>
+						
+					</ul>
+				</div>
+			</div>
+			<div class="fenge-bar">楼层教室</div>
+			<div class="jiugongge">
+				<div class="row">
+					<div class="col-xs-4">
+						<input type="button" class="button btn-opcity" value="301"/>
+						<span>数理楼</span>
+					</div>
+					<div class="col-xs-4">
+						<input type="button" class="button btn-opcity" value="302"/>
+						<span>数理楼</span>
+					</div>
+					<div class="col-xs-4">
+						<input type="button" class="button btn-opcity" value="302"/>
+						<span>数理楼</span>
+					</div>
+					<div class="col-xs-4">
+						<input type="button" class="button btn-opcity" value="302"/>
+						<span>数理楼</span>
+					</div>
+					<div class="col-xs-4">
+						<input type="button" class="button btn-opcity" value="302"/>
+						<span>航海楼</span>
+					</div>
+					<div class="col-xs-4">
+						<input type="button" class="button btn-opcity" value="302"/>
+						<span>航海楼</span>
+					</div>
+					<div class="col-xs-4">
+						<input type="button" class="button btn-opcity" value="302"/>
+						<span>航海楼</span>
+					</div>
+					<div class="col-xs-4">
+						<input type="button" class="button btn-opcity" value="302"/>
+						<span>航海楼</span>
+					</div>
+					<div class="col-xs-4">
+						<input type="button" class="button btn-opcity" value="302"/>
+						<span>航海楼</span>
+					</div>
+					<div class="col-xs-4">
+						<input type="button" class="button btn-hui" value="302"/>
+						<span>航海楼</span>
+					</div>
+					<div class="col-xs-4">
+						<input type="button" class="button btn-opcity" value="302"/>
+						<span>航海楼</span>
+					</div>
+					<div class="col-xs-4">
+						<input type="button" class="button btn-opcity" value="302"/>
+						<span>航海楼</span>
+					</div>
+				</div>
+			</div>
+			<div class="fenge-bar"></div>
+			<div class="list-jl">
+				<div class="title-kmjl">开门记录</div>
+				<ul>
+					<li class="row">
+						<div class="col-xs-8">2017/12/21 12:00</div>
+						<div class="col-xs-4">打开301</div>
+					</li><li class="row">
+						<div class="col-xs-8">2017/12/21 12:00</div>
+						<div class="col-xs-4">打开301</div>
+					</li>
+					<li class="row">
+						<div class="col-xs-8">2017/12/21 12:00</div>
+						<div class="col-xs-4">打开301</div>
+					</li>
+					<li class="row">
+						<div class="col-xs-8">2017/12/21 12:00</div>
+						<div class="col-xs-4">打开301</div>
+					</li>
+					<li class="row">
+						<div class="col-xs-8">2017/12/21 12:00</div>
+						<div class="col-xs-4">打开301</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="backdrop" style="display: none;"></div>
+	</body>
+	<script type="text/javascript" src="../../content/style/frame/jquery/jquery-3.2.1.min.js"></script>
+	<script>
+		$(function(){
+			
+			$(".onlink1 p").click(function(e){
+				if($(".onlink2").attr("class")=="select onlink2 open"){
+					$(".backdrop").toggle();
+					$(".onlink2").removeClass('open');
+					$(".cssheight").css("max-height","0px");
+				}else{
+					$(".onlink1").toggleClass('open');
+					$(".backdrop").toggle();
+					console.log($(".select").attr("class"))
+					if($(".onlink1").attr("class") == "select onlink1 open"){
+						$(".open .cssheight").css("max-height",$(".cssheight li").length*45+"px");
+					}else{
+						$(".cssheight").css("max-height","0px");
+					}
+					e.stopPropagation();
+				}
+			});
+			
+			$(".onlink2 p").click(function(e){
+				console.log($(".onlink1").attr("class"));
+				if($(".onlink1").attr("class")=="select onlink1 open"){
+					$(".backdrop").toggle();
+					$(".onlink1").removeClass('open');
+					$(".cssheight").css("max-height","0px");
+				}else{
+					$(".backdrop").toggle();
+					$(".onlink2").toggleClass('open');
+					console.log($(".select").attr("class"))
+					if($(".onlink2").attr("class") == "select onlink2 open"){
+						$(".open .cssheight").css("max-height",$(".cssheight li").length*45+"px");
+					}else{
+						$(".cssheight").css("max-height","0px");
+					}
+					e.stopPropagation();
+				}
+				
+			});
+			$(".backdrop").click(function(){
+				$(this).toggle();
+				$(".select").removeClass('open');
+				$(".cssheight").css("max-height","0px");
+			})
+			$(".content .onlink1 ul li").click(function(e){
+				var _this=$(this);
+				$(".backdrop").toggle();
+				$(".onlink1 > p").text(_this.attr('data-value'));
+				_this.addClass("Selected").siblings().removeClass("Selected");
+				$(".select").removeClass("open");
+				if($(".select").attr("class") == "select open"){
+					$(".open .cssheight").css("max-height",$(".cssheight li").length*45+"px");
+				}else{
+					$(".cssheight").css("max-height","0px");
+				}
+				e.stopPropagation();
+			});
+			$(".content .onlink2 ul li").click(function(e){
+				var _this=$(this);
+				$(".backdrop").toggle();
+				$(".onlink2 > p").text(_this.attr('data-value'));
+				_this.addClass("Selected").siblings().removeClass("Selected");
+				$(".select").removeClass("open");
+				if($(".select").attr("class") == "select open"){
+					$(".open .cssheight").css("max-height",$(".cssheight li").length*45+"px");
+				}else{
+					$(".cssheight").css("max-height","0px");
+				}
+				e.stopPropagation();
+			});
+			
+			$(document).on('click',function(){
+				$(".select").removeClass("open");
+			})
+			
+		});
+		
+		//跳转页面
+		$(".title-kmjl").click(function(){
+			window.location.href="kmjl.html"
+		})
+	</script>
+</html>

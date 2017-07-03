@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>失物招领</title>
+		<link rel="stylesheet" href="../../content/style/frame/bootstrap/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="../../content/style/frame/jquery/toast/css/jquery.toast.css" />
+		<link rel="stylesheet" href="../../content/style/common/css/common.css" />
+		<link rel="stylesheet" href="../../content/style/common/css/popup.css" />
+		<link rel="stylesheet" href="../../content/style/white/shiwuzhaoling/css/swzl.css" />
+	</head>
+
+	<body class="znmj">
+		<nav class="navbar">
+			<div class="smart-header smart-white">
+				<a href="javascript:history.go(-1)" class="smart-back smart-icon-left">
+					<img src="../../content/style/common/images/back-2.png" alt="">
+				</a>
+				<h1>失物招领</h1>
+			</div>
+		</nav>
+		<div class="container">
+			<div class="contant-input">
+				<i></i>
+				<input type="search" id="search" placeholder="请输入搜索的内容" />
+			</div>
+			<div class="contant-text">
+				<ul class="tab-title">
+					<li id="whole-choice"><span>全部</span><i></i></li>
+					<li id="type-choice"><span>类型</span><i></i></li>
+				</ul>
+				<ul class="list-zl">
+					<li class="row">
+						<a href="swzl-xq.html">
+							<div class="col-xs-2">
+								<img class="css-height" src="../../content/style/common/images/head.jpg" />
+							</div>
+							<div class="col-xs-10">
+								<div class="title-name">
+									<span>黄药师</span>
+									<i>找东西</i>
+								</div>
+								<p>神州大陆，有个大齐帝国，帝国之内分九道，江南道上有座山，山上有座庙，庙里有个小和尚，得个法号叫不成……</p>
+								<!--有图模块-->
+								<div class="row">
+									<div class="col-xs-3">
+										<img class="css-height_" src="../../content/style/white/shiwuzhaoling/images/code-2.png" />
+									</div>
+									<div class="col-xs-3">
+										<img class="css-height_" src="../../content/style/white/shiwuzhaoling/images/code-2.png" />
+									</div>
+									<div class="col-xs-3">
+										<img class="css-height_" src="../../content/style/white/shiwuzhaoling/images/code-2.png" />
+									</div>
+									<div class="col-xs-3">
+										<img class="css-height_" src="../../content/style/white/shiwuzhaoling/images/code-2.png" />
+									</div>
+								</div>
+								<!--有图模块结束-->
+								<div class="foot-bar">
+									<span class="time-comment">14分钟前</span>
+									<a href="swzl-hf.html" class="comment"></a>
+									<a href="zhuanfa.html" class="share">分享</a>
+								</div>
+								<!--评论模块-->
+								<div class="comment-bar">
+									<i></i>
+									<div class="comment-user">
+										<div class="name">韩梅梅：</div>
+										<div class="contant">不成从没想过自己平时读的经，别人都不懂。</div>
+									</div>
+									<div class="comment-user">
+										<div class="name">蒋青青：</div>
+										<div class="contant">不成从没想过自己会下山，和尚也当不成。</div>
+									</div>
+								</div>
+								<!--评论模块结束-->
+							</div>
+						</a>
+					</li>
+					<li class="row">
+						<a href="swzl-xq.html">
+							<div class="col-xs-2">
+								<img class="css-height" src="../../content/style/common/images/head.jpg" />
+							</div>
+							<div class="col-xs-10">
+								<div class="title-name">
+									<span>黄药师</span>
+									<i>找东西</i>
+								</div>
+								<p>无尽大陆上，十万大山里，云梦沼泽处，有一小小宗门。 　　宗门不大，却有妖冶的龙血树。 　　宗门不大，却有满地跑的人参娃娃。 　　宗门不大，却有世界之树的残片。 　　当这个小小宗门变成周天第一仙门，如山的灵石，吃到吐的灵药，满身武装的法宝…… 　　这是一本种田流的小清新，主题是建设宗门，附带打架，炫富，拉仇恨……
+								</p>
+
+								<div class="foot-bar">
+									<span class="time-comment">14分钟前</span>
+									<span class="comment"></span>
+									<a href="zhuanfa.html" class="share">分享</a>
+								</div>
+								<div class="comment-bar">
+									<i></i>
+									<div class="comment-user">
+										<div class="name">韩梅梅：</div>
+										<div class="contant">不成从没想过自己平时读的经，别人都不懂。</div>
+									</div>
+									<div class="comment-user">
+										<div class="name">蒋青青：</div>
+										<div class="contant">不成从没想过自己会下山，和尚也当不成。</div>
+									</div>
+								</div>
+							</div>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="../../content/style/frame/jquery/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="../../content/style/frame/fastclick/fastclick.js"></script>
+	<script type="text/javascript" src="../../content/style/common/js/popup.js"></script>
+	<script type="text/javascript" src="../../content/style/frame/jquery/toast/js/jquery.toast.js"></script>
+	<script>
+		//点击搜索按钮获取搜索框的值
+		document.addEventListener("keydown", function(e) {
+			console.log(event.keyCode);
+			if(event.keyCode == 13) {
+				if(document.getElementById("search").value == "") {
+					$.toast({
+						text: "请输入搜索内容",
+						showHideTransition: 'fade',
+						allowToastClose: false,
+						hideAfter: 3000,
+						stack: false,
+						position: 'bottom-center',
+						textAlign: 'center',
+						loader: false,
+					});
+				} else {
+					console.log("您输入的内容为:" + document.getElementById("search").value)
+				}
+
+			}
+		})
+		//点击弹出选择全部
+		var option = {
+			value: ["全部", "我的"], // 数组
+			type: "select", // 弹窗类型 keyboard,info,change,select 
+			cancel: true
+		}
+		$("#whole-choice").on("click", function() {
+			campus.popup(option, function(e) {
+				$("#whole-choice span").text(e.name);
+			})
+		});
+		//点击弹出选择类型
+		var option2 = {
+			value: ["全部", "找东西", "找失主"], // 数组
+			type: "select", // 弹窗类型 keyboard,info,change,select 
+			cancel: true
+		}
+		$("#type-choice").on("click", function() {
+			campus.popup(option2, function(e) {
+				$("#type-choice span").text(e.name);
+			})
+		});
+		/*
+		 * 根据图片宽度设置高度
+		 */
+		$(".css-height").css("height", $(".css-height").width());
+		$(".css-height_").css("height", $(".css-height_").width());
+	</script>
+
+</html>

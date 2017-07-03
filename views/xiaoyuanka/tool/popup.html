@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>test</title>
+    <!-- Bootstrap -->
+    <link href="../../../content/plug/bootstap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../../content/custom/css/common.css" rel="stylesheet">
+    <link href="../../../content/custom/css/popup.css" rel="stylesheet">
+    <link href="../../../content/plug/jquery/toast/css/jquery.toast.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <button class="keyboard" popupType="keyboard" onclick="keyboard(this);">密码键盘</button>
+    <button class="info" popupType="info" onclick="info(this);">支付信息</button>
+    <button class="change" popupType="change" onclick="change(this);">更换支付方式</button>
+    <button class="select" popupType="select" onclick="select(this);">选择</button>
+    <button class="alert" popupType="alert" onclick="alertBox(this);">alert</button>
+</body>
+<!-- <script type="text/javascript" src="../../../content/plug/jquery/jquery.min.js"></script> -->
+<script type="text/javascript" src="../../../content/plug/jquery/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="../../../../../jquery/jquery.cookie.js"></script>
+<script type="text/javascript" src="../../../content/custom/js/popup.js"></script>
+<script type="text/javascript" src="../../../content/custom/js/common.js"></script>
+<script type="text/javascript" src="../../../content/plug/jquery/toast/js/jquery.toast.js"></script>
+<script type="text/javascript">
+// 键盘
+function keyboard(obj) {
+    var option = {
+        type: $(obj).attr("popupType")
+    }
+    campus.popup(option, function(data) {
+        console.log(data)
+        if (data.password == "000000") {
+            campus.tips("密码正确~！");
+        } else {
+            campus.tips("密码错误~！");
+        }
+    });
+}
+
+// 选择
+function select(obj) {
+    var option = {
+        type: $(obj).attr("popupType"),
+        // value: ["卡1", "卡2", "卡3", "卡4", "卡4", "卡4", "卡4", "卡4", "卡4", "卡4", "卡4", "卡4", "卡4", "卡4", "卡4", "卡4", "卡4", "卡4", "卡4", "卡4", "卡4", "卡4", "卡4", "卡4", "卡4", "卡4", "卡4"]、
+        // value: [{
+        //     "key": "1",
+        //     "name": "东校区"
+        // }, {
+        //     "key": "2",
+        //     "name": "西校区"
+        // }, {
+        //     "key": "3",
+        //     "name": "南校区"
+        // }, {
+        //     "key": "4",
+        //     "name": "北校区"
+        // }]
+        value: [{
+            "campusid": "1",
+            "key": "11",
+            "name": "东区1号楼"
+        }, {
+            "campusid": "1",
+            "key": "12",
+            "name": "东区2号楼"
+        }, {
+            "campusid": "1",
+            "key": "13",
+            "name": "东区3号楼"
+        }, {
+            "campusid": "1",
+            "key": "14",
+            "name": "东区4号楼"
+        },{
+            "campusid": "1",
+            "key": "14",
+            "name": "东区4号楼"
+        },{
+            "campusid": "1",
+            "key": "14",
+            "name": "东区4号楼"
+        },{
+            "campusid": "1",
+            "key": "14",
+            "name": "东区4号楼"
+        },{
+            "campusid": "1",
+            "key": "14",
+            "name": "东区4号楼"
+        },{
+            "campusid": "1",
+            "key": "14",
+            "name": "东区4号楼"
+        },{
+            "campusid": "1",
+            "key": "14",
+            "name": "东区4号楼"
+        },{
+            "campusid": "1",
+            "key": "14",
+            "name": "东区4号楼"
+        }]
+
+    }
+    campus.popup(option, function(data) {
+        console.log(data);
+    });
+}
+// 更改支付方式
+function change(obj) {
+    var option = {
+        type: $(obj).attr("popupType"),
+        title: "更换支付方式",
+        value: ["校园卡", "电子账户", "中国银行", "支付宝", "微信支付", "百度钱包"],
+        payType:[],
+        flow: $(obj).attr("popupFlow") || false,
+        cancel:true
+    }
+    campus.popup(option, function(data) {
+        console.log(data);
+    });
+}
+
+// 支付信息
+function info(obj) {
+    var option = {
+        type: $(obj).attr("popupType"),
+        title: "确认支付",
+        money: 132456,
+        flow: true,
+        cancel:true
+    }
+    campus.popup(option, function(data) {
+        console.log(data);
+    });
+}
+// alert
+// alertBox();
+function alertBox(obj){
+    var option = {
+        type: $(obj).attr("popupType"),
+        // type:"alert",
+        boxStyle:{
+            // "background":"url(../../../content/custom/img/1/bg.png) repeat-x top #fff",
+            // "background-size":"100%",
+            "border-radius":"10px"
+        },
+        title:{
+            val:"标题",
+            img:"../../../content/custom/img/1/1.png",
+            imgStyle:{
+                "margin-top":"0%",
+                "width":"100%"
+            }
+        },
+        content:{
+            val:"dfasdfasdfasd",
+            contentStyle:{
+                "text-align":"left"
+            }
+        },
+        btns:{
+            cancel:true,
+            sureVal:"确认1",
+            cancelVal:"取消2"
+        }
+
+    }
+    campus.popup(option, function(data) {
+        console.log(data);
+
+    });
+}
+</script>
+
+</html>

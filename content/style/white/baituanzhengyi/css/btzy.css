@@ -1,0 +1,999 @@
+/*
+ * common
+ */
+.container{
+	padding: 0;
+	font-family: "微软雅黑";
+}
+ul .mui-active{
+	background-color: #FFFFFF !important;
+}
+.ul-list-active .mui-active{
+	background-color: #EFEFEF !important;
+}
+.ul-list-active li:active{
+	background-color: #EFEFEF !important;
+}
+.popup-alert{
+	top: 45%;
+}
+
+.smart-header .smart-edit.smart-icon-right img,.smart-header .padding-10{
+	width: 100%;
+	vertical-align: initial;
+	padding: 10px;
+}
+
+body{
+	/*background: #EFEFEF;*/
+}
+input.button,button.button{
+	border: none;
+	border-radius: 5px;
+	color: #FFFFFF;
+	transition: all .5s; 
+	-webkit-transform: all .5s;
+	outline:none;
+}
+input.button:active,button.button:active{
+	/*border: none;*/
+	transition: all initial .2s; 
+	-webkit-transform: all .2s;
+	outline:none;
+	transition: all initial .2s; 
+	-webkit-transform: all .2s;
+}
+input{
+	outline:none;
+}
+.btn-opcity{
+	background: rgba(0,0,0,0) !important;
+	color: #73D2FE !important;
+	border: 1px solid #73D2FE !important;
+}
+.btn-opcity:active{
+	background-color: #73D2FE !important;
+	color: #FFFFFF !important;
+}
+input.log-btn,button.log-btn{
+	display:block;
+	width: 85%;
+	margin:10px auto;
+	padding: 10px;
+	outline:none;
+	font-size: 17px;
+	font-family: "微软雅黑";
+	border:1px solid #fff;
+}
+.btn-hui{
+	background-color: #e2e2e2 !important;
+	color: #FFFFFF;
+}
+.btn-hui:active{
+	background-color: #73D2FE !important;
+	color: #FFFFFF;
+}
+.btn-lv{
+	background-color: rgba(0,0,0,0) !important;
+	color: #45D6C5 !important;
+	border: 1px solid #45D6C5 !important;
+	padding: 0 10px !important;
+	height: 30px;
+	line-height: 30px;
+	width: 40%;
+}
+.btn-lan{
+	background-color: rgba(0,0,0,0) !important;
+	color: #FF5408 !important;
+	border: 1px solid #FF5408 !important;
+	padding: 0 10px !important;
+	height: 30px;
+	line-height: 30px;
+	width: 40%;
+}
+.icon-right{
+	background: url(../../../common/images/continue.png) no-repeat;
+	background-size: 20px;
+	background-position: right;
+	padding-right: 20px !important;
+	font-size: 15px;
+}
+.mui-toast-container.mui-active .mui-toast-message{
+	border-radius: 20px !important;
+}
+.icon-right.height-value{
+	height: 55px !important;
+}
+.icon-bottom{
+	background: url(../images/icon-xia.png) no-repeat;
+	background-size: 30px;
+	background-position: right;
+	padding-right: 25px !important;
+	font-size: 15px;
+}
+.padding-chongzhi-right li{
+	padding: 11px 8px 11px 15px !important;
+}
+.padding-right-25{
+	padding-right: 25px;
+}
+.padding-tignt-0{
+	padding-right: 0 !important;
+}
+.font-color-hui{
+	color: #CCCCCC !important;
+}
+.hui-bar p{
+	margin: 0;
+}
+p{
+	color: #A8A8A8;
+	margin: 0;
+}
+.mui-table-view-cell:after,.mui-table-view:after,.mui-table-view:before{
+	background-color: #E0E0E0;
+}
+.laout-li-3 .laout-width-70{
+	width: 70%;
+	float: left;
+	font-size: 15px;
+}
+.laout-li-3 p{
+	font-size: 12px;
+}
+.laout-li-3 .laout-width-30{
+	width: 36%;
+	float: left;
+}
+.laout-li-3 .laout-width-60{
+	width: 60%;
+	float: left;
+	font-size: 15px;
+}
+.laout-li-3 .laout-width-40{
+	width: 46%;
+	float: left;
+}
+.laout-li-3 .text-type-hui{
+	text-align: right;
+	height: inherit;
+	padding: 10px 0;
+}
+.laout-li-3 .text-type-hui .text-span{
+	display: block;
+	width: 100%;
+	color: #A8A8A8;
+	font-size: 14px;
+}
+.user-list-header li img{
+	border-radius: 6px;
+}
+.laout-li-3 .mui-table-view-cell .laout-width-30 button{
+	padding: 3px 13px;
+}
+.laout-li-3 .mui-table-view-cell .laout-width-30 button:last-child{
+	float: left;
+}
+.small-a-img .mui-media img{
+	padding: 6px;
+}
+.laout-li-onerow .mui-media .mui-media-body{
+	margin-top: 10px !important;
+}
+.laout-li-onerow .text-type-hui .text-span{
+	font-size: 15px;
+}
+.hui-bar{
+	width: 100%;
+	padding: 5px;
+	background-color: #EFEFEF;
+	margin: 0;
+}
+.hui-bar p{
+	padding: 5px 15px;
+	color: #A8A8A8;
+	font-size: 14px;
+}
+.padding-10{
+	padding: 10px !important;
+}
+.popup-mask-bar{
+	position: fixed;
+    z-index: 8998;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,.6);
+    /* opacity: 0; */
+    display: none;
+}
+.popup-mask-bar img{
+	width: 100%;
+	margin-top: 30%;
+}
+.popup-mask-bar .popup-mask-bar-p{
+	width: 100%;
+	padding: 5px;
+	color: #EEEEEE;
+	font-size: 16px;
+	text-align: center;
+}
+
+.list-zl .col-xs-10 .foot-bar .comment-icon {
+    display: block;
+    height: 20px;
+    font-size: 12px;
+    color: #8D8D8D;
+    background: url(../images/img-hb.png) no-repeat;
+    background-position: -1px 0px;
+    background-size: 20px;
+    padding-left: 20px;
+    float: right;
+}
+
+/***************************************************************************************/
+/*
+ * 百团争艺 首页
+ */
+a{
+	display: block;
+	/*overflow: hidden;*/
+}
+.btzy .advertisement img {
+	width: 100%;
+}
+.title-bar{
+	width: 100%;
+	line-height: 40px;
+	color: #3C3C3C;
+	font-size: 15px;
+	padding: 0 20px;
+	position: relative;
+}
+.btzy .clearfix li img{
+	margin: 0 15px !important;
+}
+.title-bar:after{
+	display: flex;
+    position: absolute;
+    right: 0;
+    left: 20px;
+    bottom: 0px;
+    height: 1px;
+    content: '';
+    -webkit-transform: scaleY(.5);
+    transform: scaleY(.5);
+    background-color: #c8c7cc;
+}
+.title-bar .right-href{
+	width: 60px;
+	line-height: 40px;
+	color: #A8A8A8;
+	font-size: 14px;
+	float: right;
+	text-align: right;
+}
+.btzy .wrapper02{
+	height: 100px;
+	padding: 25px 0 0 0;
+	background: #fff;
+}
+.btzy .wrapper02 img{
+	width: 50px;
+}
+.btzy .wrapper02 .scroller li{
+	text-align: center;
+	height: 100%;
+}
+.btzy .wrapper02 .scroller{
+	height: 100%;
+	
+}
+.btzy .wrapper02 .scroller li img{ 
+	text-align: center;
+	margin: 0 auto;
+}
+.btzy .wrapper02 .scroller li.cur{
+	border-bottom: none;
+}
+
+.btzy .wrapper02 .scroller li a{
+	font-size: 14px;
+	color: #3C3C3C;
+	height: 30px;
+	line-height: 30px;
+	/*width: 56px;
+	white-space: normal;
+	overflow: hidden;
+	text-overflow: ellipsis;*/
+}
+.btzy .wrapper02 .scroller li:first-child{padding-left:10px;}
+.smart-header h1.lin-heit{
+	line-height: 44px;
+}
+.btzy .hui-bar{
+	margin-top: 35px;
+}
+.btzy .list-zl .row:first-child{
+	padding-top: 5px;
+}
+.btzy .map-icon{
+	font-size: 12px;
+	color: #A8A8A8;
+	display: block;
+	/*width: 50%;*/
+	line-height: 30px;
+	padding-left: 20px;
+	background: url(../images/icon-map.png) no-repeat;
+	background-size: 20px;
+	background-position: -2px 5px;
+	/*float: left;*/
+	display: inline-block;
+	vertical-align: middle;
+	margin-right: 20px;
+}
+.btzy .time-icon{
+	font-size: 12px;
+	color: #A8A8A8;
+	display: block;
+	/*width: 50%;*/
+	line-height: 30px;
+	padding-left: 20px;
+	background: url(../images/xq_time.png) no-repeat;
+	background-size: 15px;
+	background-position: 2px 8px;
+	/*float: left;*/
+	display: inline-block;
+	vertical-align: middle;
+}
+.map-time-bar{
+	width: 100%;
+	overflow: hidden;
+	font-size: 0;
+}
+/*.btzy .list-zl .col-xs-10 .foot-bar .head {
+    display: block;
+    font-size: 12px;
+    color: #8D8D8D;
+    float: right;
+    margin-top: -3px;
+    line-height: 25px;
+}*/
+.btzy .list-zl .col-xs-10 .foot-bar .head-blue {
+    display: block;
+    font-size: 12px;
+    color: #8D8D8D;
+    background: url(../images/icon-head-blue.png) no-repeat;
+    background-position: -1px -1px;
+    background-size: 24px;
+    padding-left: 20px;
+    float: right;
+    height: 25px;
+    margin-top: -3px;
+    line-height: 25px;
+    margin-right: 10px;
+}
+.btzy .list-zl .col-xs-10 .foot-bar .icon-bar-a {
+    display: block;
+    font-size: 12px;
+    color: #8D8D8D;
+    float: right;
+    height: 30px;
+    margin-top: -6px;
+    line-height: 30px; 
+    
+}
+.btzy .list-zl .col-xs-10 .foot-bar a img{
+	width: 70%;
+	display: inline-block;
+	margin-top: -2px;
+	transition: all .5s;
+}
+.btzy .list-zl .col-xs-10 .foot-bar a span{
+	display: block;
+	width: 30px;
+	float: left;
+	text-align: center;
+}
+.btzy .list-zl .col-xs-10 .foot-bar a i{
+	float: right;
+	margin-right: 10px;
+}
+.list-zl .col-xs-10 .foot-bar{
+	padding-top: 10px;
+	margin: 0;
+}
+.btzy .list-zl .col-xs-10 .foot-bar .heart-red-ss{
+	display: block;
+    font-size: 12px;
+    color: #8D8D8D;
+    background: url(../images/icon-heart-red.png) no-repeat;
+    background-position: -1px 2px;
+    background-size: 24px;
+    padding-left: 20px;
+    float: right;
+    height: 30px;
+    margin-top: -6px;
+    line-height: 30px;
+    margin-right: 10px;
+    transition: all .5;
+}
+.btzy .list-zl .col-xs-10 .foot-bar .heart-red{
+	display: block;
+    font-size: 12px;
+    color: #8D8D8D;
+    background: url(../images/icon-heart-red.png) no-repeat;
+    background-position: -1px 4px;
+    background-size: 20px;
+    padding-left: 20px;
+    float: right;
+    height: 30px;
+    margin-top: -6px;
+    line-height: 30px;
+    margin-right: 10px;
+}
+.list-zl .col-xs-10 .foot-bar .comment{
+	background-position: -1px -1px;
+}
+.btzy .list-zl .col-xs-10 p{
+	max-height: 66px;
+	overflow: hidden;
+	text-align: justify;
+	word-break: break-all;
+}
+.btzy-index .popup-box.popup-alert img{
+	display: inline-block;
+}
+
+
+
+/*
+ * 百团争艺 活动详情
+ */
+
+
+.btzy-hdxq .list-zl .row:first-child{
+	padding-top: 5px;
+}
+.list-zl .row:last-child:after{
+	background-color: rgba(0,0,0,0) !important;
+}
+.btzy-hdxq .list-zl .title-name{
+	width: 100%;
+	height: 25px;
+	overflow: hidden;
+}
+.btzy-hdxq .list-zl .title-name span{
+	display: block;
+	width: 70%;
+	height: 25px;
+	white-space: normal;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	float: left;
+}
+.btzy-hdxq .list-zl .title-name i{
+	float: right;
+}
+.btzy-hdxq .list-zl .title-name i.type1{
+	border: none;
+	color: #C8C8C8;
+}
+.btzy-hdxq .list-zl .title-name i.type2{
+	border-color: #C8C8C8;
+	color: #C8C8C8;
+	padding: 2px 4px;
+	border-radius: 4px;
+}
+.btzy-hdxq .list-zl .title-name i.type3{
+	border-color: #73D2FE;
+	background-color: #73D2FE;
+	color: #fff;
+	padding: 2px 4px;
+	border-radius: 4px;
+}
+.btzy-hdxq .list-zl .col-xs-10 .foot-bar .ckxq {
+    display: block;
+    font-size: 12px;
+    color: #0082A5;
+    background: url(../images/icon-ckxq.png) no-repeat;
+    background-position: -1px -1px;
+    background-size: 20px;
+    padding-left: 20px;
+    float: right;
+    margin-right: 10px;
+}
+.btzy-hdxq .list-zl .col-xs-10 .foot-bar .zxhd {
+    display: block;
+    font-size: 12px;
+    color: #0082A5;
+    background: url(../images/icon-zxhd.png) no-repeat;
+    background-position: -1px -1px;
+    background-size: 20px;
+    padding-left: 20px;
+    float: right;
+    margin-right: 10px;
+}
+.popup-box{
+	bottom: inherit;
+}
+.btzy-hdxq .popup-alert.popup-box{
+	background-position: 0 -1px !important;
+}
+.btzy-hdxq .popup-alert p{
+	font-size: 15px !important;
+	padding: 10px 30px;
+	color: #3C3C3C;
+}
+.btzy-hdxq .popup-alert h1{
+	margin-top: 20px;
+}
+/*
+ * 百团争艺   社团详情
+ */
+.btzy-stxq .smart-edit.smart-icon-right{
+	text-align: center;
+	/*padding: 8px;*/
+}
+.btzy-stxq .st-contant .row{
+	margin: 0 ;
+	padding: 20px;
+}
+.btzy-stxq .st-contant .row .col-xs-2{
+	padding: 0;
+}
+.btzy-stxq .st-contant .row img{
+	width: 100%;
+}
+.btzy-stxq .st-contant .row h3{ 
+	color: #3C3C3C;
+	font-size: 15px;
+	margin-bottom: 6px;
+}
+.btzy-stxq .st-contant .row p{
+	color: #A8A8A8;
+	font-size: 12px;
+}
+.btzy-stxq .st-contant .row p span{
+	margin-right: 30px;
+}
+.btzy-stxq .st-contant .contant-bar{
+	font-size: 14px;
+	color: #3C3C3C;
+	padding: 0 20px;
+	text-align: justify;
+	max-height: 105px;
+	overflow: hidden;
+}
+.btzy-stxq .st-contant .a-xqcontant{
+	width: 100%;
+	text-align: center;
+	padding-top: 15px;
+	margin-bottom: 20px;
+}
+.btzy-stxq .st-contant .a-xqcontant a.xia{
+	font-size: 14px;
+	display: block;
+	width: 100px;
+	margin: 0 auto;
+	background: url(../images/icon-xia.png) no-repeat;
+	background-size: 25px;
+	background-position: right;
+	color: #73D2FE;
+}
+.btzy-stxq .st-contant .a-xqcontant a.shang{
+	font-size: 14px;
+	display: block;
+	width: 100px;
+	margin: 0 auto;
+	background: url(../images/icon-shang.png) no-repeat;
+	background-size: 25px;
+	background-position: right;
+	color: #73D2FE;
+}
+.btzy-stxq .st-contant .a-xqcontant a:active{
+	color: #73D2FE;
+}
+.title-bar .right-href.big-width{
+	width: 120px;
+	text-align: right;
+}
+.title-bar .right-href.bg-icon{
+	padding-right: 20px;
+	background: url(../../img/continue-1.png) no-repeat;
+	background-size: 20px;
+	background-position: right;
+}
+.btzy-stxq .cylb-list .row {
+	padding: 10px 15px 10px 20px;
+	position: relative;
+	overflow: hidden;
+}
+.btzy-stxq .cylb-list .row .col-xs-2 img{
+	padding: 8px;
+}
+.btzy-stxq .cylb-list .row .col-xs-5{
+	padding: 8px 10px;
+}
+.btzy-stxq .cylb-list .row .col-xs-5.text-right{
+	text-align: right;
+	line-height: 35px;
+	color: #A8A8A8;
+}
+.btzy-stxq .cylb-list .row .col-xs-5.text-title{
+	text-align: left;
+	line-height: 35px;
+	color: #3C3C3C;
+	font-size: 15px;
+}
+.btzy-stxq .cylb-list li.row:after {
+    display: flex;
+    position: absolute;
+    right: 0;
+    left: 20px;
+    bottom: 0px;
+    height: 1px;
+    content: '';
+    -webkit-transform: scaleY(.5);
+    transform: scaleY(.5);
+    background-color: #c8c7cc;
+}
+.btzy-stxq .cylb-list ul.border-btm li:last-child:after{
+	background-color: rgba(0,0,0,0);
+}
+.btzy-stxq .cylb-list p.p{
+	text-align: center;
+	color: #6D6D6D;
+	margin-top: 15px;
+	font-size: 12px;
+	padding-bottom: 20px;
+}
+.btzy-stxq .cylb-list{
+	padding-bottom: 65px;
+}
+.foot-bottom{
+	width: 100%;
+	position: fixed;
+	bottom: 0;
+	height: 60px;
+	padding: 10px;
+	background-color: #FFFFFF;
+	text-align: center;
+}
+.foot-bottom .button{
+	width: 90%;
+	padding: 7px;
+	background-color: #73D2FE;
+	border: none;
+	border-radius: 20px;
+	box-shadow: none;
+	color: #fff;
+	font-family: "微软雅黑";
+	font-size: 16px;
+}
+/*
+ * 百团争艺 社团活动 详情
+ */
+.list-zl .col-xs-10 .comment-bar .comment-user .name span{
+	display: inline-block;
+	font-size: 12px;
+	color: #3C3C3C;
+}
+.list-zl .col-xs-10 .p-gdpl-text{
+	font-size: 12px;
+	color: #A8A8A8;
+	margin-top: 12px;
+	padding-left: 10px;
+}
+.btzy-sthd-xq .popup-alert h1{
+	height: 130px;
+}
+.btzy-sthd-xq .popup-box.popup-alert p{
+	margin-bottom: 30px;
+}
+/*
+ * 百团争艺 社团活动详情 
+ */
+.bottom-clear{
+	width: 100%;
+	padding: 8px 10px;
+	background-color: #F2F2F2;
+	position: fixed;
+	bottom: -60px;
+}
+.serch-bar{
+	width: 100%;
+	padding: 8px 10px;
+	background-color: #fff;
+	z-index: 8999;
+	position: fixed;
+}
+.bottom-clear input{
+	width: 100%;
+	padding: 7px 10px;
+	outline: 0;
+	border: 1px solid #E0E0E0;
+	border-radius: 6px;
+	font-size: 15PX;
+	
+}
+.serch-bar input{
+	width: 94%;
+	padding: 7px 10px 7px 35px;
+	outline: 0;
+	border: 1px solid #E0E0E0;
+	border-radius: 6px;
+	font-size: 15PX;
+	margin: 0;
+	background: url(../../shiwuzhaoling/imges/img-serch.png) no-repeat;
+	background-size: 20px;
+	background-position: 8px 9px;
+	background-color: #FFFFFF;
+	z-index: 9001;
+	position: absolute;
+}
+.serch-bar{
+	overflow: hidden;
+	height: 55px;
+}
+.btzy-hddd-serch-i{
+	display: inline-block;
+	font-weight: normal;
+	color: #A8A8A8;
+	font-size: 16px;
+	padding: 5px 15px;
+	position: absolute;
+	right: 0;
+	top: 12px;
+	z-index: 9000;
+}
+/*
+ * 百团争艺  活动报名审核
+ */
+.btzy-hdbmsh .btzy-img-bar{
+	width: 100%;
+	height: 100%;
+	background: #FFFFFF;
+	padding: 70px 50px;
+}
+.btzy-hdbmsh .btzy-img-bar img{
+	width: 100%;	
+}
+.btzy-hdbmsh .btzy-img-bar p{
+	width: 100%;
+	margin: 0;
+	text-align: center;
+	padding-top: 20px;
+	font-size: 16px;	
+}
+.btzy-hdbmsh .laout-li-3 .laout-width-30 {
+	padding-top: 7px;
+	
+}
+.btzy-hdbmsh .laout-li-3 .laout-width-30 button{
+	float: right;
+}
+.btzy-hdbmsh .laout-li-3 .laout-width-30 button:last-child{
+	margin-right: 10px;
+	color: #45d6c5;
+	border-color: #45d6c5;
+}
+.btzy-hdbmsh .laout-li-3 .laout-width-30 button:last-child:active{
+	background-color: #45D6C5 !important;
+	color: #fff;
+}
+@media screen and (max-width: 350px ) {
+	.laout-li-3 .laout-width-30 button{
+		padding: 3px 9px !important;
+	}
+	.btzy-hdbmsh .laout-li-3 .laout-width-30{
+		width: 38% !important;
+	}
+	.laout-li-3 .laout-width-30 button:last-child{
+		float: left;
+	}
+}
+.btzy-hdbmsh .smart-edit.smart-icon-right{
+	padding: 10px;
+}
+/*
+ * mui-poppicker
+ */
+.mui-poppicker {
+	border: none;
+	box-shadow: none;
+	background-color: #fff;
+}
+
+.mui-poppicker-header button {
+	border: none;
+	background-color: #FFFFFF;
+	font-size: 16px !important;
+	color: #73D2FE;
+}
+
+.mui-poppicker-header {
+	/*border-bottom: 1px solid #EEEEEE;*/
+}
+
+.mui-poppicker-title {
+	display: none;
+}
+
+.mui-pciker-rule.mui-pciker-rule-ft {
+	text-align: right;
+	padding-right: 20px;
+}
+
+.mui-picker {
+	background: #fff;
+}
+
+div[data-id='picker-h'] .mui-pciker-rule.mui-pciker-rule-ft {
+	padding-right: 30px;
+}
+
+div[data-id='picker-i'] .mui-pciker-rule.mui-pciker-rule-ft {
+	text-align: left;
+	padding-left: 90px;
+}
+
+.mui-backdrop {
+	background: rgba(0, 0, 0, .5);
+}
+
+div[data-id='picker-h'] .mui-pciker-list li {
+	text-align: right;
+	padding-right: 70px;
+}
+
+div[data-id='picker-i'] .mui-pciker-list li {
+	text-align: left;
+	padding-left: 70px;
+}
+.btzy-zwtz .popup-alert{
+	top: 40%;
+}
+.btzy-zwtz .popup-box p{
+	font-size: 16px;
+	color: #3C3C3C;
+	margin-top: -20px;
+	font-family: "微软雅黑";
+	margin-bottom: 25px;
+}
+/*
+ * 百团争艺  活动地点
+ */
+.btzy-hddd .mui-table-view-radio span{
+	font-size: 16px;
+	color: #3C3C3C;
+}
+.btzy-hddd .mui-table-view-radio{
+	padding-top: 50px;
+}
+
+/*
+ * 百团争艺  社团活动  发布
+ */
+.btzy-sthd-fb .smart-edit.smart-icon-right{
+	padding: 0 !important;
+}
+.btzy-sthd-fb .li-title{
+	color: #3C3C3C;
+	font-size: 16px;
+	width: 40%;
+	padding: 10px 5px;
+	display: inline-block;
+	vertical-align: middle;
+}
+.btzy-sthd-fb .li-contant{
+	color: #A8A8A8;
+	font-size: 15px;
+	width: 60%;
+	padding: 10px 5px;
+	display: inline-block;
+	vertical-align: middle;
+}
+.btzy-sthd-fb ul .mui-switch.mui-active{
+	border: 2px solid #73D2FE;
+    background-color: #73D2FE !important;
+}
+.mui-switch-mini{
+	width: 60px;
+	height: 34px;
+}
+.mui-switch .mui-switch-handle{
+	top: 3px;
+	left: 5px;
+}
+.mui-switch-mini.mui-active .mui-switch-handle{
+	top: 3px;
+	left: -5px;
+}
+.btzy-sthd-fb .input-shuru textarea{
+	width: 100%;
+	border: none;
+	color: #3C3C3C;
+	font-size: 15px;
+	padding: 0px 20px;
+	margin: 20px 0;
+	resize: none;
+}
+.btzy-sthd-fb,.btzy-sthd-fb .mui-content{
+	background-color: #fff !important;
+}
+.mui-dtpicker {
+	border: none;
+	box-shadow: none;
+	background-color: #fff;
+}
+
+.mui-dtpicker-header button {
+	border: none;
+	background-color: #FFFFFF;
+	font-size: 16px;
+	color: #73D2FE;
+}
+
+.mui-dtpicker-header {
+	border-bottom: 1px solid #EEEEEE;
+}
+
+.mui-dtpicker-title {
+	display: none;
+}
+
+.mui-pciker-rule.mui-pciker-rule-ft {
+	text-align: right;
+	padding-right: 20px;
+}
+
+.mui-picker {
+	background: #fff;
+}
+
+div[data-id='picker-h'] .mui-pciker-rule.mui-pciker-rule-ft {
+	padding-right: 30px;
+}
+
+div[data-id='picker-i'] .mui-pciker-rule.mui-pciker-rule-ft {
+	text-align: left;
+	padding-left: 90px;
+}
+
+.mui-backdrop {
+	background: rgba(0, 0, 0, .5);
+}
+
+div[data-id='picker-h'] .mui-pciker-list li {
+	text-align: right;
+	padding-right: 70px;
+}
+
+div[data-id='picker-i'] .mui-pciker-list li {
+	text-align: left;
+	padding-left: 70px;
+}
+.btzy-sthd-fb .mui-content>.mui-table-view:first-child{
+	margin: 0;
+}
+.mui-switch{
+	background-color: #EFEFEF;
+	border: 2px solid #EFEFEF;		
+}
+.mui-switch .mui-switch-handle{
+	-webkit-box-shadow:none;
+	box-shadow:none;
+	width: 24px;
+	height: 24px;
+}
+.mui-table-view-radio .mui-table-view-cell.mui-selected .mui-navigate-right:after{
+	content: "";
+	display: block;
+	width: 40px;
+	height: 30px;
+	background: url(../images/sure.png) no-repeat;
+	background-size: 26px;
+	background-position: 1px 1px;
+}

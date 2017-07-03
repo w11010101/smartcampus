@@ -1,0 +1,494 @@
+.smart-sign{
+	background: #fff
+}
+.smart-sign-box{
+	position: relative;
+	overflow: hidden;
+}
+.smart-sign-box ul{
+	margin: 15px;
+	padding:10px;
+	border:1px solid #73d2fe;
+	border-radius: 5px;
+	box-shadow: 1px 2px 2px #a8a8a8
+}
+.smart-sign-box ul li{
+	line-height: 24px;
+}
+.smart-sign-box ul li label,.smart-sign-box ul li p{
+	display: table-cell;
+	font-weight: normal;
+}
+.smart-sign-box ul li label{
+	width: 40px;
+	color:#8d8d8d;
+	text-align-last: justify;
+}
+
+.smart-sign-box ul li p{
+	padding-left: 10px;
+	padding-right: 60px;
+	color:#727272;
+}
+.smart-flag{
+	font-size: 12px;
+	line-height: 14px;
+	position: absolute;
+	right: 40px;
+	width:50px;
+	height: 50px;
+	padding:5px 8px;
+	text-align: center;
+	background: url(../images/flag.png) no-repeat top left 3px;
+	background-size: contain;
+	color:#fff;
+	top:14px;
+}
+.smart-content .smart-help{
+	font-size: 12px;
+	padding-right: 0;
+	box-shadow: 1px 1px 2px #8d8d8d;
+}
+.smart-foot button{
+	background: rgba(115, 210, 254,1);
+	transition: all .1s ease-in;
+}
+.smart-foot button:active{
+	background: rgba(115, 210, 254,.7);
+}
+/* 已签到 */
+.smart-signedIn .smart-foot button{
+	background:#c8c8c8;
+}
+.smart-signedIn .smart-sign-box ul{
+	background: rgba(115, 210, 254,1);
+	color:#fff;
+}
+.smart-signedIn .smart-sign-box ul *{
+	color:#fff;
+}
+.smart-signedIn .smart-sign-box .smart-flag{
+	color:#727272;
+	background: url(../images/flag-none.png) no-repeat top  left 3px;
+	background-size: contain;
+}
+.jq-toast-single{
+	/*width: 50%;*/
+	margin: 20px auto;
+}
+.smart-sign-yes{
+	display: none;
+}
+.smart-sign-no{
+	text-align: center;
+}
+.smart-sign-no img{
+	width: 85%;
+	display: block;
+	margin: 52px auto 42px;
+}
+.smart-sign-no p{
+	color:#8d8d8d;
+}
+.smart-border{
+
+}
+/* 学生 签到统计 */
+.smart-sign-statistics{
+	background: #fff;
+	overflow: hidden;
+}
+.smart-sign-statistics-box{
+	padding-left: 0;
+}
+.smart-sign-statistics-box li{
+	height: 50px;
+	line-height: 50px;
+	padding-left:20px; 
+	padding-right:20px; 
+}
+.smart-sign-statistics-box li label{
+	width: 50%;
+	font-weight: normal;
+}
+.smart-sign-statistics-box .smart-border:after{
+	left:20px;
+}
+.smart-sign-statistics-box li *{
+	font-size: 16px;
+	display: inline-block;
+}
+.smart-sign-statistics-box li div{
+	margin-left: 5%;
+	float: right;
+}
+.smart-sign-statistics-box li img{
+	width: 25px;
+}
+.smart-sign-statistics-box li span{
+	padding: 0 10px;
+}
+/* 签到管理 */
+.smart-sign-adm{
+	background: #fff;
+}
+.smart-sign-edit{
+	display: inline-block;
+	position: absolute;
+	right: 42px;
+	top: 70px;
+	width: 25px;
+}
+.smart-sign-edit img{
+	width: 100%;
+}
+.smart-sign-adm .row{
+	margin:0;
+	width: 100%;
+	text-align: center;
+	position: fixed;
+	bottom: 0;
+	z-index: 10;
+}
+
+.smart-sign-adm .row div{
+	height: 50px;
+	line-height: 50px;
+	border-top:1px solid #73d2fe;
+	font-size: 16px;
+	transition: all .1s ease-in;
+}
+.smart-sign-adm .row div a{
+	color:#73d2fe;
+	display: block;
+	margin-left: -15px;
+	margin-right: -15px;
+}
+.smart-sign-adm .row div:nth-child(even){
+	border-left:1px solid #73d2fe;
+}
+.smart-sign-adm .row div a:active{
+	color:#fff;
+	background:#73d2fe;
+}
+/* 开始签到 */
+.smart-sign-start{
+	overflow:hidden;
+}
+.panel-body{
+	padding:0;
+}
+.panel-heading{
+	position: relative;
+	background: #fff!important;
+	height: 50px;
+}
+.panel{
+	border:0;
+	border-radius: 0;
+	position: relative;
+
+}
+.panel-group .panel+.panel{
+	margin-top: 0;
+}
+.panel-heading a{
+	display: block;
+	line-height: 30px;
+	color:#3c3c3c;
+	position: relative;
+	z-index: 1;	
+}
+.panel-heading a{
+	padding-left: 12px;
+}
+body .smart-sub-list .smart-sub-list-item{
+	padding-left: 25px;
+}
+.smart-sub-list .smart-sub-list-item{
+	height: 58px;
+	line-height: 58px;
+	padding-right:20px;
+	padding-left:15px;
+}
+.smart-sub-list .smart-sub-list-item img{
+	width: 36px;
+	height: 36px;
+	margin-right: 10px;
+}
+.smart-sub-list .smart-sub-list-item button{
+	font-size: 14px;
+	width: 63px;
+	text-align: center;
+	height: 25px;
+	color:#45d6c5;
+	border:1px solid #45d6c5;
+	border-radius: 5px;
+	background: #fff;
+	line-height: 25px;
+	float:right;
+	margin-top: 17px;
+	padding:0;
+	transition: all .1s ease-in;
+}
+
+.smart-sub-list .smart-sub-list-item button.active,
+.smart-sub-list .smart-sub-list-item button:active{
+	background: #45d6c5;
+	color:#fff;
+}
+.smart-sub-list .smart-sub-list-item.cancel button{
+	background: rgba(200,200,200,1);
+	color:#fff;
+	border-color:#c8c8c8;
+
+}
+.smart-sub-list .smart-sub-list-item.cancel button:active{
+	background: rgba(200,200,200,.7);
+}
+
+.smart-sub-list .smart-sub-list-item:before{
+	display: none;
+}
+/*.smart-sub-list .smart-sub-list-item:after{
+	left:60px;
+}*/
+.smart-sign-start .smart-sub-list .smart-sub-list-item:after,
+.smart-sign-signAbs .smart-sub-list .smart-sub-list-item:after{
+	left:70px;
+}
+.smart-list-end-icon{
+	line-height: 50px;
+	right: 40px;
+	color:#727272;5
+}
+.smart-list-end-icon:after{
+	content: " ";
+    background: url(../../../white/xiaoyuanka/images/screen-1.png) no-repeat center;
+    background-size: 40px;
+    position: absolute;
+    width: 26px;
+    height: 26px;
+    top: 50%;
+    right: -30px;
+    margin-top: -13px;
+    transform: rotateX(0deg);
+    -webkit-transform: rotateX(0deg);
+    transition: transform .2s ease-in,background .1s ease-in;
+    -webkit-transition: transform .2s ease-in,background .1s ease-in;
+}
+.panel-heading.active .smart-list-end-icon:after {
+    transform: rotateX(-180deg);
+    -webkit-transform: rotateX(-180deg);
+}
+/* 弹窗 */
+.smart-alert{
+	position: fixed;
+	width: 70%;
+	top:50%;
+	left:50%;
+	margin-top:-50%;
+	margin-left:-35%;
+	z-index: 9999;
+	background: #fff;
+	border-radius: 5px;
+	overflow:hidden;
+	font-size: 0;
+	display: none
+}
+.smart-alert h1{
+	text-align: center;
+	font-size: 18px;
+	position: relative;
+	margin-bottom: 30px;
+	color:#0f0f0f;
+}
+.smart-alert h1:before,.smart-alert h1:after{
+	content: " ";
+	position: absolute;
+	height: 1px;
+	background: #3c3c3c;
+	top:50%;
+	width: 18px;
+}
+.smart-alert h1:before{
+	left: 25%;
+}
+.smart-alert h1:after{
+	right: 25%;
+}
+.smart-alert-div{
+	display: inline-block;
+	width: 50%;
+	font-size: 16px;
+	text-align: center;
+	color:#0f0f0f;
+}
+.smart-alert-div span{
+	padding:0 5px;
+}
+.smart-alert-div-1 span{
+	color:#45d6c5;
+}
+.smart-alert-div-2 span{
+	color:#ff5408;
+}
+.smart-alert button{
+	margin-top: 30px;
+	font-size: 16px;
+	display: block;
+	width: 100%;
+	border:0;
+	border-top:1px solid #c8c8c8;
+	background: #fff;
+	height: 40px;
+	line-height: 40px;
+	transition: all .1s ease-in;
+}
+.smart-alert button:active{
+	background: #c8c8c8;
+	color:#fff;
+}
+/* smart-sign-signAbs */
+.smart-sign-signAbs{
+	overflow:hidden;
+}
+.smart-sub-list .smart-sub-list-item button[btnType=sign]{
+	margin-right: 10px;
+}
+.smart-sub-list .smart-sub-list-item button[btnType=abs]{
+	border-color:#ff5408;
+	color:#ff5408;
+}
+.smart-sub-list .smart-sub-list-item button[btnType=abs]:active{
+	background: #ff5408;
+	color:#fff;
+}
+.smart-sub-list .smart-sub-list-item button[btnType=sign].active,
+.smart-sub-list .smart-sub-list-item button[btnType=abs].active{
+	-webkit-animation: singAbs .2s ease forwards;
+	-o-animation: singAbs .2s ease forwards;
+	animation: singAbs .2s ease forwards;
+}
+@-webkit-keyframes singAbs{
+	0%{
+		background: #fff;
+	}
+	100%{
+		background: #c8c8c8;
+		border-color:#c8c8c8;
+		color:#fff;
+	}
+}
+@-o-keyframes singAbs{
+	0%{
+		background: #fff;
+	}
+	100%{
+		background: #c8c8c8;
+		border-color:#c8c8c8;
+		color:#fff;
+	}
+}
+@keyframes singAbs{
+	0%{
+		background: #fff;
+	}
+	100%{
+		background: #c8c8c8;
+		border-color:#c8c8c8;
+		color:#fff;
+	}
+}
+.popup-box.popup-select li.popup-active,.popup-box.popup-change li.popup-active{
+	background: #c8c8c8;
+	color:#fff;
+}
+/* 签到统计 课程列表 */
+.smart-sign-kecheng{
+
+}
+.smart-sign-kecheng .smart-list-item{
+	height: 65px;
+	padding: 12px 15px 0 30px;
+	line-height: normal;
+}
+.smart-sign-kecheng h2{
+	margin: 0;
+	font-size: 16px;
+}
+.smart-sign-kecheng .smart-list-item .smart-list-content{
+	display: inline-block;
+	line-height: 24px;
+	font-size: 13px;
+	color:#a8a8a8;
+}
+.smart-sign-info span[type]{
+	margin-right: 15px;
+}
+.smart-sign-info span[type] em{
+	color:#ff5408;
+	margin-right: 5px
+}
+.smart-sign-info span[type]:first-child em{
+	color:#45d6c5;
+}
+.smart-sign-kecheng .smart-list-end-icon{
+	right: 15px;
+	line-height: 65px;
+}
+.smart-sign-kecheng .smart-list-end-icon:after{
+	display: none;
+}
+/* 老师 签到统计 */
+.smart-sign-tj {
+	overflow: hidden;
+}
+.smart-tj-info {
+	background: #fff;
+	margin-bottom: 10px;
+	padding:15px;
+}
+.smart-tj-info h2 {
+	font-size: 16px;
+	color:#3c3c3c;
+	margin:0;
+}
+.smart-tj-info div:first-child{
+	position: relative;
+}
+.smart-tj-info div:first-child:after{
+	position: absolute;
+	content: " ";
+	width: 1px;
+	height: 100%;
+	background: #a8a8a8;
+	right: 0;
+	top:0;
+}
+/*.smart-sign-info{
+	margin-top: 5px;
+}*/
+.smart-tj-info{
+	padding-left: 30px;
+}
+.smart-sign-info{
+	margin-top: 5px;
+	color:#a8a8a8;
+	
+}
+.smart-sign-info span{
+	margin-right: 10px;
+}
+.smart-sign-tj .smart-tj-info > div:last-child{
+	text-align: right;
+}
+.smart-sign-tj .smart-sub-list-item em {
+	max-width: 80px;
+	padding-left: 10px;
+	overflow:hidden;
+}
+.smart-sign-tj .smart-sub-list-item i {
+	float:right;
+	color:#a8a8a8;
+}

@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+		<link href="../../content/style/frame/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+		<link href="../../content/style/common/css/common.css" rel="stylesheet">
+		<link href="../../content/style/white/kechengbiao/css/xia-la.css" rel="stylesheet">
+		<link href="../../content/style/frame/jquery/tab/css/scroller.css" rel="stylesheet">
+		<style type="text/css">
+			/*html,body,.mui-backdrop{
+				width: 100%;
+				height: 100%;
+			}*/
+			
+			.backdrop {
+				position: fixed;
+				z-index: 10;
+				top: 44px;
+				right: 0;
+				bottom: 0;
+				left: 0;
+				background-color: rgba(0, 0, 0, .3);
+			}
+			.table{
+				color: #333333;
+				text-align: center;
+			}
+			
+			.table th,.table td{
+				width: 13% !important;
+				word-wrap: break-word;
+				word-break: break-all;
+				font-weight: normal;
+				text-align: center;
+				height: 62px;
+			}
+			.table th:first-child,.table td:first-child{
+				width: 9% !important;
+				word-wrap: break-word;
+				word-break: break-all;
+				padding-right: 0px;
+				padding-left: 0px;
+			}
+			.table-responsive>.table>tbody>tr>td,.table-responsive>.table>thead>tr>th{
+				white-space: inherit !important;
+			}
+			.table-bordered>thead>tr>th{
+				border: none;
+			}
+			.table th p,.table th:first-child{
+				text-align: center;
+				font-weight: 600;
+				color: #333333;
+			}
+			.table th{
+				color: #c8c8c8;
+			}
+			.table th:first-child{
+				margin-top: 5px;
+				vertical-align: top;
+			}
+			.table-responsive{
+				margin-bottom: 0;
+			}
+			table tbody td:first-child{
+				vertical-align: middle;
+			}
+			table tbody td{
+				padding: 0 !important;
+			}
+			table td .ke-end,table td .ke-start,table td .ke-start-opcity{
+				display: block;
+				width: 100%;
+				height: 100%;
+				border-radius: 5px;
+				vertical-align: middle;
+				color: #FFFFFF;
+				text-align:justify ;
+				text-justify: distribute-all-lines;
+				padding: 5px 5px;
+				font-size: 12px;
+				word-wrap: break-word;
+				word-break: break-all;
+				
+			}
+			.table-bordered>tbody>tr>td{
+				border: 1px solid #EFEFEF !important;
+			}
+			table td .ke-end{
+				background-color: #C8C8C8;
+			}
+			table td .ke-start{
+				background-color: #73D2FE;
+			}
+			table td .ke-start-opcity{
+				background-color: #73D2FE;
+				opacity: .6;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="sys-header content">
+			<div class="select">
+				<p data-value="第三周">第三周</p>
+				<div class="wrapper" id="demo05">
+					<div class="scroller">
+						<ul class="clearfix">
+							<li class="mui-control-item" data-value="第一周">第一周</li>
+							<li class="mui-control-item" data-value="第二周">第二周</li>
+							<li class="mui-control-item Selected" data-value="第三周">第三周</li>
+							<li class="mui-control-item" data-value="第四周">第四周</li>
+							<li class="mui-control-item" data-value="第五周">第五周</li>
+							<li class="mui-control-item" data-value="第二周">第二周</li>
+							<li class="mui-control-item" data-value="第三周">第三周</li>
+							<li class="mui-control-item" data-value="第四周">第四周</li>
+							<li class="mui-control-item" data-value="第五周">第五周</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</header>
+		<div class="table-responsive">
+			<table class="table table-bordered">
+				<thead>
+					<tr>
+						<th>9月</th>
+						<th><p>4</p>周一</th>
+						<th><p>5</p>周二</th>
+						<th><p>6</p>周三</th>
+						<th><p>7</p>周四</th>
+						<th><p>8</p>周五</th>
+						<th><p>9</p>周六</th>
+						<th><p>10</p>周日</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>1</td>
+						<td rowspan="2"><span class="ke-end">形式与政治@西主 203</span></td>
+						<td></td>
+						<td></td>
+						<td><span class="ke-end">高等数学@西主203</span></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>2</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>3</td>
+						<td rowspan="2"><span class="ke-end">思想品德@西主203</span></td>
+						<td></td>
+						<td><span class="ke-end">戏剧赏析@西主203</span></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>4</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td rowspan="2"><span class="ke-start-opcity">思想品德@西主203</span></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>5</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>6</td>
+						<td></td>
+						<td></td>
+						<td rowspan="2"><span class="ke-end">形式与政治@西主203</span></td>
+						<td></td>
+						<td><span class="ke-start">形式与政治@西主</span></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>7</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>8</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>9</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>10</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="backdrop" style="display: none;"></div>
+	</body>
+	<script src="../../content/style/frame/jquery/jquery-3.2.1.min.js"></script>
+	<script src="../../content/style/frame/bootstrap/js/bootstrap.min.js"></script>
+	<script src="../../content/style/frame/iscroll/iscroll.js"></script>
+	<script src="../../content/style/frame/jquery/tab/js/navbarscroll.js"></script>
+	<script src="../../content/style/white/kechengbiao/js/kb.js" ></script>
+	<script>
+		$(function() {
+			$(".select p").click(function(e) {
+				$(".select").toggleClass('open');
+				e.stopPropagation();
+				$(".backdrop").toggle();
+			});
+			$(".backdrop").click(function(){
+				$(this).toggle()
+			})
+			$(".content .select ul li").click(function(e) {
+				var _this = $(this);
+				$(".select > p").text(_this.attr('data-value'));
+				_this.addClass("Selected").siblings().removeClass("Selected");
+				$(".select").removeClass("open");
+				e.stopPropagation();
+				$(".backdrop").toggle();
+			});
+
+			$(document).on('click', function() {
+				$(".select").removeClass("open");
+			})
+
+		});
+		$('#demo05').navbarscroll({
+			defaultSelect: 1,
+			endClickScroll: function(obj) {
+				console.log(obj.text())
+			}
+		});
+	</script>
+
+</html>

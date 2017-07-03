@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+  <title>付款</title>
+
+  <!-- Bootstrap -->
+
+  <link href="../../../content/style/frame/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../../../content/style/common/css/xiaoyuanka/common.css" rel="stylesheet">
+  <link href="../../../content/style/frame/jquery/toast/css/jquery.toast.css" rel="stylesheet">
+  <link href="../../../content/style/common/css/popup.css" rel="stylesheet">
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+  <nav class="navbar">
+    <div class="smart-header smart-white">
+      <a href="javascript:history.go(-1)" class="smart-back smart-icon-left">
+        <img src="../../../content/style/common/images/back-2.png" alt="" >
+      </a>
+      <h1>付款</h1>
+
+    </div>
+  </nav>
+  <div class="smart-content">
+    <div class="merchant-box">
+      <img src="../../../content/style/white/xiaoyuanka/images/fukuan.png" alt="">
+      <p>向面包房商店付款</p>
+    </div>
+
+    <div class="smart-container">
+
+      <label class="smart-container-title">收款金额</label>
+      <div class="smart-payment-box smart-border">
+        <i class="smart-container-icon">
+          <img src="../../../content/style/white/xiaoyuanka/images/rmb.png" alt="">
+        </i>
+        <input type="number" name="" value="" maxlength="6" onkeyup="btnState(this)">
+      </div>
+      <textarea placeholder="添加收款理由" class="smart-container-text"></textarea>
+    </div>
+    <button type="button" class="smart-container-sure-btn">确定</button>
+    <div class="smart-change">
+            <img src="../../../content/style/common/images/wallet-1.png" alt="">
+            <label>电子账户</label>
+            <span onclick="change(this)" popupType="change">更换</span>
+        </div>
+  </div>
+  <script type="text/javascript" src="../../../content/style/frame/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="../../../content/style/common/js/common.js"></script>
+  <script type="text/javascript" src="../../../content/style/frame/jquery/toast/js/jquery.toast.js"></script>
+  <script type="text/javascript" src="../../../content/style/common/js/popup.js"></script>
+  <script type="text/javascript">
+  function btnState(obj) {
+    var btn = $(".smart-container-sure-btn");
+    if ($(obj).val()) {
+      btn.addClass("active").attr({
+        "popupType": "keyboard",
+        "onclick": "keyboard(this)"
+      });
+    } else {
+      btn.removeClass("active").removeAttr("popupType").removeAttr("onclick");
+    }
+  }
+
+  function keyboard(obj) {
+    var option = {
+      type: $(obj).attr("popupType")
+    }
+    campus.popup(option, function(data) {
+      console.log(data);
+      if (data.password == "000000") {
+        campus.tips("密码正确~！");
+      } else {
+        campus.tips("密码错误~！");
+      }
+    });
+  }
+  </script>
+</body>
+
+</html>

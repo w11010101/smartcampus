@@ -1,0 +1,68 @@
+.smart-clause{
+
+}
+.smart-clause .smart-content{
+	/*background: #fff;*/
+}
+.smart-content h1,.smart-content h2{
+	font-size: 16px;
+	margin:0;
+	padding:16px 20px 0 20px;
+	color:#3c3c3c;
+}
+.smart-content h2{
+	padding:23px 0 0 0 
+}
+.smart-content ul{
+	padding: 0px 20px 23px;
+	margin: 0
+}
+.smart-content ul li{
+
+}
+.smart-content ul p{
+	text-align: justify;
+	color:#8d8d8d;
+	margin: 0;
+	font-size: 14px;
+	line-height: 22px
+	
+}
+.smart-clause .smart-content ul p{
+	padding-top: 23px;
+}
+.smart-agreement .smart-content h2{
+	padding-bottom: 23px;
+}
+#wrapper {
+	position: absolute;
+	z-index: 1;
+	top: 45px;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	overflow: hidden;
+}
+
+#scroller {
+	background: #fff;
+	position: absolute;
+	z-index: 1;
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+	width: 100%;
+	-webkit-transform: translateZ(0);
+	-moz-transform: translateZ(0);
+	-ms-transform: translateZ(0);
+	-o-transform: translateZ(0);
+	transform: translateZ(0);
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	-webkit-text-size-adjust: none;
+	-moz-text-size-adjust: none;
+	-ms-text-size-adjust: none;
+	-o-text-size-adjust: none;
+	text-size-adjust: none;
+}

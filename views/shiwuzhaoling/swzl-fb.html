@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>发布失物招领</title>
+		<link rel="stylesheet" href="../../content/style/frame/bootstrap/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="../../content/style/frame/jquery/toast/css/jquery.toast.css" />
+		<link rel="stylesheet" href="../../content/style/frame/uploder/css/zyUpload.css" />
+		<link rel="stylesheet" href="../../content/style/common/css/common.css" />
+		<link rel="stylesheet" href="../../content/style/common/css/popup.css" />
+		<link rel="stylesheet" href="../../content/style/white/shiwuzhaoling/css/swzl.css" />
+	</head>
+
+	<body class="znmj znmj-fb">
+		<nav class="navbar">
+			<div class="smart-header smart-white">
+				<a href="javascript:history.go(-1)" class="smart-back smart-icon-left">
+					<img src="../../content/style/common/images/back-2.png" alt="">
+				</a>
+				<h1>发布失物招领</h1>
+				<a class="smart-edit smart-icon-right">
+					确定
+				</a>
+			</div>
+		</nav>
+		<div class="container">
+			<div id="type-choice" class="fb-type row">
+				<div id="" class="col-xs-5 ">
+					发布类型
+				</div>
+				<div id="" class="col-xs-7 list-back">
+					找东西
+				</div>
+			</div>
+			<div class="hui-bar"></div>
+			<div class="input-shuru">
+				<textarea rows="5" placeholder="写下您失物招领的内容"></textarea>
+				<div id="demo" class="demo"></div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="../../content/style/frame/jquery/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="../../content/style/frame/fastclick/fastclick.js"></script>
+	<script type="text/javascript" src="../../content/style/common/js/popup.js"></script>
+	<script type="text/javascript" src="../../content/style/frame/jquery/toast/js/jquery.toast.js"></script>
+	<script type="text/javascript" src="../../content/style/frame/uploder/js/zyUpload.js"></script>
+	<script type="text/javascript" src="../../content/style/white/shiwuzhaoling/js/zwzl.js"></script>
+	<script>
+		//点击弹出选择发布类型
+		var option2 = {
+			value: ["找东西", "找失主"], // 数组
+			type: "select", // 弹窗类型 keyboard,info,change,select 
+			cancel: true
+		}
+		$("#type-choice").on("click", function() {
+			campus.popup(option2, function(e) {
+				$(".list-back").text(e.name);
+			})
+		});
+	</script>
+
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>重要提醒</title>
+		<link rel="stylesheet" href="../../content/style/frame/bootstrap/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="../../content/style/common/css/common.css" />
+		<link rel="stylesheet" href="../../content/style/common/css/popup.css" />
+		<link rel="stylesheet" href="../../content/style/white/zhongyaotixing/css/calendar.css" />
+	</head>
+
+	<body class="">
+		<nav class="navbar">
+			<div class="smart-header smart-white">
+				<a href="javascript:history.go(-1)" class="smart-back smart-icon-left">
+					<img src="../../content/style/common/images/back-2.png" alt="">
+				</a>
+				<h1>重要提醒</h1>
+				<a class="smart-icon-right">
+					<img src="../../content/style/white/zhongyaotixing/images/icon-menu.png" alt="">
+				</a>
+			</div>
+		</nav>
+		<div class="container">
+			<div id="calendar" class="calendar">
+				<ul class="calendar-date clear-fix">
+					<!--<li class="item item-curMonth">11</li>
+						<li class="item item-curMonth">12</li>
+						<li class="item item-curMonth">13</li>
+						<li class="item item-curMonth">14</li>
+						<li class="item item-curMonth">15</li>
+						<li class="item item-curMonth">16</li>
+						<li class="item item-curMonth">17</li>-->
+				</ul>
+			</div>
+
+			<div class="roll-scroll">
+				<div class="hui-bar">我的事件</div>
+				<!--无数据-->
+				<div class="null-img">
+					<img src="../../content/style/white/zhongyaotixing/images/zytx-null.png" />
+					<p>当前日期没有事件哦~</p>
+				</div>
+				<!--有数据-->
+				<ul class="event-list">
+					<li>
+						<p>宋词是中国古代文学皇冠上光辉夺目的一颗璀璨的明珠</p>
+						<span>03/18 14:00</span>
+					</li>
+					<li>
+						<p>宋词是中国古代文学皇冠上光辉夺目的一颗璀璨的明珠</p>
+						<span>03/18 14:00</span>
+					</li>
+					<li>
+						<p>宋词是中国古代文学皇冠上光辉夺目的一颗璀璨的明珠</p>
+						<span>03/18 14:00</span>
+					</li>
+					<li>
+						<p>宋词是中国古代文学皇冠上光辉夺目的一颗璀璨的明珠</p>
+						<span>03/18 14:00</span>
+					</li>
+					<li>
+						<p>宋词是中国古代文学皇冠上光辉夺目的一颗璀璨的明珠</p>
+						<span>03/18 14:00</span>
+					</li>
+					<li>
+						<p>宋词是中国古代文学皇冠上光辉夺目的一颗璀璨的明珠</p>
+						<span>03/18 14:00</span>
+					</li>
+					<li>
+						<p>宋词是中国古代文学皇冠上光辉夺目的一颗璀璨的明珠</p>
+						<span>03/18 14:00</span>
+					</li>
+					<li>
+						<p>宋词是中国古代文学皇冠上光辉夺目的一颗璀璨的明珠</p>
+						<span>03/18 14:00</span>
+					</li>
+					<li>
+						<p>宋词是中国古代文学皇冠上光辉夺目的一颗璀璨的明珠</p>
+						<span>03/18 14:00</span>
+					</li>
+				</ul>
+			</div>
+
+			<div class="remind-back">
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="../../content/style/frame/jquery/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="../../content/style/common/js/popup.js"></script>
+	<script type="text/javascript" src="../../content/style/white/zhongyaotixing/js/calendar.js"></script>
+	<script>
+	$(".event-list").height($(window).height() - 180 + "px").css("overflow", "hidden");
+	$(".null-img").height($(window).height() - 220 + "px");
+	var scrollh = 0,
+		scrollt = 0;
+	$(window).scroll(function() {
+		scrollh = $(this).scrollTop(); //获得滚动条距top的高度
+		if (scrollh > 1) {
+			$(".clear-fix").slideDown("slow");
+			$(".calendar-fix").slideUp("slow");
+			$(".event-list").height($(window).height() - 175 + "px").css("overflow", "auto");
+		} else if (scrollh < 1) {
+			$(".calendar-fix").slideDown("slow");
+			$(".clear-fix").slideUp("slow");
+			$(".event-list").height($(window).height() - 180 + "px").css("overflow", "hidden");
+		}
+
+	});
+	/*
+	 * 点击提示层消失
+	 */
+	//			localStorage.removeItem("remind-back-value")
+	//console.log(localStorage.getItem("remind-back-value"));
+	if (localStorage.getItem("remind-back-value") == null) {
+		$(".remind-back").css("display", "block")
+	}
+	$(".remind-back").click(function() {
+			$(this).css("display", "none")
+			localStorage.setItem("remind-back-value", 0);
+		})
+		//事件弹出层
+	var option = {
+		value: ["新建事件", "事件列表"], // 数组
+		type: "select", // 弹窗类型 keyboard,info,change,select 
+		cancel: true
+	}
+	$(".smart-edit.smart-icon-right").click(function() {
+			campus.popup(option, function(e) {
+				console.log(e.name);
+				if (e.name == "新建事件") {
+					window.location.href = "xjsj.html"
+				} else if (e.name == "事件列表") {
+					window.location.href = "sjlb.html"
+				}
+			})
+		})
+		//点击跳转事件详情页面
+	$(".event-list li").click(function() {
+		window.location.href = "sjxq.html";
+	})
+	</script>
+
+</html>

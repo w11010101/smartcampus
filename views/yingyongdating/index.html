@@ -1,0 +1,418 @@
+<div>
+  <!DOCTYPE html>
+  <html lang="zh-CN">
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>应用大厅</title>
+  
+    <!-- Bootstrap -->
+  
+    <link href="../../content/style/frame/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../content/style/frame/sortable/css/sortable.css" rel="stylesheet">
+    <link href="../../content/style/common/css/common.css" rel="stylesheet">
+    <link href="../../content/style/white/yingyongdating/css/index.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elkements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+      <![endif]-->
+  </head>
+  
+  <body class="campus-application" >
+    <nav class="navbar">
+      <div class="smart-header smart-white">
+        <a class="smart-cancel smart-icon-left">
+          取消
+        </a>
+        <h1>应用大厅</h1>
+        <a class="smart-edit smart-icon-right">
+          编辑
+        </a>
+      </div>
+    </nav>
+    <div class="smart-content">
+      <!-- <div class="smart-search" getHeight = "true">
+        <input type="text" name="" placeholder="查找应用">
+        <button type=""></button>
+      </div> -->
+      <!-- 拖动 -->
+      <div id="advanced" class="advanced-box" getHeight = "true">
+        <!-- 我的应用 -->
+        <div class="box">
+          <div class="smart-accordion-head">我的应用
+            <em>长按拖动可排序</em>
+          </div>
+          <ul id="advanced-1" class="advanced" name="advanced" sortabl-class="我的应用">
+            <li class="smart-app-remove" app-type="zhushou" app-name="校园介绍">
+              <span>
+                <img src="../../content/style/white/yingyongdating/images/zhushou/icon-1.png" /> 校园介绍
+              </span>
+              <em class="smart-app-icon"></em>
+            </li>
+            <li class="smart-app-remove" app-type="zhushou" app-name="失物招领">
+              <span>
+                <img src="../../content/style/white/yingyongdating/images/zhushou/icon-2.png" /> 失物招领
+              </span>
+              <em class="smart-app-icon"></em>
+            </li>
+            <li class="smart-app-remove" app-type="jiaoshi" app-name="学期课表">
+              <span>
+                <img src="../../content/style/white/yingyongdating/images/jiaoshi/icon-2.png" /> 学期课表
+              </span>
+              <em class="smart-app-icon"></em>
+            </li>
+            <li class="smart-app-remove" app-type="xuesheng" app-name="上课签到">
+              <span>
+                <img src="../../content/style/white/yingyongdating/images/xuesheng/icon-4.png" /> 上课签到
+              </span>
+              <em class="smart-app-icon"></em>
+            </li>
+            <li class="smart-app-remove" app-type="zhushou" app-name="智能门禁">
+              <span>
+                <img src="../../content/style/white/yingyongdating/images/zhushou/icon-3.png" /> 智能门禁
+              </span>
+              <em class="smart-app-icon"></em>
+            </li>
+            <li class="smart-app-remove" app-type="zhushou" app-name="预定查询">
+              <span>
+                <img src="../../content/style/white/yingyongdating/images/zhushou/icon-4.png" /> 预定查询
+              </span>
+              <em class="smart-app-icon"></em>
+            </li>
+          </ul>
+        </div>
+        <div style="clear: both"></div>
+      </div>
+      <!-- 全部应用 -->
+      <div id="wrapper" class="tool-box">
+        <div id="scroller">
+          <div class="box">
+            <div class="smart-accordion-head">为你推荐
+              <em></em>
+            </div>
+            <ul id="advanced-2" class="advanced" name="advanced" sortabl-class="为你推荐">
+              <li app-type="zhushou" app-name="失物招领">
+                <span>
+                  <img src="../../content/style/white/yingyongdating/images/zhushou/icon-2.png" /> 失物招领
+                </span>
+                <em class="smart-app-icon"></em>
+              </li>
+              <li app-type="keyu" app-name="百团争艺">
+                <span>
+                  <img src="../../content/style/white/yingyongdating/images/keyu/icon-2.png" /> 百团争艺
+                </span>
+                <em class="smart-app-icon"></em>
+              </li>
+              <li app-type="xuesheng" app-name="在线学习">
+                <span>
+                  <img src="../../content/style/white/yingyongdating/images/xuesheng/icon-3.png" /> 在线学习
+                </span>
+                <em class="smart-app-icon"></em>
+              </li>
+              <li app-type="xiaowu" app-name="密码管理">
+                <span>
+                  <img src="../../content/style/white/yingyongdating/images/xiaowu/icon-3.png" /> 密码管理
+                </span>
+                <em class="smart-app-icon"></em>
+              </li>
+            </ul>
+          </div>
+          <!-- 一组 -->
+          <div class="box">
+            <div class="smart-accordion-head">校园助手
+              <em></em>
+            </div>
+            <ul id="advanced-2" class="advanced" name="advanced" sortabl-class="校园助手">
+              <li app-type="zhushou" app-name="校园介绍">
+                <span>
+                  <img src="../../content/style/white/yingyongdating/images/zhushou/icon-1.png" /> 校园介绍
+                </span>
+                <em class="smart-app-icon"></em>
+              </li>
+              <li app-type="zhushou" app-name="失物招领">
+                <span>
+                  <img src="../../content/style/white/yingyongdating/images/zhushou/icon-2.png" /> 失物招领
+                </span>
+                <em class="smart-app-icon"></em>
+              </li>
+              <li app-type="zhushou" app-name="智能门禁">
+                <span>
+                  <img src="../../content/style/white/yingyongdating/images/zhushou/icon-3.png" /> 智能门禁
+                </span>
+                <em class="smart-app-icon"></em>
+              </li>
+              <li app-type="zhushou" app-name="预定查询">
+                <span>
+                  <img src="../../content/style/white/yingyongdating/images/zhushou/icon-4.png" /> 预定查询
+                </span>
+                <em class="smart-app-icon"></em>
+              </li>
+            </ul>
+          </div>
+          <!-- 一组 -->
+          <div class="box">
+            <div class="smart-accordion-head">课余生活
+              <em></em>
+            </div>
+            <ul id="advanced-3" class="advanced" name="advanced" sortabl-class="课余生活">
+              <li app-type="keyu" app-name="校园社区">
+                <span>
+                  <img src="../../content/style/white/yingyongdating/images/keyu/icon-1.png" /> 校园社区
+                </span>
+                <em class="smart-app-icon"></em>
+              </li>
+              <li app-type="keyu" app-name="百团争艺">
+                <span>
+                  <img src="../../content/style/white/yingyongdating/images/keyu/icon-2.png" /> 百团争艺
+                </span>
+                <em class="smart-app-icon"></em>
+              </li>
+            </ul>
+          </div>
+          <!-- 一组 -->
+          <div class="box">
+            <div class="smart-accordion-head">教室办公
+              <em></em>
+            </div>
+            <ul id="advanced-4" class="advanced" name="advanced" sortabl-class="教室办公">
+              <li app-type="jiaoshi" app-name="办公通知">
+                <span>
+                  <img src="../../content/style/white/yingyongdating/images/jiaoshi/icon-1.png" /> 办公通知
+                </span>
+                <em class="smart-app-icon"></em>
+              </li>
+              <li app-type="jiaoshi" app-name="学期课表">
+                <span>
+                  <img src="../../content/style/white/yingyongdating/images/jiaoshi/icon-2.png" /> 学期课表
+                </span>
+                <em class="smart-app-icon"></em>
+              </li>
+              <li app-type="jiaoshi" app-name="签到管理">
+                <span>
+                  <img src="../../content/style/white/yingyongdating/images/jiaoshi/icon-3.png" /> 签到管理
+                </span>
+                <em class="smart-app-icon"></em>
+              </li>
+              <li app-type="jiaoshi" app-name="在线课程管理">
+                <span>
+                  <img src="../../content/style/white/yingyongdating/images/jiaoshi/icon-4.png" /> 在线课程管理
+                </span>
+                <em class="smart-app-icon"></em>
+              </li>
+              <li app-type="jiaoshi" app-name="双创管理">
+                <span>
+                  <img src="../../content/style/white/yingyongdating/images/jiaoshi/icon-5.png" /> 双创管理
+                </span>
+                <em class="smart-app-icon"></em>
+              </li>
+              <li app-type="jiaoshi" app-name="迎新管理">
+                <span>
+                  <img src="../../content/style/white/yingyongdating/images/jiaoshi/icon-6.png" /> 迎新管理
+                </span>
+                <em class="smart-app-icon"></em>
+              </li>
+            </ul>
+          </div>
+          <!-- 一组 -->
+          <div class="box">
+            <div class="smart-accordion-head">学生服务
+              <em></em>
+            </div>
+            <ul id="advanced-5" class="advanced" name="advanced" sortabl-class="学生服务">
+              <li app-type="xuesheng" app-name="数字迎新">
+                <span>
+                  <img src="../../content/style/white/yingyongdating/images/xuesheng/icon-1.png" /> 数字迎新
+                </span>
+                <em class="smart-app-icon"></em>
+              </li>
+              <li app-type="xuesheng" app-name="学期课表">
+                <span>
+                  <img src="../../content/style/white/yingyongdating/images/xuesheng/icon-2.png" /> 学期课表
+                </span>
+                <em class="smart-app-icon"></em>
+              </li>
+              <li app-type="xuesheng" app-name="在线学习">
+                <span>
+                  <img src="../../content/style/white/yingyongdating/images/xuesheng/icon-3.png" /> 在线学习
+                </span>
+                <em class="smart-app-icon"></em>
+              </li>
+              <li app-type="xuesheng" app-name="上课签到">
+                <span>
+                  <img src="../../content/style/white/yingyongdating/images/xuesheng/icon-4.png" /> 上课签到
+                </span>
+                <em class="smart-app-icon"></em>
+              </li>
+              <li app-type="xuesheng" app-name="双创申报">
+                <span>
+                  <img src="../../content/style/white/yingyongdating/images/xuesheng/icon-5.png" /> 双创申报
+                </span>
+                <em class="smart-app-icon"></em>
+              </li>
+              <li app-type="xuesheng" app-name="成绩查询">
+                <span>
+                  <img src="../../content/style/white/yingyongdating/images/xuesheng/icon-6.png" /> 成绩查询
+                </span>
+                <em class="smart-app-icon"></em>
+              </li>
+            </ul>
+          </div>
+          <!-- 一组 -->
+          <div class="box">
+            <div class="smart-accordion-head">综合校务
+              <em></em>
+            </div>
+            <ul id="advanced-6" class="advanced" name="advanced" sortabl-class="综合校务">
+              <li app-type="xiaowu" app-name="邮件服务">
+                <span>
+                  <img src="../../content/style/white/yingyongdating/images/xiaowu/icon-1.png" /> 邮件服务
+                </span>
+                <em class="smart-app-icon"></em>
+              </li>
+              <li app-type="xiaowu" app-name="NMS管理">
+                <span>
+                  <img src="../../content/style/white/yingyongdating/images/xiaowu/icon-2.png" /> NMS管理
+                </span>
+                <em class="smart-app-icon"></em>
+              </li>
+              <li app-type="xiaowu" app-name="密码管理">
+                <span>
+                  <img src="../../content/style/white/yingyongdating/images/xiaowu/icon-3.png" /> 密码管理
+                </span>
+                <em class="smart-app-icon"></em>
+              </li>
+              <li app-type="xiaowu" app-name="消息流转">
+                <span>
+                  <img src="../../content/style/white/yingyongdating/images/xiaowu/icon-4.png" /> 消息流转
+                </span>
+                <em class="smart-app-icon"></em>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  
+  
+  
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="../../content/style/frame/jquery/jquery-3.2.1.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="../../content/style/frame/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../../content/style/frame/iscroll/iscroll.js"></script>
+    <script src="../../content/style/frame/sortable/Sortable.min.js"></script>
+    <script src="../../content/style/white/yingyongdating/js/index.js"></script>
+    <script type="text/javascript">
+      // 搜索按钮
+    $(".smart-search button").on("click",function(){
+      if($(".smart-search input").val().length>0){
+        window.location.href = "search.html"
+      }
+    });
+    var sortableObjArr;
+    var setStart = false;
+    // 编辑要拖动应用
+    var top;
+    $(".tool-box").css("top",app.getTop());
+
+    $(".smart-edit").on("click", function() {
+      $("body").toggleClass("campus-active");
+      !setStart ? function() {
+        // 启动拖动组件
+        sortableObjArr = app.sortableStart(app.boxEach());
+        // 启动滑动
+        app.scrollStart();
+        // 展开所有隐藏的板块
+        $(".advanced").slideDown(200,function(){
+          app.refresh(true);
+          $(".smart-accordion-head").addClass("smart-active");
+
+          app_edit();
+        });
+
+      }() : function() {
+        // 销毁拖动
+        sortableObjArr.destroy();
+        // 销毁滑动
+        app.myScroll.refresh();
+        app.myScroll.destroy();
+
+        app.refresh();
+        document.removeEventListener('touchmove', app.setDefault, false);
+      }()
+  
+      $(this).text(!setStart ? "完成" : "编辑");
+      setStart = !setStart;
+    });
+    // 折叠
+    function eachFold(){
+      $.each($(".smart-accordion-head"),function(i,e){
+        if($(e).next().length){
+          $(e).addClass("smart-active");
+        }
+      })
+    }
+    eachFold();
+    $(".smart-accordion-head").on("click",function(){
+      // slideToggle
+      // fadeToggle
+      $(this).toggleClass("smart-active").next($(".advanced")).slideToggle(200,function(){
+        app.refresh(true);
+      });
+    })
+    // 编辑应用
+    var li_type = "";
+    var selectArr = [];
+    $.each($("#advanced-1 li"),function(i,e){
+      selectArr.push($(e).attr("app-name"));
+    })
+    $.each($(".tool-box li"),function(i,e){   
+      $.inArray($(e).attr("app-name"),selectArr)>=0?$(e).addClass("smart-app-select"):$(e).addClass("smart-app-add");
+    })
+    function app_edit(){
+      $(".advanced .smart-app-icon").off().on("click",function(){
+        var parentLi = $(this).parent("li");
+        var className = parentLi[0].className;
+        
+        className = ~className.indexOf("add")?"smart-app-add":~className.indexOf("remove")?"smart-app-remove":"smart-app-select";
+        switch (className){
+          case "smart-app-add":
+            //添加按钮
+            parentLi.clone().appendTo($("#advanced-1")).removeClass(className).addClass("smart-app-remove");
+            parentLi.removeClass(className).addClass("smart-app-select");
+            app.scrollTo();
+            app.refresh(true);
+            app_edit();
+          break;
+          case "smart-app-remove":
+            //删除按钮
+            parentLi.fadeOut(200,function(){
+              app.refresh(true);
+              app_edit();
+            });
+            var type = parentLi.attr("app-type");
+            var name = parentLi.attr("app-name");
+            $.each($(".tool-box li[app-type = "+type+"]"),function(i,e){
+              if(name == $(this).attr("app-name")){
+                $(e).removeClass("smart-app-select").addClass("smart-app-add");
+              }
+            });
+          break;
+          default:
+            // 已选择
+            console.log(className);
+          break;
+        }
+      })
+    }
+    </script>
+  </body>
+  </html>
+</div>

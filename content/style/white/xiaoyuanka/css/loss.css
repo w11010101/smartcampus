@@ -1,0 +1,100 @@
+
+
+/* 挂失loss */
+.smart-loss .form-signin{
+	position: absolute;
+	width: 100%;
+	top:150px;
+	bottom: 0;
+	background: #fff;
+}
+
+
+.smart-loss {
+	overflow: hidden;
+}
+
+.smart-loss .smart-info:before {
+	height: 0;
+}
+
+.smart-loss .con-img {
+	display: none;
+	width: 100%;
+	height: auto;
+	padding: 40px;
+	background: #fff;
+	position: absolute;
+	top: 140px;
+	bottom: 0;
+}
+
+.smart-loss .con-img img {
+	width: 100%;
+}
+
+.smart-loss .con-img span {
+	display: block;
+	color: #A8A8A8;
+	font-size: 16px;
+	padding: 10px 60px;
+	text-align: center;
+}
+.smart-btn-white:active{
+	background: #73d2fe;
+	color:#fff;
+}
+.smart-loss input.log-btn,
+.smart-loss button.log-btn {
+	padding: 13px;
+}
+
+.smart-lockCard{
+	background: #fff;
+}
+.smart-lockCard-tips{
+	
+}
+.smart-lockCard-tips h1{
+	font-weight: normal;
+	font-size: 14px;
+	padding-left:40px;
+	position: relative;
+	color:#6d6d6d;
+}
+.smart-lockCard-tips h1:after{
+	content:" ";
+	position: absolute;
+	width: 5px;
+	height: 100%;
+	background: #02e699;
+	left:25px;
+
+}
+.smart-lockCard-tips p{
+	font-weight: normal;
+	font-size: 12px;
+	padding-left:50px;
+	padding-right:20px;
+	color:#a8a8a8;
+	position: relative;
+}
+.smart-lockCard-tips p:after{
+	content:" ";
+	position: absolute;
+	width: 5px;
+	height: 5px;
+	border-radius: 50%;
+	background:#8d8d8d;
+	top:20%;
+	margin-top: -3px;
+	left:35px;
+}
+.smart-loss .smart-imgBox,
+.smart-loss .smart-foot{
+	display: none;
+}
+/*.smart-btn:active{
+	background: #73d2fe;
+	color:#fff;
+}*/

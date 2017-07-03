@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+
+		<head>
+			<meta charset="UTF-8">
+			<meta name="viewport" content="width=device-width, initial-scale=1">
+			<title>百团争艺-发布社团活动</title>
+			<link rel="stylesheet" href="../../content/style/frame/bootstrap/css/bootstrap.min.css" />
+			<link rel="stylesheet" href="../../content/style/common/css/common.css" />
+			<link rel="stylesheet" href="../../content/style/frame/mui/css/mui.min.css" />
+			<link rel="stylesheet" href="../../content/style/frame/mui/css/mui.picker.min.css" />
+			<link rel="stylesheet" href="../../content/style/frame/uploder/css/zyUpload.css" />
+			<link rel="stylesheet" href="../../content/style/white/baituanzhengyi/css/btzy.css" />
+		</head>
+
+		<body class="btzy-sthd-fb">
+			<nav class="navbar">
+				<div class="smart-header smart-white">
+					<a href="javascript:history.go(-1)" class="smart-back smart-icon-left">
+					<img src="../../content/style/common/images/back-2.png" />
+					</a>
+					<h1>发布社团活动</h1>
+					<a class="smart-edit smart-icon-right">
+						提交
+					</a>
+				</div>
+			</nav>
+			<div class="container mui-content">
+				<ul class="mui-table-view">
+					<li class="mui-table-view-cell">
+						<a class="mui-navigate-right timeymd" data-options='{"type":"date","beginYear":2014,"endYear":2100}'>
+							<div class="li-title">活动日期标签</div>
+							<div class="li-contant">2017/06/22</div>
+						</a>
+					</li>
+					<li class="mui-table-view-cell">
+						<a id="showUserPicker" class="mui-navigate-right" href="btzy-hddd.html">
+							<div class="li-title">活动地点标签</div>
+							<div id="showUserPicker-val" class="li-contant">校园大礼堂</div>
+						</a>
+					</li>
+					<li class="mui-table-view-cell">
+						<div class="li-title">开放活动报名</div>
+						<div class="mui-switch mui-switch-blue mui-switch-mini">
+							<div class="mui-switch-handle"></div>
+						</div>
+					</li>
+				</ul>
+				<div class="input-shuru">
+					<textarea rows="5" placeholder="活动详情录入"></textarea>
+					<div id="demo" class="demo"></div>
+				</div>
+			</div>
+		</body>
+		<script type="text/javascript" src="../../content/style/frame/jquery/jquery-3.2.1.min.js" ></script>
+		<script type="text/javascript" src="../../content/style/frame/mui/js/mui.min.js"></script>
+		<script type="text/javascript" src="../../content/style/frame/mui/js/mui.picker.min.js" ></script>
+		<script type="text/javascript" src="../../content/style/frame/uploder/js/zyUpload.js"></script>
+		<script type="text/javascript" src="../../content/style/white/shiwuzhaoling/js/zwzl.js"></script>
+		<script>
+			//开关按钮
+			mui('.mui-content .mui-switch').each(function() { //循环所有toggle
+				//toggle.classList.contains('mui-active') 可识别该toggle的开关状态
+				console.log('开放活动报名状态：' + (this.classList.contains('mui-active') ? 'true' : 'false'));
+				/**
+				 * toggle 事件监听
+				 */
+				this.addEventListener('toggle', function(event) {
+					//event.detail.isActive 可直接获取当前状态
+					console.log('开放活动报名状态：' + (this.classList.contains('mui-active') ? 'true' : 'false'));
+				});
+			});
+			(function($) {
+			$.init();
+			var btns = $('.timeymd');
+			btns.each(function(i, btn) {
+				btn.addEventListener('tap', function() {
+					console.log("******************");
+					var optionsJson = this.getAttribute('data-options') || '{}';
+					var options = JSON.parse(optionsJson);
+					var id = this.getAttribute('id');
+					/*
+					 * 首次显示时实例化组件
+					 * 示例为了简洁，将 options 放在了按钮的 dom 上
+					 * 也可以直接通过代码声明 optinos 用于实例化 DtPicker
+					 */
+					var picker = new $.DtPicker(options);
+					picker.show(function(rs) {
+						/*
+						 * rs.value 拼合后的 value
+						 * rs.text 拼合后的 text
+						 * rs.y 年，可以通过 rs.y.vaue 和 rs.y.text 获取值和文本
+						 * rs.m 月，用法同年
+						 * rs.d 日，用法同年
+						 * rs.h 时，用法同年
+						 * rs.i 分（minutes 的第二个字母），用法同年
+						 */
+						document.querySelector(".li-contant").innerText = rs.y.value + "/" + rs.m.value + "/" + rs.d.value
+						console.log(rs.y.value + "/" + rs.m.value + "/" + rs.d.value)
+						/* 
+						 * 返回 false 可以阻止选择框的关闭
+						 * return false;
+						 */
+						/*
+						 * 释放组件资源，释放后将将不能再操作组件
+						 * 通常情况下，不需要示放组件，new DtPicker(options) 后，可以一直使用。
+						 * 当前示例，因为内容较多，如不进行资原释放，在某些设备上会较慢。
+						 * 所以每次用完便立即调用 dispose 进行释放，下次用时再创建新实例。
+						 */
+						picker.dispose();
+					});
+				}, false);
+			});
+		})(mui);
+		</script>
+
+</html>

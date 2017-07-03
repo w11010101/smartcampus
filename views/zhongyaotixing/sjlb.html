@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>事件列表</title>
+		<link rel="stylesheet" href="../../content/style/frame/bootstrap/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="../../content/style/frame/mui/css/mui.min.css" />
+		<link rel="stylesheet" href="../../content/style/common/css/common.css" />
+		<link rel="stylesheet" href="../../content/style/white/zhongyaotixing/css/calendar.css" />
+
+	</head>
+
+	<body class="">
+		<nav class="navbar">
+			<div class="smart-header smart-white">
+				<a href="javascript:history.go(-1)" class="smart-back smart-icon-left">
+					<img src="../../content/style/common/images/back-2.png" alt="">
+				</a>
+				<h1>事件列表</h1>
+			</div>
+		</nav>
+		<div class="container mui-content">
+			<div class="hui-bar">2017年06月14日</div>
+			<ul id="OA_task_1" class="mui-table-view event-list">
+				<li class="mui-table-view-cell">
+					<div class="mui-slider-right mui-disabled">
+						<a class="mui-btn mui-btn-red">删除</a>
+					</div>
+					<div class="mui-slider-handle">
+						<p>宋词是中国古代文学皇冠上光辉夺目的一颗璀璨的明珠</p>
+						<span>03/18 14:00</span>
+					</div>
+				</li class="mui-table-view-cell">
+				<li class="mui-table-view-cell">
+					<div class="mui-slider-right mui-disabled">
+						<a class="mui-btn mui-btn-red">删除</a>
+					</div>
+					<div class="mui-slider-handle">
+						<p>宋词是中国古代文学皇冠上光辉夺目的一颗璀璨的明珠</p>
+						<span>03/18 14:00</span>
+					</div>
+				</li>
+				<li class="mui-table-view-cell">
+					<div class="mui-slider-right mui-disabled">
+						<a class="mui-btn mui-btn-red">删除</a>
+					</div>
+					<div class="mui-slider-handle">
+						<p>宋词是中国古代文学皇冠上光辉夺目的一颗璀璨的明珠</p>
+						<span>03/18 14:00</span>
+					</div>
+				</li>
+				<li class="mui-table-view-cell">
+					<div class="mui-slider-right mui-disabled">
+						<a class="mui-btn mui-btn-red">删除</a>
+					</div>
+					<div class="mui-slider-handle">
+						<p>宋词是中国古代文学皇冠上光辉夺目的一颗璀璨的明珠</p>
+						<span>03/18 14:00</span>
+					</div>
+				</li>
+				<li class="mui-table-view-cell">
+					<div class="mui-slider-right mui-disabled">
+						<a class="mui-btn mui-btn-red">删除</a>
+					</div>
+					<div class="mui-slider-handle">
+						<p>宋词是中国古代文学皇冠上光辉夺目的一颗璀璨的明珠</p>
+						<span>03/18 14:00</span>
+					</div>
+				</li>
+				<li class="mui-table-view-cell">
+					<div class="mui-slider-right mui-disabled">
+						<a class="mui-btn mui-btn-red">删除</a>
+					</div>
+					<div class="mui-slider-handle">
+						<p>宋词是中国古代文学皇冠上光辉夺目的一颗璀璨的明珠</p>
+						<span>03/18 14:00</span>
+					</div>
+				</li>
+				<li class="mui-table-view-cell">
+					<div class="mui-slider-right mui-disabled">
+						<a class="mui-btn mui-btn-red">删除</a>
+					</div>
+					<div class="mui-slider-handle">
+						<p>宋词是中国古代文学皇冠上光辉夺目的一颗璀璨的明珠</p>
+						<span>03/18 14:00</span>
+					</div>
+				</li>
+				<li class="mui-table-view-cell">
+					<div class="mui-slider-right mui-disabled">
+						<a class="mui-btn mui-btn-red">删除</a>
+					</div>
+					<div class="mui-slider-handle">
+						<p>宋词是中国古代文学皇冠上光辉夺目的一颗璀璨的明珠</p>
+						<span>03/18 14:00</span>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</body>
+	<script type="text/javascript" src="../../content/style/frame/jquery/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="../../content/style/frame/mui/js/mui.min.js"></script>
+	<script>
+		$('#OA_task_1').on('tap', '.mui-btn', function(event) {
+			var elem = this;
+			var li = elem.parentNode.parentNode;
+			mui.confirm('确认删除该条记录？', '', ['确认', '取消'], function(e) {
+				if(e.index == 0) {
+					li.parentNode.removeChild(li);
+				} else {
+					setTimeout(function() {
+						$.swipeoutClose(li);
+					}, 0);
+				}
+			});
+		});
+		//点击跳转事件详情页面
+		$(".mui-slider-handle").click(function(){
+			window.location.href = "sjxq.html";
+		})
+	</script>
+
+</html>

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>百团争艺-职位调整</title>
+		<link rel="stylesheet" href="../../content/style/frame/bootstrap/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="../../content/style/common/css/common.css" />
+		<link rel="stylesheet" href="../../content/style/frame/mui/css/mui.min.css" />
+		<link rel="stylesheet" href="../../content/style/frame/mui/css/mui.picker.min.css" />
+		<link rel="stylesheet" href="../../content/style/common/css/popup.css" />
+		<link rel="stylesheet" href="../../content/style/white/baituanzhengyi/css/btzy.css" />
+	</head>
+
+	<body class="btzy-zwtz">
+		<nav class="navbar">
+			<div class="smart-header smart-white">
+				<a href="javascript:history.go(-1)" class="smart-back smart-icon-left">
+					<img src="../../content/style/common/images/back-2.png" />
+				</a>
+				<h1>职位调整</h1>
+			</div>
+		</nav>
+		<div class="container">
+			<div class="cylb-list st-contant">
+				<ul class="mui-table-view laout-li-3 laout-li-onerow user-list-header">
+					<li class="mui-table-view-cell mui-media">
+						<a class="laout-width-30" href="javascript:;">
+							<img class="mui-media-object mui-pull-left" src="../../content/custom/img/img-eee.jpg">
+							<div class="mui-media-body">
+								李白
+							</div>
+
+						</a>
+						<div class="laout-width-70 text-type-hui">
+							<span class="text-span font-color-hui">社长</span>
+						</div>
+					</li>
+					<li class="mui-table-view-cell mui-media padding-tignt-0">
+						<a class="laout-width-30" href="javascript:;">
+							<img class="mui-media-object mui-pull-left" src="../../content/custom/img/img-eee.jpg">
+							<div class="mui-media-body">
+								杜甫
+							</div>
+						</a>
+						<div class="laout-width-70 text-type-hui">
+							<span class="text-span icon-bottom showCityPicker">副社长</span>
+						</div>
+					</li>
+					<li class="mui-table-view-cell mui-media padding-tignt-0">
+						<a class="laout-width-30" href="javascript:;">
+							<img class="mui-media-object mui-pull-left" src="../../content/custom/img/img-eee.jpg">
+							<div class="mui-media-body">
+								孟浩然
+							</div>
+
+						</a>
+						<div class="laout-width-70 text-type-hui">
+							<span class="text-span icon-bottom showCityPicker">宣传干事</span>
+						</div>
+					</li>
+					<li class="mui-table-view-cell mui-media padding-tignt-0">
+						<a class="laout-width-30" href="javascript:;">
+							<img class="mui-media-object mui-pull-left" src="../../content/custom/img/img-eee.jpg">
+							<div class="mui-media-body">
+								王安石
+							</div>
+
+						</a>
+						<div class="laout-width-70 text-type-hui">
+							<span class="text-span icon-bottom showCityPicker">宣传部长</span>
+						</div>
+					</li>
+					<li class="mui-table-view-cell mui-media padding-tignt-0">
+						<a class="laout-width-30" href="javascript:;">
+							<img class="mui-media-object mui-pull-left" src="../../content/custom/img/img-eee.jpg">
+							<div class="mui-media-body">
+								白居易
+							</div>
+
+						</a>
+						<div class="laout-width-70 text-type-hui">
+							<span class="text-span icon-bottom showCityPicker">社员</span>
+						</div>
+					</li>
+					<li class="mui-table-view-cell mui-media padding-tignt-0">
+						<a class="laout-width-40" href="javascript:;">
+							<img class="mui-media-object mui-pull-left" src="../../content/custom/img/img-eee.jpg">
+							<div class="mui-media-body">
+								测试
+							</div>
+
+						</a>
+						<div class="laout-width-60 text-type-hui">
+							<span class="text-span icon-bottom showCityPicker">选择外联部副社长试试</span>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="popup-mask-bar">
+			<img src="../../content/style/white/baituanzhengyi/images/btzy-cw-img2.png" />
+			<p class="popup-mask-bar-p">感谢您在文学社付出的努力</p>
+			<p class="popup-mask-bar-p">常回家看看哦~</p>
+		</div>
+	</body>
+	<script type="text/javascript" src="../../content/style/frame/jquery/jquery-3.2.1.min.js" ></script>
+	<script type="text/javascript" src="../../content/style/common/js/popup.js" ></script>
+	<script type="text/javascript" src="../../content/style/frame/mui/js/mui.min.js" ></script>
+	<script type="text/javascript" src="../../content/style/frame/mui/js/mui.picker.min.js"></script>
+	<script type="text/javascript" src="../../content/style/white/baituanzhengyi/js/city.data.js"></script>
+	<script>
+		//点击传位成功图层隐藏
+		$(".popup-mask-bar").click(function() {
+			$(this).css("display", "none")
+		})
+
+		function alertBox(a, b, val) {
+			var option = {
+				type: "alert",
+				boxStyle: {
+					// "background":"url(../../../content/custom/img/1/bg.png) repeat-x top #fff",
+					// "background-size":"100%",
+					"border-radius": "10px"
+				},
+				title: {
+					val: "标题",
+					img: "../../content/style/white/baituanzhengyi/images/btzy-cw-img1.png",
+					imgStyle: {
+						"margin-top": "0%",
+						"width": "100%"
+					}
+				},
+				content: {
+					val: '大江东去浪淘尽<br/><br/>确定传位给"' + b + '"吗？',
+					contentStyle: {
+						"text-align": "center"
+					}
+				},
+				btns: {
+					cancel: true,
+					sureVal: "是",
+					cancelVal: "否"
+				}
+
+			}
+			campus.popup(option, function(data) {
+				console.log(data.type);
+				if(data.type == "sureBtn") {
+					a.innerText = val;
+					campus.togglePopup("hide", "alert");
+					$(".popup-mask-bar").css("display", "block")
+				}
+			});
+		}
+
+		function iGetInnerText(valuename) {
+			var resultStr = valuename.replace(/\ +/g, ""); //去掉空格
+			resultStr = valuename.replace(/[ ]/g, ""); //去掉空格
+			resultStr = valuename.replace(/[\r\n]/g, ""); //去掉回车换行
+			return resultStr;
+		}
+		(function($, doc) {
+			$.init();
+			$.ready(function() {
+				/**
+				 * 获取对象属性的值
+				 * @param {Object} obj 对象
+				 * @param {String} param 属性名
+				 */
+				//级联示例
+				var cityPicker = new $.PopPicker({
+					layer: 2
+				});
+				cityPicker.setData(cityData);
+				var showCityPickerButton = doc.querySelectorAll('showCityPicker');
+				var cityResult = doc.getElementById('cityResult');
+				mui("body").on("tap", ".showCityPicker", function(event) {
+					var valueobj = this;
+
+					var valuename = this.parentNode.parentNode.firstElementChild.innerText;
+					cityPicker.show(function(items) {
+						var value = items[0].text + items[1].text;
+						console.log(iGetInnerText(valuename));
+						console.log("你选择的职位是:" + items[0].text + items[1].text);
+						//如果本人是"外联部副社长"将会弹出传位的弹框
+						if(items[0].text + items[1].text == "外联部副社长") {
+							alertBox(valueobj, iGetInnerText(valuename), value);
+						} else {
+							valueobj.innerHTML = value;
+						}
+						//返回 false 可以阻止选择框的关闭
+						//return false;
+					});
+				}, false);
+			});
+		})(mui, document);
+		
+		
+		$(".smart-back").click(function(){
+			window.location.href = "javascript:history.go(-1)";
+		})
+		
+		
+	</script>
+
+</html>

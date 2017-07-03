@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>航海学院</title>
+		<link rel="stylesheet" href="../../content/style/frame/bootstrap/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="../../content/style/common/css/common.css" />
+		<link rel="stylesheet" href="../../content/style/frame/jquery/tab/css/scroller.css" />
+		<link rel="stylesheet" href="../../content/style/frame/jquery/css/jquery.mobile.custom.structure.min.css" />
+		<link rel="stylesheet" href="../../content/style/frame/jquery/toast/css/jquery.toast.css" />
+		<link rel="stylesheet" href="../../content/style/common/css/zf-common.css" />
+		<link rel="stylesheet" href="../../content/style/white/xyyl/css/xyyl.css" />
+
+	</head>
+
+	<body class="xyyl xyfc">
+		<nav class="navbar">
+			<div class="smart-header smart-white">
+				<a href="javascript:history.go(-1)" class="smart-back smart-icon-left">
+					<img src="../../content/style/common/images/back-2.png" alt="">
+				</a>
+				
+				<h1><i id="reduce" class="triangle-left triangle-left-false"></i>
+					<ul id="title-Parent">
+						<li class="show-title">航海学院</li>
+						<li >机电工程学院</li>
+						<li >机电工程学院1</li>
+						<li >机电工程学院2</li>
+					</ul>
+				<i id="plus" class="triangle-right triangle-right-true"></i></h1>
+			</div>
+		</nav>
+		<div class="container">
+			<div class="content-con">
+				<img src="../../content/style/white/kongjiaoshi/images/bg-1.png" />
+				<p>土地是以它的肥沃和收获而被估价的；才能也是土地，不过它生产的不是粮食，而是真理。如果只能滋生瞑想和幻想的话，即使再大的才能也只是砂地或盐池，那上面连小草也长不出来的</p>
+				<p>在学校和生活中，工作的最重要的动力是工作中的乐趣，是工作获得结果时的乐趣以及对这个结果的社会价值的认识。</p>
+				<p>人生的磨难是很多的，所以我们不可对于每一件轻微的伤害都过于敏感。在生活磨难面前，精神上的坚强和无动于衷是我们抵抗罪恶和人生意外的最好武器。</p>
+				<p>在学校和生活中，工作的最重要的动力是工作中的乐趣，是工作获得结果时的乐趣以及对这个结果的社会价值的认识。</p>
+				<p>人生的磨难是很多的，所以我们不可对于每一件轻微的伤害都过于敏感。在生活磨难面前，精神上的坚强和无动于衷是我们抵抗罪恶和人生意外的最好武器。</p>
+			</div>
+		</div>
+	</div>
+	</body>
+	<script type="text/javascript" src="../../content/style/frame/jquery/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="../../content/style/frame/jquery/jquery.mobile.custom.min.js" ></script>
+	<script type="text/javascript" src="../../content/style/frame/jquery/toast/js/jquery.toast.js" ></script>
+	<script>
+		
+		$("#reduce").click(function(){
+			console.log($("#title-Parent li").first().attr("class"));
+			//$("#plus").addClass("triangle-right-true");
+			//if($("#title-Parent li").first().attr("class") == "show-title"){
+			//	$(this).addClass("tr	iangle-false");
+			//}
+		})
+		$("#plus").click(function(){
+			console.log($("#title-Parent li").last().attr("class"));
+			//$("#reduce").addClass("triangle-left-true");
+			//if($("#title-Parent li").last().attr("class") == "show-title"){
+			//	$(this).addClass("triangle-right-false");
+			//}
+		})
+		//swiperight 事件在用户在某个元素上从右滑动超过 30px 时被触发：
+		var index_page = 0;
+		var max_page = $("#title-Parent li").length
+		$(".container").on("swiperight",function(){
+			console.log("从左向右滑动"+index_page);
+			if(index_page>0){
+				index_page--;
+				$("#title-Parent li").eq(index_page).addClass("show-title").siblings().removeClass("show-title");
+			}else{
+				$.toast({
+				    text: '当前是第一页 ',
+				    showHideTransition: 'fade',
+				    allowToastClose: false,
+				    hideAfter: 2000,
+				    stack: false, 
+				    position: 'bottom-center', 
+				    textAlign: 'center',
+				    loader: false,
+				});
+			}
+			
+			
+		});
+		//swipeleft 事件在用户在某个元素上从左滑动超过 30px 时被触发：
+		$(".container").on("swipeleft",function(){
+			console.log("从右向左滑动"+index_page)
+			if(index_page<max_page-1){
+				index_page++;
+				$("#title-Parent li").eq(index_page).addClass("show-title").siblings().removeClass("show-title");
+			}else{
+				$.toast({
+				    text: '当前是最后一页 ',
+				    showHideTransition: 'fade',
+				    allowToastClose: false,
+				    hideAfter: 2000,
+				    stack: false, 
+				    position: 'bottom-center', 
+				    textAlign: 'center',
+				    loader: false,
+				});
+			}
+			
+			
+		});
+	</script>
+</html>

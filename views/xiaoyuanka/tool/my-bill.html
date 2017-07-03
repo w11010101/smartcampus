@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+  <title>我的账单</title>
+
+  <!-- Bootstrap -->
+
+  <link href="../../../content/style/frame/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../../../content/style/common/css/xiaoyuanka/common.css" rel="stylesheet">
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]> param.month = getOtherDate(getM);
+      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body onload="load_charts_bar();" class="smart-bill">
+  <nav class="navbar">
+    <div class="smart-header smart-white">
+      <a href="javascript:history.go(-1)" class="smart-back smart-icon-left">
+        <img src="../../../content/style/common/images/back-2.png" alt="">
+      </a>
+      <h1>我的账单</h1>
+    </div>
+  </nav>
+  <div class="smart-content">
+    <!-- 筛选 -->
+    <div class="smart-screen">
+      <div class="row smart-column-list">
+        <div class="col-xs-4">所有账单</div>
+        <div class="col-xs-4">所有流水</div>
+        <div class="col-xs-4">按月查询</div>
+      </div>
+      <!-- 筛选内容 -->
+      <div class="row smart-screen-list set-popup">
+      </div>
+    </div>
+    <!-- 遮罩 -->
+    <div class="smart-screen-mask"></div>
+    <!-- bootstap accordion 折叠面板 -->
+    <div class="panel-group smart-accordion" id="accordion">
+      <!-- 一组 -->
+      <div class="panel panel-default">
+        <div class="panel-heading smart-active">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+            <!-- 日期 -->
+            <div class="smart-accordion-head">4月
+              <span>2017</span>
+            </div>
+            <!-- 柱形图表 -->
+            <div class="smart-accordion-content">
+              <div class="smart-accordion-bar" income="1000" pay="10000">
+              </div>
+            </div>
+          </a>
+          <em class="smart-list-end-icon">
+            <img src="../../../content/style/white/xiaoyuanka/images/charts.png" alt="" set-terget="my-bill-charts.html">
+          </em>
+        </div>
+        <div id="collapseOne" class="panel-collapse collapse in">
+          <div class="panel-body">
+            <!-- 列表 -->
+            <ul class="smart-sub-list">
+              <!-- 列表一组 -->
+              <li class="smart-sub-list-item">
+                <!-- 日期 -->
+                <div class="smart-accordion-head">今天
+                  <span>14:11</span>
+                </div>
+                <!-- 列表内容 -->
+                <div class="smart-accordion-content">
+                  <h3>校园卡支出</h3>
+                  <p>交易成功</p>
+                </div>
+                <em class="smart-list-end-icon " set-status="pay">-100000.00</em>
+              </li>
+              <li class="smart-sub-list-item smart-sub-list-item-content">
+                <div class="row">
+                  <div class="col-xs-12">
+                    <label>流水号：</label>
+                    <span>1234567890123456</span>
+                  </div>
+                  <div class="col-xs-12">
+                    <label>对方账户：</label>
+                    <span>消食堂</span>
+                  </div>
+                  <div class="col-xs-6">
+                    <label>支付方式：</label>
+                    <span>电子账户</span>
+                  </div>
+                  <div class="col-xs-6">
+                    <label>交易类型：</label>
+                    <span>支出</span>
+                  </div>
+                  <div class="col-xs-6">
+                    <label>说明：</label>
+                    <span>消费</span>
+                  </div>
+                  <div class="col-xs-6">
+                    <label>交易地：</label>
+                    <span>消食堂</span>
+                  </div>
+                </div>
+              </li>
+              <!-- 列表一组 -->
+              <li class="smart-sub-list-item">
+                <!-- 日期 -->
+                <div class="smart-accordion-head">昨天
+                  <span>14:11</span>
+                </div>
+                <!-- 列表内容 -->
+                <div class="smart-accordion-content">
+                  <h3>电子账户支出</h3>
+                  <p>交易成功</p>
+                </div>
+                <em class="smart-list-end-icon" set-status="pay">-100.00</em>
+              </li>
+              <li class="smart-sub-list-item smart-sub-list-item-content">
+                <div class="row">
+                  <div class="col-xs-12">
+                    <label>流水号：</label>
+                    <span>1234567890123456</span>
+                  </div>
+                  <div class="col-xs-12">
+                    <label>对方账户：</label>
+                    <span>消食堂</span>
+                  </div>
+                  <div class="col-xs-6">
+                    <label>支付方式：</label>
+                    <span>电子账户</span>
+                  </div>
+                  <div class="col-xs-6">
+                    <label>交易类型：</label>
+                    <span>支出</span>
+                  </div>
+                  <div class="col-xs-6">
+                    <label>说明：</label>
+                    <span>消费</span>
+                  </div>
+                  <div class="col-xs-6">
+                    <label>交易地：</label>
+                    <span>消食堂</span>
+                  </div>
+                </div>
+              </li>
+              <!-- 列表一组 -->
+              <li class="smart-sub-list-item">
+                <!-- 日期 -->
+                <div class="smart-accordion-head">5日
+                  <span>14:11</span>
+                </div>
+                <!-- 列表内容 -->
+                <div class="smart-accordion-content">
+                  <h3>校园卡充值</h3>
+                  <p>交易成功</p>
+                </div>
+                <em class="smart-list-end-icon" set-status="income">+100.00</em>
+              </li>
+              <li class="smart-sub-list-item smart-sub-list-item-content">
+                <div class="row">
+                  <div class="col-xs-12">
+                    <label>流水号：</label>
+                    <span>1234567890123456</span>
+                  </div>
+                  <div class="col-xs-12">
+                    <label>对方账户：</label>
+                    <span>消食堂</span>
+                  </div>
+                  <div class="col-xs-6">
+                    <label>支付方式：</label>
+                    <span>电子账户</span>
+                  </div>
+                  <div class="col-xs-6">
+                    <label>交易类型：</label>
+                    <span>支出</span>
+                  </div>
+                  <div class="col-xs-6">
+                    <label>说明：</label>
+                    <span>消费</span>
+                  </div>
+                  <div class="col-xs-6">
+                    <label>交易地：</label>
+                    <span>消食堂</span>
+                  </div>
+                </div>
+              </li>
+              <!-- 列表一组 -->
+              <li class="smart-sub-list-item">
+                <!-- 日期 -->
+                <div class="smart-accordion-head">4日
+                  <span>14:11</span>
+                </div>
+                <!-- 列表内容 -->
+                <div class="smart-accordion-content">
+                  <h3>校园卡充值</h3>
+                  <p>交易成功</p>
+                </div>
+                <em class="smart-list-end-icon" set-status="income">+100.00</em>
+              </li>
+              <li class="smart-sub-list-item smart-sub-list-item-content">
+                <div class="row">
+                  <div class="col-xs-12">
+                    <label>流水号：</label>
+                    <span>1234567890123456</span>
+                  </div>
+                  <div class="col-xs-12">
+                    <label>对方账户：</label>
+                    <span>消食堂</span>
+                  </div>
+                  <div class="col-xs-6">
+                    <label>支付方式：</label>
+                    <span>电子账户</span>
+                  </div>
+                  <div class="col-xs-6">
+                    <label>交易类型：</label>
+                    <span>支出</span>
+                  </div>
+                  <div class="col-xs-6">
+                    <label>说明：</label>
+                    <span>消费</span>
+                  </div>
+                  <div class="col-xs-6">
+                    <label>交易地：</label>
+                    <span>消食堂</span>
+                  </div>
+                </div>
+              </li>
+            </ul>
+            <!-- 等待状态 -->
+          </div>
+        </div>
+      </div>
+      <!-- 一组 -->
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+            <!-- 日期 -->
+            <div class="smart-accordion-head">3月
+              <span>2017</span>
+            </div>
+            <!-- 柱形图表 -->
+            <div class="smart-accordion-content">
+              <div class="smart-accordion-bar" income="5000" pay="1000">
+              </div>
+            </div>
+          </a>
+          <em class="smart-list-end-icon">
+            <img src="../../../content/style/white/xiaoyuanka/images/charts.png" alt="" set-terget="my-bill-charts.html">
+          </em>
+        </div>
+        <div id="collapseTwo" class="panel-collapse collapse">
+          <div class="panel-body">
+            <!-- 列表 -->
+            <ul class="smart-sub-list">
+              <!-- 列表一组 -->
+              <li class="smart-sub-list-item">
+                <!-- 日期 -->
+                <div class="smart-accordion-head">今天
+                  <span>14:11</span>
+                </div>
+                <!-- 列表内容 -->
+                <div class="smart-accordion-content">
+                  <h3>校园卡支出</h3>
+                  <p>交易成功</p>
+                </div>
+                <em class="smart-list-end-icon " set-status="pay">-789456.00</em>
+              </li>
+              <li class="smart-sub-list-item smart-sub-list-item-content">
+                <div class="row">
+                  <div class="col-xs-12">
+                    <label>流水号：</label>
+                    <span>1234567890123456</span>
+                  </div>
+                  <div class="col-xs-12">
+                    <label>对方账户：</label>
+                    <span>消食堂</span>
+                  </div>
+                  <div class="col-xs-6">
+                    <label>支付方式：</label>
+                    <span>电子账户</span>
+                  </div>
+                  <div class="col-xs-6">
+                    <label>交易类型：</label>
+                    <span>支出</span>
+                  </div>
+                  <div class="col-xs-6">
+                    <label>说明：</label>
+                    <span>消费</span>
+                  </div>
+                  <div class="col-xs-6">
+                    <label>交易地：</label>
+                    <span>消食堂</span>
+                  </div>
+                </div>
+              </li>
+              <!-- 列表一组 -->
+              <li class="smart-sub-list-item">
+                <!-- 日期 -->
+                <div class="smart-accordion-head">今天
+                  <span>14:11</span>
+                </div>
+                <!-- 列表内容 -->
+                <div class="smart-accordion-content">
+                  <h3>电子账户支出</h3>
+                  <p>交易成功</p>
+                </div>
+                <em class="smart-list-end-icon" set-status="pay">-156159.00</em>
+              </li>
+              <li class="smart-sub-list-item smart-sub-list-item-content">
+                <div class="row">
+                  <div class="col-xs-12">
+                    <label>流水号：</label>
+                    <span>1234567890123456</span>
+                  </div>
+                  <div class="col-xs-12">
+                    <label>对方账户：</label>
+                    <span>消食堂</span>
+                  </div>
+                  <div class="col-xs-6">
+                    <label>支付方式：</label>
+                    <span>电子账户</span>
+                  </div>
+                  <div class="col-xs-6">
+                    <label>交易类型：</label>
+                    <span>支出</span>
+                  </div>
+                  <div class="col-xs-6">
+                    <label>说明：</label>
+                    <span>消费</span>
+                  </div>
+                  <div class="col-xs-6">
+                    <label>交易地：</label>
+                    <span>消食堂</span>
+                  </div>
+                </div>
+              </li>
+              <!-- 列表一组 -->
+              <li class="smart-sub-list-item">
+                <!-- 日期 -->
+                <div class="smart-accordion-head">今天
+                  <span>14:11</span>
+                </div>
+                <!-- 列表内容 -->
+                <div class="smart-accordion-content">
+                  <h3>校园卡充值</h3>
+                  <p>交易成功</p>
+                </div>
+                <em class="smart-list-end-icon" set-status="income">+489156.00</em>
+              </li>
+              <li class="smart-sub-list-item smart-sub-list-item-content">
+                <div class="row">
+                  <div class="col-xs-12">
+                    <label>流水号：</label>
+                    <span>1234567890123456</span>
+                  </div>
+                  <div class="col-xs-12">
+                    <label>对方账户：</label>
+                    <span>消食堂</span>
+                  </div>
+                  <div class="col-xs-6">
+                    <label>支付方式：</label>
+                    <span>电子账户</span>
+                  </div>
+                  <div class="col-xs-6">
+                    <label>交易类型：</label>
+                    <span>支出</span>
+                  </div>
+                  <div class="col-xs-6">
+                    <label>说明：</label>
+                    <span>消费</span>
+                  </div>
+                  <div class="col-xs-6">
+                    <label>交易地：</label>
+                    <span>消食堂</span>
+                  </div>
+                </div>
+              </li>
+              <!-- 列表一组 -->
+              <li class="smart-sub-list-item">
+                <!-- 日期 -->
+                <div class="smart-accordion-head">今天
+                  <span>14:11</span>
+                </div>
+                <!-- 列表内容 -->
+                <div class="smart-accordion-content">
+                  <h3>校园卡充值</h3>
+                  <p>交易成功</p>
+                </div>
+                <em class="smart-list-end-icon" set-status="income">+71896520.00</em>
+              </li>
+              <li class="smart-sub-list-item smart-sub-list-item-content">
+                <div class="row">
+                  <div class="col-xs-12">
+                    <label>流水号：</label>
+                    <span>1234567890123456</span>
+                  </div>
+                  <div class="col-xs-12">
+                    <label>对方账户：</label>
+                    <span>消食堂</span>
+                  </div>
+                  <div class="col-xs-6">
+                    <label>支付方式：</label>
+                    <span>电子账户</span>
+                  </div>
+                  <div class="col-xs-6">
+                    <label>交易类型：</label>
+                    <span>支出</span>
+                  </div>
+                  <div class="col-xs-6">
+                    <label>说明：</label>
+                    <span>消费</span>
+                  </div>
+                  <div class="col-xs-6">
+                    <label>交易地：</label>
+                    <span>消食堂</span>
+                  </div>
+                </div>
+              </li>
+            </ul>
+            <!-- 等待状态 -->
+          </div>
+        </div>
+      </div>
+      <!-- 一组 -->
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+            <!-- 日期 -->
+            <div class="smart-accordion-head">2月
+              <span>2017</span>
+            </div>
+            <!-- 柱形图表 -->
+            <div class="smart-accordion-content">
+              <div class="smart-accordion-bar" income="3204" pay="9563">
+              </div>
+            </div>
+          </a>
+          <em class="smart-list-end-icon">
+            <img src="../../../content/style/white/xiaoyuanka/images/charts.png" alt="" set-terget="my-bill-charts.html">
+          </em>
+        </div>
+        <div id="collapseThree" class="panel-collapse collapse">
+          <div class="panel-body">
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 页尾 pageEnd -->
+    <div class="smart-pageEnd">
+      没有更多记录了
+    </div>
+  </div>
+
+</body>
+<script type="text/javascript" src="../../../content/style/frame/jquery/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="../../../content/style/frame/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../../content/style/frame/echarts/echarts.common.min.js"></script>
+<script type="text/javascript" src="../../../content/style/common/js/common.js"></script>
+<script type="text/javascript">
+// 向下展开筛选
+var screen_list = [
+  ["所有账户", "电子账户", "一卡通账户", "校园其他账户"],
+  ["所有流水", "收入", "支出", "提现", "充值"],
+  ["按月查询", "当日查询"]
+]
+var lists = $(".smart-screen div[class^=col-xs-4]");
+
+lists.on("click", function() {
+  $(this).toggleClass("smart-active").siblings().removeClass("smart-active");
+
+  $(".smart-screen-list div").remove();
+  for (var i in screen_list[$(this).index()]) {
+    $(".smart-screen-list").append('<div class="col-xs-12" type="list" onclick="hideBox(this);">' + screen_list[$(this).index()][i] + '</div>');
+  }
+  if ($(this).hasClass("smart-active")) {
+    smart_screen_toggle("show");
+  } else {
+    smart_screen_toggle("hide");
+  }
+
+})
+// 隐藏筛选
+function hideBox(obj){
+  $(".smart-active").removeClass('smart-active');
+  smart_screen_toggle("hide");
+}
+
+$(".smart-screen-mask").on("click", function() {
+  hideBox();
+})
+
+function smart_screen_toggle(type) {
+  if (type == "hide") {
+    // hide
+    $(".set-popup").slideUp(200);
+    $(".smart-screen-mask").fadeOut(200);
+  } else {
+    // show
+    $(".set-popup").slideDown(200);
+    $(".smart-screen-mask").fadeIn(200);
+  }
+}
+// 手风琴
+$('.panel-group').on('show.bs.collapse', function(e) {
+  console.log($(e.target).prev().toggleClass("smart-active"));
+})
+
+$('.panel-group').on('hide.bs.collapse', function(e) {
+    console.log($(e.target).prev().toggleClass("smart-active"));
+  })
+  // 手风琴效果监听 —— 我的账单
+$(".smart-accordion .panel-heading").on("click", function() {
+    // 先显示加载中图标
+    // 加载并显示列表
+
+    if (!$(this).next().find(".smart-loading").length) {
+      $(this).next().find(".panel-body").append(loading());
+      var that = $(this);
+      // 1000毫秒后加载列表数据
+      // setTimeout(function() {
+      // 测试是先把列表隐藏（css样式隐藏），再显示出来；
+      that.next().find(".smart-sub-list").slideDown(200);
+
+      if (!that.next().find("li").length) {
+        // 如果没有数据
+        that.next().find(".smart-loading").addClass("smart-nothing");
+        return;
+      }
+      // 加载完成后隐藏——加载中
+      that.next().find(".smart-loading").hide(0);
+
+      // }, 2000);
+    } else {
+      // console.log(10)
+    }
+  })
+  // 手风琴列表 —— 我的账单详情
+$(".smart-sub-list-item").off().on("click", function() {
+    var hasSub = $(this).next();
+    if (hasSub.hasClass("smart-sub-list-item-content")) {
+      $(".smart-sub-list-item-content").not(hasSub).slideUp(200);
+      hasSub.slideToggle(200);
+    }
+  })
+  // 加载中
+function loading() {
+  return '<!-- 加载中 --><div class="smart-loading"><div class="smart-waiting"></div></div>';
+}
+</script>
+
+</html>

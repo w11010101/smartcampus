@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>百团争艺-入社申请</title>
+		<link rel="stylesheet" href="../../content/style/frame/bootstrap/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="../../content/style/common/css/common.css" />
+		<link rel="stylesheet" href="../../content/style/frame/mui/css/mui.min.css" />
+		<link rel="stylesheet" href="../../content/style/white/baituanzhengyi/css/btzy.css" />
+		<style>
+			html,body,.container{
+				background-color: #fff;
+			}
+		</style>
+	</head>
+
+	<body class="btzy-hdbmsh">
+		<nav class="navbar">
+			<div class="smart-header smart-white">
+				<a href="javascript:history.go(-1)" class="smart-back smart-icon-left">
+					<img src="../../content/style/common/images/back-2.png" />
+				</a>
+				<h1>入社申请</h1>
+			</div>
+		</nav>
+		<div class="container">
+			<!--没有审核的名单-->
+			<!--<div class="btzy-img-bar">
+				<img src="../../content/style/white/baituanzhengyi/images/btzy-hdbm-none.png" />
+				<p>没有需要审核的名单</p>
+			</div>-->
+			<div class="cylb-list st-contant">
+				<ul class="mui-table-view laout-li-3 padding-chongzhi-right user-list-header">
+					<li class="mui-table-view-cell mui-media">
+						<a class="laout-width-70" href="javascript:;">
+							<img class="mui-media-object mui-pull-left" src="../../content/custom/img/img-eee.jpg">
+							<div class="mui-media-body">
+								<span>张三</span>
+								<p>海航学院</p>
+							</div>
+							
+						</a>
+						<div class="laout-width-30">
+							<button type="button" class="mui-btn mui-btn-red mui-btn-outlined">拒绝</button>
+							<button type="button" class="mui-btn mui-btn-green mui-btn-outlined">批准</button>
+						</div>
+					</li>
+					<li class="mui-table-view-cell mui-media">
+						<a class="laout-width-70" href="javascript:;">
+							<img class="mui-media-object mui-pull-left" src="../../content/custom/img/img-eee.jpg">
+							<div class="mui-media-body">
+								<span>李白</span>
+								<p>海航学院</p>
+							</div>
+							
+						</a>
+						<div class="laout-width-30">
+							<button type="button" class="mui-btn mui-btn-red mui-btn-outlined">拒绝</button>
+							<button type="button" class="mui-btn mui-btn-green mui-btn-outlined">批准</button>
+						</div>
+					</li>
+					<li class="mui-table-view-cell mui-media">
+						<a class="laout-width-70" href="javascript:;">
+							<img class="mui-media-object mui-pull-left" src="../../content/custom/img/img-eee.jpg">
+							<div class="mui-media-body">
+								<span>江城子</span>
+								<p>海航学院</p>
+							</div>
+							
+						</a>
+						<div class="laout-width-30">
+							<button type="button" class="mui-btn mui-btn-red mui-btn-outlined">拒绝</button>
+							<button type="button" class="mui-btn mui-btn-green mui-btn-outlined">批准</button>
+						</div>
+					</li>
+					<li class="mui-table-view-cell mui-media">
+						<a class="laout-width-70" href="javascript:;">
+							<img class="mui-media-object mui-pull-left" src="../../content/custom/img/img-eee.jpg">
+							<div class="mui-media-body">
+								<span>明娜</span>
+								<p>海航学院</p>
+							</div>
+							
+						</a>
+						<div class="laout-width-30">
+							<button type="button" class="mui-btn mui-btn-red mui-btn-outlined">拒绝</button>
+							<button type="button" class="mui-btn mui-btn-green mui-btn-outlined">批准</button>
+						</div>
+					</li>
+					<li class="mui-table-view-cell mui-media">
+						<a class="laout-width-70" href="javascript:;">
+							<img class="mui-media-object mui-pull-left" src="../../content/custom/img/img-eee.jpg">
+							<div class="mui-media-body">
+								<span>按理说</span>
+								<p>海航学院</p>
+							</div>
+							
+						</a>
+						<div class="laout-width-30">
+							<button type="button" class="mui-btn mui-btn-red mui-btn-outlined">拒绝</button>
+							<button type="button" class="mui-btn mui-btn-green mui-btn-outlined">批准</button>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="../../content/style/frame/jquery/jquery-3.2.1.min.js" ></script>
+	<script type="text/javascript" src="../../content/style/frame/mui/js/mui.min.js" ></script>
+	<script>
+		mui(".cylb-list").on("tap",".mui-btn-red",function(){
+			var btnArray = ['取消', '确定'];
+			var name = this.parentNode.parentNode.firstElementChild.lastElementChild.firstElementChild.innerText;
+			mui.confirm('确定要拒绝'+name+'的申请吗？', '', btnArray, function(e) {
+				if (e.index == 1) {
+					mui.toast("已拒绝"+name+"的申请");
+				} else {
+					mui.toast("已取消对"+name+"的操作")
+				}
+			})
+		})
+	</script>
+
+</html>
