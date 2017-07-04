@@ -641,7 +641,7 @@ a:active,a:hover{
 	position: absolute;
 	width: 25px;
 	height: 25px;
-	background: url(../img/common/sure.png) no-repeat;
+	background: url(../img/sure.png) no-repeat;
 	background-size: 100%;
 	top:50%;
 	right: 30px;
@@ -756,8 +756,7 @@ a:active,a:hover{
 .smart-change span:after{
 	content: " ";
 	display: inline-block;
-	background: url(../../custom/img/common/continue.png) no-repeat center;
-	background-size: 20px;
+	background: url(../../custom/img/continue-1.png) no-repeat center;
 	width: 20px;
 	height: 20px;
 	vertical-align: middle;
@@ -862,7 +861,7 @@ a:active,a:hover{
 
 .smart-box-content p a:last-child:after {
 	content: " ";
-	background: url(../img/common/back-2.png) no-repeat center;
+	background: url(../img/back-2.png) no-repeat center;
 	background-size: cover; 
 	position: absolute;
 	width: 16px;
@@ -1017,23 +1016,7 @@ a:active,a:hover{
   text-align: left;
   color: #a7a7a7;
 }
-/* 账单列表 */
-.smart-billList {
-  background: #fff;
-}
-.smart-billList .smart-content img {
-  display: block;
-  width: 60%;
-  margin: 30% auto 10%;
-}
-
-.smart-billList .smart-content p {
-  text-align: center;
-  color: #8d8d8d;
-  font-size: 16px;
-}
 /* 我的账单 */
-
 .smart-bill{
 	overflow-x:hidden;
 	overflow-y: auto; 
@@ -1391,7 +1374,7 @@ a:active,a:hover{
 	width: 21px;
 	top:50%;
 	margin-top:-10px;
-	background: url(../img/common/continue.png) no-repeat center;
+	background: url(../img/continue-1.png) no-repeat center;
 }
 #zf_value:after{
 	content: " ";
@@ -1400,7 +1383,7 @@ a:active,a:hover{
 	width: 21px;
 	top:50%;
 	margin-top:-10px;
-	background: url(../img/common/continue.png) no-repeat center;
+	background: url(../img/continue-1.png) no-repeat center;
 }
 /* 更换支付 */
 /* 键盘 */
@@ -1435,7 +1418,7 @@ a:active,a:hover{
 	width: 40px;
 	height: 100%;
 	left:0;
-	background: url(../img/common/close.png) no-repeat center;
+	background: url(../img/close.png) no-repeat center;
 }
 .smart-keyboard .smart-password-box{
 	font-size: 0;
@@ -1601,6 +1584,6 @@ a:active,a:hover{
 	right:20px;
 	top:50%;
 	margin-top: -12px;
-	background: url(../../custom/img/common/sure.png) no-repeat center;
+	background: url(../../custom/img/sure.png) no-repeat center;
 	background-size: 100%;
 }

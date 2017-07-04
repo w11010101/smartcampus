@@ -87,7 +87,7 @@ user-select: none; /* Non-prefixed version, currently not supported by any brows
 	left:0;
 }
 .smart-header .smart-back img,.smart-header .smart-scan-code img {
-	width:100%;
+	/*width:100%;*/
 	vertical-align: top;
 }
 .smart-header h1 {
@@ -360,22 +360,29 @@ user-select: none; /* Non-prefixed version, currently not supported by any brows
 
 
 /* 底部 */
-.smart-foot{
+.smart-foot {
 	position: fixed;
 	width: 100%;
 	bottom: 0;
 	right: 0;
+	height:45px;
 }
-.smart-foot .smart-btn{
+
+.smart-foot .smart-btn {
 	width: 100%;
 	padding: 12px 0;
-	margin-top: -12px;
-	border:0;
+	margin:0;
+	border-radius: 0;
+	border: 0;
 	background: #73d2fe;
-	color:#fff;
+	color: #fff;
 	font-size: 16px;
 	transition: background .1s ease-in;
-	-webkit-transition: background .1s ease-in;	
+	-webkit-transition: background .1s ease-in;
+}
+
+.smart-foot .smart-btn:active {
+	background: #a9edff;
 }
 .smart-content .smart-container-sure-btn{
 	outline: none;

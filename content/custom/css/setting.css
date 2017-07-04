@@ -84,9 +84,7 @@
   -webkit-transform: translateY(-50%);
   transform: translateY(-50%);
 }
-.smart-list-item label img{
-  width: 31px;
-}
+
 .smart-switch:before {
   font-size: 13px;
   position: absolute;

@@ -8,7 +8,7 @@
 }
 
 .con-header i {
-	background: url(../../img/common/back-1.png) no-repeat;
+	background: url(../../img/comm/header-back.png) no-repeat;
 	background-size: 30px 30px;
 	background-position: 10px 7px;
 }
@@ -75,10 +75,6 @@
 	line-height: 45px;
 	padding: 0 20px;
 	height: 45px;
-}
-.ka-account .form-horizontal .form-group{
-	height: auto;
-	line-height: auto;
 }
 .form-list,
 .form-horizontal .form-group.icon-tzjt,

@@ -164,3 +164,6 @@ input.log-btn,button.log-btn{
 	font-size: 15px;
 	padding-top: 5px;
 }
+.img-err,.img-success{
+	width: 100%;
+}

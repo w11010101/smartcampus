@@ -113,17 +113,17 @@
 	-webkit-user-select: none;
 }
 .xyyl .bot-time {
-	background: url(../../xq/images/xq_time.png) no-repeat;
+	background: url(../../img/xq/xq_time.png) no-repeat;
 	background-size: 15px 15px;
 	background-position: 1px 5px;
 }
 .xyfc .bot-time {
-	background: url(../../xq/images/xq_time.png) no-repeat;
+	background: url(../../img/xq/xq_time.png) no-repeat;
 	background-size: 15px 15px;
 	background-position: 1px 2px;
 }
 .xyfc .bot-read {
-	background: url(../../xq/images/xq_read.png) no-repeat;
+	background: url(../../img/xq/xq_read.png) no-repeat;
 	background-size: 15px 15px;
 	background-position: 1px 2px;
 }

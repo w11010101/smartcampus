@@ -1,0 +1,65 @@
+body,
+.container {
+	background: #fff;
+}
+
+.logo-bar {
+	padding-top: 30%;
+	text-align: center;
+}
+
+.form {
+	padding: 20% 20px 0 20px;
+}
+
+.logo-bar img {
+	width: 25%;
+}
+
+label img {
+	width: 30px;
+}
+
+.mui-input-row label {
+	width: 45px;
+	padding: 0 0 0 5px;
+}
+
+.mui-input-row label~input {
+	float: left;
+	padding: 0 0 8px 5px;
+	font-size: 16px;
+}
+
+.mui-input-row {
+	border-bottom: 1px solid #E0E0E0;
+}
+
+.form-pwd {
+	height: 60px;
+	padding-top: 15px;
+}
+
+.form button {
+	margin-top: 50px;
+	padding: 10px 0;
+	border-radius: 8px;
+	background-color: #73D2FE;
+	border-color: #73D2FE;
+}
+
+.mui-btn-blue:active {
+	background-color: #a9edff !important;
+	border-color: #a9edff !important;
+}
+
+.form-pwd .mui-icon-clear {
+	line-height: 38px;
+}
+
+.form-number .mui-icon-clear {
+	margin-top: -10px;
+}
+.mui-toast-container div{
+	border-radius: 20px !important;
+}

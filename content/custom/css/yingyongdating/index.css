@@ -107,11 +107,9 @@ html,body{
 	position: absolute;
 	width: 100%;
 	top:0;
+	/*padding-top:40px;*/
 	transition: top .2s ease-in-out;
 	-webkit-transition: top .2s ease-in-out;
-}
-.navbar +.smart-content .tool-box{
-	padding-top:40px;
 }
 .smart-accordion-head{
 	height: 40px;
