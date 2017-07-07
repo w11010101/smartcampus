@@ -75,7 +75,7 @@ html,body{
 
 .mart-list-layer-2 p{
 	font-size: 12px;
-	color:#a8a8a8;
+	color:#c8c8c8;
 }
 .smart-list-end-icon .mart-list-layer-2  h3{
 	color:#8d8d8d;
@@ -116,7 +116,7 @@ html,body{
 	color:#73d2fe;
 	border:1px solid #73d2fe;
 	border-radius: 3px;
-	padding: 1px 3px;
+	padding: 0px 3px;
 	white-space:nowrap;
 	overflow:hidden; 
 	text-overflow:ellipsis;

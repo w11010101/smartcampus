@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 		<title>校园一览</title>
 		<link rel="stylesheet" href="../../content/style/frame/bootstrap/css/bootstrap.min.css" />
 		<link rel="stylesheet" href="../../content/style/common/css/common.css" />
@@ -15,14 +15,14 @@
 	</head>
 
 	<body class="xyyl">
-		<nav class="navbar">
+		<!--<nav class="navbar">
 			<div class="smart-header smart-white">
 				<a href="javascript:history.go(-1)" class="smart-back smart-icon-left">
 					<img src="../../content/style/common/images/back-2.png" alt="">
 				</a>
 				<h1>校园一览</h1>
 			</div>
-		</nav>
+		</nav>-->
 		<div class="container">
 			<div class="tab systab">
 				<div class="wrapper wrapper02" id="wrapper02">
@@ -30,15 +30,19 @@
 						<ul class="clearfix">
 							<li modular="xyjj">
 								<a href="javascript:void(0)">校园简介</a>
+								<i></i>
 							</li>
 							<li modular="jgsz">
 								<a href="javascript:void(0)">机构设置</a>
+								<i></i>
 							</li>
 							<li modular="xydt">
 								<a href="javascript:void(0)">校园地图</a>
+								<i></i>
 							</li>
 							<li modular="xyfg">
 								<a href="javascript:void(0)">校园风光</a>
+								<i></i>
 							</li>
 						</ul>
 					</div>
@@ -115,6 +119,7 @@
 									<p><span class="bot-time">2017/02/11</span></p>
 									<img src="../../content/style/white/kongjiaoshi/images/bg-1.png" />
 								</a>
+								
 							</li>
 							<li>
 								<a href="xyfc-contant.html">
@@ -134,7 +139,7 @@
 								<a href="xyfc-contant.html">
 									<h3>海大杯的竞技者们</h3>
 									<p><span class="bot-time">2017/02/11</span></p>
-									<img src="../../content/style/white/kongjiaoshi/images/bg-1.png" />
+									<img src="../../content/custom/img/img-eee.jpg" />
 								</a>
 							</li>
 							<li>
@@ -158,7 +163,8 @@
 		</div>
 
 	</body>
-	<script type="text/javascript" src="../../content/style/frame/jquery/jquery-3.2.1.min.js"></script>
+	<!--<script type="text/javascript" src="../../content/style/frame/jquery/jquery-3.2.1.min.js"></script>-->
+	<script type="text/javascript" src="../../content/style/frame/jquery/jquery.min.js" ></script>
 	<script type="text/javascript" src="../../content/style/frame/bootstrap/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="../../content/style/frame/iscroll/iscroll.js"></script>
 	<script type="text/javascript" src="../../content/style/frame/jquery/tab/js/navbarscroll.js"></script>
@@ -176,6 +182,7 @@
 		
 		var max_page = $(".clearfix li").length
 		$(".tab-modu").on("swiperight",function(){
+			console.log(11111111111)
 			if(index_page>0){
 				index_page--;
 				console.log("从左向右滑动"+index_page);
@@ -196,6 +203,7 @@
 		});
 		//swipeleft 事件在用户在某个元素上从左滑动超过 30px 时被触发：
 		$(".tab-modu").on("swipeleft",function(){
+			console.log("********")
 			if(index_page<max_page-1){
 				index_page++;
 				console.log("从右向左滑动"+index_page)

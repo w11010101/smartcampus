@@ -1,3 +1,6 @@
+body{
+	background: #fff
+}
 /* 成绩单 */
 .campus-CJ-info{
 	background: #73d2fe;
@@ -51,4 +54,7 @@
 .campus-CJ-table tbody tr td:nth-child(2){
 	white-space: pre-wrap;
 	color:#a8a8a8;
+}
+.smart-imgBox{
+	display: none
 }

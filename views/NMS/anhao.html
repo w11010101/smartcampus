@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"> -->
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
   <title>申请NMS帐号</title>
@@ -25,25 +25,10 @@
 </head>
 
 <body class="smart-nms-anhao" sign="">
-  <nav class="navbar">
-    <div class="smart-header smart-white">
-      <a href="javascript:history.go(-1)" class="smart-back smart-icon-left">
-        <img src="../../content/style/common/images/back-2.png" alt="">
-      </a>
-      <h1>申请NMS帐号</h1>
-    </div>
-  </nav>
   <div class="smart-content">
     <form class="form-signin">
       <ul class="smart-list smart-list-space">
-        <li class="smart-list-item">
-          <div class="smart-accounts">
-            <label class="sr-only">账户名</label>
-            <input type="text" class="smart-input" inputType="asscount" required oninput="if(value.length>16) value=value.slice(0,16);" >
-            <p>账户名字母开头5-16位，只能用数字、小写字母、点号、下划线和减号</p>
-            <span class="glyphicon smart-icon-srue"></span>
-          </div>
-        </li>
+        
         <li class="smart-list-item">
           <label for="inputPassword" class="sr-only">暗号</label>
           <input type="password" class="smart-input" inputType="firstPWD" placeholder="请输入6为数字密码" required oninput="if(value.length>6) value=value.slice(0,6);">

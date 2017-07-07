@@ -3,19 +3,41 @@ $(function () {
 });
 
 var value;
-$(".smart-list-end-icon").on("click", function () {
-  // console.log(this);
-  var that = $(this);
-  var type = $(this).attr("set-type");
-  var setArr = [];
-  var newArr = [];
-  switch (type) {
-  case "time":
+var tap="";
+
+function contains (needle) {  
+	for (i in this) {  
+	  if (this[i].indexOf(needle) > 0)  return i;  
+	}  	
+	return -1;  
+}  
+
+var device_type = navigator.userAgent;
+
+var md = new MobileDetect(navigator.userAgent);  
+var phone = md.phone();//获取系统  
+var model = "";  
+// alert(phone);
+if (phone == "UnknownPhone") {//位置手机型号处理
+    model = md.mobile();  
+    tap = "touchstart";
+} else {
+    tap = "click";
+}  
+
+$(".smart-list-end-icon").on(tap,function () {
+console.log(this);
+var that = $(this);
+var type = $(this).attr("set-type");
+var setArr = [];
+var newArr = [];
+switch (type) {
+case "time":
     // 选择时间
     setArr = ["1小时后", "2小时后", "3小时后", "4小时后", "8小时后"];
     newArr = setArr;
     break;
-  case "campus":
+case "campus":
     // 选择校区
     // setArr = [{name:"东校区",id:"123"},{name:"南校区",id:"12"},{name:"西校区",id:"12"},"北校区"];
     setArr = [{
@@ -39,7 +61,7 @@ $(".smart-list-end-icon").on("click", function () {
     }
 
     break;
-  case "floor":
+case "floor":
     // 选择楼栋
     setArr = [{
       "campusid": "1",
@@ -65,13 +87,13 @@ $(".smart-list-end-icon").on("click", function () {
       })
     }
     break;
-  }
+}
 
-  var option = {
+var option = {
     value:newArr,
     type:$(this).attr("popupType")
-  }
-  campus.popup(option, function (data) {
+}
+campus.popup(option, function (data) {
     console.log(data);
     // 添加自定义属性
     that.find(".mart-list-layer-2").html('<h3 key="' + data.key + '">' + data.name + '</h3>');
@@ -88,6 +110,6 @@ $(".smart-list-end-icon").on("click", function () {
     if ($("*[select=true]").length == 3) {
       $(".smart-container-sure-btn").addClass("smart-btn-active");
     }
-  });
+});
 })
 

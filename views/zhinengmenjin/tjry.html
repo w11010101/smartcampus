@@ -3,7 +3,7 @@
 
 	<head>
 		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 		<title>添加人员</title>
 		<link rel="stylesheet" href="../../content/style/frame/bootstrap/css/bootstrap.min.css" />
 		<link rel="stylesheet" href="../../content/style/frame/mui/css/mui.min.css" />
@@ -22,14 +22,14 @@
 	</head>
 
 	<body class="znmj tjry">
-		<nav class="navbar">
+		<!--<nav class="navbar">
 			<div class="smart-header smart-white">
 				<a href="javascript:history.go(-1)" class="smart-back smart-icon-left">
 					<img src="../../content/style/common/images/back-2.png" alt="">
 				</a>
 				<h1>添加人员</h1>
 			</div>
-		</nav>
+		</nav>-->
 		<div class="container mui-content">
 			<div class="href-icon">
 				<a href="znmj-name.html" class="icon-right">查看所有人开门记录</a></div>
@@ -335,11 +335,18 @@
 	<script type="text/javascript" src="../../content/style/frame/mui/js/mui.indexedlist.js"></script>
 	<script>
 		mui.init();
+//		mui.ready(function() {
+//			var header = document.querySelector('.navbar');
+//			var list = document.getElementById('list');
+//			//calc hieght
+//			list.style.height = (document.body.offsetHeight - header.offsetHeight-60) + 'px';
+//			//create
+//			window.indexedList = new mui.IndexedList(list);
+//		});
 		mui.ready(function() {
-			var header = document.querySelector('.navbar');
 			var list = document.getElementById('list');
 			//calc hieght
-			list.style.height = (document.body.offsetHeight - header.offsetHeight-60) + 'px';
+			list.style.height = (document.body.offsetHeight-90) + 'px';
 			//create
 			window.indexedList = new mui.IndexedList(list);
 		});

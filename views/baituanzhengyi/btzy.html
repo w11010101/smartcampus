@@ -3,7 +3,7 @@
 
 	<head>
 		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 		<title>百团争艺</title>
 		<link rel="stylesheet" href="../../content/style/frame/bootstrap/css/bootstrap.min.css" />
 		<link rel="stylesheet" href="../../content/style/common/css/common.css" />
@@ -12,6 +12,14 @@
 		<link rel="stylesheet" href="../../content/style/frame/jquery/tab/css/scroller.css" />
 		<link rel="stylesheet" href="../../content/style/white/shiwuzhaoling/css/swzl.css" />
 		<link rel="stylesheet" href="../../content/style/white/baituanzhengyi/css/btzy.css" />
+		<style>
+			.btzy-sthd-xq .popup-alert h1 {
+			    height: 130px;
+			}
+			.popup-box.popup-alert p{
+				margin: 27px 0 30px 0;
+			}
+		</style>
 	</head>
 
 	<body class="znmj btzy btzy-index">
@@ -241,13 +249,13 @@
 			var option = {
 				type: "alert",
 				boxStyle: {
-					//"background": "url(../../content/custom/img/1/bg.png) repeat-x top #fff",
+					//"background": "url(../../content/style/white/baituanzhengyi/images/bg.png) repeat-x top #fff",
 					//"background-size": "100%",
 					"border-radius": "10px"
 				},
 				title: {
 					val: "",
-					img: "../../content/custom/img/1/1.png",
+					img: "../../content/style/white/baituanzhengyi/images/btzy-clear-bncg.png",
 					imgStyle: {
 						"margin-top": "-30%",
 						"width": "100%"
@@ -275,13 +283,13 @@
 			var obj = $(this).find("img");
 			if($(this).attr("dingyi-value") == "0"){
 				$(this).attr("dingyi-value","1");
-				$(this).find("img").attr("src","../../content/style/white/baituanzhengyi/images/icon-heart-red.png").css({"width":"100%"});
+				$(this).find("img").attr("src","../../content/style/white/baituanzhengyi/images/icon-heart-red.png").css({"width":"100%","transform":"rotateY(180deg)","-webkit-transform":"rotateY(180deg)"});
 				setTimeout(function(){
 					obj.css({"width":"70%"});
 				},500)
 			}else{
-				$(this).attr("dingyi-value","1");
-				$(this).find("img").css({"width":"100%"}).attr("src","../../content/style/white/baituanzhengyi/images/icon-heart.png");
+				$(this).attr("dingyi-value","0");
+				$(this).find("img").css({"width":"100%","transform":"rotateY(0deg)","-webkit-transform":"rotateY(0deg)"}).attr("src","../../content/style/white/baituanzhengyi/images/icon-heart.png");
 				setTimeout(function(){
 					obj.css({"width":"70%"});
 				},500)

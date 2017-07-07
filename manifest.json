@@ -10,7 +10,7 @@
 	"icons": {
 		"72": "icon.png"
 	},
-	"launch_path": "html/xiaoyuanka/index.html",/*应用的入口页面，默认为根目录下的index.html；支持网络地址，必须以http://或https://开头*/
+	"launch_path": "views/NMS/index.html",/*应用的入口页面，默认为根目录下的index.html；支持网络地址，必须以http://或https://开头*/
 	"developer": {
 		"name": "",/*开发者名称*/
 		"email": "",/*开发者邮箱地址*/
@@ -276,6 +276,30 @@
 					"content/custom/img/sure.png",
 					"content/plug/iscroll/iscroll-probe.js",
 					"content/custom/img/screen-1-2x.png"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"views/kongjiaoshi/index.html": {
+				"resources": [
+					"content/style/common/images/continue.png",
+					"content/style/frame/fastclick/fastclick.js",
+					"content/style/common/js/popup.js",
+					"content/style/white/kongjiaoshi/images/bg-1.png",
+					"content/style/common/images/back-2.png",
+					"content/style/white/kongjiaoshi/images/icon-1.png",
+					"content/style/common/css/popup.css",
+					"content/style/frame/bootstrap/css/bootstrap.min.css",
+					"content/style/white/kongjiaoshi/images/icon-2.png",
+					"content/style/frame/jquery/jquery-3.2.1.min.js",
+					"content/style/white/kongjiaoshi/js/index.js",
+					"content/style/white/kongjiaoshi/css/index.css",
+					"content/style/common/css/common.css",
+					"content/style/white/xiaoyuanka/images/screen-1.png",
+					"content/style/frame/iscroll/iscroll-probe.js",
+					"content/style/white/kongjiaoshi/images/icon-3.png",
+					"content/style/common/images/sure.png",
+					"content/style/frame/mobile-detect/mobile-detect.min.js"
 				],
 				"refer": [],
 				"priority": 0

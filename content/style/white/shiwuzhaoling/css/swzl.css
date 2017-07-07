@@ -44,7 +44,7 @@ ul{
 	z-index: 10;
 	background-color: rgba(0,0,0,0);
 	right: 15px;
-	margin-top: 5px;
+	margin-top: 6px;
 }
 .contant-text{
 	padding: 0 20px;
@@ -193,6 +193,32 @@ ul{
 	word-break: break-all;
 	font-size: 14px;
 	color: #3c3c3c;
+}
+.contant-input.row{
+	margin: 0;
+	padding-right: 15px;
+}
+.contant-input.row .col-xs-3{
+	padding-left: 10px;
+}
+.contant-input.row .col-xs-9{
+	padding:0;
+}
+.contant-input.row .col-xs-3 .button{
+	display: block;
+	width: 100%;
+	line-height: 34px;
+	color: #fff;
+	font-size: 15px;
+	text-align: center;
+	background-color: #73D2FE;
+	box-shadow: none;
+	padding: 0;
+	transition: all .3s;
+	border-radius: 4px;
+}
+.contant-input.row .col-xs-3 .button:active{
+	background-color: #A9EDFF;
 }
 /*
  * 转发页面样式
@@ -402,6 +428,17 @@ ul{
 	padding: 0px 20px;
 	margin: 20px 0;
 	resize: none;
+}
+.znmj-fb .bottom-foot-bar{
+	width: 100%;
+	height: 50px;
+	line-height: 50px;
+	position: fixed;
+	bottom: 0;
+	background-color: #73D2FE;
+	font-size: 16px;
+	color: #fff;
+	text-align: center;
 }
 
 
