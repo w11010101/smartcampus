@@ -52,44 +52,7 @@
 .smart-lockCard{
 	background: #fff;
 }
-.smart-lockCard-tips{
-	
-}
-.smart-lockCard-tips h1{
-	font-weight: normal;
-	font-size: 14px;
-	padding-left:40px;
-	position: relative;
-	color:#6d6d6d;
-}
-.smart-lockCard-tips h1:after{
-	content:" ";
-	position: absolute;
-	width: 5px;
-	height: 100%;
-	background: #02e699;
-	left:25px;
 
-}
-.smart-lockCard-tips p{
-	font-weight: normal;
-	font-size: 12px;
-	padding-left:50px;
-	padding-right:20px;
-	color:#a8a8a8;
-	position: relative;
-}
-.smart-lockCard-tips p:after{
-	content:" ";
-	position: absolute;
-	width: 5px;
-	height: 5px;
-	border-radius: 50%;
-	background:#8d8d8d;
-	top:20%;
-	margin-top: -3px;
-	left:35px;
-}
 .smart-loss .smart-imgBox,
 .smart-loss .smart-foot{
 	display: none;

@@ -338,15 +338,15 @@ html *,.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6{
 	border-color:#9ddffe;
 }
 .smart-nms-anhao .smart-list .smart-list-item:not(:first-child):after{
- 	left:20px!important;
+ 	/*left:20px!important;*/
 }
 .smart-nms-anhao .smart-list .smart-list-item:first-child:after{
 
 }
-/*.smart-nms-anhao .smart-list-item:first-child{
+.smart-nms-anhao .smart-list-item:first-child{
 	height: auto;
 	line-height: normal;
-}*/
+}
 .smart-list-item .smart-accounts{
 	padding-top: 10px;
 	padding-bottom: 15px;

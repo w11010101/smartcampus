@@ -163,6 +163,7 @@ var campus = function () {
 		var html = [];
 		var title = this.title(option);
 		html.push(title + '<div class="popup-content"><ul>');
+		// html.push('<div class="smart-loading"><div class="smart-waiting"></div></div>');
 		var arr = option.value;
 		for (var i in arr) {
 			var val = typeof arr[i] == "object" ? arr[i].name : arr[i];

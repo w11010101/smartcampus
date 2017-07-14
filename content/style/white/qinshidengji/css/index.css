@@ -1,0 +1,135 @@
+body{
+	background: #fff
+}
+.smart-list-card{
+	padding-top: 20px;
+}
+.campus-index-bg{
+	width: 100%;
+}
+.smart-list-card{
+	position: relative;
+	background: #fff;
+}
+
+.smart-list-card .smart-list{
+	background: #fff;
+	border:0;
+}
+.smart-list-card .smart-list-item{
+	padding: 0;
+	margin: 0 20px;
+	overflow: hidden;
+	height: 50px;
+	line-height: 50px
+}
+.campus-edit .smart-list-card .smart-list-item{
+	margin-left:20px;
+	margin-right: 0;
+}
+.smart-list-item img{
+	width: 30px;
+	height: 30px;
+
+}
+.smart-list-card .smart-list-item:after{
+	display: block;
+	margin:0 20px 0 30px;
+}
+.sr-only {
+    font-size: 16px;
+    width: 30%;
+    min-width: 60px;
+    max-width: 100px;
+    height: 100%;
+    position: static;
+    font-weight: normal;
+    vertical-align: middle;
+}
+.smart-list-end-icon{
+	right:20px;
+}
+.smart-list-layer-2{
+	display: inline-block;
+	vertical-align: middle;
+	padding-right: 10px;
+
+}
+.smart-list-layer-2 h3,.smart-list-layer-2 p{
+	margin: 0;
+	padding:0;
+	line-height: 16px;
+	text-align: left;
+}
+.smart-list-layer-2 h3{
+	font-size: 16px;
+	margin: 0 0 2px 0;
+	color:#3c3c3c;
+	max-width: 150px;
+	white-space:nowrap; 
+	overflow:hidden; 
+	text-overflow:ellipsis;
+}
+
+.smart-list-layer-2 p{
+	font-size: 12px;
+	color:#c8c8c8;
+}
+.smart-list-end-icon .smart-list-layer-2  h3{
+	color:#8d8d8d;
+}
+.smart-list-end-icon h3,.smart-list-end-icon p{
+	text-align: right;
+}
+.campus-index .smart-list-end-icon:after{
+	content: " ";
+	background: url(../../../common/images/continue.png) no-repeat center;
+	background-size: 25px;
+	position: absolute;
+	width: 26px;
+	height:26px;
+	top:50%;
+	right: -21px;
+	margin-top: -13px;
+	transform: rotateX(0deg);
+	-webkit-transform: rotateX(0deg);
+	transition: transform .2s ease-in,background .1s ease-in;
+	-webkit-transition: transform .2s ease-in,background .1s ease-in;
+}
+.campus-index.campus-edit .smart-list-end-icon:after{
+	display: none
+}
+.smart-content .smart-container-sure-btn{
+	margin-top: 56px;
+}
+/* 温馨提示 */
+.smart-lockCard-tips{
+	padding-top: 10px;
+}
+.smart-lockCard-tips h1:after{
+	width: 7px;
+}
+.mui-btn-blue, .mui-btn-primary, input[type=submit]{
+	background:#fff;
+}
+.mui-poppicker,.mui-poppicker-body,.mui-picker{
+	background: #fff;
+}
+.mui-poppicker-body{
+	height: 150px;
+}
+.mui-poppicker-header .mui-btn{
+	border:0px;
+	color:#73d2fe;
+	font-size:16px;
+}
+.mui-pciker-rule-ft{
+	/*border:none;*/
+}
+.mui-pciker-list li{
+	color:#8d8d8d;
+}
+.mui-pciker-list li.highlight{
+	font-size:1.2pc;
+	color:#3c3c3c;
+}

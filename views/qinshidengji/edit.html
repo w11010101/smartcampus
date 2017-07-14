@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>寝室登记</title>
+    <!-- Bootstrap -->
+    <link href="../../content/style/frame/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../content/style/common/css/common.css" rel="stylesheet">
+    <link href="../../content/style/frame/jquery/toast/css/jquery.toast.css" rel="stylesheet">
+    <link href="../../content/style/common/css/popup.css" rel="stylesheet">
+    <link href="../../content/style/white/qinshidengji/css/index.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elkements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body class="campus-edit">
+    <!-- 导航 -->
+    <nav class="navbar">
+        <div class="smart-header smart-white">
+            <a href="javascript:history.go(-1)" class="smart-back smart-icon-left">
+                <img src="../../content/style/common/images/back-2.png" alt="">
+            </a>
+            <h1>寝室登记</h1>
+        </div>
+    </nav>
+    <!-- 内容 content -->
+    <div class="smart-content">
+        <img src="../../content/style/white/qinshidengji/images/bg-1.png" alt="" class="campus-index-bg">
+        <div class="scroll-screen">
+            <!-- screen -->
+            <div class="smart-list-card smart-list-radius">
+                <ul class="smart-list smart-border-bottom-0">
+                    <li class="smart-list-item">
+                        <label class="sr-only">
+                            <img src="../../content/style/white/qinshidengji/images/icon-1.png" alt=""> 公寓楼
+                        </label>
+                        <div class="smart-list-end-icon" set-type="floor" popupType="select">
+                            <div class="smart-list-layer-2">
+                                <h3>请选择公寓楼</h3>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="smart-list-item">
+                        <label class="sr-only">
+                            <img src="../../content/style/white/qinshidengji/images/icon-2.png" alt=""> 楼层
+                        </label>
+                        <div class="smart-list-end-icon" set-type="layer" popupType="select">
+                            <div class="smart-list-layer-2">
+                                <h3>请先选择楼层</h3>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="smart-list-item">
+                        <label class="sr-only">
+                            <img src="../../content/style/white/qinshidengji/images/icon-3.png" alt=""> 房间
+                        </label>
+                        <div class="smart-list-end-icon" set-type="room" popupType="select">
+                            <div class="smart-list-layer-2">
+                                <h3>请先选择房间</h3>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="smart-list-item">
+                        <label class="sr-only">
+                            <img src="../../content/style/white/qinshidengji/images/icon-4.png" alt=""> 床位
+                        </label>
+                        <div class="smart-list-end-icon" set-type="bed" popupType="select">
+                            <div class="smart-list-layer-2">
+                                <h3>请先选择楼栋</h3>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <button type="button" class="smart-container-sure-btn smart-btn-active">修 改</button>
+            </div>
+            <div class="smart-lockCard-tips">
+              <h1>温馨提示</h1>
+              <p>开启智慧校园的内测活动怎么能没有你呢？请如实填写以上信息</p>
+            </div>
+        </div>        
+    </div>
+    <script src="../../content/style/frame/jquery/jquery-3.2.1.min.js"></script>
+    <script src="../../content/style/frame/fastclick/fastclick.js"></script>
+    <script src="../../content/style/frame/jquery/toast/js/jquery.toast.js"></script>
+    <script src="../../content/style/common/js/popup.js"></script>
+    <script src="../../content/style/frame/mobile-detect/mobile-detect.min.js"></script>
+    <script src="../../content/style/white/qinshidengji/js/index.js"></script>
+    <script type="text/javascript">
+        // console.log(decodeURI(getValue().floor));
+        
+        var getVal = {};
+        $.each(getValue(),function(i,e){
+            getVal[i]=decodeURI(e)
+        });
+        console.log(getVal);
+        $.each($(".smart-list-end-icon"),function(i,e){
+            $("h3",e).html(getVal[$(e).attr("set-type")]);
+        });
+        // var url = url || window.location.href; 
+        // url = convertURL(url);
+        // $.get(url,null,function(data){
+        //     console.log(data);
+        // });
+    </script>
+</body>
+
+</html>

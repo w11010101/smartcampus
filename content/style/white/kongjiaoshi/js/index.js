@@ -91,7 +91,7 @@ case "floor":
 
 var option = {
     value:newArr,
-    type:$(this).attr("popupType")
+    type:$(this).attr("popupType"),cancel:true
 }
 campus.popup(option, function (data) {
     console.log(data);

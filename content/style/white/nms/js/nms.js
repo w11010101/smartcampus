@@ -51,9 +51,14 @@
 		var thisP = $(this).parent();
 		var thisSure = thisP.find(".smart-icon-srue");
 		var show = "smart-icon-show";
+		// e.keyCode == 8 删除键
 		if(e.keyCode == 8) {
 			thisSure.removeClass(show).hide(0);
 			$(".smart-btn").removeClass("smart-btn-sure");
+			// 只要不是账号,删除后重置password
+			if($(this).attr("inputtype")!="account"){
+				$(this).attr("password",$(this).val());
+			}
 		} else {
 			var type = $(this).attr("inputType");
 			if(type != "asscount") {
@@ -100,3 +105,12 @@ function tips(val) {
 		loader: false
 	});
 }
+//function plusReady(){
+//	console.log(plus.device.uuid);
+//	alert(plus.device.uuid);
+//}
+//if(window.plus){
+//	plusReady();
+//}else{
+//	document.addEventListener("plusready",plusReady,false);
+//}
