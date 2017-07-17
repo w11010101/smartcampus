@@ -83,6 +83,13 @@ var campus = function () {
 		case "select":
 			// 选择列表
 			box.append(this.selects(option));
+			$(".popup-content .smart-loading").remove();
+			var arr = option.value;
+			for (var i in arr) {
+				var val = typeof arr[i] == "object" ? arr[i].name : arr[i];
+				var key = typeof arr[i] == "object" ? arr[i].key : arr[i];
+				$(".popup-content ul").append('<li key="' + key + '" >' + val + '</li>');
+			}
 			this.selectsEvent(function (e) {
 				callback(e);
 			})
@@ -163,13 +170,13 @@ var campus = function () {
 		var html = [];
 		var title = this.title(option);
 		html.push(title + '<div class="popup-content"><ul>');
-		// html.push('<div class="smart-loading"><div class="smart-waiting"></div></div>');
-		var arr = option.value;
-		for (var i in arr) {
-			var val = typeof arr[i] == "object" ? arr[i].name : arr[i];
-			var key = typeof arr[i] == "object" ? arr[i].key : arr[i];
-			html.push('<li key="' + key + '" >' + val + '</li>');
-		}
+		html.push('<div class="smart-loading"><div class="smart-waiting"></div></div>');
+		// var arr = option.value;
+		// for (var i in arr) {
+		// 	var val = typeof arr[i] == "object" ? arr[i].name : arr[i];
+		// 	var key = typeof arr[i] == "object" ? arr[i].key : arr[i];
+		// 	html.push('<li key="' + key + '" >' + val + '</li>');
+		// }
 		html.push('</ul></div>');
 		return html.join("");
 	};
@@ -289,6 +296,10 @@ var campus = function () {
 		});
 		
 	};
+	// 滚动弹窗 
+	// 集成mui.min.sj 和 mui.picker.js等先关js 和 css；
+	
+	
 	// 关闭
 	this.boxClose = function () {
 		$(".smart-pay-close,.popup-cancel").on("click", function () {
@@ -323,6 +334,10 @@ var campus = function () {
 				loader: false
 			});
 		}
+		// 当.jq-toast-wrap消失后删除掉，便可再次弹出提示；
+		setTimeout(function(){
+			$(".jq-toast-wrap").remove();
+		},5000);
 	};
 }
 var campus = new campus();

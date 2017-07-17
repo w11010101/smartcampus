@@ -395,7 +395,8 @@ body .smart-border-top-0:before{
 	transition: background .1s ease-in;
 	-webkit-transition: background .1s ease-in;	
 }
-.smart-content .smart-container-sure-btn{
+.smart-content .smart-container-sure-btn,
+.smart-content .smart-btn{
 	outline: none;
 	width: 85%;
 	display: block;
@@ -409,11 +410,13 @@ body .smart-border-top-0:before{
 	transition: background-color .2s ease-in;
 	-webkit-transition: background-color .2s ease-in;
 }
-.smart-container-sure-btn.smart-btn-active{
+.smart-container-sure-btn.smart-btn-active,
+.smart-btn.smart-btn-active{
 	background-color:#73d2fe;
     border-color:#73d2fe
 }
-.smart-container-sure-btn.smart-btn-active:active{
+.smart-container-sure-btn.smart-btn-active:active,
+.smart-btn.smart-btn-active:active{
 	background: #a9edff;
 }
 /* 弹出层提示 */

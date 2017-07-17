@@ -63,9 +63,9 @@ body{
 }
 .smart-list-layer-2 h3{
 	font-size: 16px;
-	margin: 0 0 2px 0;
 	color:#3c3c3c;
 	max-width: 150px;
+	font-weight: normal;
 	white-space:nowrap; 
 	overflow:hidden; 
 	text-overflow:ellipsis;
@@ -104,7 +104,7 @@ body{
 }
 /* 温馨提示 */
 .smart-lockCard-tips{
-	padding-top: 10px;
+	padding-top: 20px;
 }
 .smart-lockCard-tips h1:after{
 	width: 7px;
@@ -116,7 +116,7 @@ body{
 	background: #fff;
 }
 .mui-poppicker-body{
-	height: 150px;
+	/*height: 150px;*/
 }
 .mui-poppicker-header .mui-btn{
 	border:0px;
@@ -130,6 +130,5 @@ body{
 	color:#8d8d8d;
 }
 .mui-pciker-list li.highlight{
-	font-size:1.2pc;
 	color:#3c3c3c;
 }

@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
-
+<html>
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,12 +11,8 @@
     <link href="../../content/style/frame/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="../../content/style/common/css/common.css" rel="stylesheet">
     <link href="../../content/style/frame/jquery/toast/css/jquery.toast.css" rel="stylesheet">
-
-    <link href="../../content/style/frame/mui/css/mui.min.css" rel="stylesheet">
-    <link href="../../content/style/frame/mui/css/mui.picker.min.css" rel="stylesheet">
-    <link href="../../content/style/frame/mui/css/mui.poppicker.css" rel="stylesheet">
-
-    <link href="../../content/style/white/qinshidengji/css/index.css" rel="stylesheet">
+    <link href="../../content/style/common/css/popup.css" rel="stylesheet">
+    <link href="../../content/style/white/suguandengji/css/index.css" rel="stylesheet">
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elkements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -26,28 +21,28 @@
     <![endif]-->
 </head>
 
-<body class="campus-index">
+<body class="campus-edit">
     <!-- 导航 -->
     <nav class="navbar">
         <div class="smart-header smart-white">
             <a href="javascript:history.go(-1)" class="smart-back smart-icon-left">
                 <img src="../../content/style/common/images/back-2.png" alt="">
             </a>
-            <h1>寝室登记</h1>
+            <h1>宿管登记</h1>
         </div>
     </nav>
     <!-- 内容 content -->
     <div class="smart-content">
-        <img src="../../content/style/white/qinshidengji/images/bg-1.png" alt="" class="campus-index-bg">
+        <img src="../../content/style/white/suguandengji/images/bg-1.png" alt="" class="campus-index-bg">
         <div class="scroll-screen">
             <!-- screen -->
             <div class="smart-list-card smart-list-radius">
                 <ul class="smart-list smart-border-bottom-0">
                     <li class="smart-list-item">
                         <label class="sr-only">
-                            <img src="../../content/style/white/qinshidengji/images/icon-1.png" alt=""> 公寓楼
+                            <img src="../../content/style/white/suguandengji/images/icon-1.png" alt=""> 公寓楼
                         </label>
-                        <div class="smart-list-end-icon" set-type="floor" popupType="select" id="picker1">
+                        <div class="smart-list-end-icon" set-type="floor" popupType="select">
                             <div class="smart-list-layer-2">
                                 <h3>请选择公寓楼</h3>
                             </div>
@@ -56,9 +51,9 @@
 
                     <li class="smart-list-item">
                         <label class="sr-only">
-                            <img src="../../content/style/white/qinshidengji/images/icon-2.png" alt=""> 楼层
+                            <img src="../../content/style/white/suguandengji/images/icon-2.png" alt=""> 楼层
                         </label>
-                        <div class="smart-list-end-icon" set-type="layer" popupType="select" id="picker2">
+                        <div class="smart-list-end-icon" set-type="layer" popupType="select">
                             <div class="smart-list-layer-2">
                                 <h3>请先选择楼层</h3>
                             </div>
@@ -66,9 +61,9 @@
                     </li>
                     <li class="smart-list-item">
                         <label class="sr-only">
-                            <img src="../../content/style/white/qinshidengji/images/icon-3.png" alt=""> 房间
+                            <img src="../../content/style/white/suguandengji/images/icon-3.png" alt=""> 房间
                         </label>
-                        <div class="smart-list-end-icon" set-type="room" popupType="select" id="picker3">
+                        <div class="smart-list-end-icon" set-type="room" popupType="select">
                             <div class="smart-list-layer-2">
                                 <h3>请先选择房间</h3>
                             </div>
@@ -76,16 +71,16 @@
                     </li>
                     <li class="smart-list-item">
                         <label class="sr-only">
-                            <img src="../../content/style/white/qinshidengji/images/icon-4.png" alt=""> 床位
+                            <img src="../../content/style/white/suguandengji/images/icon-4.png" alt=""> 床位
                         </label>
-                        <div class="smart-list-end-icon" set-type="bed" popupType="select" id="picker4">
+                        <div class="smart-list-end-icon" set-type="bed" popupType="select">
                             <div class="smart-list-layer-2">
                                 <h3>请先选择楼栋</h3>
                             </div>
                         </div>
                     </li>
                 </ul>
-                <button type="button" class="smart-container-sure-btn">确 认</button>
+                <button type="button" class="smart-btn smart-btn-active">修 改</button>
             </div>
             <div class="smart-lockCard-tips">
               <h1>温馨提示</h1>
@@ -95,29 +90,26 @@
     </div>
     <script src="../../content/style/frame/jquery/jquery-3.2.1.min.js"></script>
     <script src="../../content/style/frame/fastclick/fastclick.js"></script>
-    
-    <script src="../../content/style/frame/mui/js/mui.min.js"></script>
-    <script src="../../content/style/frame/mui/js/mui.picker.min.js"></script>
-    <script src="../../content/style/frame/mui/js/mui.poppicker.js"></script>
-
+    <script src="../../content/style/frame/jquery/toast/js/jquery.toast.js"></script>
+    <script src="../../content/style/common/js/popup.js"></script>
     <script src="../../content/style/frame/mobile-detect/mobile-detect.min.js"></script>
-    <script src="../../content/style/white/qinshidengji/js/index.js"></script>
+    <script src="../../content/style/white/suguandengji/js/index.js"></script>
     <script type="text/javascript">
-	    document.addEventListener('touchmove', function(e) {
-	        e.preventDefault();
-	    }, {
-	        passive: false
-	    });
-	
-	    // 展开筛选
-	    $(".screen-title-box").on("click", function() {
-	        setTimeout(function() {
-	            myScroll.scrollTo(0, 0, 200);
-	        }, 200);
-	    });
-	    
+        // console.log(decodeURI(getValue().floor));
+        
+        var getVal = {};
+        $.each(getValue(),function(i,e){
+            getVal[i]=decodeURI(e)
+        });
+        $.each($(".smart-list-end-icon"),function(i,e){
+            $("h3",e).html(getVal[$(e).attr("set-type")]);
+        });
+        // var url = url || window.location.href; 
+        // url = convertURL(url);
+        // $.get(url,null,function(data){
+        //     console.log(data);
+        // });
     </script>
-
 </body>
 
 </html>
