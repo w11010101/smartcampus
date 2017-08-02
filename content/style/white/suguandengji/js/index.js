@@ -4,7 +4,15 @@ $(function () {
 
 var value;
 var tap = "";
-
+// popupPicker 配置
+var popupPicker;
+popupPicker1 = new mui.PopPicker({
+  layer: 1
+});
+popupPicker2 = new mui.PopPicker({
+  layer: 2
+});
+//
 function contains(needle) {
   for (i in this) {
     if (this[i].indexOf(needle) > 0) return i;
@@ -25,21 +33,22 @@ if (phone == "UnknownPhone") { //位置手机型号处理
 // =======================================================================
 //级联示例
 
-var popupPicker;
+
 function gearPopup(data,id,colNum){
   if(data == null) {
     campus.tips("暂无数据，请稍后再试！");
   }else{
     var col = colNum || 2;
-    popupPicker = new mui.PopPicker({
-      layer: col
-    });
-    // console.log(col);
-    popupPicker.setData(data);
+    // popupPicker = new mui.PopPicker({
+    //   layer: col
+    // });
+    picker = col == 2?popupPicker2 : popupPicker1;
+
+    picker.setData(data);
     var floorButton = document.getElementById(id);
     var floorValuer = floorButton.querySelector('h3');
 
-    popupPicker.show(function(items) {
+    picker.show(function(items) {
       // 判断，如果点击确定时过快而导致无法正确选择到值，会返回undefined；
       // 重新赋值；
       var t1 = items[0].text || " ";

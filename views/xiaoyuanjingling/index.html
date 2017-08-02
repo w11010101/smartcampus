@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>校园精灵</title>
+    <!-- Bootstrap -->
+    <link href="../../content/style/frame/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../content/style/common/css/common.css" rel="stylesheet">
+    <link href="../../content/style/white/xiaoyuanjingling/css/index.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elkements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body class="smart-xyjl">
+    <div class="smart-content">
+        <div class="smart-banner">
+            <img src="../../content/style/white/xiaoyuanjingling/images/header.png" class="smart-banner-header">
+            <p>Hi，我是无所不知的海大大，未来的日日夜夜都愿意陪在你身边，我会<em>24</em>小时OnCall啦~</p>
+        </div>
+        <!-- 热门提问 -->
+        <div class="smart-xyjl-hotQuestions">
+            <a href="search.html">你想要问我的？</a>
+            <div class="smart-lockCard-tips">
+                <h1>热门提问</h1>
+            </div>
+            <ul class="smart-list smart-list-space">
+                <li class="smart-list-item">
+                    实验室上网问题
+                    <em class="smart-list-end-icon">
+                        <img src="../../content/style/common/images/continue.png" alt="">
+                    </em>
+                </li>
+                <li class="smart-list-item">
+                    网络连接上的问题
+                    <em class="smart-list-end-icon">
+                        <img src="../../content/style/common/images/continue.png" alt="">
+                    </em>
+                </li>
+                <li class="smart-list-item">
+                    关于海大医院挂号购药的问题
+                    <em class="smart-list-end-icon">
+                        <img src="../../content/style/common/images/continue.png" alt="">
+                    </em>
+                </li>
+                <li class="smart-list-item">
+                    关于校园卡审核进度的问题
+                    <em class="smart-list-end-icon">
+                        <img src="../../content/style/common/images/continue.png" alt="">
+                    </em>
+                </li>
+                <li class="smart-list-item">
+                    海大邮件收发中心相关问题
+                    <em class="smart-list-end-icon">
+                        <img src="../../content/style/common/images/continue.png" alt="">
+                    </em>
+                </li>
+            </ul>
+        </div>
+        <!-- 提问分类 -->
+        <div class="smart-xyjl-classify">
+            <h2>提问分类</h2>
+            <div id="wrapper-1">
+                <div id="scroller-1">
+                    <ul>
+                        <li>
+                            <a href="">
+                                <img src="../../content/style/white/xiaoyuanjingling/images/icon-1.png" alt="">
+                                <p>学习类</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <img src="../../content/style/white/xiaoyuanjingling/images/icon-2.png" alt="">
+                                <p>教务类</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <img src="../../content/style/white/xiaoyuanjingling/images/icon-3.png" alt="">
+                                <p>就业类</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <img src="../../content/style/white/xiaoyuanjingling/images/icon-4.png" alt="">
+                                <p>生活类</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- 热门活动 -->
+        <div class="smart-xyjl-activity">
+            <div class="smart-lockCard-tips">
+                <h1>热门活动</h1>
+                <div id="wrapper-2">
+                    <div id="scroller-2">
+                        <ul>
+                            <li>
+                                <a href="">
+                                    <img src="../../content/style/white/xiaoyuanjingling/images/img-1.png" alt="">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <img src="../../content/style/white/xiaoyuanjingling/images/img-2.png" alt="">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <img src="../../content/style/white/xiaoyuanjingling/images/img-3.png" alt="">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <img src="../../content/style/white/xiaoyuanjingling/images/img-1.png" alt="">
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../../content/style/frame/jquery/jquery-3.2.1.min.js"></script>
+    <script src="../../content/style/frame/iscroll/iscroll-probe.js"></script>
+    <script type="text/javascript">
+    function runMyScroll(obj) {
+        var myScroll;
+        myScroll = new IScroll(obj, {
+            // probeType: 3,
+            // mouseWheel: true
+            scrollX: true,
+            scrollY: false,
+            mouseWheel: true
+        });
+        document.addEventListener('touchmove', function(e) {
+            e.preventDefault();
+        }, {
+            passive: false
+        });
+    }
+    // 
+    // 计算 提问分类的长度
+    var classifyLength = $(".smart-xyjl-classify li").length;
+    $("#scroller-1").css("width", classifyLength * 100 + "px");
+    // myScroll.refresh(true);
+    runMyScroll('#wrapper-1');
+    var activityLength = $(".smart-xyjl-activity li").length;
+    $("#scroller-2").css("width", activityLength * 146 + "px");
+    runMyScroll('#wrapper-2');
+    </script>
+</body>
+
+</html>
