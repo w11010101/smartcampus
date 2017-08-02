@@ -143,18 +143,23 @@
             scrollY: false,
             mouseWheel: true
         });
-        document.addEventListener('touchmove', function(e) {
+        $(obj).parent()[0].addEventListener('touchmove', function(e) {
             e.preventDefault();
         }, {
             passive: false
         });
+        // document.addEventListener('touchmove', function(e) {
+        //     e.preventDefault();
+        // }, {
+        //     passive: false
+        // });
     }
     // 
-    // 计算 提问分类的长度
+    // 计算 提问分类 的width；
     var classifyLength = $(".smart-xyjl-classify li").length;
     $("#scroller-1").css("width", classifyLength * 100 + "px");
-    // myScroll.refresh(true);
     runMyScroll('#wrapper-1');
+    // 计算 热门活动 的width；
     var activityLength = $(".smart-xyjl-activity li").length;
     $("#scroller-2").css("width", activityLength * 146 + "px");
     runMyScroll('#wrapper-2');

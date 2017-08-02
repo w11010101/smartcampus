@@ -1,5 +1,5 @@
-.smart-content{
-    /*overflow-y: scroll;*/
+html,body,.smart-content{
+    overflow-x: hidden;
 }
 .smart-banner {
     height: 160px;
@@ -34,6 +34,7 @@
 .smart-xyjl-hotQuestions {
     background: #fff;
     padding: 25px 0;
+    overflow-x: hidden;
 }
 
 .smart-xyjl-hotQuestions>a {
@@ -55,12 +56,16 @@
 .smart-lockCard-tips h1 {
     font-size: 16px;
 }
-
+.smart-list{
+	position: relative;
+}
 .smart-list .smart-list-item {
     height: 46px;
     line-height: 46px;
 }
-
+.smart-list, .smart-sub-list{
+	border:0;
+}
 .smart-xyjl .smart-list:after {
     left: 20px!important;
     top: 0;
@@ -192,4 +197,135 @@
 /* search */
 .smart-xyjl-search{
     background:#fff;
+    overflow: hidden;
 }
+
+/* chart */
+.smart-xyjl-chat-container > div{
+    margin:15px 0;
+}
+.smart-xyjl-chat-left,
+.smart-xyjl-chat-right{
+    font-size: 0
+}
+.smart-xyjl-chat-left .smart-xyjl-chat-header {
+    width: 80px;
+    display: inline-block;
+    text-align: center;
+    vertical-align: top;
+}
+.smart-xyjl-chat-left .smart-xyjl-chat-header img{
+    width: 60px;
+    height: 60px;
+}
+.smart-xyjl-chat-box{
+    width: 220px;
+    display: inline-block;
+}
+.smart-xyjl-chat-box{
+    padding-top: 5px;
+    vertical-align: top;
+}
+.smart-xyjl-chat-left-icon,
+.smart-xyjl-chat-right-icon{
+    height: 10px;
+    display: block;
+    position: relative;
+    top: 1px;
+}
+.smart-xyjl-chat-left .smart-xyjl-chat-left-icon{
+    background:url(../images/chat-left.png) no-repeat;
+    background-size: 12px 10px;
+}
+.smart-xyjl-chat-right .smart-xyjl-chat-right-icon{
+    background:url(../images/chat-right.png) no-repeat right;
+    background-size: 12px 10px;
+}
+.smart-xyjl-chat-content{
+    padding: 10px;
+}
+.smart-xyjl-chat-content p{
+    margin:0;
+    font-size: 12px;
+}
+.smart-xyjl-chat-content img{
+    width: 100%;
+    margin-top: 10px;
+}
+.smart-xyjl-chat-left .smart-xyjl-chat-content{
+    background:#fff;
+    border: 1px solid #eaeaea;
+    border-radius: 5px;
+    border-top-left-radius: 0;
+}
+
+.smart-xyjl-chat-right:after{
+    content: " ";
+    display: block;
+    height: 0;
+    clear: both;
+}
+.smart-xyjl-chat-right .smart-xyjl-chat-box{
+    float:right;
+    margin-right: 15px;
+}
+.smart-xyjl-chat-right .smart-xyjl-chat-content{
+    color:#fff;
+    border-radius: 5px;
+    border-top-right-radius: 0;
+    background: -moz-linear-gradient(top, #61bdff 0%, #43dbff 100%);
+    background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,#61bdff), color-stop(100%,#43dbff));
+    background: -webkit-linear-gradient(left, #61bdff 0%,#43dbff 100%);
+    background: -o-linear-gradient(left, #61bdff 0%,#43dbff 100%);
+    background: -ms-linear-gradient(left, #61bdff 0%,#43dbff 100%);
+    background: linear-gradient(to right, #61bdff 0%,#43dbff 100%);
+}
+/* 问答 */
+.smart-xyjl-chat-QA {
+    padding: 10px 0;
+    position: relative;
+    margin: 10px 0; 
+}
+.smart-xyjl-chat-QA:after{
+    content: " ";
+    position: absolute;
+    width: 100%;
+    height: 1px ;
+    bottom: 0;
+    background: #e0e0e0;
+    transform: rotateX(60deg);
+    -webkit-transform: rotateX(60deg);
+}
+.smart-xyjl-chat-Q,.smart-xyjl-chat-A{
+    padding-left: 20px;
+    padding-bottom: 5px;
+}
+.smart-xyjl-chat-Q{
+    background:url(../images/icon-q.png) no-repeat top 2px left 0;
+    background-size: 14px 14px;
+}
+.smart-xyjl-chat-A{
+    background:url(../images/icon-a.png) no-repeat top 2px left 0;
+    background-size: 14px 14px;
+}
+/* 结果 */
+
+.smart-xyjl-chat-end{
+    text-align: center;
+    margin: 10px 0;
+}
+.smart-xyjl-chat-end button{
+    color:#0d2a70;
+    font-size: 13px;
+    background: #fff;
+    border:1px solid #0d2a70;
+    border-radius: 5px;
+    padding:2px 16px;
+}
+.smart-xyjl-chat-end button:first-child{
+    margin-right: 15px;
+}
+
+
+
+

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>校园精灵——帮助</title>
+    <!-- Bootstrap -->
+    <link href="../../content/style/frame/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../content/style/common/css/common.css" rel="stylesheet">
+    <link href="../../content/style/white/xiaoyuanjingling/css/index.css" rel="stylesheet">
+    <link href="../../content/style/frame/jquery/autocomplete/css/autocomplete.css" rel="stylesheet">
+    <link href="../../content/style/frame/jquery/autocomplete/css/jquery-ui-autocomplete.min.css" rel="stylesheet">
+    <!-- <link href="../../content/style/common/css/popup.css" rel="stylesheet"> -->
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elkements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body class="smart-xyjl-chat">
+    <div class="smart-content">
+        <div class="smart-xyjl-chat-container">
+            <div class="smart-xyjl-chat-left">
+                <div class="smart-xyjl-chat-header">
+                    <img src="../../content/style/white/xiaoyuanjingling/images/head.png">
+                </div>
+                <div class="smart-xyjl-chat-box">
+                    <em class="smart-xyjl-chat-left-icon"></em>
+                    <div class="smart-xyjl-chat-content"><p>大家快来s，dfsd大家---快ffcb，kmlz大，家快dfkn</p></div>
+                </div>
+            </div>
+            <div class="smart-xyjl-chat-right">
+                <div class="smart-xyjl-chat-box">
+                    <em class="smart-xyjl-chat-right-icon"></em>
+                    <div class="smart-xyjl-chat-content">
+                    <p>大家快来s，dfsd大家---快ffcb，kmlz大，家快dfknl，大家快来s，dfsd大------家快ffcb，kmlz大，家快dfknl</p></div>
+                </div>
+            </div>
+            <div class="smart-xyjl-chat-left">
+                <div class="smart-xyjl-chat-header">
+                    <img src="../../content/style/white/xiaoyuanjingling/images/head.png">
+                </div>
+                <div class="smart-xyjl-chat-box">
+                    <em class="smart-xyjl-chat-left-icon"></em>
+                    <div class="smart-xyjl-chat-content">
+                        <p>大家快来s，dfsd大家---快ffcb，kmlz大，家快dfknl，大家快来s，dfsd大------家快ffcb，kmlz大，家快dfknl</p>
+                        <div class="smart-xyjl-chat-QA">
+                            <p class="smart-xyjl-chat-Q">第一个问题！第一个问题！第一个问题！第一个问题！</p>
+                            <p class="smart-xyjl-chat-A">第一个回答！第一个回答！第一个回答！第一个回答！</p>
+                        </div>
+                        <img src="../../content/style/white/xiaoyuanjingling/images/map.png" class="other-app">
+                    </div>
+                </div>
+            </div>
+            <div class="smart-xyjl-chat-left">
+                <div class="smart-xyjl-chat-header">
+                    <img src="../../content/style/white/xiaoyuanjingling/images/head.png">
+                </div>
+                <div class="smart-xyjl-chat-box">
+                    <em class="smart-xyjl-chat-left-icon"></em>
+                    <div class="smart-xyjl-chat-content">
+                        <p>没有找到合适的答案，你想...？</p>
+                        <div class="smart-xyjl-chat-end">
+                            <button>等待回复</button>
+                            <button>继续提问</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <script src="../../content/style/frame/jquery/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript">
+        var createChatHtml = {
+            containerLeft:"smart-xyjl-chat-left",
+            containerRight:"smart-xyjl-chat-right",
+            iconLeft:"smart-xyjl-chat-left-icon",
+            iconRight:"smart-xyjl-chat-right-icon",
+            header:"../../content/style/white/xiaoyuanjingling/images/head.png",
+            map:"../../content/style/white/xiaoyuanjingling/images/map.png",
+
+            // 创建问题 smart-xyjl-chat-left 容器
+            createLeft:function (){
+                console.log("left");
+            },
+            // 创建问题 smart-xyjl-chat-right 容器
+            createRight:function (){
+                console.log("right");
+            },
+            // 创建 chat 容器
+            createContainer:function (){
+                console.log("container");
+                
+            },
+            // 创建头像
+            createHeader:function (){
+                html='<div class="smart-xyjl-chat-header"><img src="'+this.header+'"></div>';
+                return html;
+            },
+            // 创建地图
+            createMap:function (){
+                console.log("map");
+            },
+            // 创建问答dom
+            createQA:function (){
+                console.log("QA");
+            },
+            // 创建问题结果
+            createQAEnd:function (){
+                console.log("QAEnd");
+            }
+        }
+        
+        console.log(createChatHtml.createHeader());
+
+    </script>
+</body>
+
+</html>
