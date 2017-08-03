@@ -84,7 +84,20 @@
     <script src="../../content/style/white/xiaoyuanjingling/js/queries.js"></script>
     <script src="../../content/style/white/xiaoyuanjingling/js/index.js"></script>
     <script type="text/javascript">
-        $(".smart-lockCard-tips h1").html(decodeURI(getUrlVal().val));
+        // 修改问题类型标题
+        $(".smart-lockCard-tips h1").html(getUrlVal()?decodeURI(getUrlVal().val):"");
+        // 监听input keyup
+        var searchBtn = $('.smart-search-box input').next();
+        $('.smart-search-box input').on("keyup", function() {
+            // if(this.value.length>=2){
+            //     $(".smart-content").append('<div class="smart-screen-mask"></div>')
+            // }
+            this.value ? searchBtn.text("取消") : searchBtn.text("搜索");
+        });
+        // 监听input blur
+        $('.smart-search-box input').on("blur", function() {
+            this.value ? searchBtn.text("搜索") : searchBtn.text("取消");
+        });
     </script>
 </body>
 </html>

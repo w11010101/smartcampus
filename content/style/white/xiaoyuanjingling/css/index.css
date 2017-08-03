@@ -33,15 +33,16 @@ html,body,.smart-content{
 
 .smart-xyjl-hotQuestions {
     background: #fff;
-    padding: 25px 0;
     overflow-x: hidden;
 }
-
+.smart-xyjl .smart-xyjl-hotQuestions {
+    padding: 25px 0;
+}
 .smart-xyjl-hotQuestions>a {
     display: block;
     margin-left: 25px;
     margin-right: 25px;
-    margin-bottom: 22px;
+    /*margin-bottom: 22px;*/
     height: 30px;
     line-height: 30px;
     border: 1px solid #e0e0e0;
@@ -55,6 +56,10 @@ html,body,.smart-content{
 
 .smart-lockCard-tips h1 {
     font-size: 16px;
+    margin:10px 0;
+}
+.smart-xyjl .smart-lockCard-tips h1 {
+    margin:20px 0;
 }
 .smart-list{
 	position: relative;
@@ -204,6 +209,7 @@ html,body,.smart-content{
 }
 .pullDown {
     font-size:0;
+    /*height: 0*/
 }
 /* chart */
 .smart-xyjl-chat{

@@ -32,9 +32,13 @@ function searchComplete(){
         minLength: 2,
         width: "100%",
         appendTo: '#suggestions-container',
-        onSelect: function(suggestion) {
-            alert('You selected: ' + suggestion.value + ', ' + suggestion.data);
+        suggest: function (a){
+            console.log(a)
         }
+        
+        // onSelect: function(suggestion) {
+        //     alert('You selected: ' + suggestion.value + ', ' + suggestion.data);
+        // }
     });
     refresher.init({
         id: "wrapper",
@@ -79,12 +83,3 @@ $(".smart-list li").on("click", function() {
 })
 // 提问分类
 
-
-// // 监听input keyup
-// $('.smart-search-box input').on("keyup", function() {
-//     this.value ? $(this).next().text("取消") : $(this).next().text("搜索")
-// });
-// // 监听input blur
-// $('.smart-search-box input').on("blur", function() {
-//     this.value ? $(this).next().text("搜索") : $(this).next().text("取消")
-// });

@@ -406,7 +406,6 @@
             if (that.disabled || !that.visible) {
                 return;
             }
-
             switch (e.which) {
                 case keys.ESC:
                     that.el.val(that.currentValue);
@@ -654,7 +653,7 @@
                 }
                 return;
             }
-
+            console.log(this.suggestions);
             var that = this,
                 options = that.options,
                 groupBy = options.groupBy,
@@ -703,6 +702,7 @@
             }
 
             that.fixPosition();
+            console.log(container)
             container.show();
 
             // Select first value by default:
@@ -854,7 +854,6 @@
         selectHint: function () {
             var that = this,
                 i = $.inArray(that.hint, that.suggestions);
-
             that.select(i);
         },
 
