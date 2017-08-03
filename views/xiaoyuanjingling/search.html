@@ -10,9 +10,10 @@
     <!-- Bootstrap -->
     <link href="../../content/style/frame/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="../../content/style/common/css/common.css" rel="stylesheet">
+    <link href="../../content/style/frame/iscroll4/css/pullToRefresh.css" rel="stylesheet">
     <link href="../../content/style/white/xiaoyuanjingling/css/index.css" rel="stylesheet">
     <link href="../../content/style/frame/jquery/autocomplete/css/autocomplete.css" rel="stylesheet">
-    <link href="../../content/style/frame/jquery/autocomplete/css/jquery-ui-autocomplete.min.css" rel="stylesheet">
+    <!-- <link href="../../content/style/frame/jquery/autocomplete/css/jquery-ui-autocomplete.min.css" rel="stylesheet"> -->
     <!-- <link href="../../content/style/common/css/popup.css" rel="stylesheet"> -->
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elkements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -22,60 +23,68 @@
     <![endif]-->
 </head>
 
-<body class="smart-xyjl-search">
+<body class="smart-xyjl-search" onload="searchComplete();">
     <div class="smart-content">
         <div class="smart-search-box">
             <input type="text" name="">     
             <button>搜索</button>
         </div>
+        <!-- 搜索结果 自动提示-->
         <div id="suggestions-container">
             
         </div>
         <!-- 热门提问 -->
-        <!-- <div class="smart-xyjl-hotQuestions">
-            <a href="#">你想要问我的？</a>
+        <div class="smart-xyjl-hotQuestions">
             <div class="smart-lockCard-tips">
-                <h1>热门提问</h1>
+                <h1>学习类</h1>
             </div>
+            <div id="wrapper">
             <ul class="smart-list smart-list-space">
                 <li class="smart-list-item">
-                    实验室上网问题
+                    实验室上网问题？
                     <em class="smart-list-end-icon">
                         <img src="../../content/style/common/images/continue.png" alt="">
                     </em>
                 </li>
                 <li class="smart-list-item">
-                    网络连接上的问题
+                    网络连接上的问题？
                     <em class="smart-list-end-icon">
                         <img src="../../content/style/common/images/continue.png" alt="">
                     </em>
                 </li>
                 <li class="smart-list-item">
-                    关于海大医院挂号购药的问题
+                    关于海大医院挂号购药的问题？
                     <em class="smart-list-end-icon">
                         <img src="../../content/style/common/images/continue.png" alt="">
                     </em>
                 </li>
                 <li class="smart-list-item">
-                    关于校园卡审核进度的问题
+                    关于校园卡审核进度的问题？
                     <em class="smart-list-end-icon">
                         <img src="../../content/style/common/images/continue.png" alt="">
                     </em>
                 </li>
                 <li class="smart-list-item">
-                    海大邮件收发中心相关问题
+                    海大邮件收发中心相关问题？
                     <em class="smart-list-end-icon">
                         <img src="../../content/style/common/images/continue.png" alt="">
                     </em>
                 </li>
             </ul>
-        </div> -->
+            </div>
+        </div>
         
     </div>
     <script src="../../content/style/frame/jquery/jquery-3.2.1.min.js"></script>
-    <!-- <script src="../../content/style/frame/jquery/autocomplete/js/jquery.autocomplete.js"></script> -->
-    <script src="../../content/style/frame/jquery/autocomplete/js/jquery-ui-autocomplete.min.js"></script>
+    <script src="../../content/style/frame/jquery/autocomplete/js/jquery.autocomplete.js"></script>
+    <!-- <script src="../../content/style/frame/jquery/autocomplete/js/jquery-ui-autocomplete.min.js"></script> -->
+    <script src="../../content/style/common/js/getUrl.js"></script>
+    <script src="../../content/style/frame/iscroll4/js/iscroll.js"></script>
+    <script src="../../content/style/frame/iscroll4/js/pullToRefresh.js"></script>
     <script src="../../content/style/white/xiaoyuanjingling/js/queries.js"></script>
     <script src="../../content/style/white/xiaoyuanjingling/js/index.js"></script>
+    <script type="text/javascript">
+        $(".smart-lockCard-tips h1").html(decodeURI(getUrlVal().val));
+    </script>
 </body>
 </html>

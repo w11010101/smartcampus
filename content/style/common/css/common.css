@@ -1116,7 +1116,7 @@ background: #fff;*/
 .smart-lockCard-tips h1 {
     font-weight: normal;
     font-size: 14px;
-    padding-left: 40px;
+    padding-left: 35px;
     position: relative;
     color: #6d6d6d;
     margin-top: 0;
@@ -1129,7 +1129,7 @@ background: #fff;*/
     width: 5px;
     height: 100%;
     background: #02e699;
-    left: 25px;
+    left: 20px;
 }
 
 .smart-lockCard-tips p {

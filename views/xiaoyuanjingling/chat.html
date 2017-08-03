@@ -4,7 +4,8 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"> -->
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" /> 
     <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
     <title>校园精灵——帮助</title>
     <!-- Bootstrap -->
@@ -25,7 +26,7 @@
 <body class="smart-xyjl-chat">
     <div class="smart-content">
         <div class="smart-xyjl-chat-container">
-            <div class="smart-xyjl-chat-left">
+            <!-- <div class="smart-xyjl-chat-left">
                 <div class="smart-xyjl-chat-header">
                     <img src="../../content/style/white/xiaoyuanjingling/images/head.png">
                 </div>
@@ -71,54 +72,82 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
     </div>
     <script src="../../content/style/frame/jquery/jquery-3.2.1.min.js"></script>
+    <script src="../../content/style/common/js/getUrl.js"></script>
+    <script src="../../content/style/white/xiaoyuanjingling/js/createHtml.js"></script>
+    <script src="http://api.map.baidu.com/api?v=2.0&ak=kTxsSNaAlcSvAqFpgyOFTgic" type="text/javascript"></script>
     <script type="text/javascript">
-        var createChatHtml = {
-            containerLeft:"smart-xyjl-chat-left",
-            containerRight:"smart-xyjl-chat-right",
-            iconLeft:"smart-xyjl-chat-left-icon",
-            iconRight:"smart-xyjl-chat-right-icon",
-            header:"../../content/style/white/xiaoyuanjingling/images/head.png",
-            map:"../../content/style/white/xiaoyuanjingling/images/map.png",
-
-            // 创建问题 smart-xyjl-chat-left 容器
-            createLeft:function (){
-                console.log("left");
-            },
-            // 创建问题 smart-xyjl-chat-right 容器
-            createRight:function (){
-                console.log("right");
-            },
-            // 创建 chat 容器
-            createContainer:function (){
-                console.log("container");
-                
-            },
-            // 创建头像
-            createHeader:function (){
-                html='<div class="smart-xyjl-chat-header"><img src="'+this.header+'"></div>';
-                return html;
-            },
-            // 创建地图
-            createMap:function (){
-                console.log("map");
-            },
-            // 创建问答dom
-            createQA:function (){
-                console.log("QA");
-            },
-            // 创建问题结果
-            createQAEnd:function (){
-                console.log("QAEnd");
-            }
+        // 数据1
+        var data1 ={
+            id:133,
+            people:"my", // my or others
+            peopleType:"right", // my = right; other = left;
+            content:decodeURI(getUrlVal().val)           
         }
+        createChatHtml.createContainer(data1);
+        // 数据2
+        var data2 ={
+            id:123,
+            people:"others", // my or others
+            peopleType:"left", // my = right; other = left;
+            content:"刚他喵的开学就想着放假？",
+            QAContinue:true
+        }
+        setTimeout(function(){
+            createChatHtml.createContainer(data2)
+        },2000);
         
-        console.log(createChatHtml.createHeader());
-
+        // 数据3
+        var data3 ={
+            id:123,
+            people:"others", // my or others 可有可无
+            peopleType:"left",// my = right; other = left;
+            content:"",
+            QA:true, // 可有可无
+            similarQuries:[ // 类似问题的数据集
+                {
+                    QContent:"学校的位置在什么地方？",
+                    AContent:"红旗大街和学府路交叉口",
+                    map:true,
+                    mapSrc:"", //静态图片地址
+                    mapX:121.538702,
+                    mapY:38.87734
+                },
+                {
+                    QContent:"学校高老师电话是多少？",
+                    AContent:"学校高老师的电话是",
+                    tel:15134555172,
+                },
+                {
+                    QContent:"学校食堂的位置在什么地方？",
+                    AContent:"在校南区广场理工楼，302室",
+                    map:true,
+                    mapSrc:"", //静态图片地址
+                    mapX:121.538702,
+                    mapY:38.87734
+                },
+                {
+                    QContent:"学校电话是多少？",
+                    AContent:"学校电话是",
+                    tel:15134555172,
+                }
+            ]
+        }
+        // var dom3 = createChatHtml.createContainer(data3);
+        
+        // 数据4
+        var data4 ={
+            id:123,
+            people:"others", // my or others 可有可无
+            peopleType:"left",// my = right; other = left;
+            content:"你的问题已经提交，我们会尽快回复你的~ <br>还有其他问题吗？",
+            QAEnd:true
+        }
+        // createChatHtml.createContainer(data4);
     </script>
 </body>
 

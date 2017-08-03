@@ -19,7 +19,7 @@
     <![endif]-->
 </head>
 
-<body class="smart-xyjl">
+<body class="smart-xyjl" onload="scollComputed();">
     <div class="smart-content">
         <div class="smart-banner">
             <img src="../../content/style/white/xiaoyuanjingling/images/header.png" class="smart-banner-header">
@@ -33,31 +33,31 @@
             </div>
             <ul class="smart-list smart-list-space">
                 <li class="smart-list-item">
-                    实验室上网问题
+                    实验室上网问题？
                     <em class="smart-list-end-icon">
                         <img src="../../content/style/common/images/continue.png" alt="">
                     </em>
                 </li>
                 <li class="smart-list-item">
-                    网络连接上的问题
+                    网络连接上的问题？
                     <em class="smart-list-end-icon">
                         <img src="../../content/style/common/images/continue.png" alt="">
                     </em>
                 </li>
                 <li class="smart-list-item">
-                    关于海大医院挂号购药的问题
+                    关于海大医院挂号购药的问题？
                     <em class="smart-list-end-icon">
                         <img src="../../content/style/common/images/continue.png" alt="">
                     </em>
                 </li>
                 <li class="smart-list-item">
-                    关于校园卡审核进度的问题
+                    关于校园卡审核进度的问题？
                     <em class="smart-list-end-icon">
                         <img src="../../content/style/common/images/continue.png" alt="">
                     </em>
                 </li>
                 <li class="smart-list-item">
-                    海大邮件收发中心相关问题
+                    海大邮件收发中心相关问题？
                     <em class="smart-list-end-icon">
                         <img src="../../content/style/common/images/continue.png" alt="">
                     </em>
@@ -71,25 +71,25 @@
                 <div id="scroller-1">
                     <ul>
                         <li>
-                            <a href="">
+                            <a href="search.html?val=学习类">
                                 <img src="../../content/style/white/xiaoyuanjingling/images/icon-1.png" alt="">
                                 <p>学习类</p>
                             </a>
                         </li>
                         <li>
-                            <a href="">
+                            <a href="search.html?val=教务类">
                                 <img src="../../content/style/white/xiaoyuanjingling/images/icon-2.png" alt="">
                                 <p>教务类</p>
                             </a>
                         </li>
                         <li>
-                            <a href="">
+                            <a href="search.html?val=就业类">
                                 <img src="../../content/style/white/xiaoyuanjingling/images/icon-3.png" alt="">
                                 <p>就业类</p>
                             </a>
                         </li>
                         <li>
-                            <a href="">
+                            <a href="search.html?val=生活类">
                                 <img src="../../content/style/white/xiaoyuanjingling/images/icon-4.png" alt="">
                                 <p>生活类</p>
                             </a>
@@ -133,37 +133,7 @@
     </div>
     <script src="../../content/style/frame/jquery/jquery-3.2.1.min.js"></script>
     <script src="../../content/style/frame/iscroll/iscroll-probe.js"></script>
-    <script type="text/javascript">
-    function runMyScroll(obj) {
-        var myScroll;
-        myScroll = new IScroll(obj, {
-            // probeType: 3,
-            // mouseWheel: true
-            scrollX: true,
-            scrollY: false,
-            mouseWheel: true
-        });
-        $(obj).parent()[0].addEventListener('touchmove', function(e) {
-            e.preventDefault();
-        }, {
-            passive: false
-        });
-        // document.addEventListener('touchmove', function(e) {
-        //     e.preventDefault();
-        // }, {
-        //     passive: false
-        // });
-    }
-    // 
-    // 计算 提问分类 的width；
-    var classifyLength = $(".smart-xyjl-classify li").length;
-    $("#scroller-1").css("width", classifyLength * 100 + "px");
-    runMyScroll('#wrapper-1');
-    // 计算 热门活动 的width；
-    var activityLength = $(".smart-xyjl-activity li").length;
-    $("#scroller-2").css("width", activityLength * 146 + "px");
-    runMyScroll('#wrapper-2');
-    </script>
+    <script src="../../content/style/white/xiaoyuanjingling/js/index.js"></script>
 </body>
 
 </html>
