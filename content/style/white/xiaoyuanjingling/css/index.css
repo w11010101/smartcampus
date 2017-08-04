@@ -211,6 +211,16 @@ html,body,.smart-content{
     font-size:0;
     /*height: 0*/
 }
+.smart-search-box{
+    position: relative;
+    z-index: 3;
+    background: #fff;
+    margin: 0;
+    padding: 10px ;
+}
+.smart-search-box input{
+    margin-top: 0
+}
 /* chart */
 .smart-xyjl-chat{
     height: 100%;

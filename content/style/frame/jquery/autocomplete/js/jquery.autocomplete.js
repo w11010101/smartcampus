@@ -653,7 +653,6 @@
                 }
                 return;
             }
-            console.log(this.suggestions);
             var that = this,
                 options = that.options,
                 groupBy = options.groupBy,
@@ -673,6 +672,7 @@
                             return '';
                         }
 
+                        
                         category = currentCategory;
 
                         return options.formatGroup(suggestion, category);
@@ -702,7 +702,6 @@
             }
 
             that.fixPosition();
-            console.log(container)
             container.show();
 
             // Select first value by default:

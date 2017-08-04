@@ -29,11 +29,22 @@ function scollComputed(){
 function searchComplete(){
     $('.smart-search-box input ').autocomplete({
         lookup: queries,
-        minLength: 2,
+        minChars: 2,
         width: "100%",
         appendTo: '#suggestions-container',
-        suggest: function (a){
-            console.log(a)
+        onSearchComplete: function (value,Complete){    
+            // 搜索完成        
+            if(Complete.length){
+                console.log(Complete);
+                // 遮罩层显示
+                $(".smart-screen-mask").show()
+            }
+        },
+        onSearchStart:function(){
+            // console.log("onSearchStart");
+        },
+        onSearchError:function(){
+            // console.log("onSearchError");
         }
         
         // onSelect: function(suggestion) {
@@ -46,6 +57,10 @@ function searchComplete(){
         pullUpAction: Load
     });
 }
+// 遮罩层的隐藏
+$(".smart-screen-mask").on("click",function(){
+    $(this).hide();
+})
 var generatedCount = 0;
 // 下拉刷新
 function Refresh() {
