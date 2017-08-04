@@ -38,7 +38,7 @@ function searchComplete(){
                 console.log(Complete);
                 // 遮罩层显示
                 $(".smart-screen-mask").show();
-                $(".smart-xyjl-chat-container")[0].addEventListener('touchmove', function(e) {
+                $(".smart-screen-mask")[0].addEventListener('touchmove', function(e) {
                     e.preventDefault();
                 }, {
                     passive: false

@@ -45,7 +45,6 @@ var createChatHtml = {
         var html = '<h1 class="smart-xyjl-chat-similarQuries">【 类似问题 】</h1>';
         var that = this;
         for (var i in QuriesArr) {
-            console.log(QuriesArr[i]);
             html += that.createQA(QuriesArr[i]);
             html += that.createMap(QuriesArr[i]);
         }
