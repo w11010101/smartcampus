@@ -480,17 +480,7 @@ background-image: url('data:image/svg+xml;charset=utf-8,<svg viewBox=\'0 0 120 1
 	right: 0;
 }
 
-.smart-foot .smart-btn {
-	width: 100%;
-	padding: 12px 0;
-	margin-top: -12px;
-	border: 0;
-	background: #73d2fe;
-	color: #fff;
-	font-size: 16px;
-	transition: background .1s ease-in;
-	-webkit-transition: background .1s ease-in;
-}
+
 
 .smart-content .smart-container-sure-btn,
 .smart-content .smart-btn {
@@ -508,6 +498,19 @@ background-image: url('data:image/svg+xml;charset=utf-8,<svg viewBox=\'0 0 120 1
 	-webkit-transition: background-color .2s ease-in;
 }
 
+.smart-content .smart-foot .smart-btn {
+	width: 100%;
+	padding: 12px 0;
+	margin-top: -12px;
+	margin-bottom: 0;
+	border: none;
+	border-radius: 0;
+	background: #73d2fe;
+	color: #fff;
+	font-size: 16px;
+	transition: background .1s ease-in;
+	-webkit-transition: background .1s ease-in;
+}
 .smart-container-sure-btn.smart-btn-active,
 .smart-btn.smart-btn-active {
 	background-color: #73d2fe;

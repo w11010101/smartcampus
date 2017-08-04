@@ -37,64 +37,54 @@ function searchComplete(){
             if(Complete.length){
                 console.log(Complete);
                 // 遮罩层显示
-                $(".smart-screen-mask").show()
+                $(".smart-screen-mask").show();
+                $(".smart-xyjl-chat-container")[0].addEventListener('touchmove', function(e) {
+                    e.preventDefault();
+                }, {
+                    passive: false
+                });
             }
         },
-        onSearchStart:function(){
-            // console.log("onSearchStart");
-        },
-        onSearchError:function(){
-            // console.log("onSearchError");
+        onSelect: function(suggestion) {
+            console.log(suggestion);
+            $(".smart-screen-mask").hide();
+            window.location.href = "chat.html?val="+suggestion.value;
         }
-        
-        // onSelect: function(suggestion) {
-        //     alert('You selected: ' + suggestion.value + ', ' + suggestion.data);
-        // }
     });
-    refresher.init({
-        id: "wrapper",
-        pullDownAction: Refresh,
-        pullUpAction: Load
+    // 监听input keyup
+    var searchBtn = $('.smart-search-box input').next();
+    var input = $('.smart-search-box input');
+    input.on("keyup", function() {
+        this.value ? searchBtn.text("搜索") : searchBtn.text("取消");
     });
+    // 监听input blur
+    // input.on("blur", function() {
+    //     this.value ? searchBtn.text("取消") : searchBtn.text("搜索");
+    // });
+
+    // 搜索按钮的判断
+    $(".smart-search-box button").on("click",function (){
+
+        if(!input.val().length){
+            window.location.href = "index.html";
+        }else{
+            // 显示列表容器
+            $(".smart-xyjl-questionsType").show();
+            $(".smart-screen-mask").hide();
+        }
+    })
 }
 // 遮罩层的隐藏
 $(".smart-screen-mask").on("click",function(){
     $(this).hide();
 })
-var generatedCount = 0;
-// 下拉刷新
-function Refresh() {
-    wrapper.refresh();
-    // setTimeout(function() {
-    //     var el, li, i;
-    //     el = document.querySelector("#wrapper ul");
-    //     el.innerHTML = '';
-    //     for (i = 0; i < 11; i++) {
-    //         li = document.createElement('li');
-    //         li.appendChild(document.createTextNode('top row ' + (++generatedCount)));
-    //         el.insertBefore(li, el.childNodes[0]);
-    //     }
-    //     wrapper.refresh();
-    // }, 1000);
-}
-// 上拉加载
-function Load() {
-    setTimeout(function() {
-        var li, i;
-        for (i = 0; i < 3; i++) {
-            li = `<li class="smart-list-item">实验室上网问题？
-                     <em class="smart-list-end-icon">
-                        <img src="../../content/style/common/images/continue.png" alt="">
-                     </em>
-                  </li>`;
-            $("#wrapper ul").append(li);
-        }
-        wrapper.refresh();
-    }, 1000);
-}
+
+
 // 列表点击
-$(".smart-list li").on("click", function() {
-    window.location.href = 'chat.html?val='+$(this).text().trim();
-})
+function listClick(){
+    $(".smart-list li").off("click").on("click", function() {
+        window.location.href = 'chat.html?val='+$(this).text().trim();
+    })
+}
 // 提问分类
 

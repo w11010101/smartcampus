@@ -40,11 +40,10 @@ html,body,.smart-content{
 }
 .smart-xyjl-hotQuestions>a {
     display: block;
-    margin-left: 25px;
-    margin-right: 25px;
-    /*margin-bottom: 22px;*/
-    height: 30px;
-    line-height: 30px;
+    margin-left: 20px;
+    margin-right: 20px;
+    height: 40px;
+    line-height: 40px;
     border: 1px solid #e0e0e0;
     border-radius: 5px;
     text-indent: 30px;
@@ -53,13 +52,15 @@ html,body,.smart-content{
     background-size: 20px;
     color: #a8a8a8;
 }
-
+.smart-lockCard-tips{
+    padding:20px 0;
+}
+.smart-xyjl-search .smart-lockCard-tips{
+    padding:10px 0;
+}
 .smart-lockCard-tips h1 {
     font-size: 16px;
-    margin:10px 0;
-}
-.smart-xyjl .smart-lockCard-tips h1 {
-    margin:20px 0;
+    margin:0;
 }
 .smart-list{
 	position: relative;
@@ -67,9 +68,16 @@ html,body,.smart-content{
 .smart-list .smart-list-item {
     height: 46px;
     line-height: 46px;
+    font-size: 14px;
+}
+.smart-list-end-icon img{
+    max-width:20px;
 }
 .smart-list, .smart-sub-list{
 	border:0;
+}
+.smart-xyjl .smart-list{
+    margin-top: 20px;
 }
 .smart-xyjl .smart-list:after {
     left: 20px!important;
@@ -180,7 +188,7 @@ html,body,.smart-content{
 /* 热门活动 */
 .smart-xyjl-activity{
     height:160px;
-    padding:20px 0;
+    padding: 0;
 }
 .smart-xyjl-activity ul{
 
@@ -209,21 +217,50 @@ html,body,.smart-content{
 }
 .pullDown {
     font-size:0;
-    /*height: 0*/
+    height: 0
+}
+.smart-search-container{
+    display: none;
+    position: fixed;
+    width: 100%;
+    z-index: 10;
+
 }
 .smart-search-box{
     position: relative;
     z-index: 3;
     background: #fff;
     margin: 0;
-    padding: 10px ;
+    padding:15px 10px;
 }
 .smart-search-box input{
-    margin-top: 0
+    margin-top: 0;
+    height: 40px;
+    line-height: 40px;
+}
+.smart-xyjl-questionsType{
+    position: absolute;
+    width: 100%;
+    top:70px;
+    bottom: 0;
+}
+.smart-xyjl-questionsType,.smart-lockCard-tips{
+    display: none;
+}
+.smart-xyjl-questionsType-show,.smart-xyjl-questionsType-show .smart-lockCard-tips{
+    display: block;
 }
 /* chart */
 .smart-xyjl-chat{
     height: 100%;
+}
+.smart-xyjl-chat-container{
+    overflow:hidden;
+    transition: all .5s ease;
+    -webkit-transition: all .5s ease;
+}
+.smart-search-container.smart-search-container-show + .smart-xyjl-chat-container{
+    margin-top: 80px;
 }
 .smart-xyjl-chat-container > div{
     margin-bottom:15px;
@@ -233,8 +270,8 @@ html,body,.smart-content{
     font-size: 0;
     opacity: 0;
     margin-top:100px;
-    transition: all .5s ease-in;
-    -webkit-transition: all .5s ease-in;
+    transition: all .5s ease;
+    -webkit-transition: all .5s ease;
 }
 .smart-xyjl-chat-show{
     opacity: 1;
@@ -369,6 +406,7 @@ html,body,.smart-content{
 }
 .smart-xyjl-chat-continue button,.smart-xyjl-chat-end button{
     color:#0d2a70;
+    background: #fff;
     font-size: 13px;
     border:1px solid #0d2a70;
     border-radius: 5px;
@@ -384,12 +422,6 @@ html,body,.smart-content{
 .smart-xyjl-chat-end button:active{
     background: #0d2a70;
     color:#fff;
-}
-.smart-xyjl-chat-continue button{
-    background: #fff;
-}
-.smart-xyjl-chat-end button{
-    background: #f6f6f6;
 }
 #smart-map{
     position: fixed!important;

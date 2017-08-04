@@ -14,6 +14,7 @@
     <link href="../../content/style/white/xiaoyuanjingling/css/index.css" rel="stylesheet">
     <link href="../../content/style/frame/jquery/autocomplete/css/autocomplete.css" rel="stylesheet">
     <link href="../../content/style/frame/jquery/autocomplete/css/jquery-ui-autocomplete.min.css" rel="stylesheet">
+    <link href="../../content/style/frame/jquery/autocomplete/css/autocomplete.css" rel="stylesheet">
     <!-- <link href="../../content/style/common/css/popup.css" rel="stylesheet"> -->
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elkements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -23,72 +24,46 @@
     <![endif]-->
 </head>
 
-<body class="smart-xyjl-chat">
+<body class="smart-xyjl-chat" onload="searchComplete();">
     <div class="smart-content">
+        <div class="smart-search-container">
+            <div class="smart-search-box">
+                <input type="text" name="">     
+                <button>取消</button>
+            </div>
+            <!-- 搜索结果 自动提示-->
+            <div id="suggestions-container">
+                
+            </div>
+            
+            
+        </div>
+        <!-- 遮罩层 -->
+        <div class="smart-screen-mask"></div>
+        <!-- 聊天容器 -->
         <div class="smart-xyjl-chat-container">
-            <!-- <div class="smart-xyjl-chat-left">
-                <div class="smart-xyjl-chat-header">
-                    <img src="../../content/style/white/xiaoyuanjingling/images/head.png">
-                </div>
-                <div class="smart-xyjl-chat-box">
-                    <em class="smart-xyjl-chat-left-icon"></em>
-                    <div class="smart-xyjl-chat-content"><p>大家快来s，dfsd大家---快ffcb，kmlz大，家快dfkn</p></div>
-                </div>
-            </div>
-            <div class="smart-xyjl-chat-right">
-                <div class="smart-xyjl-chat-box">
-                    <em class="smart-xyjl-chat-right-icon"></em>
-                    <div class="smart-xyjl-chat-content">
-                    <p>大家快来s，dfsd大家---快ffcb，kmlz大，家快dfknl，大家快来s，dfsd大------家快ffcb，kmlz大，家快dfknl</p></div>
-                </div>
-            </div>
-            <div class="smart-xyjl-chat-left">
-                <div class="smart-xyjl-chat-header">
-                    <img src="../../content/style/white/xiaoyuanjingling/images/head.png">
-                </div>
-                <div class="smart-xyjl-chat-box">
-                    <em class="smart-xyjl-chat-left-icon"></em>
-                    <div class="smart-xyjl-chat-content">
-                        <p>大家快来s，dfsd大家---快ffcb，kmlz大，家快dfknl，大家快来s，dfsd大------家快ffcb，kmlz大，家快dfknl</p>
-                        <div class="smart-xyjl-chat-QA">
-                            <p class="smart-xyjl-chat-Q">第一个问题！第一个问题！第一个问题！第一个问题！</p>
-                            <p class="smart-xyjl-chat-A">第一个回答！第一个回答！第一个回答！第一个回答！</p>
-                        </div>
-                        <img src="../../content/style/white/xiaoyuanjingling/images/map.png" class="other-app">
-                    </div>
-                </div>
-            </div>
-            <div class="smart-xyjl-chat-left">
-                <div class="smart-xyjl-chat-header">
-                    <img src="../../content/style/white/xiaoyuanjingling/images/head.png">
-                </div>
-                <div class="smart-xyjl-chat-box">
-                    <em class="smart-xyjl-chat-left-icon"></em>
-                    <div class="smart-xyjl-chat-content">
-                        <p>没有找到合适的答案，你想...？</p>
-                        <div class="smart-xyjl-chat-end">
-                            <button>等待回复</button>
-                            <button>继续提问</button>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
+            
         </div>
     </div>
     </div>
     <script src="../../content/style/frame/jquery/jquery-3.2.1.min.js"></script>
+    <script src="../../content/style/frame/jquery/autocomplete/js/jquery.autocomplete.js"></script>
     <script src="../../content/style/common/js/getUrl.js"></script>
     <script src="../../content/style/white/xiaoyuanjingling/js/createHtml.js"></script>
+    <script src="../../content/style/white/xiaoyuanjingling/js/queries.js"></script>
     <script src="http://api.map.baidu.com/api?v=2.0&ak=kTxsSNaAlcSvAqFpgyOFTgic" type="text/javascript"></script>
+    <script src="../../content/style/white/xiaoyuanjingling/js/index.js"></script>
+
     <script type="text/javascript">
         // 数据1
         var data1 ={
             id:133,
             people:"my", // my or others
             peopleType:"right", // my = right; other = left;
-            content:decodeURI(getUrlVal().val)           
+            content:decodeURI(getUrlVal().val)          
         }
         createChatHtml.createContainer(data1);
+
         // 数据2
         var data2 ={
             id:123,
@@ -97,10 +72,8 @@
             content:"就不告诉你？嘿！",
             QAContinue:true
         }
-        setTimeout(function(){
-            createChatHtml.createContainer(data2)
-        },2000);
-        
+        createChatHtml.createContainer(data2);
+    
         // 数据3
         var data3 ={
             id:123,
@@ -110,8 +83,8 @@
             QA:true, // 可有可无
             similarQuries:[ // 类似问题的数据集
                 {
-                    QContent:"学校的位置在什么地方？",
-                    AContent:"红旗大街和学府路交叉口",
+                    QContent:"学校的位置在什么地方？学校的位置在什么地方？学校的位置在什么地方？",
+                    AContent:"红旗大街和学府路交叉口红旗大街和学府路交叉口",
                     map:true,
                     mapSrc:"", //静态图片地址
                     mapX:121.538702,
@@ -138,7 +111,7 @@
             ]
         }
         // var dom3 = createChatHtml.createContainer(data3);
-        
+        createChatHtml.createContainer(data3);
         // 数据4
         var data4 ={
             id:123,

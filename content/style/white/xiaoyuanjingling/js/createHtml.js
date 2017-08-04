@@ -16,20 +16,22 @@ var createChatHtml = {
         var containerName = type == "left" ? this.containerLeft : this.containerRight;
         var icon = type == "left" ? this.iconLeft : this.iconRight;
 
-        var html = '<div class="' + containerName + '">' + this.createHeader(show);
+        var html = '<div class="' + containerName + ' smart-xyjl-chat-sh1ow">' + this.createHeader(show);
         html += '<div class="smart-xyjl-chat-box"><em class="' + icon + '"></em>';
         html += '<div class="smart-xyjl-chat-content"><p>' + data.content + '</p>';
         html += this.similarQuries(data);
         html += this.createQAContinue(data);
-        html += '</div></div>';
-        html += this.createQAEnd(data) + '</div>';
-        // return html;
+
+        html += this.createQAEnd(data);
+        html += '</div></div></div>';
+
         $(".smart-xyjl-chat-container").append(html);
+        var appendObj = $(".smart-xyjl-chat-container>div");
+        var l = appendObj.length;
         setTimeout(function (){
-            $(".smart-xyjl-chat-container>div:last-child").addClass("smart-xyjl-chat-show");
-        },500)
+            appendObj.eq(l-1).addClass("smart-xyjl-chat-show");
+        },200);
         
-        // return 
     },
     // 创建头像
     createHeader: function(show) {
@@ -85,15 +87,13 @@ var createChatHtml = {
     },
     // 等待回复 按钮 事件
     waitBtn: function(obj) {
-        createChatHtml.createContainer(data3);
         $(obj).attr("disabled", true);
-        setTimeout(function(){
-            createChatHtml.createContainer(data4);
-        },2000);
+        createChatHtml.createContainer(data4);
     },
     // 继续提问 按钮 事件
     continueBtn: function() {
-        window.location.href = "search.html";
+        $(".smart-search-container").addClass("smart-search-container-show").slideDown(200);
+        $("body").css("overflow","hidden");
     },
     // 点击地图事件
     showMap: function(x, y) {

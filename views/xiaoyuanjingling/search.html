@@ -26,80 +26,100 @@
 <body class="smart-xyjl-search" onload="searchComplete();">
     <div class="smart-content">
         <div class="smart-search-box">
-            <input type="text" name="">     
-            <button>搜索</button>
+            <input type="text" name="">
+            <button>取消</button>
         </div>
         <!-- 搜索结果 自动提示-->
         <div id="suggestions-container">
-            
         </div>
         <!-- 遮罩层 -->
         <div class="smart-screen-mask"></div>
         <!-- 热门提问 -->
-        <div class="smart-xyjl-hotQuestions">
+        <div class="smart-xyjl-questionsType">
             <div class="smart-lockCard-tips">
                 <h1>学习类</h1>
             </div>
             <div id="wrapper">
-            <ul class="smart-list smart-list-space">
-                <li class="smart-list-item">
-                    实验室上网问题？
-                    <em class="smart-list-end-icon">
+                <ul class="smart-list smart-list-space">
+                    <li class="smart-list-item">
+                        实验室上网问题？
+                        <em class="smart-list-end-icon">
                         <img src="../../content/style/common/images/continue.png" alt="">
                     </em>
-                </li>
-                <li class="smart-list-item">
-                    网络连接上的问题？
-                    <em class="smart-list-end-icon">
+                    </li>
+                    <li class="smart-list-item">
+                        网络连接上的问题？
+                        <em class="smart-list-end-icon">
                         <img src="../../content/style/common/images/continue.png" alt="">
                     </em>
-                </li>
-                <li class="smart-list-item">
-                    关于海大医院挂号购药的问题？
-                    <em class="smart-list-end-icon">
+                    </li>
+                    <li class="smart-list-item">
+                        关于海大医院挂号购药的问题？
+                        <em class="smart-list-end-icon">
                         <img src="../../content/style/common/images/continue.png" alt="">
                     </em>
-                </li>
-                <li class="smart-list-item">
-                    关于校园卡审核进度的问题？
-                    <em class="smart-list-end-icon">
+                    </li>
+                    <li class="smart-list-item">
+                        关于校园卡审核进度的问题？
+                        <em class="smart-list-end-icon">
                         <img src="../../content/style/common/images/continue.png" alt="">
                     </em>
-                </li>
-                <li class="smart-list-item">
-                    海大邮件收发中心相关问题？
-                    <em class="smart-list-end-icon">
+                    </li>
+                    <li class="smart-list-item">
+                        海大邮件收发中心相关问题？
+                        <em class="smart-list-end-icon">
                         <img src="../../content/style/common/images/continue.png" alt="">
                     </em>
-                </li>
-            </ul>
+                    </li>
+                </ul>
             </div>
         </div>
-        
     </div>
     <script src="../../content/style/frame/jquery/jquery-3.2.1.min.js"></script>
     <script src="../../content/style/frame/jquery/autocomplete/js/jquery.autocomplete.js"></script>
-    <!-- <script src="../../content/style/frame/jquery/autocomplete/js/jquery-ui-autocomplete.min.js"></script> -->
     <script src="../../content/style/common/js/getUrl.js"></script>
     <script src="../../content/style/frame/iscroll4/js/iscroll.js"></script>
     <script src="../../content/style/frame/iscroll4/js/pullToRefresh.js"></script>
     <script src="../../content/style/white/xiaoyuanjingling/js/queries.js"></script>
     <script src="../../content/style/white/xiaoyuanjingling/js/index.js"></script>
     <script type="text/javascript">
+    if (getUrlVal()) {
+        // 当getUrlVal() 为真说明是从 “提问分类” 点击过来，要加 提问类型的标签
         // 修改问题类型标题
-        $(".smart-lockCard-tips h1").html(getUrlVal()?decodeURI(getUrlVal().val):"");
-        // 监听input keyup
-        var searchBtn = $('.smart-search-box input').next();
-        $('.smart-search-box input').on("keyup", function() {
-            // if(this.value.length>=2){
-            //     $(".smart-content").append('<div class="smart-screen-mask"></div>')
-            // }
-            this.value ? searchBtn.text("取消") : searchBtn.text("搜索");
-        });
-        // 监听input blur
-        $('.smart-search-box input').on("blur", function() {
-            this.value ? searchBtn.text("搜索") : searchBtn.text("取消");
-        });
+        $(".smart-xyjl-questionsType").addClass("smart-xyjl-questionsType-show");
+        // 添加提问类型的标签
+        $(".smart-lockCard-tips h1").html(decodeURI(getUrlVal().val));
+    }
+
+    refresher.init({
+        id: "wrapper",
+        pullDownAction: Refresh,
+        pullUpAction: Load
+    });
+    var generatedCount = 0;
+    // 下拉刷新
+    function Refresh() {
+        wrapper.refresh();
+    }
+    // 上拉加载
+    function Load() {
+        setTimeout(function() {
+            var li = "", i;
+            for (i = 0; i < 3; i++) {
+                li += `<li class="smart-list-item">实验室上网问题？
+                     <em class="smart-list-end-icon">
+                        <img src="../../content/style/common/images/continue.png" alt="">
+                     </em>
+                  </li>`;
+                
+            }
+            $("#wrapper ul").append(li);
+            listClick();
+            wrapper.refresh();
+        }, 1000);
+        
+    }
     </script>
 </body>
+
 </html>
