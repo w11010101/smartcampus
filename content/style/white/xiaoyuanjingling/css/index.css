@@ -235,7 +235,43 @@ html,body,.smart-content{
 }
 .smart-search-box input{
     margin-top: 0;
+
 }
+.smart-search-box >div{
+    right: 60px;
+}
+.smart-search-box button{
+    height: 30px;
+    line-height: 30px;
+    top:20px;
+}
+.smart-search-box .cancelBtn{
+    right: 20px;
+}
+.smart-search-box .searchBtn{
+    right: 80px;
+    z-index: -1;
+    opacity: 0;
+    transition: all .2s ease;
+    -webkit-transition: all .2s ease;
+}
+.smart-search-box .searchBtn:before{
+    content: " ";
+    position: absolute;
+    top:0;
+    left:-10px;
+    width: 1px;
+    height: 100%;
+    background: #e0e0e0;
+}
+.smart-search-box.smart-search-box-search input{
+    padding-right: 60px;
+}
+.smart-search-box.smart-search-box-search .searchBtn{
+    opacity: 1;
+    z-index: 1;
+}
+/*  */
 .smart-xyjl-questionsType{
     position: absolute;
     width: 100%;
@@ -257,7 +293,7 @@ html,body,.smart-content{
     transition: all .5s ease;
     -webkit-transition: all .5s ease;
 }
-.smart-search-container.smart-search-container-show + .smart-xyjl-chat-container{
+.smart-search-container-show + .smart-xyjl-chat-container{
     margin-top: 80px;
 }
 .smart-xyjl-chat-container > div{
@@ -268,7 +304,7 @@ html,body,.smart-content{
     font-size: 0;
     opacity: 0;
     margin-top:100px;
-    transition: all .5s ease;
+    transition: all .5s ease;`
     -webkit-transition: all .5s ease;
 }
 .smart-xyjl-chat-show{

@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"> -->
-    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" /> 
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
     <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
     <title>校园精灵——帮助</title>
     <!-- Bootstrap -->
@@ -29,25 +29,21 @@
         <div class="smart-search-container">
             <div class="smart-search-box">
                 <div class="">
-                    <input type="text" name="">    
-                </div> 
-                <button>取消</button>
+                    <input type="text" name="">
+                </div>
+                <button class="cancelBtn">取消</button>
+                <button class="searchBtn">搜索</button>
             </div>
             <!-- 搜索结果 自动提示-->
             <div id="suggestions-container">
-                
             </div>
-            
-            
         </div>
-        <!-- 遮罩层 -->
-        <div class="smart-screen-mask"></div>
         <!-- 聊天容器 -->
         <div class="smart-xyjl-chat-container">
-            
         </div>
     </div>
-    </div>
+    <!-- 遮罩层 -->
+    <div class="smart-screen-mask"></div>
     <script src="../../content/style/frame/jquery/jquery-3.2.1.min.js"></script>
     <script src="../../content/style/frame/jquery/autocomplete/js/jquery.autocomplete.js"></script>
     <script src="../../content/style/common/js/getUrl.js"></script>
@@ -55,74 +51,67 @@
     <script src="../../content/style/white/xiaoyuanjingling/js/queries.js"></script>
     <script src="http://api.map.baidu.com/api?v=2.0&ak=kTxsSNaAlcSvAqFpgyOFTgic" type="text/javascript"></script>
     <script src="../../content/style/white/xiaoyuanjingling/js/index.js"></script>
-
     <script type="text/javascript">
-        // 数据1
-        var data1 ={
-            id:133,
-            people:"my", // my or others
-            peopleType:"right", // my = right; other = left;
-            content:decodeURI(getUrlVal().val)          
-        }
-        createChatHtml.createContainer(data1);
+    // 数据1
+    var data1 = {
+        id: 133,
+        people: "my", // my or others
+        peopleType: "right", // my = right; other = left;
+        content: decodeURI(getUrlVal().val)
+    }
+    // 数据2
+    var data2 = {
+        id: 123,
+        people: "others", // my or others
+        peopleType: "left", // my = right; other = left;
+        content: "第一种情况（没有正确答案）：就不告诉你？嘿！",
+        QAContinue: true
+    }
+    // 数据3
+    var data3 = {
+        id: 123,
+        people: "others", // my or others 可有可无
+        peopleType: "left", // my = right; other = left;
+        content: "",
+        QA: true, // 可有可无
+        similarQuries: [ // 类似问题的数据集
+            {
+                QContent: "学校的位置在什么地方？学校的位置在什么地方？学校的位置在什么地方？",
+                AContent: "红旗大街和学府路交叉口红旗大街和学府路交叉口",
+                map: true,
+                mapSrc: "", //静态图片地址
+                mapX: 121.538702,
+                mapY: 38.87734
+            },
+            {
+                QContent: "学校高老师电话是多少？",
+                AContent: "学校高老师的电话是",
+                tel: 15134555172,
+            }
+        ]
+    }
+   
+    // 数据4
+    var data4 = {
+        id: 123,
+        people: "others", // my or others 可有可无
+        peopleType: "left", // my = right; other = left;
+        content: "你的问题已经提交，我们会尽快回复你的~ <br>还有其他问题吗？",
+        QAEnd: true
+    }
+    // 数据5
+    var data5 = {
+        id: 123,
+        people: "others", // my or others 可有可无
+        peopleType: "left", // my = right; other = left;
+        content: "第二种情况（有正确答案）：这就是正确回答！还有其他问题吗？",
+        QAEnd: true
+    }
 
-        // 数据2
-        var data2 ={
-            id:123,
-            people:"others", // my or others
-            peopleType:"left", // my = right; other = left;
-            content:"就不告诉你？嘿！",
-            QAContinue:true
-        }
-        createChatHtml.createContainer(data2);
-    
-        // 数据3
-        var data3 ={
-            id:123,
-            people:"others", // my or others 可有可无
-            peopleType:"left",// my = right; other = left;
-            content:"",
-            QA:true, // 可有可无
-            similarQuries:[ // 类似问题的数据集
-                {
-                    QContent:"学校的位置在什么地方？学校的位置在什么地方？学校的位置在什么地方？",
-                    AContent:"红旗大街和学府路交叉口红旗大街和学府路交叉口",
-                    map:true,
-                    mapSrc:"", //静态图片地址
-                    mapX:121.538702,
-                    mapY:38.87734
-                },
-                {
-                    QContent:"学校高老师电话是多少？",
-                    AContent:"学校高老师的电话是",
-                    tel:15134555172,
-                },
-                {
-                    QContent:"学校食堂的位置在什么地方？",
-                    AContent:"在校南区广场理工楼，302室",
-                    map:true,
-                    mapSrc:"", //静态图片地址
-                    mapX:121.538702,
-                    mapY:38.87734
-                },
-                {
-                    QContent:"学校电话是多少？",
-                    AContent:"学校电话是",
-                    tel:15134555172,
-                }
-            ]
-        }
-        // var dom3 = createChatHtml.createContainer(data3);
-        createChatHtml.createContainer(data3);
-        // 数据4
-        var data4 ={
-            id:123,
-            people:"others", // my or others 可有可无
-            peopleType:"left",// my = right; other = left;
-            content:"你的问题已经提交，我们会尽快回复你的~ <br>还有其他问题吗？",
-            QAEnd:true
-        }
-        // createChatHtml.createContainer(data4);
+    createChatHtml.createContainer(data1);
+    createChatHtml.createContainer(data2);
+    createChatHtml.createContainer(data5);
+    createChatHtml.createContainer(data3);
     </script>
 </body>
 

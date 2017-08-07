@@ -52,25 +52,39 @@ function searchComplete(){
         }
     });
     // 监听input keyup
-    var searchBtn = $('.smart-search-box input').next();
-    var input = $('.smart-search-box input');
+    var box = $('.smart-search-box');
+    var input = box.find("input");
+    var searchName = "smart-search-box-search";
     input.on("keyup", function() {
-        this.value ? searchBtn.text("搜索") : searchBtn.text("取消");
+        this.value.length? box.addClass(searchName):box.removeClass(searchName);
     });
-    // 监听input blur
-    // input.on("blur", function() {
-    //     this.value ? searchBtn.text("取消") : searchBtn.text("搜索");
-    // });
-
-    // 搜索按钮的判断
-    $(".smart-search-box button").on("click",function (){
-
-        if(!input.val().length){
-            window.location.href = "index.html";
+    // 取消按钮
+    box.find(".cancelBtn").on("click",function (){
+        if($("body").hasClass("smart-xyjl-search")){
+            // 如果是 search.html（搜索页），就返回上一页
+            window.history.back();
         }else{
-            // 显示列表容器
-            $(".smart-xyjl-questionsType").show();
+            // 否则就隐藏搜索框
             $(".smart-screen-mask").hide();
+            $(".smart-search-container").slideUp(200).removeClass("smart-search-container-show");
+        }
+    })
+    // 搜索按钮
+    box.find(".searchBtn").on("click",function (){
+        if(!getUrlVal()){
+            // 如果是 search.html（搜索页），发送文本框内容到char.html
+            window.location.href = 'chat.html?val='+input.val().trim();
+        }else{
+            // 否则就隐藏搜索框
+            if($("body").hasClass("smart-xyjl-chat")){
+                // 当在char.html也是，重新发送问题内容到本页面； 
+                window.location.href = 'chat.html?val='+input.val().trim();
+            }else{
+                // 搜索关键字列表
+                $(".smart-xyjl-questionsType").show();
+                $(".smart-screen-mask").hide();
+                listClick();
+            }
         }
     })
 }
