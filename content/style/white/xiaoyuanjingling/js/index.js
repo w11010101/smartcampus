@@ -45,7 +45,7 @@ function searchComplete() {
         appendTo: '#suggestions-container',
         onSearchComplete: searchVal,
         onSelect: selectVal,
-        transformResult:transformResult
+        // transformResult:transformResult
 
     }
     //输入两个字节后开始查询
@@ -62,25 +62,25 @@ function searchComplete() {
             });
         }
     }
-    function onSource(request, response){
-        $.ajax({
-            type:"POST",
-            url: "http://localhost:3000/queries.json",
-            dataType: "json",
-            data: {
-                // term: request.term
-            },
-            success: function(data) {
-                response(data);
-            }
-        });
-    }
+    // function onSource(request, response){
+    //     $.ajax({
+    //         type:"POST",
+    //         url: "http://localhost:3000/queries.json",
+    //         dataType: "json",
+    //         data: {
+    //             // term: request.term
+    //         },
+    //         success: function(data) {
+    //             response(data);
+    //         }
+    //     });
+    // }
     // 不符合数据格式的情况
     function transformResult(response){
         console.log(response);
-        // return $.map(response.myData, function(dataItem) {
-        //     return {value: dataItem.valueField, data: dataItem.dataField};
-        // });
+        return $.map(response.suggestions, function(dataItem) {
+            return {value: dataItem.valueField, data: dataItem.dataField};
+        });
     }
     // 选择
     function selectVal(suggestion) { // 选择
