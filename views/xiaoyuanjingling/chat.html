@@ -29,8 +29,9 @@
         <div class="smart-search-container">
             <div class="smart-search-box">
                 <div class="smart-xyjl-search-container">
-                    <input type="text" name="">    
+                    <input type="text" name="">
                     <button class="searchBtn">搜索</button>
+                    <img src="../../content/style/white/xiaoyuanjingling/images/clear.png" class="inputClear">
                 </div> 
                 <button class="cancelBtn">取消</button>
                 <button class="closeBtn">关闭</button>
@@ -40,7 +41,11 @@
             </div>
         </div>
         <!-- 聊天容器 -->
-        <div class="smart-xyjl-chat-container">
+        <div id="wrapper">
+            <div id="scroller">
+                <div class="smart-xyjl-chat-container">
+                </div>
+            </div>
         </div>
     </div>
     <!-- 遮罩层 -->
@@ -52,7 +57,9 @@
     <script src="../../content/style/white/xiaoyuanjingling/js/queries.js"></script>
     <script src="http://api.map.baidu.com/api?v=2.0&ak=kTxsSNaAlcSvAqFpgyOFTgic" type="text/javascript"></script>
     <script src="../../content/style/white/xiaoyuanjingling/js/index.js"></script>
+    <script src="../../content/style/frame/iscroll4/js/iscroll.js"></script>
     <script type="text/javascript">
+    myScroll = new iScroll('wrapper');
     // 数据1
     var data1 = {
         id: 133,
@@ -65,7 +72,7 @@
         id: 123,
         people: "others", // my or others
         peopleType: "left", // my = right; other = left;
-        content: "第一种情况（没有正确答案）：就不告诉你？嘿！",
+        content: "第一种情况（没有正确答案-下面跟着类似问题及当点击”等待回复“时出现”已提交结果提示“）：就不告诉你？嘿！",
         QAContinue: true
     }
     // 数据3
@@ -105,7 +112,7 @@
         id: 123,
         people: "others", // my or others 可有可无
         peopleType: "left", // my = right; other = left;
-        content: "第二种情况（有正确答案）：这就是正确回答！还有其他问题吗？",
+        content: "第二种情况（有正确答案-下面的”类似问题“和”已提交回复提示“可以不需要了）：这就是正确回答！还有其他问题吗？",
         QAEnd: true
     }
 
@@ -113,6 +120,9 @@
     createChatHtml.createContainer(data2);
     createChatHtml.createContainer(data5);
     createChatHtml.createContainer(data3);
+    // setTimeout(function(){
+    //     myScroll.refresh();
+    // },1000);
     </script>
 </body>
 

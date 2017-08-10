@@ -26,12 +26,14 @@ var createChatHtml = {
         html += '</div></div></div>';
 
         $(".smart-xyjl-chat-container").append(html);
+
         var appendObj = $(".smart-xyjl-chat-container>div");
         var l = appendObj.length;
         setTimeout(function (){
             appendObj.eq(l-1).addClass("smart-xyjl-chat-show");
+
+            myScroll.refresh();
         },200);
-        
     },
     // 创建头像
     createHeader: function(show) {
@@ -86,8 +88,10 @@ var createChatHtml = {
     },
     // 等待回复 按钮 事件
     waitBtn: function(obj) {
-        $(obj).attr("disabled", true);
+        $(obj).attr("disabled", true).addClass("btn-disabled");
         createChatHtml.createContainer(data4);
+        var scrollY = $("#wrapper")[0].clientHeight-$("#scroller")[0].clientHeight;
+        myScroll.scrollTo(0,scrollY,500);
     },
     // 继续提问 按钮 事件
     continueBtn: function() {

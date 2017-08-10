@@ -245,11 +245,21 @@ html,body,.smart-content{
     line-height: 30px;
     top:20px;
 }
+.smart-search-box .inputClear{
+    width: 25px;
+    position: absolute;
+    top:7.5px;
+    right: 65px;
+    z-index: -1;
+    opacity: 0;
+    transition: all .2s ease;
+    -webkit-transition: all .2s ease;
+}
 .smart-search-box .cancelBtn{
     right: 20px;
 }
 .smart-search-box .closeBtn{
-    display: none
+    display: none;
 }
 .smart-search-box .smart-xyjl-search-container .searchBtn{
     top:5px;
@@ -271,7 +281,7 @@ html,body,.smart-content{
 .smart-search-box.smart-search-box-search input{
     padding-right: 60px;
 }
-.smart-search-box.smart-search-box-search .searchBtn{
+.smart-search-box.smart-search-box-search .searchBtn,.smart-search-box.smart-search-box-search .inputClear{
     opacity: 1;
     z-index: 1;
 }
@@ -281,8 +291,12 @@ html,body,.smart-content{
     width: 100%;
     top:70px;
     bottom: 0;
+    overflow: hidden;
 }
-.smart-xyjl-questionsType,.smart-lockCard-tips{
+.smart-xyjl-questionsType #wrapper{
+    top:40px;
+}
+.smart-xyjl-questionsType,.smart-xyjl-questionsType .smart-lockCard-tips{
     display: none;
 }
 .smart-xyjl-questionsType-show,.smart-xyjl-questionsType-show .smart-lockCard-tips{
@@ -307,13 +321,16 @@ html,body,.smart-content{
 .smart-xyjl-chat-right{
     font-size: 0;
     opacity: 0;
-    margin-top:100px;
+    /*margin-top:100px;*/
+    transform: translateY(100px);
+    -webkit-transform: translateY(100px);
     transition: all .5s ease;`
     -webkit-transition: all .5s ease;
 }
 .smart-xyjl-chat-show{
     opacity: 1;
-    margin-top:15px;
+    transform: translateY(15px);
+    -webkit-transform: translateY(15px);
 }
 .smart-xyjl-chat-left .smart-xyjl-chat-header {
     width: 70px;
@@ -452,6 +469,11 @@ html,body,.smart-content{
     transition: all .2s ease-in;
     -webkit-transition: all .2s ease-in;
 }
+.smart-xyjl-chat-continue .btn-disabled,.smart-xyjl-chat-end .btn-disabled{
+    background: #d3d3d3;
+    color:#fff;
+    border-color: #d3d3d3;
+}
 .smart-xyjl-chat-continue button:first-child,
 .smart-xyjl-chat-end button:first-child{
     margin-right: 15px;
@@ -482,3 +504,22 @@ html,body,.smart-content{
     right: 10px
 }
 */
+#wrapper {
+    position:absolute; 
+    z-index:1;
+    top:0; 
+    bottom:0; 
+    left:0;
+    width:100%;
+    overflow:auto;
+}
+
+#scroller {
+position:relative;
+/* -webkit-touch-callout:none;*/
+-webkit-tap-highlight-color:rgba(0,0,0,0);
+
+float:left;
+width:100%;
+padding:0;
+}
