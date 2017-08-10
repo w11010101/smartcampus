@@ -1,8 +1,12 @@
 // 上课签到
 $(".smart-sign .smart-btn").on("click", function () {
-	$("body").addClass("smart-signedIn");
-	$(".smart-flag").text("正在上课");
-	campus.tips("签到成功");
+	if($(this).attr("btnType") == "qd"){
+		$("body").addClass("smart-signedIn");
+		$(".smart-flag").text("正在上课");
+		campus.tips("签到成功");
+	}else{
+		window.location.href = "tongji.html";
+	}
 });
 // 签到管理
 $(".smart-sign-adm .row div").on("click", function () {

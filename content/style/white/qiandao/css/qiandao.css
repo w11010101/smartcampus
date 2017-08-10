@@ -102,31 +102,46 @@
 	padding-left: 0;
 }
 .smart-sign-statistics-box li{
-	height: 50px;
-	line-height: 50px;
+	/*height: 50px;
+	line-height: 50px;*/
 	padding-left:20px; 
 	padding-right:20px; 
 }
 .smart-sign-statistics-box li label{
-	width: 50%;
+	width: 100%;
 	font-weight: normal;
+	display: block;
+	margin:0;
+	line-height: 16px;
+	color:#3c3c3c;
+	font-size: 16px
 }
-.smart-sign-statistics-box .smart-border:after{
+.smart-sign-statistics-box.smart-list .smart-list-item{
+	height: 90px;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	font-size: 0;
+	color:#8d8d8d;
+}
+.smart-sign-statistics-box.smart-list:after{
+	left:20px;
+}
+.smart-sign-statistics-box.smart-list.smart-list-space .smart-list-item:after{
 	left:20px;
 }
 .smart-sign-statistics-box li *{
-	font-size: 16px;
+	font-size: 14px;
+}
+.smart-sign-statistics-box li > div{
+	width: 50%;
 	display: inline-block;
 }
-.smart-sign-statistics-box li div{
-	margin-left: 5%;
-	float: right;
-}
 .smart-sign-statistics-box li img{
-	width: 25px;
+	width: 22px;
+	margin-right:8px;
 }
 .smart-sign-statistics-box li span{
-	padding: 0 10px;
+	color:#3c3c3c;
 }
 /* 签到管理 */
 .smart-sign-adm{
@@ -491,4 +506,23 @@ body .smart-sub-list .smart-sub-list-item{
 .smart-sign-tj .smart-sub-list-item i {
 	float:right;
 	color:#a8a8a8;
+}
+/* 2017.8.8 王驰*/
+.smart-content {
+	position: absolute;
+    width: 100%;
+    top: 45px;
+    bottom: 50px;
+}
+.smart-content #wrapper{
+	padding-bottom: 35px;
+}
+.scroller >ul {
+	margin:0;
+	padding: 0
+}
+.pullUp{
+	display: none;
+	height: 0;
+	opacity: 0
 }

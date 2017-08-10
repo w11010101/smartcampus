@@ -12,12 +12,14 @@ box-shadow: 1px 4px 3px rgba(50, 50, 50, 0.64);*/
 }
 
 .autocomplete-suggestion {
-    padding-left: 20px;
+    padding-left: 50px;
     white-space: nowrap;
     overflow: hidden;
     position: relative;
     height: 46px;
     line-height: 46px;
+    background: url(../images/auto-search.png) no-repeat center left 15px;
+    background-size: 30px;
 }
 
 .autocomplete-no-suggestion {

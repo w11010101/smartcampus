@@ -30,6 +30,7 @@ function searchComplete(){
     $('.smart-search-box input ').autocomplete({
         lookup: queries,
         minChars: 2,
+        maxHeight:200,
         width: "100%",
         appendTo: '#suggestions-container',
         onSearchComplete: function (value,Complete){    
@@ -37,7 +38,7 @@ function searchComplete(){
             if(Complete.length){
                 console.log(Complete);
                 // 遮罩层显示
-                $(".smart-screen-mask").show();
+                $(".smart-screen-mask,.closeBtn").show();
                 $(".smart-screen-mask")[0].addEventListener('touchmove', function(e) {
                     e.preventDefault();
                 }, {
@@ -47,7 +48,7 @@ function searchComplete(){
         },
         onSelect: function(suggestion) {
             console.log(suggestion);
-            $(".smart-screen-mask").hide();
+            $(".smart-screen-mask,.closeBtn").hide();
             window.location.href = "chat.html?val="+suggestion.value;
         }
     });
@@ -63,34 +64,52 @@ function searchComplete(){
         if($("body").hasClass("smart-xyjl-search")){
             // 如果是 search.html（搜索页），就返回上一页
             window.history.back();
+        
         }else{
             // 否则就隐藏搜索框
-            $(".smart-screen-mask").hide();
+            $(".smart-screen-mask,.closeBtn").hide();
             $(".smart-search-container").slideUp(200).removeClass("smart-search-container-show");
         }
     })
     // 搜索按钮
     box.find(".searchBtn").on("click",function (){
-        if(!getUrlVal()){
-            // 如果是 search.html（搜索页），发送文本框内容到char.html
-            window.location.href = 'chat.html?val='+input.val().trim();
-        }else{
+        // if(!getUrlVal()){
+        //     // 如果是 search.html（搜索页），发送文本框内容到char.html
+        //     window.location.href = 'chat.html?val='+input.val().trim();
+        // }else{
             // 否则就隐藏搜索框
-            if($("body").hasClass("smart-xyjl-chat")){
+            // if($("body").hasClass("smart-xyjl-chat")){
                 // 当在char.html也是，重新发送问题内容到本页面； 
                 window.location.href = 'chat.html?val='+input.val().trim();
-            }else{
+            // }else{
                 // 搜索关键字列表
-                $(".smart-xyjl-questionsType").show();
-                $(".smart-screen-mask").hide();
-                listClick();
-            }
+                // $(".smart-xyjl-questionsType").show();
+                // $(".smart-screen-mask").hide();
+                // listClick();
+            // }
+        // }
+    })
+}
+// 获取data
+function getQueries(){
+    $.ajax({
+        type: "POST",
+        url: "http://localhost:3000/",
+        data: {
+            "type":"queries"
+        },
+        dataType: "json",
+        success: function(data) {
+            console.log(data);
+        },
+        error: function(err) {
+            console.log(err);
         }
     })
 }
 // 遮罩层的隐藏
-$(".smart-screen-mask").on("click",function(){
-    $(this).hide();
+$(".smart-screen-mask,.closeBtn").on("click",function(){
+    $(".smart-screen-mask,.closeBtn").hide();
 })
 
 

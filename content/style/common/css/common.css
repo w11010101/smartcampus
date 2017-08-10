@@ -478,9 +478,8 @@ background-image: url('data:image/svg+xml;charset=utf-8,<svg viewBox=\'0 0 120 1
 	width: 100%;
 	bottom: 0;
 	right: 0;
+	font-size: 0
 }
-
-
 
 .smart-content .smart-container-sure-btn,
 .smart-content .smart-btn {
@@ -510,6 +509,18 @@ background-image: url('data:image/svg+xml;charset=utf-8,<svg viewBox=\'0 0 120 1
 	font-size: 16px;
 	transition: background .1s ease-in;
 	-webkit-transition: background .1s ease-in;
+}
+
+.smart-foot .smart-btn.smart-btn-5{
+	width: 50%;
+	display: inline-block;
+	border-right: 1px solid #fff;
+}
+.smart-foot .smart-btn.smart-btn-5:last-child{
+	border:0;
+}
+.smart-foot .smart-btn:active {
+	background: #a9edff;
 }
 .smart-container-sure-btn.smart-btn-active,
 .smart-btn.smart-btn-active {
@@ -603,7 +614,8 @@ background-image: url('data:image/svg+xml;charset=utf-8,<svg viewBox=\'0 0 120 1
 	padding: 0;
 	background: #efefef;
 	margin: 0;
-	border-bottom: 1px solid #efefef;
+	position: relative;
+	/*border-bottom: 1px solid #efefef;*/
 }
 
 .smart-list .smart-list-item,

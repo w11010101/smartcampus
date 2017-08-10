@@ -16,7 +16,7 @@ var createChatHtml = {
         var containerName = type == "left" ? this.containerLeft : this.containerRight;
         var icon = type == "left" ? this.iconLeft : this.iconRight;
 
-        var html = '<div class="' + containerName + ' smart-xyjl-chat-sh1ow">' + this.createHeader(show);
+        var html = '<div class="' + containerName + '">' + this.createHeader(show);
         html += '<div class="smart-xyjl-chat-box"><em class="' + icon + '"></em>';
         html += '<div class="smart-xyjl-chat-content"><p>' + data.content + '</p>';
         html += this.similarQuries(data);

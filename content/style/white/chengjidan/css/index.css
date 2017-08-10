@@ -41,12 +41,14 @@ body{
 	vertical-align: middle;
 	color:#6d6d6d;
 	border:0;
-	padding:0 0 0 15px;
+	padding: 0 15px;
 	position: relative;
 }
+
 .campus-CJ-table tbody tr td:first-child{
 	white-space: pre-wrap;
 	color:#3c3c3c;
+	padding:0 0 0 15px;
 }
 .campus-CJ-table tbody tr td:first-child:after{
 	left:15px;
@@ -54,6 +56,12 @@ body{
 .campus-CJ-table tbody tr td:nth-child(2){
 	white-space: pre-wrap;
 	color:#a8a8a8;
+	text-align: right;
+}
+.campus-CJ-table tbody tr td:nth-child(2),
+.campus-CJ-table tbody tr td:nth-child(3),
+.campus-CJ-table tbody tr td:nth-child(4){
+	text-align: right;
 }
 .smart-imgBox{
 	display: none

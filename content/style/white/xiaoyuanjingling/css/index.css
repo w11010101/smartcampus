@@ -237,7 +237,7 @@ html,body,.smart-content{
     margin-top: 0;
 
 }
-.smart-search-box >div{
+.smart-search-box .smart-xyjl-search-container{
     right: 60px;
 }
 .smart-search-box button{
@@ -248,14 +248,18 @@ html,body,.smart-content{
 .smart-search-box .cancelBtn{
     right: 20px;
 }
-.smart-search-box .searchBtn{
-    right: 80px;
+.smart-search-box .closeBtn{
+    display: none
+}
+.smart-search-box .smart-xyjl-search-container .searchBtn{
+    top:5px;
+    right: 20px;
     z-index: -1;
     opacity: 0;
     transition: all .2s ease;
     -webkit-transition: all .2s ease;
 }
-.smart-search-box .searchBtn:before{
+.smart-search-box .smart-xyjl-search-container .searchBtn:before{
     content: " ";
     position: absolute;
     top:0;
