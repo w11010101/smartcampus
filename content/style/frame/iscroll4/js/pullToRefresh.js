@@ -58,8 +58,7 @@ var refresher = {
 		pullDownEl.querySelector('.pullDownLabel').innerHTML = refresher.info.pullDownLable;
 		document.addEventListener('touchmove', function(e) {
 			e.preventDefault();
-		// }, {passive:false});
-		}, false);
+		}, {passive:false});
 	},
 	onScrolling: function(e, pullDownEl, pullUpEl, pullUpOffset) {
 		if (e.y > -(pullUpOffset)) {

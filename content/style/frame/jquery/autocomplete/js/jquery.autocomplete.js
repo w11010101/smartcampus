@@ -34,7 +34,7 @@
                 createNode: function (containerClass) {
                     var div = document.createElement('div');
                     div.className = containerClass;
-                    div.style.position = 'absolute';
+                    // div.style.position = 'absolute';
                     div.style.display = 'none';
                     return div;
                 }
@@ -255,8 +255,8 @@
 
             // Adjust height, width and z-index:
             $(that.suggestionsContainer).css({
-                'max-height': options.maxHeight + 'px',
-                'width': options.width + 'px',
+                // 'max-height': options.maxHeight + 'px',
+                // 'width': options.width + 'px',
                 'z-index': options.zIndex
             });
         },

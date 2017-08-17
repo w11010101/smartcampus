@@ -21,5 +21,17 @@
       "content/style/frame/mobile-detect/mobile-detect.min.js"
     ],
     "refer": []
+  },
+  "views/NMS/ka-recharge.html": {
+    "resources": [
+      "content/style/frame/bootstrap/css/bootstrap.min.css",
+      "content/style/frame/jquery/jquery-3.2.1.min.js",
+      "content/style/common/js/popup.js",
+      "content/style/common/js/common.js",
+      "content/style/common/css/zf-common.css",
+      "content/style/frame/jquery/toast/css/jquery.toast.css",
+      "content/style/white/xiaoyuanka/css/ka-recharge.css",
+      "content/style/common/images/back-2.png"
+    ]
   }
 }

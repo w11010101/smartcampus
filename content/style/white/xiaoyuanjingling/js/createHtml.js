@@ -18,7 +18,7 @@ var createChatHtml = {
 
         var html = '<div class="' + containerName + '">' + this.createHeader(show);
         html += '<div class="smart-xyjl-chat-box"><em class="' + icon + '"></em>';
-        html += '<div class="smart-xyjl-chat-content"><p>' + data.content + '</p>';
+        html += '<div class="smart-xyjl-chat-content"><p>' + (data.content || " ")  + '</p>';
         html += this.similarQuries(data);
         html += this.createQAContinue(data);
 
@@ -91,11 +91,15 @@ var createChatHtml = {
         $(obj).attr("disabled", true).addClass("btn-disabled");
         createChatHtml.createContainer(data4);
         var scrollY = $("#wrapper")[0].clientHeight-$("#scroller")[0].clientHeight;
+        if(scrollY > 0) return false;
         myScroll.scrollTo(0,scrollY,500);
     },
     // 继续提问 按钮 事件
     continueBtn: function() {
-        $(".smart-search-container").addClass("smart-search-container-show").slideDown(200);
+        $(".smart-search-box").slideDown(200,function(){
+        	$("#suggestions-container").show(0);
+        }).next().addClass("smart-search-container-show");
+        
         $("body").css("overflow","hidden");
     },
     // 点击地图事件

@@ -10,7 +10,7 @@
 	"icons": {
 		"72": "icon.png"
 	},
-	"launch_path": "views/qinshidengji/index.html",/*应用的入口页面，默认为根目录下的index.html；支持网络地址，必须以http://或https://开头*/
+	"launch_path": "views/xiaoyuanjingling/index.html",/*应用的入口页面，默认为根目录下的index.html；支持网络地址，必须以http://或https://开头*/
 	"developer": {
 		"name": "",/*开发者名称*/
 		"email": "",/*开发者邮箱地址*/
@@ -300,6 +300,20 @@
 					"content/style/white/kongjiaoshi/images/icon-3.png",
 					"content/style/common/images/sure.png",
 					"content/style/frame/mobile-detect/mobile-detect.min.js"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"views/NMS/ka-recharge.html": {
+				"resources": [
+					"content/style/frame/bootstrap/css/bootstrap.min.css",
+					"content/style/frame/jquery/jquery-3.2.1.min.js",
+					"content/style/common/js/popup.js",
+					"content/style/common/js/common.js",
+					"content/style/common/css/zf-common.css",
+					"content/style/frame/jquery/toast/css/jquery.toast.css",
+					"content/style/white/xiaoyuanka/css/ka-recharge.css",
+					"content/style/common/images/back-2.png"
 				],
 				"refer": [],
 				"priority": 0

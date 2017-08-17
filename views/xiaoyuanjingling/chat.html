@@ -13,8 +13,6 @@
     <link href="../../content/style/common/css/common.css" rel="stylesheet">
     <link href="../../content/style/white/xiaoyuanjingling/css/index.css" rel="stylesheet">
     <link href="../../content/style/frame/jquery/autocomplete/css/autocomplete.css" rel="stylesheet">
-    <link href="../../content/style/frame/jquery/autocomplete/css/jquery-ui-autocomplete.min.css" rel="stylesheet">
-    <link href="../../content/style/frame/jquery/autocomplete/css/autocomplete.css" rel="stylesheet">
     <!-- <link href="../../content/style/common/css/popup.css" rel="stylesheet"> -->
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elkements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -26,18 +24,22 @@
 
 <body class="smart-xyjl-chat" onload="searchComplete();">
     <div class="smart-content">
-        <div class="smart-search-container">
-            <div class="smart-search-box">
-                <div class="smart-xyjl-search-container">
-                    <input type="text" name="">
-                    <button class="searchBtn">搜索</button>
-                    <img src="../../content/style/white/xiaoyuanjingling/images/clear.png" class="inputClear">
-                </div> 
-                <button class="cancelBtn">取消</button>
-                <button class="closeBtn">关闭</button>
-            </div>
-            <!-- 搜索结果 自动提示-->
-            <div id="suggestions-container">
+    	<!-- 搜索框-->
+        <div class="smart-search-box">
+            <div class="smart-xyjl-search-container">
+                <input type="text" name="">
+                <button class="searchBtn">搜索</button>
+                <img src="../../content/style/white/xiaoyuanjingling/images/clear.png" class="inputClear">
+            </div> 
+            <button class="cancelBtn">取消</button>
+            <button class="closeBtn">关闭</button>
+        </div>
+        <!-- 搜索结果 自动提示-->
+        <div id="suggestions-container">
+            <div id="wrapper-3">
+                <div id="scroller-3">
+                    
+                </div>
             </div>
         </div>
         <!-- 聊天容器 -->
@@ -73,7 +75,7 @@
         people: "others", // my or others
         peopleType: "left", // my = right; other = left;
         content: "第一种情况（没有正确答案-下面跟着类似问题及当点击”等待回复“时出现”已提交结果提示“）：就不告诉你？嘿！",
-        QAContinue: true
+        QAContinue: true // 继续提问（按钮）
     }
     // 数据3
     var data3 = {
@@ -86,15 +88,19 @@
             {
                 QContent: "学校的位置在什么地方？学校的位置在什么地方？学校的位置在什么地方？",
                 AContent: "红旗大街和学府路交叉口红旗大街和学府路交叉口",
-                map: true,
-                mapSrc: "", //静态图片地址
+                map: true, // 是否显示静态图片
+                mapSrc: "", // 静态图片地址
                 mapX: 121.538702,
                 mapY: 38.87734
             },
             {
                 QContent: "学校高老师电话是多少？",
                 AContent: "学校高老师的电话是",
-                tel: 15134555172,
+                tel: "1311516556489",
+            },
+            {
+                QContent: "学校高老师电话是多少？",
+                AContent: "学校高老师的电话是",
             }
         ]
     }
@@ -105,7 +111,7 @@
         people: "others", // my or others 可有可无
         peopleType: "left", // my = right; other = left;
         content: "你的问题已经提交，我们会尽快回复你的~ <br>还有其他问题吗？",
-        QAEnd: true
+        QAEnd: true // 不聊了（按钮）
     }
     // 数据5
     var data5 = {

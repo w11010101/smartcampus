@@ -3,11 +3,10 @@ function scollComputed() {
     function runMyScroll(obj) {
         var myScroll;
         myScroll = new IScroll(obj, {
-            // probeType: 3,
-            // mouseWheel: true
             scrollX: true,
             scrollY: false,
-            mouseWheel: true
+            mouseWheel: true,
+            preventDefault:false
         });
         $(obj).parent()[0].addEventListener('touchmove', function(e) {
             e.preventDefault();
@@ -25,79 +24,75 @@ function scollComputed() {
     $("#scroller-2").css("width", activityLength * 146 + "px");
     runMyScroll('#wrapper-2');
 }
-// queries
-// var queriesArr = $.map(queries, function(value, key) { return { value: value, id: key }; });
-// console.log(queriesArr);
-
+// autocomplete 自动完成提示；是再body onload里执行；
 function searchComplete() {
-    var options = {
-        // lookup: queriesArr,
-        // lookup:onSource,
-        serviceUrl: "http://localhost:3000/",
-        type:"POST",
-        dataType:"json",
-        param:{},
-        minChars: 2,
-        maxHeight: 200,
-        width: "100%",
-        noCache:true,
-        preserveInput: true,
-        appendTo: '#suggestions-container',
-        onSearchComplete: searchVal,
-        onSelect: selectVal,
-        // transformResult:transformResult
-
+    $.ajax({
+        url: 'http://localhost:3001/',
+        data: {
+            type:"queries",
+            
+        },
+        type: 'post',
+        dataType: 'json'
+    }).done(function (data) {
+        runAutoconplete(data);
+    }).fail(function(err){
+        console.log("fail");
+        runAutoconplete(queries);
+    })
+    // 
+    function runAutoconplete(data){
+        // success 
+        console.log(data);
+        var queriesArr = $.map(data, function (value, key) { return { value: value, data: key }; }),
+            queries = $.map(data, function (value) { return value; });
+        var options = {
+            lookup: queriesArr,
+            minChars: 2,
+            maxHeight: 200,
+            width: "100%",
+            // noCache:true,
+            preserveInput: true,
+            appendTo: '#scroller-3',
+            // 搜索完成后的操作
+            onSearchComplete: searchVal,
+            // 选择操作
+            onSelect: selectVal
+        }
+        // 创建 autocomplete 组件
+        $('.smart-search-box input').autocomplete(options);
+        var myScroll3 = new iScroll('wrapper-3',{
+                onBeforeScrollStart:function (){
+                    myScroll3.refresh(true);
+                }
+        	});
+        document.addEventListener('touchmove', function(e) {
+            e.preventDefault();
+        },{
+        	passive:false
+        });
     }
+    
     //输入两个字节后开始查询
     function searchVal(value, Complete) {
-        console.log(Complete);
         // 搜索完成        
         if (Complete.length) {
             // 遮罩层显示
             $(".smart-screen-mask,.closeBtn").show();
+            $("#suggestions-container").css("z-index",3);
             $(".smart-screen-mask")[0].addEventListener('touchmove', function(e) {
                 e.preventDefault();
-            }, {
-                passive: false
+            },{
+            	passive:false
             });
         }
-    }
-    // function onSource(request, response){
-    //     $.ajax({
-    //         type:"POST",
-    //         url: "http://localhost:3000/queries.json",
-    //         dataType: "json",
-    //         data: {
-    //             // term: request.term
-    //         },
-    //         success: function(data) {
-    //             response(data);
-    //         }
-    //     });
-    // }
-    // 不符合数据格式的情况
-    function transformResult(response){
-        console.log(response);
-        return $.map(response.suggestions, function(dataItem) {
-            return {value: dataItem.valueField, data: dataItem.dataField};
-        });
     }
     // 选择
     function selectVal(suggestion) { // 选择
         $(".smart-screen-mask,.closeBtn").hide();
-        window.location.href = "chat.html?val=" + suggestion.value + "&id=" + (suggestion.id || "");
+        $("#suggestions-container").css("z-index","-1");
+        window.location.href = "chat.html?val=" + suggestion.value + "&id=" + (suggestion.data || "");
     }
-    // 创建 autocomplete 组件
-    $('.smart-search-box input').autocomplete(options);
-
-
-    // $('.smart-search-box input').autocomplete({
-    //     width:"100%",
-    //     source: onSource,
-    //     minLength: 2,
-    //     select: selectVal
-    // });
-    
     
     // 监听input keyup
     var box = $('.smart-search-box');
@@ -115,7 +110,10 @@ function searchComplete() {
         } else {
             // 否则就隐藏搜索框
             $(".smart-screen-mask,.closeBtn").hide();
-            $(".smart-search-container").slideUp(200).removeClass("smart-search-container-show");
+            $("#suggestions-container").css("z-index","-1");
+			$(".smart-search-box").slideUp(200,function(){
+	        	$("#suggestions-container").hide(0);
+	        }).next().removeClass("smart-search-container-show");
         }
     })
     // 返回按钮
@@ -134,26 +132,11 @@ function searchComplete() {
     });
 
 }
-// 获取data
-function getQueries() {
-    $.ajax({
-        type: "POST",
-        url: "http://localhost:3000/",
-        data: {
-            "type": "queries"
-        },
-        dataType: "json",
-        success: function(data) {
-            console.log(data);
-        },
-        error: function(err) {
-            console.log(err);
-        }
-    })
-}
+
 // 遮罩层的隐藏
 $(".smart-screen-mask,.closeBtn").on("click", function() {
     $(".smart-screen-mask,.closeBtn").hide();
+    $("#suggestions-container").css("z-index","-1");
 })
 
 
@@ -163,4 +146,3 @@ function listClick() {
         window.location.href = 'chat.html?val=' + $(this).text().trim();
     })
 }
-// 提问分类
