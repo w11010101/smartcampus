@@ -13,6 +13,7 @@
     <link href="../../content/style/common/css/common.css" rel="stylesheet">
     <link href="../../content/style/white/xiaoyuanjingling/css/index.css" rel="stylesheet">
     <link href="../../content/style/frame/jquery/autocomplete/css/autocomplete.css" rel="stylesheet">
+    <link href="../../content/style/frame/baguetteBox/css/baguetteBox.min.css" rel="stylesheet">
     <!-- <link href="../../content/style/common/css/popup.css" rel="stylesheet"> -->
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elkements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -45,7 +46,11 @@
         <!-- 聊天容器 -->
         <div id="wrapper">
             <div id="scroller">
-                <div class="smart-xyjl-chat-container">
+                <div class="smart-xyjl-chat-container baguetteBox">
+                    <!-- 测试 图片展示 -->
+                    <!-- <a href="../../content/style/white/xiaoyuanjingling/images/icon-1.png">
+                        <img src="../../content/style/white/xiaoyuanjingling/images/icon-1.png" alt="">
+                    </a> -->
                 </div>
             </div>
         </div>
@@ -60,7 +65,11 @@
     <script src="http://api.map.baidu.com/api?v=2.0&ak=kTxsSNaAlcSvAqFpgyOFTgic" type="text/javascript"></script>
     <script src="../../content/style/white/xiaoyuanjingling/js/index.js"></script>
     <script src="../../content/style/frame/iscroll4/js/iscroll.js"></script>
+    <script src="../../content/style/frame/baguetteBox/js/baguetteBox.min.js"></script>
     <script type="text/javascript">
+
+    
+
     myScroll = new iScroll('wrapper');
     // 数据1
     var data1 = {
@@ -75,7 +84,26 @@
         people: "others", // my or others
         peopleType: "left", // my = right; other = left;
         content: "第一种情况（没有正确答案-下面跟着类似问题及当点击”等待回复“时出现”已提交结果提示“）：就不告诉你？嘿！",
-        QAContinue: true // 继续提问（按钮）
+        QAContinue: true, // 继续提问（按钮）
+        tel:"1232478978",
+        images:[
+                "../../content/style/white/xiaoyuanjingling/images/img-1.png",
+                "../../content/style/white/xiaoyuanjingling/images/img-2.png",
+                "../../content/style/white/xiaoyuanjingling/images/img-3.png"
+                ],
+        map:[
+            {
+                mapSrc: "../../content/style/white/xiaoyuanjingling/images/map.png",// 静态图片地址
+                mapX: 121.538702,
+                mapY: 38.87734
+            },
+            {
+                mapDescribe:"第二张地图",
+                mapSrc: "../../content/style/white/xiaoyuanjingling/images/map.png",// 静态图片地址
+                mapX: 121.538702,
+                mapY: 38.87734
+            }
+        ]
     }
     // 数据3
     var data3 = {
@@ -84,20 +112,30 @@
         peopleType: "left", // my = right; other = left;
         content: "",
         QA: true, // 可有可无
+        map:[
+            {
+                mapSrc: "../../content/style/white/xiaoyuanjingling/images/map.png",// 静态图片地址
+                mapX: 121.538702,
+                mapY: 38.87734
+            }
+        ],
         similarQuries: [ // 类似问题的数据集
             {
                 QContent: "学校的位置在什么地方？学校的位置在什么地方？学校的位置在什么地方？",
                 AContent: "红旗大街和学府路交叉口红旗大街和学府路交叉口",
-                map: true, // 是否显示静态图片
-                mapSrc: "", // 静态图片地址
+                mapDescribe:"",
+                mapSrc: "../../content/style/white/xiaoyuanjingling/images/map.png", // 静态图片地址
                 mapX: 121.538702,
                 mapY: 38.87734
             },
             {
                 QContent: "学校高老师电话是多少？",
                 AContent: "学校高老师的电话是",
-                tel: "1311516556489",
-            },
+                tel: "13111111111,13812345678,15133333333",
+                images:[
+                    "../../content/style/white/xiaoyuanjingling/images/img-2.png",
+                    "../../content/style/white/xiaoyuanjingling/images/img-3.png"],
+                },
             {
                 QContent: "学校高老师电话是多少？",
                 AContent: "学校高老师的电话是",
@@ -111,6 +149,10 @@
         people: "others", // my or others 可有可无
         peopleType: "left", // my = right; other = left;
         content: "你的问题已经提交，我们会尽快回复你的~ <br>还有其他问题吗？",
+        tel:"1515151515",
+        images:[
+            "../../content/style/white/xiaoyuanjingling/images/img-1.jpg",
+            "../../content/style/white/xiaoyuanjingling/images/img-1.png"],
         QAEnd: true // 不聊了（按钮）
     }
     // 数据5
@@ -119,6 +161,10 @@
         people: "others", // my or others 可有可无
         peopleType: "left", // my = right; other = left;
         content: "第二种情况（有正确答案-下面的”类似问题“和”已提交回复提示“可以不需要了）：这就是正确回答！还有其他问题吗？",
+        tel:"1515151515",
+        images:[
+            "../../content/style/white/xiaoyuanjingling/images/icon-1.png",
+            "../../content/style/white/xiaoyuanjingling/images/icon-2.png"],
         QAEnd: true
     }
 
@@ -126,6 +172,8 @@
     createChatHtml.createContainer(data2);
     createChatHtml.createContainer(data5);
     createChatHtml.createContainer(data3);
+    // 要等到页面加载完在执行
+    baguetteBox.run('.baguetteBox');
     // setTimeout(function(){
     //     myScroll.refresh();
     // },1000);

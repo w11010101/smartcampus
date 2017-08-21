@@ -7,7 +7,7 @@ var createChatHtml = {
     headerName: "smart-xyjl-chat-header",
     // 图片地址
     header: "../../content/style/white/xiaoyuanjingling/images/head.png",
-    map: "../../content/style/white/xiaoyuanjingling/images/map.png",
+    
     // 创建 chat 容器
     createContainer: function(data) {
         // type = left or right ;
@@ -19,9 +19,13 @@ var createChatHtml = {
         var html = '<div class="' + containerName + '">' + this.createHeader(show);
         html += '<div class="smart-xyjl-chat-box"><em class="' + icon + '"></em>';
         html += '<div class="smart-xyjl-chat-content"><p>' + (data.content || " ")  + '</p>';
+        html += this.createTel(data);
+        html += this.createImage(data);
+        for (var i in data.map) {
+            html += this.createMap(data.map[i]);
+        }
         html += this.similarQuries(data);
         html += this.createQAContinue(data);
-
         html += this.createQAEnd(data);
         html += '</div></div></div>';
 
@@ -31,7 +35,6 @@ var createChatHtml = {
         var l = appendObj.length;
         setTimeout(function (){
             appendObj.eq(l-1).addClass("smart-xyjl-chat-show");
-
             myScroll.refresh();
         },200);
     },
@@ -43,24 +46,30 @@ var createChatHtml = {
     // 类似问题（循环显示）
     similarQuries: function(data) {
         var QuriesArr = data.similarQuries;
-        if (!QuriesArr) return false;
+        if (!QuriesArr) return "";
         var html = '<h1 class="smart-xyjl-chat-similarQuries">【 类似问题 】</h1>';
         var that = this;
         for (var i in QuriesArr) {
             html += that.createQA(QuriesArr[i]);
             html += that.createMap(QuriesArr[i]);
+            html += that.createImage(QuriesArr[i]);
         }
         return html;
+
     },
     // 创建电话
     createTel: function(quriesData) {
-        var html = '<a href="tel:' + quriesData.tel + '" atype="tel">' + quriesData.tel + '</a>';
-        return quriesData.tel ? html : "";
+        if(!quriesData.tel) return "";
+        var html = "";
+        $.each(quriesData.tel.split(","),function (i,e){
+            html += '<a href="tel:' + e + '" atype="tel">' + e + '</a>';
+        })
+        return html;
     },
     // 创建地图
     createMap: function(quriesData) {
-        if (!quriesData.map) return false;
-        var html = '<img src="' + this.map + '" class="other-app" onclick="createChatHtml.showMap(' + quriesData.mapX + "," + quriesData.mapY + ');">';
+        if (!quriesData.mapSrc) return "";
+        var html = '<img src="' + quriesData.mapSrc  + '" class="other-app" onclick="createChatHtml.showMap(' + quriesData.mapX + "," + quriesData.mapY + ');">';
         return html;
     },
     // 创建问答dom
@@ -70,6 +79,15 @@ var createChatHtml = {
                     <p class="smart-xyjl-chat-A">` + quriesData.AContent;
         // 添加电话
         html += this.createTel(quriesData) + '</p></div>';
+        return html;
+    },
+    createImage:function(quriesData){
+        if(!quriesData.images) return "";
+        var html = "";
+        console.log(quriesData.images);
+        $.each(quriesData.images,function (i,e){
+            html += '<a href="'+e+'"><img src="'+e+'"/></a>';
+        });
         return html;
     },
     // 创建继续问题
