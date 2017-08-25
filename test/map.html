@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>异步加载</title>
+    <script type="text/javascript">
+    // function initialize() {  
+    //   var mp = new BMap.Map('map');  
+    //   mp.centerAndZoom(new BMap.Point(121.491, 31.233), 11);  
+    // }  
+
+    // function loadScript() {  
+    //   var script = document.createElement("script");  
+    //   script.src = "http://api.map.baidu.com/api?v=2.0&ak=您的密钥&callback=initialize";//此为v2.0版本的引用方式  
+    //   // http://api.map.baidu.com/api?v=1.4&ak=您的密钥&callback=initialize"; //此为v1.4版本及以前版本的引用方式  
+    //   document.body.appendChild(script);  
+    // }  
+
+    // window.onload = loadScript;
+    </script>
+</head>
+
+<body>
+    <!-- <div id="map" style="width:500px;height:320px"></div>   -->
+</body>
+<script type="text/javascript">
+var student = {
+    name: "robot",
+    height: 1.7,
+    run: function() {
+        console.log(this.name + " is running...");
+    }
+}
+var xiaoming = {
+    // name : "小明"
+}
+var bird = {
+    fly: function() {
+        console.log(this.name + " is flying...")
+    }
+}
+
+xiaoming.__proto__ = student;
+// console.log(student.name)
+// console.log(xiaoming.name)
+// xiaoming.run();
+xiaoming.__proto__ = bird;
+// xiaoming.fly();
+// var Person = function () {
+//     Person.prototype.say = function (){
+//         console.log("say")
+//     }
+// };
+// var p = new Person();
+
+// console.log(p.__proto__ == Person.prototype);
+// alert(p.__proto__ === Person.prototype)
+
+// 面向对象的继承  prototype模式
+
+// 
+//     function Animal(){
+// 　　　　this.species = "动物";
+// 　　}
+
+//     function Cat(name,color){
+// 　　　　this.name = name;
+// 　　　　this.color = color;
+// 　　}
+
+//     Cat.prototype = new Animal();
+
+//     Cat.prototype.constructor = Cat;
+    
+//     cat1 = new Cat("大毛","黄色");
+//     console.log(Cat.prototype.constructor);
+//     console.log(cat1.constructor)
+//     console.log(Animal.prototype.constructor)
+    // console.log(Cat.prototype.constructor);
+    // console.log(cat1.constructor == Animal);
+    // console.log(Cat.prototype.constructor);
+    // console.log(Cat.prototype.constructor == Animal); //true
+
+// 面向对象的继承  直接继承prototype
+
+//     function Animal(){ }
+// 　　Animal.prototype.species = "动物";
+
+//     function Cat(name,color){
+// 　　　　this.name = name;
+// 　　　　this.color = color;
+// 　　}
+//     // Cat.prototype = new Animal();
+//     Cat.prototype = Animal.prototype;
+// 　　Cat.prototype.constructor = Cat;
+// 　　var cat1 = new Cat("大毛","黄色");
+//     // console.log(Cat.prototype.constructor);
+//     // console.log(cat1); // 动物
+//     console.log(Animal.prototype.constructor); // 动物 Animal.prototype对象的constructor属性也改掉了
+
+// 面向对象的继承  利用空对象作为中介
+
+    function Animal(){ }
+　　Animal.prototype.species = "动物";
+
+    function Cat(name,color){
+　　　　this.name = name;
+　　　　this.color = color;
+　　}
+    
+    function extend(Child, Parent) {
+　　　　var F = function(){};
+　　　　F.prototype = Parent.prototype;
+　　　　Child.prototype = new F();
+
+　　　　Child.prototype.constructor = Parent;
+　　　　Child.uber = Parent.prototype;
+　　}
+    
+    extend(Cat,Animal);
+
+    var cat1 = new Cat("大毛","黄色");
+
+    // console.log(cat1);
+    // console.log(Cat.prototype.constructor);
+    // console.log(cat1.constructor);
+    // console.error(1);
+    // console.log(123);
+
+
+    // -------------------------------
+    
+    
+    // var obj1 = {
+    //     a:1
+    // }
+    
+    function obj1(){};
+
+    obj1.prototype.id = 12;
+
+    function obj2(name){
+        this.name = name;
+        
+    }
+    obj2.prototype = obj1.prototype;
+
+
+    var obj = new obj2("xiaoming");
+
+    console.log(obj);
+
+    var data = {
+            data:[{
+                id : obj.id,
+                name : obj.name
+            },
+            {
+                id : obj.id,
+                name : obj.name
+            }]
+        }
+    
+    console.log(data);
+
+    // obj1.prototype.e = 5;  // 继承
+    // obj1.prototype.aa = function (){
+    //     // console.log(123)
+    // }
+
+    // console.log(obj1())
+    // function f(){};
+    // f.prototype = obj1.prototype;
+
+    // function obj2(){
+    //     this.d = 4
+    // }
+    // obj2.prototype = new f();
+
+    // var o2 = new obj2();
+
+    // var a3 = {
+    //     a:7485
+    // }
+    // function base(){
+    //     // this.a = 1;
+    //     return ;
+    // }
+    // var ret = new base();
+    // console.log(ret)
+
+    // var config = {
+    //     id:o2.id,
+
+    // }
+    // console.log(o2);
+
+    // var obj2 = Object.create(obj1);
+    // console.log("obj1 = " + JSON.stringify(obj1));
+    // console.log("obj2 = " + JSON.stringify(obj2));
+
+    // obj2 = Object.create(obj2);
+    // obj2["b"]  = 2;
+    
+    // console.log("obj1 = " + JSON.stringify(obj1));
+    // console.log("obj2 = " + JSON.stringify(obj2));
+</script>
+
+</html>
