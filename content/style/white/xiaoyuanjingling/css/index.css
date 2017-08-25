@@ -47,7 +47,9 @@ body,
 .smart-xyjl .smart-xyjl-hotQuestions {
     padding: 25px 0;
 }
-
+.smart-xyjl .smart-xyjl-hotQuestions ul{
+    height: 230px;
+}
 .smart-xyjl-hotQuestions>a {
     display: block;
     margin-left: 20px;
@@ -161,7 +163,7 @@ body,
     position: relative;
 }
 #categorylist li[mtype]{
-    opacity: 0.6;
+    opacity: 0.4;
 }
 .smart-xyjl-classify ul li a {
 	display: block;
@@ -479,7 +481,7 @@ body,
 .smart-xyjl-chat-content p {
     margin: 0;
     font-size: 14px;
-    text-align: justify;
+    /*text-align: justify;*/
 }
 
 .smart-xyjl-chat-content img {

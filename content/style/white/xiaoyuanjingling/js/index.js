@@ -27,7 +27,7 @@ function scollComputed() {
 // autocomplete 自动完成提示；是再body onload里执行；
 function searchComplete() {
     $.ajax({
-        url: 'http://localhost:3001/',
+        url: 'http://localhost:3000/',
         data: {
             type:"queries",
             

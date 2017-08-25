@@ -183,7 +183,7 @@
             if (options.width !== 'auto') {
                 container.css('width', options.width);
             }
-
+            
             // Listen for mouse over event on suggestions list:
             container.on('mouseover.autocomplete', suggestionSelector, function () {
                 that.activate($(this).data('index'));
@@ -197,6 +197,7 @@
 
             // Listen for click event on suggestions list:
             container.on('click.autocomplete', suggestionSelector, function () {
+                
                 that.select($(this).data('index'));
                 return false;
             });
@@ -206,7 +207,6 @@
                     that.fixPosition();
                 }
             };
-
             $(window).on('resize.autocomplete', that.fixPositionCapture);
 
             that.el.on('keydown.autocomplete', function (e) { that.onKeyPress(e); });

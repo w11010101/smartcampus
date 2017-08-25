@@ -69,7 +69,8 @@ var createChatHtml = {
     // 创建地图
     createMap: function(quriesData) {
         if (!quriesData.mapSrc) return "";
-        var html = '<img src="' + quriesData.mapSrc  + '" class="other-app" onclick="createChatHtml.showMap(' + quriesData.mapX + "," + quriesData.mapY + ');">';
+        var html = '<p>'+ (quriesData.mapDescribe || " ")+'</p>';
+        html += '<img src="' + quriesData.mapSrc  + '" class="other-app" onclick="createChatHtml.showMap(' + quriesData.mapX + "," + quriesData.mapY + ');">';
         return html;
     },
     // 创建问答dom
@@ -84,7 +85,6 @@ var createChatHtml = {
     createImage:function(quriesData){
         if(!quriesData.images) return "";
         var html = "";
-        console.log(quriesData.images);
         $.each(quriesData.images,function (i,e){
             html += '<a href="'+e+'"><img src="'+e+'"/></a>';
         });
