@@ -72,12 +72,8 @@
 
     myScroll = new iScroll('wrapper');
     // 数据1
-    var data1 = {
-        id: 133,
-        people: "my", // my or others
-        peopleType: "right", // my = right; other = left;
-        content: decodeURI(getUrlVal().val)
-    }
+    
+    
     // ajax 
     $.ajax({
         url:"http://localhost:3000/",
@@ -151,38 +147,11 @@
     });
     
 
-    createChatHtml.createContainer(data1);
+    createChatHtml.createContainer(getData(decodeURI(getUrlVal().val)));
 
 
 
-    // // 数据2
-    // var data2 = {
-    //     id: 123,
-    //     people: "others", // my or others
-    //     peopleType: "left", // my = right; other = left;
-    //     content: "第一种情况（没有正确答案-下面跟着类似问题及当点击”等待回复“时出现”已提交结果提示“）：就不告诉你？嘿！",
-    //     QAContinue: true, // 继续提问（按钮）
-    //     tel:"1232478978",
-    //     images:[
-    //             "../../content/style/white/xiaoyuanjingling/images/img-1.png",
-    //             "../../content/style/white/xiaoyuanjingling/images/img-2.png",
-    //             "../../content/style/white/xiaoyuanjingling/images/img-3.png"
-    //             ],
-    //     map:[
-    //         {
-    //             mapDescribe:" ",  // 图片描述
-    //             mapSrc: "../../content/style/white/xiaoyuanjingling/images/map.png",// 静态图片地址
-    //             mapX: 121.538702,
-    //             mapY: 38.87734
-    //         },
-    //         {
-    //             mapDescribe:"第二张地图",  // 图片描述
-    //             mapSrc: "../../content/style/white/xiaoyuanjingling/images/map.png",// 静态图片地址
-    //             mapX: 121.538702,
-    //             mapY: 38.87734
-    //         }
-    //     ]
-    // }
+    
     // // 数据3
     // var data3 = {
     //     id: 123,
@@ -247,7 +216,7 @@
     // }
 
     // createChatHtml.createContainer(data1);
-    // createChatHtml.createContainer(data2);
+    createChatHtml.createContainer(getData2('"第一种情况（没有正确答案-下面跟着类似问题及当点击”等待回复“时出现”已提交结果提示“）：就不告诉你？嘿！"'));
     // createChatHtml.createContainer(data5);
     // createChatHtml.createContainer(data3);
     // 要等到页面加载完在执行

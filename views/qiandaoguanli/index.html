@@ -78,13 +78,13 @@
       <div class="col-xs-6">
         <a href="kaishi.html" title="">开始签到</a>
       </div>
-      <div class="col-xs-6">
+      <div class="col-xs-6 smart-sign-adm-nfc">
         <a title="">NFC签到</a>
       </div>
       <div class="col-xs-6" popupType="select" onclick="select(this);">
         <a>随机签到</a>
       </div>
-      <div class="col-xs-6">
+      <div class="col-xs-6 smart-sign-adm-tj">
         <a href="kecheng.html" title="">签到统计</a>
       </div>
     </div>
@@ -98,6 +98,18 @@
   <script src="../../content/style/frame/jquery/toast/js/jquery.toast.js"></script>
   <script src="../../content/style/common/js/popup.js"></script>
   <script src="../../content/style/white/qiandao/js/qiandao.js"></script>
+  <script type="text/javascript">
+
+    var app = navigator.appVersion;
+    if(app.match(/(Android)/i)){
+      // console.log("当前系统为 andorid");
+      // $(".smart-sign-adm-nfc").show(0);
+    }else{
+      console.log("当前系统为 ios");
+      $(".smart-sign-adm-nfc").remove();
+      $(".smart-sign-adm-tj").removeClass("col-xs-6").addClass("col-xs-12");
+    }
+  </script>
 </body>
 
 </html>

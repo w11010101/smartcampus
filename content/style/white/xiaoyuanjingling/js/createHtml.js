@@ -15,7 +15,7 @@ var createChatHtml = {
         var show = type == "left" ? true : false;
         var containerName = type == "left" ? this.containerLeft : this.containerRight;
         var icon = type == "left" ? this.iconLeft : this.iconRight;
-
+        var that = this;
         var html = '<div class="' + containerName + '">' + this.createHeader(show);
         html += '<div class="smart-xyjl-chat-box"><em class="' + icon + '"></em>';
         html += '<div class="smart-xyjl-chat-content"><p>' + (data.content || " ")  + '</p>';
@@ -36,6 +36,7 @@ var createChatHtml = {
         setTimeout(function (){
             appendObj.eq(l-1).addClass("smart-xyjl-chat-show");
             myScroll.refresh();
+            that.scrollBottom();
         },200);
     },
     // 创建头像
@@ -108,21 +109,25 @@ var createChatHtml = {
     waitBtn: function(obj) {
         $(obj).attr("disabled", true).addClass("btn-disabled");
         createChatHtml.createContainer(data4);
-        var scrollY = $("#wrapper")[0].clientHeight-$("#scroller")[0].clientHeight;
-        if(scrollY > 0) return false;
-        myScroll.scrollTo(0,scrollY,500);
+        this.scrollBottom();
     },
     // 继续提问 按钮 事件
-    continueBtn: function() {
+    continueBtn: function() {  
         $(".smart-search-box").slideDown(200,function(){
         	$("#suggestions-container").show(0);
         }).next().addClass("smart-search-container-show");
-        
+        myScroll.refresh();
         $("body").css("overflow","hidden");
     },
     // 点击地图事件
     showMap: function(x, y) {
         $("body").append('<div id="smart-map"></div>');
         window.location.href = "bmap.html?x=" + x + "&y=" + y;
+    },
+    scrollBottom:function (){
+
+        var scrollY = $("#wrapper")[0].clientHeight-$("#scroller")[0].clientHeight;
+        if(scrollY > 0) return false;
+        myScroll.scrollTo(0,scrollY,500);
     }
 }

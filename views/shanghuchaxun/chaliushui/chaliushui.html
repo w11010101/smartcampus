@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+  <title>商户查询</title>
+
+  <!-- Bootstrap -->
+
+  <link href="../../../content/style/frame/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../../../content/style/common/css/xiaoyuanka/common.css" rel="stylesheet">
+  <link href="../../../content/style/frame/iscroll4/css/pullToRefresh.css" rel="stylesheet">
+  <link href="../../../content/style/white/shagnhuchaxun/css/shanghuchaxun.css" rel="stylesheet">
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]> param.month = getOtherDate(getM);
+      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body class="smart-query-bill">
+  <nav class="navbar">
+    <div class="smart-header smart-white">
+      <a href="javascript:history.go(-1)" class="smart-back smart-icon-left">
+        <img src="../../../content/style/common/images/back-2.png" alt="">
+      </a>
+      <h1>我的账单</h1>
+    </div>
+  </nav>
+  <div class="smart-content">
+    
+    <!-- 筛选 -->
+    <div class="smart-screen">
+    <h1 class="smart-query-title">00112233--一餐厅1楼1-16窗口</h1>
+      <div class="row smart-column-list">
+        <div class="col-xs-4">今日</div>
+        <div class="col-xs-4">全部POS</div>
+        <div class="col-xs-4">全部时段</div>
+      </div>
+      <!-- 筛选内容 -->
+      <div class="row smart-screen-list set-popup">
+      </div>
+    </div>
+    <!-- 按钮 -->
+    <div class="smart-query-statistics">
+      <button>统计分析</button>
+    </div>
+    <!--  -->
+    <div class="smart-query-summarize">
+      <h1>2017.09.08</h1>
+      <p>总计：<em>144000.00</em>元</p>
+    </div>
+    <!-- 折叠面板 -->
+    <div class="smart-accordion" id="wrapper">
+        <!-- 列表 -->
+        <ul class="smart-sub-list">
+          <!-- 列表一组 -->
+          <li class="smart-sub-list-item">
+            <!-- 日期 -->
+            <div class="smart-accordion-head">
+              <span>14:14</span>
+            </div>
+            <!-- 列表内容 -->
+            <div class="smart-accordion-content">
+              <h3>
+                <em>POS-201</em>
+                <i set-status="pay">-1000.00</i>
+              </h3>
+              <p>
+                <em>132132132132132</em>
+                <i>张三（132132132132312）</i>
+              </p>
+            </div>
+          </li>
+          <!-- 列表一组 -->
+          <li class="smart-sub-list-item">
+            <!-- 日期 -->
+            <div class="smart-accordion-head">
+              <span>14:14</span>
+            </div>
+            <!-- 列表内容 -->
+            <div class="smart-accordion-content">
+              <h3>
+                <em>POS-202</em>
+                <i set-status="pay">-1000.00</i>
+              </h3>
+              <p>
+                <em>132132132132132</em>
+                <i>张三（132132132132312）</i>
+              </p>
+            </div>
+          </li>
+          <!-- 列表一组 -->
+          <li class="smart-sub-list-item">
+            <!-- 日期 -->
+            <div class="smart-accordion-head">
+              <span>14:14</span>
+            </div>
+            <!-- 列表内容 -->
+            <div class="smart-accordion-content">
+              <h3>
+                <em>POS-203</em>
+                <i set-status="income">+1000.00</i>
+              </h3>
+              <p>
+                <em>132132132132132</em>
+                <i>张三（132132132132312）</i>
+              </p>
+            </div>
+          </li>
+          <!-- 列表一组 -->
+          <li class="smart-sub-list-item">
+            <!-- 日期 -->
+            <div class="smart-accordion-head">
+              <span>14:14</span>
+            </div>
+            <!-- 列表内容 -->
+            <div class="smart-accordion-content">
+              <h3>
+                <em>POS-204</em>
+                <i set-status="income">+1000.00</i>
+              </h3>
+              <p>
+                <em>132132132132132</em>
+                <i>张三（132132132132312）</i>
+              </p>
+            </div>
+          </li>
+        </ul>
+    </div>
+    <!-- 图表 -->
+    <!-- <div class="smart-echart">
+      <label>2017.09.01-2017.09.30</label>
+      <h1>总计：<em>144000.00</em>元</h1>
+      <h1>收入柱状图</h1>
+    </div> -->
+    <!-- 遮罩 -->
+    <div class="smart-screen-mask"></div>
+  </div>
+</body>
+<script type="text/javascript" src="../../../content/style/frame/jquery/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="../../../content/style/frame/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../../content/style/frame/echarts/echarts.common.min.js"></script>
+
+<!-- <script type="text/javascript" src="../../../content/style/frame/iscroll/iscroll.js"></script> -->
+
+<script type="text/javascript" src="../../../content/style/frame/iscroll4/js/iscroll-true.js"></script>
+<script type="text/javascript" src="../../../content/style/frame/iscroll4/js/pullToRefresh.js"></script>
+
+<script type="text/javascript" src="../../../content/style/white/shagnhuchaxun/js/shaixuan.js"></script>
+<script type="text/javascript">
+  
+  accordionClick();
+
+  refresher.init({
+    id: "wrapper",
+    pullDownAction: Refresh,
+    pullUpAction: Load
+  });
+  var generatedCount = 0;
+  // 下拉刷新
+  function Refresh() {
+    wrapper.refresh();
+  }
+  // 上拉加载
+  function Load() {
+    setTimeout(function() {
+      var li = "", i;
+      for (i = 0; i < 3; i++) {
+          li += ` <li class="smart-sub-list-item">
+            <!-- 日期 -->
+            <div class="smart-accordion-head">
+              <span>204</span>
+            </div>
+            <!-- 列表内容 -->
+            <div class="smart-accordion-content">
+              <h3>
+                <em>交易笔数</em>
+                <i>交易金额</i>
+              </h3>
+              <p>
+                <em>67笔</em>
+                <i>3333.00</i>
+              </p>
+            </div>
+          </li>
+          <li class="smart-sub-list-item smart-sub-list-item-content">
+            <div class="row">
+              <div class="col-xs-12">
+                <label>交易时间：</label>
+                <span>2017.09.08 14:11：11</span>
+              </div>
+              <div class="col-xs-12">
+                <label>订单号：</label>
+                <span></span>
+              </div>
+            </div>
+          </li>`;
+          
+      }
+      $("#wrapper ul").append(li);
+      accordionClick();
+      wrapper.refresh();
+    }, 1000);
+  }
+</script>
+</html>

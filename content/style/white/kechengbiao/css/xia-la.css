@@ -27,9 +27,10 @@
 	width: 100%;
 	line-height: 44px;
 	font-size: 16px;
-	font-family: "microsoft yahei";
+	font-family: "微软雅黑";
 	color: #666666;
 	padding: 0px 15px;
+	border-bottom: 1px solid #E0E0E0;
 }
 
 .sys-header.content .select .wrapper {
@@ -65,8 +66,10 @@
 	border-radius: 5px;
 }
 
-.sys-header.content .select ul li:hover {
+.sys-header.content .select ul li:active {
 	background: #73d2fe;
+	border-radius: 5px;
+	color: #fff;
 }
 
 @-webkit-keyframes slide-down {

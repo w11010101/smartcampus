@@ -91,9 +91,33 @@ function searchComplete() {
     function selectVal(suggestion) { // 选择
         $(".smart-screen-mask,.closeBtn").hide();
         $("#suggestions-container").css("z-index","-1");
-        window.location.href = "chat.html?val=" + suggestion.value + "&id=" + (suggestion.data || "");
+        if($(".smart-xyjl-chat").length){
+            createChatHtml.createContainer(getData(suggestion.value));
+            createChatHtml.createContainer(getData2('file:///E:/smartcampus/views/xiaofile:///E:/smartcampus/views/xiao就不告诉你？嘿！'));
+
+            $(".smart-search-box").slideUp(200,function(){
+                $("#suggestions-container").hide(0);
+                $("input",this).val("");
+            }).next().removeClass("smart-search-container-show");
+        }else{
+            window.location.href = "chat.html?val=" + suggestion.value + "&id=" + (suggestion.data || "");
+        }
     }
-    
+    // function selectVal(suggestion) { // 选择
+
+    //     setTimeout(function () { $(".smart-screen-mask,.closeBtn").hide(0); }, 200);
+    //     $("#suggestions-container").css("z-index", "-1");
+    //     if ($(".smart-xyjl-chat").length) {//如果在聊天页
+
+    //         createChatHtml.createContainer(myquestion(suggestion.value));//显示问题
+    //         getanwerbyid(suggestion.data || "");//显示答案
+
+    //         hiddenserch();// 去掉搜索框
+    //         //$(".smart-screen-mask").hide();
+    //     } else {
+    //         window.location.href = basefairyurl + "chat?val=" + suggestion.value + "&id=" + (suggestion.data || "");
+    //     }
+    // }
     // 监听input keyup
     var box = $('.smart-search-box');
     var input = box.find("input");
@@ -123,7 +147,12 @@ function searchComplete() {
     // 搜索按钮
     box.find(".searchBtn").on("click", function() {
         if (input.val()) {
-            window.location.href = 'chat.html?val=' + input.val().trim();
+            if($(".smart-xyjl-chat").length){
+                createChatHtml.createContainer(getData(suggestion.value));
+                createChatHtml.createContainer(getData2('就不告诉你？嘿！'));
+            }else{
+                window.location.href = 'chat.html?val=' + input.val().trim();
+            }
         }
     });
     // 清空按钮
@@ -145,4 +174,34 @@ function listClick() {
     $(".smart-list li").off("click").on("click", function() {
         window.location.href = 'chat.html?val=' + $(this).text().trim();
     })
+}
+
+function getData(content){
+    return {
+        id: 133,
+        people: "my", // my or others
+        peopleType: "right", // my = right; other = left;
+        content: content
+    }
+}
+function getData2(content){
+    return {
+        id: 123,
+        people: "others", // my or others
+        peopleType: "left", // my = right; other = left;
+        content: content,
+        QAContinue: true, // 继续提问（按钮）
+        tel:"1232478978",
+        images:[
+                "../../content/style/white/xiaoyuanjingling/images/img-1.png",
+                ],
+        map:[
+            {
+                mapDescribe:" ",  // 图片描述
+                mapSrc: "../../content/style/white/xiaoyuanjingling/images/map.png",// 静态图片地址
+                mapX: 121.538702,
+                mapY: 38.87734
+            }
+        ]
+    }
 }

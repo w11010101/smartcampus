@@ -481,6 +481,7 @@ body,
 .smart-xyjl-chat-content p {
     margin: 0;
     font-size: 14px;
+    word-wrap:break-word;
     /*text-align: justify;*/
 }
 

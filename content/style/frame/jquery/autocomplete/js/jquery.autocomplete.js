@@ -924,7 +924,10 @@
             var that = this,
                 onSelectCallback = that.options.onSelect,
                 suggestion = that.suggestions[index];
-
+                console.log("suggestion");
+                console.log(suggestion);
+                console.trace();
+                console.count("count: ");
             that.currentValue = that.getValue(suggestion.value);
 
             if (that.currentValue !== that.el.val() && !that.options.preserveInput) {

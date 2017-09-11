@@ -268,7 +268,8 @@ html *,.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6{
 	background: #73d2fe;
 	color:#fff;
 }
-.signIn[search=false] h2,.signIn[search=false] .smart-list{
+.signIn[search=false] h2,
+.signIn[search=false] .smart-list{
 	display: none;
 }
 /* 改暗号 */
