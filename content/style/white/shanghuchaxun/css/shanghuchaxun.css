@@ -1,3 +1,8 @@
+body .smart-border-bottom-0:after,
+body .smart-border-top-0:before {
+    height: 0;
+}
+
 .navbar{
     z-index: 3;
 }
@@ -15,11 +20,43 @@
     background-size:25px;
     color:#8d8d8d;
 }
+.smart-time-box{
+    height: 45px;
+    line-height: 45px;
+    text-align: center;
+    margin-top: 85px;
+    background: #fff;
+    display: none;
+}
+.smart-time-box *{
+    display: inline-block;
+    vertical-align: middle;
+
+}
+.smart-time-box p{
+    width: 35%;
+    margin: 0;
+    height: 100%;
+    font-size:16px;
+    color:#0f0f0f;
+}
+.smart-time-box em{
+    width: 10%;
+    min-width: 40px;
+    color:#8d8d8d;
+}
+.smart-time-box.smart-show{
+    display: block;
+}
 .smart-query-statistics{
     text-align: center;
-    padding-top: 95px;
+    margin-top: 85px;
+    padding-top:20px; 
     padding-bottom: 15px;
     background: #fff;
+}
+.smart-time-box.smart-show+.smart-query-statistics{
+    margin-top: 0;
 }
 .smart-query-statistics button{
     width: 32%;
@@ -28,12 +65,19 @@
     padding:5px 0;
     background: #fff;
     color:#42c3ef;
+    transition: all .3s ease;
+    -webkit-transition: all .3s ease;
+}
+.smart-query-statistics button:active{
+    color:#fff;
+    background: #42c3ef;
 }
 .smart-query .smart-query-statistics button:first-child{
     margin-right: 40px;
 }
 .smart-screen .smart-column-list div[class^="col-xs"]{
     padding: 0;
+    font-size: 15px;
 }
 .panel-group{
     margin-top: 0;
@@ -71,6 +115,7 @@
     padding: 0 0 20px 25px;
     font-size: 0;
 }
+.smart-query-summarize 
 .smart-query-summarize p{
     margin: 0;
     font-size: 16px;
@@ -92,6 +137,7 @@
 }
 .smart-query-bill .smart-query-summarize em{
     display: inline-block;
+    margin: 0 5px;
 }
 .smart-query-summarize .smart-query-note,.smart-query-summarize .smart-query-money{
     display: inline-block;
@@ -121,6 +167,10 @@
     content:"元";
     font-size: 16px;
     margin-left: 5px;
+}
+.smart-query-bill .smart-accordion .smart-sub-list li .smart-accordion-head{
+    height: auto;
+    vertical-align: top
 }
 .smart-query .smart-accordion .smart-sub-list li .smart-accordion-head{
     width: 88px;
@@ -172,7 +222,77 @@
 .smart-query-bill .smart-sub-list .smart-sub-list-item:not(:last-child):after{
     left:50px;
 }
+/* dtpicker css*/
+.mui-dtpicker {
+    border: none;
+    box-shadow: none;
+    background-color: #fff;
+}
 
+.mui-dtpicker-header button {
+    border: none;
+    background-color: #FFFFFF;
+    font-size: 16px;
+    color: #73D2FE;
+}
+
+.mui-dtpicker-header {
+    border-bottom: 1px solid #EEEEEE;
+}
+
+.mui-dtpicker-title {
+    display: none;
+}
+
+.mui-pciker-rule.mui-pciker-rule-ft {
+    text-align: right;
+    padding-right: 20px;
+}
+
+.mui-picker {
+    background: #fff;
+}
+
+div[data-id='picker-h'] .mui-pciker-rule.mui-pciker-rule-ft {
+    padding-right: 30px;
+}
+
+div[data-id='picker-i'] .mui-pciker-rule.mui-pciker-rule-ft {
+    text-align: left;
+    padding-left: 90px;
+}
+
+.mui-backdrop {
+    background: rgba(0, 0, 0, .5);
+}
+
+div[data-id='picker-h'] .mui-pciker-list li {
+    text-align: right;
+    padding-right: 70px;
+}
+
+div[data-id='picker-i'] .mui-pciker-list li {
+    text-align: left;
+    padding-left: 70px;
+}
+
+.mui-toast-container div{
+    border-radius: 20px !important;
+}
+.smart-header .smart-icon-left{
+    margin-left: 10px;
+    color: #8D8D8D;
+}
+.smart-header .smart-icon-left:active{
+    color: #6D6D6D;
+}
+.smart-edit.smart-icon-right{
+    padding-left: 10px;
+    color: #6D6D6D;
+}
+.smart-edit.smart-icon-right:active{
+    color: #505050;
+}
 
 
 
