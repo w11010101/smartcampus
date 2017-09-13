@@ -1,5 +1,6 @@
 var loadMore = function () {
     var self = this;
+    
     this.scroll = function (option){
         // 下拉
         var pullDown = typeof option.pullDown == "string"?function (){
@@ -16,14 +17,21 @@ var loadMore = function () {
             id: option.id,
             pullDownAction: pullDown,
             pullUpAction: pullUp,
+            // preventDefault:false
         });
-        // option.pullDown()
     }    
     var generatedCount = 0;
     // 重置
     this.Refresh = function (){
         wrapper.refresh()
     }
-
+    // 销毁
+    this.destroy = function (){
+        wrapper.destroy();
+    }
+    // 恢复
+    this.enable = function (){
+        wrapper.enable();
+    }
 }
 var loadMore = new loadMore();

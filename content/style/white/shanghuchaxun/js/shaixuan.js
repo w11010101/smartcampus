@@ -5,14 +5,19 @@ function setTop(){
         e = $(".smart-top")[i];
         getTop += e.clientHeight;
     }
-    
     $(".smart-accordion").css("top",(getTop+45)+"px");
 }
 // 分析 和 统计 切换
 $(".smart-query-statistics .toggle").on("click",function (){
     $(".smart-content").toggleClass("smart-toggle");
-    $(this).text($(".smart-content").hasClass("smart-toggle")?"统计":"分析");
+    $(this).text($(".smart-content").hasClass("smart-toggle")?function(){
+        return "统计";
+        loadMore.destroy();
+    }():function (){
+        return "分析";
+    }());
 });
+
 // 向下展开筛选
 var screen_list = [
     ["今日", "近一周", "近一个月", "任意时间"],
@@ -20,18 +25,41 @@ var screen_list = [
     ["5:00~9:00", "11:30~13:30","17:30~19:30","全部时段"]
 ];
 var lists = $(".smart-screen div[class^=col-xs-4]");
+
+picker = new mui.PopPicker({
+    layer: 1,
+});
+var state = true;
+var that = "";
 lists.on("click", function() {
+    picker.setData(screen_list[$(this).index()]);
     $(this).toggleClass("smart-active").siblings().removeClass("smart-active");
-    $(".smart-screen-list div").remove();
-    var that = this;
-    for (var i in screen_list[$(this).index()]) {
-        $(".smart-screen-list").append('<div class="col-xs-12" type="list" onclick="hideBox(this);">' + screen_list[$(this).index()][i] + '</div>');
+    if(state){
+        picker.show(function(items) {
+            console.log(items);
+            lists.removeClass("smart-active");
+            state = true;
+        });
+        that = $(this)[0].id;
+        state = false;
+    }else{
+        if(that== $(this)[0].id) {
+            // 如果点击的是自己，就hide;
+            picker.hide();
+            picker.setData(screen_list[$(this).index()]);
+            state = true;
+        }else{
+            // 如果点击的不是自己，就show;
+            that = $(this)[0].id;
+            state = false;
+        }
     }
-    if ($(this).hasClass("smart-active")) {
-        smart_screen_toggle("show");
-    } else {
-        smart_screen_toggle("hide");
-    }
+    
+    // 遮罩层 和 取消按钮 绑定点击事件，取消smart-active样式
+    $(".mui-backdrop,.mui-poppicker-btn-cancel").off().on("tap", function() {
+      lists.removeClass("smart-active");
+      state = true;
+    });
 })
 
 // 隐藏筛选
@@ -49,24 +77,22 @@ function hideBox(obj){
         // 日期范围
         switch ($(obj).text()){
             case "今日":
-                $(".smart-query-summarize h1").text(date.text);
+                $(".smart-query-summarize h1,.smart-echart label").text(date.text);
             break;
             case "近一周":
                 beforeDate = getTime(date.year,date.month-1,(date.day-7));
-                $(".smart-query-summarize h1").text(beforeDate.text+" ~ "+date.text);
+                $(".smart-query-summarize h1,.smart-echart label").text(beforeDate.text+" ~ "+date.text);
             break;
             case "近一个月":
                 beforeDate = getTime(date.year,date.month-1,(date.day-30));
-                $(".smart-query-summarize h1").text(beforeDate.text+" ~ "+date.text);
+                $(".smart-query-summarize h1,.smart-echart label").text(beforeDate.text+" ~ "+date.text);
             break;
 
         }
     }
 }
 
-$(".smart-screen-mask").on("click", function() {
-  hideBox();
-})
+
 
 function smart_screen_toggle(type) {
     if (type == "hide") {
@@ -101,7 +127,7 @@ function getTime(y,m,d){
         year : time.getFullYear(),
         month : time.getMonth()+1,
         day : time.getDate(),
-        text: time.getFullYear()+"-"+(time.getMonth()+1)+"-"+time.getDate()
+        text: time.getFullYear()+"."+(time.getMonth()+1)+"."+time.getDate()
     }
 }
 
@@ -140,7 +166,7 @@ function selectTime (obj){
          */
         obj.innerText = rs.text;
         if(type == "end"){
-            $(".smart-query-summarize h1").text(startP.text()+" — "+endP.text());
+            $(".smart-query-summarize h1").text(startP.text()+" ~ "+endP.text());
         }
         /* 
          * 返回 false 可以阻止选择框的关闭
@@ -309,3 +335,71 @@ $(function() {
         myChart.setOption(option);
     }
 })
+
+// 
+var myChart_bar = echarts.init(document.querySelector(".smart-pie-charts"));
+var option_bar = {
+    title: {
+        text: '收入支出',
+        textStyle: {
+            color: "#3c3c3c",
+            fontSize: 14,
+            fontWeight: "normal",
+            // position:[10,10]
+        },
+    },
+    color: ['#02e699', '#4ac4ed'],
+    itemStyle: {
+        normal: {
+            borderColor: "#fff",
+            borderWidth: 5
+        }
+    },
+    series: [{
+        name: '访问来源',
+        type: 'pie',
+        radius: ['25%', '60%'],
+        avoidLabelOverlap: true,
+        labelLine: {
+            normal: {
+                show: true,
+                length: 10,
+                length2: 10
+            }
+        },
+        data: [{
+            value: 200,
+            name: '收入',
+            label: {
+                normal: {
+                    formatter: function(value) {
+                        return value.data.value + '\n' + '——' + '\n' + '收入';
+                    },
+                }
+            },
+            itemStyle: {
+                normal: {
+                    borderColor: "#fff",
+                    borderWidth: 5
+                }
+            }
+        }, {
+            value: 500,
+            name: '支出',
+            label: {
+                normal: {
+                    formatter: function(value) {
+                        return value.data.value + '\n' + '——' + '\n' + '支出';
+                    },
+                }
+            },
+            itemStyle: {
+                normal: {
+                    borderColor: "#fff",
+                    borderWidth: 5
+                }
+            }
+        }]
+    }]
+}
+myChart_bar.setOption(option_bar);

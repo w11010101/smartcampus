@@ -62,7 +62,7 @@
     <div class="smart-query-statistics smart-top">
       <button>统计分析</button>
     </div>
-    <!--  -->
+    <!-- summarize -->
     <div class="smart-query-summarize smart-border smart-top">
       <h1>2017.09.08</h1>
       <p>总计：<em>144000.00</em>元</p>
@@ -164,7 +164,22 @@
 <script src="../../../content/style/white/shanghuchaxun/js/shaixuan.js"></script>
 <script type="text/javascript">
   var option = {
-    id:"wrapper",
+    /*
+    注： 1、页面有<div id="wrapper">ul>li</div>
+      2、wrapper 整屏的 100%，根据父级 height (css)
+      3、pullDown 
+        3.1 string 
+        3.2 function 
+
+      4、pullUp 
+      5、引用
+        5.1 css：../../../content/style/frame/iscroll4/css/pullToRefresh.css
+        5.2 js ：../../../content/style/frame/iscroll4/js/iscroll-true.js
+                 ../../../content/style/frame/iscroll4/js/pullToRefresh.js"
+                 ../../../content/style/frame/iscroll4/js/loadMore.js"
+    */
+    
+    id:"wrapper", // 
     pullDown:"refresh",
     pullUp:function (){
       setTimeout(function() {

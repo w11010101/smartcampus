@@ -3,9 +3,31 @@ body .smart-border-top-0:before {
     height: 0;
 }
 
-.navbar{
-    z-index: 3;
+/* poppicker css*/
+.mui-poppicker{
+    top:130px;
+    bottom: auto;
+    -webkit-transform: translateY(-400px);
 }
+.mui-poppicker-header{
+    position: absolute;
+    top:200px;
+    background: #fff;
+    width: 100%;
+    border-top:1px solid #ddd;
+}
+.mui-poppicker-header .mui-poppicker-btn-ok{
+    background: #42c3ef;
+    border-color:#42c3ef;
+}
+.navbar,.smart-screen{
+    z-index: 9999;
+}
+.mui-poppicker-body{
+    border:0;
+}
+/* poppicker*/
+
 /*.smart-query .navbar+.smart-content .smart-screen{
     top:90px;
 }*/
@@ -293,8 +315,19 @@ div[data-id='picker-i'] .mui-pciker-list li {
 .smart-edit.smart-icon-right:active{
     color: #505050;
 }
+/* 图表 */
+.smart-echart{
+    /*height: 300px;*/
+    overflow-y: scroll;
+    /*position: absolute;
+    width: 100%;
+    bottom: 0;
+    overflow-y: scroll;*/
 
-
+}
+.smart-line-charts,.smart-pie-charts{
+    height: 200px;
+}
 
 
 
