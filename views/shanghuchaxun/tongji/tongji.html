@@ -20,6 +20,7 @@
   <link href="../../../content/style/frame/iscroll4/css/pullToRefresh.css" rel="stylesheet">
   <link href="../../../content/style/white/shanghuchaxun/css/shanghuchaxun.css" rel="stylesheet">
 
+  <!-- <link href="../../../content/style/frame/" rel="stylesheet"> -->
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]> param.month = getOtherDate(getM);
@@ -199,17 +200,21 @@
         </ul>
     </div>
     <!-- 图表 -->
-    <div class="smart-echart">
-      <label>2017.09.01-2017.09.30</label>
-      <!-- <h1>总计：<em>144000.00</em>元</h1> -->
-      <h1>收入柱状图</h1>
-      <!-- 圆柱图 -->
-      <div class="smart-line-charts">
- 
-      </div>
-      <div class="smart-pie-charts">
+    <div class="smart-echart" id="wrapper-echart">
+      <!-- <div > -->
+        <div id="scroller-echart">
+          <label>2017.09.01-2017.09.30</label>
+          <!-- <h1>总计：<em>144000.00</em>元</h1> -->
+          <h1>收入柱状图</h1>
+          <!-- 圆柱图 -->
+          <div class="smart-line-charts">
+     
+          </div>
+          <div class="smart-pie-charts">
 
-      </div>
+          </div>
+        </div>
+      <!-- </div> -->
     </div>
     <!-- 遮罩 -->
     <div class="smart-screen-mask"></div>
@@ -263,6 +268,8 @@
     }
   }
   loadMore.scroll(option);
+  
+
 
 </script>
 </html>

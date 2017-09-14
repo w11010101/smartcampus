@@ -67,7 +67,7 @@ body .smart-border-top-0:before {
     min-width: 40px;
     color:#8d8d8d;
 }
-.smart-time-box.smart-show{
+.smart-time-box.smart-screen-show{
     display: block;
 }
 .smart-query-statistics{
@@ -77,7 +77,7 @@ body .smart-border-top-0:before {
     padding-bottom: 15px;
     background: #fff;
 }
-.smart-time-box.smart-show+.smart-query-statistics{
+.smart-time-box.smart-screen-show+.smart-query-statistics{
     margin-top: 0;
 }
 .smart-query-statistics button{
@@ -213,9 +213,30 @@ body .smart-border-top-0:before {
     font-size: 0;*/
 }
 .smart-echart{
-    display: none;
-    background: #fff;
+    /*display: none; */
     padding: 0 25px;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+
+}
+#wrapper-echart{
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: auto;
+    background: #fff
+}
+#wrapper-echart #scroller-echart{
+    position: relative;
+    /*background: #fff;*/
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    float: left;
+    width: 100%;
+    padding: 0;
 }
 .smart-toggle .smart-accordion,.smart-toggle .smart-query-summarize{
     display: none;
@@ -324,6 +345,9 @@ div[data-id='picker-i'] .mui-pciker-list li {
     bottom: 0;
     overflow-y: scroll;*/
 
+}
+.smart-line-charts{
+    margin-bottom: 20px;
 }
 .smart-line-charts,.smart-pie-charts{
     height: 200px;

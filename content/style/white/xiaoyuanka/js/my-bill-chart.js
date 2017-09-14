@@ -36,7 +36,7 @@ $(".smart-gear img").on("click", function() {
     } else {
         // right 后一个
         ++getM;
-        if (getM == 12) {
+        if (getM == 13) {
             getM = 1;
             getY++;
         }
@@ -91,16 +91,19 @@ function smart_line_chart(param) {
                 fontWeight: "normal",
             },
         },
+        dataZoom: [
+            {
+                type: 'inside'
+            }
+        ],
         xAxis: {
             type: 'category',
             data: param.month,
             axisLine: {
                 show: false,
-
             },
             axisTick: {
                 show: false
-
             },
             splitArea: {
                 show: false
