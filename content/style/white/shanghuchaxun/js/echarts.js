@@ -21,7 +21,7 @@ var myEcharts = function() {
         return arr;
     }
     // 百分比值
-    this.sum = function(arr) {
+    this.sum = function(arr) { 
         var n = 0;
         for (var i in arr) {
             n += arr[i];
@@ -74,11 +74,11 @@ var myEcharts = function() {
                 for (var i in vals) {
                     arr.push({
                         value: vals[i],
-                        name: vals[i],
+                        name: names[i],
                         label: {
                             normal: {
                                 formatter: function(value) {
-                                    return value.data.value + '\n' + '——' + '\n' + (((value.data.value / that.sum(vals)) * 100).toFixed(0) + "%");
+                                    return value.data.name + '\n' + '——' + '\n' + (((value.data.value / that.sum(vals)) * 100).toFixed(0) + "%");
 
                                 }
                             }
@@ -91,7 +91,6 @@ var myEcharts = function() {
                         }
                     });
                 }
-                console.log(arr);
                 return arr;
             }();
             option["color"] = parameter.pie.color;
@@ -120,7 +119,6 @@ var myEcharts = function() {
                 }
             }); 
         }
-        console.log(option);
         this.runEchart(el, option);
     }
     // Echart - pie
@@ -155,7 +153,6 @@ var myEcharts = function() {
     }
     // Echart - bar
     this.option_bar = function(parameter) {
-        console.log(parameter)
         return {
             title: {},
             legend: {
@@ -171,9 +168,6 @@ var myEcharts = function() {
                     icon: "bar"
                 }]
             },
-            // legendHoverLink:true,
-            // connectNulls:false,
-            clipOverflow:false,
             xAxis: [{
                     type: 'category',
                     data: parameter.bar.barArr
@@ -225,7 +219,8 @@ var myEcharts = function() {
                     barCategoryGap: "50%",
                     itemStyle: {
                         normal: {
-                            color: '#71d6f5'
+                            // color: '#71d6f5'
+                            color: parameter.barColor,
                             // color: new echarts.graphic.LinearGradient(
                             //     0, 0, 0, 1, [
                             //         { offset: 0, color: '#71d6f5' },
@@ -341,17 +336,17 @@ var config1 = {
         axis:false
     },
     start:0,
-    end:20
+    end:20,
+    barColor:"#71d6f5" //  bcffbf
 }
 var config2 = {
     el: ".smart-pie-charts",
     type: "pie", // pie or (bar & line);
     pie: { 
         valArr : [2300, 1250, 1000, 1700],
-        nameArr : ["name1","name2","name3","name4"],
+        nameArr : [2300, 1250, 1000, 1700],
         color:['#00e897', '#42c3ef', '#0096d2', '#fdab06'] 
     }
 }
 var myEcharts = new myEcharts();
-myEcharts.createEcharts(config1);
-myEcharts.createEcharts(config2);
+// 

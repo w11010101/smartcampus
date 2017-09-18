@@ -24,12 +24,10 @@ $(".smart-query-statistics .toggle").on("click", function() {
             myScrollEchart = new iScroll('wrapper-echart', {
                 vScrollbar: false
             });
-            document.addEventListener('touchmove', function(e) { e.preventDefault(); }, { passive: false });
-            // myChart(".smart-pie-charts",option_pie);
-            // myChart(".smart-line-charts",option_bar)
-            myEcharts.createEcharts(config1);
-            myEcharts.createEcharts(config2);
+            document.addEventListener('touchmove', function(e) { e.preventDefault(); }, { passive: false });            
         }
+        myEcharts.createEcharts(config1);
+        myEcharts.createEcharts(config2);
         return "统计";
     }() : function() {
         return "分析";
@@ -49,17 +47,17 @@ picker = new mui.PopPicker({
 });
 var state = true;
 var id = "";
-lists.on("click", function() {
-    picker.setData(screen_list[$(this).index()]);
+function onClick(){
+    var index = $(this).index();
+    picker.setData(screen_list[index]);
     $(this).toggleClass("smart-active").siblings().removeClass("smart-active");
     var that = $(this);
     if (state) {
         picker.show(function(items) {
-            console.log(items);
             lists.removeClass("smart-active");
             state = true;
             that.text(items[0]);
-            hideBox(items[0])
+            hideBox(items[0],index)
         });
         id = $(this)[0].id;
         state = false;
@@ -67,7 +65,7 @@ lists.on("click", function() {
         if (id == $(this)[0].id) {
             // 如果点击的是自己，就hide;
             picker.hide();
-            picker.setData(screen_list[$(this).index()]);
+            picker.setData(screen_list[index]);
             state = true;
         } else {
             // 如果点击的不是自己，就show;
@@ -81,16 +79,24 @@ lists.on("click", function() {
         lists.removeClass("smart-active");
         state = true;
     });
-})
+}
+// 列表点击事件
+lists.on("click", onClick);
 
 // 隐藏筛选
-function hideBox(val) {
+function hideBox(val,index) {
     $(".smart-active").removeClass('smart-active');
     smart_screen_toggle("hide");
+    // 时间下拉
+    timeOptions(val,index);
+    // pos机下拉
+    posOptions(val,index);
+}
+// 时间下拉
+function timeOptions(val,index){
     if (val == "任意时间") {
         $(".smart-time-box").addClass("smart-screen-show");
         setTop();
-
     } else {
         $(".smart-time-box").removeClass("smart-screen-show");
         var date = getTime(),
@@ -108,13 +114,49 @@ function hideBox(val) {
                 beforeDate = getTime(date.year, date.month - 1, (date.day - 30));
                 $(".smart-query-summarize h1,.smart-echart label").text(beforeDate.text + " ~ " + date.text);
                 break;
-
         }
     }
 }
+// pos机下拉
+function posOptions(val,index){
+    console.log(index)
+    if(index!= 1) return false;
 
+    if(~val.indexOf("POS")){
+        // 有
+        $(".pos-tips").hide(0);
+        $("#picker1,#picker3").on("click",onClick).removeClass("disabled");
+        // config1
+        config1.bar.barArr = [201, 202, 203, 204, 205, 206, 207, 208, 209, 210, 211, 212, 213, 214, 215, 216, 217, 218, 219, 220];
+        config1.end = 20;
+        config1.barColor = "#71d6f5";
+        // config2
+        config2.pie.valArr = [2300, 1250, 1000, 1700];
+        config2.pie.nameArr =["pie1","pie2","pie3","pie4"];
+        config2.pie.color = ['#00e897', '#42c3ef', '#0096d2', '#fdab06'];
+    }else{
+        // 没有
+        $(".pos-tips").show(0);
+        $("#picker1,#picker3").off("click").addClass("disabled");
 
+        var month = getTime().month;
+        // config1
+        config1.bar.barArr = [(month-5)+"月",(month-4)+"月",(month-3)+"月",(month-2)+"月",(month-1)+"月",month+"月"];
+        config1.end = 100;
+        config1.barColor = "#bcffbf";
+        // config2
+        config2.pie.valArr  = [1000,1200,1000,1500,1400,1700];
+        config2.pie.nameArr = [(month-5)+"月",(month-4)+"月",(month-3)+"月",(month-2)+"月",(month-1)+"月",month+"月"];
+        config2.pie.color = ['#00e897', '#42c3ef', '#0096d2', '#fdab06',"#71d6f5","#ee5b16"] 
 
+    }
+    myEcharts.createEcharts(config1);
+    myEcharts.createEcharts(config2);
+    setTop();
+}
+// 时段下拉
+
+// smart_screen_toggle
 function smart_screen_toggle(type) {
     if (type == "hide") {
         // hide
@@ -131,7 +173,6 @@ function smart_screen_toggle(type) {
 // 详情
 function accordionClick() {
     $(".smart-sub-list-item").off().on("click", function() {
-        console.log(this)
         var hasSub = $(this).next();
         if (hasSub.hasClass("smart-sub-list-item-content")) {
             $(".smart-sub-list-item-content").not(hasSub).slideUp(200);
