@@ -213,7 +213,7 @@ body .smart-border-top-0:before {
     font-size: 0;*/
 }
 .smart-echart{
-    /*display: none; */
+    display: none; 
     padding: 0 25px;
     position: absolute;
     width: 100%;
@@ -255,9 +255,8 @@ body .smart-border-top-0:before {
     font-size:16px;
 }
 .smart-echart h1 em{
-    font-size: 20px;
-    font-weight: bold;
-    margin-right: 5px;
+    font-size: 14px;
+    margin-left: 10px;
 }
 .smart-query-bill .smart-accordion .smart-sub-list .smart-sub-list-item:nth-last-of-type(2):after{
     height: 1px;

@@ -27,8 +27,6 @@ $(".smart-query-statistics .toggle").on("click", function() {
             document.addEventListener('touchmove', function(e) { e.preventDefault(); }, { passive: false });
             // myChart(".smart-pie-charts",option_pie);
             // myChart(".smart-line-charts",option_bar)
-            myEcharts.createEcharts(config1);
-            myEcharts.createEcharts(config2);
         }
         return "统计";
     }() : function() {

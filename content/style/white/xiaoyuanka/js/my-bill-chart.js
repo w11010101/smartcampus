@@ -79,6 +79,7 @@ $(".smart-line-chart-switch").on("click", function() {
     }
     smart_line_chart(param);
 })
+console.log(param)
 // line
 function smart_line_chart(param) {
     var myChart_line = echarts.init(document.querySelector(".smart-line-chart"));
