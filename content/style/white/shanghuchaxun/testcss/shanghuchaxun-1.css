@@ -1,0 +1,320 @@
+html{
+    font-size: calc(100vw/3.75);
+}
+.smart-header.smart-white h1{
+    font-size: .16rem;
+}
+.smart-query-title{
+    font-size: .16rem;
+    background: #fff;
+    margin: 0;
+    padding:.17rem 0 0 .55rem; 
+    background: url(../images/icon-1.png) no-repeat .25rem .12rem #fff;
+    background-size:.25rem;
+    color:#8d8d8d;
+}
+
+.smart-screen .smart-column-list{
+    height: auto;
+   
+}
+.smart-screen .smart-column-list div[class^="col-xs"]{
+    padding: 0;
+    font-size: .15rem;
+    line-height: .15rem;
+    padding-top: .18rem;
+    padding-bottom: .16rem;
+}
+.smart-screen .smart-column-list div[class^="col-xs"].disabled{
+    color:#c8c8c8;
+}
+.panel-group{
+    margin-top: 0;
+}
+
+/* poppicker css*/
+.mui-poppicker{
+    top:1.24rem;
+    bottom: auto;
+    -webkit-transform: translateY(-4rem);
+}
+.mui-poppicker-header{
+    position: absolute;
+    top:200px;
+    background: #fff;
+    width: 100%;
+    border-top:1px solid #ddd;
+}
+.mui-poppicker-header .mui-poppicker-btn-ok{
+    border: none;
+    background-color: #FFFFFF;
+    font-size: .16rem;
+    color: #73D2FE;
+}
+.navbar,.smart-screen{
+    z-index: 9999;
+}
+.mui-poppicker-body{
+    border:0;
+}
+.mui-picker{
+    background-color: #FFFFFF;
+}
+.mui-poppicker-header .mui-poppicker-btn-cancel,.mui-dtpicker-header button:first-child{
+    border: none;
+    font-size: .16rem;
+    color: #a8a8a8;
+}
+.mui-pciker-list li{
+    font-size:.16rem;
+}
+/* poppicker*/
+.smart-time-box{
+    height: .45rem;
+    line-height: .45rem;
+    text-align: center;
+    background: #fff;
+    margin-top: .82rem;
+    display: none; 
+}
+.smart-time-box *{
+    display: inline-block;
+    vertical-align: middle;
+}
+.smart-time-box p{
+    width: 35%;
+    margin: 0;
+    height: 100%;
+    font-size: .16rem;
+    color:#0f0f0f;
+}
+.smart-time-box em{
+    width: 10%;
+    min-width: .40rem;
+    color:#8d8d8d;
+}
+.smart-time-box.smart-screen-show{
+    display: block;
+}
+.smart-query-statistics{
+    text-align: center;
+    padding:.16rem 0 .2rem 0;
+    margin-top: .82rem;
+    background: #fff;
+}
+.smart-time-box.smart-screen-show+.smart-query-statistics{
+    margin-top: 0;
+}
+.smart-query-statistics button{
+    font-size: .14rem;
+    width: 1.265rem;
+    border: 1px solid #42c3ef;
+    border-radius: 5px;
+    padding:.05rem 0;
+    background: #fff;
+    color:#42c3ef;
+    transition: all .3s ease;
+    -webkit-transition: all .3s ease;
+}
+.smart-query-statistics button:active{
+    color:#fff;
+    background: #42c3ef;
+}
+.smart-query .smart-query-statistics button:first-child{
+    margin-right: .42rem;
+}
+.smart-query-summarize{
+    background: #fff;
+    padding: 0 0 0 .25rem;
+    font-size: 0;
+}
+.pos-tips{
+    display: none;
+    font-size: 14px;
+    height: 20px;
+    line-height: 20px;
+    color:#8d8d8d;
+    position: relative;
+    margin:8px 0 7.5px 0; 
+    padding-left:25px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.pos-tips:before{
+    content: "i";
+    position: absolute;
+    top:2px;
+    left:0;
+    width: 16px;
+    height: 16px;
+    font-size: 14px;
+    background: #95e1e1;
+    color:#fff;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 16px;
+
+}
+.smart-query-bill .smart-query-summarize{
+    padding:0 25px 10px;
+}
+.smart-query-summarize > p,#scroller-echart > p{
+    color:#8d8d8d;
+    margin:0;
+    font-size: .16rem;
+    line-height: .16rem;
+    padding-top: .2rem; 
+    padding-bottom: .27rem;
+}
+.smart-query-summarize em{
+    display: block;
+    font-weight: bold;
+    font-size: .22rem;
+    line-height: .22rem;
+    margin-top: .11rem;
+    margin-bottom: .27rem;
+    color:#0f0f0f;
+}
+.smart-query-summarize > div{
+    display: inline-block;
+    width: 50%;
+    font-size: .16rem;
+    line-height: .16rem
+}
+.smart-query-summarize > div em:after{
+    content: "元";
+    font-size: .16rem;
+    color:#0f0f0f;
+    margin-left: .05rem;
+    font-weight: normal;
+}
+.smart-query-summarize .smart-query-note em:after{
+    content: "笔";
+}
+
+.smart-accordion{
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+}
+.smart-accordion .smart-sub-list{
+    display: block;
+}
+.smart-query .smart-accordion .smart-sub-list .smart-sub-list-item{
+    height: .6rem;
+    padding:.1rem 0;
+}
+.smart-query .smart-accordion .smart-sub-list .smart-sub-list-item .smart-accordion-head{
+    width: 1.2rem;
+    height: auto;
+    font-size: .16rem;
+    vertical-align: top;
+    color:#0f0f0f;
+}
+.smart-query .smart-accordion .smart-sub-list .smart-sub-list-item .smart-accordion-head span{
+    color:#0f0f0f;
+    font-size: .16rem;
+}
+.smart-query .smart-accordion .smart-sub-list .smart-sub-list-item .smart-accordion-content{
+    height: .6rem;
+    padding:.1rem .25rem .1rem 1.35rem;
+}
+.smart-query .smart-accordion .smart-sub-list .smart-sub-list-item:after{
+    left:1.2rem;
+    height: 1px;
+}
+.smart-accordion-content h3,.smart-accordion-content p{
+    font-size: 0!important;
+}
+.smart-accordion-content em,.smart-accordion-content i{
+    display: inline-block;
+    width: 50%;
+    font-size:.15rem;
+}
+.smart-query .smart-accordion .smart-sub-list .smart-sub-list-item .smart-accordion-content h3{
+    color:#8d8d8d;
+    line-height: .2rem;
+}
+.smart-query .smart-accordion .smart-sub-list .smart-sub-list-item .smart-accordion-content p{
+    color:#0f0f0f;
+    line-height: .2rem;
+}
+
+#wrapper-echart{
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: auto;
+    background: #fff
+}
+#wrapper-echart #scroller-echart{
+    position: relative;
+    /*background: #fff;*/
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    float: left;
+    width: 100%;
+    padding: 0;
+}
+.smart-toggle .smart-accordion,
+.smart-toggle .smart-query-summarize{
+    display: none;
+}
+.smart-toggle .smart-echart{
+    display: block;
+}
+.pullDown{
+   /* height: 0;
+    font-size: 0;*/
+}
+.smart-echart{
+    display: none; 
+    padding: 0 .25rem;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+
+}
+.smart-echart label{
+    color: #0f0f0f;
+    margin: 0;
+    font-size: .16rem;
+}
+.smart-echart label em {
+    font-size: .14rem;
+    margin-left: .10rem;
+}
+.smart-line-charts, .smart-pie-charts {
+    height: 2rem;
+}
+.smart-line-charts {
+    margin-bottom: .2rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width: 320px;) {
+    html{
+        font-size: calc(100vw/3.2);
+    }
+}
+/*@media screen and (max-width: 414px;) {
+    html{
+        font-size: calc(100vw/4.14);
+    }
+}*/

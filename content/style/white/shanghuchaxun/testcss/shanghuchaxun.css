@@ -8,7 +8,11 @@ body .smart-border-bottom-0:after,
 body .smart-border-top-0:before {
     height: 0;
 }
-
+/*.smart-header h1{
+    font-size: 1.6rem;
+    margin-top: 2rem;
+    padding-left:2rem;
+}*/
 /* poppicker css*/
 .mui-poppicker{
     top:124px;
@@ -477,3 +481,188 @@ div[data-id='picker-i'] .mui-pciker-list li {
 
 
 
+
+
+
+/*<div class="smart-content">
+    
+    <!-- 筛选 -->
+    <div class="smart-screen smart-top">
+      <h1 class="smart-query-title">00112233--一餐厅1楼1-16窗口</h1>
+      <div class="row smart-column-list">
+        <div class="col-xs-4" id="picker1">今日统计</div>
+        <div class="col-xs-4" id="picker2">全部POS</div>
+        <div class="col-xs-4" id="picker3">全部时段</div>
+      </div>
+      <!-- 筛选内容 -->
+      <div class="row smart-screen-list set-popup">
+      </div>
+    </div>
+    <!-- 日期选择结果 -->
+    <div class="smart-time-box smart-top smart-border">
+      <p set-time="start" onclick="selectTime(this);" >开始时间</p>
+      <em>至</em>
+      <p set-time="end" onclick="selectTime(this);">结束时间</p>
+    </div>
+    <!-- 按钮 -->
+    <div class="smart-query-statistics smart-top">
+      <button class="toggle">分析</button>
+      <button>查询流水</button>
+    </div>
+    <!-- summarize -->
+    <div class="smart-query-summarize smart-border smart-top">
+      <h1 class="pos-tips">您可以通过本功能查询到最近6个月的数据 </h1>
+      <p>2017.09.08</p>
+      <div class="smart-query-note">
+        交易笔数：<em>20111</em>
+      </div>
+      <div class="smart-query-money">
+        交易金额：<em>1111111.00</em>
+      </div>
+    </div>
+    <!-- 折叠面板 -->
+    <div class="smart-accordion" id="wrapper">
+        <!-- 列表 -->
+        <ul class="smart-sub-list smart-border-top-0">
+          <!-- 列表一组 -->
+          <li class="smart-sub-list-item">
+            <!-- 日期 -->
+            <div class="smart-accordion-head">
+              <span>201</span>
+            </div>
+            <!-- 列表内容 -->
+            <div class="smart-accordion-content">
+              <h3>
+                <em>交易笔数</em>
+                <i>交易金额</i>
+              </h3>
+              <p>
+                <em>67笔</em>
+                <i>3333.00</i>
+              </p>
+            </div>
+          </li>
+          <li class="smart-sub-list-item smart-sub-list-item-content">
+            <div class="row">
+              <div class="col-xs-12">
+                <label>交易时间：</label>
+                <span>2017.09.08 14:11:11</span>
+              </div>
+              <div class="col-xs-12">
+                <label>订单号：</label>
+                <span></span>
+              </div>
+            </div>
+          </li>
+          <!-- 列表一组 -->
+          <li class="smart-sub-list-item">
+            <!-- 日期 -->
+            <div class="smart-accordion-head">
+              <span>202</span>
+            </div>
+            <!-- 列表内容 -->
+            <div class="smart-accordion-content">
+              <h3>
+                <em>交易笔数</em>
+                <i>交易金额</i>
+              </h3>
+              <p>
+                <em>67笔</em>
+                <i>3333.00</i>
+              </p>
+            </div>
+          </li>
+          <li class="smart-sub-list-item smart-sub-list-item-content">
+            <div class="row">
+              <div class="col-xs-12">
+                <label>交易时间：</label>
+                <span>2017.09.08 14:11：11</span>
+              </div>
+              <div class="col-xs-12">
+                <label>订单号：</label>
+                <span></span>
+              </div>
+            </div>
+          </li>
+          <!-- 列表一组 -->
+          <li class="smart-sub-list-item">
+            <!-- 日期 -->
+            <div class="smart-accordion-head">
+              <span>203</span>
+            </div>
+            <!-- 列表内容 -->
+            <div class="smart-accordion-content">
+              <h3>
+                <em>交易笔数</em>
+                <i>交易金额</i>
+              </h3>
+              <p>
+                <em>67笔</em>
+                <i>3333.00</i>
+              </p>
+            </div>
+          </li>
+          <li class="smart-sub-list-item smart-sub-list-item-content">
+            <div class="row">
+              <div class="col-xs-12">
+                <label>交易时间：</label>
+                <span>2017.09.08 14:11：11</span>
+              </div>
+              <div class="col-xs-12">
+                <label>订单号：</label>
+                <span></span>
+              </div>
+            </div>
+          </li>
+          <!-- 列表一组 -->
+          <li class="smart-sub-list-item">
+            <!-- 日期 -->
+            <div class="smart-accordion-head">
+              <span>204</span>
+            </div>
+            <!-- 列表内容 -->
+            <div class="smart-accordion-content">
+              <h3>
+                <em>交易笔数</em>
+                <i>交易金额</i>
+              </h3>
+              <p>
+                <em>67笔</em>
+                <i>3333.00</i>
+              </p>
+            </div>
+          </li>
+          <li class="smart-sub-list-item smart-sub-list-item-content">
+            <div class="row">
+              <div class="col-xs-12">
+                <label>交易时间：</label>
+                <span>2017.09.08 14:11：11</span>
+              </div>
+              <div class="col-xs-12">
+                <label>订单号：</label>
+                <span></span>
+              </div>
+            </div>
+          </li>
+        </ul>
+    </div>
+    <!-- 图表 -->
+    <div class="smart-echart" id="wrapper-echart">
+      <div id="scroller-echart">
+        <h1 class="pos-tips">您可以通过本功能查询到最近6个月的数据 </h1>
+        <p>2017.09.01-2017.09.30</p>
+        <!-- <h1>总计：<em>144000.00</em>元</h1> -->
+        <label>收入柱状图<em>(可左右滑动)</em></label>
+        <!-- 柱形图 和 折线图 -->
+        <div class="smart-line-charts">
+ 
+        </div>
+        <!-- 饼状图 -->
+        <div class="smart-pie-charts">
+
+        </div>
+      </div>
+    </div>
+    <!-- 遮罩 -->
+    <div class="smart-screen-mask"></div>
+  </div>*/

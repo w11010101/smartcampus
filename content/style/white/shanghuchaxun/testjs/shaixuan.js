@@ -3,7 +3,6 @@ function setTop() {
     var getTop = 0;
     for (var i = 0; i < $(".smart-top").length; i++) {
         e = $(".smart-top")[i];
-        console.log(e.clientHeight)
         getTop += e.clientHeight;
     }
     $(".smart-accordion").css("top", (getTop + 45) + "px");
@@ -111,15 +110,15 @@ function timeOptions(val,index){
         // 日期范围
         switch (val) {
             case "今日":
-                $(".smart-query-summarize h1,.smart-echart label").text(date.text);
+                $(".smart-query-summarize h1,.smart-query-summarize >p,.smart-echart >p").text(date.text);
                 break;
             case "近一周":
                 beforeDate = getTime(date.year, date.month - 1, (date.day - 7));
-                $(".smart-query-summarize h1,.smart-echart label").text(beforeDate.text + " ~ " + date.text);
+                $(".smart-query-summarize h1,.smart-query-summarize >p,.smart-echart >p").text(beforeDate.text + " ~ " + date.text);
                 break;
             case "近一个月":
                 beforeDate = getTime(date.year, date.month - 1, (date.day - 30));
-                $(".smart-query-summarize h1,.smart-echart label").text(beforeDate.text + " ~ " + date.text);
+                $(".smart-query-summarize h1,.smart-query-summarize >p,.smart-echart >p").text(beforeDate.text + " ~ " + date.text);
                 break;
         }
     }
