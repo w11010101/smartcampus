@@ -3,7 +3,8 @@ var myEcharts = function() {
     // 饼状图 数值
     var vals,
         names,
-        that = this;
+        that = this,
+        echartsObj;
     // 创建Echarts
     this.createEcharts = function(parameter) {
         vals = parameter.type == "pie" ? parameter.pie.valArr : parameter.bar.valArr;
@@ -105,32 +106,32 @@ var myEcharts = function() {
             option.xAxis[1] = $.extend(true, option.xAxis[1], axis.axisX);
 
             // // 设置当前
-            option.series[1].data[2] = $.extend(true, option.series[1].data[2], {
-                symbol: "circle",
-                symbolSize: "15",
-                color: "#ee5b16",
-                itemStyle: {
-                    normal: {
-                        // 当前颜色,
-                        color: "#ee5b16",
-                        borderColor: "rgba(255, 180, 0, 0.7)",
-                        borderWidth: "4",
-                    }
-                }
-            }); 
+            // option.series[1].data[2] = $.extend(true, option.series[1].data[2], {
+            //     symbol: "circle",
+            //     symbolSize: "15",
+            //     color: "#ee5b16",
+            //     itemStyle: {
+            //         normal: {
+            //             // 当前颜色,
+            //             color: "#ee5b16",
+            //             borderColor: "rgba(255, 180, 0, 0.7)",
+            //             borderWidth: "4",
+            //         }
+            //     }
+            // }); 
         }
         this.runEchart(el, option);
     }
     // Echart - pie
     this.option_pie = {
-        title: {
-            text: '收入占比',
-            textStyle: {
-                color: "#3c3c3c",
-                fontSize: 14,
-                fontWeight: "normal",
-            },
-        },
+        // title: {
+        //     text: '收入占比',
+        //     textStyle: {
+        //         color: "#3c3c3c",
+        //         fontSize: 14,
+        //         fontWeight: "normal",
+        //     },
+        // },
         itemStyle: {
             normal: {
                 borderColor: "#fff",
@@ -160,9 +161,11 @@ var myEcharts = function() {
                 textStyle: {
                     color: "#a8a8a8"
                 },
+                itemGap: 25,
                 data: [{
                     name: "次数",
                     icon: "circle",
+                    
                 }, {
                     name: "金额",
                     icon: "bar"
@@ -180,16 +183,16 @@ var myEcharts = function() {
             dataZoom: [{
                 show: false,
                 type: 'slider',
-                filterMode: 'empty',
+                filterMode: 'filter',
                 start: parameter.start || 0,
-                end: parameter.end || 20
+                end: parameter.end || 25
             }, {
                 show: false,
                 type: 'inside',
                 xAxisIndex: [0, 1],
-                filterMode: 'empty',
+                filterMode: 'filter',
                 start: parameter.start || 0,
-                end: parameter.end || 20
+                end: parameter.end || 25
             }],
             yAxis: [{
                     type: 'value',
@@ -208,7 +211,6 @@ var myEcharts = function() {
                     label: {
                         normal: {
                             show: true,
-                            // position: [0, -20],
                             position: "top",
                             textStyle: {
                                 color: "#0095d1", //文字
@@ -266,8 +268,15 @@ var myEcharts = function() {
     // 运行 Echart
     this.runEchart = function(el, option) {
         var obj = typeof el == "object" ? el : document.querySelector(el);
-        var echartsObj = echarts.init(document.querySelector(el));
+        echartsObj = echarts.init(document.querySelector(el));
         echartsObj.setOption(option);
+    }
+    this.clear = function (){
+        echartsObj.clear();
+        this.dispose();
+    }
+    this.dispose = function (){
+        echartsObj.dispose();
     }
 }
 
@@ -312,7 +321,7 @@ function getRandomm(i, max) {
  * 
  * @type {Object}
  */
-var config1 = {
+var config_bar = {
     el: ".smart-line-charts", // 图表容器 
     type: "bar", // pie or (bar & line);
     bar: {
@@ -336,10 +345,10 @@ var config1 = {
         axis:false
     },
     start:0,
-    end:20,
+    end:25,
     barColor:"#71d6f5" //  bcffbf
 }
-var config2 = {
+var config_pie = {
     el: ".smart-pie-charts",
     type: "pie", // pie or (bar & line);
     pie: { 

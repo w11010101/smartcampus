@@ -1,9 +1,9 @@
 html{
     font-size: calc(100vw/3.75);
 }
-.smart-header.smart-white h1{
+/*.smart-header.smart-white h1{
     font-size: .16rem;
-}
+}*/
 .smart-query-title{
     font-size: .16rem;
     background: #fff;
@@ -38,6 +38,9 @@ html{
     bottom: auto;
     -webkit-transform: translateY(-4rem);
 }
+.mui-poppicker{
+    top: calc(1.24rem - 45px);
+}
 .mui-poppicker-header{
     position: absolute;
     top:200px;
@@ -53,6 +56,10 @@ html{
 }
 .navbar,.smart-screen{
     z-index: 9999;
+    top:0;
+}
+.navbar+.smart-content .smart-screen{
+    top:45px;
 }
 .mui-poppicker-body{
     border:0;
@@ -159,7 +166,7 @@ html{
 .smart-query-bill .smart-query-summarize{
     padding:0 25px 10px;
 }
-.smart-query-summarize > p,#scroller-echart > p{
+.timeInterval{
     color:#8d8d8d;
     margin:0;
     font-size: .16rem;
@@ -168,7 +175,7 @@ html{
     padding-bottom: .27rem;
 }
 .smart-query-summarize em{
-    display: block;
+    
     font-weight: bold;
     font-size: .22rem;
     line-height: .22rem;
@@ -176,11 +183,17 @@ html{
     margin-bottom: .27rem;
     color:#0f0f0f;
 }
+.smart-query .smart-query-summarize em{
+    display: block;
+}
 .smart-query-summarize > div{
     display: inline-block;
-    width: 50%;
+    
     font-size: .16rem;
     line-height: .16rem
+}
+.smart-query .smart-query-summarize > div{
+    width: 50%;
 }
 .smart-query-summarize > div em:after{
     content: "元";
@@ -201,46 +214,96 @@ html{
 .smart-accordion .smart-sub-list{
     display: block;
 }
-.smart-query .smart-accordion .smart-sub-list .smart-sub-list-item{
+.smart-accordion .smart-sub-list .smart-sub-list-item{
     height: .6rem;
     padding:.1rem 0;
 }
-.smart-query .smart-accordion .smart-sub-list .smart-sub-list-item .smart-accordion-head{
-    width: 1.2rem;
+.smart-accordion .smart-sub-list .smart-sub-list-item .smart-accordion-head{
+    width: .85rem;
     height: auto;
     font-size: .16rem;
     vertical-align: top;
     color:#0f0f0f;
 }
+.smart-query .smart-accordion .smart-sub-list .smart-sub-list-item .smart-accordion-head{
+    width: 1.2rem;
+}
 .smart-query .smart-accordion .smart-sub-list .smart-sub-list-item .smart-accordion-head span{
     color:#0f0f0f;
-    font-size: .16rem;
+    font-size: .15rem;
+    line-height: .3rem
+}
+.smart-query-bill .smart-accordion .smart-sub-list .smart-sub-list-item .smart-accordion-head{
+    color:#a8a8a8;
+    line-height: .2rem;
+}
+.smart-query-bill .smart-accordion .smart-sub-list .smart-sub-list-item .smart-accordion-head span{
+    font-size: .14rem;
+
+}
+.smart-accordion .smart-sub-list .smart-sub-list-item .smart-accordion-content{
+    height: .6rem;
 }
 .smart-query .smart-accordion .smart-sub-list .smart-sub-list-item .smart-accordion-content{
-    height: .6rem;
     padding:.1rem .25rem .1rem 1.35rem;
+}
+.smart-query-bill .smart-accordion .smart-sub-list .smart-sub-list-item .smart-accordion-content{
+    padding:.1rem .25rem .1rem .95rem;
 }
 .smart-query .smart-accordion .smart-sub-list .smart-sub-list-item:after{
     left:1.2rem;
     height: 1px;
 }
+.smart-query-bill .smart-accordion .smart-sub-list .smart-sub-list-item:after{
+    left:.85rem;
+    height: 1px;
+}
 .smart-accordion-content h3,.smart-accordion-content p{
+    height: .2rem;
+    line-height: .2rem;
     font-size: 0!important;
 }
 .smart-accordion-content em,.smart-accordion-content i{
     display: inline-block;
     width: 50%;
     font-size:.15rem;
+    overflow: hidden;
+    white-space:  nowrap;
+    text-overflow: ellipsis;
+}
+.smart-query-bill .smart-accordion-content em,.smart-query-bill .smart-accordion-content i{
+    width: 47%;
+}
+.smart-query-bill .smart-accordion-content em {
+    margin-right: 6%;
+
+}
+.smart-query-bill .smart-accordion-content p *{
+    font-size: .14rem;
+}
+.smart-accordion-content h3 i[set-status=pay] {
+    text-align: right;
+    color: #ee5b17;
+}
+.smart-accordion-content h3 i[set-status=income] {
+    text-align: right;
+    color: #01e699;
+}
+.smart-accordion .smart-sub-list .smart-sub-list-item .smart-accordion-content h3{
+    line-height: .2rem;
 }
 .smart-query .smart-accordion .smart-sub-list .smart-sub-list-item .smart-accordion-content h3{
     color:#8d8d8d;
+}
+.smart-accordion .smart-sub-list .smart-sub-list-item .smart-accordion-content p{
     line-height: .2rem;
 }
 .smart-query .smart-accordion .smart-sub-list .smart-sub-list-item .smart-accordion-content p{
     color:#0f0f0f;
-    line-height: .2rem;
 }
-
+.smart-query-bill .smart-accordion .smart-sub-list .smart-sub-list-item.smart-sub-list-item-content{
+    padding:.1rem .25rem .1rem .95rem;   
+}
 #wrapper-echart{
     position: absolute;
     z-index: 1;
@@ -288,10 +351,85 @@ html{
     margin-left: .10rem;
 }
 .smart-line-charts, .smart-pie-charts {
+    width: calc(100% + 1rem);
+    margin-left: -.5rem;
     height: 2rem;
 }
 .smart-line-charts {
-    margin-bottom: .2rem;
+    margin-bottom: .5rem;
+}
+/* dtpicker css*/
+.mui-dtpicker {
+    border: none;
+    box-shadow: none;
+    background-color: #fff;
+}
+
+.mui-dtpicker-header button {
+    border: none;
+    background-color: #FFFFFF;
+    font-size: 16px;
+    color: #73D2FE;
+}
+
+.mui-dtpicker-header {
+    border-bottom: 1px solid #EEEEEE;
+}
+
+.mui-dtpicker-title {
+    display: none;
+}
+
+.mui-pciker-rule.mui-pciker-rule-ft {
+    text-align: right;
+    padding-right: 20px;
+    font-size: .17rem;
+    border:0;
+}
+
+.mui-picker {
+    background: #fff;
+}
+
+div[data-id='picker-h'] .mui-pciker-rule.mui-pciker-rule-ft {
+    padding-right: 30px;
+}
+
+div[data-id='picker-i'] .mui-pciker-rule.mui-pciker-rule-ft {
+    text-align: left;
+    padding-left: 90px;
+}
+
+.mui-backdrop {
+    background: rgba(0, 0, 0, .5);
+}
+
+div[data-id='picker-h'] .mui-pciker-list li {
+    text-align: right;
+    padding-right: 70px;
+}
+
+div[data-id='picker-i'] .mui-pciker-list li {
+    text-align: left;
+    padding-left: 70px;
+}
+
+.mui-toast-container div{
+    border-radius: 20px !important;
+}
+.smart-header .smart-icon-left{
+    margin-left: 10px;
+    color: #8D8D8D;
+}
+.smart-header .smart-icon-left:active{
+    color: #6D6D6D;
+}
+.smart-edit.smart-icon-right{
+    padding-left: 10px;
+    color: #6D6D6D;
+}
+.smart-edit.smart-icon-right:active{
+    color: #505050;
 }
 
 
@@ -305,15 +443,13 @@ html{
 
 
 
-
-
-
-@media screen and (max-width: 320px;) {
+/* media */
+/*@media screen and (max-width: 320px) {
     html{
         font-size: calc(100vw/3.2);
     }
 }
-/*@media screen and (max-width: 414px;) {
+@media screen and (max-width: 414px) {
     html{
         font-size: calc(100vw/4.14);
     }

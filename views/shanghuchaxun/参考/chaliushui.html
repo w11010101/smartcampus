@@ -7,35 +7,42 @@
   <!-- <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"> -->
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
-  <title>我的账单</title>
+  <title>商户查询</title>
 
   <!-- Bootstrap -->
 
-  <link href="../../content/style/frame/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="../../content/style/common/css/xiaoyuanka/common.css" rel="stylesheet">
-  <link href="../../content/style/white/shagnhuchaxun/css/shanghuchaxun.css" rel="stylesheet">
+  <link href="../../../content/style/frame/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../../../content/style/common/css/xiaoyuanka/common.css" rel="stylesheet">
+
+  <link href="../../../content/style/frame/mui/css/mui.min.css" rel="stylesheet">
+  <link href="../../../content/style/frame/mui/css/mui.picker.min.css" rel="stylesheet">
+  
+  <link href="../../../content/style/frame/iscroll4/css/pullToRefresh.css" rel="stylesheet">
+  <link href="../../../content/style/white/shanghuchaxun/testcss/shanghuchaxun-1.css" rel="stylesheet">
+  
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]> param.month = getOtherDate(getM);
       <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+  <![endif]-->
+
 </head>
 
-<body class="smart-query">
+<body class="smart-query-bill" onload="setTop();">
   <nav class="navbar">
     <div class="smart-header smart-white">
       <a href="javascript:history.go(-1)" class="smart-back smart-icon-left">
-        <img src="../../content/style/common/images/back-2.png" alt="">
+        <img src="../../../content/style/common/images/back-2.png" alt="">
       </a>
-      <h1>我的账单</h1>
+      <h1>商户查询</h1>
     </div>
   </nav>
   <div class="smart-content">
     
     <!-- 筛选 -->
-    <div class="smart-screen">
-    <h1 class="smart-query-title">00112233--一餐厅1楼1-16窗口</h1>
+    <div class="smart-screen smart-top">
+      <h1 class="smart-query-title">00112233--一餐厅1楼1-16窗口</h1>
       <div class="row smart-column-list">
         <div class="col-xs-4">今日</div>
         <div class="col-xs-4">全部POS</div>
@@ -45,166 +52,214 @@
       <div class="row smart-screen-list set-popup">
       </div>
     </div>
+    <!-- 日期选择结果 -->
+    <div class="smart-time-box smart-top smart-border">
+      <p set-time="start" onclick="selectTime(this);" >开始时间</p>
+      <em>至</em>
+      <p set-time="end" onclick="selectTime(this);">结束时间</p>
+    </div>
     <!-- 按钮 -->
-    <div class="smart-query-statistics">
-      <button>分析</button>
+    <div class="smart-query-statistics smart-top">
       <button>统计分析</button>
     </div>
-    <!--  -->
-    <div class="smart-query-summarize">
-      <h1>2017.09.08</h1>
-      <div class="smart-query-note">
-        交易笔记：<em>201</em>
-      </div>
-      <div class="smart-query-money">
-        交易金额：<em>11111.00</em>
-      </div>
+    <!-- summarize -->
+    <div class="smart-query-summarize smart-border smart-top">
+      <p>2017.09.08</p>
+      <div class="smart-query-money">总计：<em>144000.00</em></div>
     </div>
-    <!-- bootstap accordion 折叠面板 -->
-    <div class="panel-group smart-accordion" id="accordion">
-      <!-- 一组 -->
-      <div class="panel panel-default">
-        <div id="collapseOne" class="panel-collapse collapse in">
-          <div class="panel-body">
-            <!-- 列表 -->
-            <ul class="smart-sub-list">
-              <!-- 列表一组 -->
-              <li class="smart-sub-list-item">
-                <!-- 日期 -->
-                <div class="smart-accordion-head">
-                  <span>14:11</span>
-                </div>
-                <!-- 列表内容 -->
-                <div class="smart-accordion-content">
-                  <h3>
-                    <em>校园卡支出</em>
-                    <i set-status="income">+1000.00</i>
-                  </h3>
-                  <p>
-                    <em>132132132132132</em>
-                    <i>张三（132132132132312）</i>
-                  </p>
-                </div>
-              </li>
-              <li class="smart-sub-list-item smart-sub-list-item-content">
-                <div class="row">
-                  <div class="col-xs-12">
-                    <label>交易时间：</label>
-                    <span>2017.09.08 14:11:11</span>
-                  </div>
-                  <div class="col-xs-12">
-                    <label>订单号：</label>
-                    <span>132132132132132132</span>
-                  </div>
-                </div>
-              </li>
-              <!-- 列表一组 -->
-              <li class="smart-sub-list-item">
-                <!-- 日期 -->
-                <div class="smart-accordion-head">
-                  <span>14:11</span>
-                </div>
-                <!-- 列表内容 -->
-                <div class="smart-accordion-content">
-                  <h3>
-                    <em>校园卡支出</em>
-                    <i set-status="income">+1000.00</i>
-                  </h3>
-                  <p>
-                    <em>132132132132132</em>
-                    <i>张三（132132132132312）</i>
-                  </p>
-                </div>
-              </li>
-              <li class="smart-sub-list-item smart-sub-list-item-content">
-                <div class="row">
-                  <div class="col-xs-12">
-                    <label>交易时间：</label>
-                    <span>2017.09.08 14:11：11</span>
-                  </div>
-                  <div class="col-xs-12">
-                    <label>订单号：</label>
-                    <span>132132132132132132</span>
-                  </div>
-                </div>
-              </li>
-              <!-- 列表一组 -->
-              <li class="smart-sub-list-item">
-                <!-- 日期 -->
-                <div class="smart-accordion-head">
-                  <span>14:11</span>
-                </div>
-                <!-- 列表内容 -->
-                <div class="smart-accordion-content">
-                  <h3>
-                    <em>校园卡支出</em>
-                    <i set-status="pay">-1000.00</i>
-                  </h3>
-                  <p>
-                    <em>132132132132132</em>
-                    <i>张三（132132132132312）</i>
-                  </p>
-                </div>
-              </li>
-              <li class="smart-sub-list-item smart-sub-list-item-content">
-                <div class="row">
-                  <div class="col-xs-12">
-                    <label>交易时间：</label>
-                    <span>2017.09.08 14:11：11</span>
-                  </div>
-                  <div class="col-xs-12">
-                    <label>订单号：</label>
-                    <span>132132132132132132</span>
-                  </div>
-                </div>
-              </li>
-              <!-- 列表一组 -->
-              <li class="smart-sub-list-item">
-                <!-- 日期 -->
-                <div class="smart-accordion-head">
-                  <span>14:11</span>
-                </div>
-                <!-- 列表内容 -->
-                <div class="smart-accordion-content">
-                  <h3>
-                    <em>校园卡支出</em>
-                    <i set-status="pay">-1000.00</i>
-                  </h3>
-                  <p>
-                    <em>132132132132132</em>
-                    <i>张三（132132132132312）</i>
-                  </p>
-                </div>
-              </li>
-              <li class="smart-sub-list-item smart-sub-list-item-content">
-                <div class="row">
-                  <div class="col-xs-12">
-                    <label>交易时间：</label>
-                    <span>2017.09.08 14:11：11</span>
-                  </div>
-                  <div class="col-xs-12">
-                    <label>订单号：</label>
-                    <span>132132132132132132</span>
-                  </div>
-                </div>
-              </li>
-            </ul>
-            <!-- 等待状态 -->
-          </div>
-        </div>
-      </div>
+    <!-- 折叠面板 -->
+    <div class="smart-accordion" id="wrapper">
+        <!-- 列表 -->
+        <ul class="smart-sub-list smart-border-top-0">
+          <!-- 列表一组 -->
+          <li class="smart-sub-list-item">
+            <!-- 日期 -->
+            <div class="smart-accordion-head">
+              09/09
+              <span>14:14</span>
+            </div>
+            <!-- 列表内容 -->
+            <div class="smart-accordion-content">
+              <h3>
+                <em>POS-201</em>
+                <i set-status="pay">-1000.00</i>
+              </h3>
+              <p>
+                <em>132132132132132</em>
+                <i>张三（132132132132312）</i>
+              </p>
+            </div>
+          </li>
+          <li class="smart-sub-list-item smart-sub-list-item-content">
+            <div class="row">
+              <div class="col-xs-12">
+                <label>交易时间：</label>
+                <span>2017.09.08 14:11：11</span>
+              </div>
+              <div class="col-xs-12">
+                <label>订单号：</label>
+                <span></span>
+              </div>
+            </div>
+          </li>
+          <!-- 列表一组 -->
+          <li class="smart-sub-list-item">
+            <!-- 日期 -->
+            <div class="smart-accordion-head">
+              <span>14:14</span>
+            </div>
+            <!-- 列表内容 -->
+            <div class="smart-accordion-content">
+              <h3>
+                <em>POS-202</em>
+                <i set-status="pay">-1000.00</i>
+              </h3>
+              <p>
+                <em>132132132132132</em>
+                <i>张三（132132132132312）</i>
+              </p>
+            </div>
+          </li>
+          <li class="smart-sub-list-item smart-sub-list-item-content">
+            <div class="row">
+              <div class="col-xs-12">
+                <label>交易时间：</label>
+                <span>2017.09.08 14:11：11</span>
+              </div>
+              <div class="col-xs-12">
+                <label>订单号：</label>
+                <span></span>
+              </div>
+            </div>
+          </li>
+          <!-- 列表一组 -->
+          <li class="smart-sub-list-item">
+            <!-- 日期 -->
+            <div class="smart-accordion-head">
+              <span>14:14</span>
+            </div>
+            <!-- 列表内容 -->
+            <div class="smart-accordion-content">
+              <h3>
+                <em>POS-203</em>
+                <i set-status="income">+1000.00</i>
+              </h3>
+              <p>
+                <em>132132132132132</em>
+                <i>张三（132132132132312）</i>
+              </p>
+            </div>
+          </li>
+          <li class="smart-sub-list-item smart-sub-list-item-content">
+            <div class="row">
+              <div class="col-xs-12">
+                <label>交易时间：</label>
+                <span>2017.09.08 14:11：11</span>
+              </div>
+              <div class="col-xs-12">
+                <label>订单号：</label>
+                <span></span>
+              </div>
+            </div>
+          </li>
+          <!-- 列表一组 -->
+          <li class="smart-sub-list-item">
+            <!-- 日期 -->
+            <div class="smart-accordion-head">
+              <span>14:14</span>
+            </div>
+            <!-- 列表内容 -->
+            <div class="smart-accordion-content">
+              <h3>
+                <em>POS-204</em>  
+                <i set-status="income">+1000.00</i>
+              </h3>
+              <p>
+                <em>132132132132132</em>
+                <i>张三（132132132132312）</i>
+              </p>
+            </div>
+          </li>
+          <li class="smart-sub-list-item smart-sub-list-item-content">
+            <div class="row">
+              <div class="col-xs-12">
+                <label>交易时间：</label>
+                <span>2017.09.08 14:11：11</span>
+              </div>
+              <div class="col-xs-12">
+                <label>订单号：</label>
+                <span></span>
+              </div>
+            </div>
+          </li>
+        </ul>
     </div>
     <!-- 遮罩 -->
     <div class="smart-screen-mask"></div>
-    <!-- 页尾 pageEnd -->
-    <div class="smart-pageEnd"> 
-      没有更多记录了
-    </div>
   </div>
-
 </body>
-<script type="text/javascript" src="../../content/style/frame/jquery/jquery-3.2.1.min.js"></script>
-<script type="text/javascript" src="../../content/style/frame/bootstrap/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="../../content/style/frame/echarts/echarts.common.min.js"></script>
-<script type="text/javascript" src="../../content/style/white/shagnhuchaxun/js/shaixuan.js"></script>
+<script src="../../../content/style/frame/jquery/jquery-3.2.1.min.js"></script>
+<script src="../../../content/style/frame/bootstrap/js/bootstrap.min.js"></script>
+<script src="../../../content/style/frame/echarts/echarts.common.min.js"></script>
+
+<script src="../../../content/style/frame/mui/js/mui.min.js"></script>
+<script src="../../../content/style/frame/mui/js/mui.picker.min.js"></script>
+
+<script src="../../../content/style/frame/iscroll4/js/iscroll-true.js"></script>
+<script src="../../../content/style/frame/iscroll4/js/pullToRefresh.js"></script>
+<script src="../../../content/style/frame/iscroll4/js/loadMore.js"></script>
+<script src="../../../content/style/white/shanghuchaxun/testjs/echarts.js"></script>
+<script src="../../../content/style/white/shanghuchaxun/testjs/shaixuan.js"></script>
+<script type="text/javascript">
+  accordionClick();
+  var option = {
+    /*
+    注： 1、页面有<div id="wrapper">ul>li</div>
+      2、wrapper 整屏的 100%，根据父级 height (css)
+      3、pullDown 
+        3.1 string 
+        3.2 function 
+
+      4、pullUp 
+      5、引用
+        5.1 css：../../../content/style/frame/iscroll4/css/pullToRefresh.css
+        5.2 js ：../../../content/style/frame/iscroll4/js/iscroll-true.js
+                 ../../../content/style/frame/iscroll4/js/pullToRefresh.js"
+                 ../../../content/style/frame/iscroll4/js/loadMore.js"
+    */
+    
+    id:"wrapper", // 
+    pullDown:"refresh",
+    pullUp:function (){
+      setTimeout(function() {
+          var li = "",
+              i;
+          for (i = 0; i < 3; i++) {
+              li += `<li class="smart-sub-list-item">
+          <!-- 日期 -->
+          <div class="smart-accordion-head">
+            <span>14:14</span>
+          </div>
+          <!-- 列表内容 -->
+          <div class="smart-accordion-content">
+            <h3>
+              <em>POS-204</em>
+              <i set-status="income">+1000.00</i>
+            </h3>
+            <p>
+              <em>132132132132132</em>
+              <i>张三（132132132132312）</i>
+            </p>
+          </div>
+        </li>`;
+          }
+          $("#wrapper ul").append(li);
+          wrapper.refresh();
+      }, 1000);
+    }
+  }
+  loadMore.scroll(option);
+  // accordionClick();
+
+</script>
 </html>

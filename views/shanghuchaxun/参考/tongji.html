@@ -31,14 +31,14 @@
 
 <!-- <body class="smart-query" > -->
 <body class="smart-query" onload="setTop();">
-  <nav class="navbar">
+  <!-- <nav class="navbar">
     <div class="smart-header smart-white">
       <a href="javascript:history.go(-1)" class="smart-back smart-icon-left">
         <img src="../../../content/style/common/images/back-2.png" alt="">
       </a>
       <h1>我的账单</h1>
     </div>
-  </nav>
+  </nav> -->
   <div class="smart-content">
     <!-- 筛选 -->
     <div class="smart-screen smart-top">
@@ -66,12 +66,12 @@
     <!-- summarize -->
     <div class="smart-query-summarize smart-border smart-top">
       <h1 class="pos-tips">您可以通过本功能查询到最近6个月的数据 </h1>
-      <p>2017.09.08</p>
+      <p class="timeInterval">2017.09.08</p>
       <div class="smart-query-note">
-        交易笔数：<em>20111</em>
+        交易笔数：<em>456132</em>
       </div>
       <div class="smart-query-money">
-        交易金额：<em>1111111.00</em>
+        交易金额：<em>789456132.00</em>
       </div>
     </div>
     <!-- 折叠面板 -->
@@ -91,8 +91,8 @@
               <i>交易金额</i>
             </h3>
             <p>
-              <em>67笔</em>
-              <i>3333.00</i>
+              <em>78笔</em>
+              <i>789645.00</i>
             </p>
           </div>
         </li>
@@ -110,8 +110,8 @@
               <i>交易金额</i>
             </h3>
             <p>
-              <em>67笔</em>
-              <i>3333.00</i>
+              <em>617笔</em>
+              <i>132456.00</i>
             </p>
           </div>
         </li>
@@ -129,8 +129,8 @@
               <i>交易金额</i>
             </h3>
             <p>
-              <em>67笔</em>
-              <i>3333.00</i>
+              <em>11笔</em>
+              <i>2563.00</i>
             </p>
           </div>
         </li>
@@ -148,8 +148,8 @@
               <i>交易金额</i>
             </h3>
             <p>
-              <em>67笔</em>
-              <i>3333.00</i>
+              <em>753笔</em>
+              <i>78451245.00</i>
             </p>
           </div>
         </li>
@@ -159,13 +159,14 @@
     <div class="smart-echart" id="wrapper-echart">
       <div id="scroller-echart">
         <h1 class="pos-tips">您可以通过本功能查询到最近6个月的数据 </h1>
-        <p>2017.09.01-2017.09.30</p>
+        <p class="timeInterval">2017.09.01-2017.09.30</p>
         <!-- <h1>总计：<em>144000.00</em>元</h1> -->
         <label>收入柱状图<em>(可左右滑动)</em></label>
         <!-- 柱形图 和 折线图 -->
         <div class="smart-line-charts">
  
         </div>
+        <label>收入占比</label>
         <!-- 饼状图 -->
         <div class="smart-pie-charts">
 
@@ -188,7 +189,7 @@
 <script src="../../../content/style/white/shanghuchaxun/testjs/echarts.js"></script>
 <script src="../../../content/style/white/shanghuchaxun/testjs/shaixuan.js"></script>
 <script type="text/javascript">
-  accordionClick();
+  
 
   var option = {
     id:"wrapper", 
@@ -205,22 +206,14 @@
               <h3><em>交易笔数</em>
                 <i>交易金额</i></h3><p>
                 <em>67笔</em>
-                <i>3333.00</i></p></div></li>
-          <li class="smart-sub-list-item smart-sub-list-item-content">
-            <div class="row">
-              <div class="col-xs-12">
-                <label>交易时间：</label>
-                <span>2017.09.08 14:11:11</span>
-              </div><div class="col-xs-12">
-                <label>订单号：</label>
-                <span></span></div></div></li>`;
+                <i>3333.00</i></p></div></li>`;
           }
           $("#wrapper ul").append(li);
           wrapper.refresh();
-          accordionClick();
       }, 1000);
     }
   }
+  
   loadMore.scroll(option);
   
 

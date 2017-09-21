@@ -1,3 +1,5 @@
+// 当前日期
+$(".timeInterval").text(getTime().text);
 // wrapper top
 function setTop() {
     var getTop = 0;
@@ -5,8 +7,8 @@ function setTop() {
         e = $(".smart-top")[i];
         getTop += e.clientHeight;
     }
-    $(".smart-accordion").css("top", (getTop + 45) + "px");
-    $(".smart-echart").css("top", (getTop + 45 - $(".smart-query-summarize")[0].clientHeight) + "px");
+    $(".smart-accordion").css("top", (getTop + ($(".navbar")[0]?$(".navbar")[0].clientHeight:0)) + "px");
+    $(".smart-echart").css("top", (getTop + ($(".navbar")[0]?$(".navbar")[0].clientHeight:0) - $(".smart-query-summarize")[0].clientHeight) + "px");
     wrapper.refresh();
 }
 // 分析 和 统计 切换
@@ -30,13 +32,14 @@ $(".smart-query-statistics .toggle").on("click", function() {
         myEcharts.createEcharts(config2);
         return "统计";
     }() : function() {
+        myEcharts.clear();
         return "分析";
     }());
 });
 
 // 向下展开筛选
 var screen_list = [
-    ["今日", "近一周", "近一个月", "任意时间"],
+    ["今日统计", "近一周", "近一个月", "任意时间"],
     ["201", "202", "203", "204", "205", "全部POS"],
     ["5:00~9:00", "11:30~13:30", "17:30~19:30", "全部时段"]
 ];
@@ -87,10 +90,10 @@ lists.on("click", onClick);
 function hideBox(val,index) {
     $(".smart-active").removeClass('smart-active');
     smart_screen_toggle("hide");
+    // 时间下拉
+    timeOptions(val,index);
     if($("body").hasClass("smart-query")){
         // samrt-query
-        // 时间下拉
-        timeOptions(val,index);
         // pos机下拉
         posOptions(val,index);
     }else{
@@ -99,7 +102,7 @@ function hideBox(val,index) {
     }
 }
 // 时间下拉
-function timeOptions(val,index){
+function timeOptions(val){
     if (val == "任意时间") {
         $(".smart-time-box").addClass("smart-screen-show");
         
@@ -109,16 +112,16 @@ function timeOptions(val,index){
             beforeDate = 0;
         // 日期范围
         switch (val) {
-            case "今日":
+            case "今日统计":
                 $(".smart-query-summarize h1,.smart-query-summarize >p,.smart-echart >p").text(date.text);
                 break;
             case "近一周":
                 beforeDate = getTime(date.year, date.month - 1, (date.day - 7));
-                $(".smart-query-summarize h1,.smart-query-summarize >p,.smart-echart >p").text(beforeDate.text + " ~ " + date.text);
+                $(".timeInterval").text(beforeDate.text + " ~ " + date.text);
                 break;
             case "近一个月":
                 beforeDate = getTime(date.year, date.month - 1, (date.day - 30));
-                $(".smart-query-summarize h1,.smart-query-summarize >p,.smart-echart >p").text(beforeDate.text + " ~ " + date.text);
+                $(".timeInterval").text(beforeDate.text + " ~ " + date.text);
                 break;
         }
     }
@@ -223,7 +226,7 @@ function selectTime(obj) {
 
         obj.innerText = rs.text;
         if (type == "end") {
-            $(".smart-query-summarize h1").text(startP.text() + " ~ " + endP.text());
+            $(".timeInterval").text(startP.text() + " ~ " + endP.text());
         }
 
         picker.dispose();
