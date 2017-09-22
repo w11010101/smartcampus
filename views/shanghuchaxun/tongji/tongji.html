@@ -68,17 +68,19 @@
       <h1 class="pos-tips">您可以通过本功能查询到最近6个月的数据 </h1>
       <p class="timeInterval">2017.09.08</p>
       <div class="smart-query-note">
-        交易笔数：<em>456132</em>
+        交易笔数：<em>45611232</em>
       </div>
       <div class="smart-query-money">
-        交易金额：<em>789456132.00</em>
+        交易金额：<em>89445152.00</em>
       </div>
     </div>
     <!-- 折叠面板 -->
     <div class="smart-accordion" id="wrapper">
       <!-- 列表 -->
       <ul class="smart-sub-list smart-border-top-0">
-        
+        <!-- <li class="smart-sub-list-item">
+          无更多数据
+        </li> -->
       </ul>
     </div>
     <!-- 单个pos机的6个月数据 容器 -->
@@ -107,6 +109,11 @@
         </div>
       </div>
     </div>
+    <!-- 无数据 -->
+    <div>
+      
+    </div>
+
   </div>
 </body>
 <script src="../../../content/style/frame/jquery/jquery-3.2.1.min.js"></script>
@@ -122,4 +129,55 @@
 
 <script src="../../../content/style/white/shanghuchaxun/js/echarts.js"></script>
 <script src="../../../content/style/white/shanghuchaxun/js/shaixuan.js"></script>
+<script type="text/javascript">
+// 获取ajax 列表 
+getAjaxList ({
+  url:"http://localhost:3000/", // 接口地址
+  data:{
+    type:"list",
+  },                            // 传参
+  listType:"allList",        /*列表类型：tongji.html:          
+
+                                              allList   (所有列表); 
+                                              specifyList  (指定列表，如6个月列表);
+
+                                            chaliushui.html:
+
+                                              streamList (所有列表);
+                                              streamSpecifyList  (指定列表，如6个月列表);
+                                */
+
+  parentObj:$("#wrapper ul"),   // 列表容器
+  num:4                         // 列表个数（仅限本地模拟）
+});
+
+// scroll 事件
+var option = {
+    id:"wrapper", 
+    pullDown:function (){
+        wrapper.refresh();
+    },
+    pullUp:function (){
+      // $(".pullDown,.pullUp").css("opacity",1);
+        setTimeout(function() {
+
+          getAjaxList ({
+            url:"http://localhost:3000/",
+            data:{
+              type:"list",
+            },
+            listType:"allList",
+            parentObj:$("#wrapper ul"),
+            num:4
+          });
+
+          wrapper.refresh();
+        }, 1000);
+    }
+}
+loadMore.scroll(option);
+
+// $(".pullDown,.pullUp").css("opacity",0);
+
+</script>
 </html>

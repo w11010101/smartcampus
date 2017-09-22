@@ -1,5 +1,6 @@
 html{
-    font-size: calc(100vw/3.75);
+    /*font-size: calc(100vw/3.75);*/
+    font-size: 100px;
 }
 /*.smart-header.smart-white h1{
     font-size: .16rem;
@@ -175,16 +176,25 @@ html{
     padding-bottom: .27rem;
 }
 .smart-query-summarize em{
-    
+    position: relative;
     font-weight: bold;
     font-size: .22rem;
     line-height: .22rem;
     margin-top: .11rem;
     margin-bottom: .27rem;
+    padding-right: 25px;
     color:#0f0f0f;
 }
 .smart-query .smart-query-summarize em{
-    display: block;
+    display: inline-block;
+    max-width: calc(100% - 15px);
+    /*display: block;*/
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    padding-right: 25px;
+    position: relative;
+
 }
 .smart-query-summarize > div{
     display: inline-block;
@@ -196,7 +206,10 @@ html{
     width: 50%;
 }
 .smart-query-summarize > div em:after{
+    position:absolute;
+    right:0;
     content: "元";
+    z-index: 1;
     font-size: .16rem;
     color:#0f0f0f;
     margin-left: .05rem;

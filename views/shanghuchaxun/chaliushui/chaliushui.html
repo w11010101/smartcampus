@@ -71,128 +71,16 @@
     <div class="smart-accordion" id="wrapper">
         <!-- 列表 -->
         <ul class="smart-sub-list smart-border-top-0">
-          <!-- 列表一组 -->
-          <li class="smart-sub-list-item">
-            <!-- 日期 -->
-            <div class="smart-accordion-head">
-              09/09
-              <span>14:14</span>
-            </div>
-            <!-- 列表内容 -->
-            <div class="smart-accordion-content">
-              <h3>
-                <em>POS-201</em>
-                <i set-status="pay">-1000.00</i>
-              </h3>
-              <p>
-                <em>132132132132132</em>
-                <i>张三（132132132132312）</i>
-              </p>
-            </div>
-          </li>
-          <li class="smart-sub-list-item smart-sub-list-item-content">
-            <div class="row">
-              <div class="col-xs-12">
-                <label>交易时间：</label>
-                <span>2017.09.08 14:11：11</span>
-              </div>
-              <div class="col-xs-12">
-                <label>订单号：13245689778948</label>
-                <span></span>
-              </div>
-            </div>
-          </li>
-          <!-- 列表一组 -->
-          <li class="smart-sub-list-item">
-            <!-- 日期 -->
-            <div class="smart-accordion-head">
-              <span>14:14</span>
-            </div>
-            <!-- 列表内容 -->
-            <div class="smart-accordion-content">
-              <h3>
-                <em>POS-202</em>
-                <i set-status="pay">-1000.00</i>
-              </h3>
-              <p>
-                <em>132132132132132</em>
-                <i>张三（132132132132312）</i>
-              </p>
-            </div>
-          </li>
-          <li class="smart-sub-list-item smart-sub-list-item-content">
-            <div class="row">
-              <div class="col-xs-12">
-                <label>交易时间：</label>
-                <span>2017.09.08 14:11：11</span>
-              </div>
-              <div class="col-xs-12">
-                <label>订单号：13245689778948</label>
-                <span></span>
-              </div>
-            </div>
-          </li>
-          <!-- 列表一组 -->
-          <li class="smart-sub-list-item">
-            <!-- 日期 -->
-            <div class="smart-accordion-head">
-              <span>14:14</span>
-            </div>
-            <!-- 列表内容 -->
-            <div class="smart-accordion-content">
-              <h3>
-                <em>POS-203</em>
-                <i set-status="income">+1000.00</i>
-              </h3>
-              <p>
-                <em>132132132132132</em>
-                <i>张三（132132132132312）</i>
-              </p>
-            </div>
-          </li>
-          <li class="smart-sub-list-item smart-sub-list-item-content">
-            <div class="row">
-              <div class="col-xs-12">
-                <label>交易时间：</label>
-                <span>2017.09.08 14:11：11</span>
-              </div>
-              <div class="col-xs-12">
-                <label>订单号：13245689778948</label>
-                <span></span>
-              </div>
-            </div>
-          </li>
-          <!-- 列表一组 -->
-          <li class="smart-sub-list-item">
-            <!-- 日期 -->
-            <div class="smart-accordion-head">
-              <span>14:14</span>
-            </div>
-            <!-- 列表内容 -->
-            <div class="smart-accordion-content">
-              <h3>
-                <em>POS-204</em>  
-                <i set-status="income">+1000.00</i>
-              </h3>
-              <p>
-                <em>132132132132132</em>
-                <i>张三（132132132132312）</i>
-              </p>
-            </div>
-          </li>
-          <li class="smart-sub-list-item smart-sub-list-item-content">
-            <div class="row">
-              <div class="col-xs-12">
-                <label>交易时间：</label>
-                <span>2017.09.08 14:11：11</span>
-              </div>
-              <div class="col-xs-12">
-                <label>订单号：13245689778948</label>
-                <span></span>
-              </div>
-            </div>
-          </li>
+          
         </ul>
+    </div>
+    <!-- 单个pos机的6个月数据 容器 -->
+    <div class="smart-accordion" id="wrapper-pos">
+      <div id="scroller-pos">
+        <ul class="smart-sub-list smart-border-top-0">
+          
+        </ul>
+      </div>
     </div>
     <!-- 遮罩 -->
     <div class="smart-screen-mask"></div>
@@ -211,6 +99,26 @@
 <script src="../../../content/style/white/shanghuchaxun/js/echarts.js"></script>
 <script src="../../../content/style/white/shanghuchaxun/js/shaixuan.js"></script>
 <script type="text/javascript">
+// 获取ajax 列表 
+getAjaxList ({
+  url:"http://localhost:3000/", // 接口地址
+  data:{
+    type:"list",
+  },                            // 传参
+  listType:"streamList",        /*列表类型：tongji.html:          
+
+                                              allList   (所有列表); 
+                                              specifyList  (指定列表，如6个月列表);
+
+                                            chaliushui.html:
+
+                                              streamList (所有列表);
+                                              streamSpecifyList  (指定某一个设备列表);
+                                */
+
+  parentObj:$("#wrapper ul"),   // 列表容器
+  num:4                         // 列表个数（仅限本地模拟）
+});
   accordionClick();
   var option = {
     /*
@@ -235,35 +143,7 @@
           var li = "",
               i;
           for (i = 0; i < 3; i++) {
-              li += `<li class="smart-sub-list-item">
-            <!-- 日期 -->
-            <div class="smart-accordion-head">
-              <span>14:14</span>
-            </div>
-            <!-- 列表内容 -->
-            <div class="smart-accordion-content">
-              <h3>
-                <em>POS-203</em>
-                <i set-status="income">+1000.00</i>
-              </h3>
-              <p>
-                <em>132132132132132</em>
-                <i>张三（132132132132312）</i>
-              </p>
-            </div>
-          </li>
-          <li class="smart-sub-list-item smart-sub-list-item-content">
-            <div class="row">
-              <div class="col-xs-12">
-                <label>交易时间：</label>
-                <span>2017.09.08 14:11：11</span>
-              </div>
-              <div class="col-xs-12">
-                <label>订单号：13245689778948</label>
-                <span></span>
-              </div>
-            </div>
-          </li>`;
+              li += html("","chaliushui");
           }
           $("#wrapper ul").append(li);
           wrapper.refresh();
@@ -273,6 +153,6 @@
   }
   loadMore.scroll(option);
   // accordionClick();
-
+ 
 </script>
 </html>

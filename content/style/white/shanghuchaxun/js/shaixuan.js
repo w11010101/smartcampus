@@ -13,7 +13,8 @@ function setTop() {
 }
 // 分析 和 统计 切换
 var myScrollEchart,
-    myScrollPos;
+    myScrollPos,
+    myScrollObj;
 $(".smart-query-statistics .toggle").on("click", function() {
     $(".smart-content").toggleClass("smart-toggle");
     $(".smart-query-statistics").toggleClass("smart-border");
@@ -24,12 +25,6 @@ $(".smart-query-statistics .toggle").on("click", function() {
     $(this).text($(".smart-content").hasClass("smart-toggle") ? function() {
         // echart 
         fixed_scroll('wrapper-echart');
-        // if (!myScrollEchart) {
-        //     myScrollEchart = new iScroll('wrapper-echart', {
-        //         vScrollbar: false
-        //     });
-        //     document.addEventListener('touchmove', function(e) { e.preventDefault(); }, { passive: false });            
-        // }
         myEcharts.createEcharts(config_bar);
         myEcharts.createEcharts(config_pie);
         return "统计";
@@ -40,13 +35,14 @@ $(".smart-query-statistics .toggle").on("click", function() {
 });
 // 固定滑动 （不会上下拉加载）
 function fixed_scroll(id,type){
-    var myScrollObj = type == "echart"?myScrollEchart:myScrollPos;
+    myScrollObj = type == "echart"?myScrollEchart:myScrollPos;
     if (!myScrollObj) {
         myScrollObj = new iScroll(id, {
             vScrollbar: false
         });
         document.addEventListener('touchmove', function(e) { e.preventDefault(); }, { passive: false });            
     }
+    myScrollObj.refresh();
 }
 // 向下展开筛选
 var screen_list = [
@@ -149,35 +145,50 @@ function posOptions(val){
         $(".pos-tips").hide(0);
         $("#picker1,#picker3").on("click",onClick).removeClass("disabled");
         EchartConfig = new EchartDataAll();
+
+        $("#wrapper-pos").hide(0);
+        $(".smart-echart label em").show(0);
+        timeOptions($("#picker1").text());
     }else{
         // 没有 pos字样
         $(".pos-tips").show(0);
         $("#picker1,#picker3").off("click").addClass("disabled");
-        EchartConfig = new EchartData();
+        EchartConfig = new EchartData(); 
+
+        // 过去6个月
+        var date = getTime(),
+        beforeDate = getTime(date.year, date.month - 6, date.day);
+        $(".timeInterval").text(beforeDate.text + " ~ " + date.text);
+        $(".smart-echart label em").hide(0);
+        $("#wrapper-pos").show(0);
+        
+        // 获取ajax 列表
+        getAjaxList ({
+            url:"http://localhost:3000/",
+            data:{
+                type:"list",
+            },
+            // listType:"specifyList",
+            listType: $(".smart-query").length?"specifyList":"streamSpecifyList",
+            parentObj:$("#wrapper-pos ul"),
+            num:6
+          
+        });
+        // $(".smart-query").length?"specifyList":"streamSpecifyList"
+        setTimeout(function (){
+            fixed_scroll('wrapper-pos',"pos");
+        },200)
+       
     }
     setTop();
+
     if($(".smart-query-bill").length) {
         // chaliushui.html
         console.log("当前是 chaliushui.html");
     }else{
         // tongji.html
         myEcharts.createEcharts(EchartConfig.bar);
-        myEcharts.createEcharts(EchartConfig.pie); 
-
-        var date = getTime(),
-        beforeDate = getTime(date.year, date.month - 6, date.day);
-        $(".timeInterval").text(beforeDate.text + " ~ " + date.text);
-        // 过去6个月
-        // $("#wrapper ul").html("");
-        for(var i =0;i<6;i++){
-            // $("#wrapper ul").append(html(201+i));
-            $("#wrapper-pos").show(0,function (){
-                $("ul",this).append(html(`<div class="smart-accordion-head smart-accordion-head-date">`+(date.month-i)+`月<span>`+date.year+`</span></div>`));
-            })
-            
-        }
-
-        fixed_scroll('wrapper-pos',"pos");
+        myEcharts.createEcharts(EchartConfig.pie);
     }
 }
 // 图表数据结构
@@ -289,36 +300,119 @@ function loading() {
     return '<!-- 加载中 --><div class="smart-loading"><div class="smart-waiting"></div></div>';
 }
 
-// html 
-var html = function (val){
-    return `<li class="smart-sub-list-item">
-        `+val+`
-        <div class="smart-accordion-content">
-          <h3><em>交易笔数</em>
-            <i>交易金额</i></h3><p>
-            <em>67笔</em>
-        <i>3333.00</i></p></div></li>`;
-};
-for(var i =0;i<6;i++){
-    $("#wrapper ul").append(html(`<div class="smart-accordion-head"><span>`+(201+i)+`</span></div>`));
-}
-// scroll
-var option = {
-    id:"wrapper", 
-    pullDown:function (){
-        wrapper.refresh();
-    },
-    pullUp:function (){
-        setTimeout(function() {
-            var li = "",
-              i;
-            for (i = 1; i < 4; i++) {
-                var n = parseInt($(".smart-sub-list-item:last-child .smart-accordion-head span").text())+i;
-                li += html(`<div class="smart-accordion-head"><span>`+n+`</span></div>`);
-            }
-            $("#wrapper ul").append(li);
-            wrapper.refresh();
-        }, 1000);
+// html 同步加载ajax， return data
+var html = function (val,type){
+    var dom = "";
+    switch (type){
+        case "allList":
+            // 全部列表
+            dom = `<li class="smart-sub-list-item">`+val+`
+                <div class="smart-accordion-content">
+                  <h3><em>交易笔数</em>
+                    <i>交易金额</i></h3><p>
+                    <em>67笔</em>
+                <i>3333.00</i></p></div></li>`;
+        break;
+        case "specifyList": 
+            // 区间列表（如：6个月）
+            dom = `<li class="smart-sub-list-item">`+val+`
+                <div class="smart-accordion-content">
+                  <h3><em>交易笔数</em>
+                    <i>交易金额</i></h3><p>
+                    <em>67笔</em>
+                <i>3333.00</i></p></div></li>`;
+        break;
+        case "streamSpecifyList": 
+            // 区间列表（如：6个月）
+            dom = `<li class="smart-sub-list-item"><div class="smart-accordion-head">
+                  <span>14:14</span>
+                </div>
+                <!-- 列表内容 -->
+                <div class="smart-accordion-content">
+                  <h3><em>POS-201</em><i set-status="pay">-1000.00</i></h3>
+                  <p><em>132132132132132</em><i>张三（132132132132312）</i></p>
+                </div>
+              </li>
+              <li class="smart-sub-list-item smart-sub-list-item-content">
+                <div class="row">
+                  <div class="col-xs-12">
+                    <label>交易时间：</label>
+                    <span>2017.09.08 14:11：11</span>
+                  </div>
+                  <div class="col-xs-12">
+                    <label>订单号：13245689778948</label>
+                    <span></span>
+                  </div></div></li>`;
+        break;
+        case "streamList": 
+            // 查流水
+            console.log("查流水列表");
+            dom = `<li class="smart-sub-list-item">
+                <!-- 日期 -->
+                <div class="smart-accordion-head">09/09<span>14:14</span></div>
+                <!-- 列表内容 -->
+                <div class="smart-accordion-content">
+                  <h3><em>POS-203</em><i set-status="income">+1000.00</i></h3>
+                  <p><em>132132132132132</em><i>张三（132132132132312）</i></p>
+                </div>
+              </li>
+              <li class="smart-sub-list-item smart-sub-list-item-content">
+                <div class="row">
+                  <div class="col-xs-12">
+                    <label>交易时间：</label>
+                    <span>2017.09.08 14:11：11</span>
+                  </div>
+                  <div class="col-xs-12">
+                    <label>订单号：13245689778948</label>
+                    <span></span>
+                  </div></div></li>`;
+        break;
     }
+    return dom;
+};
+
+
+function getAjaxList (option){
+    console.log(option);
+    // ajax 
+    // $.ajax({
+    //     type: "POST",
+    //     url: option.url,
+    //     data:option.data,
+    //     // async:false,        // 设置同步请求
+    //     dataType: "json",
+    //     success: function(data) {
+    //         var li = "",i;
+    //         for (i = 1; i < 4; i++) {
+    //             // var n = parseInt($("#wrapper .smart-sub-list-item:last-child .smart-accordion-head span").text())+i;
+    //             // li += html(`<div class="smart-accordion-head"><span>`+n+`</span></div>`,"tongji");
+    //             option.parentObj.append(html(data,option.listType));
+    //         }
+
+    //         // option.parentObj.append(html(data,"tongji"));
+
+    //         // option.parentObj.append(option.listType == "allList"?html(data,):function (){
+    //         // });
+    //     },
+    //     error: function(err) {
+    //         console.log("error = " + JSON.stringify(err));
+    //     }
+    // })
+
+    // 本地测试
+    var date = getTime();
+
+    var li = "",i;
+    for (i = 0; i < option.num; i++) {
+        var dom = option.listType == "allList"?function(){
+            // 此处有两个结构，其一
+            return `<div class="smart-accordion-head"><span>`+(201+i)+`</span></div>`;  
+        }():function(){
+            option.parentObj.html("");
+            // 此处有两个结构，其二
+            return `<div class="smart-accordion-head smart-accordion-head-date">`+(date.month-i)+`月<span>`+date.year+`</span></div>`;
+        }();
+        li += html(dom,option.listType);
+    }
+    option.parentObj.append(li);
 }
-loadMore.scroll(option);
