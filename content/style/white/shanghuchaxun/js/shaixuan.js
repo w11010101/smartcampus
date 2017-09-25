@@ -1,49 +1,3 @@
-// 当前日期
-$(".timeInterval").text(getTime().text);
-// wrapper top
-function setTop() {
-    var getTop = 0;
-    for (var i = 0; i < $(".smart-top").length; i++) {
-        e = $(".smart-top")[i];
-        getTop += e.clientHeight;
-    }
-    $(".smart-accordion,.pos-container").css("top", (getTop + ($(".navbar")[0]?$(".navbar")[0].clientHeight:0)) + "px");
-    $(".smart-echart").css("top", (getTop + ($(".navbar")[0]?$(".navbar")[0].clientHeight:0) - $(".smart-query-summarize")[0].clientHeight) + "px");
-    wrapper.refresh();
-}
-// 分析 和 统计 切换
-var myScrollEchart,
-    myScrollPos,
-    myScrollObj;
-$(".smart-query-statistics .toggle").on("click", function() {
-    $(".smart-content").toggleClass("smart-toggle");
-    $(".smart-query-statistics").toggleClass("smart-border");
-    // 切换 隐藏日期选择
-    $(".smart-time-box").removeClass("smart-screen-show");
-    setTop();
-    // 
-    $(this).text($(".smart-content").hasClass("smart-toggle") ? function() {
-        // echart 
-        fixed_scroll('wrapper-echart');
-        myEcharts.createEcharts(config_bar);
-        myEcharts.createEcharts(config_pie);
-        return "统计";
-    }() : function() {
-        myEcharts.clear();
-        return "分析";
-    }());
-});
-// 固定滑动 （不会上下拉加载）
-function fixed_scroll(id,type){
-    myScrollObj = type == "echart"?myScrollEchart:myScrollPos;
-    if (!myScrollObj) {
-        myScrollObj = new iScroll(id, {
-            vScrollbar: false
-        });
-        document.addEventListener('touchmove', function(e) { e.preventDefault(); }, { passive: false });            
-    }
-    myScrollObj.refresh();
-}
 // 向下展开筛选
 var screen_list = [
     ["今日统计", "近一周", "近一个月", "任意时间"],
@@ -68,7 +22,6 @@ function onClick(){
         id = $(this)[0].id;
         state = false;
     } else {
-        
         if (id == $(this)[0].id) {
             // 如果点击的是自己，就hide;
             picker.hide();
@@ -96,92 +49,38 @@ function pickerShow(obj,index){
         hideBox(items[0],index);
     });
 }
-// 列表点击事件
+// 条件筛选点击事件
 lists.off().on("click", onClick);
-
+// lists.off().on("click", $(".smart-seller-manage").length?onManageClick:onClick);
 // 隐藏筛选
 function hideBox(val,index) {
     $(".smart-active").removeClass('smart-active');
-    smart_screen_toggle("hide");
     // 时间下拉
     timeOptions(val,index);
 
     // pos机下拉
-    if(index!= 1) return false;
-    posOptions(val);
+    if(!$(".smart-seller-manage").length){      // 如果当前页面 不是 guanli.html
+        if(index!= 1) return false;
+        posOptions(val);
 
-}
-// 时间下拉
-function timeOptions(val){
-    if (val == "任意时间") {
-        $(".smart-time-box").addClass("smart-screen-show");
-        
-    } else {
-        $(".smart-time-box").removeClass("smart-screen-show");
-        var date = getTime(),
-            beforeDate = 0;
-        // 日期范围
-        switch (val) {
-            case "今日统计":
-                $(".timeInterval").text(date.text);
-                break;
-            case "近一周":
-                beforeDate = getTime(date.year, date.month - 1, (date.day - 7));
-                $(".timeInterval").text(beforeDate.text + " ~ " + date.text);
-                break;
-            case "近一个月":
-                beforeDate = getTime(date.year, date.month - 1, (date.day - 30));
-                $(".timeInterval").text(beforeDate.text + " ~ " + date.text);
-                break;
+    }else{                    // 如果当前页面 是 guanli.html  
+        if(index!= 1) return false; 
+        if(val.length <= 4){
+            $("#picker2").removeClass("content-rows-2");
+        }else{
+            $("#picker2").addClass("content-rows-2");
         }
     }
-    setTop();
-}
-// pos机下拉
-function posOptions(val){
-    var EchartConfig;
-    if(~val.indexOf("POS")){
-        // 有 pos字样
-        $(".pos-tips").hide(0);
-        $("#picker1,#picker3").on("click",onClick).removeClass("disabled");
-        EchartConfig = new EchartDataAll();
 
-        $("#wrapper-pos").hide(0);
-        $(".smart-echart label em").show(0);
-        timeOptions($("#picker1").text());
-    }else{
-        // 没有 pos字样
-        $(".pos-tips").show(0);
-        $("#picker1,#picker3").off("click").addClass("disabled");
-        EchartConfig = new EchartData(); 
+    // 实例化 图表配置对象
+    // EchartConfig = ~val.indexOf("POS")?new EchartDataAll():new EchartData();
+    console.log(index); 
 
-        // 过去6个月
-        var date = getTime(),
-        beforeDate = getTime(date.year, date.month - 6, date.day);
-        $(".timeInterval").text(beforeDate.text + " ~ " + date.text);
-        $(".smart-echart label em").hide(0);
-        $("#wrapper-pos").show(0);
-        
-        // 获取ajax 列表
-        getAjaxList ({
-            url:"http://localhost:3000/",
-            data:{
-                type:"list",
-            },
-            // listType:"specifyList",
-            listType: $(".smart-query").length?"specifyList":"streamSpecifyList",
-            parentObj:$("#wrapper-pos ul"),
-            num:6
-          
-        });
-        // $(".smart-query").length?"specifyList":"streamSpecifyList"
-        setTimeout(function (){
-            fixed_scroll('wrapper-pos',"pos");
-        },200)
-       
-    }
-    setTop();
-
+    EchartConfig = new get_config({
+        pageName:pageName,
+        type:$("#picker2").text() == "全部商户"?"all":"certain"
+    });
+    
     if($(".smart-query-bill").length) {
         // chaliushui.html
         console.log("当前是 chaliushui.html");
@@ -191,114 +90,50 @@ function posOptions(val){
         myEcharts.createEcharts(EchartConfig.pie);
     }
 }
-// 图表数据结构
-// EchartDataAll 全部数据
-function EchartDataAll(){
-    // 图表1 bar and line
-    config_bar.bar.barArr = [201, 202, 203, 204, 205, 206, 207, 208, 209, 210, 211, 212, 213, 214, 215, 216, 217, 218, 219, 220];
-    config_bar.end = 20;
-    config_bar.barColor = "#71d6f5";
-    // 图表2 pie
-    config_pie.pie.valArr = [2300, 1250, 1000, 1700];
-    config_pie.pie.nameArr =["pie1","pie2","pie3","pie4"];
-    config_pie.pie.color = ['#00e897', '#42c3ef', '#0096d2', '#fdab06'];
 
-    this.bar = config_bar;
-    this.pie = config_pie;
+// pos机下拉
+function posOptions(val){
+    var EchartConfig;
+    if(~val.indexOf("POS")){
+        // 有 pos字样
+        $(".pos-tips,#wrapper-pos").hide(0);
+        $("#picker1,#picker3").on("click",onClick).removeClass("disabled");
 
-}
-// EchartDataAll 单个数据
-function EchartData(){
-    var month = getTime().month;
-    // 图表1 bar and line
-    config_bar.bar.barArr = [(month-5)+"月",(month-4)+"月",(month-3)+"月",(month-2)+"月",(month-1)+"月",month+"月"];
-    config_bar.end = 100;
-    config_bar.barColor = "#bcffbf";
-    // 图表2 pie
-    config_pie.pie.valArr  = [1000,1200,1000,1500,1400,1700];
-    config_pie.pie.nameArr = [(month-5)+"月",(month-4)+"月",(month-3)+"月",(month-2)+"月",(month-1)+"月",month+"月"];
-    config_pie.pie.color = ['#00e897', '#42c3ef', '#0096d2', '#fdab06',"#71d6f5","#ee5b16"] 
+        $(".smart-echart label em").show(0);
+        timeOptions($("#picker1").text());
+    }else{
+        // 没有 pos字样
+        $(".pos-tips,#wrapper-pos").show(0);
+        $("#picker1,#picker3").off("click").addClass("disabled");
+        $("#picker1").text("今日统计");
+        $("#wrapper-pos ul").html("");
 
-    this.bar = config_bar;
-    this.pie = config_pie;
-}
-// smart_screen_toggle
-function smart_screen_toggle(type) {
-    if (type == "hide") {
-        // hide
-        $(".set-popup").slideUp(200);
-        $(".smart-screen-mask").fadeOut(200, function() {
-            setTop();
+        // 过去6个月
+        var date = getTime(),
+        beforeDate = getTime(date.year, date.month - 6, date.day);
+        $(".timeInterval").text(beforeDate.text + " ~ " + date.text);
+        $(".smart-echart label em").hide(0);
+        
+        // 获取ajax 列表
+        getAjaxList ({
+            url:"http://localhost:3000/",
+            data:{
+                type:"list",
+            },
+            listType:$("body").attr("specify-list"),
+            parentObj:$("#wrapper-pos ul"),
+            num:6
+          
         });
-    } else {
-        // show
-        $(".set-popup").slideDown(200);
-        $(".smart-screen-mask").fadeIn(200);
+        setTimeout(function (){
+            fixed_scroll('wrapper-pos',myScrollPos);
+            myScrollPos = false;
+        },200)
+       
     }
-}
-// 详情
-function accordionClick() {
-    $(".smart-sub-list-item").off().on("click", function() {
-        var hasSub = $(this).next();
-        if (hasSub.hasClass("smart-sub-list-item-content")) {
-            $(".smart-sub-list-item-content").not(hasSub).slideUp(200);
-            hasSub.slideToggle(200, function() {
-                wrapper.refresh();
-            });
-        }
-    })
+    setTop();
 }
 
-function getTime(y, m, d) {
-    var time = y ? new Date(y, m, d) : new Date();
-    var month = time.getMonth() + 1;
-    month = month<10?("0"+month):month;
-    var day = time.getDate();
-    day = day<10?("0"+day):day;
-    return {
-        year: time.getFullYear(),
-        month: month,
-        day: time.getDate(),
-        text: time.getFullYear() + "-" + month + "-" + day
-    }
-}
-
-// 选择时间
-function selectTime(obj) {
-    mui.init();
-    var type = $(obj).attr("set-time"),
-        startP = $(".smart-time-box p[set-time=start]"),
-        endP = $(".smart-time-box p[set-time=end]"),
-        date = getTime(),
-
-        options = {
-            type: "date",
-            beginDate: type == "start" ? new Date(date.year, date.month - 1, date.day) : function() {
-                var start = startP.text();
-                var startArr = start.split("-");
-                return new Date(startArr[0], startArr[1] - 1, startArr[2]);
-            }(), //设置开始日期 
-            endDate: type == "start" ? new Date(date.year + 10, date.month, date.day) : "", //设置结束日期 
-        };
-
-    var picker = new mui.DtPicker(options);
-    picker.show(function(rs) {
-
-        obj.innerText = rs.text;
-        if (type == "end") {
-            $(".timeInterval").text(startP.text() + " ~ " + endP.text());
-        }else{
-            endP.text("结束时间");
-        }
-
-        picker.dispose();
-    });
-}
-// 加载中
-function loading() {
-    console.log("loading")
-    return '<!-- 加载中 --><div class="smart-loading"><div class="smart-waiting"></div></div>';
-}
 
 // html 同步加载ajax， return data
 var html = function (val,type){
@@ -346,7 +181,6 @@ var html = function (val,type){
         break;
         case "streamList": 
             // 查流水
-            console.log("查流水列表");
             dom = `<li class="smart-sub-list-item">
                 <!-- 日期 -->
                 <div class="smart-accordion-head">09/09<span>14:14</span></div>
@@ -365,7 +199,16 @@ var html = function (val,type){
                   <div class="col-xs-12">
                     <label>订单号：13245689778948</label>
                     <span></span>
-                  </div></div></li>`;
+                </div></div></li>`;
+        break;
+        case "manageList":
+            dom = `<li class="smart-sub-list-item">
+                <!-- 列表内容 -->
+                <div class="smart-accordion-content">
+                  <h3><em>海源一餐厅1楼1-16窗口</em><i set-status="income">+1000000.00</i></h3>
+                  <p><em>132132132132132</em><i>交易笔数：(121212)</i></p>
+                </div>
+              </li>`;
         break;
     }
     return dom;
@@ -373,7 +216,7 @@ var html = function (val,type){
 
 
 function getAjaxList (option){
-    console.log(option);
+    // console.log(option);
     // ajax 
     // $.ajax({
     //     type: "POST",
@@ -399,7 +242,7 @@ function getAjaxList (option){
     //     }
     // })
 
-    // 本地测试
+    // 本地测试 ，当使用上面ajax时 ，可删除
     var date = getTime();
 
     var li = "",i;
@@ -408,7 +251,7 @@ function getAjaxList (option){
             // 此处有两个结构，其一
             return `<div class="smart-accordion-head"><span>`+(201+i)+`</span></div>`;  
         }():function(){
-            option.parentObj.html("");
+            // option.parentObj.html("");
             // 此处有两个结构，其二
             return `<div class="smart-accordion-head smart-accordion-head-date">`+(date.month-i)+`月<span>`+date.year+`</span></div>`;
         }();

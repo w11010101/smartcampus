@@ -1,6 +1,6 @@
 html{
-    /*font-size: calc(100vw/3.75);*/
-    font-size: 100px;
+    font-size: calc(100vw/3.75);
+    /*font-size: 100px;*/
 }
 /*.smart-header.smart-white h1{
     font-size: .16rem;
@@ -14,13 +14,17 @@ html{
     background-size:.25rem;
     color:#8d8d8d;
 }
-
+.smart-screen{
+    /*height: .52rem;*/
+    background: #fff
+}
 .smart-screen .smart-column-list{
-    height: auto;
+    /*height: 100%;*/
    
 }
 .smart-screen .smart-column-list div[class^="col-xs"]{
     padding: 0;
+    height: .52rem;
     font-size: .15rem;
     line-height: .15rem;
     padding-top: .18rem;
@@ -219,7 +223,7 @@ html{
     content: "笔";
 }
 
-.smart-accordion{
+.smart-accordion,.smart-list-nothing{
     position: absolute;
     width: 100%;
     bottom: 0;
@@ -228,6 +232,29 @@ html{
     display: none;
     background: #fff
 }
+.smart-list-nothing{
+    display: none;
+    background: #fff;
+    z-index: 2;
+}
+.smart-list-nothing p{
+    text-align: center;
+    position: absolute;
+    width: 100%;
+    top:50%;
+    margin:0;
+    margin-top: -20%;
+    font-size: .15rem;
+    line-height: .15rem;
+}
+.smart-list-nothing button{
+    border:0;
+    color:#42c3ef;
+    padding:0;
+    margin-left: .1rem;
+    vertical-align: middle;
+}
+
 .smart-accordion .smart-sub-list{
     display: block;
 }
@@ -248,33 +275,33 @@ html{
 .smart-query .smart-accordion .smart-sub-list .smart-sub-list-item .smart-accordion-head{
     width: 1.2rem;
 }
-.smart-query .smart-accordion .smart-sub-list .smart-sub-list-item .smart-accordion-head span{
+.smart-query .smart-accordion .smart-sub-list .smart-accordion-head span{
     color:#0f0f0f;
     font-size: .15rem;
     line-height: .3rem
 }
-.smart-query .smart-accordion .smart-sub-list .smart-sub-list-item .smart-accordion-head.smart-accordion-head-date{
+.smart-query .smart-accordion .smart-sub-list .smart-accordion-head.smart-accordion-head-date{
     color:#0f0f0f;
 }
-.smart-query .smart-accordion .smart-sub-list .smart-sub-list-item .smart-accordion-head.smart-accordion-head-date span{
+.smart-query .smart-accordion .smart-sub-list .smart-accordion-head.smart-accordion-head-date span{
     color:#a8a8a8;
     line-height: .2rem;
 }
-.smart-query-bill .smart-accordion .smart-sub-list .smart-sub-list-item .smart-accordion-head{
+.smart-query-bill .smart-accordion .smart-sub-list .smart-accordion-head{
     color:#a8a8a8;
     line-height: .2rem;
 }
-.smart-query-bill .smart-accordion .smart-sub-list .smart-sub-list-item .smart-accordion-head span{
+.smart-query-bill .smart-accordion .smart-sub-list .smart-accordion-head span{
     font-size: .14rem;
 
 }
-.smart-accordion .smart-sub-list .smart-sub-list-item .smart-accordion-content{
+.smart-accordion .smart-sub-list .smart-accordion-content{
     height: .6rem;
 }
-.smart-query .smart-accordion .smart-sub-list .smart-sub-list-item .smart-accordion-content{
+.smart-query .smart-accordion .smart-sub-list .smart-accordion-content{
     padding:.1rem .25rem .1rem 1.35rem;
 }
-.smart-query-bill .smart-accordion .smart-sub-list .smart-sub-list-item .smart-accordion-content{
+.smart-query-bill .smart-accordion .smart-sub-list .smart-accordion-content{
     padding:.1rem .25rem .1rem .95rem;
 }
 .smart-query .smart-accordion .smart-sub-list .smart-sub-list-item:after{
@@ -316,16 +343,16 @@ html{
     text-align: right;
     color: #01e699;
 }
-.smart-accordion .smart-sub-list .smart-sub-list-item .smart-accordion-content h3{
+.smart-accordion .smart-sub-list .smart-accordion-content h3{
     line-height: .2rem;
 }
-.smart-query .smart-accordion .smart-sub-list .smart-sub-list-item .smart-accordion-content h3{
+.smart-query .smart-accordion .smart-sub-list .smart-accordion-content h3{
     color:#8d8d8d;
 }
-.smart-accordion .smart-sub-list .smart-sub-list-item .smart-accordion-content p{
+.smart-accordion .smart-sub-list .smart-accordion-content p{
     line-height: .2rem;
 }
-.smart-query .smart-accordion .smart-sub-list .smart-sub-list-item .smart-accordion-content p{
+.smart-query .smart-accordion .smart-sub-list .smart-accordion-content p{
     color:#0f0f0f;
 }
 .smart-query-bill .smart-accordion .smart-sub-list .smart-sub-list-item.smart-sub-list-item-content{
@@ -469,15 +496,24 @@ div[data-id='picker-i'] .mui-pciker-list li {
 
 
 
-
 /* media */
-/*@media screen and (max-width: 320px) {
+@media screen and (max-width: 320px) {
     html{
-        font-size: calc(100vw/3.2);
+        font-size: calc(100vw/3.75);
     }
 }
-@media screen and (max-width: 414px) {
+@media screen and (min-width: 376px) and (max-width: 414px) {
     html{
         font-size: calc(100vw/4.14);
     }
-}*/
+}
+@media screen and (min-width: 415px) {
+    html{
+        font-size: 100px;
+    }
+    .smart-query .smart-query-summarize em{
+        margin: 0;
+        vertical-align: middle;
+    }
+  
+}

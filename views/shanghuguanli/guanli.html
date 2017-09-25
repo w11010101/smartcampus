@@ -11,16 +11,17 @@
 
   <!-- Bootstrap -->
 
-  <link href="../../../content/style/frame/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="../../../content/style/common/css/xiaoyuanka/common.css" rel="stylesheet">
+  <link href="../../content/style/frame/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../../content/style/common/css/xiaoyuanka/common.css" rel="stylesheet">
   
-  <link href="../../../content/style/frame/mui/css/mui.min.css" rel="stylesheet">
-  <link href="../../../content/style/frame/mui/css/mui.picker.min.css" rel="stylesheet">
+  <link href="../../content/style/frame/mui/css/mui.min.css" rel="stylesheet">
+  <link href="../../content/style/frame/mui/css/mui.picker.min.css" rel="stylesheet">
 
-  <link href="../../../content/style/frame/iscroll4/css/pullToRefresh.css" rel="stylesheet">
-  <link href="../../../content/style/white/shanghuchaxun/css/shanghuchaxun.css" rel="stylesheet">
+  <link href="../../content/style/frame/iscroll4/css/pullToRefresh.css" rel="stylesheet">
+  <link href="../../content/style/white/shanghuchaxun/css/shanghuchaxun.css" rel="stylesheet">
+  <link href="../../content/style/white/shanghuguanli/css/shanghuguanli.css" rel="stylesheet">
 
-  <!-- <link href="../../../content/style/frame/" rel="stylesheet"> -->
+  <!-- <link href="../../content/style/frame/" rel="stylesheet"> -->
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]> param.month = getOtherDate(getM);
@@ -30,11 +31,11 @@
 </head>
 
 <!-- <body class="smart-query" > -->
-<body class="smart-query" onload="setTop();" specify-list ="specifyList" >
+<body class="smart-seller-manage smart-query" onload="setTop();" specify-list="manageList">
   <!-- <nav class="navbar">
     <div class="smart-header smart-white">
       <a href="javascript:history.go(-1)" class="smart-back smart-icon-left">
-        <img src="../../../content/style/common/images/back-2.png" alt="">
+        <img src="../../content/style/common/images/back-2.png" alt="">
       </a>
       <h1>我的账单</h1>
     </div>
@@ -42,14 +43,11 @@
   <div class="smart-content">
     <!-- 筛选 -->
     <div class="smart-screen smart-top">
-      <h1 class="smart-query-title">00112233--一餐厅1楼1-16窗口</h1>
+      <!-- <h1 class="smart-query-title">00112233--一餐厅1楼1-16窗口</h1> -->
       <div class="row smart-column-list">
-        <div class="col-xs-4" id="picker1">今日统计</div>
-        <div class="col-xs-4" id="picker2">全部POS</div>
-        <div class="col-xs-4" id="picker3">全部时段</div>
-      </div>
-      <!-- 筛选内容 -->
-      <div class="row smart-screen-list set-popup">
+        <div class="col-xs-4" id="picker1">全部部门</div>
+        <div class="col-xs-4" id="picker2">全部商户</div>
+        <div class="col-xs-4" id="picker3">今日统计</div>
       </div>
     </div>
     <!-- 日期选择结果 -->
@@ -61,7 +59,7 @@
     <!-- 按钮 -->
     <div class="smart-query-statistics smart-top">
       <button class="toggle">分析</button>
-      <button onclick="window.location.href ='../chaliushui/chaliushui.html'">查询流水</button>
+      <!-- <button onclick="window.location.href ='../chaliushui/chaliushui.html'">查询流水</button> -->
     </div>
     <!-- summarize -->
     <div class="smart-query-summarize smart-border smart-top">
@@ -102,7 +100,7 @@
         <div class="smart-line-charts">
  
         </div>
-        <label>收入占比</label>
+        <label><i>支出占比</i><em class="toggle-proportion">收入占比</em></label>
         <!-- 饼状图 -->
         <div class="smart-pie-charts">
 
@@ -116,20 +114,21 @@
 
   </div>
 </body>
-<script src="../../../content/style/frame/jquery/jquery-3.2.1.min.js"></script>
-<script src="../../../content/style/frame/bootstrap/js/bootstrap.min.js"></script>
-<script src="../../../content/style/frame/echarts/echarts.common.min.js"></script>
+<script src="../../content/style/frame/jquery/jquery-3.2.1.min.js"></script>
+<script src="../../content/style/frame/bootstrap/js/bootstrap.min.js"></script>
+<script src="../../content/style/frame/echarts/echarts.common.min.js"></script>
 
-<script src="../../../content/style/frame/mui/js/mui.min.js"></script>
-<script src="../../../content/style/frame/mui/js/mui.picker.min.js"></script> 
+<script src="../../content/style/frame/mui/js/mui.min.js"></script>
+<script src="../../content/style/frame/mui/js/mui.picker.min.js"></script> 
 
-<script src="../../../content/style/frame/iscroll4/js/iscroll-true.js"></script>
-<script src="../../../content/style/frame/iscroll4/js/pullToRefresh.js"></script>
-<script src="../../../content/style/frame/iscroll4/js/loadMore.js"></script>
+<script src="../../content/style/frame/iscroll4/js/iscroll-true.js"></script>
+<script src="../../content/style/frame/iscroll4/js/pullToRefresh.js"></script>
+<script src="../../content/style/frame/iscroll4/js/loadMore.js"></script>
 
-<script src="../../../content/style/white/shanghuchaxun/js/seller-common.js"></script>
-<script src="../../../content/style/white/shanghuchaxun/js/echarts.js"></script>
-<script src="../../../content/style/white/shanghuchaxun/js/shaixuan.js"></script>
+<script src="../../content/style/white/shanghuchaxun/js/seller-common.js"></script>
+<script src="../../content/style/white/shanghuchaxun/js/echarts.js"></script>
+<script src="../../content/style/white/shanghuchaxun/js/shaixuan.js"></script>
+<script src="../../content/style/white/shanghuguanli/js/gunali.js"></script>
 <script type="text/javascript">
 // 获取ajax 列表 
 // 进入页面第一次加载数据列表 
@@ -138,38 +137,40 @@ getAjaxList ({
   data:{
     type:"list",
   },                            // 传参
-  listType:"allList",           //列表类型：tongji.html:          
+  listType:"manageList",           //列表类型：tongji.html:       
   //                                             allList   (所有列表); 
   //                                             specifyList  (指定列表，如6个月列表);
   //                                        chaliushui.html:
   //                                             streamList (所有列表);
   //                                             streamSpecifyList  (指定某一个设备列表);
+  //                                        guanli.html
+  //                                             manageList (所有列表)
   parentObj:$("#wrapper ul"),   // 列表容器
   num:4                         // 列表个数（仅限本地模拟）
 });
 
 // 显示无数据 并点击“重新获取” 操作
 // $(".smart-list-nothing").show(0);
-$(".smart-list-nothing button").on("click",function(){
+// $(".smart-list-nothing button").on("click",function(){
 
-  $(this).parent().hide(0,function (){
-    // 获取列表
-    getAjaxList ({
-      url:"http://localhost:3000/", 
-      data:{
-        type:"list",
-      },                           
-      listType:"allList",                                                       
-      parentObj:$("#wrapper ul"),  
-      num:4                         
-    });
-    // 获取图表 
-    // 配置 config_bar 和 config_pie
-    // 调用 myEcharts.createEcharts(config_bar);
-    //      myEcharts.createEcharts(config_pie);
-    
-  })
-})
+//   $(this).parent().hide(0,function (){
+//     // 获取列表
+//     getAjaxList ({
+//       url:"http://localhost:3000/", 
+//       data:{
+//         type:"list",
+//       },                           
+//       listType:"manageList",                                                       
+//       parentObj:$("#wrapper ul"),  
+//       num:4                         
+//     });
+//     // 获取图表 
+//     // 配置 config_bar 和 config_pie
+//     // 调用 myEcharts.createEcharts(config_bar);
+//     //      myEcharts.createEcharts(config_pie);
+         
+//   })
+// })
 
 // scroll 事件
 var option = {
@@ -180,13 +181,13 @@ var option = {
     pullUp:function (){
       // $(".pullDown,.pullUp").css("opacity",1);
         setTimeout(function() {
-          console.log(0);
+
           getAjaxList ({
             url:"http://localhost:3000/",
             data:{
               type:"list",
             },
-            listType:"allList",
+            listType:"manageList",
             parentObj:$("#wrapper ul"),
             num:4
           });
@@ -195,7 +196,7 @@ var option = {
         }, 1000);
     }
 }
-
 loadMore.scroll(option);
+
 </script>
 </html>

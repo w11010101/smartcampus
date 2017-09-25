@@ -280,16 +280,7 @@ var myEcharts = function() {
     }
 }
 
-// Echart
-function getRandomm(i, max) {
-    var arr = [];
-    while (i > 0) {
-        var num = Math.floor(Math.random() * max + 1);
-        arr.push(num);
-        i--;
-    }
-    return arr;
-}
+
 // ******************* END ******************* 
 
 /**
@@ -321,41 +312,41 @@ function getRandomm(i, max) {
  * 
  * @type {Object}
  */
-var config_bar = {
-    el: ".smart-line-charts", // 图表容器 
-    type: "bar", // pie or (bar & line);
-    bar: {
-        // barArr: [201, 202, 203, 204, 205],
-        barArr: [201, 202, 203, 204, 205, 206, 207, 208, 209, 210, 211, 212, 213, 214, 215, 216, 217, 218, 219, 220],
-        lineArr: getRandomm(20, 100),
-        lineArr_val: function() {
-            var arr = getRandomm(20, 1000);
-            var newArr = [];
-            for (var i in arr) {
-                newArr.push({
-                    name: arr[i],
-                    value: arr[i],
-                    symbol: "circle",
-                    symbolSize: "10",
-                })
-            }
-            return newArr;
-        }(),
-        barArr_val: getRandomm(20, 10000),
-        axis:false
-    },
-    start:0,
-    end:25,
-    barColor:"#71d6f5" //  bcffbf
-}
-var config_pie = {
-    el: ".smart-pie-charts",
-    type: "pie", // pie or (bar & line);
-    pie: { 
-        valArr : [2300, 1250, 1000, 1700],
-        nameArr : [2300, 1250, 1000, 1700],
-        color:['#00e897', '#42c3ef', '#0096d2', '#fdab06'] 
-    }
-}
+// var config_bar = {
+//     el: ".smart-line-charts", // 图表容器 
+//     type: "bar", // pie or (bar & line);
+//     bar: {
+//         // barArr: [201, 202, 203, 204, 205],
+//         barArr: [201, 202, 203, 204, 205, 206, 207, 208, 209, 210, 211, 212, 213, 214, 215, 216, 217, 218, 219, 220],
+//         lineArr: getRandomm(20, 100),
+//         lineArr_val: function() {
+//             var arr = getRandomm(20, 1000);
+//             var newArr = [];
+//             for (var i in arr) {
+//                 newArr.push({
+//                     name: arr[i],
+//                     value: arr[i],
+//                     symbol: "circle",
+//                     symbolSize: "10",
+//                 })
+//             }
+//             return newArr;
+//         }(),
+//         barArr_val: getRandomm(20, 10000),
+//         axis:false
+//     },
+//     start:0,
+//     end:25,
+//     barColor:"#71d6f5" //  bcffbf
+// }
+// var config_pie = {
+//     el: ".smart-pie-charts",
+//     type: "pie", // pie or (bar & line);
+//     pie: { 
+//         valArr : [2300, 1250, 1000, 1700],
+//         nameArr : [2300, 1250, 1000, 1700],
+//         color:['#00e897', '#42c3ef', '#0096d2', '#fdab06'] 
+//     }
+// }
 var myEcharts = new myEcharts();
 // 

@@ -1,0 +1,86 @@
+.smart-seller-manage{
+
+}
+.smart-seller-manage .smart-query-statistics,.smart-seller-manage  .smart-time-box{
+    margin-top: .52rem;
+}
+.smart-seller-manage .smart-query-statistics button:first-child{
+    margin: 0;
+}
+.smart-seller-manage{
+    
+}
+.smart-screen .smart-column-list{
+    height: .52rem;
+}
+.smart-screen .smart-column-list div[class^="col-xs"]{
+    display: table-cell;
+    padding: 0;
+    font-size: .15rem;
+    line-height: .3rem;
+    height: .3rem;
+    margin-top: .11rem;
+    margin-bottom: .11rem;
+}
+.smart-seller-manage .smart-screen .smart-column-list div[class^="col-xs"]:nth-child(2){
+    position: relative;
+    padding-right: .25rem;
+    overflow : hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+.smart-seller-manage .smart-screen .smart-column-list div[class^="col-xs"]:nth-child(2):after{
+    position: absolute;
+    top:50%;
+    right: 0;
+    margin-top: -0.1rem;
+}
+.smart-seller-manage .smart-screen .smart-column-list div[class^="col-xs"].content-rows-2{
+    font-size:.14rem;
+    line-height: .16rem;
+    
+   
+}
+.smart-seller-manage .smart-screen div[class^="col-xs-4"]:after{
+
+}
+.smart-seller-manage .smart-accordion .smart-sub-list .smart-accordion-content {
+    padding: .1rem .25rem;
+}
+.smart-seller-manage .smart-accordion .smart-sub-list .smart-sub-list-item:after{
+    left:.25rem;
+}
+.smart-seller-manage .smart-accordion .smart-sub-list .smart-accordion-content h3{
+    color:#0f0f0f;
+}
+.smart-seller-manage .smart-accordion .smart-sub-list .smart-accordion-content h3 em {
+    width: 65%
+}
+.smart-seller-manage .smart-accordion .smart-sub-list .smart-accordion-content h3 i{
+    width: 35%;
+} 
+.smart-seller-manage .smart-accordion .smart-sub-list .smart-accordion-content p{
+    color:#a8a8a8;
+    
+}
+.smart-seller-manage .smart-accordion .smart-sub-list .smart-accordion-content p *{
+    font-size: .14rem;
+}
+.smart-seller-manage .smart-accordion .smart-sub-list .smart-accordion-content p i{
+    text-align: right;
+}
+.mui-poppicker{
+    top: calc(1.24rem - .45rem - .33rem);
+}
+.smart-seller-manage .smart-echart label{
+    display: block;
+}
+.smart-seller-manage .smart-echart label .toggle-proportion{
+    color:#a8a8a8;
+    float:right;
+    padding-right: .3rem;
+    background: url(../../xiaoyuanka/images/switch.png) no-repeat right;
+    background-size:  .25rem .25rem;
+}

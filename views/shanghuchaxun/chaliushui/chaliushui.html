@@ -29,7 +29,7 @@
 
 </head>
 
-<body class="smart-query-bill" onload="setTop();">
+<body class="smart-query-bill" onload="setTop();" specify-list="streamSpecifyList">
   <!-- <nav class="navbar">
     <div class="smart-header smart-white">
       <a href="javascript:history.go(-1)" class="smart-back smart-icon-left">
@@ -82,8 +82,10 @@
         </ul>
       </div>
     </div>
-    <!-- 遮罩 -->
-    <div class="smart-screen-mask"></div>
+    <!-- 无数据 -->
+    <div class="smart-list-nothing">
+      <p>无更多数据...<button onclick="$('.smart-list-nothing').hide(0);">重新获取</button></a></p>
+    </div>
   </div>
 </body>
 <script src="../../../content/style/frame/jquery/jquery-3.2.1.min.js"></script>
@@ -96,29 +98,48 @@
 <script src="../../../content/style/frame/iscroll4/js/iscroll-true.js"></script>
 <script src="../../../content/style/frame/iscroll4/js/pullToRefresh.js"></script>
 <script src="../../../content/style/frame/iscroll4/js/loadMore.js"></script>
+
+<script src="../../../content/style/white/shanghuchaxun/js/seller-common.js"></script>
 <script src="../../../content/style/white/shanghuchaxun/js/echarts.js"></script>
 <script src="../../../content/style/white/shanghuchaxun/js/shaixuan.js"></script>
 <script type="text/javascript">
 // 获取ajax 列表 
-getAjaxList ({
-  url:"http://localhost:3000/", // 接口地址
-  data:{
-    type:"list",
-  },                            // 传参
-  listType:"streamList",        /*列表类型：tongji.html:          
+// 进入页面第一次加载数据列表 
+// getAjaxList ({
+//   url:"http://localhost:3000/", // 接口地址
+//   data:{
+//     type:"list",
+//   },                            // 传参
+//   listType:"streamList",        //  列表类型：tongji.html:          
 
-                                              allList   (所有列表); 
-                                              specifyList  (指定列表，如6个月列表);
+//   //                                             allList   (所有列表); 
+//   //                                             specifyList  (指定列表，如6个月列表);
 
-                                            chaliushui.html:
+//   //                                           chaliushui.html:
 
-                                              streamList (所有列表);
-                                              streamSpecifyList  (指定某一个设备列表);
-                                */
+//   //                                             streamList (所有列表);
+//   //                                             streamSpecifyList  (指定某一个设备列表);
+                                
 
-  parentObj:$("#wrapper ul"),   // 列表容器
-  num:4                         // 列表个数（仅限本地模拟）
-});
+//   parentObj:$("#wrapper ul"),   // 列表容器
+//   num:4                         // 列表个数（仅限本地模拟）
+// });
+// 
+// 显示无数据 并点击“重新获取” 操作
+  $(".smart-list-nothing").show(0);
+  $(".smart-list-nothing button").on("click",function(){
+    $(this).parent().hide(0,function (){
+      getAjaxList ({
+        url:"http://localhost:3000/", 
+        data:{
+          type:"list",
+        },                           
+        listType:"streamList",                                                       
+        parentObj:$("#wrapper ul"),  
+        num:4                         
+      });
+    })
+  })
   accordionClick();
   var option = {
     /*
@@ -139,13 +160,17 @@ getAjaxList ({
     id:"wrapper", // 
     pullDown:"refresh",
     pullUp:function (){
+
       setTimeout(function() {
-          var li = "",
-              i;
-          for (i = 0; i < 3; i++) {
-              li += html("","chaliushui");
-          }
-          $("#wrapper ul").append(li);
+          getAjaxList ({
+            url:"http://localhost:3000/",
+            data:{
+              type:"list",
+            },
+            listType:"streamList",
+            parentObj:$("#wrapper ul"),
+            num:4
+          });
           wrapper.refresh();
           accordionClick();
       }, 1000);
