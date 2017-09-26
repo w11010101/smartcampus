@@ -4,9 +4,13 @@ var myEcharts = function() {
     var vals,
         names,
         that = this,
-        echartsObj;
+        echartsObj,
+        param;
     // 创建Echarts
     this.createEcharts = function(parameter) {
+        
+        param = parameter;
+
         vals = parameter.type == "pie" ? parameter.pie.valArr : parameter.bar.valArr;
         names = parameter.type == "pie" ? parameter.pie.nameArr : parameter.bar.nameArr
         this.setConfig(parameter);
@@ -65,6 +69,7 @@ var myEcharts = function() {
             }
         }
     }
+    // 配置图表
     this.setConfig = function(parameter) {
         var el = parameter.el;
         if (parameter.type == "pie") {
@@ -87,7 +92,7 @@ var myEcharts = function() {
                         itemStyle: {
                             normal: {
                                 borderColor: "#fff",
-                                borderWidth: 5
+                                borderWidth: parameter.borderWidth
                             }
                         }
                     });
@@ -95,6 +100,7 @@ var myEcharts = function() {
                 return arr;
             }();
             option["color"] = parameter.pie.color;
+            
         } else {
             // bar config
             option = this.option_bar(parameter);    
@@ -105,6 +111,7 @@ var myEcharts = function() {
             option.xAxis[0] = $.extend(true, option.xAxis[0], axis.axisX);
             option.xAxis[1] = $.extend(true, option.xAxis[1], axis.axisX);
 
+            option.series[0]["barWidth"] = parameter.bar.barArr.length == 1?50:"";
             // // 设置当前
             // option.series[1].data[2] = $.extend(true, option.series[1].data[2], {
             //     symbol: "circle",
@@ -120,18 +127,11 @@ var myEcharts = function() {
             //     }
             // }); 
         }
+
         this.runEchart(el, option);
     }
     // Echart - pie
     this.option_pie = {
-        // title: {
-        //     text: '收入占比',
-        //     textStyle: {
-        //         color: "#3c3c3c",
-        //         fontSize: 14,
-        //         fontWeight: "normal",
-        //     },
-        // },
         itemStyle: {
             normal: {
                 borderColor: "#fff",
@@ -197,7 +197,7 @@ var myEcharts = function() {
             yAxis: [{
                     type: 'value',
                     scale: true,
-                    gridIndex :0
+                    gridIndex :0,
                 },
                 {
                     type: 'value',
@@ -280,73 +280,5 @@ var myEcharts = function() {
     }
 }
 
-
-// ******************* END ******************* 
-
-/**
- * 
- * 调用 myEcharts.createEcharts(el,parameter)
- * @param {Object || string} el         可以是css选择器 和 doc对象
- * @param {Object} parameter            自定义配置对象  
- * @example         
-     * var config = {
-        el:".smart-pie-charts",
-        type:"pie", // pie or (bar & line);
-        pie:{
-            valArr : [2300, 1250, 1000, 1700],
-            nameArr : ["name1","name2","name3","name4"],
-            color:['#00e897', '#42c3ef', '#0096d2', '#fdab06'] 
-        },
-        bar:{
-
-        }
-    }   
- *
- * 
- * pie: 饼状图；
- * line: 折线图；
- * bar: 柱形图 ，（本js中bar 包括了 line ）；
- * 在pie中: valArr 要和 nameArr 及 color 的数组长度对用；
- *
- *
- * 
- * @type {Object}
- */
-// var config_bar = {
-//     el: ".smart-line-charts", // 图表容器 
-//     type: "bar", // pie or (bar & line);
-//     bar: {
-//         // barArr: [201, 202, 203, 204, 205],
-//         barArr: [201, 202, 203, 204, 205, 206, 207, 208, 209, 210, 211, 212, 213, 214, 215, 216, 217, 218, 219, 220],
-//         lineArr: getRandomm(20, 100),
-//         lineArr_val: function() {
-//             var arr = getRandomm(20, 1000);
-//             var newArr = [];
-//             for (var i in arr) {
-//                 newArr.push({
-//                     name: arr[i],
-//                     value: arr[i],
-//                     symbol: "circle",
-//                     symbolSize: "10",
-//                 })
-//             }
-//             return newArr;
-//         }(),
-//         barArr_val: getRandomm(20, 10000),
-//         axis:false
-//     },
-//     start:0,
-//     end:25,
-//     barColor:"#71d6f5" //  bcffbf
-// }
-// var config_pie = {
-//     el: ".smart-pie-charts",
-//     type: "pie", // pie or (bar & line);
-//     pie: { 
-//         valArr : [2300, 1250, 1000, 1700],
-//         nameArr : [2300, 1250, 1000, 1700],
-//         color:['#00e897', '#42c3ef', '#0096d2', '#fdab06'] 
-//     }
-// }
 var myEcharts = new myEcharts();
-// 
+

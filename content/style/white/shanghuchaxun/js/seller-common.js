@@ -15,13 +15,13 @@ function setTop() {
 // 用来区分不同页面加载不同的数据
 var hrefArr = window.location.href.split("/");
 var pageName = hrefArr[hrefArr.length-1].split(".")[0];
+
 // 分析 和 统计 切换
 var myScrollEchart=true,
     myScrollPos=true,
     myScrollObj,
     config_bar,
     config_pie;
-
 $(".smart-query-statistics .toggle").off().on("click", function() {
     $(".smart-content").toggleClass("smart-toggle");
     $(".smart-query-statistics").toggleClass("smart-border");
@@ -31,24 +31,58 @@ $(".smart-query-statistics .toggle").off().on("click", function() {
     // 
     $(this).text($(".smart-content").hasClass("smart-toggle") ? function() {
         // echart 
-        
+        console.log(213123)
         fixed_scroll('wrapper-echart',myScrollEchart);
-        myScrollEchart =false;
-        // console.log($("#picker2").text().indexOf("全部")>=0)
-        var EchartConfig = new get_config({
-            pageName:pageName,
-            type:$("#picker2").text().indexOf("全部")>=0 ?"all":"certain"
-        });
-        $("body").attr("page-name",pageName);
+        
 
-        myEcharts.createEcharts(EchartConfig.bar);
-        myEcharts.createEcharts(EchartConfig.pie);
+        if(!myScrollEchart) return;
+        // ajax 请求饼状图数据
+        
+        var state = $("#picker2").text().indexOf("全部")>=0;
+        getAjaxData ({
+          url:"http://localhost:3000/",         // 接口地址
+          data:{
+            type:"echarts",                     // 
+            sellers:state?"all":"certain",      // all:全部，centain:某个
+            pageName:pageName
+          },                                   
+          listType:"allList",               
+          parentObj:$("#wrapper ul"),           // 列表容器
+          num:4                                 // 列表个数（仅限本地模拟）
+        },creatEchart,creatEchartFail);
+
+        myScrollEchart = false;
+
         return "统计";
     }() : function() {
-        myEcharts.clear();
+        // myEcharts.clear();
         return "分析";
     }());
 });
+// ajax 图表数据请求成功后的callback
+
+function creatEchart(data){
+    console.log(JSON.stringify(data))
+    // 配置图表参数
+    // 图表1 bar and line
+    config_bar.bar.barArr = data.bar.barArr;
+    config_bar.bar.barArr_val = data.bar.barArr_val;
+    config_bar.bar.lineArr = data.bar.lineArr;
+    config_bar.bar.lineArr_val = data.bar.lineArr_val;
+    config_bar.end = data.bar.end;
+    config_bar.barColor = data.bar.barColor;
+    // 图表2 pie
+    config_pie.pie.valArr = data.pie.vals;
+    config_pie.pie.nameArr = data.pie.names;
+    config_pie.pie.color = data.pie.color;
+    config_pie["borderWidth"] = data.pie.vals.length == 1?0:5;
+    myEcharts.createEcharts(config_bar);
+    myEcharts.createEcharts(config_pie);
+}
+// ajax 图表数据请求失败后的callback
+function creatEchartFail(err){
+    console.log(err)
+}
 // 固定滑动 （不会上下拉加载）
 function fixed_scroll(id,type){ 
 
@@ -86,7 +120,6 @@ function getTime(y, m, d) {
         text: time.getFullYear() + "-" + month + "-" + day
     }
 }
-
 // 选择时间
 function selectTime(obj) {
     mui.init();
@@ -154,7 +187,7 @@ function getRandomm(i, max) {
     }
     return arr;
 }
-
+// 图表初始配置
 config_bar = {
     el: ".smart-line-charts", // 图表容器 
     type: "bar", // pie or (bar & line);
@@ -166,10 +199,10 @@ config_bar = {
             var newArr = [];
             for (var i in arr) {
                 newArr.push({
-                    name: arr[i],
+                   name: arr[i],
                     value: arr[i],
                     symbol: "circle",
-                    symbolSize: "10",
+                    symbolSize: "10", 
                 })
             }
             return newArr;
@@ -190,100 +223,18 @@ config_pie = {
         color:['#00e897', '#42c3ef', '#0096d2', '#fdab06'] 
     }
 }
-function get_config (option){
-    var pageName  = option.pageName;
-    console.log("pageName : %s",pageName);
-    console.log("type : %s",option.type);
-    switch (pageName){
-        case "tongji":
-            if(option.type == "certain"){
-                config_bar = new EchartData().bar;
-                config_pie = new EchartData().pie;
-            }else{
-                config_bar = new EchartDataAll().bar;
-                config_pie = new EchartDataAll().pie;
-            }
-        break;
-        case "chaliushui":
-            if(option.type == "certain"){
-                config_bar = new EchartData().bar;
-                config_pie = new EchartData().pie;
-            }else{
-                config_bar = new EchartDataAll().bar;
-                config_pie = new EchartDataAll().pie;
-            }
-        break;
-        case "guanli":
-            // 图表1 bar and line
-            // config_bar.bar.barArr = [201, 202, 203, 204, 205, 206, 207, 208, 209, 210, 211, 212, 213, 214, 215, 216, 217, 218, 219, 220];
-            // config_bar.end = 20;
-            // config_bar.barColor = "#71d6f5";
-            // 图表2 pie
-            console.log("type: %s",option.type)
-            if(option.type == "certain"){
-                console.log(1)
-                config_pie.pie.valArr  = [15632,13213];
-                config_pie.pie.nameArr = ["POS刷卡","扫一扫"];
-                config_pie.pie.color = ['#00e897', '#42c3ef'];
-            }else{
-                console.log(0)
-                config_pie.pie.valArr  = [15632,13213,78455,14132,31561,35645];
-                config_pie.pie.nameArr = ["老家肉饼","黄焖鸡米饭","山西刀削面","盖饭盖饭盖饭盖饭","云南过桥米线","麻辣香锅"];
-                config_pie.pie.color = ['#00e897', '#42c3ef', '#0096d2', '#fdab06',"#71d6f5","#ee5b16"];
-            }  
 
-
-        break;
-    }
-    this.bar = config_bar;
-    this.pie = config_pie;
-}
-// 图表数据结构
-// EchartDataAll 全部数据
-function EchartDataAll(){
-    // 图表1 bar and line
-    config_bar.bar.barArr = [201, 202, 203, 204, 205, 206, 207, 208, 209, 210, 211, 212, 213, 214, 215, 216, 217, 218, 219, 220];
-    config_bar.end = 20;
-    config_bar.barColor = "#71d6f5";
-    // 图表2 pie
-    config_pie.pie.valArr = [2300, 1250, 1000, 1700];
-    config_pie.pie.nameArr =["pie1","pie2","pie3","pie4"];
-    config_pie.pie.color = ['#00e897', '#42c3ef', '#0096d2', '#fdab06'];
-
-    this.bar = config_bar;
-    this.pie = config_pie;
-    // ajax 获取数据重新拼接
-    
-}
-// EchartDataAll 单个数据
-function EchartData(){
-    var month = getTime().month;
-    // 图表1 bar and line
-    config_bar.bar.barArr = [(month-5)+"月",(month-4)+"月",(month-3)+"月",(month-2)+"月",(month-1)+"月",month+"月"];
-    config_bar.end = 100;
-    config_bar.barColor = "#bcffbf";
-    // 图表2 pie
-    config_pie.pie.valArr  = [1000,1200,1000,1500,1400,1700];
-    config_pie.pie.nameArr = [(month-5)+"月",(month-4)+"月",(month-3)+"月",(month-2)+"月",(month-1)+"月",month+"月"];
-    config_pie.pie.color = ['#00e897', '#42c3ef', '#0096d2', '#fdab06',"#71d6f5","#ee5b16"] 
-
-    this.bar = config_bar;
-    this.pie = config_pie;
-    // ajax 获取数据重新拼接
-}
-
-function getAjaxData(option){
+function getAjaxData(option,callBack,failCallBack){
     $.ajax({
         type: "POST",
         url: option.url,
-        data:option.data,
-        // async:false,        // 设置同步请求
+        data: option.data,
         dataType: "json",
         success: function(data) {
-            
+            callBack(data);
         },
         error: function(err) {
-            console.log("error = " + JSON.stringify(err));
+            failCallBack("error = " + JSON.stringify(err));
         }
     })
 }

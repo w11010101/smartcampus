@@ -74,20 +74,24 @@ function hideBox(val,index) {
 
     // 实例化 图表配置对象
     // EchartConfig = ~val.indexOf("POS")?new EchartDataAll():new EchartData();
-    console.log(index); 
-
-    EchartConfig = new get_config({
-        pageName:pageName,
-        type:$("#picker2").text() == "全部商户"?"all":"certain"
-    });
+    var state = $("#picker2").text().indexOf("全部")>=0;
+    getAjaxData ({
+        url:"http://localhost:3000/",         // 接口地址
+        data:{
+            type:"echarts",                     // 
+            sellers:state?"all":"certain",      // all:全部，centain:某个
+            pageName:pageName
+        },                                   
+        listType:"allList",               
+        parentObj:$("#wrapper ul"),           // 列表容器
+        num:4                                 // 列表个数（仅限本地模拟）
+    },creatEchart,creatEchartFail);
     
     if($(".smart-query-bill").length) {
         // chaliushui.html
         console.log("当前是 chaliushui.html");
     }else{
         // tongji.html
-        myEcharts.createEcharts(EchartConfig.bar);
-        myEcharts.createEcharts(EchartConfig.pie);
     }
 }
 
