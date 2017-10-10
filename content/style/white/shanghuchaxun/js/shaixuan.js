@@ -218,7 +218,7 @@ var html = function (val,type){
     return dom;
 };
 
-
+// option ：object
 function getAjaxList (option){
     // console.log(option);
     // ajax 

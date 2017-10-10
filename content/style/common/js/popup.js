@@ -1,4 +1,4 @@
-// 校园卡对象
+// 校园卡对象 
 var campus = function () {
 	var that = this;
 	// console.log(option);
@@ -20,10 +20,28 @@ var campus = function () {
 	}
 	// 弹窗入口
 	this.popup = function (option, callback) {
-		var dom = this.getHtml(option, function (e) {
-			callback(e);
-		});
-		campus.togglePopup("show", option.type);
+		var that = this;
+		setTimeout(function(){
+			// 快速点击导致多次弹出 popup-box
+			var boxObj = $("."+events.box);
+
+			if(!boxObj.length){
+				// 
+				var dom = that.getHtml(option, function (e) {
+					callback(e);
+				});
+				campus.togglePopup("show", option.type);
+			}else{
+				if(option.type != "select") return false;
+				var arr = option.value;
+				boxObj.find("li").remove();
+				for (var i in arr) {
+					var val = typeof arr[i] == "object" ? arr[i].name : arr[i];
+					var key = typeof arr[i] == "object" ? arr[i].key : arr[i];
+					boxObj.find("ul").append('<li key="' + key + '" >' + val + '</li>');
+				}
+			}
+		},500)
 	};
 	// 切换显示或隐藏弹窗层
 	this.togglePopup = function (type, showType) {
