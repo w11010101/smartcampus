@@ -126,7 +126,7 @@ function selectTime(obj) {
     var type = $(obj).attr("set-time"),
         startP = $(".smart-time-box p[set-time=start]"),
         endP = $(".smart-time-box p[set-time=end]"),
-        date = getTime(),
+        date = getTime(2010,1,1),
 
         options = {
             type: "date",
@@ -146,6 +146,7 @@ function selectTime(obj) {
             $(".timeInterval").text(startP.text() + " ~ " + endP.text());
         }else{
             endP.text("结束时间");
+            selectTime(document.querySelector(".smart-time-box p[set-time=end]"));
         }
 
         picker.dispose();

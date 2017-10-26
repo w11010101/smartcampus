@@ -1,0 +1,15 @@
+
+
+.navbar .smart-header{
+    background: red;
+}
+.smart-header .smart-cancel,
+.smart-header .smart-screen,
+.smart-header .smart-edit,
+.smart-header .smart-search-btn,
+.smart-header .smart-text,
+.smart-header, 
+.smart-header a,
+.smart-header h1{
+    color:#fff!important;
+}

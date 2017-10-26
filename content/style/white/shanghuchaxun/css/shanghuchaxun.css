@@ -189,6 +189,9 @@ html{
     padding-right: 25px;
     color:#0f0f0f;
 }
+.smart-query .smart-query-summarize i{
+    display: block;
+}
 .smart-query .smart-query-summarize em{
     display: inline-block;
     max-width: calc(100% - 15px);
@@ -198,11 +201,11 @@ html{
     text-overflow: ellipsis;
     padding-right: 25px;
     position: relative;
+    /*vertical-align: middle;*/
 
 }
 .smart-query-summarize > div{
     display: inline-block;
-    
     font-size: .16rem;
     line-height: .16rem
 }

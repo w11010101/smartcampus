@@ -1,0 +1,41 @@
+.skin-add-bg .box{
+    background: none;
+}
+.skin-add-bg .navbar .smart-header{
+    background: none;
+}
+.smart-header .smart-cancel,
+.smart-header .smart-screen,
+.smart-header .smart-edit,
+.smart-header .smart-search-btn,
+.smart-header .smart-text,
+.smart-header, 
+.smart-header a,
+.smart-header h1{
+    color:#fff!important;
+}
+.skin-add-bg .smart-accordion-head,
+.skin-add-bg .advanced-box ul li span, 
+.skin-add-bg .tool-box ul li span{
+    color:#fff;
+}
+.skin-bg{
+    -webkit-filter: blur(1px);
+    -moz-filter: blur(1px);
+    -ms-filter: blur(1px);    
+    filter: blur(1px);
+}
+.skin-add-bg .skin-bg,
+.skin-add-bg .navbar .smart-header .skin-header-bg{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-size: cover;
+    top:0;
+    left:0;
+     
+}
+.skin-add-bg .navbar .smart-header .skin-header-bg{
+    height: 45px;
+}
