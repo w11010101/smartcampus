@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+  <title>学期账单</title>
+
+  <!-- Bootstrap -->
+
+  <link href="../../content/style/frame/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../../content/style/white/xueqizhangdan/css/index.css" rel="stylesheet"> 
+
+  <!-- <link href="../../content/style/frame/" rel="stylesheet"> -->
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]> param.month = getOtherDate(getM);
+      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<!-- <body class="smart-query" > -->
+<body class="smart-bill">
+  <div class="smart-content">
+    <!-- banner -->
+    <nav class="banner">
+      <img src="../../content/style/white/xueqizhangdan/images/1.jpg">
+    </nav>
+    <!-- parts parts-1 -->
+    <div class="smart-parts">
+      <h2>我的本学期总支出：<em> 78945612.00</em>元</h2>
+      <span>全校土豪榜，有我的一席之地~</span>
+      <div class="chart-box smart-bubble-chart"></div>
+    </div>
+    <!-- parts parts-2 -->
+    <div class="smart-parts"> 
+      <h2>我最土豪的一笔消费：<em> 300.00</em>元</h2>
+      <span>吃货你认第二，没人敢认第一～</span>
+      <div class="smart-parts-container">
+        <p>2017.09.10 12:00:01</p>
+        <p>地点（食堂）消费300.00元</p>
+      </div>
+    </div>
+    <!-- parts parts-3 -->
+    <div class="smart-parts"> 
+      <h2>我最多次的消费场所：第三食堂<em></em></h2>
+      <!-- <span>吃货你认第二，没人敢认第一～</span> -->
+      <div class="smart-parts-container">
+        <img src="../../content/style/white/xueqizhangdan/images/2.jpg">
+      </div>
+    </div>
+    <!-- parts parts-4 -->
+    <div class="smart-parts"> 
+      <h2>这一学期让我付出最多的人：张三<em></em></h2>
+      <span>本学期你给234人转过帐，最多“黑名单”的如下</span>
+      <div class="chart-box smart-bubble-chart-1"></div>
+    </div>
+    <!-- parts parts-5 -->
+    <div class="smart-parts"> 
+      <h2>往你校园卡里打“巨款”的都是真爱<em></em></h2>
+      <span>本学期23人给你转账，愿继续和土豪友谊地久天长</span>
+      <div class="chart-box smart-bubble-chart-2"></div>
+    </div>
+    <!-- parts parts-6 -->
+    <div class="smart-parts"> 
+      <h2>天时地利，你差人和：<em></em></h2>
+      <span>所在院系消费</span>
+      <div class="chart-box smart-bubble-chart-3"></div>
+    </div>
+  </div>
+</body>
+<script src="../../content/style/frame/jquery/jquery-3.2.1.min.js"></script>
+<script src="../../content/style/frame/bootstrap/js/bootstrap.min.js"></script>
+<script src="../../content/style/frame/echarts/echarts.min.js"></script>
+<script src="../../content/style/white/xueqizhangdan/js/index.js"></script>
+<script type="text/javascript">
+  // var names = ["刘备","诸葛亮","曹操","关羽","张飞","赵云","孙权","吕布","周瑜","魏延","马超","黄忠","甘宁","黄盖","貂蝉","董卓","袁绍","司马懿","郭嘉","荀彧","张辽","许褚","周泰","鲁肃","张昭","孙尚香","黄月英","甄姬","曹丕","张角","华佗","夏侯惇"];
+  var arr = ["美食","水费","运动","图书馆","网费","转账","其他"];
+  Echarts.run({
+    el:document.querySelector(".smart-bubble-chart"),
+    data:arr,
+    val:[700,600,500,400,300,200,100],
+    repulsion:80
+  })
+  var names = ["张三","李四","王五","赵六","本人"];
+  Echarts.run({
+    el:document.querySelector(".smart-bubble-chart-1"),
+    data:names,
+    // val:[200,200,200,200,200,200,200],
+    size:30,
+    repulsion:100,
+    symbol:[
+      "head-1.jpg",
+      "head-2.jpg",
+      "head-3.jpg",
+      "head-4.jpg",
+      "head-5.jpg",
+    ]
+  })
+
+
+</script>
+</html>

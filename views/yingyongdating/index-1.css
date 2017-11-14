@@ -1,0 +1,7 @@
+.advanced-box ul li span:before, .tool-box ul li span:before{
+    content:"";
+    width: 40%;
+    padding-bottom:40%; 
+    margin: 10px auto 5px;
+    display: block;
+}

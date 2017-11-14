@@ -87,7 +87,7 @@ var skinChange = new skinChange();
 
 skinChange.changeStyle({
     skin:"red",
-    bgImg:"../../../../../../www/nodejs/images/img-1.jpg",
+    // bgImg:"../../../../../../www/nodejs/images/img-1.jpg",
     file:"skin-red"
 });
 
