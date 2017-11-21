@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html xmlns:wb="http://open.weibo.com/wb">
 <html lang="zh-CN">
 
 <head>
@@ -13,7 +13,7 @@
 
   <link href="../../content/style/frame/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="../../content/style/white/xueqizhangdan/css/index.css" rel="stylesheet"> 
-
+  <link href="../../content/style/frame/pageScroll/css/onepage-scroll.css" rel="stylesheet"> 
   <!-- <link href="../../content/style/frame/" rel="stylesheet"> -->
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -26,18 +26,22 @@
 <!-- <body class="smart-query" > -->
 <body class="smart-bill">
   <div class="smart-content">
-    <!-- banner -->
-    <nav class="banner">
-      <img src="../../content/style/white/xueqizhangdan/images/1.jpg">
-    </nav>
     <!-- parts parts-1 -->
     <div class="smart-parts">
+
+      <!-- banner -->
+      <nav class="banner">
+        <img src="../../content/style/white/xueqizhangdan/images/1.jpg">
+      </nav>
+
+      <wb:share-button addition="simple" type="button" appkey=""></wb:share-button>
+      
+
+
+
       <h2>我的本学期总支出：<em> 78945612.00</em>元</h2>
       <span>全校土豪榜，有我的一席之地~</span>
-      <div class="chart-box smart-bubble-chart"></div>
-    </div>
-    <!-- parts parts-2 -->
-    <div class="smart-parts"> 
+      <div class="Echart-box smart-bubble-chart"></div>
       <h2>我最土豪的一笔消费：<em> 300.00</em>元</h2>
       <span>吃货你认第二，没人敢认第一～</span>
       <div class="smart-parts-container">
@@ -45,63 +49,94 @@
         <p>地点（食堂）消费300.00元</p>
       </div>
     </div>
-    <!-- parts parts-3 -->
+    <!-- parts parts-2 -->
     <div class="smart-parts"> 
       <h2>我最多次的消费场所：第三食堂<em></em></h2>
       <!-- <span>吃货你认第二，没人敢认第一～</span> -->
       <div class="smart-parts-container">
-        <img src="../../content/style/white/xueqizhangdan/images/2.jpg">
+        <img src="../../content/style/white/xueqizhangdan/images/2.jpg" class="smart-parts-container-bg">
+        <p>2017.09.10 12:00:01</p>
+        <p>地点（食堂）消费300.00元</p>
       </div>
-    </div>
-    <!-- parts parts-4 -->
-    <div class="smart-parts"> 
       <h2>这一学期让我付出最多的人：张三<em></em></h2>
       <span>本学期你给234人转过帐，最多“黑名单”的如下</span>
-      <div class="chart-box smart-bubble-chart-1"></div>
-    </div>
-    <!-- parts parts-5 -->
-    <div class="smart-parts"> 
+      <div class="Echart-box smart-bubble-chart-1"></div>
       <h2>往你校园卡里打“巨款”的都是真爱<em></em></h2>
       <span>本学期23人给你转账，愿继续和土豪友谊地久天长</span>
-      <div class="chart-box smart-bubble-chart-2"></div>
+      <div class="smart-parts-container"></div>
     </div>
-    <!-- parts parts-6 -->
+    <!-- parts parts-3 -->
     <div class="smart-parts"> 
       <h2>天时地利，你差人和：<em></em></h2>
       <span>所在院系消费</span>
-      <div class="chart-box smart-bubble-chart-3"></div>
+      <div class="Echart-box smart-bubble-chart-3"></div>
+      <h2>你以为我们的学期账单就这些？<em></em></h2>
+      <span>智慧校园，带你High到一个新高度～～～</span>
+      <img src="../../content/style/white/xueqizhangdan/images/head-1.jpg" class="imgs">
     </div>
+    <!-- parts parts-4 -->
+    <div class="smart-parts"> 
+      <h2>图书馆里的我<em></em></h2>
+      <span>本学期我借了：34本书 击败了学校80%的人</span>
+      <span>平均阅读时间 2天／本</span>
+      <span>为学校图书馆建设贡献了 3元</span>
+      <img src="../../content/style/white/xueqizhangdan/images/head-4.jpg" class="imgs">
+      <h2>运动时的我<em></em></h2>
+      <span>本学期我行走了3w步 相当于绕地球走了x圈</span>
+      <span>参加了x场红黑大战，胜利了x次！</span>
+      <span>获得了王者称号x次</span>
+      <img src="../../content/style/white/xueqizhangdan/images/head-5.jpg" class="imgs">
+    </div>
+    <!-- parts parts-5 -->
+    <div class="smart-parts"> 
+      <h2>学习时的我<em></em></h2>
+      <span>本学期上课签到20次，出勤率为40%</span>
+      <div class="Echart-box smart-bubble-chart-4"></div>
+      <h2>传道授业解惑时的我<em></em></h2>
+      <span>本学期上课签到20次，签到率为80%</span>
+      <div class="Echart-box smart-bubble-chart-5"></div>
+
+    </div>
+    <!-- parts parts-6 -->
+    <!-- <div class="smart-parts"> 
+      
+    </div> -->
   </div>
 </body>
 <script src="../../content/style/frame/jquery/jquery-3.2.1.min.js"></script>
 <script src="../../content/style/frame/bootstrap/js/bootstrap.min.js"></script>
 <script src="../../content/style/frame/echarts/echarts.min.js"></script>
+<script src="../../content/style/frame/pageScroll/js/onepage-scroll.js"></script>
+<script src="../../content/style/white/xueqizhangdan/js/runEcharts.js"></script>
+<script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js" type="text/javascript" charset="utf-8"></script>
+</head>
+
 <script src="../../content/style/white/xueqizhangdan/js/index.js"></script>
 <script type="text/javascript">
-  // var names = ["刘备","诸葛亮","曹操","关羽","张飞","赵云","孙权","吕布","周瑜","魏延","马超","黄忠","甘宁","黄盖","貂蝉","董卓","袁绍","司马懿","郭嘉","荀彧","张辽","许褚","周泰","鲁肃","张昭","孙尚香","黄月英","甄姬","曹丕","张角","华佗","夏侯惇"];
-  var arr = ["美食","水费","运动","图书馆","网费","转账","其他"];
-  Echarts.run({
-    el:document.querySelector(".smart-bubble-chart"),
-    data:arr,
-    val:[700,600,500,400,300,200,100],
-    repulsion:80
-  })
-  var names = ["张三","李四","王五","赵六","本人"];
-  Echarts.run({
-    el:document.querySelector(".smart-bubble-chart-1"),
-    data:names,
-    // val:[200,200,200,200,200,200,200],
-    size:30,
-    repulsion:100,
-    symbol:[
-      "head-1.jpg",
-      "head-2.jpg",
-      "head-3.jpg",
-      "head-4.jpg",
-      "head-5.jpg",
-    ]
-  })
+    
+    // $.ajax({
+    //   url:"https://api.weibo.com/2/statuses/share.json",
+    //   type:"post",
+    //   data:{
+    //     access_token:"12312",
+    //     status:"asdfasdf",
+    //   }
+    // })
+  function cat(){
+  }
+  cat.prototype={
+    food:"fish",
+    say: function(){
+      alert("I love "+this.food);
+    }
+  }
+  var blackCat = new cat;
+  // blackCat.say();
+  // console.log(blackCat)
+  var whiteDog = {food:"bone"};
 
-
+  blackCat.say.call(whiteDog);
+  
+  console.log(whiteDog)
 </script>
 </html>

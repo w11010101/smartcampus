@@ -1,86 +1,74 @@
-var r = function(max) {
-    var m = max || 10;
-    return Math.floor(Math.random() * m);
-};
+// $(function() {
 
+var arr = ["美食","水费","运动","图书馆","网费","转账","其他"];
+var EchartsObj = [];
+EchartsObj.push(Echarts.run({
+  el:document.querySelector(".smart-bubble-chart"),
+  type:"graph",
+  data:arr,
+  val:[700,600,500,400,300,200,100],
+  repulsion:150,
+}));
+// 单屏滚动 onepage_scroll
+onepageScroll();
+function onepageScroll(data){
 
-var Echarts = function(){
-    this.data = function(option) {
-        let arr = [];
-        var value = size = 0;
-        
-        for (let f = 0 ;f < option.data.length;f++) {
-            value = size = option.val?(option.val[f]/this.sum(option.val) *100).toFixed(0):option.size;
-            arr.push({
-                name:option.data[f],
-                value:value,
-                symbolSize: size*1.5,
-                category:option.data[f],
-                symbol:option.symbol?"image://../../content/style/white/xueqizhangdan/images/" +option.symbol[f]:"circle",
-                draggable:"true",
-            })
-        }
-        return arr;
-    };
-    this.sum = function(arr){
-        var s = 0;
-        for(let i of arr){
-            s += i;
-        }
-        return s;
-    };
-    this.categories = function(option){
-        let arr = [];
-        for( let f of option.data){
-            arr.push({name:f})
-        }
-        return arr;
-    };
-    
-    this.run = function(option){
-        // console.log("option : ", option);
-        let data = this.data(option);
-        let categories = this.categories(option);
-        __default = {
-            backgroundColor: new echarts.graphic.RadialGradient(0.3, 0.3, 0.8, [{
-                offset: 0,
-                color: '#f7f8fa'
-            },
-            {
-                offset: 1,
-                color: '#cdd0d5'
-            }]),
+    console.log(11)
+    $('.smart-content').onepage_scroll({
+        sectionContainer: '.smart-parts',
+        pagination: false,
+        loop: false,
+        responsiveFallback:false,
+        beforeMove: function() {},
+        afterMove: function(i) {
+            console.log(`第${i}页`)
+            if (EchartsObj[i - 1]) return false;
 
-            series: [{
-                type: 'graph',
-                layout:'force',
-                force: {
-                    repulsion:option.repulsion
-                },
-                data: data,
-                roam:true,
-                categories:categories,
-                focusNodeAdjacency: false,
-                nodeScaleRatio: 0,
-                symbol: 'circle',
-                edgeSymbol: ['circle', 'arrow'],
-                label: {
-                    normal: {
-                        show: true,
-                        position: 'top',
-                    }
-                },
-            }],
-            toolbox:{
-                feature:{
-                    restore:{}
-                }
+            switch (i) {
+                case 1:
+
+                    break;
+                case 2:
+                    var names = ["张三", "李四", "王五", "赵六", "本人"];
+                    EchartsObj.push(Echarts.run({
+                        el: document.querySelector(".smart-bubble-chart-1"),
+                        type:"graph",
+                        data: names,
+                        size: 30,
+                        repulsion: 150,
+                        symbol: [
+                            "head-1.png",
+                            "head-2.png",
+                            "head-3.png",
+                            "head-4.png",
+                            "head-5.png",
+                        ],
+                    }))
+                    break;
+                case 3:
+                    break;
+                case 4:
+
+                    break;
+                case 5:
+                    EchartsObj.push(Echarts.run({
+                        el: document.querySelector(".smart-bubble-chart-4"),
+                        type:"pie",
+                        
+                    }))
+                    EchartsObj.push(Echarts.run({
+                        el: document.querySelector(".smart-bubble-chart-5"),
+                        type:"pie",
+                        
+                    }))
+                    break;
+                case 6:
+                    break;   
+                default:
+                    break;
             }
-        };
+        }
+    });
 
-        var myChart = echarts.init(option.el);
-        myChart.setOption(__default);
-    }
 }
 
-var Echarts = new Echarts();
