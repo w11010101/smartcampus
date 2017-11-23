@@ -7,7 +7,7 @@ EchartsObj.push(Echarts.run({
   type:"graph",
   data:arr,
   val:[700,600,500,400,300,200,100],
-  repulsion:150,
+  repulsion:100,
 }));
 // 单屏滚动 onepage_scroll
 onepageScroll();
@@ -46,6 +46,10 @@ function onepageScroll(data){
                     }))
                     break;
                 case 3:
+                    EchartsObj.push(Echarts.run({
+                        el: document.querySelector(".smart-bubble-chart-3"),
+                        type:"line", 
+                    }))
                     break;
                 case 4:
 

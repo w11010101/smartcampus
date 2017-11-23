@@ -93,17 +93,17 @@ var utils = (function () {
 	/*
 	This should find all Android browsers lower than build 535.19 (both stock browser and webview)
 	- galaxy S2 is ok
-    - 2.3.6 : `AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1`
-    - 4.0.4 : `AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30`
-   - galaxy S3 is badAndroid (stock brower, webview)
-     `AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30`
-   - galaxy S4 is badAndroid (stock brower, webview)
-     `AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30`
-   - galaxy S5 is OK
-     `AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Mobile Safari/537.36 (Chrome/)`
-   - galaxy S6 is OK
-     `AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Mobile Safari/537.36 (Chrome/)`
-  */
+	- 2.3.6 : `AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1`
+	- 4.0.4 : `AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30`
+	- galaxy S3 is badAndroid (stock brower, webview)
+	`AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30`
+	- galaxy S4 is badAndroid (stock brower, webview)
+	`AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30`
+	- galaxy S5 is OK
+	`AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Mobile Safari/537.36 (Chrome/)`
+	- galaxy S6 is OK
+	`AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Mobile Safari/537.36 (Chrome/)`
+	*/
 	me.isBadAndroid = (function() {
 		var appVersion = window.navigator.appVersion;
 		// Android browser is not a chrome browser.
@@ -293,7 +293,7 @@ function IScroll (el, options) {
 
 		snapThreshold: 0.334,
 
-// INSERT POINT: OPTIONS
+	// INSERT POINT: OPTIONS
 		disablePointer : !utils.hasPointer,
 		disableTouch : utils.hasPointer || !utils.hasTouch,
 		disableMouse : utils.hasPointer || utils.hasTouch,
@@ -358,7 +358,7 @@ function IScroll (el, options) {
 
 	this.options.invertWheelDirection = this.options.invertWheelDirection ? -1 : 1;
 
-// INSERT POINT: NORMALIZATION
+	// INSERT POINT: NORMALIZATION
 
 	// Some defaults
 	this.x = 0;
@@ -367,7 +367,7 @@ function IScroll (el, options) {
 	this.directionY = 0;
 	this._events = {};
 
-// INSERT POINT: DEFAULTS
+	// INSERT POINT: DEFAULTS
 
 	this._init();
 	this.refresh();
@@ -398,7 +398,7 @@ IScroll.prototype = {
 			this._initKeys();
 		}
 
-// INSERT POINT: _init
+	// INSERT POINT: _init
 
 	},
 
@@ -567,7 +567,7 @@ IScroll.prototype = {
 
 		this._translate(newX, newY);
 
-/* REPLACE START: _move */
+	/* REPLACE START: _move */
 
 		if ( timestamp - this.startTime > 300 ) {
 			this.startTime = timestamp;
@@ -575,7 +575,7 @@ IScroll.prototype = {
 			this.startY = this.y;
 		}
 
-/* REPLACE END: _move */
+	/* REPLACE END: _move */
 
 	},
 
@@ -656,7 +656,7 @@ IScroll.prototype = {
 			easing = this.options.bounceEasing;
 		}
 
-// INSERT POINT: _end
+	// INSERT POINT: _end
 
 		if ( newX != this.x || newY != this.y ) {
 			// change easing function when scroller goes out of the boundaries
@@ -722,7 +722,7 @@ IScroll.prototype = {
 		this.wrapperWidth	= this.wrapper.clientWidth;
 		this.wrapperHeight	= this.wrapper.clientHeight;
 
-/* REPLACE START: refresh */
+	/* REPLACE START: refresh */
 
 		this.scrollerWidth	= this.scroller.offsetWidth;
 		this.scrollerHeight	= this.scroller.offsetHeight;
@@ -730,7 +730,7 @@ IScroll.prototype = {
 		this.maxScrollX		= this.wrapperWidth - this.scrollerWidth;
 		this.maxScrollY		= this.wrapperHeight - this.scrollerHeight;
 
-/* REPLACE END: refresh */
+	/* REPLACE END: refresh */
 
 		this.hasHorizontalScroll	= this.options.scrollX && this.maxScrollX < 0;
 		this.hasVerticalScroll		= this.options.scrollY && this.maxScrollY < 0;
@@ -755,7 +755,7 @@ IScroll.prototype = {
 
 		this.resetPosition();
 
-// INSERT POINT: _refresh
+	// INSERT POINT: _refresh
 
 	},
 
@@ -882,7 +882,7 @@ IScroll.prototype = {
 		}
 
 
-// INSERT POINT: _transitionTime
+	// INSERT POINT: _transitionTime
 
 	},
 
@@ -897,18 +897,18 @@ IScroll.prototype = {
 		}
 
 
-// INSERT POINT: _transitionTimingFunction
+	// INSERT POINT: _transitionTimingFunction
 
 	},
 
 	_translate: function (x, y) {
 		if ( this.options.useTransform ) {
 
-/* REPLACE START: _translate */
+	/* REPLACE START: _translate */
 
 			this.scrollerStyle[utils.style.transform] = 'translate(' + x + 'px,' + y + 'px)' + this.translateZ;
 
-/* REPLACE END: _translate */
+	/* REPLACE END: _translate */
 
 		} else {
 			x = Math.round(x);
@@ -928,7 +928,7 @@ IScroll.prototype = {
 	}
 
 
-// INSERT POINT: _translate
+	// INSERT POINT: _translate
 
 	},
 
@@ -1197,7 +1197,7 @@ IScroll.prototype = {
 
 		this.scrollTo(newX, newY, 0);
 
-// INSERT POINT: _wheel
+	// INSERT POINT: _wheel
 	},
 
 	_initSnap: function () {
@@ -1860,7 +1860,7 @@ Indicator.prototype = {
 
 		this._pos(newX, newY);
 
-// INSERT POINT: indicator._move
+	// INSERT POINT: indicator._move
 
 		e.preventDefault();
 		e.stopPropagation();

@@ -1,0 +1,122 @@
+.clearfix:after{
+    content:" ";
+    display: block;
+    clear: both;
+    font-size: 0;
+}
+.proportion-box{
+    /*font-size: 0;
+    width:80%;
+    margin:.1rem auto 0;*/
+}
+.proportion-part{
+    display: inline-block;
+    font-size: .16rem;
+    /*min-width: .5rem;*/
+    position: relative;
+    transition: all .5s ease-in;
+    -webkit-transition: all .5s ease-in;
+}
+.proportion-bars{
+    height: .06rem;
+    width: 10%;
+    min-width: 1px;
+    vertical-align: top;
+    border-radius:.02rem;
+    margin: .05rem 0;
+    transition: all .5s ease-in;
+    -webkit-transition: all .5s ease-in;
+}
+.bars-value-container{
+    position:absolute;
+    top:0;
+    left: 50%;
+}
+.bars-value {
+    left:-50%;
+    position: relative;
+    font-size:.15rem;
+}
+.proportion-part-left{
+    /*width: 16%;*/
+    float:left;
+    /*background: #FF6A6A;*/
+}
+.proportion-part label{
+    display: block;
+}
+.proportion-part-left label,.proportion-part-left .bars-value{
+    color:#73d2fe;
+}
+.proportion-part-left .proportion-bars{
+    background: #73d2fe;
+    display: inline-block;
+    margin-left: -0.04rem;
+}
+.proportion-part-right {
+    /*width: 86%;*/
+    float:right;
+    /*background: #9370DB;*/
+    text-align: right;
+}
+.proportion-part-right label,.proportion-part-right .bars-value{
+    color:#ff5408;
+}
+.proportion-part-right .proportion-bars{
+    background: #ff5408;
+    display: inline-block;
+    margin-right: -0.04rem;
+}
+.proportion-info-container{
+    color:#8d8d8d;
+    margin-top: .1rem;
+}
+.proportion-info-container ul{
+    font-size:0;
+}
+.proportion-info-container ul li{
+    display: inline-block;
+    width:50%;
+    font-size: .12rem;
+    /*margin-right:5%;*/
+    vertical-align: middle;
+}
+.proportion-info-container ul li span{
+    width: .72rem;
+    vertical-align:middle;
+    display: inline-block;
+}
+.proportion-info-container ul li em{
+    display: inline-block;
+    width: calc(100% - .72rem);
+    text-align: right;
+}
+.proportion-info-container ul li:first-child em,
+.proportion-info-container ul li:nth-child(2) em{
+    color:#0096d2;
+}
+.proportion-info-container ul li:nth-child(2){
+    /*width:55%;*/
+    text-align: right;
+}
+.proportion-info-container ul li:nth-child(2) span{
+    width: .4rem;
+}
+.proportion-info-container ul li:nth-child(2) em{
+    width: .4rem;
+}
+.proportion-info-container ul li:last-child em{
+    color:#01e699;
+}
+
+
+
+
+
+
+
+
+
+
+
+

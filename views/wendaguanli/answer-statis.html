@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+  <title>问答管理-统计</title>
+
+  <!-- Bootstrap -->
+
+  <link href="../../content/style/frame/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../../content/style/common/css/xiaoyuanka/common.css" rel="stylesheet">
+  
+  <link href="../../content/style/frame/mui/css/mui.min.css" rel="stylesheet">
+  <link href="../../content/style/frame/mui/css/mui.picker.min.css" rel="stylesheet">
+
+  <link href="../../content/style/frame/iscroll4/css/pullToRefresh.css" rel="stylesheet">
+  <link href="../../content/style/white/wendaguanli/css/wenda.css" rel="stylesheet">
+  <link href="../../content/style/white/wendaguanli/css/proportion.css" rel="stylesheet">
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]> param.month = getOtherDate(getM);
+      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<!-- smart-answer-statis 标示，css -->
+<body class="smart-answer-statis"> 
+  <div class="smart-content">
+    <!-- 横向滚动 -->
+    <div class="smart-probe">
+      <div id="wrapper-probe">
+        <div id="scroller-probe">
+           <ul class="">
+             <li class="active"><a>最近一月</a></li>
+             <li><a>最近半年</a></li>
+             <li><a>最近一年</a></li>
+             <li><a>全部</a></li>
+           </ul>
+        </div>
+      </div>
+    </div>
+    <!-- 数据统计 -->
+    <div class="smart-statis-box smart-statis-box-1">
+      <h2>校园精灵</h2>
+      <div class="proportion-box">
+        <!-- <div class="clearfix">
+          <div class="proportion-part proportion-part-left" length="50">
+            <label>Q</label>
+            <div class="bars-value-container">
+              <span class="bars-value">500000</span>
+            </div>
+            <div class="proportion-bars"></div>
+          </div>
+          <div class="proportion-part proportion-part-right" length="50">
+            <label>A</label>
+            <div class="bars-value-container">
+              <span class="bars-value">500000</span>
+            </div>
+            <div class="proportion-bars"></div>
+          </div>
+        </div>
+        <div class="proportion-info-container">
+          <ul>
+            <li><span>回答查看率</span><em>90%</em></li>
+            <li><span>回答率</span><em>90%</em></li>
+            <li><span>平均回答时间</span><em>3天</em></li>
+          </ul>
+        </div> -->
+      </div>
+    </div>
+    <div class="smart-statis-box smart-statis-box-2">
+      <h2>意见反馈</h2> 
+      <div class="proportion-box-2">
+        
+      </div>
+    </div>
+    <!-- 管理员回复排行 -->
+    <div class="smart-Echarts-container">
+      <div class="Echarts-line"></div>
+      <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+      </ul>    
+    </div>
+    
+  </div>
+</body>
+<script src="../../content/style/frame/jquery/jquery-3.2.1.min.js"></script>
+<script src="../../content/style/frame/bootstrap/js/bootstrap.min.js"></script>
+
+<script src="../../content/style/frame/iscroll/iscroll-probe.js"></script>
+<script src="../../content/style/frame/echarts/echarts.min.js"></script>
+<script src="../../content/style/white/wendaguanli/js/wenda.js"></script>
+<script src="../../content/style/white/wendaguanli/js/proportion.js"></script>
+<script type="text/javascript">
+  scrollPorbe();
+  var obj = document.querySelector(".proportion-box");
+  // console.log(proportion.run(obj))
+  var prop = new Proportion(obj,{
+    data:[500000,90000],
+    viewRate:"40%",     // 查看率
+    answerRate:"78%",   // 回答率
+    answerTime:"130天",   // 回答时间
+  });
+
+  var obj_2 = document.querySelector(".proportion-box-2");
+  
+  var prop_2 = new Proportion(obj_2,{
+    data:[99990,99000],   // 对比的值
+    viewRate:"40%",       // 查看率
+    answerRate:"78%",     // 回答率
+    answerTime:"130天",   // 回答时间
+  });
+
+  
+  var myChart = echarts.init(document.querySelector(".Echarts-line"));
+  myChart.setOption(option);
+</script>
+</html>

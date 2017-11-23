@@ -45,6 +45,9 @@ em,i{
 }
 .smart-parts-container p,.smart-parts-container h2{
     position: relative;
+    color:#fff;
+    font-size: .18rem;
+    text-align:center;
 }
 .smart-parts-container img{
     
@@ -58,6 +61,7 @@ em,i{
 .smart-parts-container-bg{
     position: absolute;
     width: 100%;
+    height:100%;
     /*height: 1rem;*/
 }
 

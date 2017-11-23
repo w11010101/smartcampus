@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+  <title>问答管理-回复</title>
+
+  <!-- Bootstrap -->
+
+  <link href="../../content/style/frame/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../../content/style/common/css/xiaoyuanka/common.css" rel="stylesheet">
+  <link href="../../content/style/white/wendaguanli/css/wenda.css" rel="stylesheet">
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]> param.month = getOtherDate(getM);
+      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<!-- smart-QA 标示，css-->
+<body class="smart-QA-answer">
+  <div class="smart-content">
+    <textarea placeholder="请输入回复内容 . . . " maxlength="500"></textarea>
+    <span class="smart-textarea-statis">还能输入500个字</span>
+    <div class="smart-foot">
+      <button type="button" class="smart-btn" btntype="qd">回复</button>
+    </div>
+  </div>
+</body>
+<script src="../../content/style/frame/jquery/jquery-3.2.1.min.js"></script>
+<script src="../../content/style/frame/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+  document.querySelector("textarea").addEventListener("keyup",function(e){
+    document.querySelector(".smart-textarea-statis").innerHTML = `还能输入${500-this.value.length}个字`;
+  });
+</script>
+</html>
