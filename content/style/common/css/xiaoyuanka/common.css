@@ -186,7 +186,7 @@ a:hover {
 	transform: rotateX(60deg);
 	-webkit-transform: rotateX(60deg);
 }
-
+/* 下边框 */
 .smart-header.smart-white:after,
 .smart-border:after,
 .smart-header.smart-border:after,
@@ -202,7 +202,7 @@ a:hover {
 .smart-list.smart-list-space .smart-list-item:not(:last-child):after {
 	left: 20px;
 }
-
+/* 上边框 */
 .smart-list.smart-list-space:before,
 .smart-sub-list:before,
 .panel-body:before {
@@ -1208,7 +1208,8 @@ a:hover {
 	-webkit-transition: color .2s ease-in;
 }
 
-.smart-screen div[class^="col-xs"]:after {
+.smart-screen div[class^="col-xs-4"]:after,
+.smart-screen div[class^="col-xs-6"]:after {
 	content: " ";
 	background: url(../../../white/xiaoyuanka/images/screen-1.png) no-repeat center;
 	background-size: 35px;
@@ -1223,11 +1224,13 @@ a:hover {
 	-webkit-transition: transform .2s ease-in, background .1s ease-in;
 }
 
-.smart-screen div[class^="col-xs"].smart-active {
+.smart-screen div[class^="col-xs-4"].smart-active,
+.smart-screen div[class^="col-xs-6"].smart-active {
 	color: #73d2fe;
 }
 
-.smart-screen div[class^="col-xs"].smart-active:after {
+.smart-screen div[class^="col-xs-4"].smart-active:after,
+.smart-screen div[class^="col-xs-6"].smart-active:after {
 	background: url(../../../white/xiaoyuanka/images/screen-2.png) no-repeat center;
 	background-size: 35px;
 	transform: rotateX(-180deg);
@@ -1710,4 +1713,26 @@ a:hover {
 	height: 30px;
 	line-height: 30px;
 	padding: 0 10px;
+}
+/* 空列表 */
+.smart-list-nothing{
+    position: absolute;
+    width: 100%;
+    top:.5rem;
+    bottom: 0;
+}
+.smart-list-nothing{
+    display: none;
+    background: #fff;
+    z-index: 2;
+}
+.smart-list-nothing p{
+    text-align: center;
+    position: absolute;
+    width: 100%;
+    top:50%;
+    margin:0;
+    margin-top: -20%;
+    font-size: .15rem;
+    line-height: .15rem;
 }

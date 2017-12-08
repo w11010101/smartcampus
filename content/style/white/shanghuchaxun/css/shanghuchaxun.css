@@ -9,17 +9,21 @@ html{
     font-size: .16rem;
     background: #fff;
     margin: 0;
-    padding:.17rem 0 0 .55rem; 
+    padding:.17rem 1rem 0 .55rem; 
     background: url(../images/icon-1.png) no-repeat .25rem .12rem #fff;
     background-size:.25rem;
     color:#8d8d8d;
+    
+    white-space:nowrap; 
+    overflow:hidden; 
+    text-overflow:ellipsis;
 }
+
 .smart-screen{
-    /*height: .52rem;*/
-    background: #fff
+    
+    background: #fff;
 }
 .smart-screen .smart-column-list{
-    /*height: 100%;*/
    
 }
 .smart-screen .smart-column-list div[class^="col-xs"]{
@@ -36,7 +40,26 @@ html{
 .panel-group{
     margin-top: 0;
 }
+.smart-screen button{
+    position: absolute;
+    top: 0.12rem;
+    right: .2rem;
+    font-size: .14rem;
 
+    height: .25rem;
+    line-height: .25rem;
+    padding: 0 .05rem;
+    border: 1px solid #42c3ef;
+    border-radius: 5px;
+    background: #fff;
+    color:#42c3ef;
+    transition: all .3s ease;
+    -webkit-transition: all .3s ease;
+}
+.smart-screen button:active{
+    color:#fff;
+    background: #42c3ef;
+}
 /* poppicker css*/
 .mui-poppicker{
     top:1.24rem;
@@ -108,38 +131,18 @@ html{
 .smart-time-box.smart-screen-show{
     display: block;
 }
-.smart-query-statistics{
-    text-align: center;
-    padding:.16rem 0 .2rem 0;
-    margin-top: .82rem;
-    background: #fff;
-}
-.smart-time-box.smart-screen-show+.smart-query-statistics{
-    margin-top: 0;
-}
-.smart-query-statistics button{
-    font-size: .14rem;
-    width: 1.265rem;
-    border: 1px solid #42c3ef;
-    border-radius: 5px;
-    padding:.05rem 0;
-    background: #fff;
-    color:#42c3ef;
-    transition: all .3s ease;
-    -webkit-transition: all .3s ease;
-}
-.smart-query-statistics button:active{
-    color:#fff;
-    background: #42c3ef;
-}
-.smart-query .smart-query-statistics button:first-child{
-    margin-right: .42rem;
-}
+
 .smart-query-summarize{
     background: #fff;
     padding: 0 0 0 .25rem;
     font-size: 0;
+    margin-top: .82rem;
 }
+
+.smart-time-box.smart-screen-show+.smart-query-summarize{
+    margin-top: 0;
+}
+
 .pos-tips{
     display: none;
     font-size: 14px;
@@ -359,7 +362,7 @@ html{
     color:#0f0f0f;
 }
 .smart-query-bill .smart-accordion .smart-sub-list .smart-sub-list-item.smart-sub-list-item-content{
-    padding:.1rem .25rem .1rem .95rem;   
+    padding:.1rem 0 .1rem .95rem;   
 }
 #wrapper-echart,#wrapper-pos{
     position: absolute;

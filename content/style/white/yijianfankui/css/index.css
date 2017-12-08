@@ -36,6 +36,16 @@ html{
     resize:none
 
 }
+.smart-content .smart-container-sure-btn, .smart-content .smart-btn{
+    width: calc(100% - .4rem);
+    margin: .6rem auto .2rem;
+}
+.more{
+    display: block;
+    text-align: center;
+    color:#8d8d8d;
+    font-size: .14rem;
+}
 ::-moz-placeholder { 
     color: #a8a8a8;
 }

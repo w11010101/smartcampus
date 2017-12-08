@@ -6,6 +6,7 @@
         this.el.style.fontSize = 0;
         this.el.style.width = "80%";
         this.el.style.margin = ".1rem auto 0";
+        // this.el.style.backgroundColor = "#456789";
         this.options = {
             // data:[
             //     {
@@ -89,7 +90,7 @@
             setTimeout(()=>{
                 leftPart.style.width = leftPartWidth + "%";
                 rightPart.style.width = rightPartWidth + "%";
-                leftBar.style.width = rightBar.style.width =  "100%";
+                leftBar.style.width = rightBar.style.width =  "98%";
                 this.trim(leftPart,rightPart);
             },100);
         },
@@ -113,17 +114,24 @@
             let rightW = parseInt(right.style.width.substr(0,right.style.width.length-1));
 
             if(leftW < 25 ){
-                leftVal.parentElement.style.left = 0;
+                // leftVal.parentElement.style.left = 0;
                 // leftVal.style.position = "fixed";
-                leftVal.style.right = "auto"; 
-                leftVal.style.left = `calc(10% + .2rem )`;
+                // leftVal.style.right = "auto"; 
+                // leftVal.style.left = `calc(10% + .2rem )`;
                 // leftVal.style.left = `calc(100% - ${leftW/2}px)`;
             }
-            if(rightW < 25 ){;
-                rightVal.parentElement.style.left = 0;
+            if(rightW < 25 ){
+                rightVal.parentElement.style.left = "auto";
+                rightVal.parentElement.style.right = 0;
+                rightVal.style.right = `.2rem`;
+                rightVal.style.left = `auto`;
+                // rightVal.style.left = `calc(-50% - .14rem)` ;
+                // rightVal.parentElement.style.left = "-100%";
+                // rightVal.style.left = `0`;
+                // 
                 // rightVal.style.position = "fixed";
-                rightVal.style.left = "auto"; 
-                rightVal.style.right = `calc(10% + .4rem )`;
+                // rightVal.style.left = "auto"; 
+                // rightVal.style.right = `calc(10% + .4rem )`;
                 // rightVal.style.left = `calc(-100% + ${rightW/2}px)`;
             }
         }

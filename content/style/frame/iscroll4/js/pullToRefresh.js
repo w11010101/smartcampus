@@ -51,14 +51,29 @@ var refresher = {
 		var pullDownOffset = pullDownEl.offsetHeight;
 		var pullUpEl = wrapper.querySelector(".pullUp");
 		var pullUpOffset = pullUpEl.offsetHeight;
-		this.scrollIt(parameter, pullDownEl, pullDownOffset, pullUpEl, pullUpOffset);
+		return this.scrollIt(parameter, pullDownEl, pullDownOffset, pullUpEl, pullUpOffset);
+
 	},
 	scrollIt: function(parameter, pullDownEl, pullDownOffset, pullUpEl, pullUpOffset) {
-		eval(parameter.id + "= new iScroll(parameter.id, {useTransition: true,vScrollbar: false,topOffset: pullDownOffset,onRefresh: function () {refresher.onRelease(pullDownEl,pullUpEl);},onScrollMove: function () {refresher.onScrolling(this,pullDownEl,pullUpEl,pullUpOffset);},onScrollEnd: function () {refresher.onPulling(pullDownEl,parameter.pullDownAction,pullUpEl,parameter.pullUpAction);},})");
+		let myScroll = eval(parameter.id + `= new iScroll(parameter.id, {
+				useTransition: true,
+				vScrollbar: false,
+				topOffset: pullDownOffset,
+				onRefresh: function () {
+					refresher.onRelease(pullDownEl,pullUpEl);
+				},
+				onScrollMove: function () {
+					refresher.onScrolling(this,pullDownEl,pullUpEl,pullUpOffset);
+				},
+				onScrollEnd: function () {
+					refresher.onPulling(pullDownEl,parameter.pullDownAction,pullUpEl,parameter.pullUpAction);
+				},
+			})`);
 		pullDownEl.querySelector('.pullDownLabel').innerHTML = refresher.info.pullDownLable;
 		document.addEventListener('touchmove', function(e) {
 			e.preventDefault();
 		}, {passive:false});
+		return myScroll;
 	},
 	onScrolling: function(e, pullDownEl, pullUpEl, pullUpOffset) {
 		if (e.y > -(pullUpOffset)) {

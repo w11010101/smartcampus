@@ -1,0 +1,429 @@
+html{
+    font-size: calc(100vw/3.75);
+    
+}
+html *{
+    margin:0;
+    padding: 0;
+
+}
+#wrapper {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow:hidden;
+}
+#scroller{
+    position: relative;
+    /* -webkit-touch-callout:none;*/
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    float: left;
+    width: 100%;
+    /*padding: 0 0 .2rem 0;*/
+}
+.smart-content{
+    /*overflow: hidden;*/
+}
+.smart-user-info{
+    background: #fff;
+    padding: .1rem .2rem;
+    font-size: 0;
+}
+.smart-user-info >img{
+    display: inline-block;
+    width: .8rem;
+    height: .76rem;
+    vertical-align: middle;
+    padding: .05rem;
+}
+.smart-user-info >div{
+    display: inline-block;
+    width: calc( 100vw - 1.2rem);
+    vertical-align: middle;
+    padding-left: .15rem;
+}
+.smart-user-info >div h1{
+    color:#3c3c3c;
+    font-size: .15rem;
+    margin-bottom:.07rem
+    /*line-height: .25rem;*/
+}
+.smart-user-info >div p{
+    font-size: .13rem;
+    color:#a8a8a8;
+    line-height: .2rem;
+}
+
+
+/* smart-probe */
+.smart-probe{
+    margin-top:.1rem;
+    padding: .2rem;
+    background:#fff;
+    position: relative;
+}
+.smart-probe:after{
+    content: " ";
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    left: 0;
+    bottom: 0;
+    background: #dbdbdd;
+    transform: rotateX(60deg);
+    -webkit-transform: rotateX(60deg);
+}
+.smart-probe >h2{
+    font-size: .15rem;
+}
+.smart-probe >h2 em{
+    color:#45d6c5;
+    padding-left: .1rem;
+}
+.smart-probe .more{
+    float:right;
+    width: .7rem;
+    height: 100%;
+    font-size: .13rem;
+    color:#8d8d8d;
+}
+.smart-probe ul{
+    font-size: 0;
+    width: 500%;
+    margin-top: .15rem;
+}
+.smart-probe .nothing{
+    width: 100%;
+    height: 1.3rem;
+    background: url(../images/nothing.png) no-repeat center top -.1rem;
+    background-size: contain;
+    position: relative;
+    /*color:#;*/
+}
+.smart-probe .nothing:after{
+    position: absolute;
+    content: "当前没有阅读图书~";
+    width:100%;
+    left:0;
+    height: .2rem;
+    z-index: 1;
+    bottom: 0;
+    text-align: center;
+    font-size: .14rem;
+
+}
+.smart-probe ul li{
+    display:inline-block;
+    width: 2.55rem;
+    height: 1.3rem;
+    border:1px solid #dbdbdb;
+    border-radius: .07rem;
+    margin-right: .3rem;
+    padding:.14rem .1rem;
+
+}
+.topRight-label{
+    position: relative;
+}
+.topRight-label:after{
+    position: absolute;
+    content: "续借1次";
+    font-size: .12rem;
+    width: .5rem;
+    height: .2rem;
+    line-height: .2rem;
+    text-align: center;
+    top:0;
+    right: 0;
+    z-index: 1;
+}
+.smart-probe ul li a {
+    font-size: 0;
+    display: block;
+    height: 100%;
+}
+.tushu-img,
+.tushu-info{
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+}
+.tushu-img{
+    width: .68rem;
+    text-align: center;
+    margin-right: .12rem;
+}
+.tushu-info{
+    width: calc(100% - .8rem);
+    padding-left: .05rem;
+}
+.tushu-img img{
+    width: 100%;
+}
+.tushu-info h3{
+    font-size: .15rem;
+    color:#3c3c3c;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.tushu-info p{
+    font-size: .13rem;
+    color:#8d8d8d;
+    padding: .05rem 0;
+    margin-top: 0.05rem;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.tushu-info span{
+    font-size: .14rem;
+    color:#a8a8a8;
+    padding-left:.2rem; 
+    line-height: .2rem;
+    display: block;
+    background: url(../images/end-time.png) no-repeat left -.05rem center;
+    background-size: .25rem;
+}
+.tushu-info >div{
+    /*text-align:center;*/
+}
+.tushu-info button{
+    display: inline-block;
+    height: .23rem;
+    border:1px solid #42c3ef;
+    margin: .1rem auto 0;
+    background: #fff;
+    border-radius:.05rem;
+    font-size: .10rem;
+    color:#42c3ef;
+    line-height: .23rem;
+    transition: all .2s ease-in;
+    -webkit-transition: all .2s ease-in;
+}
+.tushu-info button:first-child{
+    width: 1rem;
+    margin-right: .05rem;
+}
+.tushu-info button:first-child + button{
+    width: calc(100% - 1.1rem);
+}
+
+.tushu-info button:active{
+    background: #42c3ef;
+    color:#fff;
+}
+.icon-continue{
+    padding-right:.1rem; 
+    background: url(../images/continue.png) no-repeat center right -.05rem; 
+    background-size: .18rem; 
+}
+.smart-probe-new{
+   margin-top: 0
+}
+.smart-probe-new ul li {
+    width: 1rem;
+    height: 1.4rem;
+    padding-left: .05rem;
+    padding-right: .05rem;
+    padding-top: .15rem;
+    padding-bottom: .15rem;
+    border-radius: .1rem;
+    margin-right: .3rem;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+.smart-probe-new .tushu-info{
+    width: 100%;
+}
+.smart-probe-new .tushu-info h3{
+    font-size: .14rem;
+    white-space:pre-wrap;
+    line-height: .18rem;
+    height: .36rem;
+
+}
+.smart-probe-new .tushu-info p{
+    white-space:pre-wrap;
+}
+.smart-probe-new .tushu-info em{
+    font-size: .10rem;
+    display: block;
+    text-align: right;
+    color:#3c3c3c;
+    margin-top: .1rem;
+}
+.smart-probe ul .tushu-style-1{
+    background: #a9f7e1;
+    border:1px solid #56ba9b;
+}
+.smart-probe ul .tushu-style-2{
+    background: #e0fcb1;
+    border:1px solid #8faa8c;
+}
+.smart-probe ul .tushu-style-3{
+    background: #f2ed9e;
+    border:1px solid #bcb253;
+}
+
+
+/* 打榜排行 */
+
+.ranking-list {
+    background: #fff;
+    padding: .2rem;
+
+}
+.ranking-list h2{
+    /*margin-bottom: .18rem;*/
+}
+.ranking-list h2 img{
+    width: 100%;
+}
+.ranking-list-bg-week{
+    background: url(../images/week.png) no-repeat;
+    background-size: contain;
+}
+.ranking-list-bg-month{
+    background: url(../images/month.png) no-repeat;
+    background-size: contain;
+}
+.ranking-list-bg-quarter{
+    background: url(../images/quarter.png) no-repeat;
+    background-size: contain;
+}
+.ranking-list-bg-year{
+    background: url(../images/year.png) no-repeat;
+    background-size: contain;
+}
+.ranking-list-left {
+    background-position: center left 5%;
+    padding-left:30%;
+    padding-right:.2rem;
+}
+.ranking-list-right {
+    background-position: top right 25%;
+    background-size:contain;
+    padding-right:50%;
+}
+.ranking-list-box{
+    padding-top:.1rem;
+    padding-bottom:.1rem;
+    padding-left: .15rem;
+    position: relative;
+}
+.ranking-list-box ul{
+    margin-top: .05rem;
+}
+.ranking-list-box ul li{
+    line-height: .3rem;
+    display: block;
+    
+}
+.ranking-list-box ul li a{
+    font-size: .15rem;
+    display: block;
+    color:#3c3c3c;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow:hidden;
+}
+.ranking-list-box:after{
+    content: " ";
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    left: 0;
+    bottom: 0;
+    background: #dbdbdd;
+    transform: rotateX(60deg);
+    -webkit-transform: rotateX(60deg);
+}
+.ranking-list-box div {
+    text-align: right;
+}
+.ranking-list-box div .more{
+    float: none;
+    color:#a8a8a8;
+    font-size: .13rem;
+}
+.ranking-list-first,
+.ranking-list-second,
+.ranking-list-third{
+    padding-left:.25rem;
+    
+}
+.ranking-list-first{
+    background: url(../images/first.png) no-repeat left center;
+    background-size: .16rem;
+}
+.ranking-list-second{
+    background: url(../images/second.png) no-repeat left center;
+    background-size: .16rem;
+}
+.ranking-list-third{
+    background: url(../images/third.png) no-repeat left center;
+    background-size: .16rem;
+}
+/* popup.css */
+.popup-alert h1{
+    margin-bottom: .1rem;
+}
+.popup-alert h2{
+    margin-bottom: .1rem;
+}
+.popup-alert p{
+    color:#8d8d8d;
+}
+.popup-alert-btn{
+    padding: .08rem 0;
+    bottom: 0;
+    border-top:.005rem solid #dbdbdb;
+
+}
+.popup-alert-btn.popup-alert-btns button, 
+.popup-alert-btns .popup-alert-cancel{
+    width: 50%;
+    border:0;
+    background: #fff;
+    color:#3c3c3c;
+    font-size: .15rem;
+    position: relative;
+}
+.popup-alert-btn.popup-alert-btns .popup-alert-sure{
+    color:#42beea;
+    margin: 0
+}
+.popup-alert-btn.popup-alert-btns button:last-child:after{
+    position: absolute;
+    content: " ";
+    height: .2rem;
+    width: 1px;
+    top:.calc(50% - .05rem;);
+    left:0;
+    z-index: 1;
+    background: #dbdbdb;
+}
+
+
+/* media */
+@media screen and (max-width: 320px) {
+    html{
+        font-size: calc(100vw/3.2);
+    }
+}
+@media screen and (min-width: 376px) and (max-width: 414px) {
+    html{
+        font-size: calc(100vw/4.14);
+    }
+}
+@media screen and (min-width: 415px) {
+    html{
+        font-size: 100px;
+    }
+}
+
+

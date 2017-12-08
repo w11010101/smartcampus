@@ -496,7 +496,13 @@ background-image: url('data:image/svg+xml;charset=utf-8,<svg viewBox=\'0 0 120 1
 	transition: background-color .2s ease-in;
 	-webkit-transition: background-color .2s ease-in;
 }
-
+.smart-content .smart-container-sure-btn.active{
+	background-color: rgba(115, 210, 254, 1);
+    border-color: #73d2fe;
+}
+.smart-content .smart-container-sure-btn.active:active {
+	background-color: rgba(115, 210, 254, .7);
+}
 .smart-content .smart-foot .smart-btn {
 	width: 100%;
 	padding: 12px 0;
@@ -974,7 +980,7 @@ background: #fff;*/
 
 .smart-screen div[class^="col-xs-4"]:after {
 	content: " ";
-	background: url(../../white/xiaoyuanka/images/screen-1.png) no-repeat center;
+	background: url(../images/screen-1.png) no-repeat center;
 	background-size: 35px;
 	vertical-align: middle;
 	margin-top: -2px;
@@ -992,7 +998,7 @@ background: #fff;*/
 }
 
 .smart-screen div[class^="col-xs-4"].smart-active:after {
-	background: url(../../white/xiaoyuanka/images/screen-2.png) no-repeat center;
+	background: url(../images/screen-2.png) no-repeat center;
 	background-size: 35px;
 	transform: rotateX(-180deg);
 	-webkit-transform: rotateX(-180deg);
@@ -1147,4 +1153,35 @@ background: #fff;*/
 	border: 0;
 	background: #fff;
 	margin-right: -12px;
+}
+/* 字数统计 */
+.smart-textarea-statis{
+	display: block;
+	font-size: 14px;
+	color:#a8a8a8;
+	height: 30px;
+	line-height: 30px;
+	padding: 0 10px;
+}
+/* 空列表 */
+.smart-list-nothing{
+    position: absolute;
+    width: 100%;
+    top:.5rem;
+    bottom: 0;
+}
+.smart-list-nothing{
+    display: none;
+    background: #fff;
+    z-index: 2;
+}
+.smart-list-nothing p{
+    text-align: center;
+    position: absolute;
+    width: 100%;
+    top:50%;
+    margin:0;
+    margin-top: -20%;
+    font-size: .15rem;
+    line-height: .15rem;
 }

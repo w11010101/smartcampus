@@ -13,7 +13,6 @@ var state = true;
 var id = "";
 function onClick(){
     var index = $(this).index();
-
     picker.setData(screen_list[index]);
     $(this).toggleClass("smart-active").siblings().removeClass("smart-active");
     var that = $(this);
@@ -98,10 +97,11 @@ function hideBox(val,index) {
 // pos机下拉
 function posOptions(val){
     var EchartConfig;
+
     if(~val.indexOf("POS")){
         // 有 pos字样
         $(".pos-tips,#wrapper-pos").hide(0);
-        $("#picker1,#picker3").on("click",onClick).removeClass("disabled");
+        $("#picker1,#picker3").off().on("click",onClick).removeClass("disabled");
 
         $(".smart-echart label em").show(0);
         timeOptions($("#picker1").text());
@@ -179,7 +179,7 @@ var html = function (val,type){
                     <span>2017.09.08 14:11：11</span>
                   </div>
                   <div class="col-xs-12">
-                    <label>订单号：13245689778948</label>
+                    <label>订单号：1324568977894813245689778948</label>
                     <span></span>
                   </div></div></li>`;
         break;
@@ -201,7 +201,7 @@ var html = function (val,type){
                     <span>2017.09.08 14:11：11</span>
                   </div>
                   <div class="col-xs-12">
-                    <label>订单号：13245689778948</label>
+                    <label>订单号：1324568977894813245689778948</label>
                     <span></span>
                 </div></div></li>`;
         break;
@@ -261,5 +261,7 @@ function getAjaxList (option){
         }();
         li += html(dom,option.listType);
     }
+  
     option.parentObj.append(li);
+    accordionClick();
 }

@@ -101,7 +101,9 @@
 	text-align: center;
 	display: none;
 }
-
+.popup-box.popup-selectBtns{
+	text-align:left;
+}
 .popup-box ul {
 	padding: 0;
 	margin: 0;
@@ -444,13 +446,21 @@
 	width: 100%;
 	margin-top: -20%;
 }
-
+.popup-alert h2{
+	font-size: 18px;
+	padding: 5px 0;
+}
 .popup-alert p {
 	font-size: 14px;
 	text-align: justify;
 	margin-bottom: 15px;
 }
-
+.popup-alert-btn{
+	position: absolute;
+	width: 100%;
+	left:0;
+	bottom: 20px;
+}
 .popup-alert-btn.popup-alert-btns button,
 .popup-alert-btn .popup-alert-sure {
 	width: 40%;
@@ -509,3 +519,36 @@
 	width: 50px;
 	height:50px;
 }
+/* popup-selectBtns */
+.popup-selectBtns{
+	padding: .1rem;
+}
+.popup-selectBtns ul {
+	font-size: 0;
+}
+.popup-selectBtns ul li{
+	display: inline-block;
+	width: 50%;
+	position: relative;
+	height: .8rem;
+}
+.popup-selectBtns ul li button{
+	position: absolute;
+	width: 1rem;
+	height: .4rem;
+	font-size: .15rem;
+	top: calc(50% - .2rem);
+	left:calc(50% - .5rem);
+	color:#a8a8a8;
+	border:1px solid #a8a8a8;
+	transition: all .1s ease-in;
+	-webkit-transition: all .1s ease-in;
+	
+}
+.popup-selectBtns ul li button.active,
+.popup-selectBtns ul li button:active{
+	color:#72defe; 
+	border:1px solid #72defe;
+	background: #fff;
+}
+

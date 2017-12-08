@@ -22,19 +22,16 @@ var myScrollEchart=true,
     myScrollObj,
     config_bar,
     config_pie;
-$(".smart-query-statistics .toggle").off().on("click", function() {
+$(".smart-screen .toggle").off().on("click", function() {
     $(".smart-content").toggleClass("smart-toggle");
-    $(".smart-query-statistics").toggleClass("smart-border");
+    // $(".smart-query-statistics").toggleClass("smart-border");
     // 切换 隐藏日期选择
     $(".smart-time-box").removeClass("smart-screen-show");
     setTop();
     // 
     $(this).text($(".smart-content").hasClass("smart-toggle") ? function() {
         // echart 
-        console.log(213123)
         fixed_scroll('wrapper-echart',myScrollEchart);
-        
-
         if(!myScrollEchart) return;
         // ajax 请求饼状图数据
         
@@ -53,7 +50,7 @@ $(".smart-query-statistics .toggle").off().on("click", function() {
 
         myScrollEchart = false;
 
-        return "统计";
+        return "查询流水";
     }() : function() {
         // myEcharts.clear();
         return "分析";

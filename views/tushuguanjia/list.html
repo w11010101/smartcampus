@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+  <title>图书馆家</title>
+ 
+  <!-- Bootstrap -->
+
+  <link href="../../content/style/frame/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../../content/style/common/css/common.css" rel="stylesheet">
+  <link href="../../content/style/frame/swipe/css/idangerous.swiper-2.7.6.css" rel="stylesheet">
+  <link href="../../content/style/frame/iscroll4/css/pullToRefresh.css" rel="stylesheet">
+  <link href="../../content/style/white/tushuguanjia/css/style.css" rel="stylesheet">
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]> param.month = getOtherDate(getM);
+      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<!-- smart-QA 标示，暂时没有用到 -->
+<body class="smart-bookList"> 
+  <div class="smart-content">
+    <div class="tabs"> 
+      <a href="#" tabName="week" class="active"><em>周排行</em></a>
+      <a href="#" tabName="month"><em>月排行</em></a>
+      <a href="#" tabName="quarter"><em>季排行</em></a>
+      <a href="#" tabName="year"><em>年度排行</em></a>
+    </div>
+    <div class="swiper-container">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <div id="wrapper_page_1">
+            <ul class="smart-list smart-list-space">
+              <div class="smart-loading">
+                <div class="smart-waiting"></div>
+              </div>
+              <!-- <li class="smart-list-item">
+                <h3>时光隧道<em class="list-num list-num-1">1</em></h3>
+                <h4>史蒂芬 ● 霍金<i>借阅次数：100次</i></h4>
+              </li>
+              <li class="smart-list-item">
+                <h3>时光隧道<em class="list-num list-num-2">2</em></h3>
+                <h4>史蒂芬 ● 霍金<i>借阅次数：100次</i></h4>
+              </li>
+              <li class="smart-list-item">
+                <h3>明朝那些事儿<em class="list-num list-num-3">3</em></h3>
+                <h4>当年明月<i>借阅次数：100次</i></h4>
+              </li>
+              <li class="smart-list-item">
+                <h3>明朝那些事儿<em class="list-num list-num-4">4</em></h3>
+                <h4>当年明月<i>借阅次数：100次</i></h4>
+              </li> -->
+            </ul>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div id="wrapper_page_2">
+            <ul class="smart-list smart-list-space">
+              <div class="smart-loading">
+                <div class="smart-waiting"></div>
+              </div>
+            </ul>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div id="wrapper_page_3">
+            <ul class="smart-list smart-list-space">
+              <div class="smart-loading">
+                <div class="smart-waiting"></div>
+              </div>
+            </ul>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div id="wrapper_page_4">
+            <ul class="smart-list smart-list-space">
+              <div class="smart-loading">
+                <div class="smart-waiting"></div>
+              </div>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+<script src="../../content/style/frame/jquery/jquery-3.2.1.min.js"></script>
+<script src="../../content/style/frame/bootstrap/js/bootstrap.min.js"></script>
+<script src="../../content/style/frame/iscroll4/js/iscroll.js"></script>
+<script src="../../content/style/frame/iscroll4/js/pullToRefresh.js"></script>
+
+<script src="../../content/style/frame/swipe/js/idangerous.swiper.min-2.7.6.js"></script>
+<script src="../../content/style/white/tushuguanjia/js/list.js"></script>
+<script type="text/javascript">
+  $(function(){
+    // 进入页面第一次加载第一个tab
+    ajaxList({
+        wrapper:$("#wrapper_page_1"),
+        pates:0,
+        scroll:scrollObj[0],
+        index:0
+    });
+    // 页面传值判断 tab标签位置
+    function getQueryString(name) {
+      var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)', 'i');
+      var r = window.location.search.substr(1).match(reg);
+      if (r != null) {
+          return unescape(r[2]);
+      }
+      return null;
+    }
+    for(var e of $(".tabs a")){
+      if(getQueryString("index") == $(e).attr("tabName")){
+        $(".tabs .active").removeClass('active');
+        $(e).addClass('active');
+        tabsSwiper.swipeTo($(e).index(),0);
+      }
+    }
+  })
+  
+</script>
+</html>

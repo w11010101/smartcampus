@@ -59,7 +59,7 @@
     <!-- 按钮 -->
     <div class="smart-query-statistics smart-top">
       <button class="toggle">分析</button>
-      <!-- <button onclick="window.location.href ='../chaliushui/chaliushui.html'">查询流水</button> -->
+      <button onclick="window.location.href ='../chaliushui/chaliushui.html'">查询流水</button>
     </div>
     <!-- summarize -->
     <div class="smart-query-summarize smart-border smart-top">
@@ -110,7 +110,7 @@
     </div>
     <!-- 无数据 -->
     <div class="smart-list-nothing">
-      <p>无更多数据...<button onclick="$('.smart-list-nothing').hide(0);">重新获取</button></a></p>
+      <p>无更多数据...<button>重新获取</button></p>
     </div>
 
   </div>
@@ -152,26 +152,27 @@ getAjaxList ({
 
 // 显示无数据 并点击“重新获取” 操作
 // $(".smart-list-nothing").show(0);
-// $(".smart-list-nothing button").on("click",function(){
+$(".smart-list-nothing button").on("click",function(){
 
-//   $(this).parent().hide(0,function (){
-//     // 获取列表
-//     getAjaxList ({
-//       url:"http://localhost:3000/", 
-//       data:{
-//         type:"list",
-//       },                           
-//       listType:"manageList",                                                       
-//       parentObj:$("#wrapper ul"),  
-//       num:4                         
-//     });
-//     // 获取图表 
-//     // 配置 config_bar 和 config_pie
-//     // 调用 myEcharts.createEcharts(config_bar);
-//     //      myEcharts.createEcharts(config_pie);
+  $(this).parent().hide(0,function (){
+    accordionClick();
+    // 获取列表
+    // getAjaxList ({
+    //   url:"http://localhost:3000/", 
+    //   data:{
+    //     type:"list",
+    //   },                           
+    //   listType:"manageList",                                                       
+    //   parentObj:$("#wrapper ul"),  
+    //   num:4                         
+    // });
+    // 获取图表 
+    // 配置 config_bar 和 config_pie
+    // 调用 myEcharts.createEcharts(config_bar);
+    //      myEcharts.createEcharts(config_pie);
          
-//   })
-// })
+  })
+})
 
 // scroll 事件
 var option = {

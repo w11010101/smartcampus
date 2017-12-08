@@ -121,11 +121,20 @@ var campus = function () {
 			var img = option.title["img"];
 			if (img) $(".popup-alert img").css(option.title.imgStyle);
 			var content = option.content.contentStyle;
-			if (content) $(".popup-alert p").css(content);
-				this.alertEvent(function(e){
-					callback(e);
-				});
-			}
+			if (content) $(".popup-alert p,.popup-alert h2").css(content);
+			this.alertEvent(function(e){
+				callback(e);
+			});
+			break;
+		case "selectBtns":
+			// 选择列表
+			box.append(this.selectBtns(option));
+
+			this.selectBtnsEvent(function (e) {
+				callback(e);
+			})
+			break;
+		}
 		
 		// 添加取消按钮
 		var cancel = this.cancel(option);
@@ -269,6 +278,26 @@ var campus = function () {
 		html.push('</ul><button popupType="keyboard">立即缴费</button></div>');
 		return html.join("");
 	};
+	this.selectBtns = function(option){
+		var html = [];
+		html.push('<ul>');
+		console.log(option);
+		for(let f of option.value){
+			console.log()
+			html.push(`<li><button class="${f.text == option.data.val?'active':''}" setid ="${f.id}">${f.text}</button></li>`);
+		}
+    html.push('<ul>');
+    return html.join("");
+	}
+	this.selectBtnsEvent = function(callback){
+		$(".popup-selectBtns button").not(".active").on("click",function(){
+			that.togglePopup("hide");
+			callback({
+				val:$(this).text(),
+				id:$(this).attr("setid")
+			});
+		})
+	}
 	// 信息事件
 	this.infoEvent = function (callback) {
 		// 更换支付方式
@@ -297,10 +326,16 @@ var campus = function () {
 		var img = option.title["img"];
 		var h1_val = img?(img.trim()?'<img src="' + img + '" alt="" style="">':option.title.val):option.title.val;
 		html.push('<h1>' + h1_val + '</h1>');
-		html.push('<p>' + option.content.val + '</p>');
+		html.push('<h2>' + (option.content.title ||"") + '</h2>');
+		html.push('<p>' + (option.content.val || "") + '</p>');
 		var btns = option.btns;
-		html.push('<div class="popup-alert-btn ' + (btns.cancel ? "popup-alert-btns" : "") + '">');
-		html.push('<button class="popup-alert-sure">' + btns.sureVal + '</button><button class="popup-alert-cancel">' + btns.cancelVal + '</button>');
+		html.push('<div class="popup-alert-btn ' + ((btns.cancel||btns.cancelVal) ? "popup-alert-btns" : "") + '">');
+		if(btns.order){
+			html.push('<button class="popup-alert-sure">' + btns.sureVal + '</button><button class="popup-alert-cancel">' + btns.cancelVal + '</button>');
+		}else{
+			html.push('<button class="popup-alert-cancel">' + btns.cancelVal + '</button><button class="popup-alert-sure">' + btns.sureVal + '</button>');
+		}
+		
 		html.push('</div>');
 		return html.join("");
 	}
@@ -314,6 +349,7 @@ var campus = function () {
 		});
 		
 	};
+
 	// 滚动弹窗 
 	// 集成mui.min.sj 和 mui.picker.js等先关js 和 css；
 	

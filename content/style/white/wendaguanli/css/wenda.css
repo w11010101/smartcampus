@@ -7,37 +7,21 @@ html *{
     margin: 0;
     list-style:none;
 }
-/* media */
-@media screen and (max-width: 320px) {
-    html{
-        font-size: calc(100vw/3.2);
-    }
-}
-@media screen and (min-width: 376px) and (max-width: 414px) {
-    html{
-        font-size: calc(100vw/4.14);
-    }
-}
-@media screen and (min-width: 415px) {
-    html{
-        font-size: 100px;
-    }
-}
+
 .smart-column-list > div[class^="col-xs"]{
-    font-size: .17rem;
+    font-size: .14rem;
 }
 /* poppicker css*/
 .mui-poppicker{
-    top:1.24rem;
-    bottom: auto;
+    bottom: -200%;
     -webkit-transform: translateY(-4rem);
 }
-.mui-poppicker{
-    top: calc(1.24rem - 84px);
+.mui-poppicker.mui-active{
+    bottom: 0
 }
 .mui-poppicker-header{
     position: absolute;
-    top:200px;
+    top:-45px;
     background: #fff;
     width: 100%;
     border-top:1px solid #ddd;
@@ -49,7 +33,7 @@ html *{
     color: #73D2FE;
 }
 .navbar,.smart-screen{
-    z-index: 9999;
+    /*z-index: 9999;*/
     top:0;
 }
 .navbar+.smart-content .smart-screen{
@@ -72,7 +56,7 @@ html *{
 .smart-iScroll-container{
     position: absolute;
     width: 100%;
-    top:.5rem;
+    top:1.3rem;
     bottom: 0
 }
 .smart-probe{
@@ -135,12 +119,15 @@ html *{
 }
 .smart-QA-container h2 >span{
     display: inline-block;
-    font-size:.18rem;
+    font-size:.16rem;
     color:#2ca4de;
     vertical-align: top;
 }
+.smart-QA-container h2 >span>i{
+    font-size: .14rem;
+}
 .smart-QA-container h2 > em{
-    font-size:.15rem;
+    font-size:.13rem;
     color:#a8a8a8;
     float:right;
 }
@@ -148,7 +135,7 @@ html *{
     text-align:justify;
     margin-top:.10rem;
     padding-left:.2rem;
-    font-size:.16rem;
+    font-size:.15rem;
     color:#8d8d8d;
 }
 .smart-A{
@@ -160,7 +147,11 @@ html *{
     border-top-left-radius:0;
 }
 .smart-A h2 >span{
-    font-size: .16rem;
+    font-size: .14rem;
+}
+.smart-A h2 >span>i,
+.smart-A h2 >span+em{
+    font-size: .12rem;
 }
 .smart-A p{
     color:#3c3c3c;
@@ -172,14 +163,32 @@ html *{
     height:.5rem;
     text-align: right;
 }
-.smart-A-btns label{
+.smart-A-btns .classBtn{
+    height: .25rem;
+    display: inline-block;
+    line-height: .25rem;
     color:#73d2fe;
     border:1px solid #72defe;
     border-radius:.05rem;
     font-size: .14rem;
     padding: 0 .1rem;
-    margin-right: .2rem;
-
+    vertical-align: middle;
+    transition:all .2s ease-in;
+    -webkit-transition:all .2s ease-in;
+}
+.smart-A-btns >label{
+    height: .2rem;
+    background: #72defe;
+    display: inline-block;
+    line-height: .2rem;
+    color:#fff;
+    font-size: .12rem;
+    padding: 0 .05rem;
+    vertical-align: middle;
+}
+.smart-A-btns .classBtn:active {
+    background: #72defe;
+    color:#fff;
 }
 .smart-A-reviseBtn{
     display: inline-block;
@@ -193,10 +202,12 @@ html *{
     color:#a8a8a8;
 
 }
-.smart-border-bottom{
+.smart-border-bottom,
+.Echarts-line{
     position:relative;
 }
-.smart-border-bottom:after{
+.smart-border-bottom:after,
+.Echarts-line:after{
     position:absolute;
     content:" ";
     height: 1px;
@@ -259,7 +270,7 @@ html *{
     margin-top:0;
 }
 .smart-answer-statis .smart-statis-box{
-    padding:.1rem .2rem;
+    padding:.2rem;
 }
 .smart-answer-statis .smart-statis-box h2{
     font-size:.15rem;
@@ -270,34 +281,47 @@ html *{
 }
 .smart-Echarts-container ul {
     position: absolute;
-    width: .16rem;
-    top:.54rem;
+    width: .15rem;
+    top:.64rem;
     left:.18rem;
     /*display: none;*/
+
 }
 .smart-Echarts-container ul li{
-    font-size: .14rem;
-    background: #e0e0e0;
-    /*background: #FF6A6A;*/
-    color:#fff;
-    text-align: center;
-    height:.16rem;
-    line-height: .16rem;
-    margin-top:.19rem; 
-    border-radius:.03rem;
+    position: relative;  
+    height: .345rem;
+    width: .15rem;
+    
 }
-.smart-Echarts-container ul li:nth-child(1){
+.smart-Echarts-container ul li em{
+    position: absolute;
+    top: calc(50% - 0.07rem);
+    left:0;
+    font-size: .12rem;
+    width: .15rem;
+    height:.15rem;
+    line-height: .15rem;
+    text-align: center;
+    color:#fff;
+    border-radius:.03rem;
+    background: #e0e0e0;
+}
+.smart-Echarts-container ul li:nth-child(1) em{
     background: #ff5408;
 }
-.smart-Echarts-container ul li:nth-child(2){
+.smart-Echarts-container ul li:nth-child(2) em{
     background: #f9ae00; 
 }
-.smart-Echarts-container ul li:nth-child(3){
+.smart-Echarts-container ul li:nth-child(3) em{
     background: #01e699; 
 }
 .Echarts-line{
-    border-top:1px solid #a8a8a8;
-    height: 3rem;
+    height: 3.6rem;
+    /*height: calc(100vh - 3.68rem);*/
+    padding: 0 .2rem;
+}
+.Echarts-line:after{
+    top:0;
 }
 
 
@@ -306,8 +330,29 @@ html *{
 
 
 
-
-
-
+/* media */
+@media screen and (max-width: 320px) {
+    html{
+        font-size: calc(100vw/3.2);
+    }
+    /*.smart-Echarts-container ul {
+        margin-top: .05rem;
+    }
+    .smart-Echarts-container ul li{
+        width: .14rem;
+        height: .14rem;
+        margin: .05rem 0 0 0;
+    }*/
+}
+@media screen and (min-width: 376px) and (max-width: 414px) {
+    html{
+        font-size: calc(100vw/4.14);
+    }
+}
+@media screen and (min-width: 415px) {
+    html{
+        font-size: 100px;
+    }
+}
 
 

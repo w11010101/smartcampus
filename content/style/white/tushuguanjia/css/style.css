@@ -1,0 +1,331 @@
+html{
+  font-size: calc(100vw/3.75); 
+}
+html *{
+  margin:0;
+  padding: 0;
+}
+.smart-banner{
+  height: .8rem;
+
+}
+.smart-banner img{
+  width: 100%;
+  height: 100%;
+}
+.smart-screen{
+  top: .8rem;
+  border-bottom: 0.005rem solid #e0e0e0;
+}
+.smart-screen div[class^="col-xs"]{
+    font-size: .14rem;
+    color:#8d8d8d;
+}
+.smart-screen div[class^="col-xs"]:not(#picker4):after {
+  content: " ";
+  background: url(../../../common/images/screen-1.png) no-repeat center;
+  background-size: 35px;
+  vertical-align: middle;
+  margin-top: -2px;
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  transform: rotateX(0deg);
+  -webkit-transform: rotateX(0deg);
+  transition: transform .2s ease-in, background .1s ease-in;
+  -webkit-transition: transform .2s ease-in, background .1s ease-in;
+}
+
+#picker4 button{
+  width: .5rem;
+  height: .25rem;
+  line-height:.25rem;
+  vertical-align: middle;
+  background: #42beea;
+  border:1px solid #42beea;
+  color:#fff;
+  transition: all .2s ease-in;
+  -webkit-transition: all .2s ease-in;
+}
+#picker4 button:active{
+  color:#42beea;
+  background: #fff;
+}
+/* poppicker css*/
+.mui-poppicker{
+    bottom: -200%;
+    -webkit-transform: translateY(-4rem);
+}
+.mui-poppicker.mui-active{
+    bottom: 0
+}
+.mui-poppicker-header{
+    position: absolute;
+    top:-45px;
+    background: #fff;
+    width: 100%;
+    border-top:1px solid #ddd;
+}
+.mui-poppicker-header .mui-poppicker-btn-ok{
+    border: none;
+    background-color: #FFFFFF;
+    font-size: .16rem;
+    color: #73D2FE;
+}
+/*.navbar,.smart-screen{
+    z-index: 9999;
+    top:0;
+}*/
+/*.navbar+.smart-content .smart-screen{
+    top:45px;
+}*/
+.mui-poppicker-body{
+    border:0;
+}
+.mui-picker{
+    background-color: #FFFFFF;
+}
+.mui-poppicker-header .mui-poppicker-btn-cancel,.mui-dtpicker-header button:first-child{
+    border: none;
+    font-size: .16rem;
+    color: #a8a8a8;
+}
+.mui-pciker-list li{
+    font-size:.16rem;
+}
+/* poppicker css end*/
+
+.smart-iScroll-container{
+  position: absolute;
+  width: 100%;
+  top:1.2rem;
+  bottom: 0
+}
+.smart-list.smart-list-space .smart-list-item:not(:last-child):after{
+  left:.3rem;
+}
+/* iscroll list */
+.smart-newBook .smart-iScroll-container{
+  background: #fff;
+  padding-top:.1rem;
+  padding-bottom:.15rem;
+}
+.smart-newBook .smart-iScroll-container > h2{
+  color:#fcaa06;
+  font-size: .15rem;
+  padding-left: .2rem;
+  line-height: .25rem
+}
+.smart-list .smart-list-item{
+  height: auto;
+  padding-top: .1rem;
+  padding-bottom: .1rem;
+  padding-left: .3rem;
+}
+.smart-list .smart-list-item h3{
+  font-size: .17rem;
+  line-height: .25rem;
+  color:#3c3c3c;
+  height:.25rem;
+}
+.smart-bookList .smart-list .smart-list-item h3{
+  padding-left: .05rem;
+}
+.smart-list .smart-list-item h4{
+  font-size: .15rem;
+  line-height: .25rem;
+  color:#3c3c3c;
+}
+.smart-list .smart-list-item p{
+  font-size: .14rem;
+  line-height: .25rem;
+  color:#8d8d8d;
+  white-space: nowrap;
+  overflow:hidden;
+  text-overflow: ellipsis;
+}
+.smart-list .smart-list-item span{
+  font-size: .13rem;
+  line-height: .25rem;
+  display: block;
+  color:#a8a8a8;
+}
+.smart-list .smart-list-item h4 em,
+.smart-list .smart-list-item p em,
+.smart-list .smart-list-item span em{
+  display: inline-block;
+  width: .6rem;
+}
+
+
+
+/* ******************************  list.html start  ****************************** */
+.smart-bookList {
+  /*z-index: 9999;*/
+}
+.smart-list .smart-content{
+  height: 100vh;
+}
+.tabs {
+  font-size: 0;
+  background: #fff
+}
+.tabs a {
+  font-size: .14rem;
+  display: inline-block;
+  width: 25%;
+  color: #3c3c3c;
+  text-align: center;
+  background: #fff;
+  line-height: 40px;
+}
+.tabs a em{
+  display: inline-block;
+  height: 100%;
+}
+.tabs a.active em{
+  color: #42beea;
+  border-bottom: 2px solid #42beea;
+}
+.swiper-container {
+  /*background: #333;*/
+  position: absolute;
+  width: 100%;
+  top:.42rem;
+  bottom: 0;
+  border-top: 0.005rem solid #dcdcdc;
+
+}
+.swiper-slide {
+  width: 100%;
+  background: none;
+  color: #fff;
+}
+.swiper-slide {
+  height: inherit!important;
+  position: relative;
+}
+.swiper-wrapper{
+  height: 100%!important;
+}
+
+[id *= 'wrapper_page_']{
+  position: absolute;
+  width: 100%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+}
+.pullDown, .pullUp{
+  height: .5rem;
+}
+.list-num{
+  display: inline-block;
+  width: .2rem;
+  height: .2rem;
+  float:right;
+  background: #e0e0e0;
+  color:#fff;
+  font-size: .16rem;
+  text-align: center;
+  line-height: .2rem;
+  border-radius:.03rem;
+  margin-top: .04rem;
+}
+.list-num-1{
+  background:#ec4458;
+}
+.list-num-2{
+  background:#ffc24b;
+}
+.list-num-3{
+  background:#01e699;
+}
+.smart-bookList .smart-list .smart-list-item h4{
+  margin-top: .1rem;
+  padding-left: .05rem;
+  color:#a8a8a8;
+}
+.smart-bookList .smart-list .smart-list-item h4 i{
+  width: auto;
+  float:right;
+  
+}
+/* media */
+@media screen and (max-width: 320px) {
+    html{
+        font-size: calc(100vw/3.2);
+    }
+}
+@media screen and (min-width: 376px) and (max-width: 414px) {
+    html{
+        font-size: calc(100vw/4.14);
+    }
+}
+@media screen and (min-width: 415px) {
+    html{
+        font-size: 100px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

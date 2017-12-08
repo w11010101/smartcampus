@@ -4,15 +4,9 @@
     clear: both;
     font-size: 0;
 }
-.proportion-box{
-    /*font-size: 0;
-    width:80%;
-    margin:.1rem auto 0;*/
-}
 .proportion-part{
     display: inline-block;
     font-size: .16rem;
-    /*min-width: .5rem;*/
     position: relative;
     transition: all .5s ease-in;
     -webkit-transition: all .5s ease-in;
@@ -23,7 +17,7 @@
     min-width: 1px;
     vertical-align: top;
     border-radius:.02rem;
-    margin: .05rem 0;
+    margin: .25rem 0 0 0 ;
     transition: all .5s ease-in;
     -webkit-transition: all .5s ease-in;
 }
@@ -31,6 +25,7 @@
     position:absolute;
     top:0;
     left: 50%;
+    color:#fff;
 }
 .bars-value {
     left:-50%;
@@ -38,12 +33,20 @@
     font-size:.15rem;
 }
 .proportion-part-left{
-    /*width: 16%;*/
     float:left;
-    /*background: #FF6A6A;*/
 }
-.proportion-part label{
+.proportion-part > label{
     display: block;
+    min-width: .14rem;
+    position: absolute;
+    top:0;
+    
+}
+.proportion-part-left label{
+    left:0;
+}
+.proportion-part-right label{
+    right: 0;
 }
 .proportion-part-left label,.proportion-part-left .bars-value{
     color:#73d2fe;
@@ -51,12 +54,9 @@
 .proportion-part-left .proportion-bars{
     background: #73d2fe;
     display: inline-block;
-    margin-left: -0.04rem;
 }
 .proportion-part-right {
-    /*width: 86%;*/
     float:right;
-    /*background: #9370DB;*/
     text-align: right;
 }
 .proportion-part-right label,.proportion-part-right .bars-value{
@@ -65,7 +65,7 @@
 .proportion-part-right .proportion-bars{
     background: #ff5408;
     display: inline-block;
-    margin-right: -0.04rem;
+    /*margin-right: -0.04rem;*/
 }
 .proportion-info-container{
     color:#8d8d8d;

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+  <title>图书馆家</title>
+ 
+  <!-- Bootstrap -->
+
+  <link href="../../content/style/frame/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../../content/style/common/css/common.css" rel="stylesheet">
+  <link href="../../content/style/frame/mui/css/mui.min.css" rel="stylesheet">
+  <link href="../../content/style/frame/mui/css/mui.picker.min.css" rel="stylesheet">
+  <link href="../../content/style/frame/iscroll4/css/pullToRefresh.css" rel="stylesheet">
+  <link href="../../content/style/white/tushuguanjia/css/style.css" rel="stylesheet">
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]> param.month = getOtherDate(getM);
+      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<!-- smart-QA 标示，暂时没有用到 -->
+<body class="smart-newBook"> 
+  <div class="smart-content">
+    <!-- banner -->
+    <div class="smart-banner"><img src="../../content/style/white/tushuguanjia/images/banner.png"></div>
+    <!-- 筛选 -->
+    <div class="smart-screen smart-top">
+      <div class="row smart-column-list">
+        <div class="col-xs-4" id="picker1" setType="lang">全部</div>
+        <div class="col-xs-4" id="picker2" setType="date">上架一周</div>
+        <div class="col-xs-4" id="picker3" setType="time">上架日期</div>
+        <!-- <div class="col-xs-3" id="picker4"><button>排序</button></div> -->
+      </div>
+    </div>
+    <!-- 加载 -->
+    <div class="smart-iScroll-container">
+      <h2>有1000本新书向你飞来~</h2>
+      <!-- 列表 -->
+      <div id="wrapper">
+        <ul class="smart-list smart-list-space">
+          <li class="smart-list-item">
+            <h3>时光隧道</h3>
+            <h4>史蒂芬 ● 霍金</h4>
+            <p><em>出版社</em>电子科技大学出版社/16第二次版本</p>
+            <span><em>上架时间</em>2017/09/05</span>
+          </li>
+          <li class="smart-list-item">
+            <h3>时光隧道</h3>
+            <h4>史蒂芬 ● 霍金</h4>
+            <p><em>出版社</em>电子科技大学出版社/16第二次版本</p>
+            <span><em>上架时间</em>2017/09/05</span>
+          </li>
+          <li class="smart-list-item">
+            <h3>明朝那些事儿</h3>
+            <h4>当年明月</h4>
+            <p><em>出版社</em>电子科技大学出版社/16第二次版本</p>
+            <span><em>上架时间</em>2017/09/05</span>
+          </li>
+          <li class="smart-list-item">
+            <h3>明朝那些事儿</h3>
+            <h4>当年明月</h4>
+            <p><em>出版社</em>电子科技大学出版社/16第二次版本</p>
+            <span><em>上架时间</em>2017/09/05</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!-- 无数据 -->
+    <div class="smart-list-nothing">
+      <p>无更多数据...<button onclick="$('.smart-list-nothing').hide(0);">重新获取</button></a></p>
+    </div>
+  </div>
+</body>
+<script src="../../content/style/frame/jquery/jquery-3.2.1.min.js"></script>
+<script src="../../content/style/frame/bootstrap/js/bootstrap.min.js"></script>
+
+<script src="../../content/style/frame/mui/js/mui.min.js"></script>
+<script src="../../content/style/frame/mui/js/mui.picker.min.js"></script> 
+<script src="../../content/style/frame/iscroll4/js/iscroll.js"></script>
+<script src="../../content/style/frame/iscroll4/js/pullToRefresh.js"></script>
+<script src="../../content/style/white/tushuguanjia/js/new-book.js"></script>
+
+</html>

@@ -13,10 +13,8 @@
 
   <link href="../../../content/style/frame/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="../../../content/style/common/css/xiaoyuanka/common.css" rel="stylesheet">
-
   <link href="../../../content/style/frame/mui/css/mui.min.css" rel="stylesheet">
   <link href="../../../content/style/frame/mui/css/mui.picker.min.css" rel="stylesheet">
-  
   <link href="../../../content/style/frame/iscroll4/css/pullToRefresh.css" rel="stylesheet">
   <link href="../../../content/style/white/shanghuchaxun/css/shanghuchaxun.css" rel="stylesheet">
   
@@ -42,12 +40,13 @@
     
     <!-- 筛选 -->
     <div class="smart-screen smart-top">
-      <h1 class="smart-query-title">00112233--一餐厅1楼1-16窗口</h1>
+      <h1 class="smart-query-title">00112233--一餐厅1楼1-16窗口16窗口16窗口16窗口</h1>
       <div class="row smart-column-list">
         <div class="col-xs-4" id="picker1">今日统计</div>
         <div class="col-xs-4" id="picker2">全部POS</div>
         <div class="col-xs-4" id="picker3">全部时段</div>
       </div>
+      <button class="toggle">分析</button>
       <!-- 筛选内容 -->
       <div class="row smart-screen-list set-popup">
       </div>
@@ -59,9 +58,9 @@
       <p set-time="end" onclick="selectTime(this);">结束时间</p>
     </div>
     <!-- 按钮 -->
-    <div class="smart-query-statistics smart-top">
+    <!-- <div class="smart-query-statistics smart-top">
       <button onclick="window.location.href ='../tongji/tongji.html'">统计分析</button>
-    </div>
+    </div> -->
     <!-- summarize -->
     <div class="smart-query-summarize smart-border smart-top">
       <p class="timeInterval">2017.09.08</p>
@@ -128,6 +127,7 @@
 // 显示无数据 并点击“重新获取” 操作
   $(".smart-list-nothing").show(0);
   $(".smart-list-nothing button").on("click",function(){
+    console.log(0)
     $(this).parent().hide(0,function (){
       getAjaxList ({
         url:"http://localhost:3000/", 

@@ -81,14 +81,14 @@
     <!-- 管理员回复排行 -->
     <div class="smart-Echarts-container">
       <div class="Echarts-line"></div>
-      <ul>
-        <li>1</li>
-        <li>2</li>
-        <li>3</li>
-        <li>4</li>
-        <li>5</li>
-        <li>6</li>
-      </ul>    
+     <!--  <ul>
+        <li><em>1</em></li>
+        <li><em>2</em></li>
+        <li><em>3</em></li>
+        <li><em>4</em></li>
+        <li><em>5</em></li>
+        <li><em>6</em></li>
+      </ul>    --> 
     </div>
     
   </div>
@@ -98,30 +98,33 @@
 
 <script src="../../content/style/frame/iscroll/iscroll-probe.js"></script>
 <script src="../../content/style/frame/echarts/echarts.min.js"></script>
-<script src="../../content/style/white/wendaguanli/js/wenda.js"></script>
+<script src="../../content/style/white/wendaguanli/js/answer-statis.js"></script>
 <script src="../../content/style/white/wendaguanli/js/proportion.js"></script>
 <script type="text/javascript">
+  //  横向滚动
   scrollPorbe();
+  //  对比1
   var obj = document.querySelector(".proportion-box");
-  // console.log(proportion.run(obj))
   var prop = new Proportion(obj,{
-    data:[500000,90000],
+    data:[5000,2000],
     viewRate:"40%",     // 查看率
     answerRate:"78%",   // 回答率
     answerTime:"130天",   // 回答时间
   });
-
+  //  对比2
   var obj_2 = document.querySelector(".proportion-box-2");
-  
   var prop_2 = new Proportion(obj_2,{
-    data:[99990,99000],   // 对比的值
-    viewRate:"40%",       // 查看率
-    answerRate:"78%",     // 回答率
+    data:[5000,9],   // 对比的值
+    viewRate:"55%",       // 查看率
+    answerRate:"90%",     // 回答率
     answerTime:"130天",   // 回答时间
   });
-
+  //  加载图表
+  runEcharts({
+    data:[1, 5, 52, 10, 100],
+    value:["a|李白|200920020","b|杜甫|200920020","c|白居易啊|200920020","d|王安石啊|200920020","e|辛弃疾|200920020"]
+  })
   
-  var myChart = echarts.init(document.querySelector(".Echarts-line"));
-  myChart.setOption(option);
+  
 </script>
 </html>
