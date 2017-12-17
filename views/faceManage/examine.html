@@ -13,7 +13,8 @@
     <link href="../../content/style/common/css/common.css" rel="stylesheet">
     <link href="../../content/style/frame/iscroll4/css/pullToRefresh.css" rel="stylesheet">
     <link href="../../content/style/white/faceManage/css/faceManage-common.css" rel="stylesheet">
-    <link href="../../content/style/white/faceManage/css/examine.css" rel="stylesheet">
+    <link href="../../content/style/frame/baguetteBox/css/baguetteBox.min.css" rel="stylesheet">
+    <link href="../../content/style/white/faceManage/css/faceManage-examine.css" rel="stylesheet">
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]> param.month = getOtherDate(getM);
@@ -30,13 +31,15 @@
             <p>海运学院 航海专业 本科</p>
         </div>
         <!-- 照片对比 部分 -->
-        <div class="examine-contrast">
+        <div class="examine-contrast baguetteBox">
           <!-- 照片对比 -->
           <div class="examine-imgs">
             <!-- 已使用的图 -->
             <div class="using">
               <div class="img-box">
-                <img src="../../content/style/white/faceManage/images/person-1.jpg" alt="">
+                <a href="../../content/style/white/faceManage/images/person-1.jpg">
+                  <img src="../../content/style/white/faceManage/images/person-1.jpg" alt="">
+                </a>
               </div>
               <div>
                 <span>使用中</span>
@@ -47,7 +50,9 @@
             <!-- 要审核图 -->
             <div class="contrast-img">
               <div class="img-box">
-                <img src="../../content/style/white/faceManage/images/person-12.jpg" alt="">
+                <a href="../../content/style/white/faceManage/images/person-2.jpg">
+                  <img src="../../content/style/white/faceManage/images/person-2.jpg" alt="">
+                </a>
               </div>
               <div>
                 <button>审核通过</button>
@@ -83,12 +88,16 @@
         <div class="smart-screen-mask"></div>
         <!-- 输入框 -->
         <div class="input-box">
-          <input type="text" name="" placeholder="请简要说明审核不通过的原因（不超过50个字）">
+          <input type="text" name="" autofocus="autofocus" placeholder="请简要说明审核不通过的原因（不超过50个字）">
         </div>
     </div>
 </body>
 <script src="../../content/style/frame/jquery/jquery-3.2.1.min.js"></script>
+<script src="../../content/style/frame/baguetteBox/js/baguetteBox.min.js"></script>
+<script src="../../content/style/white/faceManage/js/faceManage-examine.js"></script>
 <script type="text/javascript">
+  baguetteBox.run('.baguetteBox'); // html加载完在执行
+  console.log(baguetteBox)
 </script>
 
 </html>

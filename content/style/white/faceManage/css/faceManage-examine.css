@@ -161,17 +161,20 @@ html,.examine{
   width: 100%;
   bottom: 0;
   z-index: 3;
+  display: none
 }
 .input-box input{
   width: 100%;
   border:none;
   padding: .2rem;
-
 }
-
-
-
-
+#baguetteBox-overlay .full-image img{
+  width: 2.8rem;
+}
+.smart-content.input-show .input-box,
+.smart-content.input-show .smart-screen-mask{
+  display: block;
+}
 
 
 
