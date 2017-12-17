@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>人脸认证-管理端</title>
+    <!-- Bootstrap -->
+    <link href="../../content/style/frame/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../content/style/common/css/common.css" rel="stylesheet">
+    <link href="../../content/style/common/css/proportion.css" rel="stylesheet">
+    <link href="../../content/style/frame/iscroll4/css/pullToRefresh.css" rel="stylesheet">
+    <link href="../../content/style/white/faceManage/css/faceManage-common.css" rel="stylesheet">
+    <link href="../../content/style/white/faceManage/css/faceManage.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]> param.month = getOtherDate(getM);
+      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body class="">
+    <div class="smart-content">
+        <!--  -->
+        <div class="smart-proportion-box">
+            <div class="smart-proportion-sum clearfix">
+                <span>已完成认证（<em>13245</em>）例</span>
+                <span>系统当前对比数：<em>80.00</em></span>
+            </div>
+            <!-- <div class="proportion"></div> -->
+        </div>
+        <!-- 列表部分 -->
+        <div class="smart-list-part">
+            <h2>待审核认证<em>34例</em></h2>
+            <div class="select-btns">
+                <button class="sort-btn active">对比度高<em></em>低</button>
+                <button class="radio-btn active">教职工</button>
+                <button class="radio-btn">学生</button>
+                <button class="radio-btn">其他</button>
+            </div>
+            <!-- iscroll container -->
+            <div id="wrapper">
+              <ul class="smart-list smart-list-continue smart-list-space smart-list-title-icon">
+                  <li class="smart-list-item">
+                    <a href="">
+                      <label class="">
+                        <img src="../../content/style//white/faceManage/images/head.png" alt="">
+                      </label>
+                      <div class="smart-list-line-2">
+                        <h3><em>李小萌</em> <span>2017/12/12</span></h3>
+                        <p><em>航海学院轮机专业航海学院轮机专业</em><span>对比数：80.00</span></p>
+                      </div>
+                    </a>
+                  </li>
+                  <li class="smart-list-item">
+                    <a href="">
+                      <label class="">
+                        <img src="../../content/style/white/faceManage/images/head.png" alt="">
+                      </label>
+                      <div class="smart-list-line-2">
+                        <h3><em>罗杰</em> <span>2017/12/12</span></h3>
+                        <p><em>航海学院放置大宝藏专业</em><span>对比数：80.00</span></p>
+                      </div>
+                    </a>
+                  </li>
+                  <li class="smart-list-item">
+                    <a href="">
+                      <label class="">
+                        <img src="../../content/style/white/faceManage/images/head.png" alt="">
+                      </label>
+                      <div class="smart-list-line-2">
+                        <h3><em>路飞</em> <span>2017/12/12</span></h3>
+                        <p><em>航海学院寻找大宝藏专业</em><span>对比数：80.00</span></p>
+                      </div>
+                    </a>
+                  </li>
+              </ul>
+            </div>
+            <!-- list nothing -->
+            <div class="smart-list-nothing">
+              <img src="../../content/style/common/images/list-nothing.png">
+              <p>无更多数据...<button>重新获取</button></p>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="../../content/style/frame/jquery/jquery-3.2.1.min.js"></script>
+<script src="../../content/style/common/js/proportion.js"></script>
+<script src="../../content/style/frame/iscroll4/js/iscroll.js"></script>
+<script src="../../content/style/frame/iscroll4/js/pullToRefresh.js"></script>
+<script type="text/javascript">
+//  对比1
+// var obj = document.querySelector(".proportion");
+// var options = {
+//     data: [2950, 100],
+//     dataAlign: "inter",
+//     dataTitle: [`自动审核(50)`, '人工审核(2000)'], // 数据对应标签
+//     // dataTitle:[`Q12312`,'a'],  // 数据对应标签
+//     dataStyle: {
+//         color: '#a8a8a8',
+//         fontSize: ".12rem",
+//     },
+//     dataProportion: true,
+//     otherSeries: {
+//         type: "href",
+//         value: ["统计", "流水"],
+//         href: ["", ""],
+//     },
+// }
+// var prop = new Proportion(obj, options);
+// 上下拉加载
+
+var scrollState = true;
+/**
+ * [iscroll4.js 上下拉加载]
+ * @param  {String}   id             [滑动dom的id]
+ * @param  {Function} pullUpAction   [下拉]
+ * @param  {Function} pullUpAction   [上拉]
+ * @return {Objext}   scrollObj      [返回实例对象]
+ */
+var scrollObj = refresher.init({
+        id:"wrapper",
+        pullDownAction: function() {
+            scrollObj.refresh();
+        },
+        pullUpAction: function() {
+            if (scrollState) {
+                scrollState = false;
+                setTimeout(function() {
+                    console.log("加载...");
+                    // ajaxList({
+                    //     wrapper:_this,
+                    //     pages:++pages,
+                    //     scroll:scrollObj[i],
+                    // });
+                    scrollObj.refresh();
+                    scrollState = true;
+                }, 2000);
+            }
+        },
+        preventDefault: false
+    });
+
+
+</script>
+
+</html>

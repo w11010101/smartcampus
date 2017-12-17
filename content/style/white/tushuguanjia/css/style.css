@@ -123,13 +123,18 @@ html *{
   padding-left: .3rem;
 }
 .smart-list .smart-list-item h3{
-  font-size: .17rem;
   line-height: .25rem;
-  color:#3c3c3c;
   height:.25rem;
 }
 .smart-bookList .smart-list .smart-list-item h3{
   padding-left: .05rem;
+}
+.smart-bookList .smart-list .smart-list-item h3 p{
+  font-size: .17rem;
+  color:#3c3c3c;
+  padding-right: .5rem;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 .smart-list .smart-list-item h4{
   font-size: .15rem;
@@ -223,14 +228,16 @@ html *{
   display: inline-block;
   width: .2rem;
   height: .2rem;
-  float:right;
+  position: absolute;
+  top:.15rem;
+  right: .2rem;
   background: #e0e0e0;
   color:#fff;
   font-size: .16rem;
   text-align: center;
   line-height: .2rem;
   border-radius:.03rem;
-  margin-top: .04rem;
+  /*margin-top: .04rem;*/
 }
 .list-num-1{
   background:#ec4458;

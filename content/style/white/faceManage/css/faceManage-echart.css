@@ -1,0 +1,106 @@
+.smart-proportion-box{
+  height: 1.1rem;
+  background: #fff;
+  padding: .2rem;
+}
+.smart-proportion-sum{
+  position: relative;
+}
+.smart-proportion-sum span{
+  font-size: .14rem;
+  color:#3c3c3c;
+}
+.smart-proportion-sum span:first-child{
+  float:left;
+}
+.smart-proportion-sum span:last-child{
+  float:right;
+}
+.smart-proportion-btns{
+  padding:.2rem 0;
+  text-align: center;
+}
+.smart-proportion-btns button{
+  width: .7rem;
+  height: .3rem;
+  font-size: .14rem;
+  border:1px solid #73d2fe;
+  background: #fff;
+  border-radius: 5px;
+  color:#73d2fe;
+  transition: all .1s ease-in;
+  -webkit-transition: all .1s ease-in;
+}
+.smart-proportion-btns button:active{
+  background: #73d2fe;
+  color:#fff;
+}
+.smart-proportion-btns button:first-child{
+  margin-right: .4rem;
+}
+/* 图表部分 */
+.chart-box{
+  position: absolute;
+  width: 100%;
+  top:1.1rem;
+  bottom: 0;
+  background: #fff;
+  border-top:0.5px solid #e0e0e0;
+  padding: .2rem;
+}
+.chart-box >div{
+  height: 50%;
+}
+.chart-box >div label{
+  color:#fff;
+  height: .2rem;
+  line-height: .2rem;
+  font-weight: normal;
+  font-size: .12rem;
+  background: #73d2fe;
+  padding: 0 .1rem;
+}
+.chart-box >div .contrast{
+    font-size: 0
+}
+.chart-box >div .contrast span{
+    font-size: .14rem;
+    display: inline-block;
+    width: 50%;
+    color:#01e699;
+    margin-top:.12rem; 
+}
+.chart-box >div .contrast span:last-child{
+  text-align: right;
+  color:#ff5408;
+}
+#auto-Echart,#artificial-Echart{
+  height:calc(100% - .7rem);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

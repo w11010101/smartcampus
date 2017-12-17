@@ -3,6 +3,175 @@ var stateObj = {};
 var n = 0;
 var pages = 1;
 var settime;
+// ****************** 以下为假的数据 可以删除  ************************ 
+// 状态
+var stateObj = {
+    "data":[
+        {
+            "Name": "Default",
+            "Desc": "全部分类",
+            "Val": 0
+        },
+        {
+            "Name": "Waite",
+            "Desc": "未回答",
+            "Val": 1
+        },
+        {
+            "Name": "Done",
+            "Desc": "已回答",
+            "Val": 2
+        }
+    ]
+}
+// 其他
+var classOther = {
+    "data": [{
+            "id": "598a74e93caa2a1c7c000eb8",
+            "name": "所有分类",
+            "state": 0,
+            "images": [""],
+            "type": 0
+        }, {
+            "id": "598a74e93caa2a1c7c000eba",
+            "name": "功能意见",
+            "state": 0,
+            "images": [""],
+            "type": 0
+        }, {
+            "id": "598a74e93caa2a1c7c000ebc",
+            "name": "应用问题",
+            "state": 0,
+            "images": null,
+            "type": 0
+        }]
+}
+// 所有
+var classAll = {
+    "data": [{
+            "id": "598a74e93caa2a1c7c000eb8",
+            "name": "学习类",
+            "state": 0,
+            "images": [""],
+            "type": 0
+        }, {
+            "id": "598a74e93caa2a1c7c000eba",
+            "name": "生活类",
+            "state": 0,
+            "images": [""],
+            "type": 0
+        }, {
+            "id": "598a74e93caa2a1c7c000ebc",
+            "name": "综合类",
+            "state": 0,
+            "images": null,
+            "type": 0
+        }, {
+            "id": "59ccaf1f72d61cd4b02171ca",
+            "name": "一卡通",
+            "state": 0,
+            "images": [""],
+            "type": 0
+        }]
+}
+// 类型
+var typeObj = {
+    "data": [
+    {
+        "Name": "Fairy",
+        "Desc": "校园精灵",
+        "Val": 0
+    },
+    {
+        "Name": "Feedback",
+        "Desc": "意见反馈",
+        "Val": 1
+    }]
+}
+// list
+var listObj = {
+    "data": [{
+            "id": "5a000096324ac62064d58d03",
+            "title":"更名为苹果公司，总部位于加利福尼亚州的库比蒂诺。\n苹果公司1980年12月12日",
+            "questionersno": "admin498",
+            "questionername": "巫行云",
+            "category": "学习类",
+            "answer": "标志性的测试",
+            "creattime": "/Date(1509949590000)/",
+            "positionx": null,
+            "positiony": null,
+            "businesscard": null,
+            "telnumber": null,
+            "answertime": "/Date(1511853813000)/",
+            "repliername": "小超超1 ",
+            "repliersno":"12312312312",
+            "isanswer":true
+        }, {
+            "id": "5a0a5846324ac237785e63da",
+            "title": "4年6月，苹果公司已经连续三年成为全球市值最大公司。苹果公司在2016年世界500强排行榜",
+            "questionersno": "admin498",
+            "questionername": "巫行云",
+            "category": "一卡通",
+            "answer": null,
+            "creattime": "/Date(1510627398000)/",
+            "positionx": null,
+            "positiony": null,
+            "businesscard": null,
+            "telnumber": null,
+            "answertime": "/Date(-62135596800000)/",
+            "repliername": "王五",
+            "repliersno":"12312312312",
+            "isanswer":false
+        }, {
+            "id": "59fffe6d324ac220642ffc6a",
+            "title": "这个APP炒鸡好玩这个APP炒鸡好玩这个APP炒鸡好玩",
+            "questionersno": "admin498",
+            "questionername": "巫行云",
+            "category": "综合类",
+            "answer": "车市车市",
+            "creattime": "/Date(1509949037000)/",
+            "positionx": null,
+            "positiony": null,
+            "businesscard": null,
+            "telnumber": null,
+            "answertime": "/Date(1510653343000)/",
+            "repliername": "小超超2 ",
+            "repliersno":"12312312312",
+            "isanswer":true
+        }, {
+            "id": "5a00028e324ac62064d58d08",
+            "title": "苹果公司（APPLE INC. ）是美国的一家高科技公司。由史蒂夫•乔布斯、斯蒂夫•沃兹尼亚克和罗•韦恩(RON WAYNE)等人于1976年4月1日创立，并命名为美国苹果电脑公司（APPLE COMPUTER INC. ），2007年1月9日更名为苹果公司，总部位于加利福尼亚州的库比蒂诺。\n苹果公司1980年12月12日公开招股上市，2012年创下6235亿美元的市值记录，截至2014年6月，苹果公司已经连续三年成为全球市值最大公司。苹果公司在2016年世界500强排行榜中排名第9名。[1]  2013",
+            "questionersno": "admin498",
+            "questionername": "巫行云",
+            "category": "生活类",
+            "answer": "苹果公司（APPLE INC. ）是美国的一家高科技公司。由史蒂夫•乔布斯、斯蒂夫•沃兹尼亚克和罗•韦恩(RON WAYNE)等人于1976年4月1日创立，并命名为美国苹果电脑公司（APPLE COMPUTER INC. ），2007年1月9日更名为苹果公司，总部位于加利福尼亚州的库比蒂诺。",
+            "creattime": "/Date(1509950094000)/",
+            "positionx": null,
+            "positiony": null,
+            "businesscard": null,
+            "telnumber": null,
+            "answertime": "/Date(1510551987000)/",
+            "repliername": "小超超  ",
+            "repliersno":"12312312312",
+            "isanswer":true
+        }, {
+            "id": "59fffddd324ac220642ffc69",
+            "title": "还行",
+            "questionersno": "admin498",
+            "questionername": "巫行云",
+            "category": "生活类",
+            "answer": "测试车市666666666666",
+            "creattime": "/Date(1509948893000)/",
+            "positionx": null,
+            "positiony": null,
+            "businesscard": null,
+            "telnumber": null,
+            "answertime": "/Date(1510711960000)/",
+            "repliername": "小超超    1 ",
+            "repliersno":"12312312312",
+            "isanswer":true
+        }]
+}
 
 // 向下展开筛选
 var screen_list = {
@@ -111,10 +280,12 @@ function pickerShow(obj, index, type) {
             //     console.log("不全都有");
             //     feedbackMGT.checkQuestionCategory(id);      // 在改变分类（class）的时候就会直接调用列表接口
             // }
+            
         } else {
             pages = 1;
-            feedbackMGT.qestions(1, pages, pagesize,"changeList");
+            
         }
+        feedbackMGT.qestions(1, pages, pagesize,"changeList");
     });
 }
 // picker组件隐藏
@@ -247,10 +418,8 @@ function successFn(data) {
                 // picker3的默认值
                 key = 1;
                 val = "所有类型";
-                
                 setDefualtArr(data[0].categorys,"class0");
                 setDefualtArr(data[1].categorys,"class1");
-                
             }
         }
         obj.attr("key",key);
@@ -265,39 +434,6 @@ function successFn(data) {
             };
         });
     }
-
-    // $.each(objs,function(i,e){
-    //     // console.log(e);;
-    //     for (var f of e){
-    //         console.log(f);
-    //         // var key = type != "class":data[type == "states"?"states":"types"][1].key:data["types"][1].categorys.key;
-    //     }
-    // })
-
-    // for (var f of data[type]) {
-    //     console.log(f);
-    //     // 设置默认值
-    //     var key = type != "class":data[type == "states"?"states":"types"][1].key:data["types"][1].categorys.key;
-    //     console.log("key = ", key);
-    //     // var value = type != "class": data[type == "states"?"states":"types"][1].value:data["types"][1].categorys.value;
-
-    //     // if (f.Name === "Waite" || f.Name === "Feedback" || f.name == "所有分类") {
-    //         // clickObj.text(value);
-    //         // clickObj.attr(key);
-    //     // }
-    // }
-
-    // var obj = $.map(type != "class"?data[type]:data[type].categorys, function(e, i) {
-    //     console.log(e);
-    //     return {
-    //         "text": e.val
-    //         "id":e.key
-    //     };
-    // })
-    // screen_list[type] = obj;
-    // // 绑定下拉选择的点击事件
-    // lists.off().on("click", onClick);
-    // return obj;
 }
 
 // 请求地址
@@ -328,40 +464,69 @@ mui.init();
 var feedbackMGT = {
     // list
     qestions: function(count, pageindex, pagesize,changeList) {
-        var data = {
-            'categoryid': $("#picker3").attr('setid') == "1" ? " " : $("#picker3").attr('setid'),
-            'pageindex': pageindex,
-            'pagesize': pagesize,
-            'questionstate': $("#picker1").attr('setid'),
-            'type': $("#picker2").attr('setid')
-        }
+        // var data = {
+        //     'categoryid': $("#picker3").attr('setid') == "1" ? " " : $("#picker3").attr('setid'),
+        //     'pageindex': pageindex,
+        //     'pagesize': pagesize,
+        //     'questionstate': $("#picker1").attr('setid'),
+        //     'type': $("#picker2").attr('setid')
+        // }
+        scrollState = true;
+        console.log(listObj.data);
+        // getHtml = myMap(data.data);
+        getHtml = myMap(listObj.data);
         
-        ajaxList({
-            url:"http://localhost:3000/",
-            data:{
-                type:$("#picker2").attr('setid') == "1"?"list1":"list"
-            }
-        },function(data){
-            if (data.ret && data.data.length > 0) {
-                if(changeList){
-                    // 如果 changeList 存在并有值，说明是改变了下拉标签，就请空列表；
-                    // 修改筛选条件要清空列表
-                    $(".smart-QA-container").remove();
-                }
-                scrollState = true;
-                console.log(data.data);
-                getHtml = myMap(data.data);
-                var html = []
-                for (var i = 0; i < getHtml.length; i++) {
-                    html.push(getDom(getHtml[i], $("#picker2").attr("setid")));
-                }
-                $(".smart-iScroll-container ul").append(html.join(""));
-                $("body .classBtn").off().on("click", changeClassType);
-                wrapper.refresh();
-            }else {
-                wrapper.refresh();
-            }
-        });
+        var html = [];
+        for (var i = 0; i < getHtml.length; i++) {
+            html.push(getDom(getHtml[i], $("#picker2").attr("setid")));
+        }
+        $(".smart-iScroll-container ul").append(html.join(""));
+        $("body .classBtn").off().on("click", changeClassType);
+        wrapper.refresh();
+        // ajaxList({
+        //     url:"http://localhost:3000/",
+        //     data:{
+        //         type:$("#picker2").attr('setid') == "1"?"list1":"list"
+        //     }
+        // },function(data){
+        //     if (data.ret && data.data.length > 0) {
+        //         if(changeList){
+        //             // 如果 changeList 存在并有值，说明是改变了下拉标签，就请空列表；
+        //             // 修改筛选条件要清空列表
+        //             $(".smart-QA-container").remove();
+        //         }
+        //         scrollState = true;
+        //         console.log(data.data);
+        //         getHtml = myMap(data.data);
+        //         var html = []
+        //         for (var i = 0; i < getHtml.length; i++) {
+        //             html.push(getDom(getHtml[i], $("#picker2").attr("setid")));
+        //         }
+        //         $(".smart-iScroll-container ul").append(html.join(""));
+        //         $("body .classBtn").off().on("click", changeClassType);
+        //         wrapper.refresh();
+        //     }else {
+        //         wrapper.refresh();
+        //     }
+        // },function (argument) {
+
+        //     // if (data.ret && data.data.length > 0) {
+        //         // if(changeList){
+        //         //     // 如果 changeList 存在并有值，说明是改变了下拉标签，就请空列表；
+        //         //     // 修改筛选条件要清空列表
+        //         //     $(".smart-QA-container").remove();
+        //         // }
+        //         scrollState = true;
+        //         console.log(data.data);
+        //         getHtml = myMap(data.data);
+        //         var html = []
+        //         for (var i = 0; i < getHtml.length; i++) {
+        //             html.push(getDom(getHtml[i], $("#picker2").attr("setid")));
+        //         }
+        //         $(".smart-iScroll-container ul").append(html.join(""));
+        //         $("body .classBtn").off().on("click", changeClassType);
+        //         wrapper.refresh();
+        // });
     },
     isAuthorization: function() {
         // $.post(urls.IsAuthorization, function(data) {

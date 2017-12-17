@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>人脸认证-管理端-审核</title>
+    <!-- Bootstrap -->
+    <link href="../../content/style/frame/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../content/style/common/css/common.css" rel="stylesheet">
+    <link href="../../content/style/frame/iscroll4/css/pullToRefresh.css" rel="stylesheet">
+    <link href="../../content/style/white/faceManage/css/faceManage-common.css" rel="stylesheet">
+    <link href="../../content/style/white/faceManage/css/examine.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]> param.month = getOtherDate(getM);
+      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body class="examine">
+    <div class="smart-content">
+        <!-- 信息 -->
+        <div class="info">
+            <h2>哥尔·D·罗杰(20145235652)</h2>
+            <p>海运学院 航海专业 本科</p>
+        </div>
+        <!-- 照片对比 部分 -->
+        <div class="examine-contrast">
+          <!-- 照片对比 -->
+          <div class="examine-imgs">
+            <!-- 已使用的图 -->
+            <div class="using">
+              <div class="img-box">
+                <img src="../../content/style/white/faceManage/images/person-1.jpg" alt="">
+              </div>
+              <div>
+                <span>使用中</span>
+              </div>
+            </div>
+            <!-- 对比数 -->
+            <span class="contrast-num"><em>80%</em>对比数</span>
+            <!-- 要审核图 -->
+            <div class="contrast-img">
+              <div class="img-box">
+                <img src="../../content/style/white/faceManage/images/person-12.jpg" alt="">
+              </div>
+              <div>
+                <button>审核通过</button>
+                <button>不通过</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- 认证结果 部分 -->
+        <div class="examine-result">
+          <ul>
+            <li>
+              <div>
+                <img src="../../content/style/white/faceManage/images/person-1.jpg" alt="">
+              </div>
+              <p>2017/10/14 12:12<span>李四(12541245211)人工审核结果不通过原因：“照片不符合规定”，通知用户刷脸认证服务失败</span></p>
+            </li>
+            <li>
+              <div>
+                <img src="../../content/style/white/faceManage/images/person-1.jpg" alt="">
+              </div>
+              <p>2017/10/13 12:12<span>自动审核通过</span></p>
+            </li>
+            <li>
+              <div>
+                <img src="../../content/style/white/faceManage/images/person-2.jpg" alt="">
+              </div>
+              <p>2017/09/09 12:12<span>在库照片</span></p>
+            </li>
+          </ul>
+        </div>
+        <!-- 遮罩层 -->
+        <div class="smart-screen-mask"></div>
+        <!-- 输入框 -->
+        <div class="input-box">
+          <input type="text" name="" placeholder="请简要说明审核不通过的原因（不超过50个字）">
+        </div>
+    </div>
+</body>
+<script src="../../content/style/frame/jquery/jquery-3.2.1.min.js"></script>
+<script type="text/javascript">
+</script>
+
+</html>

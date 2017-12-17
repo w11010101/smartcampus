@@ -1,0 +1,12 @@
+html .smart-default{
+
+}
+html .smart-default .smart-default-box,
+html .smart-default .smart-default-box *{
+  background:#f6f6f6; 
+  color:#f6f6f6!important;
+  border-color:#f6f6f6;
+}
+html .smart-default .smart-default-box>img{
+  display:none;
+}

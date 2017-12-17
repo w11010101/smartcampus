@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+  <title>人脸认证</title>
+
+  <!-- Bootstrap -->
+
+  <link href="../../content/style/frame/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../../content/style/frame/jquery/toast/css/jquery.toast.css" rel="stylesheet">
+  <link href="../../content/style/white/EnableFaceID/css/index.css" rel="stylesheet">
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]> param.month = getOtherDate(getM);
+      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body class=""> 
+  <div class="smart-content">
+    <!-- 照片选择部分 -->
+    <div class="selected">
+      <div class="top">
+        <div class="top-img">
+          <img src="../../content/style/white/EnableFaceID/images/icon-1.png">
+        </div>
+        <div class="top-tips">
+          <h2>温馨提示</h2>
+          <p>人脸认证需要上传您的人脸近照进行审核，请你摆好姿势拍照，或者从相册中选取照片。</p>
+        </div>
+      </div>
+      <div class="bottom">
+        <button class="cameraBtn"><img src="../../content/style/white/EnableFaceID/images/camera.png">拍照</button>
+        <button class="albumBtn"><img src="../../content/style/white/EnableFaceID/images/camcorder.png">相册</button>
+      </div>
+    </div>
+    <!-- 照片上传部分 -->
+    <!-- upload-transition -->
+    <div class="upload">
+      <!-- bg-1 -->
+      <div class="bg-1"></div>
+      <!-- bg-2 -->
+      <div class="bg-2"></div>
+      <!-- bg-3 -->
+      <div class="bg-3"></div>
+      <!--  -->
+      <div class="upload-box">
+        <div>
+          <img src="">
+
+        </div>
+      </div>
+      <p class="tips">您的人脸照片已提交，正在审核，请您耐心等待.</p>
+      <!--  -->
+      <div class="upload-btns change">
+        <button class="upload-btns-canel">取消</button>
+        <button class="upload-btns-sure">使用照片</button>
+        <button class="upload-btns-change">更改照片</button>
+      </div>
+    </div>
+    <!--  -->
+  </div>
+</body>
+<script src="../../content/style/frame/jquery/jquery-3.2.1.min.js"></script>
+<script src="../../content/style/frame/bootstrap/js/bootstrap.min.js"></script>
+<script src="../../content/style/frame/jquery/toast/js/jquery.toast.js"></script>
+<script src="../../content/style/white/EnableFaceID/js/index.js"></script>
+
+</html>

@@ -4,6 +4,7 @@ var tabsSwiper = new Swiper('.swiper-container', {
     onSlideChangeStart: function(event) {
         // 切换tab后触发事件
         // 设置tab切换后样式
+        
         let index = tabsSwiper.activeIndex;
         let thisWrapper = $("[id*='wrapper_page_']").eq(index);
         $(".tabs .active").removeClass('active');
@@ -21,28 +22,17 @@ var tabsSwiper = new Swiper('.swiper-container', {
     }
 })
 // tab点击切换事件
-$(".tabs a").on('touchstart mousedown', function(e) {
+$(".tabs a").on('click', function(e) {
     e.preventDefault()
     $(".tabs .active").removeClass('active');
     $(this).addClass('active');
     tabsSwiper.swipeTo($(this).index());
     scrollState = true;
-    let index = tabsSwiper.activeIndex;
-    let thisWrapper = $("[id*='wrapper_page_']").eq(index);
-    // 判断当前tab内的li 长度，如果没有，则加载；
-    if(thisWrapper.find("li").length <=0){
-        // 加载列表
-        ajaxList({
-            wrapper:thisWrapper,
-            pages:1,
-            scroll:scrollObj[index],
-            // index:$(this).index()
-        });
-    }   
+ 
 })
-$(".tabs a").click(function(e) {
-    e.preventDefault()
-})
+// $(".tabs a").click(function(e) {
+//     e.preventDefault()
+// })
 // ****************************** scroll start ******************************
 // scroll 事件
 var scrollObj = [];
@@ -64,7 +54,7 @@ $.each($('[id*="wrapper_page_"]'), function(i, e) {
             if (scrollState) {
                 var pages = parseInt(_this.attr("pages"));
                 scrollState = false;
-                
+                console.log($(".tabs a").eq(i).attr("tabname"));
                 setTimeout(function() {
                     console.log("加载...");
                     ajaxList({
@@ -102,7 +92,7 @@ function ajaxList(option) {
 // 所要加载的列表内容
 function html(num) {
     return `<li class="smart-list-item">
-                <h3>时光隧道<em class="list-num ${num>3?'':'list-num-'+num}">${num}</em></h3>
+                <h3><p>时光隧道</p><em class="list-num ${num>3?'':'list-num-'+num}">${num}</em></h3>
                 <h4>史蒂芬 ● 霍金<i>借阅次数：100次</i></h4>
             </li>`;
 }

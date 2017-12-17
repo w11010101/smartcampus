@@ -32,26 +32,29 @@ html *{
     padding: .1rem .2rem;
     font-size: 0;
 }
-.smart-user-info >img{
+.smart-user-info-img{
     display: inline-block;
-    width: .8rem;
-    height: .76rem;
+    width: .7rem;
+    height: .7rem;
+
     vertical-align: middle;
-    padding: .05rem;
 }
-.smart-user-info >div{
+.smart-user-info-img img{
+    width: 100%;
+}
+.smart-user-info .smart-user-info-name{
     display: inline-block;
-    width: calc( 100vw - 1.2rem);
+    width: calc( 100vw - 1.35rem);
     vertical-align: middle;
-    padding-left: .15rem;
+    margin-left: .15rem;
 }
-.smart-user-info >div h1{
+.smart-user-info .smart-user-info-name h1{
     color:#3c3c3c;
     font-size: .15rem;
     margin-bottom:.07rem
     /*line-height: .25rem;*/
 }
-.smart-user-info >div p{
+.smart-user-info .smart-user-info-name p{
     font-size: .13rem;
     color:#a8a8a8;
     line-height: .2rem;
@@ -81,6 +84,7 @@ html *{
 }
 .smart-probe >h2 em{
     color:#45d6c5;
+    height: 100%;
     padding-left: .1rem;
 }
 .smart-probe .more{
@@ -277,10 +281,10 @@ html *{
     padding: .2rem;
 
 }
-.ranking-list h2{
-    /*margin-bottom: .18rem;*/
+.ranking-list .ranking-list-title{
+    height: .86rem;
 }
-.ranking-list h2 img{
+.ranking-list .ranking-list-title img{
     width: 100%;
 }
 .ranking-list-bg-week{

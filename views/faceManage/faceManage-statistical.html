@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>人脸认证-管理端-统计</title>
+    <!-- Bootstrap -->
+    <link href="../../content/style/frame/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../content/style/common/css/common.css" rel="stylesheet">
+    <link href="../../content/style/frame/iscroll4/css/pullToRefresh.css" rel="stylesheet">
+    <link href="../../content/style/white/faceManage/css/faceManage-common.css" rel="stylesheet">
+    <link href="../../content/style/white/faceManage/css/statistical.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]> param.month = getOtherDate(getM);
+      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body class="statistical">
+    <div class="smart-content">
+        <!-- 列表部分 -->
+        <div class="search-box">
+            <button class="auto-btn active">自动</button>
+            <input type="text" name="" value="" placeholder="输入学工号/姓名">
+            <button class="search-btn">搜索</button>
+        </div>
+        <!-- tabel -->
+        <table>
+            <tr>
+                <td type="name">姓名(学号)</td>
+                <td type="time">申请时间</td>
+                <td type="contrast">对比数</td>
+                <td type="result">审核结果</td>
+            </tr>
+        </table>
+        <!-- iscroll container -->
+        <div id="wrapper">
+            <ul class="smart-list smart-list-space">
+                <li class="smart-list-item">
+                    <div class="name">
+                        <h3>李小萌</h3>
+                        <span>201711010101</span>
+                    </div>
+                    <span class="time">2017/12/12</span>
+                    <span class="contrast">99.00</span>
+                    <span class="result">通过</span>
+                </li>
+                <li class="smart-list-item">
+                    <div class="name">
+                        <h3>罗杰</h3>
+                        <span>201711010101</span>
+                    </div>
+                    <span class="time">2017/12/12</span>
+                    <span class="contrast">99.00</span>
+                    <span class="result">通过</span>
+                </li>
+                <li class="smart-list-item">
+                    <div class="name">
+                        <h3>路飞</h3>
+                        <span>201711010101</span>
+                    </div>
+                    <span class="time">2017/12/12</span>
+                    <span class="contrast">99.00</span>
+                    <span class="result">通过</span>
+                </li>
+            </ul>
+        </div>
+        <!-- list nothing -->
+        <div class="smart-list-nothing">
+            <img src="../../content/style/common/images/list-nothing.png">
+            <p>无更多数据...
+                <button>重新获取</button>
+            </p>
+        </div>
+        <!-- list nothing -->
+        <div class="smart-list-nothing">
+            <img src="../../content/style/common/images/list-nothing.png">
+            <p>无更多数据...
+                <button>重新获取</button>
+            </p>
+        </div>
+    </div>
+</body>
+<script src="../../content/style/frame/jquery/jquery-3.2.1.min.js"></script>
+<script src="../../content/style/frame/iscroll4/js/iscroll.js"></script>
+<script src="../../content/style/frame/iscroll4/js/pullToRefresh.js"></script>
+<script type="text/javascript">
+// 上下拉加载
+var scrollState = true;
+/**
+ * [iscroll4.js 上下拉加载]
+ * @param  {String}   id             [滑动dom的id]
+ * @param  {Function} pullUpAction   [下拉]
+ * @param  {Function} pullUpAction   [上拉]
+ * @return {Objext}   scrollObj      [返回实例对象]
+ */
+var scrollObj = refresher.init({
+    id: "wrapper",
+    pullDownAction: function() {
+        scrollObj.refresh();
+    },
+    pullUpAction: function() {
+        if (scrollState) {
+            scrollState = false;
+            setTimeout(function() {
+                console.log("加载...");
+                // ajaxList({
+                //     wrapper:_this,
+                //     pages:++pages,
+                //     scroll:scrollObj[i],
+                // });
+                scrollObj.refresh();
+                scrollState = true;
+            }, 2000);
+        }
+    },
+    // preventDefault: false
+});
+</script>
+
+</html>
