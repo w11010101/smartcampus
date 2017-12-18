@@ -12,7 +12,7 @@ $(function() {
         // 指定图表的配置项和数据
         var option = {
             grid: {
-                left: -20,
+                left: -30,
                 right: '4%',
                 bottom: '3%',
                 containLabel: true
@@ -30,7 +30,9 @@ $(function() {
             yAxis: {
                 show: false,
                 type: 'value',
-
+                max: function(value) {
+                    return value.max;
+                }
             },
             barWidth: 20,
             series: [{

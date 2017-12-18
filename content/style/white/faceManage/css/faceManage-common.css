@@ -10,6 +10,8 @@ html *{
 }
 button{
   outline-style: none;
+  transition: all .1s ease-in;
+  -webkit-transition: all .1s ease-in;
 }
 body{
   background: #efefef;

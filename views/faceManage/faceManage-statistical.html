@@ -13,7 +13,7 @@
     <link href="../../content/style/common/css/common.css" rel="stylesheet">
     <link href="../../content/style/frame/iscroll4/css/pullToRefresh.css" rel="stylesheet">
     <link href="../../content/style/white/faceManage/css/faceManage-common.css" rel="stylesheet">
-    <link href="../../content/style/white/faceManage/css/statistical.css" rel="stylesheet">
+    <link href="../../content/style/white/faceManage/css/facManage-statistical.css" rel="stylesheet">
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]> param.month = getOtherDate(getM);
@@ -26,7 +26,7 @@
     <div class="smart-content">
         <!-- 列表部分 -->
         <div class="search-box">
-            <button class="auto-btn active">自动</button>
+            <button class="change-btn active">自动</button>
             <input type="text" name="" value="" placeholder="输入学工号/姓名">
             <button class="search-btn">搜索</button>
         </div>
@@ -90,38 +90,10 @@
 <script src="../../content/style/frame/jquery/jquery-3.2.1.min.js"></script>
 <script src="../../content/style/frame/iscroll4/js/iscroll.js"></script>
 <script src="../../content/style/frame/iscroll4/js/pullToRefresh.js"></script>
+<script src="../../content/style/white/faceManage/js/faceManage-statistical.js"></script>
+<script src="../../content/style/white/faceManage/js/faceManage-common.js"></script>
 <script type="text/javascript">
-// 上下拉加载
-var scrollState = true;
-/**
- * [iscroll4.js 上下拉加载]
- * @param  {String}   id             [滑动dom的id]
- * @param  {Function} pullUpAction   [下拉]
- * @param  {Function} pullUpAction   [上拉]
- * @return {Objext}   scrollObj      [返回实例对象]
- */
-var scrollObj = refresher.init({
-    id: "wrapper",
-    pullDownAction: function() {
-        scrollObj.refresh();
-    },
-    pullUpAction: function() {
-        if (scrollState) {
-            scrollState = false;
-            setTimeout(function() {
-                console.log("加载...");
-                // ajaxList({
-                //     wrapper:_this,
-                //     pages:++pages,
-                //     scroll:scrollObj[i],
-                // });
-                scrollObj.refresh();
-                scrollState = true;
-            }, 2000);
-        }
-    },
-    // preventDefault: false
-});
+
 </script>
 
 </html>

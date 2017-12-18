@@ -50,6 +50,7 @@
 }
 .chart-box >div{
   height: 50%;
+  padding-bottom: .2rem;
 }
 .chart-box >div label{
   color:#fff;

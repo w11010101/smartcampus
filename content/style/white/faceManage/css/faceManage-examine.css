@@ -29,7 +29,7 @@ html,.examine{
   font-size: 0;
   border:1px solid #e0e0e0;
   border-radius:5px;
-  padding: .28rem .44rem 0 .44rem;
+  padding: .28rem .2rem 0 .2rem;
   height: 2.1rem;
   position: relative;
 }
@@ -43,7 +43,7 @@ html,.examine{
   left:calc(20% - .1rem);
   padding: 0 .1rem;
 }
-.using,.contrast-num,.contrast-img{
+.using-img,.contrast-num,.contrast-img{
   display: inline-block;
   width: 40%;
   height: 100%;
@@ -61,10 +61,10 @@ html,.examine{
   color:#ff5408;
   margin-top: calc(1.2rem / 2 - .14rem);
 }
-.using,.contrast-img{
+.using-img,.contrast-img{
   overflow:hidden;
 }
-.using .img-box,
+.using-img .img-box,
 .contrast-img .img-box{
   height: 1.2rem;
   overflow: hidden;
@@ -72,17 +72,17 @@ html,.examine{
   background: url(../images/default.png) no-repeat center;
   background-size: contain;
 }
-.using img,.contrast-img img{
+.using-img img,.contrast-img img{
   height:100%;
 }
-.using div:last-child,.contrast-img div:last-child{
+.using-img div:last-child,.contrast-img div:last-child{
   height: .2rem;
   line-height: .2rem;
   text-align: center;
   margin-top: .12rem;
   font-size: .12rem;
 }
-.using div span{
+.using-img div span{
   display: inline-block;
   width: .5rem;
   height: inherit;
@@ -90,7 +90,7 @@ html,.examine{
   color:#fff;
 }
 .contrast-img div button{
-  /*width: .rem;*/
+  width: .55rem;
   height: inherit;
   border:1px solid #73d2fe;
   border-radius: 2px;
@@ -138,7 +138,7 @@ html,.examine{
   height: .25rem;
   background: #e0e0e0;
   left:.15rem;
-  top:.46rem;
+  top:.48rem;
 }
 .examine-result ul li div img{
   width: 100%;
@@ -146,11 +146,12 @@ html,.examine{
 }
 .examine-result ul li p{
   width: calc(100% - .12rem - .3rem);
-  vertical-align: middle;
+  vertical-align: top;
   font-size: .12rem;
 
 }
 .examine-result ul li p span{
+  /*display: block;*/
   color:#a8a8a8;
   padding-left: .1rem;
 }
@@ -161,12 +162,26 @@ html,.examine{
   width: 100%;
   bottom: 0;
   z-index: 3;
-  display: none
+  display: none;
+  background: #fff;
+  font-size: 0
 }
 .input-box input{
-  width: 100%;
+  width: calc(100% - .6rem);
   border:none;
   padding: .2rem;
+  display: inline-block;
+  font-size: .12rem;
+}
+.input-box button{
+  display: inline-block;
+  width: .5rem;
+  height: .3rem;
+  color:#fff;
+  border:0;
+  border-radius:5px;
+  background: #73d2fe;
+  font-size: .12rem;
 }
 #baguetteBox-overlay .full-image img{
   width: 2.8rem;

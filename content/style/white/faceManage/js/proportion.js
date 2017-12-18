@@ -1,98 +1,223 @@
 (function(window) {
     // 'use strict';
+    /**
+     * [Proportion description]
+     * @param {[type]} el      [description]
+     * @param {[type]} options [description]
+     */
     function Proportion(el,options) { 
         if(typeof el !== "object") return false;
         this.el = el||document.querySelector(".proportion-box");
+        // 默认样式
         this.el.style.fontSize = 0;
-        this.el.style.width = "80%";
-        this.el.style.margin = ".1rem auto 0";
-        // this.el.style.backgroundColor = "#456789";
+        this.el.style.width = "100%";
+        this.el.style.margin = "0";
+        this.el.style.backgroundColor = "#fff";
+        this.el.style.position = "relative";
+        /**
+         * [options 默认配置项]
+         * @attribute {Object}
+         * @attribute {Array}   data                [parame1,parame2, ...]
+         * @attribute {Array}   dataTitle           [parame1,parame2, ...]
+         * @attribute {Object}  dataStyle           [{css样式书写规略}]
+         * @attribute {String}  dataAlign           [edge:靠边;inter:"靠中";默认inter]
+         * @attribute {boolean} dataProportion      [true,默认不显示false]
+         * @attribute {Object}  otherSeries         [其他数据]
+         * @attribute {Object}  otherSeries.type    [类型：目前只有 list、href]
+         * @attribute {Object}  otherSeries.data    [自定义类型]
+         * 
+         */
         this.options = {
-            // data:[
-            //     {
-            //         value:0,
-            //         style:{
-            //             color:"#73d2fe",
-            //             backgorund:"#73d2fe"
-            //         }
-            //     },
-            //     {
-            //         value:0,
-            //         style:{
-            //             color:"#ff5408",
-            //             backgorund:"#ff5408"
-            //         }
-            //     }
-            // ],
             data:[0,0],
-            viewRate:"50%",     // 查看率
-            answerRate:"50%",   // 回答率
-            answerTime:"3天",   // 回答时间
+            dataTitle:['Q','A'],  // 数据对应标签
+            dataStyle:{
+                color:" "
+            },
+            dataAlign: "inter", 
+            dataProportion: false,
+            otherSeries:{
+                show:true,
+                type:"list",
+            },
         }
+        // 重置options (伪深拷贝)
+        function* objectEntries() {
+          let propKeys = Object.keys(this);
+          for (let propKey of propKeys) {
+            yield [propKey, this[propKey]];
+          }
+        }
+        this.options[Symbol.iterator] = objectEntries;
+        
+        var config = Object.assign({},options);
 
-        if(typeof options !== "undefined"){
-            for(var i in options){
-                this.options[i] = options[i];
+        for(var [key,val] of this.options){
+            if(!val.length){
+                if(typeof this.options[key] == "object"){
+                    for(var j in val){
+                        this.options[key] = Object.assign({},this.options[key],options[key])
+                    }
+                }else{
+                    this.options[key] = options[key];
+                }                
+            }else{
+                if(options[key]){
+                    this.options[key] = options[key];
+                }
             }
         }
-        
+        console.log(this.options)
+        // 创建dom
         this.create();
     }
 
     Proportion.prototype = {
         create:function(){ 
             var box = this.el;
-            // let Q_val = this.options.data[0].value,
-            //     A_val = this.options.data[1].value;
-            let Q_val = this.options.data[0],
-                A_val = this.options.data[1],
-                viewRate = this.options.viewRate,
-                answerRate = this.options.answerRate,
-                answerTime = this.options.answerTime;
+            let options = {
+                Q_val : this.options.data[0],
+                A_val : this.options.data[1],
+                Q_title : this.options.dataTitle[0],
+                A_title : this.options.dataTitle[1],
+                align : this.options.dataAlign,
+                dataStyle : this.options.dataStyle, 
+                otherSeries : this.options.otherSeries
+            }
 
-            box.innerHTML = `<div class="clearfix">
-                              <!-- part-1 -->
-                              <div class="proportion-part proportion-part-left">
-                                <label>Q</label>
-                                <div class="bars-value-container">
-                                  <span class="bars-value">${Q_val}</span>
-                                </div>
-                                <div class="proportion-bars"></div>
-                              </div>
-                              <!-- part-2 -->
-                              <div class="proportion-part proportion-part-right">
-                                <label>A</label>
-                                <div class="bars-value-container">
-                                  <span class="bars-value">${A_val}</span>
-                                </div>
-                                <div class="proportion-bars"></div>
-                              </div>
-                            </div>
-                            <!-- info -->
-                            <div class="proportion-info-container">
+            var html = [];
+            html.push( `<div class="proportion-container">
+                      <!-- part-1 -->
+                      <div class="proportion-part proportion-part-left">
+                        <label>${options.Q_title}</label>
+                        ${this.addVal(options,"left")}
+                        <div class="proportion-bars-box">
+                            ${this.addProportion(this.options,"left")}
+                            <div class="proportion-bars"></div>
+                        </div>
+                      </div>
+                      <!-- part-2 -->
+                      <div class="proportion-part proportion-part-right">
+                        <label>${options.A_title}</label>
+                        ${this.addVal(options,"right")}
+                        <div class="proportion-bars-box">
+                            <div class="proportion-bars"></div>
+                            ${this.addProportion(this.options,"right")}
+                        </div>
+                      </div>
+                    </div>`);
+
+            if(options.otherSeries){
+                var data = options.otherSeries.data;
+                if(options.otherSeries.show){
+                    switch (options.otherSeries.type){
+                        case "list":
+                            html.push(`<!-- info -->
+                            <div class="otherSeries proportion-info-container">
                               <ul>
-                                <li><span>回答查看率</span><em>${viewRate}</em></li>
-                                <li><span>回答率</span><em>${answerRate}</em></li>
-                                <li><span>平均回答时间</span><em>${answerTime}</em></li>
+                                <li><span>回答查看率</span><em>${data.viewRate}</em></li>
+                                <li><span>回答率</span><em>${data.answerRate}</em></li>
+                                <li><span>平均回答时间</span><em>${data.answerTime}</em></li>
                               </ul>
-                            </div>`;
-            this.setStyle(Q_val,A_val);
+                            </div> `);
+                        break;
+                        case "btns":
+                            html.push(`<!-- info -->
+                                <div class="otherSeries proportion-btns">
+                                  <button></button>
+                                  <button></button>
+                                </div> `);
+                        break;
+                        case "href":
+                            html.push(`<!-- info -->
+                                <div class="otherSeries proportion-href">
+                                  <a href="${options.otherSeries.href[0]}">${options.otherSeries.value[0]}</a>
+                                  <a href="${options.otherSeries.href[1]}">${options.otherSeries.value[1]}</a>
+                                </div> `);
+                        break;
+                    }
+                }
+            }else{
+                console.log(false)
+            }
+            
+            box.innerHTML = html.join("");
+            this.setDataStyle(options.dataStyle);
+            this.setValue(options.Q_val,options.A_val);
+            this.setOtherSeriesStyle(options.otherSeries);
+            this.setProportionStyle(this.options.dataProportion)
         },
-        // 设置style
-        setStyle:function (q,a){
+        addVal:function (option,type){
+            switch (option.align){
+                case "inter":
+                    if(type == "left"){
+                        return `<div class="bars-value-container">
+                          <span class="bars-value">${option.Q_val}</span>
+                        </div>`;
+                    }else{
+                        return `<div class="bars-value-container">
+                          <span class="bars-value">${option.A_val}</span>
+                        </div>`;
+                    }
+                break;
+                default:
+                    return "";
+                break;
+            }
+        },
+
+        // 设置 bar style
+        setValue:function (q,a){
             let leftPart = this.queryDom(this.el,".proportion-part-left"),
                 rightPart = this.queryDom(this.el,".proportion-part-right"),
                 leftPartWidth = (q/(q+a) * 100).toFixed(2),
                 rightPartWidth = 100 - parseFloat(leftPartWidth),
-                leftBar = this.queryDom(leftPart,".proportion-bars"),
-                rightBar = this.queryDom(rightPart,".proportion-bars");
+                leftBar = this.queryDom(leftPart,".proportion-bars").parentElement,
+                rightBar = this.queryDom(rightPart,".proportion-bars").parentElement;
             
             setTimeout(()=>{
-                leftPart.style.width = leftPartWidth + "%";
-                rightPart.style.width = rightPartWidth + "%";
-                leftBar.style.width = rightBar.style.width =  "98%";
-                this.trim(leftPart,rightPart);
+
+                leftBar.style.width = leftPartWidth+"%";
+                rightBar.style.width = rightPartWidth+"%";
+                // 如果不存在dataAlign
+                if(this.options.dataAlign== "inter"){
+                    this.trim(leftBar,rightBar);
+                }
             },100);
+        },
+        // 设置 leftLabel 的css
+        setDataStyle:function(style){
+            let label = document.querySelectorAll(".proportion-part label");
+            for(var j = 0; j<label.length;j++){
+                for(let i in style){
+                    label[j].style[i] = style[i];
+                }
+            }
+        },
+        // 设置 OtherSeries的css
+        setOtherSeriesStyle:function(option){
+            if(option.show){
+                var otherSeries = document.querySelector(".otherSeries");
+                // otherSeries.style.
+                // console.log(otherSeries)
+            }
+        },
+        // 显示刻度对比数
+        addProportion:function (option,type) {
+            let proportion = option.dataProportion;
+            let sum = option.data[0]+option.data[1];
+            let PropNum = ((type == "left"?option.data[0]/sum:option.data[1]/sum)*100).toFixed(2);
+            if(proportion){
+                return `<div class="proportion-num">${PropNum}%</div>`;
+            }
+        },
+        // 设置对比数的css
+        setProportionStyle:function(proportion){
+            console.log(proportion)
+            if(proportion){
+                document.querySelector(".proportion-container").classList.add('proportion-num-show');
+            }
+            return "";
+            return proportion?`width:calc(99% - .5rem)`:"";
         },
         createDom:function(tag){
             return document.createElement(tag);
@@ -100,51 +225,40 @@
         queryDom:function(parent,name){
             let doc = typeof arguments[0] === "object" ? arguments[0] : document;
             let docName = typeof arguments[0] === "string" ? arguments[0] : name;
-            // let re = /^\./;
-            // console.log(re.test(docName))
             return doc.querySelector(docName);
         },
         // 微调css
         trim:function(left,right){
-            
-            let leftVal = this.queryDom(left,".bars-value");
-            let rightVal = this.queryDom(right,".bars-value");
-
-            let leftW = parseInt(left.style.width.substr(0,left.style.width.length-1));
-            let rightW = parseInt(right.style.width.substr(0,right.style.width.length-1));
-
-            if(leftW < 25 ){
-                // leftVal.parentElement.style.left = 0;
-                // leftVal.style.position = "fixed";
-                // leftVal.style.right = "auto"; 
-                // leftVal.style.left = `calc(10% + .2rem )`;
-                // leftVal.style.left = `calc(100% - ${leftW/2}px)`;
+            var W = document.querySelector(".proportion-part").offsetWidth;
+            let LP = parseFloat(left.style.width.substr(0,left.style.width.length - 2));
+            // left     ------------------
+            let leftVal = this.queryDom(left.parentElement,".bars-value-container");
+            let leftValW = this.queryDom(leftVal,".bars-value").offsetWidth;
+            let leftLabel = this.queryDom(left.parentElement,"label");
+            let leftBar = this.queryDom(left.parentElement,".proportion-bars");
+            let LBW = W * LP / 100;
+            // right    ------------------
+            let rightVal = this.queryDom(right.parentElement,".bars-value-container");
+            let rightValW = this.queryDom(rightVal,".bars-value").offsetWidth;
+            let rightLabel = this.queryDom(right.parentElement,"label");
+            let rightBar = this.queryDom(right.parentElement,".proportion-bars");
+            let RBW = W - LBW;
+            // left
+            if (LBW/2-10>leftLabel.offsetWidth) {
+                leftVal.style.left = LBW/2 - leftValW/2+"px";
+            }else{
+                leftVal.style.left = parseFloat(leftLabel.offsetWidth) + 10+"px";
             }
-            if(rightW < 25 ){
-                rightVal.parentElement.style.left = "auto";
-                rightVal.parentElement.style.right = 0;
-                rightVal.style.right = `.2rem`;
-                rightVal.style.left = `auto`;
-                // rightVal.style.left = `calc(-50% - .14rem)` ;
-                // rightVal.parentElement.style.left = "-100%";
-                // rightVal.style.left = `0`;
-                // 
-                // rightVal.style.position = "fixed";
-                // rightVal.style.left = "auto"; 
-                // rightVal.style.right = `calc(10% + .4rem )`;
-                // rightVal.style.left = `calc(-100% + ${rightW/2}px)`;
+            // right
+            if (RBW/2-10>rightLabel.offsetWidth) {
+                rightVal.style.right = RBW/2 - rightValW/2+"px";
+            }else{
+                console.log("小")
+                rightVal.style.right = parseFloat(rightLabel.offsetWidth) + 10+"px";
             }
         }
-        // addClass:function(dom,className){
-        //     // dom.classNmae = className;
-        //     return dom;
-        // },
-        // remove:function (){
-        // }
     }
-    // Proportion.run = function (el,options){
-    //     return new Proportion(el,options);
-    // }
+    
     if ( typeof module != 'undefined' && module.exports ) {
         module.exports = Proportion;
     } else if ( typeof define == 'function' && define.amd ) {

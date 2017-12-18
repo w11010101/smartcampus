@@ -11,7 +11,7 @@
     <!-- Bootstrap -->
     <link href="../../content/style/frame/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="../../content/style/common/css/common.css" rel="stylesheet">
-    <link href="../../content/style/common/css/proportion.css" rel="stylesheet">
+    <link href="../../content/style/white/faceManage/css/proportion.css" rel="stylesheet">
     <link href="../../content/style/frame/iscroll4/css/pullToRefresh.css" rel="stylesheet">
     <link href="../../content/style/white/faceManage/css/faceManage-common.css" rel="stylesheet">
     <link href="../../content/style/white/faceManage/css/faceManage.css" rel="stylesheet">
@@ -31,7 +31,20 @@
                 <span>已完成认证（<em>13245</em>）例</span>
                 <span>系统当前对比数：<em>80.00</em></span>
             </div>
-            <!-- <div class="proportion"></div> -->
+            <div class="proportion"></div>
+            <!--  -->
+            <!-- <div class="proportion1">
+              <div class="Prop-title">
+                <div class="Prop-title-left">自动审核(326532)</div>
+                <div class="Prop-title-right">人工审核(326532)</div>
+              </div>
+              <div class="Prop-bar">
+                
+              </div>
+              <div class="Prop-acc">
+              
+              </div>
+            </div> -->
         </div>
         <!-- 列表部分 -->
         <div class="smart-list-part">
@@ -44,107 +57,59 @@
             </div>
             <!-- iscroll container -->
             <div id="wrapper">
-              <ul class="smart-list smart-list-continue smart-list-space smart-list-title-icon">
-                  <li class="smart-list-item">
-                    <a href="">
-                      <label class="">
-                        <img src="../../content/style//white/faceManage/images/head.png" alt="">
-                      </label>
-                      <div class="smart-list-line-2">
-                        <h3><em>李小萌</em> <span>2017/12/12</span></h3>
-                        <p><em>航海学院轮机专业航海学院轮机专业</em><span>对比数：80.00</span></p>
-                      </div>
-                    </a>
-                  </li>
-                  <li class="smart-list-item">
-                    <a href="">
-                      <label class="">
-                        <img src="../../content/style/white/faceManage/images/head.png" alt="">
-                      </label>
-                      <div class="smart-list-line-2">
-                        <h3><em>罗杰</em> <span>2017/12/12</span></h3>
-                        <p><em>航海学院放置大宝藏专业</em><span>对比数：80.00</span></p>
-                      </div>
-                    </a>
-                  </li>
-                  <li class="smart-list-item">
-                    <a href="">
-                      <label class="">
-                        <img src="../../content/style/white/faceManage/images/head.png" alt="">
-                      </label>
-                      <div class="smart-list-line-2">
-                        <h3><em>路飞</em> <span>2017/12/12</span></h3>
-                        <p><em>航海学院寻找大宝藏专业</em><span>对比数：80.00</span></p>
-                      </div>
-                    </a>
-                  </li>
-              </ul>
+                <ul class="smart-list smart-list-continue smart-list-space smart-list-title-icon">
+                    <li class="smart-list-item">
+                        <a href="faceManage-examine.html">
+                            <label class="">
+                                <img src="../../content/style//white/faceManage/images/head.png" alt="">
+                            </label>
+                            <div class="smart-list-line-2">
+                                <h3><em>李小萌</em> <span>2017/12/12</span></h3>
+                                <p><em>航海学院轮机专业航海学院轮机专业</em><span>对比数：80.00</span></p>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="smart-list-item">
+                        <a href="faceManage-examine.html">
+                            <label class="">
+                                <img src="../../content/style/white/faceManage/images/head.png" alt="">
+                            </label>
+                            <div class="smart-list-line-2">
+                                <h3><em>罗杰</em> <span>2017/12/12</span></h3>
+                                <p><em>航海学院放置大宝藏专业</em><span>对比数：80.00</span></p>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="smart-list-item">
+                        <a href="faceManage-examine.html">
+                            <label class="">
+                                <img src="../../content/style/white/faceManage/images/head.png" alt="">
+                            </label>
+                            <div class="smart-list-line-2">
+                                <h3><em>路飞</em> <span>2017/12/12</span></h3>
+                                <p><em>航海学院寻找大宝藏专业</em><span>对比数：80.00</span></p>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
             </div>
             <!-- list nothing -->
             <div class="smart-list-nothing">
-              <img src="../../content/style/common/images/list-nothing.png">
-              <p>无更多数据...<button>重新获取</button></p>
+                <img src="../../content/style/common/images/list-nothing.png">
+                <p>无更多数据...
+                    <button>重新获取</button>
+                </p>
             </div>
         </div>
     </div>
 </body>
 <script src="../../content/style/frame/jquery/jquery-3.2.1.min.js"></script>
-<script src="../../content/style/common/js/proportion.js"></script>
+<script src="../../content/style/white/faceManage/js/proportion.js"></script>
 <script src="../../content/style/frame/iscroll4/js/iscroll.js"></script>
 <script src="../../content/style/frame/iscroll4/js/pullToRefresh.js"></script>
+<script src="../../content/style/white/faceManage/js/faceManage.js"></script>
+<script src="../../content/style/white/faceManage/js/faceManage-common.js"></script>
 <script type="text/javascript">
-//  对比1
-// var obj = document.querySelector(".proportion");
-// var options = {
-//     data: [2950, 100],
-//     dataAlign: "inter",
-//     dataTitle: [`自动审核(50)`, '人工审核(2000)'], // 数据对应标签
-//     // dataTitle:[`Q12312`,'a'],  // 数据对应标签
-//     dataStyle: {
-//         color: '#a8a8a8',
-//         fontSize: ".12rem",
-//     },
-//     dataProportion: true,
-//     otherSeries: {
-//         type: "href",
-//         value: ["统计", "流水"],
-//         href: ["", ""],
-//     },
-// }
-// var prop = new Proportion(obj, options);
-// 上下拉加载
-
-var scrollState = true;
-/**
- * [iscroll4.js 上下拉加载]
- * @param  {String}   id             [滑动dom的id]
- * @param  {Function} pullUpAction   [下拉]
- * @param  {Function} pullUpAction   [上拉]
- * @return {Objext}   scrollObj      [返回实例对象]
- */
-var scrollObj = refresher.init({
-        id:"wrapper",
-        pullDownAction: function() {
-            scrollObj.refresh();
-        },
-        pullUpAction: function() {
-            if (scrollState) {
-                scrollState = false;
-                setTimeout(function() {
-                    console.log("加载...");
-                    // ajaxList({
-                    //     wrapper:_this,
-                    //     pages:++pages,
-                    //     scroll:scrollObj[i],
-                    // });
-                    scrollObj.refresh();
-                    scrollState = true;
-                }, 2000);
-            }
-        },
-        preventDefault: false
-    });
-
 
 </script>
 

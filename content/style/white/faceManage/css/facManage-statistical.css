@@ -14,13 +14,13 @@
   transition: all .1s ease-in;
   -webkit-transition: all .1s ease-in;
 }
-.search-box .auto-btn{
+.search-box .change-btn{
   width: .7rem;
   text-indent: -1em;
   background: url(../images/change.png) no-repeat center right .1rem;
   background-size: .12rem;
 }
-.search-box .auto-btn.active{
+.search-box .change-btn.active{
   border-color:#73d2fe;
   color:#73d2fe;
 }

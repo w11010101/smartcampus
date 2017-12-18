@@ -447,7 +447,7 @@ body{
 
 
 /* media */
-@media screen and (max-width: 320px) {
+/*@media screen and (max-width: 320px) {
     html{
         font-size: calc(100vw/3.2);
     }
@@ -464,3 +464,4 @@ body{
 }
 
 
+*/
