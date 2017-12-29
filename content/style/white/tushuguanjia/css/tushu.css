@@ -36,8 +36,26 @@ html *{
     display: inline-block;
     width: .7rem;
     height: .7rem;
-
+    padding: .1rem;
+    position: relative;
     vertical-align: middle;
+}
+.smart-user-info-img .img-box{
+    margin: 0 auto ;
+    border-radius: 50%;
+    overflow:hidden;
+    width: .5rem;
+    height: .5rem;
+}
+.smart-user-info-img:after{
+    position: absolute;
+    content: " ";
+    width: 100%;
+    height: 100%;
+    left:0;
+    bottom: 0;
+    background: url(../images/head-bg.png) no-repeat bottom center;
+    background-size: contain;
 }
 .smart-user-info-img img{
     width: 100%;
@@ -109,7 +127,7 @@ html *{
 }
 .smart-probe .nothing:after{
     position: absolute;
-    content: "当前没有阅读图书~";
+    content: "当前没有借阅图书~";
     width:100%;
     left:0;
     height: .2rem;
@@ -117,7 +135,7 @@ html *{
     bottom: 0;
     text-align: center;
     font-size: .14rem;
-
+    color:#8d8d8d;
 }
 .smart-probe ul li{
     display:inline-block;
@@ -168,14 +186,18 @@ html *{
     width: 100%;
 }
 .tushu-info h3{
+    display: inline-block;
+    max-width: 100%;
     font-size: .15rem;
     color:#3c3c3c;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+    position: relative;
 }
+
 .tushu-info p{
-    font-size: .13rem;
+    font-size: .12rem;
     color:#8d8d8d;
     padding: .05rem 0;
     margin-top: 0.05rem;
@@ -247,8 +269,20 @@ html *{
     font-size: .14rem;
     white-space:pre-wrap;
     line-height: .18rem;
-    height: .36rem;
-
+    height: .56rem;
+    margin-top:.1rem;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+}
+.smart-probe-new .tushu-info h3:after{
+/*    position: absolute;
+    content:"...";
+    width: .15rem;
+    height: .15rem;
+    bottom: 0;
+    right: 0;*/
 }
 .smart-probe-new .tushu-info p{
     white-space:pre-wrap;

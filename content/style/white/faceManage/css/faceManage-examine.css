@@ -75,7 +75,8 @@ html,.examine{
 .using-img img,.contrast-img img{
   height:100%;
 }
-.using-img div:last-child,.contrast-img div:last-child{
+.using-img div:last-child,
+.contrast-img .contrast-img-btns{
   height: .2rem;
   line-height: .2rem;
   text-align: center;
@@ -97,6 +98,7 @@ html,.examine{
   background: #fff;
   color:#73d2fe;
   font-size: .12rem;
+  line-height: .18rem;
   transition: all .1s ease-in;
   -webkit-transition: all .1s ease-in;
 }

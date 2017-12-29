@@ -3,20 +3,33 @@ var r = function(max) {
     return Math.floor(Math.random() * m);
 };
 
-
 var Echarts = function() {
+    var sum = 0;
+    var w = $("body").width();
+    var repulsion = w>=375?200:100;
+    var times = w>=375?3.5:2.5;
     this.data = function(option) {
         let arr = [];
-        var value = size = 0;
-        if(option.data){
+        var val = size = 0;
+        
+        if (option.data) {
             for (let f = 0; f < option.data.length; f++) {
-                value = size = option.val ? (option.val[f] / this.sum(option.val) * 100).toFixed(0) : option.size;
+                val = size = option.val ? (option.val[f] / this.sum(option.val) * 100).toFixed(0) : option.size;
+                sum += size*2;
                 arr.push({
                     name: option.data[f],
-                    value: value,
-                    symbolSize: size * 2,
+                    value: val,
                     category: option.data[f],
-                    symbol: option.symbol ? "image://../../content/style/white/xueqizhangdan/images/" + option.symbol[f] : "circle",
+                    symbolOffset :[0,0],
+                    symbol:!option.headShow?"image://../../content/style/white/xueqizhangdan/images/qiu-1.svg":"image://../xueqizhangdan/png/"+option.head[f],
+                    label:{
+                        normal:{
+                            fontSize:(()=>{
+                                console.log((size*.7));
+                                return (size*.7)>14?(size*.7):13;
+                            })()
+                        }
+                    }
                 })
             }
         }
@@ -31,150 +44,235 @@ var Echarts = function() {
     };
     this.categories = function(option) {
         let arr = [];
-        if(option.data) {
+        if (option.data) {
             for (let f of option.data) {
                 arr.push({ name: f })
             }
         }
         return arr;
     };
-    this.type = function(option){
-        let data = this.data(option);
-        let categories = this.categories(option);
-        switch (option.type){
+    this.type = function(option) {
+            console.log(option.data)
+        switch (option.type) {
             case "line":
                 return {
-                    title: {
-                        text: '堆叠区域图'
-                    },
-                    tooltip : {
-                        trigger: 'axis',
-                        axisPointer: {
-                            type: 'cross',
-                            label: {
-                                backgroundColor: '#6a7985'
-                            }
+                    
+                    // backgroundColor:"#000",
+                    // grid: {
+                    //     left:"3%",
+                    //     right: '4%',
+                    //     containLabel: true
+                    // },
+                    xAxis: [{
+                        // show: false,
+                        type:'category',
+                        boundaryGap:false,
+                        data: option.name,
+                        
+                        
+                    }],
+                    yAxis: [{
+                        show: false,
+                        max:function(value) {
+                            return value.max ;
                         }
-                    },
-                    legend: {
-                        data:['邮件营销','联盟广告','视频广告','直接访问','搜索引擎']
-                    },
-                    toolbox: {
-                        feature: {
-                            saveAsImage: {}
-                        }
-                    },
-                    grid: {
-                        left: '3%',
-                        right: '4%',
-                        bottom: '3%',
-                        containLabel: true
-                    },
-                    xAxis : [
-                        {
-                            type : 'category',
-                            boundaryGap : false,
-                            data : ['周一','周二','周三','周四','周五','周六','周日']
-                        }
-                    ],
-                    yAxis : [
-                        {
-                            type : 'value'
-                        }
-                    ],
-                    series : [
-                        {
-                            name:'邮件营销',
-                            type:'line',
+                    }],
+                    series: [{
+                            name: 'line1',
+                            type: 'line',
                             stack: '总量',
-                            areaStyle: {normal: {}},
-                            data:[120, 132, 101, 134, 90, 230, 210]
-                        },
-                        {
-                            name:'联盟广告',
-                            type:'line',
-                            stack: '总量',
-                            areaStyle: {normal: {}},
-                            data:[220, 182, 191, 234, 290, 330, 310]
-                        },
-                        {
-                            name:'视频广告',
-                            type:'line',
-                            stack: '总量',
-                            areaStyle: {normal: {}},
-                            data:[150, 232, 201, 154, 190, 330, 410]
-                        },
-                        {
-                            name:'直接访问',
-                            type:'line',
-                            stack: '总量',
-                            areaStyle: {normal: {}},
-                            data:[320, 332, 301, 334, 390, 330, 320]
-                        },
-                        {
-                            name:'搜索引擎',
-                            type:'line',
-                            stack: '总量',
-                            label: {
+                            areaStyle: {
                                 normal: {
-                                    show: true,
-                                    position: 'top'
+                                    color: {
+                                        type: 'linear',
+                                        x: 1,
+                                        y: 0,
+                                        x2: 0,
+                                        y2: 1,
+                                        colorStops: [{
+                                            offset: 0,
+                                            color: '#2DD9E3' // 0% 处的颜色
+                                        }, {
+                                            offset: 0.5,
+                                            color: '#7CEA7E' // 0% 处的颜色
+                                        }, {
+                                            offset: 1,
+                                            color: '#E0FF00' // 100% 处的颜色
+                                        }],
+                                        globalCoord: false // 缺省为 false
+                                    }
                                 }
                             },
-                            areaStyle: {normal: {}},
-                            data:[820, 932, 901, 934, 1290, 1330, 1320]
-                        }
-                    ]
-                };
-            break;
-            case "graph":
-                return {
-                    backgroundColor: new echarts.graphic.RadialGradient(0.3, 0.3, 0.8, [{
-                            offset: 0,
-                            color: '#f7f8fa'
+                            symbolSize:"10",
+                            data:option.data,
+                            lineStyle:{
+                                normal:{
+                                    color:"#15AFAF"
+                                }
+                            },
+                            itemStyle:{
+                                normal:{
+                                    // opacity:0,
+                                    // color:"#fff",
+                                    // borderColor:"#15AFAF"
+                                }
+                            },
                         },
-                        {
-                            offset: 1,
-                            color: '#cdd0d5'
-                        }
-                    ]),
+                        
+                    ],
+                   
+                };
+                break;
+            case "graph":
+                let data = this.data(option);
+                let categories = this.categories(option);
+                return {
                     series: [{
                         type: 'graph',
                         layout: 'force',
                         force: {
-                            repulsion: option.repulsion
+                            // repulsion: option.repulsion,
+                            repulsion: option.repulsion?option.repulsion:repulsion
                         },
                         data: data,
-                        draggable: true,
                         categories: categories,
-                        edgeSymbol: ['circle', 'arrow'],
-                        label: {
-                            normal: {
-                                show: true,
-                                position: 'top',
+                        symbolSize: (value, params) => {
+                            if((value*3)>(sum/option.data.length)){
+                                return value*times;
+                            }else{
+                                if(option.headSize){
+                                    return 60;
+                                }else{
+                                    return 45;
+                                }
                             }
                         },
-                    }],
-                    toolbox: {
-                        feature: {
-                            restore: {}
+                        // edgeSymbol: ['circle', 'arrow'],
+                        label: {
+                            normal: {
+                                color: '#000',
+                                show: option.dataShow
+                            }
+                        },
+                        edgeLabel: {
+                            normal: {
+                                backgroundColor: 'rgba(0,23,11,0)'
+                            }
                         }
-                    }
+                    }],
                 };
-            break;
+                break;
             case "pie":
+                let pieName = option.name;
+                let pieValue = option.value;
+                let pie1 = parseFloat((pieValue[0]/(pieValue[0]+pieValue[1])).toFixed(1))*100;
+                let pie2 = 100-pie1;
                 return {
-                    series : [
-                    {
-                        name: '访问来源',
+                    series: [{
+                        name: '学习',
                         type: 'pie',
-                        radius : '50%',
-                        data:[
-                            {value:335, name:'直接访问'},
-                            {value:310, name:'邮件营销'},
-                            {value:234, name:'联盟广告'},
-                            {value:135, name:'视频广告'},
-                            {value:1548, name:'搜索引擎'}
+                        radius: '40%',
+                        data: [
+                            { 
+                                value: pieValue[0], 
+                                name: pieName[0],
+                                selected:true,
+                                label:{
+                                    normal:{
+                                        lineHeight:20,
+                                        formatter: [
+                                            `{a|${pieName[0]}}`,
+                                            `{b|${pie1+"%"}}`
+                                        ].join('\n'),
+                                         rich: {
+                                            a: {
+                                                color: '#000',
+                                                lineHeight: 10,
+                                                fontSize:14
+                                            },
+                                            b:{
+                                                lineHeight: 35,
+                                                fontWeight:600,
+                                                align:'left',
+                                                fontSize:18
+                                            }
+                                        }
+                                    }
+                                },
+                                itemStyle:{
+                                    normal:{
+                                        color:'#000',
+                                        borderWidth:2,
+                                        borderColor:"#000",
+                                    }
+                                },
+                                labelLine:{
+                                    normal:{
+                                        show:false
+                                    }
+                                }
+                            },
+                            { 
+                                value: pieValue[1], 
+                                name: pieName[1],
+                                lineHeight:20,
+                                label:{
+                                    normal:{
+                                        lineHeight:20,
+                                        formatter: [
+                                            `{a|${pieName[1]}}`,
+                                            `{b|${pie2+"%"}}`
+                                        ].join('\n'),
+                                         rich: {
+                                            a: {
+                                                color: '#000',
+                                                lineHeight: 10,
+                                                fontSize:14
+                                            },
+                                            b:{
+                                                lineHeight: 35,
+                                                align:'left',
+                                                fontSize:18,
+                                                fontWeight:600
+                                            }
+                                        }
+                                    }
+                                },
+                                labelLine:{
+                                    normal:{
+                                       show:true,
+                                       length:10,
+                                       lineStyle:{
+                                          color:"#000",
+                                       }
+                                    }
+                                },
+                                itemStyle:{
+                                    normal:{
+                                        opacity:1,
+                                        color: {
+                                            type: 'linear',
+                                            x: 0,
+                                            y: 0,
+                                            x2: 0,
+                                            y2: 0,
+                                            colorStops: [{
+                                                offset: 0, color: 'red' // 0% 处的颜色
+                                            }, {
+                                                offset: 1, color: 'blue' // 100% 处的颜色
+                                            }],
+                                            globalCoord: true // 缺省为 false
+                                        },
+                                        borderWidth:2,
+                                        borderColor:"#000",
+                                    }
+                                },
+                                labelLine:{
+                                    normal:{
+                                        show:false
+                                    }
+                                }
+                            },
                         ],
                         itemStyle: {
                             emphasis: {
@@ -182,34 +280,19 @@ var Echarts = function() {
                                 shadowOffsetX: 0,
                                 shadowColor: 'rgba(0, 0, 0, 0.5)'
                             }
-                        }
-                    }
-                    ]
+                        },
+
+                    }]
                 };
-            break;
+                break;
         }
     }
 
     this.run = function(option) {
-        // console.log("option : ", option);
-        
-        __default = this.type(option);
 
+        __default = this.type(option);
         var myChart = echarts.init(option.el);
         myChart.setOption(__default);
-        // myChart.on("mousedown", function(params) {
-        //     console.log("mousedown params : ", params);
-        //     // document.addEventListener("mousedown",function (e) {
-        //     //     e.preventDefault();
-        //     // })
-        //     $('.smart-content').onepage_scroll({
-        //         responsiveFallback: true
-        //     })
-        // })
-        // myChart.on("mouseup", function(params) {
-        //     console.log("mouseup params : ", params);
-        //     // onepageScroll();
-        // })
         return myChart;
     }
     this.dispose = function() {

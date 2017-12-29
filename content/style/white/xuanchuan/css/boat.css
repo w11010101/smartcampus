@@ -1,0 +1,102 @@
+@media screen and (max-width: 736px){
+  .parts-9 .animation-box{
+    overflow: hidden;
+    background-color: rgb(6, 134, 216);
+  }
+  .parts-9 .animation-box-0{
+    z-index: 3;
+    transform: translateX(-200%); 
+    -webkit-transform: translateX(-200%); 
+  }
+  .parts-9 .animation-box-1{
+    z-index: 2;
+    transform: translateX(-100%); 
+    -webkit-transform: translateX(-100%); 
+  }
+  .parts-9 .animation-box-2{
+    z-index: 1;
+    transform: translateX(0); 
+    -webkit-transform: translateX(0); 
+  }
+  .parts-9.active .animation-box-0{
+    opacity: 1;
+    transform: translateX(-200%); 
+    -webkit-transform: translateX(-200%);
+    animation: boat0 12s linear infinite forwards 2s;
+    -webkit-animation: boat0 12s linear infinite forwards 2s;
+  }
+  @-webkit-keyframes boat0{
+    0%{
+      -webkit-transform: translateX(-200%);
+    }
+    100%{
+      -webkit-transform: translateX(0);
+    }
+  }
+  @keyframes boat0{
+    0%{
+      transform: translateX(-200%);
+    }
+    100%{
+      transform: translateX(0);
+    }
+  }
+  .parts-9.active .animation-box-1{
+    transform: translateX(-100%); 
+    -webkit-transform: translateX(-100%); 
+    animation: boat1 12s linear infinite forwards 2s;
+    -webkit-animation: boat1 12s linear infinite forwards 2s;
+  }
+  @-webkit-keyframes boat1{
+    0%{
+      -webkit-transform: translateX(-100%);
+    }
+    50%{
+      -webkit-transform: translateX(0);
+    }
+    100%{
+      -webkit-transform: translateX(-100%);
+    }
+  }
+  @keyframes boat1{
+    0%{
+      transform: translateX(-100%);
+    }
+    50%{
+      transform: translateX(0);
+    }
+    100%{
+      transform: translateX(-100%);
+    }
+  }
+  .parts-9.active .animation-box-2{
+    transform: translateX(0); 
+    -webkit-transform: translateX(0); 
+    animation: boat2 12s linear infinite forwards 2s;
+    -webkit-animation: boat2 12s linear infinite forwards 2s;
+  }
+  @-webkit-keyframes boat2{
+    0%{
+      -webkit-transform: translateX(0);
+    }
+    50%{
+      -webkit-transform: translateX(100%);
+    }
+    100%{
+      -webkit-transform: translateX(-200%);
+    }
+  }
+  @keyframes boat2{
+    0%{
+      transform: translateX(0);
+    }
+    50%{
+      transform: translateX(100%);
+    }
+    100%{
+      transform: translateX(-200%);
+    }
+  }
+  
+
+}

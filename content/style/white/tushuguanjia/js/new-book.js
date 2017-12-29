@@ -35,6 +35,9 @@ function onClick() {
 function pickerShow(obj, index, type) {
     picker.show(function(items) {
         console.log("items[0] = ", items[0]);
+        pickerHide();
+        let text = items[0];
+        obj.text(text);
     });
 }
 // picker组件隐藏

@@ -20,14 +20,21 @@ body{
   display: block;
   clear:both;
 }
+.smart-content{
+  position: absolute;
+  width: 100%;
+  top:0;
+  bottom: 0;
+}
 /* selected */
 .selected{
+  height: 100%;
   display: none;
 }
 .top{
-  height: calc( 100vh - 1.45rem);
+  height: calc( 100% - 1.45rem - 1px);
   background: #fff;
-  padding-top: 1rem;
+  padding-top: .5rem;
 }
 .top-img{
   width: 1.5rem;
@@ -35,7 +42,6 @@ body{
   margin: 0 auto;
   text-align:center;
   overflow:hidden;
-  /*border-radius: 50%;*/
 }
 .top-img img{
   width: 100%;
@@ -59,7 +65,7 @@ body{
 .bottom,.upload-btns{
   height: 1.45rem;
   background: #fff;
-  margin-top:1px;
+  border-top: .5px solid #e0e0e0;
   padding: .5rem 1rem 0 1rem;
 }
 .bottom button,
@@ -93,7 +99,6 @@ body{
 }
 .upload-box{
   height: 100vw;
-  margin-top: .5rem;
   position: relative;
   z-index: 4;
 }
@@ -134,7 +139,7 @@ body{
   position: absolute;
   width: 100vw;
   height: 100vw;
-  top:.5rem;
+  top:0;
   left:0;
   opacity:0;
 }
@@ -193,12 +198,14 @@ body{
   -o-animation: uploadAnimate 10s linear infinite both;
   -moz-animation: uploadAnimate 10s linear infinite both;
 }
+
 .upload.upload-transition-paused .bg-3{
   animation-play-state:paused;
   -webkit-animation-play-state:paused;
   -o-animation-play-state:paused;
   -moz-animation-play-state:paused;
 }
+
 @-webkit-keyframes uploadAnimate {
   from { 
     transform:rotateZ( 0deg);
@@ -436,32 +443,3 @@ body{
 }
 
 
-
-
-
-
-
-
-
-
-
-
-/* media */
-/*@media screen and (max-width: 320px) {
-    html{
-        font-size: calc(100vw/3.2);
-    }
-}
-@media screen and (min-width: 376px) and (max-width: 414px) {
-    html{
-        font-size: calc(100vw/4.14);
-    }
-}
-@media screen and (min-width: 415px) {
-    html{
-        font-size: 100px;
-    }
-}
-
-
-*/

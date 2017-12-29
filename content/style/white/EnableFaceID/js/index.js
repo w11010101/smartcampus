@@ -32,15 +32,14 @@ $(function() {
     // 调用相机
     cameraBtn.addEventListener("click", function() {
         jsInterface('../../content/style/white/EnableFaceID/images/photo.jpg');
-
-        // if (/(iPhone|iPad|iPod|iOS)/i.test(navigator.userAgent)) { //判断iPhone|iPad|iPod|iOS
-        //     window.location.href = 'ios://faceopencamera?type:3&data:"1"&sign:""';
-        // } else if (/(Android)/i.test(navigator.userAgent)) { //判断Android
-        //     let jsJson = "{'type':'OPENCAMERA','data':{},'sign':''}";
-        //     window.AndroidWebView.appInterface(jsJson);
-        // } else { //pc
-        //     console.log("pc");
-        // };
+        if (/(iPhone|iPad|iPod|iOS)/i.test(navigator.userAgent)) { //判断iPhone|iPad|iPod|iOS
+            window.location.href = 'ios://faceopencamera?type:3&data:"1"&sign:""';
+        } else if (/(Android)/i.test(navigator.userAgent)) { //判断Android
+            let jsJson = "{'type':'OPENCAMERA','data':{},'sign':''}";
+            window.AndroidWebView.appInterface(jsJson);
+        } else { //pc
+            console.log("pc");
+        };
 
     });
     // 调用相册
@@ -60,7 +59,6 @@ $(function() {
         var a = new Array();
         a = natieJson.split(",");
         base64 = a[0];
-        
         if (!base64) {
             myTips("jsInterface base64  ：" + base64);
             return false;
@@ -68,7 +66,7 @@ $(function() {
         // 上传部分显示
         selected.fadeOut(200);
         upload.fadeIn(200, function() {
-            img.attr("src", base64)
+            img.attr("src", 'data:image/jpeg;base64,'+base64)
             upload.addClass('show');
         });
     }
@@ -118,6 +116,7 @@ $(function() {
                 setTimeout(()=>{
                     tips.html("上传失败，请尝试更改照片");
                     uploadBtns.fadeIn(200).addClass("change");
+                    upload.addClass("upload-transition-paused");
                 }, 2000);
             }
         },function(){
@@ -185,6 +184,7 @@ $(function() {
         });
     }
 })
+
 /**
  * [ajaxRequest ajax Post 请求封装方法]
  * @param       {Object}   option           [description]
@@ -211,3 +211,5 @@ function ajaxRequest(option,callback,failCallBack){
         })
     }
 }
+
+

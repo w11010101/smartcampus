@@ -2,138 +2,1038 @@
 <html lang="zh-CN">
 
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <!-- <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"> -->
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-  <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
-  <title>学期账单</title>
-
-  <!-- Bootstrap -->
-
-  <link href="../../content/style/frame/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="../../content/style/white/xueqizhangdan/css/index.css" rel="stylesheet"> 
-  <link href="../../content/style/frame/pageScroll/css/onepage-scroll.css" rel="stylesheet"> 
-  <!-- <link href="../../content/style/frame/" rel="stylesheet"> -->
-  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-  <!--[if lt IE 9]> param.month = getOtherDate(getM);
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>学期账单</title>
+    <!-- Bootstrap -->
+   
+    <link href="../../content/style/frame/jquery/fullpage/css/jquery.fullPage.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]> param.month = getOtherDate(getM);
       <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <link href="../../content/style/white/xueqizhangdan/css/index-add.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../content/style/white/xueqizhangdan/css/zhangdan.css">
+    <link rel="stylesheet" href="../../content/style/white/xueqizhangdan/css/dongxiao.css">
 </head>
-
 <!-- <body class="smart-query" > -->
+<style type="text/css">
+.smart-bubble-chart-1 {
+    position: absolute;
+    width: 100vw;
+    height: 100vw;
+    top: calc(100vw * .5);
+    left:0;
+    z-index: 99;
+}
+.smart-bubble-chart {
+    position: absolute;
+    width: 100%;
+    top: 35vh;
+    height: 60vh;
+}
+.Echart-line-1,
+.Echart-line-2,
+.Echart-pie-1,
+.Echart-pie-2{
+    position: absolute;
+    width: 100vw;
+    top:40%;
+}
+.Echart-line-1,
+.Echart-line-2{
+
+    top:45%;
+}
+</style>
+
 <body class="smart-bill">
-  <div class="smart-content">
-    <!-- parts parts-1 -->
-    <div class="smart-parts">
-
-      <!-- banner -->
-      <nav class="banner">
-        <img src="../../content/style/white/xueqizhangdan/images/1.jpg">
-      </nav>
-
-      <!-- <wb:share-button addition="simple" type="button" appkey=""></wb:share-button> -->
-      
-      <h2>我的本学期总支出：<em> 78945612.00</em>元</h2>
-      <span>全校土豪榜，有我的一席之地~</span>
-      <div class="Echart-box smart-bubble-chart"></div>
-      <h2>我最土豪的一笔消费：<em> 300.00</em>元</h2>
-      <span>吃货你认第二，没人敢认第一～</span>
-      <div class="smart-parts-container">
-        <p>2017.09.10 12:00:01</p>
-        <p>地点（食堂）消费300.00元</p>
-      </div>
+    <div class="smart-content">
+        <!-- parts parts-1 -->
+        <div class="smart-parts section ">
+            <div class="qutou_temp">
+                <!--假定有头部标签栏需除去的高度，在真正交付时此处要去掉的-->
+                <div class="bg">
+                    <span class="tl"></span><span class="tr"></span><span class="bl"></span><span class="br"></span>
+                </div>
+                <div class="bg_line"></div>
+                <div class="arr"></div>
+                <div class="true">
+                    <div class="cloudy cloudy1"></div>
+                    <div class="cloudy cloudy2"></div>
+                    <div class="page_bt"></div>
+                    <h1>Dear本学期的校园宝藏如下～</h1>
+                    <div class="king_think"></div>
+                    <div class="summed">
+                        <h2><i class="rhombus"></i>我的本学期总支出<i class="rhombus"></i></h2>
+                        <p class="p1"><em>230000.10</em><span>元</span></p>
+                    </div>
+                    <h3 class="total-bt-1">
+                        <span class="blackzi">全校土豪榜，有我一席之位～</span>
+                        <span class="whitezi">全校土豪榜，有我一席之位～</span>
+                    </h3>
+                    <!--<div class="Echart-box smart-bubble-chart"></div>-->
+                    <div class="huaxiao qiu8"><!--调几个就是几-->
+                        <div class="qiu"><span>美食<em>60%</em></span></div>
+                        <div class="qiu"><span>运动<em>30%</em></span></div>
+                        <div class="qiu"><span>水费<em>10%</em></span></div>
+                        <div class="qiu"><span>淋浴费<em>10%</em></span></div>
+                        <div class="qiu"><span>网费</span></div>
+                        <div class="qiu"><span>转帐</span></div>
+                        <div class="qiu"><span>其他</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- parts parts-2 -->
+        <div class="smart-parts section">
+            <div class="qutou_temp">
+                <!--假定有头部标签栏需除去的高度，在真正交付时此处要去掉的-->
+                <div class="bg">
+                    <span class="tl"></span><span class="tr"></span><span class="bl"></span><span class="br"></span>
+                </div>
+                <div class="bg_line"></div>
+                <div class="none">
+                    <div class="key-1"></div>
+                    <div class="cloudy cloudy1"></div>
+                    <div class="cloudy cloudy2"></div>
+                    <div class="page_bt"></div>
+                    <h1>Dear本学期的校园宝藏如下～</h1>
+                    <div class="king_think king_sad"></div>
+                    <div class="summed">
+                        <h2><i class="rhombus"></i>我的本学期总支出<i class="rhombus"></i></h2>
+                        <p class="p1"><em>0</em><span>元</span></p>
+                    </div>
+                    <div class="no-tip">Oh My God</div>
+                    <h3 class="no-shu">我太穷了，生成帐单失败。</h3>
+                    <div class="terrible-male"></div>
+                    <div class="comfirm-tip-1"></div>
+                    <div class="confirm-btn-1">朕要召告天下</div>
+                </div>
+            </div>
+        </div>
+        <!-- parts parts-3 -->
+        <div class="smart-parts section">
+            <div class="qutou_temp">
+                <!--假定有头部标签栏需除去的高度，在真正交付时此处要去掉的-->
+                <div class="bg">
+                    <span class="tl"></span><span class="tr"></span><span class="bl"></span><span class="br"></span>
+                </div>
+                <div class="bg_line"></div>
+                <div class="arr"></div>
+                <div class="block1">
+                    <h2><i class="rhombus"></i>我最土豪的一笔消费<i class="rhombus"></i></h2>
+                    <p class="p2"><em>300.00</em><span>元</span></p>
+                    <h3 class="eat-money-bt">
+                        <span class="blackzi">吃货你认第二，没人敢认第一～</span>
+                        <span class="whitezi">吃货你认第二，没人敢认第一～</span>
+                    </h3>
+                    <p class="timer">2017.09.10 12:00:01
+                        <br>-&nbsp;&nbsp;地点<i class="dot"></i>食堂&nbsp;&nbsp;-</p>
+                </div>
+                <div class="block2">
+                    <h2><i class="rhombus"></i>我最多次的消费场所<i class="rhombus"></i></h2>
+                    <div class="eat">
+                        <div class="key-1"></div>
+                        <div class="key-2"></div>
+                        <div class="cloudy cloudy1"></div>
+                        <div class="cloudy cloudy2"></div>
+                        <div class="star-1"></div>
+                        <p><b>第三食堂</b></p>
+                        <div class="eat-male"></div>
+                        <h3 class="eat-bt">
+                            <span class="blackzi">吃饭，我们是认真的！</span>
+                            <span class="whitezi">吃饭，我们是认真的！</span>
+                        </h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- parts parts-4 -->
+        <div class="smart-parts section">
+            <div class="qutou_temp">
+                <!--假定有头部标签栏需除去的高度，在真正交付时此处要去掉的-->
+                <div class="bg">
+                    <span class="tl"></span><span class="tr"></span><span class="bl"></span><span class="br"></span>
+                </div>
+                <div class="bg_line"></div>
+                <div class="arr"></div>
+                <div class="block1">
+                    <h2><i class="rhombus"></i>我最土豪的一笔消费<i class="rhombus"></i></h2>
+                    <p class="p2"><em>300.00</em><span>元</span></p>
+                    <h3 class="sport-money-bt">
+                        <span class="blackzi">运动达人非你莫属～</span>
+                        <span class="whitezi">运动达人非你莫属～</span>
+                    </h3>
+                    <p class="timer">2017.09.10 12:00:01
+                        <br>-&nbsp;&nbsp;地点<i class="dot"></i>运动场&nbsp;&nbsp;-</p>
+                </div>
+                <div class="block2">
+                    <h2><i class="rhombus"></i>我最多次的消费场所<i class="rhombus"></i></h2>
+                    <div class="wash">
+                        <div class="key-1"></div>
+                        <div class="key-2"></div>
+                        <div class="cloudy cloudy1"></div>
+                        <div class="cloudy cloudy2"></div>
+                        <div class="star-1"></div>
+                        <p><b>浴室</b></p>
+                        <div class="wash-male"></div>
+                        <h3 class="wash-bt">
+                            <span class="blackzi">这个操作，我给满分</span>
+                            <span class="whitezi">这个操作，我给满分</span>
+                            <span class="manfen"></span>
+                        </h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- parts parts-5 -->
+        <div class="smart-parts section">
+            <div class="qutou_temp">
+                <!--假定有头部标签栏需除去的高度，在真正交付时此处要去掉的-->
+                <div class="bg">
+                    <span class="tl"></span><span class="tr"></span><span class="bl"></span><span class="br"></span>
+                </div>
+                <div class="bg_line"></div>
+                <div class="arr"></div>
+                <div class="block1">
+                    <h2><i class="rhombus"></i>我最土豪的一笔消费<i class="rhombus"></i></h2>
+                    <p class="p2"><em>300.00</em><span>元</span></p>
+                    <h3 class="libary-money-bt">
+                        <span class="blackzi">21世纪最重要的是什么？知识～</span>
+                        <span class="whitezi">21世纪最重要的是什么？知识～</span>
+                    </h3>
+                    <p class="timer">2017.09.10 12:00:01
+                        <br>-&nbsp;&nbsp;地点<i class="dot"></i>图书馆&nbsp;&nbsp;-</p>
+                </div>
+                <div class="block2">
+                    <h2><i class="rhombus"></i>我最多次的消费场所<i class="rhombus"></i></h2>
+                    <div class="net">
+                        <div class="net-male"></div>
+                        <div class="key-1"></div>
+                        <div class="key-2"></div>
+                        <div class="cloudy cloudy1"></div>
+                        <div class="cloudy cloudy2"></div>
+                        <div class="star-1"></div>
+                        <p><b>网费</b></p>
+                        <h3 class="net-bt">
+                            <span class="blackzi">少年，切莫荒废你的热情，来网络中心谋职吧～</span>
+                            <span class="whitezi">少年，切莫荒废你的热情，来网络中心谋职吧～</span>
+                        </h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- parts parts-6-->
+        <div class="smart-parts section">
+            <div class="qutou_temp">
+                <!--假定有头部标签栏需除去的高度，在真正交付时此处要去掉的-->
+                <div class="bg">
+                    <span class="tl"></span><span class="tr"></span><span class="bl"></span><span class="br"></span>
+                </div>
+                <div class="bg_line"></div>
+                <div class="arr"></div>
+                <div class="block1">
+                    <h2><i class="rhombus"></i>我最土豪的一笔消费<i class="rhombus"></i></h2>
+                    <p class="p2"><em>300.00</em><span>元</span></p>
+                    <h3 class="wash-money-bt">
+                        <span class="blackzi">在洁净的这条路上越走越远～</span>
+                        <span class="whitezi">在洁净的这条路上越走越远～</span>
+                    </h3>
+                    <p class="timer">2017.09.10 12:00:01
+                        <br>-&nbsp;&nbsp;地点<i class="dot"></i>浴室&nbsp;&nbsp;-</p>
+                </div>
+                <div class="block2">
+                    <h2><i class="rhombus"></i>我最多次的消费场所<i class="rhombus"></i></h2>
+                    <div class="sport">
+                        <div class="key-1"></div>
+                        <div class="key-2"></div>
+                        <div class="cloudy cloudy1"></div>
+                        <div class="cloudy cloudy2"></div>
+                        <div class="star-1"></div>
+                        <p><b>运动</b></p>
+                        <div class="sport-male"></div>
+                        <h3 class="sport-bt">
+                            <span class="blackzi">少年，下一届奥运会，我看好你哦～</span>
+                            <span class="whitezi">少年，下一届奥运会，我看好你哦～</span>
+                        </h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- parts parts-7 -->
+        <div class="smart-parts section ">
+            <div class="qutou_temp">
+                <!--假定有头部标签栏需除去的高度，在真正交付时此处要去掉的-->
+                <div class="bg">
+                    <span class="tl"></span><span class="tr"></span><span class="bl"></span><span class="br"></span>
+                </div>
+                <div class="bg_line"></div>
+                <div class="arr"></div>
+                <div class="block1">
+                    <h2><i class="rhombus"></i>我最土豪的一笔消费<i class="rhombus"></i></h2>
+                    <p class="p2"><em>300.00</em><span>元</span></p>
+                    <h3 class="pay-money-bt">
+                        <span class="blackzi">公众场合莫秀恩爱，保护单身狗人人有责～</span>
+                        <span class="whitezi">公众场合莫秀恩爱，保护单身狗人人有责～</span>
+                    </h3>
+                    <p class="timer">2017.09.10 12:00:01
+                        <br>-&nbsp;&nbsp;地点<i class="dot"></i>转账&nbsp;&nbsp;-</p>
+                </div>
+                <div class="block2">
+                    <h2><i class="rhombus"></i>我最多次的消费场所<i class="rhombus"></i></h2>
+                    <div class="net">
+                        <div class="net-male"></div>
+                        <div class="key-1"></div>
+                        <div class="key-2"></div>
+                        <div class="cloudy cloudy1"></div>
+                        <div class="cloudy cloudy2"></div>
+                        <div class="star-1"></div>
+                        <p><b>网费</b></p>
+                        <h3 class="net-bt">
+                            <span class="blackzi">少年，切莫荒废你的热情，来网络中心谋职吧～</span>
+                            <span class="whitezi">少年，切莫荒废你的热情，来网络中心谋职吧～</span>
+                        </h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- parts parts-8 -->
+        <div class="smart-parts section">
+            <div class="qutou_temp">
+                <!--假定有头部标签栏需除去的高度，在真正交付时此处要去掉的-->
+                <div class="bg">
+                    <span class="tl"></span><span class="tr"></span><span class="bl"></span><span class="br"></span>
+                </div>
+                <div class="bg_line"></div>
+                <div class="arr"></div>
+                <div class="pay">
+                    <div class="key-1"></div>
+                    <div class="key-2"></div>
+                    <div class="cloudy cloudy1"></div>
+                    <div class="cloudy cloudy2"></div>
+                    <div class="star-1"></div>
+                    <div class="star-2"></div>
+                    <h2 class="margint45"><i class="rhombus"></i>这一学期让我付出最多的人<i class="rhombus"></i></h2>
+                    <p><b>张三</b></p>
+                    <p class="left">本学期你给<em>223</em>人转过帐，最佳“损友”如下</p>
+                    <div class="Echart-box smart-bubble-chart-1"></div>
+                    <div class="payman man5"><!--调几个就是几-->
+                            <div class="pay-male"></div>
+                            <div class="photo">
+                                <span class="quan"></span>
+                                <span class="img"><img src="../../content/style/white/xueqizhangdan/images/photo_default.png" /></span>
+                                
+                            </div>
+                            <div class="photo">
+                                <span class="quan"></span>
+                                <span class="img"><img src="../../content/style/white/xueqizhangdan/images/photo_default.png" /></span>
+                                
+                            </div>
+                            <div class="photo">
+                                <span class="quan"></span>
+                                <span class="img"><img src="../../content/style/white/xueqizhangdan/images/photo_default.png" /></span>
+                                
+                            </div>
+                            <div class="photo">
+                                <span class="quan"></span>
+                                <span class="img"><img src="../../content/style/white/xueqizhangdan/images/photo_default.png" /></span>
+                                
+                            </div>
+                            <div class="photo">
+                                <span class="quan"></span>
+                                <span class="img"><img src="../../content/style/white/xueqizhangdan/images/photo_default.png" /></span>
+                                
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+        <!-- parts parts-9 -->
+        <div class="smart-parts section">
+            <div class="qutou_temp">
+                <!--假定有头部标签栏需除去的高度，在真正交付时此处要去掉的-->
+                <div class="bg">
+                    <span class="tl"></span><span class="tr"></span><span class="bl"></span><span class="br"></span>
+                </div>
+                <div class="bg_line"></div>
+                <div class="arr"></div>
+                <div class="trans">
+                    <div class="key-1"></div>
+                    <div class="key-2"></div>
+                    <div class="cloudy cloudy1"></div>
+                    <div class="cloudy cloudy2"></div>
+                    <div class="star-1"></div>
+                    <h2 class="margint45">
+                        <i class="rhombus"></i>往你校园卡里打“巨款”的都是
+                        <b>真爱
+                            <span class="del">
+                                    <span>真爱</span>
+                                <span class="guimi">好闺蜜</span>
+                            </span>
+                        </b>
+                        <i class="rhombus"></i>
+                    </h2>
+                    <p class="left">本学期<em>23</em>人给你转账，
+                        <br>愿继续和土豪友谊地久天长</p>
+                    <div class="translation">
+                        <div class="photo floatL">
+                            <span class="quan"></span>
+                            <span class="img"><img src="../../content/style/white/xueqizhangdan/images/photo_default.png" /></span>
+                            <span class="text">李四</span>
+                        </div>
+                        <div class="to"></div>
+                        <div class="photo floatR">
+                            <span class="quan quan_rotate"></span>
+                            <span class="img"><img src="../../content/style/white/xueqizhangdan/images/photo_default.png" /></span>
+                            <span class="text">本人</span>
+                        </div>
+                    </div>
+                    <div class="rich-male"></div>
+                    <h3 class="transfer-tong-bt">
+                        <span class="blackzi">土豪，请收下我的膝盖。</span>
+                        <span class="whitezi">土豪，请收下我的膝盖。</span>
+                    </h3>
+                </div>
+            </div>
+        </div>
+        <!-- parts parts-10 -->
+        <div class="smart-parts section active">
+            <div class="qutou_temp">
+                <!--假定有头部标签栏需除去的高度，在真正交付时此处要去掉的-->
+                <div class="bg">
+                    <span class="tl"></span><span class="tr"></span><span class="bl"></span><span class="br"></span>
+                </div>
+                <div class="bg_line"></div>
+                <div class="arr"></div>
+                <div class="trans">
+                    <div class="key-1"></div>
+                    <div class="key-2"></div>
+                    <div class="cloudy cloudy1"></div>
+                    <div class="cloudy cloudy2"></div>
+                    <div class="star-1"></div>
+                    <h2 class="margint45"><i class="rhombus"></i>往你校园卡里打“巨款”的都是真爱<i class="rhombus"></i></h2>
+                    <p class="left">本学期<em>23</em>人给你转账，
+                        <br>愿继续和土豪友谊地久天长</p>
+                    <div class="translation">
+                        <div class="photo floatL">
+                            <span class="quan"></span>
+                            <span class="img"><img src="../../content/style/white/xueqizhangdan/images/photo_default.png" /></span>
+                            <span class="text">李四</span>
+                        </div>
+                        <div class="to"></div>
+                        <div class="photo floatR">
+                            <span class="quan quan_rotate"></span>
+                            <span class="img"><img src="../../content/style/white/xueqizhangdan/images/photo_default.png" /></span>
+                            <span class="text">本人</span>
+                        </div>
+                    </div>
+                    <div class="love"></div>
+                    <h3 class="transfer-yi-bt">
+                    <span class="blackzi">真心不建议公开场合秀恩爱，你要发朋友圈给亲爹妈嘛～</span>
+                    <span class="whitezi">真心不建议公开场合秀恩爱，你要发朋友圈给亲爹妈嘛～</span>
+                </h3>
+                </div>
+            </div>
+        </div>
+        <!-- parts parts-11 -->
+        <div class="smart-parts section ">
+            <div class="qutou_temp">
+                <!--假定有头部标签栏需除去的高度，在真正交付时此处要去掉的-->
+                <div class="bg">
+                    <span class="tl"></span><span class="tr"></span><span class="bl"></span><span class="br"></span>
+                </div>
+                <div class="bg_line"></div>
+                <div class="arr"></div>
+                <div class="paihang">
+                    <div class="key-1"></div>
+                    <div class="key-2 key3"></div>
+                    <div class="cloudy cloudy1"></div>
+                    <div class="cloudy cloudy2"></div>
+                    <div class="star-1"></div>
+                    <div class="star-2"></div>
+                    <div class="school-bt">天时地利你差人和</div>
+                    <h2><i class="rhombus"></i>所在组织的总消费在全校排行<i class="rhombus"></i></h2>
+                    <div class="Echart-box Echart-line-1"></div>
+                </div>
+            </div>
+        </div>
+        <!-- parts parts-12-->
+        <div class="smart-parts section ">
+            <div class="qutou_temp">
+                <!--假定有头部标签栏需除去的高度，在真正交付时此处要去掉的-->
+                <div class="bg">
+                    <span class="tl"></span><span class="tr"></span><span class="bl"></span><span class="br"></span>
+                </div>
+                <div class="bg_line"></div>
+                <div class="arr"></div>
+                <div class="paihang paihang2">
+                    <div class="key-1"></div>
+                    <div class="key-2"></div>
+                    <div class="cloudy cloudy1"></div>
+                    <div class="cloudy cloudy2"></div>
+                    <div class="star-1"></div>
+                    <div class="star-2"></div>
+                    <div class="circle"></div>
+                    <div class="school-bt school-bt-2">天时地利不差人和</div>
+                    <p class="left">我骄傲，我自豪。
+                        <br>我为船舶与工程学院GDP添砖加瓦。</p>
+                    <h2><i class="rhombus"></i>所在组织的总消费在全校排行<i class="rhombus"></i></h2>
+                    <div class="Echart-box Echart-line-2"></div>
+                </div>
+            </div>
+        </div>
+        <!-- parts parts-13 -->
+        <div class="smart-parts section">
+            <div class="qutou_temp">
+                <!--假定有头部标签栏需除去的高度，在真正交付时此处要去掉的-->
+                <div class="bg">
+                    <span class="tl"></span><span class="tr"></span><span class="bl"></span><span class="br"></span>
+                </div>
+                <div class="bg_line"></div>
+                <div class="arr"></div>
+                <div class="haida-view">
+                    <div class="key-1"></div>
+                    <div class="key-2"></div>
+                    <div class="cloudy cloudy1"></div>
+                    <div class="cloudy cloudy2"></div>
+                    <div class="star-1"></div>
+                    <div class="star-2"></div>
+                    <h2 class="margint45"><i class="rhombus"></i>你以为我们的学期账单就这些？<i class="rhombus"></i></h2>
+                    <div class="no"></div>
+                    <p class="left">海大智慧校园，带你<span class="high">high</span>到一个新高度～～～</p>
+                    <div class="haidada"></div>
+                </div>
+            </div>
+        </div>
+        <!-- parts parts-14-->
+        <div class="smart-parts section">
+            <div class="qutou_temp">
+                <!--假定有头部标签栏需除去的高度，在真正交付时此处要去掉的-->
+                <div class="bg">
+                    <span class="tl"></span><span class="tr"></span><span class="bl"></span><span class="br"></span>
+                </div>
+                <div class="bg_line"></div>
+                <div class="arr"></div>
+                <div class="reading">
+                    <div class="key-1"></div>
+                    <div class="key-2"></div>
+                    <div class="cloudy cloudy1"></div>
+                    <div class="cloudy cloudy2"></div>
+                    <div class="star-1"></div>
+                    <div class="star-2"></div>
+                    <div class="circle"></div>
+                    <div class="reading-bt"></div>
+                    <ul class="readlist">
+                        <li>本学期我借了：<em>34</em>本书</li>
+                        <li>击败了学校<em>80%</em>的人</li>
+                        <li>平均阅读时间：<em>2</em>天／本</li>
+                        <li>为学校图书馆建设贡献了：<em>3</em>元</li>
+                    </ul>
+                    <div class="libary-male"></div>
+                    <div class="youchuo"></div>
+                    <h3 class="libary-bt-1">
+                    <span class="blackzi">书神  书海舍你其谁～</span>
+                    <span class="whitezi">书神  书海舍你其谁～</span>
+                </h3>
+                </div>
+            </div>
+        </div>
+        <!-- parts parts-15 -->
+        <div class="smart-parts section">
+            <div class="qutou_temp">
+                <!--假定有头部标签栏需除去的高度，在真正交付时此处要去掉的-->
+                <div class="bg">
+                    <span class="tl"></span><span class="tr"></span><span class="bl"></span><span class="br"></span>
+                </div>
+                <div class="bg_line"></div>
+                <div class="arr"></div>
+                <div class="reading">
+                    <div class="key-1"></div>
+                    <div class="key-2"></div>
+                    <div class="cloudy cloudy1"></div>
+                    <div class="cloudy cloudy2"></div>
+                    <div class="star-1"></div>
+                    <div class="star-2"></div>
+                    <div class="circle"></div>
+                    <div class="reading-bt"></div>
+                    <ul class="readlist">
+                        <li>本学期我借了：<em>34</em>本书</li>
+                        <li>击败了学校<em>80%</em>的人</li>
+                        <li>平均阅读时间：<em>8</em>天／本</li>
+                        <li>为学校图书馆建设贡献了：<em>3</em>元</li>
+                    </ul>
+                    <div class="libary-male"></div>
+                    <div class="youchuo"></div>
+                    <h3 class="libary-bt-2">
+                    <span class="blackzi">书霸 厉害了我的少年～</span>
+                    <span class="whitezi">书霸 厉害了我的少年～</span>
+                </h3>
+                </div>
+            </div>
+        </div>
+        <!-- parts parts-16-->
+        <div class="smart-parts section">
+            <div class="qutou_temp">
+                <!--假定有头部标签栏需除去的高度，在真正交付时此处要去掉的-->
+                <div class="bg">
+                    <span class="tl"></span><span class="tr"></span><span class="bl"></span><span class="br"></span>
+                </div>
+                <div class="bg_line"></div>
+                <div class="arr"></div>
+                <div class="reading">
+                    <div class="key-1"></div>
+                    <div class="key-2"></div>
+                    <div class="cloudy cloudy1"></div>
+                    <div class="cloudy cloudy2"></div>
+                    <div class="star-1"></div>
+                    <div class="star-2"></div>
+                    <div class="circle"></div>
+                    <div class="reading-bt"></div>
+                    <ul class="readlist">
+                        <li>本学期我借了：<em>34</em>本书</li>
+                        <li>击败了学校<em>80%</em>的人</li>
+                        <li>平均阅读时间：<em>30</em>天／本</li>
+                        <li>为学校图书馆建设贡献了：<em>3</em>元</li>
+                    </ul>
+                    <div class="libary-male"></div>
+                    <div class="youchuo"></div>
+                    <h3 class="libary-bt-3">
+                    <span class="blackzi">书民，读了就好，读了就好～</span>
+                    <span class="whitezi">书民，读了就好，读了就好～</span>
+                </h3>
+                </div>
+            </div>
+        </div>
+        <!-- parts parts-17 -->
+        <div class="smart-parts section">
+            <div class="qutou_temp">
+                <!--假定有头部标签栏需除去的高度，在真正交付时此处要去掉的-->
+                <div class="bg">
+                    <span class="tl"></span><span class="tr"></span><span class="bl"></span><span class="br"></span>
+                </div>
+                <div class="bg_line"></div>
+                <div class="arr"></div>
+                <div class="sporting">
+                    <div class="key-1"></div>
+                    <div class="key-2"></div>
+                    <div class="cloudy cloudy1"></div>
+                    <div class="cloudy cloudy2"></div>
+                    <div class="star-1"></div>
+                    <div class="star-2"></div>
+                    <div class="circle"></div>
+                    <div class="reading-bt sporting-bt"></div>
+                    <ul class="readlist">
+                        <li>本学期我行走了<em>320852475</em>步</li>
+                        <li>相当于绕海大走了<em>310</em>圈
+                            <li>参加了<em>32</em>场红黑大战，胜利了<em>15</em>次！</li>
+                            <li>获得了王者称号<em>2</em>次</li>
+                    </ul>
+                    <div class="sporting-male"></div>
+                    <h3 class="sport-bt-1">
+                    <span class="blackzi">下一届奥运会靠你了～</span>
+                    <span class="whitezi">下一届奥运会靠你了～</span>
+                </h3>
+                </div>
+            </div>
+        </div>
+        <!-- parts parts-18-->
+        <div class="smart-parts section">
+            <div class="qutou_temp">
+                <!--假定有头部标签栏需除去的高度，在真正交付时此处要去掉的-->
+                <div class="bg">
+                    <span class="tl"></span><span class="tr"></span><span class="bl"></span><span class="br"></span>
+                </div>
+                <div class="bg_line"></div>
+                <div class="arr"></div>
+                <div class="sporting">
+                    <div class="key-1"></div>
+                    <div class="key-2"></div>
+                    <div class="cloudy cloudy1"></div>
+                    <div class="cloudy cloudy2"></div>
+                    <div class="star-1"></div>
+                    <div class="star-2"></div>
+                    <div class="circle"></div>
+                    <div class="reading-bt sporting-bt"></div>
+                    <ul class="readlist">
+                        <li>本学期我行走了<em>20852475</em>步</li>
+                        <li>相当于绕海大走了<em>345</em>圈
+                            <li>参加了<em>50</em>场红黑大战，胜利了<em>35</em>次！</li>
+                            <li>获得了王者称号<em>15</em>次</li>
+                    </ul>
+                    <div class="sporting-male"></div>
+                    <h3 class="sport-bt-2">
+                    <span class="blackzi">你虽然走的不多，但是你猜的对啊～</span>
+                    <span class="whitezi">你虽然走的不多，但是你猜的对啊～</span>
+                </h3>
+                </div>
+            </div>
+        </div>
+        <!-- parts parts-19 -->
+        <div class="smart-parts section">
+            <div class="qutou_temp">
+                <!--假定有头部标签栏需除去的高度，在真正交付时此处要去掉的-->
+                <div class="bg">
+                    <span class="tl"></span><span class="tr"></span><span class="bl"></span><span class="br"></span>
+                </div>
+                <div class="bg_line"></div>
+                <div class="arr"></div>
+                <div class="sporting">
+                    <div class="key-1"></div>
+                    <div class="key-2"></div>
+                    <div class="cloudy cloudy1"></div>
+                    <div class="cloudy cloudy2"></div>
+                    <div class="star-1"></div>
+                    <div class="star-2"></div>
+                    <div class="circle"></div>
+                    <div class="reading-bt sporting-bt"></div>
+                    <ul class="readlist">
+                        <li>本学期我行走了<em>20852475</em>步</li>
+                        <li>相当于绕海大走了<em>345</em>圈
+                            <li>参加了<em>32</em>场红黑大战，胜利了<em>15</em>次！</li>
+                            <li>获得了王者称号<em>2</em>次</li>
+                    </ul>
+                    <div class="sporting-male"></div>
+                    <h3 class="sport-bt-3">
+                    <span class="blackzi">加油吧我的少年～</span>
+                    <span class="whitezi">加油吧我的少年～</span>
+                </h3>
+                </div>
+            </div>
+        </div>
+        <!-- parts parts-20-->
+        <div class="smart-parts section ">
+            <div class="qutou_temp">
+                <!--假定有头部标签栏需除去的高度，在真正交付时此处要去掉的-->
+                <div class="bg">
+                    <span class="tl"></span><span class="tr"></span><span class="bl"></span><span class="br"></span>
+                </div>
+                <div class="bg_line"></div>
+                <div class="arr"></div>
+                <div class="sporting">
+                    <div class="key-1"></div>
+                    <div class="key-2"></div>
+                    <div class="cloudy cloudy1"></div>
+                    <div class="cloudy cloudy2"></div>
+                    <div class="star-1"></div>
+                    <div class="star-2"></div>
+                    <div class="circle"></div>
+                    <div class="reading-bt sporting-bt"></div>
+                    <ul class="readlist">
+                        <li>本学期我行走了<em>20852475</em>步</li>
+                        <li>相当于绕海大走了<em>345</em>圈
+                            <li>参加了<em>32</em>场红黑大战，胜利了<em>15</em>次！</li>
+                            <li>获得了王者称号<em>2</em>次</li>
+                    </ul>
+                    <div class="sporting-male"></div>
+                    <h3 class="sport-bt-4">
+                    <span class="blackzi">重在参与～重在参与～重在参与～</span>
+                    <span class="whitezi">重在参与～重在参与～重在参与～</span>
+                </h3>
+                </div>
+            </div>
+        </div>
+        <!-- parts parts-21 -->
+        <div class="smart-parts section ">
+            <div class="qutou_temp">
+                <!--假定有头部标签栏需除去的高度，在真正交付时此处要去掉的-->
+                <div class="bg">
+                    <span class="tl"></span><span class="tr"></span><span class="bl"></span><span class="br"></span>
+                </div>
+                <div class="bg_line"></div>
+                <div class="arr"></div>
+                <div class="studying">
+                    <div class="circle"></div>
+                    <div class="cloudy cloudy1"></div>
+                    <div class="cloudy cloudy2"></div>
+                    <div class="reading-bt studying-bt"></div>
+                    <p class="paddingline left">本学期上课签到<em>20</em>次，
+                        <br>出勤率为<em>40%</em></p>
+                    <div class="study-male"></div>
+                    <div class="kite"></div>
+                    <div class="cam_area">
+                        <div class="Echart-box Echart-pie-1"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- parts parts-22-->
+        <div class="smart-parts section ">
+            <div class="qutou_temp">
+                <!--假定有头部标签栏需除去的高度，在真正交付时此处要去掉的-->
+                <div class="bg">
+                    <span class="tl"></span><span class="tr"></span><span class="bl"></span><span class="br"></span>
+                </div>
+                <div class="bg_line"></div>
+                <div class="arr"></div>
+                <div class="teaching">
+                    <div class="circle"></div>
+                    <div class="cloudy cloudy1"></div>
+                    <div class="cloudy cloudy2"></div>
+                    <div class="reading-bt teaching-bt"></div>
+                    <p class="paddingline left">本学期签到<em>20</em>次，出勤率为<em>40%</em></p>
+                    <div class="teacher-male"></div>
+                    <div class="cam_area">
+                        <div class="Echart-box Echart-pie-2"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- parts parts-23 -->
+        <div class="smart-parts section">
+            <div class="qutou_temp">
+                <!--假定有头部标签栏需除去的高度，在真正交付时此处要去掉的-->
+                <div class="bg">
+                    <span class="tl"></span><span class="tr"></span><span class="bl"></span><span class="br"></span>
+                </div>
+                <div class="bg_line"></div>
+                <div class="lastpage">
+                    <div class="key-1"></div>
+                    <div class="key-2"></div>
+                    <div class="cloudy cloudy1"></div>
+                    <div class="cloudy cloudy2"></div>
+                    <div class="circle"></div>
+                    <h2 class="margint45">本学期感觉自己...</h2>
+                    <div class="btnarea">
+                        <div class="btn btn-1"><span></span><b>高端大气<br>上档次</b></div>
+                        <div class="btn btn-2"><span></span><b>低调奢华有内涵</b></div>
+                        <div class="btn btn-3"><span></span><b>外猛内柔女汉子</b></div>
+                        <div class="btn btn-4"><span></span><b>简约时尚国际范</b></div>
+                        <div class="btn btn-5"><span></span><b>奔放洋气<br>有深度</b></div>
+                        <div class="btn btn-6"><span></span><b>忧郁深沉无所谓</b></div>
+                        <div class="btn btn-7"><span></span><b>可爱乡村非主流</b></div>
+                        <div class="btn btn-8"><span></span><b>时尚靓丽<br>小清新</b></div>
+                    </div>
+                    <div class="king_ce"></div>
+                    <div class="comfirm-tip-2"></div>
+                    <div class="confirm-btn-2">朕要召告天下</div>
+                </div>
+            </div>
+        </div>
     </div>
-    <!-- parts parts-2 -->
-    <div class="smart-parts"> 
-      <h2>我最多次的消费场所：第三食堂<em></em></h2>
-      <!-- <span>吃货你认第二，没人敢认第一～</span> -->
-      <div class="smart-parts-container">
-        <img src="../../content/style/white/xueqizhangdan/images/st.jpg" class="smart-parts-container-bg">
-        <p>2017.09.10 12:00:01</p>
-        <p>地点（食堂）消费300.00元</p>
-      </div>
-      <h2>这一学期让我付出最多的人：张三<em></em></h2>
-      <span>本学期你给234人转过帐，最多“黑名单”的如下</span>
-      <div class="Echart-box smart-bubble-chart-1"></div>
-      <h2>往你校园卡里打“巨款”的都是真爱<em></em></h2>
-      <span>本学期23人给你转账，愿继续和土豪友谊地久天长</span>
-      <div class="smart-parts-container"></div>
+    <!-- hidden input -->
+    <input type="hidden" name="" class="setInfo">
+    <!-- loadding -->
+    <div class="loadding" id="loadding">
+        <article class="container">
+            <div class="bg">
+                <span class="tl"></span><span class="tr"></span><span class="bl"></span><span class="br"></span>
+            </div>
+            <div class="bg_line"></div>
+            <div id="hanSaidToFin" class="logo">
+                <svg version="1.1" id="图层_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 185.1 110" style="enable-background:new 0 0 185.1 110;" xml:space="preserve">
+                    <style type="text/css">
+                    .st0 {
+                        fill: none;
+                        stroke: #000000;
+                        stroke-width: 2;
+                        stroke-miterlimit: 10;
+                    }
+                    .st1 {
+                        fill: none;
+                        stroke: #000000;
+                        stroke-miterlimit: 10;
+                    }
+                    .st2 {
+                        stroke: #000000;
+                        stroke-width: 0.75;
+                        stroke-miterlimit: 10;
+                    }
+                    </style>
+                    <g>
+                        <g id="Thats">
+                            <g>
+                                <path d="M73.1,16.8v1.9H71v4.6h-2.1v-4.6h-2.1v-1.9C66.8,16.8,73.1,16.8,73.1,16.8z" />
+                                <path d="M76.4,19v-2.2h2.1v6.6h-2.1v-2.4h-1.7v2.4h-2.1v-6.6h2.1V19L76.4,19C76.4,19,76.4,19,76.4,19z" />
+                                <path d="M78.4,23.2l2.2-6.6h3.2l2.2,6.6h-2.5L83.1,22h-1.9l-0.4,1.2H78.4z M82.1,18.2l-0.9,2.6H83L82.1,18.2z" />
+                                <path d="M91.8,16.8v1.9h-2.1v4.6h-2.1v-4.6h-2.1v-1.9C85.5,16.8,91.8,16.8,91.8,16.8z" />
+                                <path d="M92.5,19.5v-2.8h1.4v1.4L92.5,19.5z" />
+                                <path d="M100.2,18.8h-1.6c-0.8,0-0.9,0.2-0.3,0.7c1,0.9,1.5,1.7,1.5,2.5s-0.5,1.3-1.5,1.5h-3.4v-1.9h1.4c0.9,0,1-0.2,0.3-0.7
+                    c-1.1-1-1.5-1.9-1.3-2.7s0.7-1.2,1.5-1.2h3.6L100.2,18.8L100.2,18.8z" />
+                            </g>
+                        </g>
+                        <g id="Works">
+                            <g>
+                                <path d="M89.1,90.4l-0.7,2.8h-2.1l-2-6.6h2.1l0.9,2.8l0.8-2.8h2l0.9,2.8l0.6-2.8h2.1L92,93.2h-2.1L89.1,90.4z" />
+                                <path d="M100.6,89.9c0,0.7-0.1,1.3-0.5,1.9c-0.3,0.5-0.7,0.9-1.3,1.1c-0.6,0.3-1.3,0.4-2.1,0.4s-1.5-0.1-2.1-0.4
+                    c-0.5-0.3-1-0.7-1.3-1.1c-0.3-0.5-0.5-1.1-0.5-1.9c0-0.5,0.1-1.1,0.3-1.5c0.1-0.4,0.4-0.8,0.7-1.1c0.3-0.3,0.7-0.5,1.2-0.7
+                    c0.5-0.1,1-0.2,1.6-0.2c0.8,0,1.5,0.1,2.1,0.4s1,0.7,1.3,1.1C100.5,88.5,100.6,89.3,100.6,89.9z M95.4,90c0,0.4,0.1,0.8,0.3,1.1
+                    c0.2,0.3,0.5,0.5,1.1,0.5c0.4,0,0.7-0.1,1-0.3c0.3-0.2,0.3-0.3,0.4-0.5s0.1-0.5,0.1-0.7c0-0.4-0.1-0.8-0.3-1.1
+                    c-0.2-0.3-0.6-0.5-1.2-0.5C95.9,88.4,95.4,88.9,95.4,90z" />
+                                <path d="M100.9,93.2v-6.6h4.2c0.5,0.1,0.9,0.2,1.3,0.4c0.3,0.2,0.6,0.5,0.7,0.9c0.1,0.6,0.1,1,0,1.3s-0.3,0.6-0.6,0.8
+                    c-0.3,0.2-0.7,0.4-1.2,0.5l0.5,0.6h2v2h-2.6l-2.1-2.2v2.2L100.9,93.2L100.9,93.2z M103.2,88.3v1.2h1.7c0.1,0,0.2,0,0.3-0.1
+                    c0.1-0.1,0.1-0.2,0.1-0.5s-0.1-0.4-0.2-0.5s-0.2-0.1-0.3-0.1H103.2L103.2,88.3z" />
+                                <path d="M110,86.6v2.1l1.5-2.1h2.1l-2.5,3.2l1.1,1.3h2v2h-2.6l-1.6-1.9v1.9h-2.1v-6.6L110,86.6L110,86.6z" />
+                                <path d="M119.4,88.6h-1.6c-0.8,0-0.9,0.2-0.3,0.7c1,0.9,1.5,1.7,1.5,2.5s-0.5,1.3-1.5,1.5h-3.4v-1.9h1.4c0.9,0,1-0.2,0.3-0.7
+                    c-1.1-1-1.5-1.9-1.3-2.7c0.1-0.8,0.7-1.2,1.5-1.2h3.6L119.4,88.6L119.4,88.6z" />
+                            </g>
+                        </g>
+                        <g id="Outline">
+                            <path class="st0" d="M86.2,87.8H64.2c-1.9,0-3.3-1.5-3.3-3.3V25.5c0-1.9,1.5-3.3,3.3-3.3H70" />
+                            <path class="st0" d="M117.6,87.8" />
+                            <path class="st0" d="M100.5,22.2h20.5c1.9,0,3.3,1.5,3.3,3.3v58.8c0,1.9-1.5,3.3-3.3,3.3h-3.4" />
+                        </g>
+                        <g>
+                            <polyline class="st1" points="88.8,84.2 64.4,84.2 64.4,25.8 72.5,25.8       " />
+                            <polyline class="st1" points="98,25.8 120.8,25.8 120.8,84.2 115,84.2        " />
+                        </g>
+                        <g>
+                            <path class="st2" d="M81,42.4l1.4,0.3c0.5-0.4,1.3-1.1,2.2-1.9c0.9-0.8,1.5-1.3,1.9-1.6H75.4v-0.4H87c0.2-0.1,0.3-0.3,0.5-0.4
+                l2,0.4c-0.2,0.1-0.5,0.3-1,0.6c-2.9,1.8-4.7,2.9-5.5,3.4v1.5h9.3v0.4H83V46c-0.1,3.1-1.7,4.8-4.9,5.1v-0.4c1.7-0.7,2.7-2,2.8-3.9
+                v-2h-9.3v-0.4H81V42.4z M72.1,35.3l2,0.4h11.5c0.1-0.2,0.4-0.8,0.8-1.6c0.6-1.2,1.1-2.1,1.4-2.7l2,0.4c-1.2,1.5-2.3,2.8-3.3,4h3.3
+                l2-0.4v3.6l-2,0.4v-3.2H74.2v2.8l-2,0.4V35.3z M77.4,34.9H77c-0.9-1-1.9-2.1-2.8-3.2l2-0.4C76.6,32.5,77,33.7,77.4,34.9z
+                 M83.4,34.9H83l-2.8-3.2l2-0.4C82.6,32.5,83,33.7,83.4,34.9z" />
+                            <path class="st2" d="M105.7,32.1l2,0.4h4.1l2-0.4V46c-0.1,3.1-1.7,4.8-4.9,5.1v-0.4c1.7-0.7,2.7-2,2.9-3.9v-3.2h-4.1
+                c-0.3,2.9-1.5,5.4-3.6,7.5v-0.4c0-0.1,0.1-0.3,0.2-0.5c0.1-0.3,0.2-0.4,0.2-0.6c-1.2-1-2.4-1.9-3.6-2.9l2-0.4
+                c0.2,0.3,0.5,0.7,0.8,1.2c0.5,0.7,0.8,1.2,1,1.4c0.4-1.3,0.7-2.5,0.8-3.5H94v-0.4h1.6V34.5h-1.2v-0.4h1.2v-2.8l2,0.4v2.4h4.4v-2.8
+                l2,0.4v2.4h1.2v0.4h-1.2v10.7h1.4c0.1-0.9,0.2-1.7,0.2-2.4V32.1z M96.8,46.4l2,0.4c-1.8,1.6-3.4,3-4.8,4.3v-0.4
+                C95.1,49,96.1,47.5,96.8,46.4z M97.6,34.5v3.3h4.4v-3.3H97.6z M97.6,38.2v3.3h4.4v-3.3H97.6z M97.6,41.9v3.3h4.4v-3.3H97.6z
+                 M107.7,42.4c0,0.3,0,0.5,0,0.8h4.1v-4.9h-4.1V42.4z M107.7,32.9v4.9h4.1v-4.9H107.7z" />
+                            <path class="st2" d="M92.3,77H71.7v-0.4H81v-5.9h-7.3v-0.4H81v-5.1h-7.7v-0.4h17.4v0.4H83v5.1h7.3v0.4H83v5.9h9.3V77z M91.5,60
+                v3.6l-2,0.4v-3.1H74.5v2.8l-2,0.4V60l2,0.4H81v-2.4l2,0.4v2h6.5L91.5,60z M89.1,75.8h-0.4c-1.1-1.3-2.2-2.6-3.3-3.9l2-0.4
+                C87.9,72.7,88.4,74.1,89.1,75.8z" />
+                            <path class="st2" d="M114.6,60.6h-5.2v1.2l0.8-0.2v2h4.4V64h-4.4v0.4c0,1.3,0.2,2.9,0.7,4.6c0.7-1,1.3-1.9,1.8-2.6l2,0.4
+                c-0.4,0.5-1.1,1.3-2,2.4c-0.6,0.6-1,1.1-1.2,1.4c0.7,2.2,1.8,4.5,3.3,6.8v0.4c-1.8-1.7-3.3-3.6-4.4-5.9c-1.7,1.9-3.3,3.8-4.8,5.5
+                V77c0.5-0.7,0.9-1.3,1.4-1.9h-4.2l-2,0.4V65.2l2,0.4h5.4V66h-1.8v2.7l2-0.4v4.1l-2-0.4v2.7h0.8c0.3-0.5,0.8-1.2,1.4-2.1
+                c0.6-0.8,1-1.4,1.2-1.8c-1-2.3-1.5-4.5-1.5-6.8h-8.1v5.2c0,3.3-1.2,6.2-3.6,8.7v-0.4c0.9-2.4,1.4-4.7,1.6-7.1h-1.2
+                c-0.1,2.3-1.1,4.4-2.8,6.3v-0.4c0.5-2.1,0.8-4,0.8-5.9H94v-0.4h4v-0.4V68h-1.6l-2,0.4v-5.9l2,0.4v4.7H98v-4.3l2,0.4h8.1v-1.3
+                l-0.8,0.2v-1.8h-6.1v1.8l-2,0.4v-2.2H94v-0.4h5.2v-2.2l2,0.4v1.8h6.1v-2.2l2,0.4v1.8h5.2V60.6z M102.5,66v2.7h1.6V66H102.5z
+                 M102.5,69.1v2.5h3.6v-2.5H102.5z M102.5,72v2.7h1.6V72H102.5z M113.4,63.2H113c-0.7-0.5-1.5-1.2-2.4-2l2-0.4
+                C112.8,61.7,113.1,62.5,113.4,63.2z" />
+                        </g>
+                    </g>
+                </svg>
+            </div>
+            <!--<a id="btn" href="#" onclick="window.location.reload();">重新查看动画</a>-->
+            <div class="progress" id="progress">
+                <div class="progress-out"></div>
+                <div class="percent-show"><span>0</span>%</div>
+                <div class="progress-p">校园宝藏正在挖掘中......</div>
+                <div class="progress-in"></div>
+            </div>
+        </article>
     </div>
-    <!-- parts parts-3 -->
-    <div class="smart-parts"> 
-      <h2>天时地利，你差人和：<em></em></h2>
-      <span>所在院系消费</span>
-      <div class="Echart-box smart-bubble-chart-3"></div>
-      <h2>你以为我们的学期账单就这些？<em></em></h2>
-      <span>智慧校园，带你High到一个新高度～～～</span>
-      <img src="../../content/style/white/xueqizhangdan/images/head-1.jpg" class="imgs">
-    </div>
-    <!-- parts parts-4 -->
-    <div class="smart-parts"> 
-      <h2>图书馆里的我<em></em></h2>
-      <span>本学期我借了：34本书 击败了学校80%的人</span>
-      <span>平均阅读时间 2天／本</span>
-      <span>为学校图书馆建设贡献了 3元</span>
-      <img src="../../content/style/white/xueqizhangdan/images/head-4.jpg" class="imgs">
-      <h2>运动时的我<em></em></h2>
-      <span>本学期我行走了3w步 相当于绕地球走了x圈</span>
-      <span>参加了x场红黑大战，胜利了x次！</span>
-      <span>获得了王者称号x次</span>
-      <img src="../../content/style/white/xueqizhangdan/images/head-5.jpg" class="imgs">
-    </div>
-    <!-- parts parts-5 -->
-    <div class="smart-parts"> 
-      <h2>学习时的我<em></em></h2>
-      <span>本学期上课签到20次，出勤率为40%</span>
-      <div class="Echart-box smart-bubble-chart-4"></div>
-      <h2>传道授业解惑时的我<em></em></h2>
-      <span>本学期上课签到20次，签到率为80%</span>
-      <div class="Echart-box smart-bubble-chart-5"></div>
-
-    </div>
-    <!-- parts parts-6 -->
-    <!-- <div class="smart-parts"> 
-      
-    </div> -->
-  </div>
 </body>
 <script src="../../content/style/frame/jquery/jquery-3.2.1.min.js"></script>
-<script src="../../content/style/frame/bootstrap/js/bootstrap.min.js"></script>
 <script src="../../content/style/frame/echarts/echarts.min.js"></script>
-<script src="../../content/style/frame/pageScroll/js/onepage-scroll.js"></script>
+<script src="../../content/style/frame/jquery/fullpage/js/jquery.fullPage.min.js"></script>
+<script src="../../content/style/white/xueqizhangdan/js/data.js"></script>
 <script src="../../content/style/white/xueqizhangdan/js/runEcharts.js"></script>
 <!-- <script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js" type="text/javascript" charset="utf-8"></script> -->
 </head>
-
 <script src="../../content/style/white/xueqizhangdan/js/index.js"></script>
 <script type="text/javascript">
-    
-    // $.ajax({
-    //   url:"https://api.weibo.com/2/statuses/share.json",
-    //   type:"post",
-    //   data:{
-    //     access_token:"12312",
-    //     status:"asdfasdf",
-    //   }
-    // })
-  // function cat(){
-  // }
-  // cat.prototype={
-  //   food:"fish",
-  //   say: function(){
-  //     alert("I love "+this.food);
-  //   }
-  // }
-  // var blackCat = new cat;
-  // // blackCat.say();
-  // // console.log(blackCat)
-  // var whiteDog = {food:"bone"};
+// 
+// post sex **************************************
+console.log(_default)
+// ajaxDate({
+//     url: "http://172.16.15.99:3000/",
+//     data: {
+//         type: "sex",
+//     }
+// }, function(data) {
+//     // success callback
+    data = _default.data;
+    $(".setInfo").attr({
+        "name": data.name,
+        "gender": data.gender,
+        'sno': data.sno
+    });
+    // postData();
+// });
+// post data **************************************
+// function postData() {
+//     ajaxDate({
+//         // url:"http://localhost:3000/",
+//         url: "http://172.16.15.99:3000/",
+//         // url:"http://127.0.0.1:3000/",
+//         data: {
+//             type: "zhangdan",
+//         }
+//     }, function(data) {
+//         // success callback
+//         console.log("data = ", data);
+        var arrObj = [];
+        var objs = {};
+//         console.log()
+        $.each(data, function(index, event) {
+            switch (index) {
+                case "oneCard":
+                    for (var i in event) {
+                        // 不为空，就保存
+                        if (event[i]) {
+                            arrObj.push(event[i]);
+                            objs["oneCard-" + i] = event;
+                        }
+                    }
+                    break;
+                default:
+                    // 不为空，就保存
+                    if (event) {
+                        objs[index] = event;
+                        arrObj.push(event);
+                    }
+                    break;
+            }
 
-  // blackCat.say.call(whiteDog);
-  
-  // console.log(whiteDog)
+        });
+//         console.log(objs);
+        if (arrObj) {
+            onepageScroll(data, objs);
+        } else {
+            console.warn("arrObj = ", arrObj)
+        }
+
+//     });
+// }
+
+// function cat(){
+// }
+// cat.prototype={
+//   food:"fish",
+//   say: function(){
+//     alert("I love "+this.food);
+//   }
+// }
+// var blackCat = new cat;
+// // blackCat.say();
+// // console.log(blackCat)
+// var whiteDog = {food:"bone"};
+
+// blackCat.say.call(whiteDog);
+
+// console.log(whiteDog)
 </script>
+<!--loadding js-->
+<script src='../../content/style/white/xueqizhangdan/js/walkway.min.js'></script>
+<script>
+var svg = new Walkway({
+    selector: 'svg',
+    duration: '1000'
+});
+svg.draw();
+</script>
+<script>
+$(document).ready(
+    function() {
+        /*
+         *1.delay函数是jquery 1.4.2新增的函数
+         *2.hide函数里必须放一个0,不然延时不起作用
+         */
+        $('#loadding').delay(1500).hide(0);
+    }
+);
+</script>
+<script src="../../content/style/white/xueqizhangdan/js/jquery.myProgress.js"></script>
+<script>
+$(function() {
+    $("#progress").myProgress({ speed: 6000, percent: 100, width: "70%", height: "16px" });
+})
+</script>
+
 </html>

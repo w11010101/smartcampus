@@ -18,8 +18,9 @@ html *{
   border-bottom: 0.005rem solid #e0e0e0;
 }
 .smart-screen div[class^="col-xs"]{
-    font-size: .14rem;
-    color:#8d8d8d;
+  font-size: .14rem;
+  color:#8d8d8d;
+  padding: 0
 }
 .smart-screen div[class^="col-xs"]:not(#picker4):after {
   content: " ";
@@ -116,6 +117,13 @@ html *{
   padding-left: .2rem;
   line-height: .25rem
 }
+.smart-newBook #wrapper{
+  position: absolute;
+  width: 100%;
+  top:.4rem;
+  bottom: 0
+
+}
 .smart-list .smart-list-item{
   height: auto;
   padding-top: .1rem;
@@ -123,23 +131,70 @@ html *{
   padding-left: .3rem;
 }
 .smart-list .smart-list-item h3{
+  font-size: .16rem;
   line-height: .25rem;
   height:.25rem;
 }
+/* */
+.smart-newBook .smart-list .smart-list-item h3{
+  position: relative;
+  float:left;
+  padding:0 .16rem;
+  max-width: 100%;
+  clear:both;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.smart-newBook .smart-list .smart-list-item h3:before,
+.smart-newBook .smart-list .smart-list-item h3:after{
+  position: absolute;
+}
+.smart-newBook .smart-list .smart-list-item h3:before{
+  content: "《";
+  left:-.05rem;
+}
+.smart-newBook .smart-list .smart-list-item h3:after{
+  content: "》";
+  right:-.05rem;
+}
+.smart-newBook .smart-list .smart-list-item h4{
+  margin-top: .25rem;
+}
+/* */
 .smart-bookList .smart-list .smart-list-item h3{
   padding-left: .05rem;
 }
 .smart-bookList .smart-list .smart-list-item h3 p{
-  font-size: .17rem;
+  font-size: .16rem;
   color:#3c3c3c;
   padding-right: .5rem;
   white-space: nowrap;
+  display: inline-block;
+  max-width: calc(100% - .4rem);
   text-overflow: ellipsis;
+  padding: 0 .16rem 0 .16rem;
+  position: relative;
+}
+.smart-bookList .smart-list .smart-list-item h3 p:before,
+.smart-bookList .smart-list .smart-list-item h3 p:after{
+  position: absolute;
+}
+.smart-bookList .smart-list .smart-list-item h3 p:before{
+  content: "《";
+  left:-.05rem;
+}
+.smart-bookList .smart-list .smart-list-item h3 p:after{
+  content: "》";
+  right:-.05rem;
 }
 .smart-list .smart-list-item h4{
   font-size: .15rem;
   line-height: .25rem;
   color:#3c3c3c;
+  white-space: nowrap;
+  overflow:hidden;
+  text-overflow: ellipsis;
 }
 .smart-list .smart-list-item p{
   font-size: .14rem;
@@ -149,6 +204,7 @@ html *{
   overflow:hidden;
   text-overflow: ellipsis;
 }
+
 .smart-list .smart-list-item span{
   font-size: .13rem;
   line-height: .25rem;
@@ -221,6 +277,7 @@ html *{
   bottom: 0;
   left: 0;
 }
+
 .pullDown, .pullUp{
   height: .5rem;
 }
@@ -251,12 +308,27 @@ html *{
 .smart-bookList .smart-list .smart-list-item h4{
   margin-top: .1rem;
   padding-left: .05rem;
+  height: .25rem;
   color:#a8a8a8;
+  font-size: 0;
+}
+.smart-bookList .smart-list .smart-list-item h4 p{
+  font-size: .15rem;
+  display: inline-block;
+  width: calc(100% - 1.2rem);
+  padding-right: .1rem
+}
+.smart-bookList .smart-list .smart-list-item h4 p{
+  font-size: .15rem;
+  display: inline-block;
+  width: calc(100% - 1.2rem);
+  padding-right: .1rem;
 }
 .smart-bookList .smart-list .smart-list-item h4 i{
-  width: auto;
+  display: inline-block;
+  width: 1.2rem;
   float:right;
-  
+  font-size: .15rem;
 }
 /* media */
 @media screen and (max-width: 320px) {

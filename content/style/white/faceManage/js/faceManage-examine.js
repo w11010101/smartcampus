@@ -66,9 +66,13 @@ $(function(){
 		if(Approved){
 			// 替换 “使用中” 的图片
 			$(".using-img a").attr("href",option.img).find("img").attr("src",option.img);
+
 		}
 		// 删除比对照片
 		$(".contrast-img a").attr("href","").find("img").remove();
+		// 删除按钮
+		$(".contrast-img .contrast-img-btns").remove();
+
 		// 先销毁 baguetteBox；
 		baguetteBox.destroy();
 		// 在运行 baguetteBox；

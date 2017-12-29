@@ -989,8 +989,9 @@ background: #fff;*/
 	display: inline-block;
 	transform: rotateX(0deg);
 	-webkit-transform: rotateX(0deg);
-	transition: transform .2s ease-in, background .1s ease-in;
-	-webkit-transition: transform .2s ease-in, background .1s ease-in;
+
+/*	transition: transform .2s ease-in, background .1s ease-in;
+	-webkit-transition: transform .2s ease-in, background .1s ease-in;*/
 }
 
 .smart-screen div[class^="col-xs-4"].smart-active {

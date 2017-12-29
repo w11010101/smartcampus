@@ -27,28 +27,32 @@ body{
 #wrapper{
   position: absolute;
   width: 100%;
-  top:0；
-  bottom: 0
+  top:0;
+  bottom: 0;
 }
 
-/* media */
-/*@media screen and (max-width: 320px) {
-    html{
-        font-size: calc(100vw/3.2);
-    }
-    .smart-proportion-sum span{
-      font-size: .12rem
-    }
-}
-@media screen and (min-width: 376px) and (max-width: 414px) {
-    html{
-        font-size: calc(100vw/4.14);
-    }
-}
-@media screen and (min-width: 415px) {
-    html{
-        font-size: 100px;
-    }
-}*/
 
 
+/* error.html */
+.error .smart-content{
+  position: relative;
+  height: 100vh;
+  background: #fff;
+
+}
+.error .smart-content div{
+  position: absolute;
+  width: 80%;
+  top:20%;
+  left:10%;
+}
+.error .smart-content div img{
+  width: 100%;
+}
+.error .smart-content div p{
+  text-align: center;
+  color:#8d8d8d;
+  margin-top: .1rem;
+  font-size: .14rem;
+
+}

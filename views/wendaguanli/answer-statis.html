@@ -19,7 +19,7 @@
 
   <link href="../../content/style/frame/iscroll4/css/pullToRefresh.css" rel="stylesheet">
   <link href="../../content/style/white/wendaguanli/css/wenda.css" rel="stylesheet">
-  <link href="../../content/style/white/wendaguanli/css/proportion.css" rel="stylesheet">
+  <link href="../../content/style/common/css/proportion.css" rel="stylesheet">
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]> param.month = getOtherDate(getM);
@@ -99,26 +99,38 @@
 <script src="../../content/style/frame/iscroll/iscroll-probe.js"></script>
 <script src="../../content/style/frame/echarts/echarts.min.js"></script>
 <script src="../../content/style/white/wendaguanli/js/answer-statis.js"></script>
-<script src="../../content/style/white/wendaguanli/js/proportion.js"></script>
+<script src="../../content/style/common/js/proportion.js"></script>
 <script type="text/javascript">
   //  横向滚动
   scrollPorbe();
   //  对比1
   var obj = document.querySelector(".proportion-box");
-  var prop = new Proportion(obj,{
-    data:[5000,2000],
-    viewRate:"40%",     // 查看率
-    answerRate:"78%",   // 回答率
-    answerTime:"130天",   // 回答时间
-  });
+  var options1 = {
+      data: [10, 0],
+      dataAlign: "center",            //  data 数据对齐方式 center：居中; edge:靠边 
+      dataTitle: [`Q`, 'A'],          //  数据对应标签
+      dataProportion: false,          //  是否显示比例
+      otherSeries: {                  //  附加信息
+          type: "list",
+          value:["回答查看率","回答率","平均回答时间"],
+          data:["0%","0%","0天"],  //  当type 为 list时，有data数据自定义添加
+      },
+  }
+  var prop = new Proportion(obj,options1);
   //  对比2
   var obj_2 = document.querySelector(".proportion-box-2");
-  var prop_2 = new Proportion(obj_2,{
-    data:[5000,9],   // 对比的值
-    viewRate:"55%",       // 查看率
-    answerRate:"90%",     // 回答率
-    answerTime:"130天",   // 回答时间
-  });
+  var options2 = {
+      data: [5000, 10000],
+      dataAlign: "center",            //  data 数据对其方式 center：居中; edge:靠边 
+      dataTitle: [`Q`, 'A'],          //  数据对应标签
+      dataProportion: false,          //  是否显示比例
+      otherSeries: {                  //  附加信息
+          type: "list",
+          value:["回答查看率","回答率","平均回答时间"],
+          data:["40%","78%","130天"],  //  当type 为 list时，有data数据自定义添加
+      },
+  }
+  var prop_2 = new Proportion(obj_2,options2);
   //  加载图表
   runEcharts({
     data:[1, 5, 52, 10, 100],

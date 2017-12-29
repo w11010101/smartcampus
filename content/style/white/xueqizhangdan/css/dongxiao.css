@@ -1,0 +1,195 @@
+/* CSS3过度及动画 */
+.page_bt{top: -100%;transition: all 1s;}
+h1{top:-100%;transition: all 1s;}
+.king_think{top:-100%;transition: all 1s;}
+.active .page_bt { top: 40px; transition-delay: 0.1s;}
+.active h1{top:90px;transition-delay: 0.1s;}
+.active .king_think{top:-2px;transition-delay: 0.1s;}
+
+.summed{margin-top:138px;margin-top:38%; opacity: 0; -webkit-transform:scale(0.5, 0.5); transform:scale(0.5, 0.5); transition: all 1s;}
+.active .summed{opacity: 1; -webkit-transform:scale(1, 1); transform:scale(1,1);transition-delay: 0.8s;}
+
+p.p1{margin-top:8%;}
+.active p.p1 { top:55%; text-align:center;}
+
+.total-bt-1{top:35%;position:absolute;left:-100%;transition: all 0.5s;opacity: 0; -webkit-transform:scale(0.6, 0.6); transform:scale(0.6, 0.6);}
+.active .total-bt-1 {left:0;transition-delay: 1.3s;opacity: 1; -webkit-transform:scale(1, 1); transform:scale(1, 1);}
+
+.huaxiao { position: absolute; bottom:10px; /*bottom: -362px;*/ width: 100%; height: 320px;opacity: 0; transition: all 1.4s; }
+.active .huaxiao { bottom:10px; opacity: 1; transition-delay: 8s;}
+
+
+.no-shu{top:60%;margin-top:-110px;opacity:0;transition: all 1s;}
+.no-tip{top:53%;margin-top:-110px;opacity: 0;transition: all 1s;-webkit-animation-name:rubberBand;
+	animation-name:rubberBand}
+.active .no-shu{transition-delay: 1.2s;opacity: 1;}
+.active .no-tip{opacity: 1;transition-delay: 0.8s;}
+
+
+.terrible-male{transition: all 0.5s;}
+.active .terrible-male{left:10%;transition-delay: 0.7s;}
+
+.terrible-male{bottom:6px;transition: all 0.5s;}
+.comfirm-tip-1{bottom:-100px;transition: all 0.5s;}
+.confirm-btn-1{bottom:-100px;transition: all 0.5s;}
+
+.active .terrible-male{bottom:78px;transition-delay: 0.7s;}
+.active .comfirm-tip-1{bottom:100px;transition-delay: 0.7s;}
+.active .confirm-btn-1{bottom:30px;transition-delay: 0.5s;}
+.active .confirm-btn-1:hover{bottom:28px;}
+.active .confirm-btn-1:active{bottom:28px;}
+
+/*每种情况的初始页面在loading后延迟执行*/
+/*.section.active:nth-of-type(1) .summed,.smart-bill~.section.active .summed{transition-delay:6.5s;}
+.section.active:nth-of-type(1) .page_bt,.smart-bill~.section.active .page_bt {transition-delay: 6s;}
+.section.active:nth-of-type(1) h1,.smart-bill~.section.active h1{transition-delay: 6s;}
+.section.active:nth-of-type(1) .king_think,.smart-bill~.section.active .king_think{transition-delay: 6s;}
+.section.active:nth-of-type(1) .total-bt-1,.smart-bill~.section.active .total-bt-1 {transition-delay: 7.3s;}*/
+
+.section.active:nth-of-type(1) .no-shu{transition-delay:7.2s;}
+.section.active:nth-of-type(1) .no-tip{transition-delay: 6.8s;}
+.section.active:nth-of-type(1) .terrible-male{transition-delay: 6.7s;}
+.section.active:nth-of-type(1) .comfirm-tip-1{transition-delay: 6.7s;}
+.section.active:nth-of-type(1) .confirm-btn-1{transition-delay: 6.5s;}
+/*延迟执行*/
+
+.king_ce{right:-50%;bottom:2%;transition: all 0.5s;}
+.comfirm-tip-2{left:200%;bottom:105px;transition: all 0.5s;}
+.confirm-btn-2{bottom:-100%;left:50%;margin-left:-105px;transition: all 0.5s;}
+
+.active .king_ce{right:10%;bottom:2%;transition-delay: 1.2s;}
+.active .comfirm-tip-2{left:20%;bottom:105px;bottom:15%;transition-delay: 0.7s;}
+.active .confirm-btn-2{bottom:30px;transition-delay: 0.5s;}
+.active .confirm-btn-2:hover{bottom:28px;}
+.active .confirm-btn-2:active{bottom:28px;}
+
+.block1 h2{top:45px;left:-140%;width:100%;transition: all 0.5s;}
+.active .block1 h2{left:0;transition-delay: 0.2s;}
+
+.block1 .p2{ top:95px; top:13%;text-align:center;transition: all 0.5s;opacity:0;-webkit-transform:scale(0.2, 0.2); transform:scale(0.2, 0.2);}
+.active .block1 .p2{transition-delay: 0.4s;opacity: 1; -webkit-transform:scale(1, 1); transform:scale(1, 1);}
+
+.timer{position:absolute; text-align:center;top:140px;transition: all 0.5s;opacity:0;-webkit-transform:scale(0.2, 0.2); transform:scale(0.2, 0.2);}
+.active .timer{top:195px;top:29%;transition-delay: 0.9s;opacity: 1;-webkit-transform:scale(1, 1); transform:scale(1, 1); }
+
+.block1 h3{top:-50%;transition: all 0.6s;opacity:0;}
+.active .block1 h3{ top:86px;top:141px;top:21%;transition-delay: 0.7s;opacity: 1; }
+.block1 h3.pay-money-bt{}
+.active .block1 h3.pay-money-bt{top:129px;top:20%;}
+.active .block1 h3.pay-money-bt+.timer{top:31%;}
+/*block1的h2暂时只能用数值*/
+
+.block2 h2{top:44%;left:-100%;width:100%;text-align:center; transition: all 0.5s;}
+.active .block2 h2{left:0;top:44%;transition-delay: 2s;}
+.block2 p{ /*top:47%;*/bottom:-25%;text-align:center;transition: all 0.5s;opacity:0;-webkit-transform:scale(0.2, 0.2); transform:scale(0.2, 0.2);}
+.active .block2 p{ bottom:43%;transition-delay: 2.2s;opacity: 1; -webkit-transform:scale(1, 1); transform:scale(1, 1);}
+
+.block2 h3{bottom:-50%;transition: all 0.5s;}
+.active .block2 h3{bottom:50px;bottom:7%;bottom:13%;/*不限高度时，一行字为9%，二行字为13%,6p二行字可再下来一点*/transition-delay:2.8s;}
+
+.active .block2 .eat-bt,.active .block2 .wash-bt,.active .transfer-tong-bt,.active .transfer-yi-bt{bottom:9%}
+
+
+/*painter*/
+.eat-male{left:auto;margin-left:0;margin-right:-101px;right:-50%;;transition: all 0.3s;}
+.active .eat-male{right:50%;transition-delay: 2.7s;}
+
+.wash-male{left:auto;margin-left:0;margin-right:-80px;right:-50%;;transition: all 0.3s;}
+.active .wash-male{right:50%;transition-delay: 2.7s;}
+
+.haidada{left:-350%;transition: all 0.3s;}
+.active .haidada{left:50%;margin-left:-125px;transition-delay: 1.7s;}
+
+.net-male{left:auto;margin-left:0;margin-right:-93px;right:-50%;;transition: all 0.3s;}
+.active .net-male{right:50%;transition-delay: 2.7s;}
+
+.sport-male{left:-50%;;transition: all 0.3s;}
+.active .sport-male{left:50%;transition-delay:2.7s;}
+
+
+.youchuo{left:260%;right:0;bottom:67px;transition: all 0.3s;}
+.active .youchuo{left:60%;transition-delay: 1.5s;}
+
+.libary-male{left:auto;margin-left:0;margin-right:-132px;right:-50%;transition: all 0.3s;}
+.active .libary-male{right:50%;transition-delay: 1.2s;}
+
+.sporting-male{bottom:200%;transition: all 0.3s;}
+.active .sporting-male{bottom:102px;bottom:18%;transition-delay: 1.7s;}
+
+.study-male{right:-50%;transition: all 0.3s;}
+.active .study-male{right:12%;transition-delay: 1.2s;}
+
+.teacher-male{left:-50%;transition: all 0.3s;}
+.active .teacher-male{left:8%;transition-delay: 1.2s;}
+.active .teacher-female{left:6%;}
+
+.pay-male{transition: all 0.5s;opacity: 0; -webkit-transform:scale(0.6, 0.6); transform:scale(0.6, 0.6);}
+.active .pay-male{transition-delay: 1.3s;opacity: 1; -webkit-transform:scale(1, 1); transform:scale(1, 1);}
+
+.rich-male{transition: all 0.5s;opacity: 0; -webkit-transform:scale(0.6, 0.6); transform:scale(0.6, 0.6);}
+.active .rich-male{transition-delay: 1.3s;opacity: 1; -webkit-transform:scale(1, 1); transform:scale(1, 1);}
+
+.love{transition: all 0.5s;opacity: 0; -webkit-transform:scale(0.6, 0.6); transform:scale(0.6, 0.6);}
+.active .love{transition-delay: 1.3s;opacity: 1; -webkit-transform:scale(1, 1); transform:scale(1, 1);}
+
+
+.reading-bt{top:-50%;transition: all 0.3s;}
+.active .reading-bt {top:5%;transition-delay: 0.7s;}
+
+.readlist{left:-100%;transition: all 0.3s}
+.active .readlist {left:9%;transition-delay: 1.2s;}
+
+
+.studying p,.teaching p{width:auto;top:-27%;transition: all 0.3s;}
+.active .studying p,.active .teaching p{top:27%;transition-delay: 0.7s;}
+.studying p{left:12%;}
+.teaching p{top:-35%;}
+.active .teaching p{top:30%;}
+
+.margint45{left:-100%;transition: all 0.5s;opacity: 0; -webkit-transform:scale(0.6, 0.6); transform:scale(0.6, 0.6);}
+.active .margint45{left:0;transition-delay: 0.5s;opacity: 1; -webkit-transform:scale(1, 1); transform:scale(1, 1);}
+
+.pay p,.trans p{top:17%;transition: all 0.5s;opacity: 0; -webkit-transform:scale(0.6, 0.6); transform:scale(0.6, 0.6);}
+.pay p{top:15%;}
+.active .pay p,.active .trans p {transition-delay: 1.3s;opacity: 1; -webkit-transform:scale(1, 1); transform:scale(1, 1);}
+.pay p.left{top:25%;}
+.trans p.left,.paihang p.left{width:74%;left:13%;}
+
+.payman{transition: all 0.5s;opacity:0;}
+.active .payman{opacity:1;transition-delay: 0.6s;}
+
+.trans h2.tugai{width:20%;right:10%;transition: all 0.5s;opacity:0;}
+.active .trans h2.tugai{top:12%;transition-delay: 1.3s;opacity:1;}
+
+.trans h3{bottom:-50%;transition: all 0.5s;opacity:0;}
+.active .trans h3{bottom:55px;bottom:9%;/*不限高度时，一行字为9%，二行字为13%*/transition-delay: 1.8s;opacity:1;}
+.active .trans h3.transfer-yi-bt{bottom:13%;}
+
+.translation{width:70%;height:62px;position:absolute;top:-30%;left:15%;transition: all 0.5s;}
+.active .translation{top:31%;transition-delay: 1.3s;opacity:1;}
+
+
+.paihang h2{top:25%;left:-100%;transition: all 0.5s;}
+.active .paihang h2{top:25%;left:0;transition-delay: 1.0s;}
+.paihang2 h2{top:38%;}
+.active .paihang2 h2{top:38%;left:0;transition-delay: 1.0s;}
+.paihang p{top:140%;line-height:30px;transition: all 0.5s;}
+.active .paihang p{top:25%;transition-delay: 1.0s;}
+
+.school-bt{top:-50%;transition: all 0.5s;opacity:0;}
+.active .school-bt{top:20px;transition-delay: 0.8s;opacity:1;}
+
+.reading h3{bottom:-50%;transition: all 0.5s;opacity:0;}
+.sporting h3{bottom:-50%;transition: all 0.5s;opacity:0;}
+.active .sporting h3,.active .reading h3{bottom:55px;bottom:9%;/*不限高度时，一行字为9%，二行字为13%*/transition-delay: 1.8s;opacity:1;}
+
+.active .sporting h3.sport-bt-2,.active .sporting h3.sport-bt-4{bottom:13%;}
+
+.no{transition: all 0.5s;-webkit-transform:scale(0, 0); transform:scale(0, 0);}
+.active .no{transition-delay: 1.0s;opacity: 1; -webkit-transform:scale(1, 1); transform:scale(1, 1);}
+
+.haida-view p {top:30%;width:80%;left:-100%;transition: all 0.5s;}
+.active .haida-view p{left:10%;transition-delay: 1.2s}
+
+.payman .photo{opacity:0;transition: all 0.5s;}
+.active .payman .photo{opacity:1;transition-delay: 1.2s}

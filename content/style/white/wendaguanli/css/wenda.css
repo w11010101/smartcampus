@@ -12,13 +12,7 @@ html *{
     font-size: .14rem;
 }
 /* poppicker css*/
-.mui-poppicker{
-    bottom: -200%;
-    -webkit-transform: translateY(-4rem);
-}
-.mui-poppicker.mui-active{
-    bottom: 0
-}
+
 .mui-poppicker-header{
     position: absolute;
     top:-45px;
@@ -211,11 +205,12 @@ html *{
     color:#a8a8a8;
 
 }
-.smart-border-bottom,
+.smart-border-bottom{
+   border-bottom: 0.5px solid #e0e0e0;
+}
 .Echarts-line{
     position:relative;
 }
-.smart-border-bottom:after,
 .Echarts-line:after{
     position:absolute;
     content:" ";

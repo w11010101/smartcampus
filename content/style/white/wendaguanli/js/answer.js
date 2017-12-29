@@ -229,16 +229,19 @@ function myMap(data) {
         }
     })
 }
+picker = new mui.PopPicker({
+    layer: 1,
+});
 lists.off().on("click", onClick);
 // 条件筛选点击事件
 function onClick() {
     var type = $(this).attr("setType");
     var index = $(this).index();
-    if (!picker) {
-        picker = new mui.PopPicker({
-            layer: 1,
-        });
-    }
+    // if (!picker) {
+    //     picker = new mui.PopPicker({
+    //         layer: 1,
+    //     });
+    // }
     // picker.setData： 配置picker插件
     picker.setData(screen_list[type]);
     $(this).toggleClass("smart-active");

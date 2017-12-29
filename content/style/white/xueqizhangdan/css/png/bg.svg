@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="375px" height="667px" viewBox="0 0 375 667" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 46.1 (44463) - http://www.bohemiancoding.com/sketch -->
+    <title>bg</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <radialGradient cx="50%" cy="39.2698182%" fx="50%" fy="39.2698182%" r="74.3232188%" gradientTransform="translate(0.500000,0.392698),scale(1.000000,0.662219),rotate(89.022656),scale(1.000000,0.808436),translate(-0.500000,-0.392698)" id="radialGradient-1">
+            <stop stop-color="#FFFF0F" offset="1.47680166%"></stop>
+            <stop stop-color="#FFDC0B" offset="90.6421397%"></stop>
+            <stop stop-color="#FFD20B" offset="97.9432398%"></stop>
+            <!--<stop stop-color="#ffc600" offset="97.9432398%"></stop>-->
+
+           <!-- <stop stop-color="#FFFF0F" offset="1.47680166%"></stop>
+            <stop stop-color="#FFD606" offset="80.6421397%"></stop>
+            <stop stop-color="#FFD900" offset="97.9432398%"></stop>-->
+        </radialGradient>
+    </defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="bg" fill="url(#radialGradient-1)">
+            <rect id="Rectangle" x="0" y="0" width="375" height="667"></rect>
+        </g>
+    </g>
+</svg>

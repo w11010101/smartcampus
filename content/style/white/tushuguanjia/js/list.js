@@ -93,7 +93,7 @@ function ajaxList(option) {
 function html(num) {
     return `<li class="smart-list-item">
                 <h3><p>时光隧道</p><em class="list-num ${num>3?'':'list-num-'+num}">${num}</em></h3>
-                <h4>史蒂芬 ● 霍金<i>借阅次数：100次</i></h4>
+                <h4><p>史蒂芬 ● 霍金</p><i>借阅次数：100次</i></h4>
             </li>`;
 }
 // 加载中

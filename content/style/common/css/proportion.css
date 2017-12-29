@@ -1,65 +1,110 @@
+
 html{
   font-size: calc(100vw/3.75);
-  background:#fff;
 }
 html *{
   margin:0;
   padding: 0; 
-  font-style:normal;
+  font-style: normal;
+  font-weight: normal;
 }
-.proportion{
-    position: relative;
-}
-/*.clearfix{
-    height: .3rem;
-}
-*/
 .clearfix:after{
-    content:" ";
-    display: block;
-    clear: both;
-    font-size: 0;
+  content:" ";
+  height: 0;
+  clear:both;
+}
+.proportion-container{
+    position: relative;
+    height: .5rem;
 }
 .proportion-part{
-    position: absolute;
-    top:0;
-    left:0;
-    width: 100%;
     display: inline-block;
     font-size: .16rem;
+    width: 100%;
+    height: .5rem;
+    position:absolute;
     transition: all .5s ease-in;
     -webkit-transition: all .5s ease-in;
 }
+/* .proportion-num-show */
+.proportion-num-show{
+    width: calc(100% - 1rem);
+    left:.5rem;
+}
+.proportion-num-show .proportion-part{
+
+}
+.proportion-num-show .proportion-part-left label{
+    left:-.5rem;
+}
+.proportion-num-show .proportion-part-right label{
+    right:-.5rem;
+}
+.proportion-num-show .proportion-part-left .proportion-num{
+    margin-left: -.5rem;
+}
+.proportion-num-show .proportion-part-right .proportion-num{
+    margin-right: -.5rem;
+}
+/*  */
+.proportion-bars-box{
+    font-size: 0;
+    position: absolute;
+    top:.35rem;
+    line-height: .06rem
+}
+/* proportion-num */
+.proportion-num{
+    display: inline-block;
+    width: .5rem;
+    font-size: .12rem;
+    vertical-align: middle;
+}
+.proportion-part-right .proportion-bars-box{
+    right:0;
+}
+.proportion-num{
+
+}
+.proportion-part-left .proportion-num{
+    color:#73d2fe;
+}
+.proportion-part-right .proportion-num{
+    color:#ff5408;
+}
+/* .proportion-bars */
 .proportion-bars{
+    
+    display: inline-block;
+    vertical-align: middle;
     height: .06rem;
-    width: 10%;
+    width: 98%;
     min-width: 1px;
-    vertical-align: top;
     border-radius:.02rem;
-    margin: .25rem 0 0 0 ;
     transition: all .5s ease-in;
     -webkit-transition: all .5s ease-in;
 }
 .bars-value-container{
     position:absolute;
-    top:0;
-    left: 50%;
+    width: auto;
+    top:.05rem;
     color:#fff;
+
 }
 .bars-value {
-    position: absolute;
-    /*left:-50%;*/
+    position: relative;
     font-size:.15rem;
 }
 .proportion-part-left{
-    float:left;
 }
 .proportion-part > label{
     display: block;
+    height: .3rem;
+    line-height: .3rem;
     min-width: .14rem;
     position: absolute;
     top:0;
-    font-weight: normal;
+    
 }
 .proportion-part-left label{
     left:0;
@@ -75,7 +120,6 @@ html *{
     display: inline-block;
 }
 .proportion-part-right {
-    float:right;
     text-align: right;
 }
 .proportion-part-right label,.proportion-part-right .bars-value{
@@ -84,11 +128,16 @@ html *{
 .proportion-part-right .proportion-bars{
     background: #ff5408;
     display: inline-block;
-    /*margin-right: -0.04rem;*/
+}
+/* otherSeries */
+.otherSeries{
+    position: absolute;
+    width:100%;
+    top:.55rem;
 }
 .proportion-info-container{
     color:#8d8d8d;
-    margin-top: .1rem;
+    top:.5rem;
 }
 .proportion-info-container ul{
     font-size:0;
@@ -97,7 +146,6 @@ html *{
     display: inline-block;
     width:50%;
     font-size: .12rem;
-    /*margin-right:5%;*/
     vertical-align: middle;
 }
 .proportion-info-container ul li span{
@@ -115,7 +163,6 @@ html *{
     color:#0096d2;
 }
 .proportion-info-container ul li:nth-child(2){
-    /*width:55%;*/
     text-align: right;
 }
 .proportion-info-container ul li:nth-child(2) span{
@@ -127,23 +174,16 @@ html *{
 .proportion-info-container ul li:last-child em{
     color:#01e699;
 }
-/* .proportion-btns */
-.proportion-btns{
 
-}
-.proportion-btns button{
-    
-}
 /* .proportion-href */
 .proportion-href{
-    padding: .2rem;
-    text-align:center
+    text-align:center;
 }
 .proportion-href a{
     display: inline-block;
     width: .6rem;
-    height: .3rem;
-    line-height: .3rem;
+    height: .25rem;
+    line-height: .23rem;
     font-size: .14rem;
     border:1px solid #73d2fe;
     border-radius:5px;
@@ -153,35 +193,25 @@ html *{
     margin-right: 25%;
 }
 
+/* ************************************************************************* */
+/* ************************************************************************* */
 
-
-
-
-
-/* media */
-@media screen and (max-width: 320px) {
-    html{
-        font-size: calc(100vw/3.2);
-    }
+/* .Prop-title part */
+/*.Prop-title{
+    font-size: 0;
 }
-@media screen and (min-width: 376px) and (max-width: 414px) {
-    html{
-        font-size: calc(100vw/4.14);
-    }
+.Prop-title > div{
+    display: inline-block;
+    width: 50%;
+    font-size: .12rem;
+    color:#8d8d8d;
 }
-@media screen and (min-width: 415px) {
-    html{
-        font-size: 100px;
-    }
+.Prop-title-left{
+
+}
+.Prop-title-right{
+    text-align: right;
 }
 
-
-
-
-
-
-
-
-
-
+*/
 
