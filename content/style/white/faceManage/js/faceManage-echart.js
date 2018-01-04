@@ -72,7 +72,7 @@ $(function() {
             ]
         };
         // 基于准备好的dom，初始化echarts实例
-        let myChart = echarts.init(document.getElementById(options.id));
+        var myChart = echarts.init(document.getElementById(options.id));
         // var myChart = echarts.init(document.getElementById("auto-Echart"));
         // 使用刚指定的配置项和数据显示图表。
         myChart.setOption(option);
@@ -82,15 +82,16 @@ $(function() {
     // 第一次加载页面，调用创建图表
     var chart1 = createEchart({
       id:"auto-Echart",
-      data1:[100,110,120,130,140],
-      data2:[100,111,112,113,114],
-      date:getDate({type:"before",class:"month"})
+      data1:[200,110],
+      data2:[100,111],
+      date:getDate({type:"before",class:"month",length:2})
     });
+
     var chart2 = createEchart({
       id:"artificial-Echart",
       data1:[100,110,120,130,140],
       data2:[100,111,112,113,114],
-      date:getDate({type:"after",class:"year"})
+      date:getDate({type:"before",class:"year",length:5})
     });
 
     /**
@@ -102,13 +103,13 @@ $(function() {
      * @return {Array}  Array     [description]
      */
     function getDate(param){
-        let date = new Date();
-        let year = date.getFullYear();
-        let month = date.getMonth();
-        let arr = ["本月"];
-        let i = param.length-1 || 4;
-        let num = param.class== "month"?month+1:year;
-        let unit = param.class== "month"?"月":"年";
+        var date = new Date();
+        var year = date.getFullYear();
+        var month = date.getMonth();
+        var arr = [param.class== "month"?"本月":"本年"];
+        var i = param.length-1;
+        var num = param.class== "month"?month+1:year;
+        var unit = param.class== "month"?"月":"年";
         while (i > 0){
             if(param.type == "before"){
                 if(unit == "月" && num == 1){
@@ -116,14 +117,14 @@ $(function() {
                 }else{
                     num--;
                 }
-                arr.unshift(num + unit);
+                arr.push(num + unit);
             }else if(param.type == "after"){
                 if(unit == "月" && num == 12){
                     num = 1;
                 }else{
                     num++;
                 }
-                arr.push(num + unit);
+                arr.unshift(num + unit);
             }
             i--;
         }
@@ -132,8 +133,8 @@ $(function() {
 
     // 按年，按月 ：按钮点击事件 
     $("body").on("click",".smart-proportion-btns button",function(){
-        let config = {
-            type:"after",
+        var config = {
+            type:"before",
         }
         if($(this).text() == "按年"){
             console.log('按年');
@@ -147,7 +148,7 @@ $(function() {
         chart1.clear();
         chart1 = createEchart({
             id:"auto-Echart",
-            data1:[100,110,120,130,140],
+            data1:[10,110,120,130,140],
             data2:[100,111,112,113,114],
             date:getDate(config)
         });
@@ -155,7 +156,7 @@ $(function() {
         chart2.clear();
         chart2 = createEchart({
             id:"artificial-Echart",
-            data1:[100,110,120,130,140],
+            data1:[1,110,120,130,140],
             data2:[100,111,112,113,114],
             date:getDate(config)
         });

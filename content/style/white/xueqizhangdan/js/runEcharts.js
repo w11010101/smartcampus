@@ -56,7 +56,6 @@ var Echarts = function() {
         switch (option.type) {
             case "line":
                 return {
-                    
                     // backgroundColor:"#000",
                     // grid: {
                     //     left:"3%",

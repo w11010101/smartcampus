@@ -23,15 +23,30 @@ $(function(){
 			// 不通过
 			console.log('不通过');
 			$(".smart-content").toggleClass("input-show");
-			$(".input-box").focus();
-
+			$(".input-box input").focus();
+			// $(document)[0].scrollIntoView(true);
 		}
 	});
-	// 遮罩层 点击事件
-	$("body").on("click",".smart-screen-mask",function(){
-		console.log("遮罩层");
-		$(".smart-content").toggleClass("input-show");
-	});
+	var interval;
+    //消息框获取焦点
+//  $(".input-box input").focus(function(){
+//      interval = setInterval(function() {
+//          scrollToEnd();
+//      }, 500);
+//  });
+//  //消息框失去焦点
+//  $(".input-box input").blur(function(){
+//      clearInterval(interval);
+//  })
+//	function scrollToEnd(){
+//		document.body.scrollTop = document.body.scrollHeight;
+//	}
+//	// 遮罩层 点击事件
+//	$(".smart-screen-mask").on("click",function(){
+//		console.log("遮罩层");
+//		$(".smart-content").toggleClass("input-show");
+//		$(".input-box input[type=text]").blur();
+//	});
 	// 审核不通过 信息发送
 	$("body").on("click",".sendBtn",function(){
 		console.log("发送");
@@ -62,7 +77,7 @@ $(function(){
 	 */
 	function getHtml(option){
 		console.log(option);
-		let Approved = option.Approved === undefined?true:option.Approved;
+		var Approved = option.Approved === undefined?true:option.Approved;
 		if(Approved){
 			// 替换 “使用中” 的图片
 			$(".using-img a").attr("href",option.img).find("img").attr("src",option.img);
@@ -78,12 +93,7 @@ $(function(){
 		// 在运行 baguetteBox；
 		baguetteBox.run('.baguetteBox');
 
-		return `<li RegistrationID=${option.RegistrationID}>
-              <div>
-                <img src="${option.img}" alt="">
-              </div>
-              <p>${option.time}<span>${option.persong +"("+option.studentID+")" +  " " + option.msg}</span></p>
-            </li>`;
+		return '<li RegistrationID='+option.RegistrationID+'><div><img src="'+option.img+'" alt=""></div><p>'+option.time+'<span>'+option.persong +"("+option.studentID+")" +  " " + option.msg+'</span></p></li>';
 	}
 
 });

@@ -95,22 +95,22 @@
 </body>
 <script src="../../content/style/frame/jquery/jquery-3.2.1.min.js"></script>
 <script src="../../content/style/frame/bootstrap/js/bootstrap.min.js"></script>
-
 <script src="../../content/style/frame/iscroll/iscroll-probe.js"></script>
 <script src="../../content/style/frame/echarts/echarts.min.js"></script>
 <script src="../../content/style/white/wendaguanli/js/answer-statis.js"></script>
-<script src="../../content/style/common/js/proportion.js"></script>
+<script src="../../content/style/common/js/proportion-es5.js"></script>
 <script type="text/javascript">
   //  横向滚动
   scrollPorbe();
   //  对比1
   var obj = document.querySelector(".proportion-box");
   var options1 = {
-      data: [10, 0],
+      data: [0, 0],
       dataAlign: "center",            //  data 数据对齐方式 center：居中; edge:靠边 
       dataTitle: [`Q`, 'A'],          //  数据对应标签
       dataProportion: false,          //  是否显示比例
       otherSeries: {                  //  附加信息
+          show:true,
           type: "list",
           value:["回答查看率","回答率","平均回答时间"],
           data:["0%","0%","0天"],  //  当type 为 list时，有data数据自定义添加
@@ -125,6 +125,7 @@
       dataTitle: [`Q`, 'A'],          //  数据对应标签
       dataProportion: false,          //  是否显示比例
       otherSeries: {                  //  附加信息
+          show:true,
           type: "list",
           value:["回答查看率","回答率","平均回答时间"],
           data:["40%","78%","130天"],  //  当type 为 list时，有data数据自定义添加
@@ -132,9 +133,12 @@
   }
   var prop_2 = new Proportion(obj_2,options2);
   //  加载图表
+  var myData = [100,90,80,70,60,50,0];
+
+  $(".Echarts-line").height(myData.length*.6+"rem");
   runEcharts({
-    data:[1, 5, 52, 10, 100],
-    value:["a|李白|200920020","b|杜甫|200920020","c|白居易啊|200920020","d|王安石啊|200920020","e|辛弃疾|200920020"]
+    data:myData,
+    value:["a|1|李白|200920020","b|2|杜甫|200920020","c|3|白居易啊|200920020","d|4|王安石啊|200920020","d|5|辛弃疾|200920020","d|6|辛弃疾|200920020",'d|7|方文山|200920020'],
   })
   
   

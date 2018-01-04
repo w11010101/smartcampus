@@ -47,17 +47,17 @@ function nothing(){
   // 重新获取
   $(".smart-list-nothing").off().on("click","button",function(){
     $(".smart-list-nothing").hide(0);
-      ajaxList()
+      ajaxList();
   });
 }
 // 提示信息 jquery.toast.js
 function myTips(val) {
-        $.toast({
-            text: val,
-            allowToastClose: false, // Boolean value true or false
-            hideAfter: 3000, // false to make it sticky or number 
-            position: 'bottom-center',
-            textAlign: 'center',
-            loader: false
-        });
-    }
+  $.toast({
+    text: val,
+    allowToastClose: false, // Boolean value true or false
+    hideAfter: 3000, // false to make it sticky or number 
+    position: 'bottom-center',
+    textAlign: 'center',
+    loader: false
+  });
+}

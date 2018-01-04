@@ -18,7 +18,6 @@
   <link href="../../content/style/frame/jquery/fullpage/css/jquery.fullPage.css" rel="stylesheet">
   <link href="../../content/style/frame/swipe/css/idangerous.swiper-2.7.6.css" rel="stylesheet">
   <link href="../../content/style/white/xuanchuan/css/xuanchuan.css" rel="stylesheet">
-  <link href="../../content/style/white/xuanchuan/css/boat.css" rel="stylesheet">
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]> param.month = getOtherDate(getM);
@@ -26,7 +25,46 @@
       <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
-
+<style type="text/css">
+ /* .parts.active{
+    animation: animationParts .5s ease 1s;
+    -webkit-animation: animationParts .5s ease 1s; 
+  }
+  @-webkit-keyframes animationParts{
+    0%{
+      -webkit-transform: translateY(-40px);
+    }
+    25%{
+      -webkit-transform: translateY(40px);
+    }
+    50%{
+      -webkit-transform: translateY(-20px);
+    }
+    75%{
+      -webkit-transform: translateY(20px);
+    }
+    200%{
+      -webkit-transform: translateY(0);
+    }
+  }
+  @keyframes animationParts{
+    0%{
+      transform: translateY(-40px);
+    }
+    25%{
+      transform: translateY(40px);
+    }
+    50%{
+      transform: translateY(-20px);
+    }
+    75%{
+      transform: translateY(20px);
+    }
+    200%{
+      transform: translateY(0);
+    }
+  }*/
+</style>
 <!-- <body class="smart-query" > -->
 <body class="smart-propaganda">
   <div class="container-fluid">
@@ -77,29 +115,6 @@
             </div>
           </div>
         </div>
-        
-        <!-- <div id="myCarousel" class="carousel slide visible-xs-block ">
-          <div class="carousel-inner ">
-              <div class="item active">
-                  <img src="../../content/style/white/xuanchuan/images/parts-1-img-1.png" alt="First slide">
-              </div>
-              <div class="item">
-                  <img src="../../content/style/white/xuanchuan/images/parts-1-img-2.png" alt="Second slide">
-              </div>
-              <div class="item">
-                  <img src="../../content/style/white/xuanchuan/images/parts-1-img-3.png" alt="Third slide">
-              </div>
-          </div>
-          <a class="carousel-control left" href="#myCarousel" 
-              data-slide="prev">
-              <img src="../../content/style/white/xuanchuan/images/continue.png">
-          </a>
-          <a class="carousel-control right" href="#myCarousel" 
-              data-slide="next">
-              <img src="../../content/style/white/xuanchuan/images/continue.png">
-          </a>
-        </div> -->
-        <!--  -->
       </div>   
     </div>
     <!-- parts-2 -->
@@ -302,9 +317,9 @@
             <p>iphone 下载</p>
           </div>
         </div>
-        <div class="animation-box animation-box-0 visible-xs-block">
+        <!-- <div class="animation-box animation-box-0 visible-xs-block">
           <img src="../../content/style/white/xuanchuan/images/9haida-boat.png">
-        </div>
+        </div> -->
         <div class="animation-box animation-box-1">
           <img src="../../content/style/white/xuanchuan/images/9haida-boat.png">
         </div>
@@ -335,11 +350,9 @@ function pageScroll(data){
     sectionsColor: ['#ffffff', '#5FD2ED', '#EA9F96', '#83A9ED', '#D190D1','#81C5F7','#F7B052','#727AD6','#0686D8'],
     afterLoad:function(anchorLink,index){
       console.log(`当前是${index}页`);
-      // if(index!=1){
-      //   $(".arrow-down img").attr("src",'../../content/style/white/xuanchuan/images/slide-down-1.png');
-      // }
     },
-    continuousVertical:true
+    easingcss3: 'cubic-bezier(0.175, 0.885, 0.320, 1.175)'
+
   });
   console.log(11);
   var mySwiper = new Swiper('.swiper-container',{
@@ -354,7 +367,8 @@ function pageScroll(data){
   $('.arrow-right').on('click', function(e){
     e.preventDefault()
     mySwiper.swipeNext()
-  })
+  });
+  // parts-9
 }
 
 </script>

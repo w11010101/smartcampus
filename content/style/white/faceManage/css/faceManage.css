@@ -16,8 +16,24 @@
 .smart-proportion-sum span:last-child {
     float: right;
 }
-
-
+.statis-btns{
+	padding: .1rem 0;
+	text-align: center;
+}
+.statis-btns a{
+	text-align: center;
+	display: inline-block;
+    width: .6rem;
+    height: .25rem;
+    line-height: .23rem;
+    font-size: .14rem;
+    border: 1px solid #73d2fe;
+    border-radius: 5px;
+    color: #73d2fe;
+}
+.statis-btns a+a{
+	margin-left: .5rem;
+}
 /* smart-list-part */
 
 .smart-list-part {

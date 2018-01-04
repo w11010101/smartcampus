@@ -2,6 +2,7 @@
 html,.examine{
   height: auto;
   overflow-y:scroll;
+  -webkit-overflow-scrolling:touch;
 }
 .info{
   background: #fff;
@@ -162,16 +163,19 @@ html,.examine{
 .input-box{
   position: fixed;
   width: 100%;
-  bottom: 0;
+  height: .5rem;
+  padding: .1rem;
+  bottom:0;
   z-index: 3;
-  display: none;
   background: #fff;
-  font-size: 0
+  /*opacity: 0;
+	transition: all .3s ease 1s;
+  -webkit-transition: all .3s ease 1s;*/
 }
 .input-box input{
   width: calc(100% - .6rem);
   border:none;
-  padding: .2rem;
+  height: .3rem;
   display: inline-block;
   font-size: .12rem;
 }
@@ -188,11 +192,15 @@ html,.examine{
 #baguetteBox-overlay .full-image img{
   width: 2.8rem;
 }
-.smart-content.input-show .input-box,
+
+
 .smart-content.input-show .smart-screen-mask{
   display: block;
 }
-
+.smart-content.input-show .input-box{
+	opacity: 1;
+  /*bottom: 0;*/
+}
 
 
 

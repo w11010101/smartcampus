@@ -55,17 +55,17 @@ var weatherIcons = {
 };
 option = {
     title: {
-        text: '管理员回复排行榜',
+        text: '管理员回复排行榜1',
         textStyle:{
             fontWeight:"normal",
             fontSize:"15"
         },
-        padding:[35,0,0,2]
+        padding:[20,0,0,2]
     },
     grid: {
         left: 25,
         right: '5%',
-        bottom: '-5%',
+        bottom: '0%',
         containLabel: true,        
     },
     xAxis: {
@@ -82,24 +82,23 @@ option = {
         axisTick:{
             show:false,
         },
+        // maxInterval: 3600 * 24 * 10,
         inverse: true, // 正序
-        data:["a|李白|200920020","b|杜甫|200920020","c|白居易啊|200920020","d|王安石啊|200920020","e|辛弃疾|200920020"],
+        data:["a|1|李白|200920020","b|2|杜甫|200920020","c|3|白居易啊|200920020","d|4|王安石啊|200920020","d|5|辛弃疾|200920020","d|6|辛弃疾|200920020"],
         axisLabel:{
             width:85,
-            // color:"#fff", 
-            // backgroundColor:"#132132",
             formatter: function (value) {
                 var textArr = value.split("|");
                 var img = textArr[0];
-                var val1 = textArr[1];
-                var val2 = textArr[2];
-                return '{' + img + '| }{value1|' + val1 + '}\n{value2|'+ val2 +'}';
+                var th = textArr[1];
+                var val1 = textArr[2];
+                var val2 = textArr[3];
+                return '{' + img + '|'+th+' }{value1|' + val1 + '}\n{value2|'+ val2 +'}';
             },
             rich: {
                 value1: {
                     fontSize:12,
                     align: 'left',
-                    
                     padding:[0,0,0,10],
                 },
                 value2:{
@@ -108,39 +107,36 @@ option = {
                     fontSize:11,
                 },
                 a: {
-                    height: 14,
+                    padding:[3,2,1,4],
                     align: 'left',
-                    backgroundColor: {
-                        image: weatherIcons.icon_1
-                    }
+                    color:"#fff",
+                    backgroundColor:"#ff5408",
+                    borderWidth:1,
+                    borderRadius:4,
                 },
                 b: {
-                    height: 14,
+                    padding:[3,2,1,4],
                     align: 'left',
-                    backgroundColor: {
-                        image: weatherIcons.icon_2
-                    }
+                    color:"#fff",
+                    backgroundColor:"#fdab06",
+                    borderWidth:1,
+                    borderRadius:4,
                 },
                 c: {
-                    height: 14,
+                    padding:[3,2,1,4],
                     align: 'left',
-                    backgroundColor: {
-                        image: weatherIcons.icon_3
-                    }
+                    color:"#fff",
+                    backgroundColor:"#01e699",
+                    borderWidth:1,
+                    borderRadius:4,
                 },
                 d: {
-                    height: 14,
+                    padding:[3,2,1,4],
                     align: 'left',
-                    backgroundColor: {
-                        image: weatherIcons.icon_4
-                    }
-                },
-                e: {
-                    height: 14,
-                    align: 'left',
-                    backgroundColor: {
-                        image: weatherIcons.icon_5
-                    }
+                    color:"#fff",
+                    backgroundColor:"#e0e0e0",
+                    borderWidth:1,
+                    borderRadius:4,
                 }
 
             }

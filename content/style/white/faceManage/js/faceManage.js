@@ -4,21 +4,22 @@ var obj = document.querySelector(".proportion");
 var options = {
     data: [5000, 10000],
     dataAlign: "edge",            //  data对齐：edge:靠边;center:"靠中";默认center
-    dataTitle: [`自动审核(50)`, '人工审核(2000)'],   //  数据对应标签
+    dataTitle: ['自动审核(50)', '人工审核(2000)'],   //  数据对应标签
     dataStyle: {                    //  数据标签样式
         color: '#a8a8a8',
         fontSize: ".12rem",
     },
     barStyle:{},                    //  进度条样式
     dataProportion: false,          //  是否显示比例
-    otherSeries: {                  //  附加信息
-        type: "href",            //  list：列表；href：跳转
-        value: ["统计", "流水"], //  内容
-        href: [                  //  当type 为 href时，有value值，来添加跳转地址
-           "faceManage-echart.html", 
-           "faceManage-statistical.html"
-        ], 
-    },
+//  otherSeries: {                  //  附加信息
+//      show:true,
+//      type: "href",            //  list：列表；href：跳转
+//      value: ["统计", "流水"], //  内容
+//      href: [                  //  当type 为 href时，有value值，来添加跳转地址
+//         "faceManage-echart.html", 
+//         "faceManage-statistical.html"
+//      ], 
+//  },
 }
 // 
 var prop = new Proportion(obj, options);
@@ -39,7 +40,7 @@ $("body").on("click", ".radio-btn", function() {
 var state = true;
 // 对比度切换按钮 点击事件
 $("body").on("click", ".sort-btn", function() {
-    $(this).html(state ? `对比度低<em></em>高` : `对比度高<em></em>低`);
+    $(this).html(state ? '对比度低<em></em>高' : '对比度高<em></em>低');
     state = !state;
     nothing();
 });

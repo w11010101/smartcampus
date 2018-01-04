@@ -18,13 +18,5 @@ function ajaxList(){
 }
 // return html 结构
 function getHtml(option) {
-    return `<li class="smart-list-item">
-              <div class="name">
-                  <h3>罗杰</h3>
-                  <span>201711010101</span>
-              </div>
-              <span class="time">2017/12/12</span>
-              <span class="contrast">99.00</span>
-              <span class="result">通过</span>
-          </li>`;
+    return '<li class="smart-list-item"><div class="name"><h3>罗杰</h3><span>201711010101</span></div><span class="time">2017/12/12</span><span class="contrast">99.00</span><span class="result">通过</span></li>';
 }
