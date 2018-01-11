@@ -37,7 +37,7 @@ $(function() {
         // preventDefault: false
     });
     scrollObj.options.onBeforeScrollStart = function(e) {
-        // console.log(e)
+        console.log(e);
     }
 });
 
@@ -51,6 +51,11 @@ function nothing(){
   });
 }
 // 提示信息 jquery.toast.js
+/**
+ * [myTips description]
+ * @param  {[type]} val [description]
+ * @return {[type]}     [description]
+ */
 function myTips(val) {
   $.toast({
     text: val,

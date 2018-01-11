@@ -12,14 +12,11 @@ $(function() {
         // 指定图表的配置项和数据
         var option = {
             grid: {
-                left: -30,
-                right: '4%',
-                bottom: '3%',
-                containLabel: true
+                bottom: 30,
             },
             xAxis: {
                 type: 'category',
-                data: options.date,
+                data: options.label,
                 axisLine: {
                     show: false
                 },
@@ -30,10 +27,15 @@ $(function() {
             yAxis: {
                 show: false,
                 type: 'value',
-                max: function(value) {
-                    return value.max;
-                }
             },
+            dataZoom: [{
+                type: "inside",
+                show: false,
+                filterMode:"empty",
+                xAxisIndex: [0],
+                start: options.start || 0,
+                end: options.end || 50,
+            }],
             barWidth: 20,
             series: [{
                     type: 'bar',
@@ -41,7 +43,7 @@ $(function() {
                     label: {
                         normal: {
                             show: true,
-                            position: [25, 0]
+                            position: [25, 0],
 
                         }
                     },
@@ -59,6 +61,7 @@ $(function() {
                         normal: {
                             show: true,
                             position: [25, 0],
+                            offset:[0,-15],
                             color: "#3c3c3c"
                         }
                     },
@@ -75,6 +78,7 @@ $(function() {
         var myChart = echarts.init(document.getElementById(options.id));
         // var myChart = echarts.init(document.getElementById("auto-Echart"));
         // 使用刚指定的配置项和数据显示图表。
+        console.log(JSON.stringify(option))
         myChart.setOption(option);
         return myChart;
     }
@@ -84,14 +88,19 @@ $(function() {
       id:"auto-Echart",
       data1:[200,110],
       data2:[100,111],
-      date:getDate({type:"before",class:"month",length:2})
+      label:["本年","2017年"],
+      start:0,
+      end:100
     });
 
     var chart2 = createEchart({
       id:"artificial-Echart",
-      data1:[100,110,120,130,140],
-      data2:[100,111,112,113,114],
-      date:getDate({type:"before",class:"year",length:5})
+      data1:[1234567890,1234567890,1234567890,1234567890,1234567890],
+      data2:[1234567890,1234567890,1234567890,1234567890,1234567890],
+      label:["本年","2017年","2016年","2015年","2014年"],
+      start:0,
+      end:50,
+
     });
 
     /**
@@ -102,34 +111,34 @@ $(function() {
      * @param  {Number} length    [数组长度,默认4]
      * @return {Array}  Array     [description]
      */
-    function getDate(param){
-        var date = new Date();
-        var year = date.getFullYear();
-        var month = date.getMonth();
-        var arr = [param.class== "month"?"本月":"本年"];
-        var i = param.length-1;
-        var num = param.class== "month"?month+1:year;
-        var unit = param.class== "month"?"月":"年";
-        while (i > 0){
-            if(param.type == "before"){
-                if(unit == "月" && num == 1){
-                    num = 12;
-                }else{
-                    num--;
-                }
-                arr.push(num + unit);
-            }else if(param.type == "after"){
-                if(unit == "月" && num == 12){
-                    num = 1;
-                }else{
-                    num++;
-                }
-                arr.unshift(num + unit);
-            }
-            i--;
-        }
-        return arr;
-    }
+    // function getDate(param){
+    //     var date = new Date();
+    //     var year = date.getFullYear();
+    //     var month = date.getMonth();
+    //     var arr = [param.class== "month"?"本月":"本年"];
+    //     var i = param.length-1;
+    //     var num = param.class== "month"?month+1:year;
+    //     var unit = param.class== "month"?"月":"年";
+    //     while (i > 0){
+    //         if(param.type == "before"){
+    //             if(unit == "月" && num == 1){
+    //                 num = 12;
+    //             }else{
+    //                 num--;
+    //             }
+    //             arr.push(num + unit);
+    //         }else if(param.type == "after"){
+    //             if(unit == "月" && num == 12){
+    //                 num = 1;
+    //             }else{
+    //                 num++;
+    //             }
+    //             arr.unshift(num + unit);
+    //         }
+    //         i--;
+    //     }
+    //     return arr;
+    // }
 
     // 按年，按月 ：按钮点击事件 
     $("body").on("click",".smart-proportion-btns button",function(){

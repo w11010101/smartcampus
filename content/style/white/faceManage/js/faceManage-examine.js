@@ -1,4 +1,19 @@
 $(function(){
+	/**
+	 * [validTextOptions description]
+	 * @属性      {类型}   属性名 [默认值] 说明
+	 * @property  {Number} minLength      限制最少输入的字数
+	 * @property  {Number} maxLength      限制最多输入的字数
+	 * @property  {Number} showTipIndex   提示还剩多少字可输入的位置，应小于maxLengt，此示例表示“在输入40字后提示还可输入10个字”
+	 * @property  {String} forbidden      允许输入的字符的正则表达式
+	 * @example {String} forbidden /\w|\?|\!|\.|\,\。\~/ 允许输入字母数字下划线和[,.!。a-zA-Z0-9]
+	 */
+	var validTextOptions = {
+	  minLength: 1,
+	  maxLength: 50,
+	  showTipIndex: 40,
+	  allow: escape('[^\\w?!,.，。~]')
+	}
 	// 审核通过 or 不通过 点击事件
 	$("body").on("click",".contrast-img button",function(){
 		var that = $(this);
@@ -22,47 +37,25 @@ $(function(){
 		}else{
 			// 不通过
 			console.log('不通过');
-			$(".smart-content").toggleClass("input-show");
-			$(".input-box input").focus();
-			// $(document)[0].scrollIntoView(true);
+			var userAgent = navigator.userAgent; 
+			if(userAgent.indexOf('Android')>0){
+				// android
+				$(".smart-content").toggleClass("input-show");
+				$(".input-box input").focus();
+			}else if(userAgent.indexOf('iPhone')>0){
+				// ios
+				var setPrompt = prompt(JSON.stringify(validTextOptions),'请简要说明不通过的原因（不超过50个字）');
+				if(setPrompt){
+					// 等同于发送按钮
+					
+				}else{
+					// 等同于点击遮罩层
+					
+				}
+			}
 		}
 	});
-	var interval;
-    //消息框获取焦点
-//  $(".input-box input").focus(function(){
-//      interval = setInterval(function() {
-//          scrollToEnd();
-//      }, 500);
-//  });
-//  //消息框失去焦点
-//  $(".input-box input").blur(function(){
-//      clearInterval(interval);
-//  })
-//	function scrollToEnd(){
-//		document.body.scrollTop = document.body.scrollHeight;
-//	}
-//	// 遮罩层 点击事件
-//	$(".smart-screen-mask").on("click",function(){
-//		console.log("遮罩层");
-//		$(".smart-content").toggleClass("input-show");
-//		$(".input-box input[type=text]").blur();
-//	});
-	// 审核不通过 信息发送
-	$("body").on("click",".sendBtn",function(){
-		console.log("发送");
-		html = getHtml({
-			img:$(".contrast-img img").attr("src"),
-			msg:$(".input-box input[type=text]").val(),
-			persong:"李四",
-			studentID:12541245211,
-			time:"2017/12/12 12:12",
-			RegistrationID:1,
-			Approved:false
-		});
 
-		$(".examine-result li:first-child").before(html);
-		$(".smart-content").toggleClass("input-show");
-	});
 	/**
 	 * [html description]
 	 * @param  {[type]} option 								[description]
@@ -81,7 +74,6 @@ $(function(){
 		if(Approved){
 			// 替换 “使用中” 的图片
 			$(".using-img a").attr("href",option.img).find("img").attr("src",option.img);
-
 		}
 		// 删除比对照片
 		$(".contrast-img a").attr("href","").find("img").remove();

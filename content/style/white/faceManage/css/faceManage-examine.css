@@ -168,9 +168,9 @@ html,.examine{
   bottom:0;
   z-index: 3;
   background: #fff;
-  /*opacity: 0;
-	transition: all .3s ease 1s;
-  -webkit-transition: all .3s ease 1s;*/
+  opacity: 0;
+	transition: all .3s ease .5s;
+  -webkit-transition: all .3s ease .5s;
 }
 .input-box input{
   width: calc(100% - .6rem);
@@ -202,6 +202,9 @@ html,.examine{
   /*bottom: 0;*/
 }
 
-
+#wrapper {
+  top:0;
+  background: #efefef;
+}
 
 

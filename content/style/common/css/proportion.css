@@ -50,6 +50,7 @@ html *{
 .proportion-bars-box{
     font-size: 0;
     position: absolute;
+    /*width: 100%;*/
     top:.35rem;
     line-height: .06rem
 }
