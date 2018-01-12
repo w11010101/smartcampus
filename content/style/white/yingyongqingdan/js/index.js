@@ -13,7 +13,9 @@ function postList(){
         // console.log(data)
         app.newApps = data.data
     },function(err) {
-        console.log("error = " ,data);
+        // 用data.js 中的数据对象；
+        app.newApps = newapps.data;
+        console.log("error = " ,err);
     });
     // post tabs
     app.postAjaxData({
@@ -22,10 +24,11 @@ function postList(){
           type:"tabs"
         }
     },function (data) {
-        // console.log(data);
         app.tabs = data.data;
     },function(err) {
-        console.log("error = " ,err);
+        // 用data.js 中的数据对象；
+        app.tabs = tabs.data;
+        console.log("error = " ,tabs.data);
     });
 }
 /**
@@ -40,13 +43,13 @@ function scrollComputed(obj,scroll,length,width) {
     // 计算左右滑动最大宽度
     document.querySelector(scroll).style.width = length * width + "px";
     var myScroll;
-    myScroll = new IScroll(obj, {
-        scrollX: true,
-        scrollY: false,
-        mouseWheel: true,
-        preventDefault:false
+    myScroll = new iScroll(obj,{
+        hScrollbar:false,
+        onBeforeScrollStart:function(event){
+            console.log(event.target)
+        }
     });
-    var wrapper = document.querySelector(obj);
+    var wrapper = document.querySelector("#"+obj);
     wrapper.parentElement.addEventListener('touchmove', function(e) {
         e.preventDefault();
     }, {
@@ -54,15 +57,18 @@ function scrollComputed(obj,scroll,length,width) {
     });
 }
 // ****************************** swiper start ******************************
+// tabsSwiperObjArr 选项卡数据集合
+var tabsSwiperObjArr = [];
 function runTabSwiper(){
     // 加载第一个tab里的列表
-    app.postTabList();
+    app.postTabList({type:"slides"});
     // 启动swiper
     var tabsSwiper = new Swiper('.swiper-container', {
         speed: 500,
         onSlideChangeStart: function(event) {
             // 切换tab后触发事件
             // 设置tab切换后样式
+            
             var index = tabsSwiper.activeIndex;
             var thisWrapper = $("[id*='wrapper_page_']").eq(index);
             $(".tabs .active").removeClass('active');
@@ -70,28 +76,38 @@ function runTabSwiper(){
             scrollState = true;
             // 判断当前tab内的li 长度，如果没有，则加载；
             if(thisWrapper.find("li").length <=0){
+                $(".smart-loading").show(0);
                 // 加载列表
+                
+                if(tabsSwiperObjArr[index]){
+                    console.log("tabsSwiperObjArr里 有了");
+                    app.tabActive = index;
+                    app.slides = tabsSwiperObjArr;
+                }else{
+                    // 如果集合不存在，就请求
+                    console.log("tabsSwiperObjArr里 没有了");
+                    app.tabActive = index;
+                    app.postTabList({type:"slides1"});
+                }
             }
+            scrollObjArr[index].refresh();
         }
     });
-    console.log($(".tabs a"));
     $(".tabs a").eq(0).addClass("active");
     // tab点击切换事件
-    $(".tabs a").on('click', function(e) {
-        e.preventDefault()
+    $(".tabs a").on('click',function(e) {
+        e.preventDefault();
         $(".tabs .active").removeClass('active');
         $(this).addClass('active');
-
         tabsSwiper.swipeTo($(this).index());
         scrollState = true;
     });
 }
 
 // ****************************** scroll 事件 ******************************
-var scrollObj = [];
+var scrollObjArr = [];
 var scrollState = true;
 function runWrapperPages(){
-    
     $.each($('[id*="wrapper_page_"]'), function(i, e) {
         var _this = $("#" + e.id);
         // 初始化为每个tab添加滑动的页数
@@ -101,8 +117,8 @@ function runWrapperPages(){
             id: e.id,
             pullDownAction: function() {
                 _this.attr("pages", 1);
-                _this.find("li").remove();
-                scrollObj[i].refresh();
+                // _this.find("li").remove();
+                scrollObjArr[i].refresh();
             },
             pullUpAction: function() {
                 if (scrollState) {
@@ -111,13 +127,24 @@ function runWrapperPages(){
                     scrollState = false;
                     setTimeout(function() {
                         console.log("加载...");
-                        // 加载列表
+                        app.postTabList({type:"slides"});
+                        
                         scrollState = true;
                     }, 2000);
                 }
             },
             preventDefault: false
         });
-        scrollObj.push(scrolls);
+        //
+        scrolls.options.onBeforeScrollStart = function(event){
+        }
+        scrollObjArr.push(scrolls);
     });
 }
+// 列表点击事件
+$("body").on("click",".smart-list-item-info",function(){
+    $(".smart-list-item-sub-info").removeClass("active");
+    $(this).next().toggleClass("active").siblings().removeClass("active");
+    var tabIndex = $("#wrapper-tabs a.active").index();
+    scrollObjArr[tabIndex].refresh();
+});

@@ -58,58 +58,41 @@
         </div>
         <div class="swiper-container">
           <div class="swiper-wrapper">
-            <!-- <div class="swiper-slide" v-for="(item, index) in tabs" v-if="!item.isComplete">
-              <div v-bind:id=wrapper+(index+1)> -->
+            <!-- swiper-slide -->
             <div class="swiper-slide" v-for="(item, index) in tabs">
               <!-- scroll -->
               <div v-bind:id=wrapper+(index+1)>
-                <!-- loading -->
-                <!-- <div class="smart-loading">
-                  <div class="smart-waiting"></div>
-                </div> -->
-                <!-- list -->
                 <ul class="smart-list smart-list-space" >
-                  <li class="smart-list-item" v-for="event in slides">
-                    <img v-bind:src="event.img" class="app-img">
-                    <div class="app-info">
-                      <h1>{{event.title}}</h1>
-                      <p>{{event.describe}}</p>
-                      <div>
-                        <em class="app-time">{{event.time}}</em>
-                        <em class="app-clickrate">点击率:{{event.clickRate}}</em>
+                  <!-- loading -->
+                  <div class="smart-loading">
+                    <div class="smart-waiting"></div>
+                  </div>
+                  <!-- lis -->
+                  <li class="smart-list-item" v-for="event in slides[index]" v-if='slides[index]'>
+                    <!--  -->
+                    <div class="smart-list-item-info">
+                      <img v-bind:src="event.img" class="app-img">
+                      <div class="app-info">
+                        <h1>{{event.title}}</h1>
+                        <p>{{event.describe}}</p>
+                        <div>
+                          <em class="app-time">{{event.time}}</em>
+                          <em class="app-clickrate">点击率:{{event.clickRate}}</em>
+                        </div>
                       </div>
+                    </div>
+                    <!--  -->
+                    <div class="smart-list-item-sub-info" >
+                      <p><label>服务用户：</label>教职工</p>
+                      <p><label>应用分类：</label>信息查询类</p>
+                      <p><label>责任部门：</label>信息处</p>
+                      <p><label>责任人：</label><em>张三</em><i>0411-88887777</i></p>
                     </div>
                   </li>
                 </ul>
               </div>
             </div>
-            <!-- <div class="swiper-slide">
-              <div id="wrapper_page_2">
-                <ul class="smart-list smart-list-space">
-                  <div class="smart-loading">
-                    <div class="smart-waiting"></div>
-                  </div>
-                </ul>
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <div id="wrapper_page_3">
-                <ul class="smart-list smart-list-space">
-                  <div class="smart-loading">
-                    <div class="smart-waiting"></div>
-                  </div>
-                </ul>
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <div id="wrapper_page_4">
-                <ul class="smart-list smart-list-space">
-                  <div class="smart-loading">
-                    <div class="smart-waiting"></div>
-                  </div>
-                </ul>
-              </div>
-            </div> -->
+            <!-- swiper-slide -->
           </div>
         </div>
         <!-- end -->
@@ -117,14 +100,12 @@
 </body>
 <script src="../../content/style/frame/jquery/jquery-3.2.1.min.js"></script>
 <script src="../../content/style/frame/vue/vue.js"></script>
-<script src="../../content/style/frame/vue/vue-resource.js"></script>
-<!-- <script src="../../content/style/frame/bootstrap/js/bootstrap.min.js"></script> -->
-<!-- <script src="../../content/style/frame/iscroll4/js/iscroll.js"></script> -->
-<script src="../../content/style/frame/iscroll/iscroll-probe.js"></script>
+<script src="../../content/style/frame/iscroll4/js/iscroll.js"></script>
 <script src="../../content/style/frame/iscroll4/js/pullToRefresh.js"></script>
 <script src="../../content/style/frame/swipe/js/idangerous.swiper.min-2.7.6.js"></script>
+<!-- data.js里面是数据对象 -->
+<script src="../../content/style/white/yingyongqingdan/js/data.js"></script>
 <script src="../../content/style/white/yingyongqingdan/js/index.js"></script>
-<!-- <script src="../../content/style/white/tushuguanjia/js/list.js"></script> -->
 <script type="text/javascript">
 var app = new Vue({
     el: '#app',
@@ -134,17 +115,19 @@ var app = new Vue({
         _defualtImg: "../../content/style/white/yingyongqingdan/images/defualt.png",
         newApps: "",
         tabs: "",
-        slides:""
+        slides:"",
+        tabActive:0,
     },
     watch: {
         // 监听
         newApps: function(val) {
-            scrollComputed('#wrapper-new-apps', '#scroller-new-apps', app.newApps.length,170);
+            scrollComputed('wrapper-new-apps', '#scroller-new-apps', app.newApps.length,170);
         },
         tabs:function(val) {
-            scrollComputed('#wrapper-tabs', '#scroller-tabs', app.newApps.length);
+            scrollComputed('wrapper-tabs', '#scroller-tabs', app.newApps.length);
             setTimeout(function(){
                 runTabSwiper();
+                runWrapperPages();
             },100);
         }
     },
@@ -168,32 +151,48 @@ var app = new Vue({
                 }
             })
         },
-        // tab 滑动触发加载列表
-        postTabList:function(){
+        // // tab 滑动触发加载列表
+        postTabList:function(data){
           // post slides
           this.postAjaxData({
               url:'http://172.16.15.99:3001/',
-              data:{
-                type:"slides"
-              }
+              data:data
           },function (data) {
-              console.log(data);
-              app.slides = data.data;
+              $(".smart-loading").hide(0);
+              console.log('当前是 第',app.tabActive,"页");
+              console.log("ajax data = ",data);
+              console.log('app.tabActive = ', app.tabActive);
+              console.log("tabsSwiperObjArr = ", tabsSwiperObjArr);
+              tabsSwiperObjArr.push(data.data);
+              app.slides = tabsSwiperObjArr;
           },function(err) {
-              console.log("error = " ,err);
+              $(".smart-loading").hide(0);
+              console.log("slides.data = " ,slides.data);
+              
+              if(tabsSwiperObjArr[app.tabActive]){
+                $.each(slides.data,function(index,event){
+                    tabsSwiperObjArr[app.tabActive].push(event);
+                });
+              }else{
+                tabsSwiperObjArr.push(slides.data);
+              }
+              
+              console.log("tabsSwiperObjArr = " ,tabsSwiperObjArr);
+              // 用data.js 中的数据对象；
+              
+              app.slides = tabsSwiperObjArr;
+              setTimeout(function(){
+                scrollObjArr[app.tabActive].refresh();
+              },100);
+              
           });
+        },
+        itemSubInfo:function(event){
+          console.log(arguments)
         }
     }
 });
-
 // $(function(){
-//   // 进入页面第一次加载第一个tab
-//   ajaxList({
-//       wrapper:$("#wrapper_page_1"),
-//       pates:0,
-//       scroll:scrollObj[0],
-//       index:0
-//   });
 //   // 页面传值判断 tab标签位置
 //   function getQueryString(name) {
 //     var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)', 'i');
