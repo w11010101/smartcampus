@@ -26,10 +26,12 @@ function postList(){
     },function (data) {
         app.tabs = data.data;
     },function(err) {
-        // 用data.js 中的数据对象；
+        // 用data.js 中的数据对象；k
         app.tabs = tabs.data;
         console.log("error = " ,tabs.data);
     });
+    // 加载第一个tab里的列表
+    app.postTabList({type:"slides"});wa
 }
 /**
  * [scrollComputed 横向滚动]
@@ -39,6 +41,7 @@ function postList(){
  * @param  {[Number]} width  [width]
  * @return {[type]}        [description]
  */
+var scrollComputedObjArr = [];
 function scrollComputed(obj,scroll,length,width) {
     // 计算左右滑动最大宽度
     document.querySelector(scroll).style.width = length * width + "px";
@@ -49,6 +52,7 @@ function scrollComputed(obj,scroll,length,width) {
             console.log(event.target)
         }
     });
+    scrollComputedObjArr.push(myScroll);
     var wrapper = document.querySelector("#"+obj);
     wrapper.parentElement.addEventListener('touchmove', function(e) {
         e.preventDefault();
@@ -60,11 +64,11 @@ function scrollComputed(obj,scroll,length,width) {
 // tabsSwiperObjArr 选项卡数据集合
 var tabsSwiperObjArr = [];
 function runTabSwiper(){
-    // 加载第一个tab里的列表
-    app.postTabList({type:"slides"});
     // 启动swiper
+    var beforeIndex = 0;
     var tabsSwiper = new Swiper('.swiper-container', {
         speed: 500,
+        moveStartThreshold: 100,
         onSlideChangeStart: function(event) {
             // 切换tab后触发事件
             // 设置tab切换后样式
@@ -91,6 +95,15 @@ function runTabSwiper(){
                 }
             }
             scrollObjArr[index].refresh();
+            // console.log('$(".tabs .active").offset().left = ', $(".tabs .active").offset().left);
+            if($(".tabs .active").offset().left >= $(document).width()){
+                // console.log(`当前是第${index}页`);
+                scrollComputedObjArr[1].scrollTo(-$(".tabs a").width()*(index-3),0,500);
+            }else if($(".tabs .active").offset().left < 0){
+                // console.log(`!当前是第${index}页`);
+                scrollComputedObjArr[1].scrollTo(-$(".tabs a").width()*index,0,500);
+
+            }
         }
     });
     $(".tabs a").eq(0).addClass("active");
@@ -119,6 +132,8 @@ function runWrapperPages(){
                 _this.attr("pages", 1);
                 // _this.find("li").remove();
                 scrollObjArr[i].refresh();
+                console.log("slides = " , slides);
+                console.log("slides1 = " , slides1);
             },
             pullUpAction: function() {
                 if (scrollState) {
@@ -141,9 +156,11 @@ function runWrapperPages(){
         scrollObjArr.push(scrolls);
     });
 }
-// 列表点击事件
+// ****************************** 列表点击事件 ******************************
 $("body").on("click",".smart-list-item-info",function(){
-    $(".smart-list-item-sub-info").removeClass("active");
+    if(!$(this).next().hasClass('active')){
+        $(".smart-list-item-sub-info").removeClass("active");
+    }
     $(this).next().toggleClass("active").siblings().removeClass("active");
     var tabIndex = $("#wrapper-tabs a.active").index();
     scrollObjArr[tabIndex].refresh();

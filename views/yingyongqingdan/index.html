@@ -49,10 +49,7 @@
         <div class="tabs">
           <div id="wrapper-tabs">
             <div id="scroller-tabs">
-              <a href="#" tabName="week" 
-              v-for="(item,index) in tabs" 
-              v-bind:setId = item.id 
-              ><em>{{item.tab}}</em></a>
+              <a href="#" v-for="(item,index) in tabs" v-bind:setId = item.id ><em>{{item.tab}}</em></a>
             </div>
           </div>
         </div>
@@ -124,8 +121,9 @@ var app = new Vue({
             scrollComputed('wrapper-new-apps', '#scroller-new-apps', app.newApps.length,170);
         },
         tabs:function(val) {
-            scrollComputed('wrapper-tabs', '#scroller-tabs', app.newApps.length);
+            scrollComputed('wrapper-tabs', '#scroller-tabs', app.tabs.length,$(document).width()/4);
             setTimeout(function(){
+                $(".tabs a").css("width",$(document).width()/4);
                 runTabSwiper();
                 runWrapperPages();
             },100);
@@ -159,15 +157,15 @@ var app = new Vue({
               data:data
           },function (data) {
               $(".smart-loading").hide(0);
-              console.log('当前是 第',app.tabActive,"页");
-              console.log("ajax data = ",data);
-              console.log('app.tabActive = ', app.tabActive);
-              console.log("tabsSwiperObjArr = ", tabsSwiperObjArr);
+              // console.log('当前是 第',app.tabActive,"页");
+              // console.log("ajax data = ",data);
+              // console.log('app.tabActive = ', app.tabActive);
+              // console.log("tabsSwiperObjArr = ", tabsSwiperObjArr);
               tabsSwiperObjArr.push(data.data);
               app.slides = tabsSwiperObjArr;
           },function(err) {
               $(".smart-loading").hide(0);
-              console.log("slides.data = " ,slides.data);
+              // console.log("slides.data = " ,slides.data);
               
               if(tabsSwiperObjArr[app.tabActive]){
                 $.each(slides.data,function(index,event){
@@ -177,7 +175,7 @@ var app = new Vue({
                 tabsSwiperObjArr.push(slides.data);
               }
               
-              console.log("tabsSwiperObjArr = " ,tabsSwiperObjArr);
+              // console.log("tabsSwiperObjArr = " ,tabsSwiperObjArr);
               // 用data.js 中的数据对象；
               
               app.slides = tabsSwiperObjArr;
@@ -188,7 +186,7 @@ var app = new Vue({
           });
         },
         itemSubInfo:function(event){
-          console.log(arguments)
+          console.log(arguments);
         }
     }
 });

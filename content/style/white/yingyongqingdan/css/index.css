@@ -146,7 +146,7 @@ html *{
 .tabs a {
   font-size: .14rem;
   display: inline-block;
-  width: 25%;
+  /*width: calc(100vw / 4);*/
   color: #3c3c3c;
   text-align: center;
   background: #fff;

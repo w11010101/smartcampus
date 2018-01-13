@@ -15,7 +15,16 @@ var tabs = {
         {
             tab: "办公",
             id: "3"
+      },
+        {
+            tab: "校园",
+            id: "4"
+      },
+        {
+            tab: "体育场",
+            id: "5"
       }
+
     ]
 }
 var newapps = {
