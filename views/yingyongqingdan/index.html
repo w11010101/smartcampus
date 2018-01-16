@@ -14,6 +14,15 @@
     <link href="../../content/style/frame/swipe/css/idangerous.swiper-2.7.6.css" rel="stylesheet">
     <link href="../../content/style/frame/iscroll4/css/pullToRefresh.css" rel="stylesheet">
     <link href="../../content/style/white/yingyongqingdan/css/index.css" rel="stylesheet">
+    <!-- javascript -->
+    <script src="../../content/style/frame/jquery/jquery-3.2.1.min.js"></script>
+    <script src="../../content/style/frame/vue/vue.js"></script>
+    <script src="../../content/style/frame/iscroll4/js/iscroll.js"></script>
+    <script src="../../content/style/frame/swipe/js/idangerous.swiper.min-2.7.6.js"></script>
+    <!-- data.js里面是数据对象 可以删除 -->
+    <script src="../../content/style/white/yingyongqingdan/js/data.js"></script>
+    <script src="../../content/style/white/yingyongqingdan/js/index.js"></script>
+
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]> param.month = getOtherDate(getM);
@@ -25,7 +34,7 @@
 <!-- onload="postNewApps()" -->
 
 <body class="apps-list" onload="postList()">
-    <div class="smart-content" id="app">
+    <div class="smart-content" id="app" v-cloak>
         <!-- 本月最新应用 -->
         <div class="new-apps">
             <!-- <h2>本月最新应用</h2> -->
@@ -53,40 +62,49 @@
             </div>
           </div>
         </div>
+        <!-- list -->
         <div class="swiper-container">
           <div class="swiper-wrapper">
             <!-- swiper-slide -->
             <div class="swiper-slide" v-for="(item, index) in tabs">
               <!-- scroll -->
               <div v-bind:id=wrapper+(index+1)>
-                <ul class="smart-list smart-list-space" >
-                  <!-- loading -->
-                  <div class="smart-loading">
-                    <div class="smart-waiting"></div>
-                  </div>
-                  <!-- lis -->
-                  <li class="smart-list-item" v-for="event in slides[index]" v-if='slides[index]'>
-                    <!--  -->
-                    <div class="smart-list-item-info">
-                      <img v-bind:src="event.img" class="app-img">
-                      <div class="app-info">
-                        <h1>{{event.title}}</h1>
-                        <p>{{event.describe}}</p>
-                        <div>
-                          <em class="app-time">{{event.time}}</em>
-                          <em class="app-clickrate">点击率:{{event.clickRate}}</em>
+                <div v-bind:id=scroller+(index+1)>
+                  <ul class="smart-list smart-list-space" >
+                    <!-- loading -->
+                    <div class="smart-loading">
+                      <div class="smart-waiting"></div>
+                    </div>
+                    <!-- lis -->
+                    <li class="smart-list-item" v-for="event in slides['tab'+index]" v-if="slides['tab'+index]">
+                      <!--  -->
+                      <div class="smart-list-item-info">
+                        <img v-bind:src="event.img" class="app-img">
+                        <div class="app-info">
+                          <h1>{{event.title}}</h1>
+                          <p>{{event.describe}}</p>
+                          <div>
+                            <em class="app-time">{{event.time}}</em>
+                            <em class="app-clickrate">点击率:{{event.clickRate}}</em>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                    <!--  -->
-                    <div class="smart-list-item-sub-info" >
-                      <p><label>服务用户：</label>教职工</p>
-                      <p><label>应用分类：</label>信息查询类</p>
-                      <p><label>责任部门：</label>信息处</p>
-                      <p><label>责任人：</label><em>张三</em><i>0411-88887777</i></p>
-                    </div>
-                  </li>
-                </ul>
+                      <!--  -->
+                      <div class="smart-list-item-sub-info" >
+                        <p><label>服务用户：</label>教职工</p>
+                        <p><label>应用分类：</label>信息查询类</p>
+                        <p><label>责任部门：</label>信息处</p>
+                        <p><label>责任人：</label><em>张三</em><i>0411-88887777</i></p>
+                      </div>
+                      <!-- off-the-shelf -->
+                      <img src="../../content/style/white/yingyongqingdan/images/undercarriage.png" alt="" class="undercarriage" v-show = 'event.undercarriage'>
+                    </li>
+                  </ul>
+                  <!--  -->
+                  <div class="foot-tips">
+                    <img src="../../content/style/white/yingyongqingdan/images/icon-1.png"><em>更多应用开发中，敬请期待</em>
+                  </div>
+                </div>
               </div>
             </div>
             <!-- swiper-slide -->
@@ -95,119 +113,5 @@
         <!-- end -->
     </div>
 </body>
-<script src="../../content/style/frame/jquery/jquery-3.2.1.min.js"></script>
-<script src="../../content/style/frame/vue/vue.js"></script>
-<script src="../../content/style/frame/iscroll4/js/iscroll.js"></script>
-<script src="../../content/style/frame/iscroll4/js/pullToRefresh.js"></script>
-<script src="../../content/style/frame/swipe/js/idangerous.swiper.min-2.7.6.js"></script>
-<!-- data.js里面是数据对象 -->
-<script src="../../content/style/white/yingyongqingdan/js/data.js"></script>
-<script src="../../content/style/white/yingyongqingdan/js/index.js"></script>
-<script type="text/javascript">
-var app = new Vue({
-    el: '#app',
-    data: {
-        active:"active",
-        wrapper:'wrapper_page_',
-        _defualtImg: "../../content/style/white/yingyongqingdan/images/defualt.png",
-        newApps: "",
-        tabs: "",
-        slides:"",
-        tabActive:0,
-    },
-    watch: {
-        // 监听
-        newApps: function(val) {
-            scrollComputed('wrapper-new-apps', '#scroller-new-apps', app.newApps.length,170);
-        },
-        tabs:function(val) {
-            scrollComputed('wrapper-tabs', '#scroller-tabs', app.tabs.length,$(document).width()/4);
-            setTimeout(function(){
-                $(".tabs a").css("width",$(document).width()/4);
-                runTabSwiper();
-                runWrapperPages();
-            },100);
-        }
-    },
-    computed: {
-        // 计算
-    },
-    methods: {
-        // 绑定事件的方法
-        // post ajax
-        postAjaxData: function(option, successCB, failCB) {
-            $.ajax({
-                type: "POST",
-                url: option.url,
-                data: option.data,
-                dataType: "json",
-                success: function(data) {
-                    successCB(data);
-                },
-                error: function(err) {
-                    failCB(err);
-                }
-            })
-        },
-        // // tab 滑动触发加载列表
-        postTabList:function(data){
-          // post slides
-          this.postAjaxData({
-              url:'http://172.16.15.99:3001/',
-              data:data
-          },function (data) {
-              $(".smart-loading").hide(0);
-              // console.log('当前是 第',app.tabActive,"页");
-              // console.log("ajax data = ",data);
-              // console.log('app.tabActive = ', app.tabActive);
-              // console.log("tabsSwiperObjArr = ", tabsSwiperObjArr);
-              tabsSwiperObjArr.push(data.data);
-              app.slides = tabsSwiperObjArr;
-          },function(err) {
-              $(".smart-loading").hide(0);
-              // console.log("slides.data = " ,slides.data);
-              
-              if(tabsSwiperObjArr[app.tabActive]){
-                $.each(slides.data,function(index,event){
-                    tabsSwiperObjArr[app.tabActive].push(event);
-                });
-              }else{
-                tabsSwiperObjArr.push(slides.data);
-              }
-              
-              // console.log("tabsSwiperObjArr = " ,tabsSwiperObjArr);
-              // 用data.js 中的数据对象；
-              
-              app.slides = tabsSwiperObjArr;
-              setTimeout(function(){
-                scrollObjArr[app.tabActive].refresh();
-              },100);
-              
-          });
-        },
-        itemSubInfo:function(event){
-          console.log(arguments);
-        }
-    }
-});
-// $(function(){
-//   // 页面传值判断 tab标签位置
-//   function getQueryString(name) {
-//     var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)', 'i');
-//     var r = window.location.search.substr(1).match(reg);
-//     if (r != null) {
-//         return unescape(r[2]);
-//     }
-//     return null;
-//   }
-//   for(var e of $(".tabs a")){
-//     if(getQueryString("index") == $(e).attr("tabName")){
-//       $(".tabs .active").removeClass('active');
-//       $(e).addClass('active');
-//       tabsSwiper.swipeTo($(e).index(),0);
-//     }
-//   }
-// })
-</script>
-
+<script src="../../content/style/white/yingyongqingdan/js/main.js"></script>
 </html>

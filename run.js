@@ -8,28 +8,33 @@ var router = express.Router();
 
 
 app.use(express.static(__dirname));
-app.use(express.static("views/tushuguanjia/"));
-
+app.use(express.static("views/"));
+app.use(express.static("content/"));
+app.use(express.static("views/faceManage/"));
+// app.use(express.static("js/"));
 app.use(bodyParser.urlencoded({ extended: false }));
 
+console.log(__dirname);
 app.get("/", function(req,res) {
   
   var options = {
     root:__dirname,
   }
-
-  res.sendFile("/views/tushuguanjia/index.html",options,function(err){
+  var src = "/views/faceManage/faceManage.html";
+  // var src = "/qr.html";
+  // var src = "/try/try.html";
+  res.sendFile(src,options,function(err){
     if(err){
       console.log(err);
       res.status(err.status).end();
     }else{
-      console.log('Sent:', __filename);
+      console.log('Sent:', src);
     }
   });
 });
 
 
-var server = app.listen("8081",function(){
+var server = app.listen("8082",function(){
     var host = server.address().address;
     var port = server.address().port;
     console.log("应用实例，访问地址为 http://%s:%s", host, port)
