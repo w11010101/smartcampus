@@ -11,7 +11,7 @@ var campus = function () {
 		cancel:true or false	// 是否添加取消按钮 布尔值
 		boxStyle:object			// popup-box的自定义样式，按照css的格式写就可以
 		imgStype:object			// popup-box下h1(标题)的自定义样式，按照css的格式写就可以
-
+		scrollTime:100;
 	}
 	*/
 	var events = {
@@ -24,7 +24,7 @@ var campus = function () {
 		setTimeout(function(){
 			// 快速点击导致多次弹出 popup-box
 			var boxObj = $("."+events.box);
-
+			console.log(option.scrollTime)
 			if(!boxObj.length){
 				// 
 				var dom = that.getHtml(option, function (e) {
@@ -41,7 +41,7 @@ var campus = function () {
 					boxObj.find("ul").append('<li key="' + key + '" >' + val + '</li>');
 				}
 			}
-		},500)
+		},option.scrollTime !="undefined"?option.scrollTime:500);
 	};
 	// 切换显示或隐藏弹窗层
 	this.togglePopup = function (type, showType) {

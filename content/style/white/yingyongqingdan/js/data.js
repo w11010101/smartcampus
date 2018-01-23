@@ -57,6 +57,67 @@ var newapps = {
 }
 var slides = {
     data: [
+        
+        {
+            img: "../../content/style/white/yingyongqingdan/images/shanghuchaxun.png",
+            title: "商户查询2",
+            describe: "全面的管理账本功能，数字与图表让你清晰了解",
+            time: "2017/12/12",
+            clickRate: "123123123",
+            face: "教职工",
+            appClass: "信息查询类",
+            org: "信息处",
+            personInCharge: "张三",
+            tel: "13123456789"
+        },
+        {
+            img: "../../content/style/white/yingyongqingdan/images/shanghuchaxun.png",
+            title: "商户查询1",
+            describe: "全面的管理账本功能，数字与图表让你清晰了解",
+            time: "2017/12/12",
+            clickRate: "123123123",
+            face: "教职工",
+            appClass: "信息查询类",
+            org: "信息处",
+            personInCharge: "张三",
+            tel: "13123456789"
+        },
+        {
+            img: "../../content/style/white/yingyongqingdan/images/guzhangbaoxiu.png",
+            title: "故障报修1",
+            describe: "简便的商户管理助手，营业情况一目了然。",
+            time: "2017/12/12",
+            clickRate: "123123123",
+            face: "教职工",
+            appClass: "信息查询类",
+            org: "信息处",
+            personInCharge: "张三",
+            tel: "13123456789"
+        },
+        {
+            img: "../../content/style/white/yingyongqingdan/images/renzhengguanli.png",
+            title: "人脸审核1",
+            describe: "高大上的应用，凝聚安全体验于与一身。",
+            time: "2017/12/12",
+            clickRate: "123123123",
+            face: "教职工",
+            appClass: "信息查询类",
+            org: "信息处",
+            personInCharge: "张三",
+            tel: "13123456789"
+        },
+        {
+            img: "../../content/style/white/yingyongqingdan/images/erweima.png",
+            title: "二维码1",
+            describe: "简便的支付方式。",
+            time: "2017/12/12",
+            clickRate: "123123123",
+            face: "教职工",
+            appClass: "信息查询类",
+            org: "信息处",
+            personInCharge: "张三",
+            tel: "13123456789"
+        },
         {
             img: "../../content/style/white/yingyongqingdan/images/shuzihaida.png",
             title: "商户管理",
@@ -106,30 +167,6 @@ var slides = {
             personInCharge: "张三",
             tel: "13123456789"
         },
-        {
-            img: "../../content/style/white/yingyongqingdan/images/shanghuchaxun.png",
-            title: "商户查询",
-            describe: "全面的管理账本功能，数字与图表让你清晰了解",
-            time: "2017/12/12",
-            clickRate: "123123123",
-            face: "教职工",
-            appClass: "信息查询类",
-            org: "信息处",
-            personInCharge: "张三",
-            tel: "13123456789"
-        },
-        {
-            img: "../../content/style/white/yingyongqingdan/images/shanghuchaxun.png",
-            title: "商户查询",
-            describe: "全面的管理账本功能，数字与图表让你清晰了解",
-            time: "2017/12/12",
-            clickRate: "123123123",
-            face: "教职工",
-            appClass: "信息查询类",
-            org: "信息处",
-            personInCharge: "张三",
-            tel: "13123456789"
-        }
     ]
 }
 var slides1 = {

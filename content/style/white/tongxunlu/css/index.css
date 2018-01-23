@@ -1,0 +1,435 @@
+html {
+    font-size: calc(100vw/3.75);
+}
+html * {
+    margin: 0;
+    padding: 0;
+}
+
+
+[v-cloak] {
+  display: none;
+}
+/* ========================================= */
+.tabs{
+    height: .4rem;
+    line-height: .4rem;
+    background: #fff;
+    text-align: center;
+    font-size: 0;
+}
+.tabs a{
+    font-size: .15rem;
+    display: inline-block;
+    width: 50%;
+    position: relative;
+    color:#8d8d8d;
+}
+.tabs a:before{
+    content:" ";
+    width: .25rem;
+    height: .25rem;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 5px;
+    margin-top: -5px;
+}
+.tabs a:first-child:before{
+    background: url(../images/tab-tel.png) no-repeat center;
+    background-size: contain; 
+}
+.tabs a:last-child:before{
+    background: url(../images/tab-name.png) no-repeat center;
+    background-size: contain; 
+}
+.tabs a:first-child.active:before{
+    background: url(../images/tab-tel-active.png) no-repeat center;
+    background-size: contain; 
+}
+.tabs a:last-child.active:before{
+    background: url(../images/tab-name-active.png) no-repeat center;
+    background-size: contain; 
+}
+.tabs a.active{
+    color:#1e1e1e;
+}
+.tabs a.active:after{
+    content:" ";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    border-radius: 1px;
+    background: #ff9a46;
+}
+.input{
+    height: .5rem;
+    padding: .1rem .15rem;
+    background: #fff;
+}
+.input input {
+    height: .3rem;
+    border:1px solid #e0e0e0;
+    border-radius:5px;
+    width: 100%;
+    display: inline-block;
+    font-size: .14rem;
+    line-height: .3rem;
+    padding: 0 5px;
+}
+input::-webkit-input-placeholder {
+  text-indent: .3rem;
+  background: url(../../../common/images/search.png) no-repeat center left;
+  background-size:.2rem;
+}
+input:-ms-input-placeholder { /* IE10+*/
+  text-indent: .3rem;
+  background: url(../../../common/images/search.png) no-repeat center left;
+  background-size:.2rem;
+}
+input:-moz-placeholder { /* Firefox4-18*/
+  text-indent: .3rem;
+  background: url(../../../common/images/search.png) no-repeat center left;
+  background-size:.2rem;
+}
+input::-moz-placeholder { /* Firefox19+*/
+  text-indent: .3rem;
+  background: url(../../../common/images/search.png) no-repeat center left;
+  background-size:.2rem;
+}
+.input input:focus{
+  text-indent: 0;
+  background:none;
+}
+/*  */
+.editBtn{
+    height:.4rem;
+    padding:.1rem 0;
+    background: #fff;
+    text-align: center;
+}
+.editBtn button{
+    width: 1rem;
+    border:1px solid #73d2fe;
+    background: #fff;
+    color:#73d2fe;
+    border-radius: 5px;
+    height: .25rem;
+    transition: all .1s ease;
+    -webkit-transition: all .1s ease;
+}
+.editBtn button+button{
+    margin-left: .3rem;
+}
+.editBtn button.active,
+.editBtn button:active,
+.editBtn button:focus{
+    color:#fff;
+    background: #73d2fe;
+}
+/*  */
+.add-mail-list{
+    display: block;
+    height: .45rem;
+    line-height: .45rem;
+    font-size: .14rem;
+    border-top:.5px solid #e0e0e0;
+    border-bottom:.5px solid #e0e0e0;
+    padding: 0 .15rem;
+    color:#73d2fe;
+    background: url(../../../common/images/continue.png) no-repeat #fff right .4rem center;
+    background-size: .2rem;
+}
+/*  */
+.swiper-container{
+    background:#fff;
+    position: absolute;
+    width: 100%;
+    top:.8rem;
+    bottom: 0;
+}
+.swiper-container::-webkit-scrollbar{
+    display: none;
+}
+.swiper-wrapper{
+    height: 100%;
+}
+.swiper-slide{
+    width: 100%;
+    height: inherit;
+    position: relative
+}
+/* 联系人css */
+.slider-content >ul {
+    width: 100%;
+    display: block;
+    position: relative;
+    padding-left: .15rem;
+}
+.slider-content > ul > li {
+    width: 100%;
+    padding-top: .1rem;
+}
+.slider-content ul li li{
+    height: .6rem;
+}
+.mail-list-img{
+    width: .4rem;
+    height: .4rem;
+    display: inline-block;
+    vertical-align: middle;
+    background: #a8a8a8;
+    border-radius: 5px;
+}
+.mail-list-info{
+    height: .6rem;
+    width:  calc(100% - .6rem);
+    padding-left: .1rem;
+    vertical-align: middle;
+    display: inline-block;
+    font-size: 0;
+    text-transform: capitalize;
+    padding:.1rem 0;
+    margin-left: .1rem;
+}
+.slider-content ul ul >li:not(:last-child) .mail-list-info{
+    border-bottom: .5px solid #e0e0e0;
+}
+.slider-content .mail-list-info div{
+    display: inline-block;
+    /*width: 50%;*/
+}
+.mail-list-name{
+    width: calc(100% - 1.2rem);
+    vertical-align: middle;
+}
+.mail-list-btn{
+    width: 1rem;
+    vertical-align: middle;
+}
+.mail-list-btn *:first-child{
+    margin:0 .1rem;
+}
+.mail-list-name h2{
+    font-size: .15rem;
+    color:#3c3c3c;
+    line-height: .2rem;
+}
+.mail-list-name p{
+    font-size: .12rem;
+    color:#a8a8a8;
+    line-height: .2rem;
+}
+.slider-content .mail-list-btn button,
+.slider-content .mail-list-btn a{
+    width: .35rem;
+    height: .35rem;
+    border:0;
+    display: inline-block;
+}
+.slider-content .mail-list-btn .telBtn{
+    background: url(../images/tel-btn.png) no-repeat;
+    background-size: 100%;
+}
+.slider-content .mail-list-btn .smsBtn{
+    background: url(../images/sms-btn.png) no-repeat;
+    background-size: 100%;
+}
+.slider-content .mail-list-btn .editToolBtn{
+    background: url(../images/edit.png) no-repeat 5%;
+    background-size: 90%;
+}
+.slider-content .mail-list-btn .delBtn{
+    background: url(../images/del.png) no-repeat 5%;
+    background-size: 90%;
+}
+.slider-content .title {
+    display: block;
+    width: .2rem;
+    height: .2rem;
+    color:#fff;
+    background: #ff8080;
+    text-align: center;
+    margin-bottom: .1rem;
+    margin-left: .1rem;
+    border-radius: 50%;
+}
+.slider-content .selected .title {
+    background: #ff8080;
+}
+
+/* tab-2 css */
+.dept-groups{
+    text-align: center;
+    padding: .1rem 0;
+    border-bottom: .5px solid #e0e0e0;
+}
+.dept-groups button{
+    width: .75rem;
+    height: .4rem;
+    background: #fff;
+    border:1px solid #73d2fe;
+    border-radius: 5px;
+    color:#73d2fe;
+    margin: 0 .05rem;
+    transition: all .1s ease;
+    -webkit-transition: all .1s ease;
+}
+.dept-groups button.active,
+.dept-groups button:active{
+    color:#fff;
+    background: #73d2fe;
+}
+.tips{
+    padding: .1rem .2rem .1rem .5rem;
+    color:#a8a8a8;
+    font-size: .12rem;
+    height: .6rem;
+    line-height: .2rem;
+    position: relative;
+}
+.tips:before{
+    position: absolute;
+    content: "i";
+    top:.1rem;
+    left:.25rem;
+    width: .18rem;
+    height: .18rem;
+    line-height: .18rem;
+    background: rgba(115,210,254,.6);
+    border-radius: 50%;
+    font-size: .15rem;
+    text-align: center;
+    color:#fff;
+}
+/* 手风琴列表 样式重置 */
+.panel-group{
+    position: absolute;
+    width: 100%;
+    top:1.21rem;
+    bottom: 0;
+    margin-bottom: 0;
+    overflow-y:scroll; 
+    -webkit-overflow-scrolling:touch;
+}
+.panel-group::-webkit-scrollbar{
+    display: none;
+}
+.panel-default{
+    background: #fff;
+    border:0;
+}
+.panel-default>.panel-heading,
+.smart-sub-list .smart-sub-list-item{
+    background: #fff;
+    height: .6rem;
+    padding:0 .25rem;
+}
+.smart-sub-list .smart-sub-list-item:after{
+    left:.8rem!important;
+}
+.smart-sub-list:after{
+    height: 0!important;
+}
+.smart-list-end-icon{
+    display: inline-block;
+    width: .25rem;
+    height: .25rem;
+    top:.175rem;
+}
+.smart-list-end-icon img{
+    display: block
+}
+.panel-default>.panel-heading>a{
+    display: block;
+}
+.panel-default>.panel-heading>a h2{
+    margin-right: .3rem;
+    line-height: .6rem;
+    color:#3c3c3c;
+    font-size: .15rem;
+}
+.panel-default>.panel-heading>a:after{
+/*    position: absolute;
+    content: " ";
+    width: .2rem;
+    height: .2rem;
+    top:.2rem;
+    right: .3rem;
+    background: url(../../../common/images/screen-1.png) no-repeat center;
+    transform: rotateX(180deg);
+    -webkit-transform: rotateX(180deg);
+    transition: all .2s ease;
+    -webkit-transition: all .2s ease;*/
+}
+.panel-default>.panel-heading>a.collapsed:after{
+
+}
+.panel-group .panel-heading+.panel-collapse>.list-group,
+ .panel-group .panel-heading+.panel-collapse>.panel-body{
+    border:0;
+    padding:0 .15rem;
+}
+.panel-group .panel+.panel{
+    margin-top:0;
+}
+.smart-border:after{
+    
+}
+.panel{
+    box-shadow: none;
+}
+.smart-border:after, 
+.popup-select .popup-content >ul >li:after, 
+.popup-change .popup-content >ul >li:after, 
+.panel:after, 
+.panel-body:before, 
+.popup-info-pay+ul li:after{
+
+    left:.2rem;
+}
+/*手风琴效果的结尾图标*/
+
+.smart-accordion .panel-heading .smart-list-end-icon {
+    right: 35px;
+}
+
+.smart-accordion .panel-heading .smart-list-end-icon:after {
+    content: " ";
+    background: url(../../../white/xiaoyuanka/images/screen-1.png) no-repeat center;
+    background-size: .5rem;
+    position: absolute;
+    width: .25rem;
+    height: .25rem;
+    top: 50%;
+    right: 0;
+    margin-top: -13px;
+    transform: rotateX(0deg);
+    -webkit-transform: rotateX(0deg);
+    transition: transform .2s ease-in, background .1s ease-in;
+    -webkit-transition: transform .2s ease-in, background .1s ease-in;
+}
+
+.smart-accordion .panel-heading.smart-active .smart-list-end-icon:after {
+    transform: rotateX(-180deg);
+    -webkit-transform: rotateX(-180deg);
+}
+
+/* media */
+
+@media screen and (max-width: 320px) {
+    html {
+        font-size: calc(100vw/3.2);
+    }
+}
+@media screen and (min-width: 376px) and (max-width: 414px) {
+    html {
+        font-size: calc(100vw/4.14);
+    }
+}
+@media screen and (min-width: 415px) {
+    html {
+        font-size: 100px;
+    }
+}

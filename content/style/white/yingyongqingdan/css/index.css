@@ -103,6 +103,13 @@ html * {
 .new-apps li>div em {
     font-size: .12rem;
     color: #a8a8a8;
+    line-height: .15rem;
+    display: -webkit-box;
+    white-space: pre-wrap;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 /* ========================================= */
@@ -113,8 +120,11 @@ html * {
 .swiper-container {
     position: absolute;
     width: 100%;
-    top: 1.8rem;
+    top: .5rem;
     bottom: 0;
+}
+.new-apps +.tabs+.swiper-container{
+    top: 1.81rem;
 }
 .swiper-wrapper {
     height: 100%;
@@ -128,8 +138,10 @@ html * {
     background: #fff;
     height: .5rem;
     position: relative;
+    border-top: .5px solid #e0e0e0;
+    border-bottom: .5px solid #e0e0e0;
 }
-.tabs:before,
+/*.tabs:before,
 .tabs:after {
     position: absolute;
     content: " ";
@@ -142,11 +154,11 @@ html * {
     z-index: 2;
 }
 .tabs:before {
-    top: 0px;
+    top: 1px;
 }
 .tabs:after {
-    bottom: 0px;
-}
+    bottom: 1px;
+}*/
 .tabs a {
     font-size: .14rem;
     display: inline-block;
@@ -211,13 +223,13 @@ html * {
 }
 .app-info div {
     font-size: 0;
-    line-height: .2rem
+    line-height: .2rem;
 }
 .app-info div em {
     display: inline-block;
     width: 50%;
     font-size: .12rem;
-    color: #8d8d8d;
+    color: #a8a8a8;
 }
 .app-time {
     text-align: left;
@@ -229,20 +241,21 @@ html * {
     /*height: .5rem;*/
 }
 .smart-list-item-sub-info {
-    height: 0;
+    height: .8rem;
     overflow: hidden;
     background: #f6f6f6;
     padding: .05rem 0 .05rem .6rem;
-    transform: translateY(.1rem);
-    -webkit-transform: translateY(.1rem);
-    transition: all .2s ease-in-out;
-    -webkit-transition: all .2s ease-in-out;
+    display: none;
+/*    transform: translateY(.1rem);
+    -webkit-transform: translateY(.1rem);*/
+ /*   transition: all .2s ease;
+    -webkit-transition: all .2s ease;*/
 }
-.smart-list-item-sub-info.active {
+/*.smart-list-item-sub-info.active {
     height: .8rem;
     transform: translateY(0);
     -webkit-transform: translateY(0);
-}
+}*/
 .smart-list-item-sub-info p {
     line-height: .18rem;
     font-size: .12rem;
@@ -257,7 +270,7 @@ html * {
     padding-left: .1rem;
 }
 .smart-list.smart-list-space .smart-list-item:not(:last-child):after {
-    left: .1rem;
+    left: .15rem;
 }
 .smart-loading {
     position: absolute;
