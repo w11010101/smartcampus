@@ -23,7 +23,12 @@
 	      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
 	    <![endif]-->
 	</head>
-
+<style type="text/css">
+	.sortable-ghost{
+    transform: translateX(10%);
+    -webkit-transform: translateX(10%);
+}
+</style>
 	<body>
 		<nav class="navbar">
 			<div class="smart-header smart-white">
@@ -81,7 +86,9 @@
 	<script type="text/javascript" src="../../../content/style/frame/sortable/Sortable.min.js"></script>
 	<script type="text/javascript">
 	var list = document.querySelector(".smart-sub-list");
-	Sortable.create(list); // That's all.
+	Sortable.create(list,{
+		ghostClass:"sortable-ghost",
+	}); // That's all.
 	</script>
 
 	</html>

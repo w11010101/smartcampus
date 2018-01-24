@@ -10,7 +10,7 @@ var router = express.Router();
 app.use(express.static(__dirname));
 app.use(express.static("views/"));
 app.use(express.static("content/"));
-app.use(express.static("views/faceManage/"));
+app.use(express.static("views/tongxunlu/"));
 // app.use(express.static("js/"));
 app.use(bodyParser.urlencoded({ extended: false }));
 
@@ -20,7 +20,7 @@ app.get("/", function(req,res) {
   var options = {
     root:__dirname,
   }
-  var src = "/views/faceManage/faceManage.html";
+  var src = "/views/tongxunlu/index.html";
   // var src = "/qr.html";
   // var src = "/try/try.html";
   res.sendFile(src,options,function(err){

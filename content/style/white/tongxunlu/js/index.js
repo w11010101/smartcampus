@@ -1,29 +1,30 @@
 function postList(){
     var groups = data.Response.Groups;
     var capArr = [];
-    var persons = [];
+    // var app.persons = [];
     $.each(groups,function(i,e) {
         capArr.push(e.Cap);
-        persons = persons.concat(e.Items);
+        app.persons = app.persons.concat(e.Items);
     });
     app.mailList = groups;
     app.capArr = capArr;
 
     var depts = dept.Response.Groups;
-    app.deptNative = depts;
+    app.deptNativeArr = depts;
     var deptItems = [];
     var deptsObj = {};
+
     $.each(depts,function(i,e) {
         deptItems = deptItems.concat(e.Items);
     });
     $.each(deptItems,function(i,e) {
         deptsObj[e.Id] = [];
     });
-    for(var x = 0; x < persons.length;x++){
-        deptsObj[persons[x].DeptID].push(persons[x]);
+
+    for(var x = 0; x < app.persons.length;x++){
+        deptsObj[app.persons[x].DeptID].push(app.persons[x]);
     }
     app.deptsObj = deptsObj;
-    console.log(depts);
 
 }
 
@@ -47,7 +48,7 @@ function runTabSwiper() {
             scrollState = true;
         }
     });
-    tabsSwiper.swipeTo(1, false);
+    // tabsSwiper.swipeTo(1, false);
     $(".tabs a").eq(0).addClass("active");
     // tab点击切换事件
     $(".tabs a").on('click', function(e) {

@@ -190,7 +190,7 @@ input::-moz-placeholder { /* Firefox19+*/
     display: inline-block;
     font-size: 0;
     text-transform: capitalize;
-    padding:.1rem 0;
+    padding:.05rem 0;
     margin-left: .1rem;
 }
 .slider-content ul ul >li:not(:last-child) .mail-list-info{
@@ -214,12 +214,12 @@ input::-moz-placeholder { /* Firefox19+*/
 .mail-list-name h2{
     font-size: .15rem;
     color:#3c3c3c;
-    line-height: .2rem;
+    line-height: .25rem;
 }
 .mail-list-name p{
     font-size: .12rem;
     color:#a8a8a8;
-    line-height: .2rem;
+    line-height: .25rem;
 }
 .slider-content .mail-list-btn button,
 .slider-content .mail-list-btn a{
@@ -285,7 +285,7 @@ input::-moz-placeholder { /* Firefox19+*/
     padding: .1rem .2rem .1rem .5rem;
     color:#a8a8a8;
     font-size: .12rem;
-    height: .6rem;
+    /*height: .7rem;*/
     line-height: .2rem;
     position: relative;
 }
@@ -307,22 +307,29 @@ input::-moz-placeholder { /* Firefox19+*/
 .panel-group{
     position: absolute;
     width: 100%;
-    top:1.21rem;
+    top:1.41rem;
     bottom: 0;
     margin-bottom: 0;
     overflow-y:scroll; 
-    -webkit-overflow-scrolling:touch;
+    /*-webkit-overflow-scrolling:touch;*/
 }
 .panel-group::-webkit-scrollbar{
     display: none;
 }
 .panel-default{
-    background: #fff;
+    /*background: #fff;*/
     border:0;
+}
+.panel-default:after{
+    left:.15rem!important;
+}
+.panel-default.active,
+.smart-sub-list-item.active{
+    border:.5px solid #e0e0e0;
 }
 .panel-default>.panel-heading,
 .smart-sub-list .smart-sub-list-item{
-    background: #fff;
+    background: none;
     height: .6rem;
     padding:0 .25rem;
 }
@@ -350,22 +357,6 @@ input::-moz-placeholder { /* Firefox19+*/
     color:#3c3c3c;
     font-size: .15rem;
 }
-.panel-default>.panel-heading>a:after{
-/*    position: absolute;
-    content: " ";
-    width: .2rem;
-    height: .2rem;
-    top:.2rem;
-    right: .3rem;
-    background: url(../../../common/images/screen-1.png) no-repeat center;
-    transform: rotateX(180deg);
-    -webkit-transform: rotateX(180deg);
-    transition: all .2s ease;
-    -webkit-transition: all .2s ease;*/
-}
-.panel-default>.panel-heading>a.collapsed:after{
-
-}
 .panel-group .panel-heading+.panel-collapse>.list-group,
  .panel-group .panel-heading+.panel-collapse>.panel-body{
     border:0;
@@ -373,9 +364,6 @@ input::-moz-placeholder { /* Firefox19+*/
 }
 .panel-group .panel+.panel{
     margin-top:0;
-}
-.smart-border:after{
-    
 }
 .panel{
     box-shadow: none;
@@ -386,15 +374,26 @@ input::-moz-placeholder { /* Firefox19+*/
 .panel:after, 
 .panel-body:before, 
 .popup-info-pay+ul li:after{
-
     left:.2rem;
 }
 /*手风琴效果的结尾图标*/
-
+.smart-list, .smart-sub-list{
+    height: calc(.6rem * 5);
+    overflow-x: hidden;
+    overflow-y: scroll;
+    background: none;
+}
+.smart-list, .smart-sub-list.set-height{
+    height: calc(.6rem * 6);
+    overflow-y: scroll;
+}
+.smart-list, .smart-sub-list.set-height::-webkit-scrollbar,
+.smart-list, .smart-sub-list::-webkit-scrollbar{
+    display: none;
+}
 .smart-accordion .panel-heading .smart-list-end-icon {
     right: 35px;
 }
-
 .smart-accordion .panel-heading .smart-list-end-icon:after {
     content: " ";
     background: url(../../../white/xiaoyuanka/images/screen-1.png) no-repeat center;
@@ -415,21 +414,40 @@ input::-moz-placeholder { /* Firefox19+*/
     transform: rotateX(-180deg);
     -webkit-transform: rotateX(-180deg);
 }
+/* 拖拽 */
+
+.fallbackClass{
+    background-color: rgba(218, 244, 255, 1)!important;
+    margin-left: 50%!important;
+    margin-top: -.8rem!important;
+}
 
 /* media */
 
 @media screen and (max-width: 320px) {
     html {
-        font-size: calc(100vw/3.2);
+        font-size: calc(100vw/3.75);
+    }
+    /*手风琴效果的结尾图标*/
+    .smart-list, .smart-sub-list{
+        height: calc(.6rem * 4);
     }
 }
 @media screen and (min-width: 376px) and (max-width: 414px) {
     html {
         font-size: calc(100vw/4.14);
     }
+    /*手风琴效果的结尾图标*/
+    .smart-list, .smart-sub-list{
+        height: calc(.6rem * 6);
+    }
 }
 @media screen and (min-width: 415px) {
     html {
         font-size: 100px;
+    }
+    /*手风琴效果的结尾图标*/
+    .smart-list, .smart-sub-list{
+        height: calc(.6rem * 6);
     }
 }
