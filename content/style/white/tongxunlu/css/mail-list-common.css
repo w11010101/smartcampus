@@ -1,0 +1,44 @@
+html {
+    font-size: calc(100vw/3.75);
+}
+html * {
+    margin: 0;
+    padding: 0;
+}
+
+
+[v-cloak] {
+  display: none;
+}
+/* media */
+
+@media screen and (max-width: 320px) {
+    html {
+        font-size: calc(100vw/3.75);
+    }
+    /*手风琴效果的结尾图标*/
+    .smart-sub-list{
+        height: calc(.6rem * 4);
+    }
+    .apps-info .smart-list-item p{
+        margin-top: -.08rem;
+    }
+}
+@media screen and (min-width: 376px) and (max-width: 414px) {
+    html {
+        font-size: calc(100vw/4.14);
+    }
+    /*手风琴效果的结尾图标*/
+   .smart-sub-list{
+        height: calc(.6rem * 6);
+    }
+}
+@media screen and (min-width: 415px) {
+    html {
+        font-size: 100px;
+    }
+    /*手风琴效果的结尾图标*/
+   .smart-sub-list{
+        height: calc(.6rem * 6);
+    }
+}

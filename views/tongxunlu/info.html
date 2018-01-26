@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>通讯录-详情</title>
+    <!-- Bootstrap -->
+    <link href="../../content/style/frame/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../content/style/common/css/common.css" rel="stylesheet">
+    <link href="../../content/style/white/tongxunlu/css/mail-list-common.css" rel="stylesheet">
+    <link href="../../content/style/white/tongxunlu/css/index.css" rel="stylesheet">
+    <!-- javascript -->
+    <script src="../../content/style/frame/vue/vue.min.js"></script>
+    <!-- clipboard.min.js 复制 -->
+    <script src="../../content/style/frame/clipboard/clipboard.min.js"></script>
+    <script src="../../content/style/frame/lodash/lodash.min.js"></script>
+    <!-- data.js里面是数据对象 可以删除 -->
+    <script src="../../content/style/white/tongxunlu/js/data.js"></script>
+    <script src="../../content/style/white/tongxunlu/js/index.js"></script>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]> param.month = getOtherDate(getM);
+      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body class="apps-info" onload="loadedFn()">
+    <div class="smart-content" id="info-app" v-cloak>
+        <!-- 名片 -->
+        <div class="person-info">
+            <div class="header">
+                <img v-bind:src="headerImg">
+            </div>
+            <div class="person-info-name">
+                <h1>{{info.Name}}</h1>
+                <p>{{info.DeptName}}</p>
+                <em>{{info.Title}}</em>
+            </div>
+        </div>
+        <!-- 详情 -->
+        <div class="details">
+            <h1>更多资料</h1>
+            <ul class="smart-list smart-list-continue smart-list-space smart-list-title-icon">
+                <!-- 循环电话 -->
+                <li is='component-tel' v-for="item in info.TelNos" v-bind:tel='item' ></li>
+                <!-- 循环电话 end -->
+                <li class="smart-list-item" type="email">
+                    <p class='copy'>{{email}}</p>
+                    <button v-bind:data-clipboard-text=email class="copyBtn">复制</button>
+                </li>
+                <li class="smart-list-item" type="address">
+                    <p>中央十字大街旁边北面煎饼摊往里走157米左转第二条胡同右转第二条胡同再走131米就差不多了!</p>
+                </li>
+                <li class="smart-list-item" type="major">
+                    <p>经典力学，高等数学，高等挖掘机操作，高等烤面筋，高级氩弧焊！</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+<script src="../../content/style/white/tongxunlu/js/info.js"></script>
+</html>

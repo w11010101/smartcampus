@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>通讯录-编辑</title>
+    <!-- Bootstrap -->
+    <link href="../../content/style/frame/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../content/style/common/css/common.css" rel="stylesheet">
+    <link href="../../content/style/white/tongxunlu/css/mail-list-common.css" rel="stylesheet">
+    <link href="../../content/style/white/tongxunlu/css/index.css" rel="stylesheet">
+    <!-- javascript -->
+    <script src="../../content/style/frame/vue/vue.min.js"></script>
+    <!-- data.js里面是数据对象 可以删除 -->
+    <script src="../../content/style/white/tongxunlu/js/data.js"></script>
+    <script src="../../content/style/white/tongxunlu/js/index.js"></script>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]> param.month = getOtherDate(getM);
+      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<!-- smart-QA 标示，暂时没有用到 -->
+<!-- onload="postNewApps()" -->
+
+<body class="apps-edit" onload="getValFn();">
+    <div class="smart-content" id="edit-app" v-cloak>
+        <form>
+            <!-- 基本信息 -->
+            <div class="basic-info">
+                <!-- 头像 -->
+                <div class="header">
+                    <input accept="image/*" type="file"/>
+                </div>
+                <div class="name">
+                    <!-- 姓名 -->
+                    <div>
+                        <label>姓名</label>
+                        <input type="text" name="">
+                    </div>
+                    <!-- 姓名 -->
+                    <input type="button" name="" value="选择机构" class="org">
+                    <input type="button" name="" value="办公室" class="offce">
+                    <!-- 职务 -->
+                    <div>
+                        <label>职务</label>
+                        <input type="text" name="">
+                    </div>
+                </div>
+                <!-- phones -->
+                <div class="phones">
+                    <label>手机</label>
+                    <input type="text" placeholder="电话">
+                </div>
+                <div class="phones">
+                    <label>座机</label>
+                    <input type="text" placeholder="电话">
+                </div>
+                <div class="addPhone">
+                    <a>添加电话</a>
+                </div>
+            </div>
+            <!-- 补充信息 -->
+            <div class="added">
+                <!-- email -->
+                <div class="email"><input type="text" placeholder="请输入E-mail地址"></div>
+                <!-- 办公地址 -->
+                <div class="address"><input type="text" placeholder="请输入办公地址"></div>
+                <!-- 所数学科 -->
+                <div class="major"><input type="text" placeholder="请输入所属学科"></div>
+            </div>
+            <div class="smart-foot">
+                <button type="submit" class="smart-btn" set-terget="ka-recharge.html">完成</button>
+            </div>
+        </form>
+    </div>
+</body>
+<script src="../../content/style/white/tongxunlu/js/edit.js"></script>
+<script type="text/javascript">
+</script>
+
+</html>

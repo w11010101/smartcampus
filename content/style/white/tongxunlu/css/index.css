@@ -1,32 +1,21 @@
-html {
-    font-size: calc(100vw/3.75);
-}
-html * {
-    margin: 0;
-    padding: 0;
-}
+/* index.html */
 
-
-[v-cloak] {
-  display: none;
-}
-/* ========================================= */
-.tabs{
+.tabs {
     height: .4rem;
     line-height: .4rem;
     background: #fff;
     text-align: center;
     font-size: 0;
 }
-.tabs a{
+.tabs a {
     font-size: .15rem;
     display: inline-block;
     width: 50%;
     position: relative;
-    color:#8d8d8d;
+    color: #8d8d8d;
 }
-.tabs a:before{
-    content:" ";
+.tabs a:before {
+    content: " ";
     width: .25rem;
     height: .25rem;
     display: inline-block;
@@ -34,27 +23,27 @@ html * {
     margin-right: 5px;
     margin-top: -5px;
 }
-.tabs a:first-child:before{
+.tabs a:first-child:before {
     background: url(../images/tab-tel.png) no-repeat center;
-    background-size: contain; 
+    background-size: contain;
 }
-.tabs a:last-child:before{
+.tabs a:last-child:before {
     background: url(../images/tab-name.png) no-repeat center;
-    background-size: contain; 
+    background-size: contain;
 }
-.tabs a:first-child.active:before{
+.tabs a:first-child.active:before {
     background: url(../images/tab-tel-active.png) no-repeat center;
-    background-size: contain; 
+    background-size: contain;
 }
-.tabs a:last-child.active:before{
+.tabs a:last-child.active:before {
     background: url(../images/tab-name-active.png) no-repeat center;
-    background-size: contain; 
+    background-size: contain;
 }
-.tabs a.active{
-    color:#1e1e1e;
+.tabs a.active {
+    color: #1e1e1e;
 }
-.tabs a.active:after{
-    content:" ";
+.tabs a.active:after {
+    content: " ";
     position: absolute;
     width: 100%;
     height: 2px;
@@ -63,118 +52,129 @@ html * {
     border-radius: 1px;
     background: #ff9a46;
 }
-.input{
+.input {
     height: .5rem;
     padding: .1rem .15rem;
     background: #fff;
 }
 .input input {
     height: .3rem;
-    border:1px solid #e0e0e0;
-    border-radius:5px;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
     width: 100%;
     display: inline-block;
     font-size: .14rem;
     line-height: .3rem;
     padding: 0 5px;
 }
-input::-webkit-input-placeholder {
-  text-indent: .3rem;
-  background: url(../../../common/images/search.png) no-repeat center left;
-  background-size:.2rem;
+.input input::-webkit-input-placeholder {
+    text-indent: .3rem;
+    background: url(../../../common/images/search.png) no-repeat center left;
+    background-size: .2rem;
 }
-input:-ms-input-placeholder { /* IE10+*/
-  text-indent: .3rem;
-  background: url(../../../common/images/search.png) no-repeat center left;
-  background-size:.2rem;
+.input input:-ms-input-placeholder {
+    /* IE10+*/
+    text-indent: .3rem;
+    background: url(../../../common/images/search.png) no-repeat center left;
+    background-size: .2rem;
 }
-input:-moz-placeholder { /* Firefox4-18*/
-  text-indent: .3rem;
-  background: url(../../../common/images/search.png) no-repeat center left;
-  background-size:.2rem;
+.input input:-moz-placeholder {
+    /* Firefox4-18*/
+    text-indent: .3rem;
+    background: url(../../../common/images/search.png) no-repeat center left;
+    background-size: .2rem;
 }
-input::-moz-placeholder { /* Firefox19+*/
-  text-indent: .3rem;
-  background: url(../../../common/images/search.png) no-repeat center left;
-  background-size:.2rem;
+.input input::-moz-placeholder {
+    /* Firefox19+*/
+    text-indent: .3rem;
+    background: url(../../../common/images/search.png) no-repeat center left;
+    background-size: .2rem;
 }
-.input input:focus{
-  text-indent: 0;
-  background:none;
+.input input:focus {
+    text-indent: 0;
+    background: none;
 }
+
 /*  */
-.editBtn{
-    height:.4rem;
-    padding:.1rem 0;
+
+.editBtn {
+    height: .4rem;
+    padding: .1rem 0;
     background: #fff;
     text-align: center;
 }
-.editBtn button{
+.editBtn button {
     width: 1rem;
-    border:1px solid #73d2fe;
+    border: 1px solid #73d2fe;
     background: #fff;
-    color:#73d2fe;
+    color: #73d2fe;
     border-radius: 5px;
     height: .25rem;
     transition: all .1s ease;
     -webkit-transition: all .1s ease;
 }
-.editBtn button+button{
+.editBtn button+button {
     margin-left: .3rem;
 }
 .editBtn button.active,
 .editBtn button:active,
-.editBtn button:focus{
-    color:#fff;
+.editBtn button:focus {
+    color: #fff;
     background: #73d2fe;
 }
+
 /*  */
-.add-mail-list{
+
+.add-mail-list {
     display: block;
     height: .45rem;
     line-height: .45rem;
     font-size: .14rem;
-    border-top:.5px solid #e0e0e0;
-    border-bottom:.5px solid #e0e0e0;
+    border-top: .5px solid #e0e0e0;
+    border-bottom: .5px solid #e0e0e0;
     padding: 0 .15rem;
-    color:#73d2fe;
+    color: #73d2fe;
     background: url(../../../common/images/continue.png) no-repeat #fff right .4rem center;
     background-size: .2rem;
 }
+
 /*  */
-.swiper-container{
-    background:#fff;
+
+.swiper-container {
+    background: #fff;
     position: absolute;
     width: 100%;
-    top:.8rem;
+    top: .8rem;
     bottom: 0;
 }
-.swiper-container::-webkit-scrollbar{
+.swiper-container::-webkit-scrollbar {
     display: none;
 }
-.swiper-wrapper{
+.swiper-wrapper {
     height: 100%;
 }
-.swiper-slide{
+.swiper-slide {
     width: 100%;
     height: inherit;
     position: relative
 }
+
 /* 联系人css */
-.slider-content >ul {
+
+.slider-content>ul {
     width: 100%;
     display: block;
     position: relative;
     padding-left: .15rem;
 }
-.slider-content > ul > li {
+.slider-content>ul>li {
     width: 100%;
     padding-top: .1rem;
 }
-.slider-content ul li li{
+.slider-content ul li li {
     height: .6rem;
 }
-.mail-list-img{
+.mail-list-img {
     width: .4rem;
     height: .4rem;
     display: inline-block;
@@ -182,65 +182,73 @@ input::-moz-placeholder { /* Firefox19+*/
     background: #a8a8a8;
     border-radius: 5px;
 }
-.mail-list-info{
+.mail-list-info {
     height: .6rem;
-    width:  calc(100% - .6rem);
+    width: calc(100% - .6rem);
     padding-left: .1rem;
     vertical-align: middle;
     display: inline-block;
     font-size: 0;
     text-transform: capitalize;
-    padding:.05rem 0;
+    padding: .05rem 0;
     margin-left: .1rem;
 }
-.slider-content ul ul >li:not(:last-child) .mail-list-info{
+.slider-content ul ul>li:not(:last-child) .mail-list-info {
     border-bottom: .5px solid #e0e0e0;
 }
-.slider-content .mail-list-info div{
-    display: inline-block;
+.mail-list-info>div {
+    display: inline-block!important;
     /*width: 50%;*/
 }
-.mail-list-name{
+.mail-list-name {
     width: calc(100% - 1.2rem);
     vertical-align: middle;
 }
-.mail-list-btn{
+.smart-sub-list .mail-list-name {
+    width: calc(100% - 1rem);
+    vertical-align: middle;
+}
+.smart-sub-list .mail-list-btn,
+.smart-sub-list .mail-list-name {
+    height: .5rem;
+}
+.mail-list-btn {
     width: 1rem;
     vertical-align: middle;
 }
-.mail-list-btn *:first-child{
-    margin:0 .1rem;
+.mail-list-btn *:first-child {
+    margin: 0 .1rem;
 }
-.mail-list-name h2{
+.mail-list-name h2 {
     font-size: .15rem;
-    color:#3c3c3c;
+    color: #3c3c3c;
     line-height: .25rem;
 }
-.mail-list-name p{
+.mail-list-name p {
     font-size: .12rem;
-    color:#a8a8a8;
+    color: #a8a8a8;
     line-height: .25rem;
 }
-.slider-content .mail-list-btn button,
-.slider-content .mail-list-btn a{
+.mail-list-btn button,
+.mail-list-btn a {
     width: .35rem;
     height: .35rem;
-    border:0;
+    border: 0;
     display: inline-block;
 }
-.slider-content .mail-list-btn .telBtn{
+.mail-list-btn .telBtn {
     background: url(../images/tel-btn.png) no-repeat;
     background-size: 100%;
 }
-.slider-content .mail-list-btn .smsBtn{
+.mail-list-btn .smsBtn {
     background: url(../images/sms-btn.png) no-repeat;
     background-size: 100%;
 }
-.slider-content .mail-list-btn .editToolBtn{
+.mail-list-btn .editToolBtn {
     background: url(../images/edit.png) no-repeat 5%;
     background-size: 90%;
 }
-.slider-content .mail-list-btn .delBtn{
+.mail-list-btn .delBtn {
     background: url(../images/del.png) no-repeat 5%;
     background-size: 90%;
 }
@@ -248,7 +256,7 @@ input::-moz-placeholder { /* Firefox19+*/
     display: block;
     width: .2rem;
     height: .2rem;
-    color:#fff;
+    color: #fff;
     background: #ff8080;
     text-align: center;
     margin-bottom: .1rem;
@@ -259,136 +267,142 @@ input::-moz-placeholder { /* Firefox19+*/
     background: #ff8080;
 }
 
+
 /* tab-2 css */
-.dept-groups{
+
+.dept-groups {
     text-align: center;
     padding: .1rem 0;
     border-bottom: .5px solid #e0e0e0;
 }
-.dept-groups button{
+.dept-groups button {
     width: .75rem;
     height: .4rem;
     background: #fff;
-    border:1px solid #73d2fe;
+    border: 1px solid #73d2fe;
     border-radius: 5px;
-    color:#73d2fe;
+    color: #73d2fe;
     margin: 0 .05rem;
     transition: all .1s ease;
     -webkit-transition: all .1s ease;
 }
 .dept-groups button.active,
-.dept-groups button:active{
-    color:#fff;
+.dept-groups button:active {
+    color: #fff;
     background: #73d2fe;
 }
-.tips{
+.tips {
     padding: .1rem .2rem .1rem .5rem;
-    color:#a8a8a8;
+    color: #a8a8a8;
     font-size: .12rem;
     /*height: .7rem;*/
     line-height: .2rem;
     position: relative;
 }
-.tips:before{
+.tips:before {
     position: absolute;
     content: "i";
-    top:.1rem;
-    left:.25rem;
+    top: .1rem;
+    left: .25rem;
     width: .18rem;
     height: .18rem;
     line-height: .18rem;
-    background: rgba(115,210,254,.6);
+    background: rgba(115, 210, 254, .6);
     border-radius: 50%;
     font-size: .15rem;
     text-align: center;
-    color:#fff;
+    color: #fff;
 }
+
 /* 手风琴列表 样式重置 */
-.panel-group{
+
+.panel-group {
     position: absolute;
     width: 100%;
-    top:1.41rem;
+    top: 1.41rem;
     bottom: 0;
     margin-bottom: 0;
-    overflow-y:scroll; 
+    overflow-y: scroll;
     /*-webkit-overflow-scrolling:touch;*/
 }
-.panel-group::-webkit-scrollbar{
+.panel-group::-webkit-scrollbar {
     display: none;
 }
-.panel-default{
+.panel-default {
     /*background: #fff;*/
-    border:0;
+    border: 0;
 }
-.panel-default:after{
-    left:.15rem!important;
+.panel-default:after {
+    left: .15rem!important;
 }
 .panel-default.active,
-.smart-sub-list-item.active{
-    border:.5px solid #e0e0e0;
+.smart-sub-list-item.active {
+    border: .5px solid #e0e0e0;
 }
 .panel-default>.panel-heading,
-.smart-sub-list .smart-sub-list-item{
+.smart-sub-list .smart-sub-list-item {
     background: none;
     height: .6rem;
-    padding:0 .25rem;
+    padding-left: .25rem;
 }
-.smart-sub-list .smart-sub-list-item:after{
-    left:.8rem!important;
+.smart-sub-list .smart-sub-list-item:after {
+    left: .8rem!important;
 }
-.smart-sub-list:after{
+.smart-sub-list:after {
     height: 0!important;
 }
-.smart-list-end-icon{
+.smart-list-end-icon {
     display: inline-block;
     width: .25rem;
     height: .25rem;
-    top:.175rem;
+    top: .175rem;
 }
-.smart-list-end-icon img{
+.smart-list-end-icon img {
     display: block
 }
-.panel-default>.panel-heading>a{
+.panel-default>.panel-heading>a {
     display: block;
 }
-.panel-default>.panel-heading>a h2{
+.panel-default>.panel-heading>a h2 {
     margin-right: .3rem;
-    line-height: .6rem;
-    color:#3c3c3c;
+    line-height: .4rem;
+    color: #3c3c3c;
     font-size: .15rem;
 }
 .panel-group .panel-heading+.panel-collapse>.list-group,
- .panel-group .panel-heading+.panel-collapse>.panel-body{
-    border:0;
-    padding:0 .15rem;
+.panel-group .panel-heading+.panel-collapse>.panel-body {
+    border: 0;
+    padding: 0 .15rem;
 }
-.panel-group .panel+.panel{
-    margin-top:0;
+.panel-group .panel+.panel {
+    margin-top: 0;
 }
-.panel{
+.panel {
     box-shadow: none;
 }
-.smart-border:after, 
-.popup-select .popup-content >ul >li:after, 
-.popup-change .popup-content >ul >li:after, 
-.panel:after, 
-.panel-body:before, 
-.popup-info-pay+ul li:after{
-    left:.2rem;
+.smart-border:after,
+.popup-select .popup-content>ul>li:after,
+.popup-change .popup-content>ul>li:after,
+.panel:after,
+.panel-body:before,
+.popup-info-pay+ul li:after {
+    left: .2rem;
 }
+
 /*手风琴效果的结尾图标*/
-.smart-list, .smart-sub-list{
+
+.smart-sub-list {
     height: calc(.6rem * 5);
     overflow-x: hidden;
     overflow-y: scroll;
     background: none;
 }
-.smart-list, .smart-sub-list.set-height{
+.smart-sub-list.set-height {
     height: calc(.6rem * 6);
     overflow-y: scroll;
 }
-.smart-list, .smart-sub-list.set-height::-webkit-scrollbar,
-.smart-list, .smart-sub-list::-webkit-scrollbar{
+.smart-sub-list.set-height::-webkit-scrollbar,
+.smart-sub-list::-webkit-scrollbar {
     display: none;
 }
 .smart-accordion .panel-heading .smart-list-end-icon {
@@ -414,40 +428,361 @@ input::-moz-placeholder { /* Firefox19+*/
     transform: rotateX(-180deg);
     -webkit-transform: rotateX(-180deg);
 }
+
 /* 拖拽 */
 
-.fallbackClass{
+.fallbackClass {
     background-color: rgba(218, 244, 255, 1)!important;
     margin-left: 50%!important;
     margin-top: -.8rem!important;
 }
 
-/* media */
+/* ================================================================================ */
 
-@media screen and (max-width: 320px) {
-    html {
-        font-size: calc(100vw/3.75);
-    }
-    /*手风琴效果的结尾图标*/
-    .smart-list, .smart-sub-list{
-        height: calc(.6rem * 4);
-    }
+
+/* ================================================================================ */
+
+
+/* error.html */
+
+.error .smart-content {
+    position: relative;
+    height: 100vh;
+    background: #fff;
 }
-@media screen and (min-width: 376px) and (max-width: 414px) {
-    html {
-        font-size: calc(100vw/4.14);
-    }
-    /*手风琴效果的结尾图标*/
-    .smart-list, .smart-sub-list{
-        height: calc(.6rem * 6);
-    }
+.error .smart-content div {
+    position: absolute;
+    width: 80%;
+    top: 20%;
+    left: 10%;
 }
-@media screen and (min-width: 415px) {
-    html {
-        font-size: 100px;
-    }
-    /*手风琴效果的结尾图标*/
-    .smart-list, .smart-sub-list{
-        height: calc(.6rem * 6);
-    }
+.error .smart-content div img {
+    width: 100%;
+}
+.error .smart-content div p {
+    width: 60%;
+    line-height: 20px;
+    text-align: center;
+    color: #8d8d8d;
+    /*margin-top: .1rem;*/
+    margin: .1rem auto;
+    font-size: .14rem;
+}
+
+/* ================================================================================ */
+
+
+/* ================================================================================ */
+
+
+/* info.html */
+
+.apps-info {
+    height: 100vh;
+    background: #fff;
+}
+.apps-info .person-info{
+    width: 100%;
+    height: 1.8rem;
+    padding:.35rem .2rem;
+    background: url(../images/bg.png) no-repeat;
+    background-size: 100%;
+    font-size: 0;
+}
+.apps-info .person-info >div {
+    display: inline-block;
+    vertical-align: middle;
+}
+.apps-info .person-info .header{
+    width: 1.1rem;
+    height: 1.1rem;
+    border:5px solid #fff;
+    border-radius: 50%;
+    background: #fff;
+}
+.apps-info .person-info .header img{
+    width: 100%;
+}
+.person-info-name{
+    width: 2rem;
+    color:#fff;
+    padding-left: .2rem;
+}
+.person-info-name h1{
+    font-size: .18rem;
+    font-weight: bold;
+    margin-bottom: .1rem;
+}
+.person-info-name p{
+    font-size: .12rem;
+}
+.person-info-name em{
+    font-size: .12rem;
+    line-height: .2rem;
+}
+/* details */
+.apps-info .details{
+
+}
+.apps-info .details h1{
+    font-size: .15rem;
+    color: #3c3c3c;
+    height: .4rem;
+    padding:0 .3rem;
+    line-height: .4rem;
+    position: relative;
+}
+.apps-info .details h1:before{
+    position: absolute;
+    top:.125rem;
+    left:.2rem;
+    content: " ";
+    background: #73d2fe;
+    width: 3px;
+    height: .16rem;
+}
+.apps-info .details h1:after{
+    content: " ";
+    height: 1px;
+    position: absolute;
+    left: .2rem;
+    bottom: 0;
+    width: 100%;
+    background: #e0e0e0;
+    transform: rotateX(60deg);
+    -webkit-transform: rotateX(60deg); 
+}
+.smart-list.smart-list-space .smart-list-item:not(:last-child):after, 
+.smart-list:after {
+    left:.2rem!important;
+}
+.apps-info .smart-list-item{
+    font-size: 0;
+    height:.6rem;
+}
+.apps-info .smart-list-item p,
+.apps-info .smart-list-item a,
+.apps-info .smart-list-item button{
+    display: inline-block;
+    vertical-align: middle;
+}
+.apps-info .smart-list-item p{
+    width: 75%;
+    /*height:.6rem;*/
+    line-height:normal;
+    font-size: .15rem;
+    color:#3c3c3c;
+    padding-left: .7rem;
+    /*background: #ebe1b1!important;*/
+}
+
+.apps-info .smart-list-item a,
+.apps-info .smart-list-item button{
+    position: absolute;
+    right:.4rem;
+    min-width:.5rem;
+}
+.apps-info .smart-list-item a{
+    height: 100%;
+    background: url(../images/sms-btn-1.png) no-repeat center;
+    background-size: .3rem;
+}
+.apps-info .smart-list-item button{
+    font-size: .15rem;
+    padding:0 .1rem;
+    height: .4rem;
+    line-height: .4rem;
+    top:.1rem;
+    border:0;
+    background:none;
+    color:#73d2fe;
+    transition: all .1s ease;
+    -webkit-transition: all .1s ease;
+}
+.apps-info .smart-list-item button:active{
+    background:#73d2fe;
+    color:#fff;
+}
+/**/
+
+.apps-info .smart-list-item[type=mobile] p{
+    line-height:.6rem;
+    background: url(../images/mobile.png) no-repeat left .2rem center;
+    background-size: .3rem;
+}
+.apps-info .smart-list-item[type=fixed] p{
+    line-height:.6rem;
+    background: url(../images/fixed.png) no-repeat left .2rem center;
+    background-size: .3rem;
+}
+.apps-info .smart-list-item[type=address] p{
+    width: 100%;
+    /*line-height: .2rem;*/
+   /* display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;*/
+    background: url(../images/address.png) no-repeat left .2rem center;
+    background-size: .3rem;
+}
+.apps-info .smart-list-item[type=major] p{
+    width: 100%;
+    /*line-height: .2rem;*/
+    background: url(../images/major.png) no-repeat left .2rem center;
+    background-size: .3rem;
+}
+.apps-info .smart-list-item[type=fixed] a,
+.apps-info .smart-list-item[type=email] a{
+    display: none;
+}
+.apps-info .smart-list-item[type=email] p{
+    line-height:.6rem;
+    background: url(../images/email.png) no-repeat left .2rem center;
+    background-size: .3rem;
+}
+
+
+/* ================================================================================ */
+
+
+/* ================================================================================ */
+
+
+/* edit.html */
+
+.apps-edit{
+
+}
+.apps-edit .basic-info{
+    font-size: 0;
+    background: #fff;
+}
+.apps-edit .basic-info >div{
+    display: inline-block;
+    vertical-align: top;
+}
+.apps-edit .basic-info .header{
+    width: 1.25rem;
+    height: 1.5rem;
+    background: url(../images/default.png) no-repeat #fff top .3rem center;
+    background-size: 55%;
+    position: relative;
+}
+.apps-edit .basic-info .header:after{
+    position: absolute;
+    content:"添加照片";
+    width: 100%;
+    height:.2rem;
+    bottom: .2rem;
+    color:#73d2fe;
+    font-size: .13rem;
+    text-align:center;
+}
+.apps-edit .basic-info .header input{
+    font-size: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+}
+.apps-edit .basic-info .name{
+    width: calc(100% - 1.25rem);
+    height: 1.5rem;
+    background: #fff;
+}
+.apps-edit .basic-info .name >div{
+    border-bottom: .5px solid #e0e0e0;
+}
+.apps-edit .basic-info .name input{
+    font-size:.15rem;
+    height:.5rem;
+    border:0;
+    background: #fff;
+}
+.apps-edit .basic-info .name label,
+.apps-edit .basic-info .phones label{
+    display: inline-block;
+    width: .3rem;
+    height:.5rem;
+    font-size:.15rem;
+    color:#a8a8a8;
+    font-weight: normal;
+    vertical-align: top;
+    line-height: .5rem;
+    margin-right: .1rem;
+}
+.apps-edit .basic-info .name input[type=text]{
+    height: .49rem;
+}
+.apps-edit .basic-info .name input[type=button]{
+    display: inline-block;
+    width: 50%;
+    text-align: left;
+    background: url(../../../common/images/screen-1.png) no-repeat #fff ;
+    background-size: .5rem;
+    border:0;
+    border-bottom: .5px solid #e0e0e0;
+}
+.apps-edit .basic-info .name input.org{
+    background-position: left .55rem center;
+}
+.apps-edit .basic-info .name input.offce{
+    background-position: left .45rem center;
+}
+.apps-edit .basic-info .phones,
+.apps-edit .basic-info .addPhone,
+.apps-edit .added div{
+    display: block;
+    height: .5rem;
+    font-size: .15rem;
+    margin-left: .2rem;
+    padding-left: .45rem;
+    border-bottom: .5px solid #e0e0e0;
+}
+.apps-edit .basic-info .phones input,
+.apps-edit .basic-info .addPhone a{
+    width: 
+    height: 100%;
+    border:0;
+    line-height: .49rem;
+    background: none;
+}
+.apps-edit .basic-info .phones label{
+    color:#3c3c3c;
+}
+.apps-edit .basic-info .phones{
+    background: url(../images/remove.png) no-repeat left .1rem center;
+    background-size: .25rem;
+}
+.apps-edit .basic-info .addPhone{
+    border:0;
+    background: url(../images/add.png) no-repeat left .1rem center;
+    background-size: .25rem;
+}
+.apps-edit .basic-info .addPhone a{
+    color: #8d8d8d;
+}
+.apps-edit .added{
+    margin-top:.1rem;
+    background:#fff;
+}
+.apps-edit .added div{
+    padding-left: .55rem;
+}
+.apps-edit .added div input{
+    line-height: .49rem;
+    border:0;
+}
+.apps-edit .added div.email{
+    background: url(../images/email.png) no-repeat left .1rem center;
+    background-size: .25rem;
+}
+.apps-edit .added div.address{
+    background: url(../images/address.png) no-repeat left .1rem center;
+    background-size: .25rem;
+}
+
+.apps-edit .added div.major{
+    background: url(../images/major.png) no-repeat left .1rem center;
+    background-size: .25rem;
 }

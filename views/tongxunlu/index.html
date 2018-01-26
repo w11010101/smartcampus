@@ -12,22 +12,23 @@
     <link href="../../content/style/frame/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="../../content/style/common/css/common.css" rel="stylesheet">
     <link href="../../content/style/frame/swipe/css/idangerous.swiper-2.7.6.css" rel="stylesheet">
-    <link href="../../content/style/white/tongxunlu/css/slidernav.css" rel="stylesheet">
+    <link href="../../content/style/frame/slidernav/css/slidernav.css" rel="stylesheet">
     
     <link href="../../content/style/common/css/popup.css" rel="stylesheet">
     <link href="../../content/style/frame/sortable/css/sortable.css" rel="stylesheet">
+    <link href="../../content/style/white/tongxunlu/css/mail-list-common.css" rel="stylesheet">
     <link href="../../content/style/white/tongxunlu/css/index.css" rel="stylesheet">
     <!-- javascript -->
     <script src="../../content/style/frame/jquery/jquery-3.2.1.min.js"></script>
     <script src="../../content/style/frame/bootstrap/js/bootstrap.min.js"></script>
     <script src="../../content/style/frame/vue/vue.js"></script>
-    <script src="../../content/style/white/tongxunlu/js/lodash.min.js"></script>
+    <script src="../../content/style/frame/lodash/lodash.min.js"></script>
     <script src="../../content/style/frame/swipe/js/idangerous.swiper.min-2.7.6.js"></script>
     <script src="../../content/style/frame/sortable/Sortable.js"></script>
     <!-- data.js里面是数据对象 可以删除 -->
     <script src="../../content/style/white/tongxunlu/js/data.js"></script>
     <script src="../../content/style/common/js/popup.js"></script>
-    <script src="../../content/style/white/tongxunlu/js/slidernav.js"></script>
+    <script src="../../content/style/frame/slidernav/js/slidernav.js"></script>
     <script src="../../content/style/white/tongxunlu/js/index.js"></script>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -39,7 +40,7 @@
 <!-- smart-QA 标示，暂时没有用到 -->
 <!-- onload="postNewApps()" -->
 
-<body class="apps-list" onload="postList()">
+<body class="apps-list" onload="postList();">
     <div class="smart-content" id="app" v-cloak>
         <!-- 选项卡 -->
         <div class="tabs">
@@ -62,7 +63,7 @@
                         <input type="text" name="" placeholder="输入人员姓名 / 组织部门" v-on:keyup="searchFn" v-model="searchKey">
                     </div>
                     <!-- 新增联系人 -->
-                    <a href="#n" class="add-mail-list">新增联系人</a>
+                    <a href="edit.html" class="add-mail-list">新增联系人</a>
                     <div class="mail-list">
                         <div class="slider-content">
                             <!-- list -->
@@ -70,16 +71,16 @@
                                 <li v-bind:id="event ==='#'?'other':event" v-for="(event,index) in capArr">
                                     <a v-bind:name="event ==='#'?'other':event" class="title">{{event}}</a>
                                     <ul>
-                                        <li v-for="item in mailList[index].Items" v-bind:DeptID="item.DeptID">
+                                        <li v-for="item in mailList[index].Items" v-bind:DeptID="item.DeptID" >
                                             <!-- {{item}} -->
                                             <img v-bind:src="defaultImg" class="mail-list-img">
                                             <div class="mail-list-info">
-                                                <div class="mail-list-name">
+                                                <div class="mail-list-name" v-on:click="jump(item)">
                                                     <h2>{{item.Name}}</h2>
                                                     <p>{{item.DeptName}}{{item.Title === null?"":"-"+item.Title}}</p>
                                                 </div>
                                                 <communication-box v-bind:tels="item.TelNos" v-if=!editStart></communication-box>
-                                                <edit-box v-else></edit-box>
+                                                <edit-box v-bind:info-content="item" v-else></edit-box>
                                             </div>
                                         </li>
                                     </ul>
@@ -125,6 +126,7 @@
                                                 <em class="smart-list-end-icon" v-if=editStart>
                                                     <img src="../../content/style/white/tongxunlu/images/sortable.png" alt="">
                                                 </em>
+                                                <communication-box v-bind:tels="sub.TelNos" v-else></communication-box>
                                             </div>
                                         </li>
                                     </ul>

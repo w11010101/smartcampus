@@ -1,8 +1,8 @@
-function postList(){
+function postList() {
     var groups = data.Response.Groups;
     var capArr = [];
     // var app.persons = [];
-    $.each(groups,function(i,e) {
+    $.each(groups, function(i, e) {
         capArr.push(e.Cap);
         app.persons = app.persons.concat(e.Items);
     });
@@ -14,14 +14,14 @@ function postList(){
     var deptItems = [];
     var deptsObj = {};
 
-    $.each(depts,function(i,e) {
+    $.each(depts, function(i, e) {
         deptItems = deptItems.concat(e.Items);
     });
-    $.each(deptItems,function(i,e) {
+    $.each(deptItems, function(i, e) {
         deptsObj[e.Id] = [];
     });
 
-    for(var x = 0; x < app.persons.length;x++){
+    for (var x = 0; x < app.persons.length; x++) {
         deptsObj[app.persons[x].DeptID].push(app.persons[x]);
     }
     app.deptsObj = deptsObj;
@@ -58,4 +58,32 @@ function runTabSwiper() {
         tabsSwiper.swipeTo($(this).index(), false);
         scrollState = true;
     });
+}
+
+/**
+ * ==================================================================================
+ * [info.html]
+ */
+function loadedFn() {
+    infoApp.email = "w31231231@qq.com";
+    var url = window.location.href;
+    var val = JSON.parse(decodeURI(url.split(window.location.origin + window.location.pathname)[1].split("=")[1]));
+    infoApp.info = val;
+
+}
+/**
+ * ==================================================================================
+ * [edit.html]
+ */
+function getValFn() {
+    var url = window.location.href;
+    if(url.indexOf("infoObj")>=0){
+        var val = JSON.parse(decodeURI(url.split(window.location.origin + window.location.pathname)[1].split("=")[1]));
+        console.log("you = " ,val);
+        editApp.info = val;
+    }else{
+        console.log("mei you")
+    }
+
+
 }

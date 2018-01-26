@@ -1,3 +1,9 @@
+/**
+ * ==================================================================================
+ * [index.html]
+ * @type {Vue} app
+ */
+
 // 组件
 var communicationObj = {
     props:["tels"],
@@ -33,13 +39,17 @@ var communicationObj = {
         }
     }
 };
+
 var editToolObj = {
-    props:["edit"],
-    template:'<div class="mail-list-btn"><a href="#n" class="editToolBtn"></a><button v-on:click="delFn" class="delBtn"></button></div>',
+    props:["infoContent"],
+    template:'<div class="mail-list-btn"><a @click="jumpEdit" class="editToolBtn" :info=JSON.stringify(infoContent) ></a><button v-on:click="delFn" class="delBtn"></button></div>',
     methods:{
         delFn:function (event) {
             // 删除联系人
             $(event.target).parents(".mail-list-info").parent().remove();
+        },
+        jumpEdit:function (event) {
+            window.location.href = "edit.html?infoObj="+encodeURI(event.target.getAttribute("info"));
         }
     }
 }
@@ -85,11 +95,15 @@ var app = new Vue({
     watch: {  // 观察 
         // 选项卡1 联系人列表  
         mailList:function(val){
+
             setTimeout(function(){
                 runTabSwiper();
+                // 删除一组字母导航
+                
+                $(".slider-nav").remove();
                 $('.mail-list').sliderNav({
                     arrows:false,
-                    height:$(".swiper-container").height()
+                    height:$(".swiper-container").height() - 94
                 });
             },200);
         },
@@ -166,31 +180,36 @@ var app = new Vue({
         changeEditStartFn:function(event){
             var currentCollapse = $(".panel-collapse[aria-expanded='true']");
             if($(event.target).text() === "编辑"){
+                console.log("编辑");
                 // 编辑
                 this.editStart = true;
                 $(event.target).addClass("active").siblings().removeClass("active");
                 // 点击编辑,把部门和成员的都显示出来；然后在下面判断禁止掉一个
                 // 启动拖拽 (部门拖动)；
                 var el = document.querySelector("#accordion");
-                this.runSortable(el,"deptSorTableObj",".panel-default")
+                this.runSortable(el,"deptSorTableObj",".panel-default");
                 // 启动拖拽 (当前部门中 列表拖动)；
                 var _current = currentCollapse.length?currentCollapse[0].querySelector(".smart-sub-list"):document.querySelector("#accordion");
                 this.runSortable(_current,"currentListObjs",".smart-sub-list-item");
 
             }else{
+                console.log("完成");
                 // 完成
                 $(event.target).siblings().removeClass("active");
                 if(this.editStart){
                     this.editStart = false;
                     var currentCollapse = $(".panel-collapse[aria-expanded='true']");
-                    this.destroy(this.sorTableObjs.currentListObjs);
-                    this.destroy(this.sorTableObjs.deptSorTableObj);
+                    // this.destroy(this.sorTableObjs.currentListObjs);
+                    // this.destroy(this.sorTableObjs.deptSorTableObj);
                     $("#accordion .active").removeClass("active");
+                    
+                    this.disabledSortable(this.sorTableObjs.deptSorTableObj,true);
+                    this.disabledSortable(this.sorTableObjs.currentListObjs,true);
                 }
             }
             // 在这里判断，然后在下面判断禁止掉一个，后续点击手风琴就不需要判断重新生成实例了
             if(currentCollapse.length){
-                this.disabledSortable(this.sorTableObjs.deptSorTableObj,true)
+                this.disabledSortable(this.sorTableObjs.deptSorTableObj,true);
             }else{
                 this.disabledSortable(this.sorTableObjs.currentListObjs,true);
             }
@@ -199,6 +218,7 @@ var app = new Vue({
                 app.setTop();
             },200);
         },  
+
         changeDept:function(event) {
             $(event.target).addClass("active").siblings().removeClass("active");
             console.log("changeDept = ", event.target);
@@ -209,10 +229,10 @@ var app = new Vue({
                 draggable: draggable||"",   // 定义哪些列表单元可以进行拖放
                 forceFallback:true,
                 fallbackClass:"fallbackClass",
-                delay:200,    // 长按时间
+                // delay:200,    // 长按时间
                 // 拖拽元素被选中的回调函数
                 onChoose:function(event) {
-                    $(event.item).addClass("active");
+                    // $(event.item).addClass("active");
                     console.log("sortable onChoose");
                 },
                 // 拖拽元素拖动开始的回调函数
@@ -226,7 +246,7 @@ var app = new Vue({
                 // 拖放结束后的回调函数
                 onEnd:function(event) {
                     console.log("sortable onEnd");
-                    $(event.item).removeClass("active");
+                    // $(event.item).removeClass("active");
                 }
             });
             app.$set(this.sorTableObjs,key,SortableObj);
@@ -236,6 +256,7 @@ var app = new Vue({
         // 不传或者穿false；为恢复拖动
         // 传true或者其他真值：为禁止拖动
         disabledSortable:function(obj,start){
+            console.log(0)
             obj.options.disabled = start?true:false;
         },
         // 销毁拖动
@@ -253,15 +274,40 @@ var app = new Vue({
         },
         // 搜索
         searchFn:_.debounce(
-            function () {
+            function() {
                 if (true) {
-                    console.log(this.searchKey);
+                    var key = this.searchKey;
+                    var resultArr = {};
+                    var resultCapArr = [];
+                    var _arr = [];
+
+                    $.each(app.persons,function(i,e){
+                        if(e.Name.indexOf(key)>=0){
+                            
+                            if($.inArray(e.Cap,resultCapArr)<0){
+                                _arr = [];
+                                resultCapArr.push(e.Cap);
+                            }
+
+                            if(e.Cap == resultCapArr[resultCapArr.length-1]){
+                                _arr.push(e);
+                            }
+                            resultArr[resultCapArr.length-1] = {};
+                            resultArr[resultCapArr.length-1]["Cap"] = e.Cap;
+                            resultArr[resultCapArr.length-1]["Items"] = _arr;
+                            resultArr[resultCapArr.length-1]["ItemsCount"] = resultArr[resultCapArr.length-1]["Items"].length;
+
+                        }
+                    });
+                    
+                    app.capArr = resultCapArr;
+                    app.mailList = resultArr;
                 }
             },1000
-        )
-        // searchFn:function(event) {
-        //     // _.debounce
-        //     console.log(event.target.value)
-        // }
+        ),
+        jump:function (argument) {
+            window.location.href = "info.html?infoObj="+encodeURI(JSON.stringify(argument));
+        }
     }
 });
+
