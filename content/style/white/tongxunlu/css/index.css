@@ -625,10 +625,10 @@
     background: url(../images/address.png) no-repeat left .2rem center;
     background-size: .3rem;
 }
-.apps-info .smart-list-item[type=major] p{
+.apps-info .smart-list-item[type=subject] p{
     width: 100%;
     /*line-height: .2rem;*/
-    background: url(../images/major.png) no-repeat left .2rem center;
+    background: url(../images/subject.png) no-repeat left .2rem center;
     background-size: .3rem;
 }
 .apps-info .smart-list-item[type=fixed] a,
@@ -679,11 +679,23 @@
     text-align:center;
 }
 .apps-edit .basic-info .header input{
+    position: absolute;
     font-size: 0;
-    display: block;
+    top:0;
+    left:0;
     width: 100%;
     height: 100%;
     opacity: 0;
+    z-index: 1;
+}
+.apps-edit .basic-info .header img{
+    position: absolute;
+    /*z-index: 1;*/
+    width: 80%;
+    top:50%;
+    left:50%;
+    margin-top: -40%;
+    margin-left: -40%;
 }
 .apps-edit .basic-info .name{
     width: calc(100% - 1.25rem);
@@ -712,16 +724,24 @@
     margin-right: .1rem;
 }
 .apps-edit .basic-info .name input[type=text]{
+    width: calc(100% - .4rem);
     height: .49rem;
+    margin: 0;
+    padding:.1rem;
 }
 .apps-edit .basic-info .name input[type=button]{
     display: inline-block;
     width: 50%;
     text-align: left;
     background: url(../../../common/images/screen-1.png) no-repeat #fff ;
-    background-size: .5rem;
+    background-size: .4rem;
     border:0;
     border-bottom: .5px solid #e0e0e0;
+    padding: 0;
+    padding-right: .1rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .apps-edit .basic-info .name input.org{
     background-position: left .55rem center;
@@ -740,12 +760,15 @@
     border-bottom: .5px solid #e0e0e0;
 }
 .apps-edit .basic-info .phones input,
-.apps-edit .basic-info .addPhone a{
-    width: 
+.apps-edit .basic-info .addPhone a,
+.apps-edit .added div input{
+    font-size: .15rem;
+    width: calc(100% - .5rem);
     height: 100%;
     border:0;
     line-height: .49rem;
     background: none;
+    margin: 0
 }
 .apps-edit .basic-info .phones label{
     color:#3c3c3c;
@@ -753,6 +776,19 @@
 .apps-edit .basic-info .phones{
     background: url(../images/remove.png) no-repeat left .1rem center;
     background-size: .25rem;
+    position: relative;
+}
+.apps-edit .basic-info .phones .setDefaultNo{
+    position: absolute;
+    padding:0 .1rem;
+    height: .3rem;
+    line-height: .3rem;
+    top:50%;
+    right: .5rem;
+    margin-top: -.15rem;
+    border: 0;
+    color:#73d2fe;
+    /*background: url(../images/del.png) no-repeat;*/
 }
 .apps-edit .basic-info .addPhone{
     border:0;
@@ -767,12 +803,9 @@
     background:#fff;
 }
 .apps-edit .added div{
-    padding-left: .55rem;
+    padding-left: .4rem;
 }
-.apps-edit .added div input{
-    line-height: .49rem;
-    border:0;
-}
+
 .apps-edit .added div.email{
     background: url(../images/email.png) no-repeat left .1rem center;
     background-size: .25rem;
@@ -782,7 +815,115 @@
     background-size: .25rem;
 }
 
-.apps-edit .added div.major{
-    background: url(../images/major.png) no-repeat left .1rem center;
+.apps-edit .added div.subject{
+    background: url(../images/subject.png) no-repeat left .1rem center;
     background-size: .25rem;
+}
+/* poppicker css*/
+
+.mui-poppicker-header{
+    position: absolute;
+    top:-45px;
+    background: #fff;
+    width: 100%;
+    border-top:1px solid #ddd;
+}
+.mui-poppicker-header .mui-poppicker-btn-ok{
+    border: none;
+    background-color: #FFFFFF;
+    font-size: .16rem;
+    color: #73D2FE;
+}
+.smart-content>h2{
+    height: .5rem;
+    line-height: .5rem;
+    font-size: .15rem;
+    font-weight: normal;
+    background: url(../../../common/images/continue.png) no-repeat #fff center right .15rem;
+    background-size: .2rem;
+    padding: 0 .2rem;
+}
+.smart-content>h2 a{
+    color:#73D2FE;
+}
+.smart-content .smart-screen{
+    top:.5rem;
+}
+
+.mui-poppicker-body{
+    border:0;
+}
+.mui-picker{
+    background-color: #FFFFFF;
+}
+.mui-poppicker-header .mui-poppicker-btn-cancel,.mui-dtpicker-header button:first-child{
+    border: none;
+    font-size: .16rem;
+    color: #a8a8a8;
+}
+.mui-pciker-list li{
+    font-size:.16rem;
+}
+/* poppicker end*/
+.smart-content .smart-foot button[type=submit][disabled=disabled]{
+    background: #dfdfdf;
+}
+.smart-content .smart-foot .smart-btn:active{
+    opacity: .8;
+}
+.smart-content .smart-foot button[type=button],
+.smart-content .smart-foot button[type=button] + button[type=submit]{
+    display: inline-block;
+    width: 50%;
+    border:1px solid #73d2fe;
+}
+.smart-content .smart-foot button[type=button]{
+    background: #fff;
+    color:#73d2fe;
+    border-bottom:0;
+    border-left:0;
+}
+.smart-content .smart-foot button[type=button] + button[type=submit]{
+    background: #73d2fe;
+    color:#fff;
+}
+.apps-edit .tips{
+    position: absolute;
+    width: 100%;
+    top:0;
+    left: 0;
+    bottom: 0;
+}
+.apps-edit .tips:before{
+    display: none;
+}
+.apps-edit .tips-val{
+    position: absolute;
+    width: 1.8rem;
+    height: .4rem;
+    top:50%;
+    left:50%;
+    line-height: .4rem;
+    margin-top: -.2rem;
+    margin-left: -.9rem;
+    background: rgba(0,0,0,.5);
+    z-index: 999;
+    color:#fff;
+    text-align: center;
+    font-size: .15rem;
+    border-radius: 5px
+}
+.apps-edit .tips-mask{
+    position: absolute;
+    top:0;
+    left:0;
+    width: 100%;
+    height:100%;
+    /*background: rgba(255,255,255,.3);*/
+}
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .2s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
 }

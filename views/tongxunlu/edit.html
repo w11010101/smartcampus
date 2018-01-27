@@ -11,10 +11,17 @@
     <!-- Bootstrap -->
     <link href="../../content/style/frame/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="../../content/style/common/css/common.css" rel="stylesheet">
+    <!-- mui -->
+    <link href="../../content/style/frame/mui/css/mui.min.css" rel="stylesheet">
+    <link href="../../content/style/frame/mui/css/mui.picker.min.css" rel="stylesheet">
+    <!-- myself -->
     <link href="../../content/style/white/tongxunlu/css/mail-list-common.css" rel="stylesheet">
     <link href="../../content/style/white/tongxunlu/css/index.css" rel="stylesheet">
+
     <!-- javascript -->
     <script src="../../content/style/frame/vue/vue.min.js"></script>
+    <script src="../../content/style/frame/mui/js/mui.min.js"></script>
+    <script src="../../content/style/frame/mui/js/mui.picker.min.js"></script>
     <!-- data.js里面是数据对象 可以删除 -->
     <script src="../../content/style/white/tongxunlu/js/data.js"></script>
     <script src="../../content/style/white/tongxunlu/js/index.js"></script>
@@ -35,50 +42,73 @@
             <div class="basic-info">
                 <!-- 头像 -->
                 <div class="header">
-                    <input accept="image/*" type="file"/>
+                    <input accept="image/*" type="file" v-on:change="changeHead"/>
+                    <img v-bind:src="header" alt="">
                 </div>
                 <div class="name">
                     <!-- 姓名 -->
                     <div>
                         <label>姓名</label>
-                        <input type="text" name="">
+                        <input type="text" name="" @keyup="inputInFn" reType="name" v-model="info.Name">
                     </div>
                     <!-- 姓名 -->
-                    <input type="button" name="" value="选择机构" class="org">
-                    <input type="button" name="" value="办公室" class="offce">
+                    
+                    <input type="button" name="" value="选择机构" class="org" v-on:click="pickerShow" v-model="currentOrgName">
+                    <input type="button" name="" value="办公室" class="offce" v-on:click="pickerShow" v-model="info.DeptName">
+                    <!-- 第二种形式 -->
+                    <!-- <input type="button" name="" v-bind:value="currentOrgText" class="org" v-on:click="pickerShow">
+                    <input type="button" name="" v-bind:value="currentOffceText" class="offce" v-on:click="pickerShow"> -->
                     <!-- 职务 -->
                     <div>
                         <label>职务</label>
-                        <input type="text" name="">
+                        <input type="text" name="" @keyup="inputInFn" reType="job" v-model="info.Title">
                     </div>
                 </div>
                 <!-- phones -->
-                <div class="phones">
+                <component-tel v-for="item in info.TelNos" v-bind:tel='item'></component-tel>
+                <!-- <div class="phones">
                     <label>手机</label>
-                    <input type="text" placeholder="电话">
+                    <input type="text" placeholder="电话" @keyup="inputInFn" reType="phone">
+                    <button class="setDefaultNo" v-if=>设为默认</button>
                 </div>
                 <div class="phones">
                     <label>座机</label>
-                    <input type="text" placeholder="电话">
-                </div>
-                <div class="addPhone">
+                    <input type="text" placeholder="电话" @keyup="inputInFn" reType="tel">
+                    <button class="setDefaultNo" v-if=>设为默认</button>
+                </div> -->
+                <div class="addPhone" v-on:click="addTelFn">
                     <a>添加电话</a>
                 </div>
             </div>
             <!-- 补充信息 -->
             <div class="added">
                 <!-- email -->
-                <div class="email"><input type="text" placeholder="请输入E-mail地址"></div>
+                <div class="email">
+                    <input type="text" placeholder="请输入E-mail地址" @blur="inputInFn" reType="email" v-model="info.Email">
+                </div>
                 <!-- 办公地址 -->
-                <div class="address"><input type="text" placeholder="请输入办公地址"></div>
+                <div class="address">
+                    <input type="text" placeholder="请输入办公地址" @keyup="inputInFn" reType="jobAddress" v-model="info.Address">
+                </div>
                 <!-- 所数学科 -->
-                <div class="major"><input type="text" placeholder="请输入所属学科"></div>
+                <div class="subject">
+                    <input type="text" placeholder="请输入所属学科" @keyup="inputInFn" reType="subject" v-model="info.Subject">
+                </div>
             </div>
             <div class="smart-foot">
-                <button type="submit" class="smart-btn" set-terget="ka-recharge.html">完成</button>
+                <button type="button" class="smart-btn" set-terget="ka-recharge.html" disabled="disabled" @click=delPersonFn>删除联系人</button>
+                <button type="submit" class="smart-btn" set-terget="ka-recharge.html" disabled="disabled">完成</button>
             </div>
         </form>
+        <!-- tips -->
+        <transition name="fade">
+            <div class="tips" v-if="tipsState">
+                <div class="tips-val">{{tipsText}}</div>
+                <div class="tips-mask"></div>
+            </div>
+        </transition>
     </div>
+   
 </body>
 <script src="../../content/style/white/tongxunlu/js/edit.js"></script>
 <script type="text/javascript">

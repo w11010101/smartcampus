@@ -77,13 +77,73 @@ function loadedFn() {
  */
 function getValFn() {
     var url = window.location.href;
-    if(url.indexOf("infoObj")>=0){
+    if (url.indexOf("infoObj") >= 0) {
         var val = JSON.parse(decodeURI(url.split(window.location.origin + window.location.pathname)[1].split("=")[1]));
-        console.log("you = " ,val);
+        console.log("you = ", val);
         editApp.info = val;
-    }else{
+        editApp.currentOrgName = selectDept(val.DeptType);
+    } else {
         console.log("mei you")
     }
+    getOrg();
+    
+    function getOrg() {
+        var depts = dept.Response.Groups;
+        var obj = {};
+        for (var i = 0; i < depts.length; i++) {
+            var deptName = "";
+            var arr = [];
+            
+            for(var j = 0;j<depts[i].Items.length;j++){
+                arr.push({
+                    Cap:depts[i].Items[j].Cap,
+                    DeptType:depts[i].Items[j].DeptType,
+                    value:depts[i].Items[j].Id,
+                    text:depts[i].Items[j].Name,
+                    PID:depts[i].Items[j].PID,
+                    Sequence:depts[i].Items[j].Sequence
+                })
+            }
+            obj["DeptType"+depts[i].DeptType] = arr;
+            deptName = selectDept(depts[i].DeptType);
+            // switch(depts[i].DeptType){
+            //     case 1:
+            //         deptName = "综合管理";
+            //     break;
+            //     case 2:
+            //         deptName = "教学科研";
+            //     break;
+            //     case 4:
+            //         deptName = "支持保障";
+            //     break;
+            //     case 8:
+            //         deptName = "学校企业";
+            //     break;
+            // }
 
+            editApp.pickerOrgData.push({
+                value:depts[i].DeptType,
+                text:deptName
+            });
 
+            editApp.pickerOffceData = obj;
+        }
+        
+    }
+    function selectDept(val) {
+        switch(val){
+            case 1:
+                return "综合管理";
+            break;
+            case 2:
+                return "教学科研";
+            break;
+            case 4:
+                return "支持保障";
+            break;
+            case 8:
+                return "学校企业";
+            break;
+        }
+    }
 }
