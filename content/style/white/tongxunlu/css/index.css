@@ -653,22 +653,22 @@
 .apps-edit{
 
 }
-.apps-edit .basic-info{
+.apps-edit .mandatory-info{
     font-size: 0;
     background: #fff;
 }
-.apps-edit .basic-info >div{
+.apps-edit .mandatory-info >div{
     display: inline-block;
     vertical-align: top;
 }
-.apps-edit .basic-info .header{
+.apps-edit .mandatory-info .header{
     width: 1.25rem;
     height: 1.5rem;
     background: url(../images/default.png) no-repeat #fff top .3rem center;
     background-size: 55%;
     position: relative;
 }
-.apps-edit .basic-info .header:after{
+.apps-edit .mandatory-info .header:after{
     position: absolute;
     content:"添加照片";
     width: 100%;
@@ -678,7 +678,7 @@
     font-size: .13rem;
     text-align:center;
 }
-.apps-edit .basic-info .header input{
+.apps-edit .mandatory-info .header input{
     position: absolute;
     font-size: 0;
     top:0;
@@ -688,7 +688,7 @@
     opacity: 0;
     z-index: 1;
 }
-.apps-edit .basic-info .header img{
+.apps-edit .mandatory-info .header img{
     position: absolute;
     /*z-index: 1;*/
     width: 80%;
@@ -697,22 +697,22 @@
     margin-top: -40%;
     margin-left: -40%;
 }
-.apps-edit .basic-info .name{
+.apps-edit .mandatory-info .infos{
     width: calc(100% - 1.25rem);
     height: 1.5rem;
     background: #fff;
 }
-.apps-edit .basic-info .name >div{
+.apps-edit .mandatory-info .infos >div{
     border-bottom: .5px solid #e0e0e0;
 }
-.apps-edit .basic-info .name input{
+.apps-edit .mandatory-info .infos input{
     font-size:.15rem;
     height:.5rem;
     border:0;
     background: #fff;
 }
-.apps-edit .basic-info .name label,
-.apps-edit .basic-info .phones label{
+.apps-edit .mandatory-info .infos label,
+.apps-edit .mandatory-info .phones label{
     display: inline-block;
     width: .3rem;
     height:.5rem;
@@ -723,62 +723,74 @@
     line-height: .5rem;
     margin-right: .1rem;
 }
-.apps-edit .basic-info .name input[type=text]{
+.apps-edit .mandatory-info .infos input[type=text]{
     width: calc(100% - .4rem);
     height: .49rem;
     margin: 0;
     padding:.1rem;
 }
-.apps-edit .basic-info .name input[type=button]{
+.apps-edit .mandatory-info .infos input[type=button]{
     display: inline-block;
     width: 50%;
     text-align: left;
-    background: url(../../../common/images/screen-1.png) no-repeat #fff ;
+    background: url(../../../common/images/screen-1.png) no-repeat #fff right center;
     background-size: .4rem;
     border:0;
     border-bottom: .5px solid #e0e0e0;
     padding: 0;
-    padding-right: .1rem;
+    padding-right: .3rem;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }
-.apps-edit .basic-info .name input.org{
-    background-position: left .55rem center;
+.apps-edit .mandatory-info .infos input.org{
+    /*background-position: right .1rem center;*/
 }
-.apps-edit .basic-info .name input.offce{
-    background-position: left .45rem center;
+.apps-edit .mandatory-info .infos input.offce{
+    /*background-position: left .45rem center;*/
 }
-.apps-edit .basic-info .phones,
-.apps-edit .basic-info .addPhone,
+.apps-edit .mandatory-info .phones,
+.apps-edit .mandatory-info .addPhone,
 .apps-edit .added div{
     display: block;
     height: .5rem;
     font-size: .15rem;
     margin-left: .2rem;
-    padding-left: .45rem;
+    /*padding-left: .45rem;*/
     border-bottom: .5px solid #e0e0e0;
 }
-.apps-edit .basic-info .phones input,
-.apps-edit .basic-info .addPhone a,
+.apps-edit .mandatory-info .phones .delBtn{
+    display: inline-block;
+    width: .25rem;
+    height: .25rem;
+    border: 0;
+    background: url(../../tongxunlu/images/remove.png) no-repeat center;
+    background-size: .25rem; 
+    vertical-align: middle;
+    margin: .1rem;
+}
+.apps-edit .mandatory-info .phones input,
+.apps-edit .mandatory-info .addPhone a,
 .apps-edit .added div input{
     font-size: .15rem;
-    width: calc(100% - .5rem);
+    width: calc(100% - 1rem);
     height: 100%;
     border:0;
     line-height: .49rem;
     background: none;
     margin: 0
 }
-.apps-edit .basic-info .phones label{
+.apps-edit .mandatory-info .phones label{
     color:#3c3c3c;
+    display: inline-block;
+    vertical-align: middle;
 }
-.apps-edit .basic-info .phones{
-    background: url(../images/remove.png) no-repeat left .1rem center;
+.apps-edit .mandatory-info .phones{
+    /*background: url(../images/remove.png) no-repeat left .1rem center;*/
     background-size: .25rem;
     position: relative;
 }
-.apps-edit .basic-info .phones .setDefaultNo{
+.apps-edit .mandatory-info .phones .setDefaultNo{
     position: absolute;
     padding:0 .1rem;
     height: .3rem;
@@ -790,12 +802,13 @@
     color:#73d2fe;
     /*background: url(../images/del.png) no-repeat;*/
 }
-.apps-edit .basic-info .addPhone{
+.apps-edit .mandatory-info .addPhone{
     border:0;
     background: url(../images/add.png) no-repeat left .1rem center;
     background-size: .25rem;
+    padding-left: .45rem;
 }
-.apps-edit .basic-info .addPhone a{
+.apps-edit .mandatory-info .addPhone a{
     color: #8d8d8d;
 }
 .apps-edit .added{
@@ -865,25 +878,32 @@
     font-size:.16rem;
 }
 /* poppicker end*/
-.smart-content .smart-foot button[type=submit][disabled=disabled]{
+.smart-content .smart-foot.submit,
+.smart-content .smart-foot.submit[disabled=disabled]{
+    width: 100%;
+}
+.smart-content .smart-foot button[type=submit][disabled=disabled],
+.smart-content .smart-foot.submit[disabled=disabled]{
     background: #dfdfdf;
 }
 .smart-content .smart-foot .smart-btn:active{
     opacity: .8;
 }
-.smart-content .smart-foot button[type=button],
-.smart-content .smart-foot button[type=button] + button[type=submit]{
+.smart-content .smart-foot button[type=button]:not(.submit),
+.smart-content .smart-foot button[type=button] + button[type=submit],
+.smart-content .smart-foot button[type=button] + .submit{
     display: inline-block;
     width: 50%;
     border:1px solid #73d2fe;
 }
-.smart-content .smart-foot button[type=button]{
+.smart-content .smart-foot button[type=button]:not(.submit){
     background: #fff;
     color:#73d2fe;
     border-bottom:0;
     border-left:0;
 }
-.smart-content .smart-foot button[type=button] + button[type=submit]{
+.smart-content .smart-foot button[type=button] + button[type=submit],
+.smart-content .smart-foot button[type=button] + button.submit{
     background: #73d2fe;
     color:#fff;
 }

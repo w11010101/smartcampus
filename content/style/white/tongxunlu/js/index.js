@@ -79,11 +79,15 @@ function getValFn() {
     var url = window.location.href;
     if (url.indexOf("infoObj") >= 0) {
         var val = JSON.parse(decodeURI(url.split(window.location.origin + window.location.pathname)[1].split("=")[1]));
-        console.log("you = ", val);
+        console.log("you = ", JSON.stringify(val));
         editApp.info = val;
         editApp.currentOrgName = selectDept(val.DeptType);
+        editApp.currentOffceName = val.DeptName;
+        editApp.isInfo = true;
+        editApp.isCreatePerson = true;
     } else {
-        console.log("mei you")
+        console.log("mei you");
+        editApp.isInfo = false;
     }
     getOrg();
     

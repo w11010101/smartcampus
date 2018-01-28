@@ -39,33 +39,45 @@
     <div class="smart-content" id="edit-app" v-cloak>
         <form>
             <!-- 基本信息 -->
-            <div class="basic-info">
+            <div class="mandatory-info">
                 <!-- 头像 -->
                 <div class="header">
                     <input accept="image/*" type="file" v-on:change="changeHead"/>
                     <img v-bind:src="header" alt="">
                 </div>
-                <div class="name">
+                <div class="infos">
                     <!-- 姓名 -->
                     <div>
                         <label>姓名</label>
-                        <input type="text" name="" @keyup="inputInFn" reType="name" v-model="info.Name">
+                        <input type="text" name="" @keyup="inputInFn" reType="name" v-model="info.Name" class="name">
                     </div>
                     <!-- 姓名 -->
                     
-                    <input type="button" name="" value="选择机构" class="org" v-on:click="pickerShow" v-model="currentOrgName">
-                    <input type="button" name="" value="办公室" class="offce" v-on:click="pickerShow" v-model="info.DeptName">
+                    <input type="button" name="" class="org" v-on:click="pickerShow" v-model="currentOrgName" :setId="currentOrgId">
+                    <input type="button" name="" class="offce" v-on:click="pickerShow" v-model="currentOffceName" :setId="currentOffceId">
                     <!-- 第二种形式 -->
                     <!-- <input type="button" name="" v-bind:value="currentOrgText" class="org" v-on:click="pickerShow">
                     <input type="button" name="" v-bind:value="currentOffceText" class="offce" v-on:click="pickerShow"> -->
                     <!-- 职务 -->
                     <div>
                         <label>职务</label>
-                        <input type="text" name="" @keyup="inputInFn" reType="job" v-model="info.Title">
+                        <input type="text" name="" @keyup="inputInFn" reType="job" v-model="info.Title" class="job">
                     </div>
                 </div>
                 <!-- phones -->
-                <component-tel v-for="item in info.TelNos" v-bind:tel='item'></component-tel>
+                <template v-if=isInfo>
+                    <component-tel v-for="item in info.TelNos" v-bind:tel='item'></component-tel>
+                </template>
+                <template v-else>
+                    <component-telno v-for="item in addPhones" v-bind:tel='item'></component-telno>
+                    <!-- <div class="phones">
+                        <button class="delBtn"></button>
+                        <label>手机</label>
+                        <input type="text" placeholder="电话" @keyup="inputInFn" reType="phone">
+                        <button class="setDefaultNo" v-if=>设为默认</button>
+                    </div> -->
+                </template>
+
                 <!-- <div class="phones">
                     <label>手机</label>
                     <input type="text" placeholder="电话" @keyup="inputInFn" reType="phone">
@@ -76,7 +88,7 @@
                     <input type="text" placeholder="电话" @keyup="inputInFn" reType="tel">
                     <button class="setDefaultNo" v-if=>设为默认</button>
                 </div> -->
-                <div class="addPhone" v-on:click="addTelFn">
+                <div class="addPhone" @click="addTelFn">
                     <a>添加电话</a>
                 </div>
             </div>
@@ -88,7 +100,7 @@
                 </div>
                 <!-- 办公地址 -->
                 <div class="address">
-                    <input type="text" placeholder="请输入办公地址" @keyup="inputInFn" reType="jobAddress" v-model="info.Address">
+                    <input type="text" placeholder="请输入办公地址" @keyup="inputInFn" reType="address" v-model="info.Address">
                 </div>
                 <!-- 所数学科 -->
                 <div class="subject">
@@ -96,8 +108,8 @@
                 </div>
             </div>
             <div class="smart-foot">
-                <button type="button" class="smart-btn" set-terget="ka-recharge.html" disabled="disabled" @click=delPersonFn>删除联系人</button>
-                <button type="submit" class="smart-btn" set-terget="ka-recharge.html" disabled="disabled">完成</button>
+                <button type="button" class="smart-btn" set-terget="ka-recharge.html" @click=delPersonFn v-if="isCreatePerson">删除联系人</button>
+                <button type="button" class="smart-btn submit" set-terget="ka-recharge.html" @click=submitFn >完成</button>
             </div>
         </form>
         <!-- tips -->
