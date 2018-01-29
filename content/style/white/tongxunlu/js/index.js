@@ -81,6 +81,7 @@ function getValFn() {
         var val = JSON.parse(decodeURI(url.split(window.location.origin + window.location.pathname)[1].split("=")[1]));
         console.log("you = ", JSON.stringify(val));
         editApp.info = val;
+        editApp.currentOrgId = val.DeptType;
         editApp.currentOrgName = selectDept(val.DeptType);
         editApp.currentOffceName = val.DeptName;
         editApp.isInfo = true;

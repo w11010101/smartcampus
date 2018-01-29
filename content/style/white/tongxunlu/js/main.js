@@ -113,6 +113,7 @@ var app = new Vue({
         // 
         deptNativeArr:function(){
             var _this = this;
+            console.log('手风琴监听事件')
             setTimeout(function (argument) {
                 // 设置高度
                 _this.setTop();
@@ -125,7 +126,7 @@ var app = new Vue({
 
                     // 当前为编辑模式时，运行
                     if(_this.editStart){
-                        console.log(1);
+                        console.log('当前为编辑模式');
                         // 传true或者其他真值：为禁止拖动
                         _this.disabledSortable(_this.sorTableObjs.deptSorTableObj,true);
                         var _currentList = e.target.querySelector(".smart-sub-list");
@@ -136,22 +137,30 @@ var app = new Vue({
                         // 重新创建
                         _this.runSortable(_currentList,"currentListObjs",".smart-sub-list-item");
                     }else{
-                        console.log(0);
+                        console.log('当前为完成');
                     }
                 });
-                $('.panel-group').on('hide.bs.collapse', function(e) {
+                $('.panel-group').on('hidden.bs.collapse', function(e) {
                     console.log("收起");
                     $(e.target).prev().toggleClass("smart-active");
 
                     // 当前为编辑模式时，运行
                     if(_this.editStart){
-                        console.log(1);
-                        // 不传或者穿false；为恢复拖动
-                        _this.disabledSortable(_this.sorTableObjs.deptSorTableObj);
-                        var _currentList = e.target.querySelector(".smart-sub-list");
-                        _this.disabledSortable(_this.sorTableObjs.currentListObjs,true);
+                        console.log('当前为编辑模式');
+                        if($("div[aria-expanded=true]").length){
+                            // 收起时还有其他的展开
+                            // 不传或者穿false；为恢复拖动
+                            _this.disabledSortable(_this.sorTableObjs.currentListObjs);
+                            _this.disabledSortable(_this.sorTableObjs.deptSorTableObj,true);
+                        }else{
+                            // 收起时没有其他的展开
+                            // 不传或者穿false；为恢复拖动
+                            _this.disabledSortable(_this.sorTableObjs.currentListObjs,true);
+                            var el = document.querySelector("#accordion");
+                            _this.runSortable(el,"deptSorTableObj",".panel-default");
+                        };
                     }else{
-                        console.log(0);
+                        console.log('当前为完成');
                     }
                 });
             },200);
@@ -256,7 +265,7 @@ var app = new Vue({
         // 不传或者穿false；为恢复拖动
         // 传true或者其他真值：为禁止拖动
         disabledSortable:function(obj,start){
-            console.log(0)
+            // console.log(obj)
             obj.options.disabled = start?true:false;
         },
         // 销毁拖动

@@ -16,6 +16,7 @@
     <link href="../../content/style/frame/mui/css/mui.picker.min.css" rel="stylesheet">
     <!-- myself -->
     <link href="../../content/style/white/tongxunlu/css/mail-list-common.css" rel="stylesheet">
+    <link href="../../content/style/common/css/popup.css" rel="stylesheet">
     <link href="../../content/style/white/tongxunlu/css/index.css" rel="stylesheet">
 
     <!-- javascript -->
@@ -23,6 +24,8 @@
     <script src="../../content/style/frame/mui/js/mui.min.js"></script>
     <script src="../../content/style/frame/mui/js/mui.picker.min.js"></script>
     <!-- data.js里面是数据对象 可以删除 -->
+    <script src="../../content/style/frame/jquery/jquery-3.2.1.min.js"></script>
+    <script src="../../content/style/common/js/popup.js"></script>
     <script src="../../content/style/white/tongxunlu/js/data.js"></script>
     <script src="../../content/style/white/tongxunlu/js/index.js"></script>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -34,7 +37,12 @@
 </head>
 <!-- smart-QA 标示，暂时没有用到 -->
 <!-- onload="postNewApps()" -->
-
+<style type="text/css">
+    html{
+        height: 100%;
+        background:#fff;
+    }
+</style>
 <body class="apps-edit" onload="getValFn();">
     <div class="smart-content" id="edit-app" v-cloak>
         <form>
@@ -42,7 +50,8 @@
             <div class="mandatory-info">
                 <!-- 头像 -->
                 <div class="header">
-                    <input accept="image/*" type="file" v-on:change="changeHead"/>
+                    <input type="button" name="" @click="selectPicture">
+                    <!-- <input accept="image/*" type="file" v-on:change="changeHead"/> -->
                     <img v-bind:src="header" alt="">
                 </div>
                 <div class="infos">
@@ -52,9 +61,10 @@
                         <input type="text" name="" @keyup="inputInFn" reType="name" v-model="info.Name" class="name">
                     </div>
                     <!-- 姓名 -->
-                    
-                    <input type="button" name="" class="org" v-on:click="pickerShow" v-model="currentOrgName" :setId="currentOrgId">
-                    <input type="button" name="" class="offce" v-on:click="pickerShow" v-model="currentOffceName" :setId="currentOffceId">
+                    <div>
+                        <input type="button" name="" class="org" v-on:click="pickerShow" v-model="currentOrgName" :setId="currentOrgId">
+                        <input type="button" name="" class="offce" v-on:click="pickerShow" v-model="currentOffceName" :setId="currentOffceId">
+                    </div>
                     <!-- 第二种形式 -->
                     <!-- <input type="button" name="" v-bind:value="currentOrgText" class="org" v-on:click="pickerShow">
                     <input type="button" name="" v-bind:value="currentOffceText" class="offce" v-on:click="pickerShow"> -->
@@ -66,10 +76,10 @@
                 </div>
                 <!-- phones -->
                 <template v-if=isInfo>
-                    <component-tel v-for="item in info.TelNos" v-bind:tel='item'></component-tel>
+                    <component-tel v-for="(item,index) in info.TelNos" v-bind:tel='item' v-bind:index='index'></component-tel>
                 </template>
                 <template v-else>
-                    <component-telno v-for="item in addPhones" v-bind:tel='item'></component-telno>
+                    <component-telno v-for="(item,index) in addPhones" v-bind:tel='item' v-bind:index='index'></component-telno>
                     <!-- <div class="phones">
                         <button class="delBtn"></button>
                         <label>手机</label>
@@ -88,7 +98,7 @@
                     <input type="text" placeholder="电话" @keyup="inputInFn" reType="tel">
                     <button class="setDefaultNo" v-if=>设为默认</button>
                 </div> -->
-                <div class="addPhone" @click="addTelFn">
+                <div class="addPhone" @click="addTelFn" v-show='info.TelNos?(info.TelNos.length == 3?false:true):(addPhones.lenght == 3?false:true)'>
                     <a>添加电话</a>
                 </div>
             </div>
@@ -96,7 +106,7 @@
             <div class="added">
                 <!-- email -->
                 <div class="email">
-                    <input type="text" placeholder="请输入E-mail地址" @blur="inputInFn" reType="email" v-model="info.Email">
+                    <input type="email" placeholder="请输入E-mail地址" @blur="inputInFn" reType="email" v-model="info.Email">
                 </div>
                 <!-- 办公地址 -->
                 <div class="address">
@@ -109,7 +119,7 @@
             </div>
             <div class="smart-foot">
                 <button type="button" class="smart-btn" set-terget="ka-recharge.html" @click=delPersonFn v-if="isCreatePerson">删除联系人</button>
-                <button type="button" class="smart-btn submit" set-terget="ka-recharge.html" @click=submitFn >完成</button>
+                <button type="submit" class="smart-btn submit" set-terget="ka-recharge.html"  >完成</button>
             </div>
         </form>
         <!-- tips -->

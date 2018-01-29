@@ -277,7 +277,7 @@
 }
 .dept-groups button {
     width: .75rem;
-    height: .4rem;
+    height: .35rem;
     background: #fff;
     border: 1px solid #73d2fe;
     border-radius: 5px;
@@ -381,8 +381,6 @@
     box-shadow: none;
 }
 .smart-border:after,
-.popup-select .popup-content>ul>li:after,
-.popup-change .popup-content>ul>li:after,
 .panel:after,
 .panel-body:before,
 .popup-info-pay+ul li:after {
@@ -651,7 +649,6 @@
 /* edit.html */
 
 .apps-edit{
-
 }
 .apps-edit .mandatory-info{
     font-size: 0;
@@ -731,23 +728,26 @@
 }
 .apps-edit .mandatory-info .infos input[type=button]{
     display: inline-block;
-    width: 50%;
+    width: 45%;
     text-align: left;
-    background: url(../../../common/images/screen-1.png) no-repeat #fff right center;
-    background-size: .4rem;
+    background: url(../images/down.png) no-repeat #fff ;
+    background-size: .2rem;
     border:0;
     border-bottom: .5px solid #e0e0e0;
     padding: 0;
-    padding-right: .3rem;
+    padding-right: .2rem;
+    margin-right: 5%;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    transition: all 0s;
+    -webkit-transition: all 0s;
 }
 .apps-edit .mandatory-info .infos input.org{
-    /*background-position: right .1rem center;*/
+    background-position: left .7rem center;
 }
 .apps-edit .mandatory-info .infos input.offce{
-    /*background-position: left .45rem center;*/
+    background-position: left .55rem center;
 }
 .apps-edit .mandatory-info .phones,
 .apps-edit .mandatory-info .addPhone,
@@ -773,7 +773,7 @@
 .apps-edit .mandatory-info .addPhone a,
 .apps-edit .added div input{
     font-size: .15rem;
-    width: calc(100% - 1rem);
+    width: 1.5rem;
     height: 100%;
     border:0;
     line-height: .49rem;

@@ -3,12 +3,12 @@
  * @type {Vue} editApp
  */
 var componentTel = {
-    props: ["tel"],
+    props: ["tel","index"],
     // template:'<li class="smart-list-item" v-bind:type=phoneType><p>{{tel.No}}</p><a href="sms:tel.No" v-if="tel.PhoneType == 1"></a></li>',
-    template: '<div class="phones">\
+    template: '<div class="phones" :setIndex=index>\
                 <a class="delBtn" @click=subDelTelFn></a>\
                 <label>{{judgeLabel}}</label>\
-                <input type="text" placeholder="电话" @keyup="subInputInFn" v-model=tel.No :reType="judgeReType">\
+                <input type="tel" placeholder="电话" @keyup="subInputInFn" v-model=tel.No :reType="judgeReType">\
                 <a class="setDefaultNo" v-if=!tel.IsDefault @click="subSetDefault">设为默认</a></div>',
     computed: {
         judgeReType: function(event) {
@@ -31,7 +31,7 @@ var componentTel = {
     }
 }
 var componentTelNo = {
-    props: ["tel"],
+    props: ["tel","index"],
     data: function() {
         return {
             label: "手机",
@@ -39,16 +39,16 @@ var componentTelNo = {
             PhoneType: 1
         }
     },
-    template: '<div class="phones">\
+    template: '<div class="phones" :setIndex=index >\
                 <a class="delBtn" @click=subDelTelFn></a>\
                 <label>{{label}}</label>\
-                <input type="text" placeholder="电话" @keyup="subInputInFn" v-model=tel.No :reType=judgeReType >\
-                <a class="setDefaultNo" v-if=tel.IsDefault @click="subSetDefault">设为默认</a>\
+                <input type="number" placeholder="电话" @keyup="subInputInFn" v-model=tel.No :reType=judgeReType >\
+                <a class="setDefaultNo" v-if=!tel.IsDefault @click="subSetDefault">设为默认</a>\
                 </div>',
     watch: {
         judgeReType: function(event) {
             console.log(this.tel);
-
+            
             this.judgeReType = this.tel.PhoneType == 1 ? "phone" : "fixed";
         }
     },
@@ -100,8 +100,8 @@ var editApp = new Vue({
         tipsText: "请先选择机构", // 提示信息状态内容
         header: "", // 选择头像
         // phoneType:"手机",   
-        addPhones: [{ // 添加手机集合，默认给一组
-            IsDefault: false,
+        addPhones: [{ // 添加手机集合，默认给一组,新建联系人
+            IsDefault: true,
             No: "",
             PhoneType: "1"
         }],
@@ -126,7 +126,29 @@ var editApp = new Vue({
         // 观察机构数据
         pickerOrgData: function(argument) {
             this.pickerFn(argument, "org");
+            // console.log(argument);
         },
+        // 观察办公室数据
+        pickerOffceData:function(argument) {
+            // console.log(argument);
+        },
+        // 观察选择机构名字变化
+        currentOrgName:function(argument){
+            console.log(argument);
+            var _this = this;
+            setTimeout(function(){
+                _this.setPickerIcon(document.querySelector(".org"));
+            },100);
+        },
+        // 观察办公室名字变化
+        currentOffceName: function(argument){
+            console.log(argument);
+            var _this = this;
+            setTimeout(function(){
+                _this.setPickerIcon(document.querySelector(".offce"));
+            },100);
+            
+        }, // 当前选择办公室名字
         tipsState: function(argument) {
             var _this = this;
             if (this.tipsState) {
@@ -138,6 +160,39 @@ var editApp = new Vue({
     },
     computed: {},
     methods: {
+        // 选择图片
+        selectPicture:function(event){
+            var selectArr = ["相册","拍照"];
+            var _this = this;
+            campus.popup({
+                value:selectArr,
+                type:"select",
+                cancel:true,
+                scrollTime:0
+            },function (argument) {
+                if(argument.key === "相册"){
+                    var href = 'ios://faceopenalbum?type:3&data:"1"&sign:""';
+                    var jsJson = '{ "type": "GETPHOTO", "data": "1", "sign": "" }';                    
+                }else if(argument.key === "拍照"){
+                    var href = 'ios://faceopencamera?type:3&data:"1"&sign:""';
+                    var jsJson = "{'type':'OPENCAMERA','data':{},'sign':''}";
+                }
+
+                _this.appInterfaceFn(href,jsJson);
+                console.log(argument);
+            });
+        },
+        // 调用原生方法
+        appInterfaceFn:function(href,Json){
+            if (/(iPhone|iPad|iPod|iOS)/i.test(navigator.userAgent)) { //判断iPhone|iPad|iPod|iOS
+                window.location.href = href;
+            } else if (/(Android)/i.test(navigator.userAgent)) { //判断Android
+                var jsJson = Json;
+                window.AndroidWebView.appInterface(jsJson);
+            } else { //pc
+                console.log("pc");
+            };
+        },
         // 创建picker实例
         pickerFn: function(argument, type) {
             var picker = new mui.PopPicker();
@@ -158,6 +213,7 @@ var editApp = new Vue({
             if (type == "offce") {
                 if (!this.currentOrgId) {
                     this.tipsState = true;
+                    this.tipsText = "请先选择机构";
                     return false;
                 } else {
                     this.pickerFn(this.pickerOffceData["DeptType" + this.currentOrgId], "offce");
@@ -170,6 +226,7 @@ var editApp = new Vue({
                     // 办公室
                     _this.currentOffceId = items[0].value;
                     _this.currentOffceName = items[0].text;
+
                 } else {
                     // 机构
                     _this.currentOrgId = items[0].value;
@@ -179,19 +236,53 @@ var editApp = new Vue({
                     _this.currentOffceName = "办公室";
 
                 }
+                _this.setPickerIcon(element);
+                
             });
         },
         // 隐藏 picker
         pickerHide: function(event) {
             this.pickerObjs[event.target.className].hide();
+        }, 
+        // 设置下拉选择的箭头位置
+        setPickerIcon:function(element) {
+            var textArr = element.value.split("");
+            var textW = 0;
+            for (var i = 0; i < textArr.length; i++) {
+                if(textArr[i].match(/[a-zA-Z0-9]/)){
+                   textW +=7.5;
+                }else{
+                    textW +=15;
+                }
+            }
+            if(textW > element.offsetWidth){
+                console.log("大于");
+                element.style.backgroundPositionX = "right";
+            }else{
+                console.log("小于");
+                element.style.backgroundPositionX = (textW+10)/100+"rem";
+            }
+            
         },
         // 添加电话
         addTelFn: function(argument) {
+            var element = event.target;
+            var index = element.parentElement.getAttribute("setIndex");
+            var TelNos = "";
+            if(editApp.info.TelNos){
+                TelNos = editApp.info.TelNos;
+            }else{
+                TelNos = editApp.addPhones;
+            }
             var phones = document.querySelectorAll(".phones");
-            console.log(phones.length);
+            var addPhone = document.querySelector(".addPhone");
+            console.log("addTelFn = ",phones.length);
             if (phones.length < 3) {
-                this.addPhones.push({
-                    IsDefault: false,
+                if (phones.length >= 2) {
+                    addPhone.style.display = "none";
+                }
+                TelNos.push({
+                    IsDefault: true,
                     No: "",
                     PhoneType: "1"
                 })
@@ -202,9 +293,22 @@ var editApp = new Vue({
         },
         // 删除电话
         delTelFn: function(event) {
-            console.log('删除电话 = ', event.target);
-            console.log(event.target.parentElement)
-            // this.addPhones
+            
+            var element = event.target;
+            var index = element.parentElement.getAttribute("setIndex");
+            var TelNos = "";
+            if(editApp.info.TelNos){
+                TelNos = editApp.info.TelNos;
+            }else{
+                TelNos = editApp.addPhones;
+            }
+            var phones = document.querySelectorAll(".phones");
+            var addPhone = document.querySelector(".addPhone");
+            if(phones.length){
+                addPhone.style.display = "block";
+            }
+            TelNos.splice(index,1);
+            console.log('删除电话 = ', index);
         },
         // 添加头像
         changeHead: function(event) {
@@ -227,29 +331,58 @@ var editApp = new Vue({
             var element = event.target;
             var reType = element.getAttribute("reType");
             var val = element.value;
+            var index = element.parentElement.getAttribute("setIndex");
 
-            if (val.match(this.re[reType])) {
-                // 有效
-                element.value = val.match(this.re[reType])[0];
-            } else {
-                // 无效
-                // element.value = element.value.match(this.re[reType]);
+            var TelNos = "";
+            if(editApp.info.TelNos){
+                console.log("you");
+                TelNos = editApp.info.TelNos;
+            }else{
+                console.log("mei you");
+                TelNos = editApp.addPhones;
             }
+            if(val.length>=7){
+                // setIndex
+                console.log("+++++++");
+                // if(!TelNos[index].IsDefault){
+                //     console.log("=======");
+                //     TelNos[index].IsDefault = true;
+                // }
+                TelNos[index].IsDefault = false;
+            }else if(val.length<7){
+                TelNos[index].IsDefault = true;
+            }
+
+            // if (val.match(this.re[reType])) {
+            //     // 有效
+            //     element.value = val.match(this.re[reType])[0];
+            // } else {
+            //     // 无效
+            //     // element.value = element.value.match(this.re[reType]);
+            // }
         },
         // 设置默认
         setDefault: function(event) {
-            var TelNos = editApp.info.TelNos;
+            var element = event.target;
+            var index = element.parentElement.getAttribute("setIndex");
+            var TelNos = "";
+            if(editApp.info.TelNos){
+                TelNos = editApp.info.TelNos;
+            }else{
+                TelNos = editApp.addPhones;
+            }
             for (e in TelNos) {
-                if (TelNos[e].No == event.target.previousElementSibling.value) {
-                    editApp.info.TelNos[e].IsDefault = true
-                } else {
-                    editApp.info.TelNos[e].IsDefault = false;
+                if(TelNos[e].No.length>=7){
+                    TelNos[e].IsDefault = false;
                 }
             }
-            console.log('设置默认 = ',TelNos);
+            TelNos[index].IsDefault = true;
+            console.log('设置默认 = ', TelNos);
         },
         // 删除联系人
         delPersonFn: function(event) {
+            
+            
             console.log('删除联系人 = ', event.target);
         },
         // 提交按钮
@@ -264,6 +397,23 @@ var editApp = new Vue({
             //          console.log(el);
             //     }
             // }
-        }
+        },
+
     }
 });
+
+// "相册","拍照" 的选择回调
+function jsInterface(natieJson) {
+    natieJson = natieJson.replace("[", '').replace("]", '').replace("\n", '');
+    var a = new Array();
+    a = natieJson.split(",");
+    base64 = a[0];
+    if (!base64) {
+        editApp.tipsState = true;
+        editApp.tipsText("jsInterface base64  ：" + base64);
+        return false;
+    }
+
+    var img = document.querySelector(".header img");
+    img.attr("src", 'data:image/jpeg;base64,'+base64);
+}
