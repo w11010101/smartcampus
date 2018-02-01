@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, user-scalable=no, maximum-scale=1.0" />
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>download</title>
+    <link rel="stylesheet" type="text/css" href="../content/css/download.css">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elkements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+</head>
+<body>
+    <!-- 内容 content -->
+    <div class="download">
+        <img src="../content/images/group2@2x.png" class="logo">
+        <h1>快享</h1>
+        <p>你可一键将优质文章永久保存到快享</p>
+        <div class="downBtns">
+            <a href="http://library.xzxyun.com:8040/downloads/app-tebietushuguan.apk" class="androidBtn">
+                <img src="../content/images/anzhuo@2x.png" alt="">
+            </a>
+            <a class="iosBtn">
+                <!-- <img src="../content/images/ios@2x.png" alt=""> -->
+                <img src="../content/images/ios@2x-null.png" alt="">
+            </a>
+        </div>
+        <!-- 提示框 -->
+        <div class="tips-box">
+            <!-- <div class="mask"></div> -->
+            <div class="tips">
+                <p>即将上线，敬请期待</p>
+                <!-- <button>确定</button> -->
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        var iosBtn = document.querySelector(".iosBtn");
+        var tips = document.querySelector(".tips-box");
+        var sureBtn = document.querySelector(".tips-box button");
+        iosBtn.addEventListener("click",function(){
+            tips.classList.add('show');
+            setTimeout(function(){
+                tips.classList.remove('show');
+            },1500);
+        });
+        // sureBtn.addEventListener("click",function(){
+        //     setTimeout(function(){
+        //         tips.classList.remove('show');
+        //     },100);
+        // });
+    </script>
+</html>

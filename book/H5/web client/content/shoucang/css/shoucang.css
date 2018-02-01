@@ -1,0 +1,141 @@
+.content.collection{
+    padding: 30px 0;
+}
+.content.collection > h1{
+    font-size: 18px;
+    line-height: 32px;
+    color: #333333;
+    margin-bottom: 15px;
+}
+.content.collection > h2 {
+    font-size: 13px;
+    font-weight: normal;
+    line-height: 18px;
+    margin-bottom: 15px;
+}
+.content.collection > h2 img{
+    width: 18px;
+    height: 18px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 10px;
+}
+.content.collection > h2 em,
+.content.collection > h2 i{
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 17px
+}
+.content.collection > h2 i{
+    color:#999999;
+}
+.content.collection > p{
+    text-indent: 2em;
+    font-size: 14px;
+    line-height: 28px;
+    margin-bottom: 15px;
+}
+.content.collection .content-img{
+    margin-bottom: 15px;
+
+}
+.content.collection .content-img img{
+    width: 100%;
+}
+/* 列表 */
+.list{
+    font-size: 0;
+}
+.list li{
+    width: 330px;
+    height: 160px;
+    display: inline-block;
+    margin:0 10px;
+    background:#fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border:1px solid #e6e6e6;
+}
+.list li .list-title{
+    
+    height: 90px;
+    font-size: 0;
+    overflow:hidden;
+    background:#f9f9f9;
+}
+.list li .list-title h1{
+    font-size: 14px;
+    display: inline-block;
+    vertical-align: top;
+    width: 198px;
+    line-height: 20px;
+    height: 100%;
+    padding: 15px;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+}
+.list li .list-title img{
+    width: 90px;
+    height: 90px;
+    display: inline-block;
+    vertical-align: top;
+
+}
+.list li .list-source{
+    height: 20px;
+    margin-top:15px;
+}
+.list li .list-source *{
+    font-size: 13px;
+    display: inline-block;
+    vertical-align: middle;
+}
+.list li .list-source img{
+    width: 18px;
+    height: 18px;
+    margin-right: 10px;
+}
+.list li .list-source p{
+    margin-right: 11px;
+}
+.list li .list-source em{
+    color:#999999;
+}
+.list li .list-source i{
+    float:right;
+    font-size: 12px;
+    color:#f2b030;
+    margin-top: 4px;
+}
+.list li .list-source .tool{
+    float: right;
+    width: 100px;
+    height: 100%;
+    text-align: center;
+    transform: translateX(200%);
+    -webkit-transform: translateX(200%);
+    transition: all .3s ease-in-out;
+    -webkit-wtransition: all .3s ease-in-out;
+}
+.list li .list-source .tool a{
+    display: inline-block;
+    width: 40px;
+    height: 100%;
+    margin: 0 5px;
+}
+.list li:hover{
+    cursor:pointer;
+    background:#f9f9f9;
+
+}
+.list li:hover .list-title{
+
+}
+.list li:hover .list-source i{
+    display: none;
+}
+.list li:hover .list-source .tool{
+    transform: translateX(0);
+    -webkit-transform: translateX(0);
+}

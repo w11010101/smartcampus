@@ -1,0 +1,80 @@
+/*
+ * login.css
+ * 18.1.29
+ * Tempest
+ * v 1.0.0
+ */
+html,body{
+	width: 100%;
+	height: 100%;
+}
+.contant{
+	width: 100%;
+	padding: 20px;
+}
+.file_botton{
+	width: 340px;
+	margin: 50% auto 0;
+}
+@media screen and (max-width: 420px) {
+	.file_botton{
+		width: 100% !important;
+	}
+}
+
+.btn-button{
+	width: 100%;
+	height: 40px;
+	background-color: #27b3cb;
+	text-align: center;
+	margin-top: 5px;
+	font-size: 16px;
+	color: #fff;
+	border: none;
+	transition: all .3ms;
+	-webkit-transition: all;
+    transition: all;
+    -webkit-transition-timing-function: linear;
+    transition-timing-function: linear;
+    -webkit-transition-duration: .2s;
+    transition-duration: .2s;
+}
+.btn-button:active{
+	border: none;
+	background-color: #3f9dd0;
+	transition: all .3ms;
+	transition: all .3ms;
+	-webkit-transition: all;
+    transition: all;
+    -webkit-transition-timing-function: linear;
+    transition-timing-function: linear;
+    -webkit-transition-duration: .2s;
+    transition-duration: .2s;
+}
+.btn-button-null{
+	display: none;
+	background-color: #FFFFFF;
+	border: 1px solid #3f9dd0;
+}
+.btn-button-null:active{
+	background-color: #FFFFFF;
+	border: 1px solid #3f9dd0;
+}
+.file-bar_{
+	display: block;
+	width: 0;
+	height: 40px;
+	background-color: #3f9dd0;
+}
+.Popup{
+	display: none;
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	text-align: center;
+}
+.Popup img{
+	width: 120px;
+    height: 40px;
+    object-fit: contain;
+}

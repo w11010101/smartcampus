@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
+		<title>login</title>
+		<link rel="stylesheet" href="../../content/common/css/common.css" />
+		<link rel="stylesheet" href="../../content/login/css/login.css" />
+	</head>
+	<body>
+		<div class="header header-border">
+			<img class="header-login" src="../../content/common/img/logo@2x.png" srcset="../../content/common/img/logo@2x.png 2x,../../content/common/img/logo@3x.png 3x" />
+			<h3 class="header-title header-title-top">快享</h3>
+		</div>
+		<div class="content">
+			<div class="form">
+				<div class="header">
+					<img class="header-login" src="../../content/common/img/logo@2x.png" srcset="../../content/common/img/logo@2x.png 2x,../../content/common/img/logo@3x.png 3x" />
+					<h3 class="header-title_form">欢迎来到快享</h3>
+				</div>
+				<form class="form-input-bar">
+					<div class="input-bar">
+						<input id="phone_no" type="tel" placeholder="手机号" />
+					</div>
+					<div class="input-bar input-pwd">
+						<input id="pwd" type="password" placeholder="密码" />
+					</div>
+					<div class="choice">
+						<div id="choice_false" attrchoice="true" class="choice-bar"></div>
+						<img id="choice_true" attrchoice="false" src="../../content/login/img/invalid-name@2x.png" srcset="../../content/login/img/invalid-name@2x.png 2x,../../content/login/img/invalid-name@3x.png 3x"/>
+						<div class="choice-title">自动登录</div>
+					</div>
+					<button id="button" type="button" name="" class="btn-button">登 录</button>
+				</form>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="../../content/common/js/jquery.main.js" ></script>
+	<script>
+		//自动登录选择
+		$("#choice_false").click(function(){
+			$(this).css("display","none").attr("attrchoice","false");
+			$("#choice_true").css("display","block").attr("attrchoice","true");
+		})
+		$("#choice_true").click(function(){
+			$("#choice_false").css("display","block").attr("attrchoice","true");
+			$(this).css("display","none").attr("attrchoice","false");
+		})
+		//登录验证
+		$("#button").click(function(){
+			console.log("点击")
+			var id = $("#phone_no").val();
+			var pwd = $("#pwd").val();
+			var choice = $("#choice_true").attr("attrchoice"); //值为true时，为自动登录
+			yz(id);
+		})
+		//手机号验证
+		function yz(v){ 
+			var a =  /^1[0-9]{10}$/  ;  // /^((//(//d{3}//))|(//d{3}//-))?13//d{9}|15[89]//d{8}$/
+			if(v.length!=11||!v.match(a)){ 
+				alert("请输入正确的手机号码"); 
+				return false;
+			}else{
+				return true;
+			}
+		} 
+	</script>
+</html>

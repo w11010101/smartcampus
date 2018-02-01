@@ -67,6 +67,7 @@ var app = new Vue({
         deptNativeIndex:0,  // 当前部门的下标
         deptsObj:{},        // 部门对象，渲染选项卡第2页
         editStart:false,    // 编辑状态，false为不编辑，true为正在编辑
+        isShow:false,   // 完成按钮的显示
         deptNames:[         // 部门名称
             {
                 id:1,
@@ -189,6 +190,7 @@ var app = new Vue({
         changeEditStartFn:function(event){
             var currentCollapse = $(".panel-collapse[aria-expanded='true']");
             if($(event.target).text() === "编辑"){
+                this.isShow = true;
                 console.log("编辑");
                 // 编辑
                 this.editStart = true;
@@ -201,15 +203,28 @@ var app = new Vue({
                 var _current = currentCollapse.length?currentCollapse[0].querySelector(".smart-sub-list"):document.querySelector("#accordion");
                 this.runSortable(_current,"currentListObjs",".smart-sub-list-item");
 
-            }else{
+            }else if($(event.target).text() === "完成"){
+                this.isShow = false;
                 console.log("完成");
                 // 完成
                 $(event.target).siblings().removeClass("active");
                 if(this.editStart){
                     this.editStart = false;
                     var currentCollapse = $(".panel-collapse[aria-expanded='true']");
-                    // this.destroy(this.sorTableObjs.currentListObjs);
-                    // this.destroy(this.sorTableObjs.deptSorTableObj);
+
+                    $("#accordion .active").removeClass("active");
+                    
+                    this.disabledSortable(this.sorTableObjs.deptSorTableObj,true);
+                    this.disabledSortable(this.sorTableObjs.currentListObjs,true);
+                }
+            }else{
+                // 取消
+                this.isShow = false;
+                $(event.target).siblings().removeClass("active");
+                if(this.editStart){
+                    this.editStart = false;
+                    var currentCollapse = $(".panel-collapse[aria-expanded='true']");
+
                     $("#accordion .active").removeClass("active");
                     
                     this.disabledSortable(this.sorTableObjs.deptSorTableObj,true);
@@ -231,6 +246,41 @@ var app = new Vue({
         changeDept:function(event) {
             $(event.target).addClass("active").siblings().removeClass("active");
             console.log("changeDept = ", event.target);
+        },
+        // 重命名
+        renameFn:function(event){
+            var element = event.target;
+            var elementPrev = element.previousElementSibling;
+            var editInput = elementPrev.querySelector(".editInput");
+            editInput.setAttribute("readonly",false);
+            // 输入框
+            var validTextOptions = {
+                minLength: 1,
+                maxLength: 50,
+                showTipIndex: 40,
+                allow: escape('[^\\w?!,.，。~]')
+            }
+            var userAgent = navigator.userAgent; 
+            if(userAgent.indexOf('Android')>=0) {
+                //   android
+                console.log("focus");
+                editInput.focus();
+                editInput.setAttribute("autofocus",'autofocus');
+            }else if(userAgent.indexOf('iPhone')>=0) {
+                // ios
+                console.log("prompt");
+                var setPrompt = prompt(JSON.stringify(validTextOptions),'请输入部门名称');
+                if(setPrompt){
+                    // 等同于发送按钮
+                    
+                }else{
+                    // 等同于点击遮罩层
+                    
+                }
+            }
+
+            console.dir(elementPrev.querySelector(".editInput"));
+            console.log('重命名 = ', event.target);
         },
         // 创建拖拽列表实例
         runSortable:function(objs,key,draggable){

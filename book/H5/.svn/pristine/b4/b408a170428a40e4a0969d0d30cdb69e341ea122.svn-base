@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
+		<title>file</title>
+		<link rel="stylesheet" href="../../contant/common/css/common.css" />
+		<link rel="stylesheet" href="../../contant/file/css/file.css" />
+	</head>
+	<body>
+		<div class="header header-border">
+			<img class="header-login" src="../../contant/common/img/logo@2x.png" srcset="../../contant/common/img/logo@2x.png 2x,../../contant/common/img/logo@3x.png 3x" />
+			<h3 class="header-title header-title-top">快享</h3>
+		</div>
+		<div class="contant">
+			<div class="file_botton">
+				<button id="file" type="button" class="btn-button">上传文件</button>
+				<button id="file-bar" type="button" class="btn-button btn-button-null">
+					<span class="file-bar_"></span>
+				</button>
+			</div>
+		</div>
+		<div class="Popup" id="Popup">
+			<img src="../../contant/file/img/invalid-name@2x.png" srcset="../../contant/file/img/invalid-name@2x.png 2x,../../contant/file/img/invalid-name@3x.png 3x" />
+		</div>
+	</body>
+	<script type="text/javascript" src="../../contant/common/js/jquery.main.js" ></script>
+	<script>
+		$("#file").click(function(){
+			$(this).css("display","none");
+			$("#file-bar").css("display","block");
+			$(".file-bar_").animate({
+				width: "100%"
+			}, 5000);
+			setTimeout(function(){
+				$("#Popup").css("display","block").animate({
+					top: "28%"
+				}, 300);
+				setTimeout(function(){
+					$("#file").css("display","block");
+					$("#file-bar").css({"display":"none"});
+					$("#file-bar_").css("width","0");
+					$("#Popup").css({"display":"none","top":"0"})
+				},1000)
+			},5000)
+		})
+	</script>
+</html>
