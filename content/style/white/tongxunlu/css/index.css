@@ -144,8 +144,11 @@
     background: #fff;
     position: absolute;
     width: 100%;
-    top: .8rem;
+    top: .4rem;
     bottom: 0;
+}
+.editBtn + .swiper-container{
+    top: .8rem;
 }
 .swiper-container::-webkit-scrollbar {
     display: none;
@@ -655,7 +658,12 @@
     background: url(../images/email.png) no-repeat left .2rem center;
     background-size: .3rem;
 }
-
+.apps-info .smart-list-item[type=subject] p{
+    width: 100%;
+    /*line-height: .2rem;*/
+    background: url(../images/subject.png) no-repeat left .2rem center;
+    background-size: .3rem;
+}
 
 /* ================================================================================ */
 

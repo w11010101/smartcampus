@@ -3,36 +3,46 @@
  * @return {[type]} [description]
  */
 function postList() {
+    // 用data.js 中的数据对象；
     // post newApp
-    app.postAjaxData({
-        url: 'http://172.16.15.99:3001/',
-        data: {
-            type: "newapp"
-        }
-    }, function(data) {
-        // console.log(data)
-        app.newApps = data.data
-    }, function(err) {
-        // 用data.js 中的数据对象；
-        app.newApps = newapps.data;
-        console.log("error = ", err);
-    });
+    console.log(app);
+    app.newApps = newapps.data;
     // post tabs
-    app.postAjaxData({
-        url: 'http://172.16.15.99:3001/',
-        data: {
-            type: "tabs"
-        }
-    }, function(data) {
-        app.tabs = data.data;
-    }, function(err) {
-        // 用data.js 中的数据对象；k
-        app.tabs = tabs.data;
-        console.log("error = ", tabs.data);
-    });
+    app.tabs = tabs.data;
     // 加载第一个tab里的列表
-    app.postTabList({ type: "slides" });
+    // app.postTabList({ type: "slides" });
 }
+// function postList() {
+//     // post newApp
+//     app.postAjaxData({
+//         url: 'http://172.16.15.99:3001/',
+//         data: {
+//             type: "newapp"
+//         }
+//     }, function(data) {
+//         // console.log(data)
+//         app.newApps = data.data
+//     }, function(err) {
+//         // 用data.js 中的数据对象；
+//         app.newApps = newapps.data;
+//         console.log("error = ", err);
+//     });
+//     // post tabs
+//     app.postAjaxData({
+//         url: 'http://172.16.15.99:3001/',
+//         data: {
+//             type: "tabs"
+//         }
+//     }, function(data) {
+//         app.tabs = data.data;
+//     }, function(err) {
+//         // 用data.js 中的数据对象；k
+//         app.tabs = tabs.data;
+//         console.log("error = ", tabs.data);
+//     });
+//     // 加载第一个tab里的列表
+//     app.postTabList({ type: "slides" });
+// }
 /**
  * [scrollComputed 横向滚动]
  * @param  {[String]} obj    [传#wrapper-new-apps]

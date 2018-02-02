@@ -22,7 +22,6 @@
     <!-- data.js里面是数据对象 可以删除 -->
     <script src="../../content/style/white/yingyongqingdan/js/data.js"></script>
     <script src="../../content/style/white/yingyongqingdan/js/index.js"></script>
-
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]> param.month = getOtherDate(getM);
@@ -32,8 +31,8 @@
 </head>
 <!-- smart-QA 标示，暂时没有用到 -->
 <!-- onload="postNewApps()" -->
-
-<body class="apps-list" onload="postList()">
+<body class="apps-list">
+<!-- <body class="apps-list" onload="postList()"> -->
     <div class="smart-content" id="app" v-cloak>
         <!-- 本月最新应用 -->
         <div class="new-apps">
@@ -55,59 +54,63 @@
         </div>
         <!-- 选项卡 -->
         <div class="tabs">
-          <div id="wrapper-tabs">
-            <div id="scroller-tabs">
-              <a href="#" v-for="(item,index) in tabs" v-bind:setId = item.id ><em>{{item.tab}}</em></a>
+            <div id="wrapper-tabs">
+                <div id="scroller-tabs">
+                    <a href="#" v-for="(item,index) in tabs" v-bind:setId=i tem.id><em>{{item.tab}}</em></a>
+                </div>
             </div>
-          </div>
         </div>
         <!-- list -->
         <div class="swiper-container">
-          <div class="swiper-wrapper">
-            <!-- swiper-slide -->
-            <div class="swiper-slide" v-for="(item, index) in tabs">
-              <!-- scroll -->
-              <div v-bind:id=wrapper+(index+1)>
-                <div v-bind:id=scroller+(index+1)>
-                  <ul class="smart-list smart-list-space" >
-                    <!-- loading -->
-                    <div class="smart-loading">
-                      <div class="smart-waiting"></div>
-                    </div>
-                    <!-- lis -->
-                    <li class="smart-list-item" v-for="event in slides['tab'+index]" v-if="slides['tab'+index]">
-                      <!--  -->
-                      <div class="smart-list-item-info">
-                        <img v-bind:src="event.img" class="app-img">
-                        <div class="app-info">
-                          <h1>{{event.title}}</h1>
-                          <p>{{event.describe}}</p>
-                          <div>
-                            <em class="app-time">{{event.time}}</em>
-                            <em class="app-clickrate">点击率:{{event.clickRate}}</em>
-                          </div>
+            <div class="swiper-wrapper">
+                <!-- swiper-slide -->
+                <div class="swiper-slide" v-for="(item, index) in tabs">
+                    <!-- scroll -->
+                    <div v-bind:id=wrapper+(index+1)>
+                        <div v-bind:id=scroller+(index+1)>
+                            <ul class="smart-list smart-list-space">
+                                <!-- loading -->
+                                <div class="smart-loading">
+                                    <div class="smart-waiting"></div>
+                                </div>
+                                <!-- lis -->
+                                <li class="smart-list-item" v-for="event in slides['tab'+index]" v-if="slides['tab'+index]">
+                                    <!--  -->
+                                    <div class="smart-list-item-info">
+                                        <img v-bind:src="event.img" class="app-img">
+                                        <div class="app-info">
+                                            <h1>{{event.title}}</h1>
+                                            <p>{{event.describe}}</p>
+                                            <div>
+                                                <em class="app-time">{{event.time}}</em>
+                                                <em class="app-clickrate">点击率:{{event.clickRate}}</em>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--  -->
+                                    <div class="smart-list-item-sub-info">
+                                        <p>
+                                            <label>服务用户：</label>教职工</p>
+                                        <p>
+                                            <label>应用分类：</label>信息查询类</p>
+                                        <p>
+                                            <label>责任部门：</label>信息处</p>
+                                        <p>
+                                            <label>责任人：</label><em>张三</em><i>0411-88887777</i></p>
+                                    </div>
+                                    <!-- off-the-shelf -->
+                                    <img src="../../content/style/white/yingyongqingdan/images/undercarriage.png" alt="" class="undercarriage" v-show='event.undercarriage'>
+                                </li>
+                            </ul>
+                            <!--  -->
+                            <div class="foot-tips">
+                                <img src="../../content/style/white/yingyongqingdan/images/icon-1.png"><em>更多应用开发中，敬请期待</em>
+                            </div>
                         </div>
-                      </div>
-                      <!--  -->
-                      <div class="smart-list-item-sub-info" >
-                        <p><label>服务用户：</label>教职工</p>
-                        <p><label>应用分类：</label>信息查询类</p>
-                        <p><label>责任部门：</label>信息处</p>
-                        <p><label>责任人：</label><em>张三</em><i>0411-88887777</i></p>
-                      </div>
-                      <!-- off-the-shelf -->
-                      <img src="../../content/style/white/yingyongqingdan/images/undercarriage.png" alt="" class="undercarriage" v-show = 'event.undercarriage'>
-                    </li>
-                  </ul>
-                  <!--  -->
-                  <div class="foot-tips">
-                    <img src="../../content/style/white/yingyongqingdan/images/icon-1.png"><em>更多应用开发中，敬请期待</em>
-                  </div>
+                    </div>
                 </div>
-              </div>
+                <!-- swiper-slide -->
             </div>
-            <!-- swiper-slide -->
-          </div>
         </div>
         <!-- end -->
     </div>

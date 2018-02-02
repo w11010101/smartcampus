@@ -14,6 +14,7 @@
     <link href="../../content/style/white/tongxunlu/css/mail-list-common.css" rel="stylesheet">
     <link href="../../content/style/white/tongxunlu/css/index.css" rel="stylesheet">
     <!-- javascript -->
+    <script src="../../content/style/frame/jquery/jquery.min.js"></script>
     <script src="../../content/style/frame/vue/vue.min.js"></script>
     <!-- clipboard.min.js 复制 -->
     <script src="../../content/style/frame/clipboard/clipboard.min.js"></script>
@@ -29,7 +30,7 @@
     <![endif]-->
 </head>
 
-<body class="apps-info" onload="loadedFn()">
+<body class="apps-info" onload="">
     <div class="smart-content" id="info-app" v-cloak>
         <!-- 名片 -->
         <div class="person-info">
@@ -49,14 +50,14 @@
                 <!-- 循环电话 -->
                 <li is='component-tel' v-for="item in info.TelNos" v-bind:tel='item' ></li>
                 <!-- 循环电话 end -->
-                <li class="smart-list-item" type="email">
-                    <p class='copy'>{{email}}</p>
-                    <button v-bind:data-clipboard-text=email class="copyBtn">复制</button>
+                <li class="smart-list-item" type="email" v-show=info.Email>
+                    <p class='copy'>{{info.Email}}</p>
+                    <button v-bind:data-clipboard-text=info.Email class="copyBtn" >复制</button>
                 </li>
                 <li class="smart-list-item" type="address">
                     <p>中央十字大街旁边北面煎饼摊往里走157米左转第二条胡同右转第二条胡同再走131米就差不多了!</p>
                 </li>
-                <li class="smart-list-item" type="major">
+                <li class="smart-list-item" type="subject">
                     <p>经典力学，高等数学，高等挖掘机操作，高等烤面筋，高级氩弧焊！</p>
                 </li>
             </ul>

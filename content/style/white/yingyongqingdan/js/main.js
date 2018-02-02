@@ -1,3 +1,7 @@
+// Vue.nextTick(function(){
+//     postList();
+// })
+
 var app = new Vue({
     el: '#app',
     data: {
@@ -15,69 +19,91 @@ var app = new Vue({
     watch: {
         // 监听
         newApps: function(val) {
-            scrollComputed('wrapper-new-apps', '#scroller-new-apps', app.newApps.length, 170);
-            $("#scroller-new-apps").off("click", "li").on("click", "li", function() {
-                var selectedTitle = $("h3", this).text();
-                tabsSwiper.swipeTo(0, 200, true);
-                var h = $(".swiper-slide-active li").height();
-                var containerH = $(".swiper-container").height();
-                var n = (containerH / h).toFixed(1).split(".")[0];
-                console.log("n = ", n);
-                $.each($(".swiper-slide-active li"), function(i, e) {
-                    if ($("h1", e).text() === selectedTitle) {
-                        $(".smart-list-item-sub-info").stop().slideUp(200);
-                        $(".smart-list-item-sub-info", e).stop().slideDown(200);
+            // this.$nextTick(function(){
+            //     scrollComputed('wrapper-new-apps', '#scroller-new-apps', app.newApps.length, 170);
+            // });
+            // scrollComputed('wrapper-new-apps', '#scroller-new-apps', app.newApps.length, 170);
+            // $("#scroller-new-apps").off("click", "li").on("click", "li", function() {
+            //     var selectedTitle = $("h3", this).text();
+            //     tabsSwiper.swipeTo(0, 200, true);
+            //     var h = $(".swiper-slide-active li").height();
+            //     var containerH = $(".swiper-container").height();
+            //     var n = (containerH / h).toFixed(1).split(".")[0];
+            //     console.log("n = ", n);
+            //     $.each($(".swiper-slide-active li"), function(i, e) {
+            //         if ($("h1", e).text() === selectedTitle) {
+            //             $(".smart-list-item-sub-info").stop().slideUp(200);
+            //             $(".smart-list-item-sub-info", e).stop().slideDown(200);
                         
-                        var liH = $(".smart-list-item").height();
-                        var eventLiH = $(".smart-list-item-sub-info", e).parent().height();
-                        var footH = $(".foot-tips").height();
-                        var nextAllH = eventLiH+footH+$(".smart-list-item-sub-info", e).parent().nextAll().length*liH;
-                        if(nextAllH < containerH){
-                            console.log("小于");
-                            scrollObjArr[0].scrollTo(0, scrollObjArr[0].maxScrollY, 0);
-                        }else{
-                            console.log("大于");
-                            scrollObjArr[0].scrollTo(0, -h * i, 0);
+            //             var liH = $(".smart-list-item").height();
+            //             var eventLiH = $(".smart-list-item-sub-info", e).parent().height();
+            //             var footH = $(".foot-tips").height();
+            //             var nextAllH = eventLiH+footH+$(".smart-list-item-sub-info", e).parent().nextAll().length*liH;
+            //             if(nextAllH < containerH){
+            //                 console.log("小于");
+            //                 scrollObjArr[0].scrollTo(0, scrollObjArr[0].maxScrollY, 0);
+            //             }else{
+            //                 console.log("大于");
+            //                 scrollObjArr[0].scrollTo(0, -h * i, 0);
 
-                        }
-                        setTimeout(function(){
-                            scrollObjArr[0].refresh();
-                        },200);
-                    }
-                })
-            });
+            //             }
+            //             setTimeout(function(){
+            //                 scrollObjArr[0].refresh();
+            //             },200);
+            //         }
+            //     })
+            // });
         },
         tabs: function(val) {
-            scrollComputed('wrapper-tabs', '#scroller-tabs', app.tabs.length, app.WinW / 4);
-            setTimeout(function() {
-                $(".tabs a").css("width", app.WinW / 4);
-                runTabSwiper();
-                runWrapperPages();
-            }, 100);
+            // scrollComputed('wrapper-tabs', '#scroller-tabs', app.tabs.length, app.WinW / 4);
+            // setTimeout(function() {
+            //     $(".tabs a").css("width", app.WinW / 4);
+            //     runTabSwiper();
+            //     runWrapperPages();
+            // }, 100);
         },
         slides: function(val) {
-            setTimeout(function() {
-                $(".foot-tips").eq(app.tabActive).fadeIn(200, function() {
-                    scrollObjArr[app.tabActive].refresh();
-                });
-                // ****************************** 列表点击事件 ******************************
-                $("body").off("click", ".smart-list-item-info").on("click", ".smart-list-item-info", function() {
-                    var that = $(this);
-                    app.showInfo($(this).next(), function(event) {
-                        var scrollY = parseInt(app.WinH - that.offset().top - event.parent().height()) - 5;
-                        if (scrollY < 0) {
-                            console.log("需要滚动");
-                            scrollObjArr[app.tabActive].scrollTo(0, scrollObjArr[app.tabActive].y + scrollY, 500);
-                        } else {
-                            console.log("不需要滚动");
-                        }
-                    });
-                });
-            }, 200);
+            // setTimeout(function() {
+            //     $(".foot-tips").eq(app.tabActive).fadeIn(200, function() {
+            //         scrollObjArr[app.tabActive].refresh();
+            //     });
+            //     // ****************************** 列表点击事件 ******************************
+            //     $("body").off("click", ".smart-list-item-info").on("click", ".smart-list-item-info", function() {
+            //         var that = $(this);
+            //         app.showInfo($(this).next(), function(event) {
+            //             var scrollY = parseInt(app.WinH - that.offset().top - event.parent().height()) - 5;
+            //             if (scrollY < 0) {
+            //                 console.log("需要滚动");
+            //                 scrollObjArr[app.tabActive].scrollTo(0, scrollObjArr[app.tabActive].y + scrollY, 500);
+            //             } else {
+            //                 console.log("不需要滚动");
+            //             }
+            //         });
+            //     });
+            // }, 200);
         }
     },
     computed: {
         // 计算
+    },
+    beforeMount:function (argument){
+        // console.log('beforeMount = ',this.newApps);
+    },
+    mounted:function (argument) {
+        // console.log(this.$el)
+        // this.$nextTick(function(){
+        //     // console.log('mounted = ',this.newApps);
+        //     scrollComputed('wrapper-new-apps', '#scroller-new-apps', app.newApps.length, 170);
+        // });
+        postList();
+    },
+    beforeUpdate:function (argument) {
+        // postList();
+        scrollComputed('wrapper-new-apps', '#scroller-new-apps', app.newApps.length, 170);
+        // console.log('beforeUpdate = ',this.newApps);
+    },
+    updated:function (argument) {
+        console.log('updated = ',this.newApps);
     },
     methods: {
         // 绑定事件的方法

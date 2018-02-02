@@ -94,24 +94,7 @@ var app = new Vue({
         'edit-box':editToolObj,
     },
     watch: {  // 观察 
-        // 选项卡1 联系人列表  
-        mailList:function(val){
-
-            setTimeout(function(){
-                runTabSwiper();
-                // 删除一组字母导航
-                
-                $(".slider-nav").remove();
-                $('.mail-list').sliderNav({
-                    arrows:false,
-                    height:$(".swiper-container").height() - 94
-                });
-            },200);
-        },
-        // 字母集合
-        capArr:function(){
-        },
-        // 
+        // 部门原生数组
         deptNativeArr:function(){
             var _this = this;
             console.log('手风琴监听事件')
@@ -172,6 +155,18 @@ var app = new Vue({
         sorTableObjs:function(val){
             console.log(val);
         }
+    },
+    // 页面渲染完执行
+    mounted:function(){
+        this.$nextTick(function(argument) {
+            console.log(this);
+            runTabSwiper();
+            // $(".slider-nav").remove();
+            $('.mail-list').sliderNav({
+                arrows:false,
+                height:$(".swiper-container").height() - 54
+            });
+        })
     },
     computed: { // 计算
         setActive:function(argument) {
@@ -300,6 +295,7 @@ var app = new Vue({
                 },
                 // 排序发生变化后的回调函数
                 onUpdate:function (event){
+                    console.log(event.item.querySelector(".panel-collapse").getAttribute("deptid"));
                     console.log("sortable onUpdate");
                 },
                 // 拖放结束后的回调函数
