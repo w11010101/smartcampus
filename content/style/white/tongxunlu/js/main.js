@@ -161,7 +161,6 @@ var app = new Vue({
         this.$nextTick(function(argument) {
             console.log(this);
             runTabSwiper();
-            // $(".slider-nav").remove();
             $('.mail-list').sliderNav({
                 arrows:false,
                 height:$(".swiper-container").height() - 54
@@ -240,7 +239,8 @@ var app = new Vue({
 
         changeDept:function(event) {
             $(event.target).addClass("active").siblings().removeClass("active");
-            console.log("changeDept = ", event.target);
+            this.deptNativeIndex = $(event.target).index();
+            // console.log("changeDept = ", this.deptNativeIndex);
         },
         // 重命名
         renameFn:function(event){
@@ -295,7 +295,7 @@ var app = new Vue({
                 },
                 // 排序发生变化后的回调函数
                 onUpdate:function (event){
-                    console.log(event.item.querySelector(".panel-collapse").getAttribute("deptid"));
+                    // console.log(event.item.querySelector(".panel-collapse").getAttribute("deptid"));
                     console.log("sortable onUpdate");
                 },
                 // 拖放结束后的回调函数

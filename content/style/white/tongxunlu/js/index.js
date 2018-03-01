@@ -24,6 +24,13 @@ function postList() {
     for (var x = 0; x < app.persons.length; x++) {
         deptsObj[app.persons[x].DeptID].push(app.persons[x]);
     }
+    //对部门中的联系人排序
+    $.each(deptsObj, function (i, e) {
+        e.sort(sortPersonsInDept);
+    });
+    function sortPersonsInDept(person1, person2) {
+        return person1.Sequence - person2.Sequence;
+    }
     app.deptsObj = deptsObj;
 
 }

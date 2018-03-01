@@ -2,11 +2,12 @@
 <html>
 	<head>
 		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no,text/x-component">
+		<!-- <meta content-type="text/x-component"> -->
 		<title>快享client-收藏</title>
 		<link rel="stylesheet" href="../../content/common/css/common.css" />
 		<link rel="stylesheet" href="../../content/shoucang/css/shoucang.css" />
-		<script type="text/javascript" src="../../content/common/js/jquery.main.js" ></script>
+		<script type="text/javascript" src="../../content/common/js/jquery.min.js" ></script>
 	</head>
 	<body>
 		<header>
@@ -17,25 +18,25 @@
 				<div class="header-tools">
 					<!-- 收藏 -->
 					<div class='header-collcetion-btn'>
-						<button class="active">收藏</button>
+						<a class="active">收藏</a>
 					</div>
 					<!-- 推荐 -->
 					<div class="header-recommend-btn">
-						<button>推荐</button>
+						<a href="share-main.html">推荐</a>
 					</div>
 					<!-- 搜索 -->
 					<div class="header-search-btn">
 						<input type="text" name="" placeholder="请输入关键字">
-						<button></button>
+						<button disabled="disabled"></button>
 					</div>
 					<div class="header-right">
 						<!-- 通讯录 -->
 						<div class="header-maillist-btn">
-							<button></button>
+							<a></a>
 						</div>
 						<!-- 消息 -->
 						<div class="header-message-btn">
-							<button></button>
+							<a></a>
 							<em class="message-tips"></em>
 						</div>
 						<!-- 个人 -->
@@ -51,257 +52,283 @@
 				</div>
 			</div>
 		</header>
+		
+		<!--  -->
 		<div class="content">
-			<div>
-				<button></button>
+			<!-- 通知提示框 -->
+			<div class="prop">
+				<div class="prop-content">
+					<ul class="list">
+						<li>
+							<a href="#n">
+								<div class="list-header">
+									<img src="../../content/common/img/header.png">
+									<em>周红</em>
+									<p>推荐给战略文章集等推荐给战略文章集等</p>
+									<i>刚刚</i>
+								</div>
+								<p class="list-word">天气一天比一天冷，穿什么更时髦讲真我们已经没那么care了。要知道，最近oversize毛衣已经成为编辑部出勤率最高的员工了。</p>
+							</a>
+						</li>
+						<li>
+							<a href="#n">
+								<div class="list-header">
+									<img src="../../content/common/img/header.png">
+									<em>周红</em>
+									<p>推荐给战略文章集等推荐给战略文章集等</p>
+									<i>刚刚</i>
+								</div>
+								<p class="list-word">腾讯金融学院挂牌仪式在深圳举行。腾讯集团副总裁</p>
+							</a>
+						</li>
+					</ul>
+					<!--  -->
+					<a href="#n" class="inform">查看全部通知</a>
+				</div>
 			</div>
+			<!--  -->
+			<div class="select-type">
+				<button>全部分类(22)</button>
+			</div>
+			
 			<!--  -->
 			<ul class="list">
 				<li>
-					<div class="list-title">
-						<h1>腾讯金融学院成立，致力成为培养互联网与金融</h1>
-						<img src="../../content/shoucang/img/inset.png" alt="">
-					</div>
-					<div class="list-source">
-						<img src="../../content/common/img/Bitmap@2x.png" alt="">
-						<p>微信</p>
-						<em>刚刚</em>
-						<i>互联网</i>
-						<div class='tool'>
-							<a class="collection-btn"></a>
-							<a class="share-btn"></a>
+					<a href="article.html">
+						<div class="list-title">
+							<h1>腾讯金融学院成立，致力成为培养互联网与金融</h1>
+							<img src="../../content/shoucang/img/inset.png" alt="">
 						</div>
-					</div>
+						<div class="list-source">
+							<img src="../../content/common/img/Bitmap@2x.png" alt="">
+							<p>微信</p>
+							<em>刚刚</em>
+							<i>互联网</i>
+							<div class='tool'>
+								<button class="collection-btn"></button>
+								<button class="share-btn"></button>
+							</div>
+						</div>
+					</a>
 				</li>
 				<li>
-					<div class="list-title">
-						<h1>腾讯金融学院成立，致力成为培养互联网与金融</h1>
-						<img src="../../content/shoucang/img/inset.png" alt="">
-					</div>
-					<div class="list-source">
-						<img src="../../content/common/img/Bitmap@2x.png" alt="">
-						<p>微信</p>
-						<em>刚刚</em>
-						<i>互联网</i>
-					</div>
+					<a href="article.html">
+						<div class="list-title">
+							<h1>腾讯金融学院成立，致力成为培养互联网与金融</h1>
+							<img src="../../content/shoucang/img/inset.png" alt="">
+						</div>
+						<div class="list-source">
+							<img src="../../content/common/img/Bitmap@2x.png" alt="">
+							<p>微信</p>
+							<em>刚刚</em>
+							<i>互联网</i>
+							<div class='tool'>
+								<button class="collection-btn"></button>
+								<button class="share-btn"></button>
+							</div>
+						</div>
+					</a>
 				</li>
 				<li>
-					<div class="list-title">
-						<h1>腾讯金融学院成立，致力成为培养互联网与金融</h1>
-						<img src="../../content/shoucang/img/inset.png" alt="">
-					</div>
-					<div class="list-source">
-						<img src="../../content/common/img/Bitmap@2x.png" alt="">
-						<p>微信</p>
-						<em>刚刚</em>
-						<i>互联网</i>
-					</div>
+					<a href="article.html">
+						<div class="list-title">
+							<h1>腾讯金融学院成立，致力成为培养互联网与金融</h1>
+							<img src="../../content/shoucang/img/inset.png" alt="">
+						</div>
+						<div class="list-source">
+							<img src="../../content/common/img/Bitmap@2x.png" alt="">
+							<p>微信</p>
+							<em>刚刚</em>
+							<i>互联网</i>
+							<div class='tool'>
+								<button class="collection-btn"></button>
+								<button class="share-btn"></button>
+							</div>
+						</div>
+					</a>
 				</li>
 				<li>
-					<div class="list-title">
-						<h1>腾讯金融学院成立，致力成为培养互联网与金融</h1>
-						<img src="../../content/shoucang/img/inset.png" alt="">
-					</div>
-					<div class="list-source">
-						<img src="../../content/common/img/Bitmap@2x.png" alt="">
-						<p>微信</p>
-						<em>刚刚</em>
-						<i>互联网</i>
-					</div>
+					<a href="article.html">
+						<div class="list-title">
+							<h1>腾讯金融学院成立，致力成为培养互联网与金融</h1>
+							<img src="../../content/shoucang/img/inset.png" alt="">
+						</div>
+						<div class="list-source">
+							<img src="../../content/common/img/Bitmap@2x.png" alt="">
+							<p>微信</p>
+							<em>刚刚</em>
+							<i>互联网</i>
+							<div class='tool'>
+								<button class="collection-btn"></button>
+								<button class="share-btn"></button>
+							</div>
+						</div>
+					</a>
 				</li>
 				<li>
-					<div class="list-title">
-						<h1>腾讯金融学院成立，致力成为培养互联网与金融</h1>
-						<img src="../../content/shoucang/img/inset.png" alt="">
-					</div>
-					<div class="list-source">
-						<img src="../../content/common/img/Bitmap@2x.png" alt="">
-						<p>微信</p>
-						<em>刚刚</em>
-						<i>互联网</i>
-					</div>
+					<a href="article.html">
+						<div class="list-title">
+							<h1>腾讯金融学院成立，致力成为培养互联网与金融</h1>
+							<img src="../../content/shoucang/img/inset.png" alt="">
+						</div>
+						<div class="list-source">
+							<img src="../../content/common/img/Bitmap@2x.png" alt="">
+							<p>微信</p>
+							<em>刚刚</em>
+							<i>互联网</i>
+							<div class='tool'>
+								<button class="collection-btn"></button>
+								<button class="share-btn"></button>
+							</div>
+						</div>
+					</a>
 				</li>
 				<li>
-					<div class="list-title">
-						<h1>腾讯金融学院成立，致力成为培养互联网与金融</h1>
-						<img src="../../content/shoucang/img/inset.png" alt="">
-					</div>
-					<div class="list-source">
-						<img src="../../content/common/img/Bitmap@2x.png" alt="">
-						<p>微信</p>
-						<em>刚刚</em>
-						<i>互联网</i>
-					</div>
+					<a href="article.html">
+						<div class="list-title">
+							<h1>腾讯金融学院成立，致力成为培养互联网与金融</h1>
+							<img src="../../content/shoucang/img/inset.png" alt="">
+						</div>
+						<div class="list-source">
+							<img src="../../content/common/img/Bitmap@2x.png" alt="">
+							<p>微信</p>
+							<em>刚刚</em>
+							<i>互联网</i>
+							<div class='tool'>
+								<button class="collection-btn"></button>
+								<button class="share-btn"></button>
+							</div>
+						</div>
+					</a>
 				</li>
 				<li>
-					<div class="list-title">
-						<h1>腾讯金融学院成立，致力成为培养互联网与金融</h1>
-						<img src="../../content/shoucang/img/inset.png" alt="">
-					</div>
-					<div class="list-source">
-						<img src="../../content/common/img/Bitmap@2x.png" alt="">
-						<p>微信</p>
-						<em>刚刚</em>
-						<i>互联网</i>
-					</div>
+					<a href="article.html">
+						<div class="list-title">
+							<h1>腾讯金融学院成立，致力成为培养互联网与金融</h1>
+							<img src="../../content/shoucang/img/inset.png" alt="">
+						</div>
+						<div class="list-source">
+							<img src="../../content/common/img/Bitmap@2x.png" alt="">
+							<p>微信</p>
+							<em>刚刚</em>
+							<i>互联网</i>
+							<div class='tool'>
+								<button class="collection-btn"></button>
+								<button class="share-btn"></button>
+							</div>
+						</div>
+					</a>
 				</li>
 				<li>
-					<div class="list-title">
-						<h1>腾讯金融学院成立，致力成为培养互联网与金融</h1>
-						<img src="../../content/shoucang/img/inset.png" alt="">
-					</div>
-					<div class="list-source">
-						<img src="../../content/common/img/Bitmap@2x.png" alt="">
-						<p>微信</p>
-						<em>刚刚</em>
-						<i>互联网</i>
-					</div>
+					<a href="article.html">
+						<div class="list-title">
+							<h1>腾讯金融学院成立，致力成为培养互联网与金融</h1>
+							<img src="../../content/shoucang/img/inset.png" alt="">
+						</div>
+						<div class="list-source">
+							<img src="../../content/common/img/Bitmap@2x.png" alt="">
+							<p>微信</p>
+							<em>刚刚</em>
+							<i>互联网</i>
+							<div class='tool'>
+								<button class="collection-btn"></button>
+								<button class="share-btn"></button>
+							</div>
+						</div>
+					</a>
 				</li>
 				<li>
-					<div class="list-title">
-						<h1>腾讯金融学院成立，致力成为培养互联网与金融</h1>
-						<img src="../../content/shoucang/img/inset.png" alt="">
-					</div>
-					<div class="list-source">
-						<img src="../../content/common/img/Bitmap@2x.png" alt="">
-						<p>微信</p>
-						<em>刚刚</em>
-						<i>互联网</i>
-					</div>
+					<a href="article.html">
+						<div class="list-title">
+							<h1>腾讯金融学院成立，致力成为培养互联网与金融</h1>
+							<img src="../../content/shoucang/img/inset.png" alt="">
+						</div>
+						<div class="list-source">
+							<img src="../../content/common/img/Bitmap@2x.png" alt="">
+							<p>微信</p>
+							<em>刚刚</em>
+							<i>互联网</i>
+							<div class='tool'>
+								<button class="collection-btn"></button>
+								<button class="share-btn"></button>
+							</div>
+						</div>
+					</a>
 				</li>
 				<li>
-					<div class="list-title">
-						<h1>腾讯金融学院成立，致力成为培养互联网与金融</h1>
-						<img src="../../content/shoucang/img/inset.png" alt="">
-					</div>
-					<div class="list-source">
-						<img src="../../content/common/img/Bitmap@2x.png" alt="">
-						<p>微信</p>
-						<em>刚刚</em>
-						<i>互联网</i>
-					</div>
+					<a href="article.html">
+						<div class="list-title">
+							<h1>腾讯金融学院成立，致力成为培养互联网与金融</h1>
+							<img src="../../content/shoucang/img/inset.png" alt="">
+						</div>
+						<div class="list-source">
+							<img src="../../content/common/img/Bitmap@2x.png" alt="">
+							<p>微信</p>
+							<em>刚刚</em>
+							<i>互联网</i>
+							<div class='tool'>
+								<button class="collection-btn"></button>
+								<button class="share-btn"></button>
+							</div>
+						</div>
+					</a>
 				</li>
 				<li>
-					<div class="list-title">
-						<h1>腾讯金融学院成立，致力成为培养互联网与金融</h1>
-						<img src="../../content/shoucang/img/inset.png" alt="">
-					</div>
-					<div class="list-source">
-						<img src="../../content/common/img/Bitmap@2x.png" alt="">
-						<p>微信</p>
-						<em>刚刚</em>
-						<i>互联网</i>
-					</div>
+					<a href="article.html">
+						<div class="list-title">
+							<h1>腾讯金融学院成立，致力成为培养互联网与金融</h1>
+							<img src="../../content/shoucang/img/inset.png" alt="">
+						</div>
+						<div class="list-source">
+							<img src="../../content/common/img/Bitmap@2x.png" alt="">
+							<p>微信</p>
+							<em>刚刚</em>
+							<i>互联网</i>
+							<div class='tool'>
+								<button class="collection-btn"></button>
+								<button class="share-btn"></button>
+							</div>
+						</div>
+					</a>
 				</li>
 				<li>
-					<div class="list-title">
-						<h1>腾讯金融学院成立，致力成为培养互联网与金融</h1>
-						<img src="../../content/shoucang/img/inset.png" alt="">
-					</div>
-					<div class="list-source">
-						<img src="../../content/common/img/Bitmap@2x.png" alt="">
-						<p>微信</p>
-						<em>刚刚</em>
-						<i>互联网</i>
-					</div>
+					<a href="article.html">
+						<div class="list-title">
+							<h1>腾讯金融学院成立，致力成为培养互联网与金融</h1>
+							<img src="../../content/shoucang/img/inset.png" alt="">
+						</div>
+						<div class="list-source">
+							<img src="../../content/common/img/Bitmap@2x.png" alt="">
+							<p>微信</p>
+							<em>刚刚</em>
+							<i>互联网</i>
+							<div class='tool'>
+								<button class="collection-btn"></button>
+								<button class="share-btn"></button>
+							</div>
+						</div>
+					</a>
 				</li>
-				<li>
-					<div class="list-title">
-						<h1>腾讯金融学院成立，致力成为培养互联网与金融</h1>
-						<img src="../../content/shoucang/img/inset.png" alt="">
-					</div>
-					<div class="list-source">
-						<img src="../../content/common/img/Bitmap@2x.png" alt="">
-						<p>微信</p>
-						<em>刚刚</em>
-						<i>互联网</i>
-					</div>
-				</li>
-				<li>
-					<div class="list-title">
-						<h1>腾讯金融学院成立，致力成为培养互联网与金融</h1>
-						<img src="../../content/shoucang/img/inset.png" alt="">
-					</div>
-					<div class="list-source">
-						<img src="../../content/common/img/Bitmap@2x.png" alt="">
-						<p>微信</p>
-						<em>刚刚</em>
-						<i>互联网</i>
-					</div>
-				</li>
-				<li>
-					<div class="list-title">
-						<h1>腾讯金融学院成立，致力成为培养互联网与金融</h1>
-						<img src="../../content/shoucang/img/inset.png" alt="">
-					</div>
-					<div class="list-source">
-						<img src="../../content/common/img/Bitmap@2x.png" alt="">
-						<p>微信</p>
-						<em>刚刚</em>
-						<i>互联网</i>
-					</div>
-				</li>
-				<li>
-					<div class="list-title">
-						<h1>腾讯金融学院成立，致力成为培养互联网与金融</h1>
-						<img src="../../content/shoucang/img/inset.png" alt="">
-					</div>
-					<div class="list-source">
-						<img src="../../content/common/img/Bitmap@2x.png" alt="">
-						<p>微信</p>
-						<em>刚刚</em>
-						<i>互联网</i>
-					</div>
-				</li>
-				<li>
-					<div class="list-title">
-						<h1>腾讯金融学院成立，致力成为培养互联网与金融</h1>
-						<img src="../../content/shoucang/img/inset.png" alt="">
-					</div>
-					<div class="list-source">
-						<img src="../../content/common/img/Bitmap@2x.png" alt="">
-						<p>微信</p>
-						<em>刚刚</em>
-						<i>互联网</i>
-					</div>
-				</li>
-				<li>
-					<div class="list-title">
-						<h1>腾讯金融学院成立，致力成为培养互联网与金融</h1>
-						<img src="../../content/shoucang/img/inset.png" alt="">
-					</div>
-					<div class="list-source">
-						<img src="../../content/common/img/Bitmap@2x.png" alt="">
-						<p>微信</p>
-						<em>刚刚</em>
-						<i>互联网</i>
-					</div>
-				</li>
-				<li>
-					<div class="list-title">
-						<h1>腾讯金融学院成立，致力成为培养互联网与金融</h1>
-						<img src="../../content/shoucang/img/inset.png" alt="">
-					</div>
-					<div class="list-source">
-						<img src="../../content/common/img/Bitmap@2x.png" alt="">
-						<p>微信</p>
-						<em>刚刚</em>
-						<i>互联网</i>
-					</div>
-				</li>
-				<li>
-					<div class="list-title">
-						<h1>腾讯金融学院成立，致力成为培养互联网与金融</h1>
-						<img src="../../content/shoucang/img/inset.png" alt="">
-					</div>
-					<div class="list-source">
-						<img src="../../content/common/img/Bitmap@2x.png" alt="">
-						<p>微信</p>
-						<em>刚刚</em>
-						<i>互联网</i>
-					</div>
-				</li>
+
 			</ul>
 		</div>
+		<!-- 遮罩提示信息 -->
+		<div class="tips">
+			<div class="tips-content">
+				<ul>
+					<li class='active'>全部分类(94)</li>
+					<!-- <li>汽车(2)</li>
+					<li>新闻(10)</li>
+					<li>汽车(17)</li>
+					<li>互联网(8)</li>
+					<li>人工智能(5)</li>
+					<li>消费升级(7)</li>
+					<li>娱乐(30)</li>
+					<li>体育(15)</li> -->
+				</ul>
+			</div>
+			<div class="tips-mask" onclick="this.parentElement.style.display='none';"></div>
+		</div>
 	</body>
+	<script type="text/javascript" src="../../content/common/js/common.js"></script>
 </html>

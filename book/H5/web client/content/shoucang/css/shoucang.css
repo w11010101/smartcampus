@@ -1,18 +1,25 @@
 .content.collection{
+    font-size: 0;
     padding: 30px 0;
 }
+.content-right{
+    padding: 0 50px;
+}
+.content-right > h1,
 .content.collection > h1{
     font-size: 18px;
     line-height: 32px;
     color: #333333;
     margin-bottom: 15px;
 }
+.content-right > h2,
 .content.collection > h2 {
     font-size: 13px;
     font-weight: normal;
     line-height: 18px;
     margin-bottom: 15px;
 }
+.content-right > h2 img,
 .content.collection > h2 img{
     width: 18px;
     height: 18px;
@@ -20,27 +27,65 @@
     vertical-align: middle;
     margin-right: 10px;
 }
+.content-right > h2 em,
+.content-right > h2 i,
 .content.collection > h2 em,
 .content.collection > h2 i{
     display: inline-block;
     vertical-align: middle;
     margin-right: 17px
 }
+.content-right > h2 i,
 .content.collection > h2 i{
     color:#999999;
 }
+.content-right > p,
 .content.collection > p{
     text-indent: 2em;
     font-size: 14px;
     line-height: 28px;
     margin-bottom: 15px;
 }
+.content-right > .content-img,
 .content.collection .content-img{
     margin-bottom: 15px;
-
 }
+.content-right > .content-img img,
 .content.collection .content-img img{
     width: 100%;
+}
+/*  */
+.select-type{
+    height: 55px;
+    text-align: center;
+    padding-top: 30px;
+    margin-bottom: 20px;
+    line-height: 20px;
+}
+.select-type button{
+    font-size: 18px;
+    color: #333;
+    padding-right: 40px;
+    border:0;
+    background: none;
+    position: relative;
+}
+.select-type button:hover{
+    cursor:pointer;
+}
+.select-type button:after{
+    position: absolute;
+    content: "";
+    width: 20px;
+    height: 20px;
+    border: 1px solid #d5d5d5;
+    border-radius: 50%;
+    top:50%;
+    right: 0;
+    margin-top:-10px;
+    background: url(../../common/img/jinru@2x.png) no-repeat #fff center;
+    background-size: 12px;
+    transform: rotateZ(-90deg);
 }
 /* 列表 */
 .list{
@@ -55,9 +100,67 @@
     padding: 20px;
     margin-bottom: 20px;
     border:1px solid #e6e6e6;
+    overflow:hidden;
+}
+.content-left {
+    padding-top: 25px;
+}
+.content-left .list li{ 
+    margin:0;
+    height: auto;
+}
+.content-left .list li:not(:first-child){
+    border-top:0;
+}
+.list li .list-header{
+    height: 30px;
+    margin-bottom: 10px;
+    text-align: left;
+}
+.list li .list-header img{
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    vertical-align: middle;
+}
+.list li .list-header em{
+    display: inline-block;
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 14px;
+    color:#333;
+    height: 30px;
+    vertical-align: middle;
+    line-height: 30px;
+}
+.list li .list-header p{
+    font-size: 12px;
+    color:#999;
+    max-width: 120px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: inline-block;
+    height: 30px;
+    vertical-align: middle;
+    line-height: 30px;
+}
+.list li .list-header i{
+    height: 30px;
+    line-height: 30px;
+    font-size: 12px;
+    color:#999;
+    float:right;
+}
+.list li .list-word{
+    font-size: 14px;
+    color:#666;
+    line-height: 24px;
+    margin-bottom: 10px;
+    text-align: justify;
 }
 .list li .list-title{
-    
     height: 90px;
     font-size: 0;
     overflow:hidden;
@@ -85,6 +188,7 @@
 .list li .list-source{
     height: 20px;
     margin-top:15px;
+    position: relative;
 }
 .list li .list-source *{
     font-size: 13px;
@@ -98,6 +202,10 @@
 }
 .list li .list-source p{
     margin-right: 11px;
+    color:#333;
+}
+.list li .list-source a {
+    display: block;
 }
 .list li .list-source em{
     color:#999999;
@@ -109,21 +217,35 @@
     margin-top: 4px;
 }
 .list li .list-source .tool{
-    float: right;
+    position: absolute;
+    right: 0;
     width: 100px;
     height: 100%;
     text-align: center;
-    transform: translateX(200%);
-    -webkit-transform: translateX(200%);
-    transition: all .3s ease-in-out;
-    -webkit-wtransition: all .3s ease-in-out;
+    font-size: 0;
+    transform: translateX(120px);
+    -webkit-transform: translateX(120px);
+    transition: all .2s ease-in-out;
+    -webkit-transition: all .2s ease-in-out;
+    opacity: 0;
 }
-.list li .list-source .tool a{
+.list li .list-source .tool button{
     display: inline-block;
     width: 40px;
     height: 100%;
     margin: 0 5px;
+    vertical-align: middle;
+    border:0;
 }
+.list li .list-source .tool .collection-btn{
+    background: url(../img/shoucang-shoucang@2x.png) no-repeat center;
+    background-size: 20px;
+}
+.list li .list-source .tool .share-btn{
+    background: url(../img/tuijiangtuijian@2x.png) no-repeat center;
+    background-size: 20px;
+}
+
 .list li:hover{
     cursor:pointer;
     background:#f9f9f9;
@@ -135,7 +257,34 @@
 .list li:hover .list-source i{
     display: none;
 }
-.list li:hover .list-source .tool{
+.list li:hover .list-source .tool{ 
+    opacity: 1;
     transform: translateX(0);
     -webkit-transform: translateX(0);
+}
+.list li .list-source .tool:hover{
+    cursor: pointer;
+}
+/* content */
+.content-left{
+    display: inline-block;
+    width: 328px;
+    vertical-align: top;
+}
+.content-right{
+    display: inline-block;
+    width: calc(100% - 330px);
+    vertical-align: top;
+}
+.content-right.hasTools{
+    padding-top: 94px;
+}
+@media screen and (min-width: 826px) and (max-width: 1050px){
+    .list {
+        text-align: center;
+    }
+    .list li .list-title,
+    .list li .list-source{
+        text-align: left;
+    }
 }

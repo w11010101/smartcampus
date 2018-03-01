@@ -6,7 +6,7 @@
 		<title>快享client-收藏</title>
 		<link rel="stylesheet" href="../../content/common/css/common.css" />
 		<link rel="stylesheet" href="../../content/shoucang/css/shoucang.css" />
-		<script type="text/javascript" src="../../content/common/js/jquery.main.js" ></script>
+		<script type="text/javascript" src="../../content/common/js/jquery.min.js" ></script>
 	</head>
 	<body>
 		<header>
@@ -17,25 +17,25 @@
 				<div class="header-tools">
 					<!-- 收藏 -->
 					<div class='header-collcetion-btn'>
-						<button class="active">收藏</button>
+						<a href="article.html" class="active">收藏</a>
 					</div>
 					<!-- 推荐 -->
 					<div class="header-recommend-btn">
-						<button>推荐</button>
+						<a href="share-main.html">推荐</a>
 					</div>
 					<!-- 搜索 -->
 					<div class="header-search-btn">
 						<input type="text" name="" placeholder="请输入关键字">
-						<button></button>
+						<button disabled="disabled"></button>
 					</div>
 					<div class="header-right">
 						<!-- 通讯录 -->
 						<div class="header-maillist-btn">
-							<button></button>
+							<a></a>
 						</div>
 						<!-- 消息 -->
 						<div class="header-message-btn">
-							<button></button>
+							<a></a>
 							<em class="message-tips"></em>
 						</div>
 						<!-- 个人 -->
@@ -72,5 +72,13 @@
 			</div>
 			<p>腾讯金融学院挂牌仪式在深圳举行。腾讯集团副总裁、腾讯支付基础平台与金融应用线负责人腾讯金融学院院长赖智明，北京大学汇丰商学院经济学教授何帆，国家金融与发展实验室银行研究中心主任曾刚等嘉宾出席仪式。</p>
 		</div>
+		<!-- float tools -->
+		<div class="float-tools">
+			<a href="#n" class="collection-btn"><img src="../../content/shoucang/img/group-16-copy@2x.png"></a>
+			<a href="#n" class="share-btn"><img src="../../content/shoucang/img/tuijian-tanchuang@2x.png"></a>
+			<a href="#n" class="laud-btn"><img src="../../content/shoucang/img/tuijian@2x.png"><em>123</em></a>
+			<a href="#n" class="comment-btn"><img src="../../content/shoucang/img/invalid-name@2x.png"><em>123</em></a>
+		</div>
 	</body>
+	<script type="text/javascript" src="../../content/common/js/common.js"></script>
 </html>

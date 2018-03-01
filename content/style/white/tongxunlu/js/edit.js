@@ -7,9 +7,10 @@ var componentTel = {
     // template:'<li class="smart-list-item" v-bind:type=phoneType><p>{{tel.No}}</p><a href="sms:tel.No" v-if="tel.PhoneType == 1"></a></li>',
     template: '<div class="phones" :setIndex=index>\
                 <a class="delBtn" @click=subDelTelFn></a>\
-                <label>{{judgeLabel}}</label>\
+                <label v-on:click="selectTelType">手机</label>\
                 <input type="tel" placeholder="电话" @keyup="subInputInFn" v-model=tel.No :reType="judgeReType">\
-                <a class="setDefaultNo" v-if=!tel.IsDefault @click="subSetDefault">设为默认</a></div>',
+                <a class="setDefaultNo" v-if=!tel.IsDefault @click="subSetDefault">设为默认</a>\
+                <a class="clearNumBtn" v-show="tel.No.length>0" v-on:click="clearNumFn"></a></div>',
     computed: {
         judgeReType: function(event) {
             return event.tel.PhoneType == 1 ? "phone" : "fixed";
@@ -28,6 +29,20 @@ var componentTel = {
         subSetDefault: function(event) {
             editApp.setDefault(event);
         },
+        clearNumFn:function(argument) {
+            this.tel.No = "";
+        },
+        selectTelType:function(event){
+            var el = event.target;
+            campus.popup({
+                value:["手机","座机"],
+                type:"select",
+                cancel:true,
+                scrollTime:0
+            },function (argument) {
+                el.innerHTML = argument.name;
+            });
+        }
     }
 }
 var componentTelNo = {
@@ -41,14 +56,13 @@ var componentTelNo = {
     },
     template: '<div class="phones" :setIndex=index >\
                 <a class="delBtn" @click=subDelTelFn></a>\
-                <label>{{label}}</label>\
+                <label v-on:click="selectTelType">手机</label>\
                 <input type="number" placeholder="电话" @keyup="subInputInFn" v-model=tel.No :reType=judgeReType >\
                 <a class="setDefaultNo" v-if=!tel.IsDefault @click="subSetDefault">设为默认</a>\
-                </div>',
+                <a class="clearNumBtn" v-show="tel.No.length>0" v-on:click="clearNumFn"></a></div>',
     watch: {
         judgeReType: function(event) {
             console.log(this.tel);
-            
             this.judgeReType = this.tel.PhoneType == 1 ? "phone" : "fixed";
         }
     },
@@ -77,6 +91,21 @@ var componentTelNo = {
         subSetDefault: function(event) {
             editApp.setDefault(event);
         },
+        clearNumFn:function(argument) {
+            this.tel.No = "";
+        },
+        selectTelType:function(event){
+            var el = event.target;
+            campus.popup({
+                value:["手机","座机"],
+                type:"select",
+                cancel:true,
+                scrollTime:0
+            },function (argument) {
+                el.innerHTML = argument.name;
+            });
+        }
+
     }
 }
 var editApp = new Vue({
@@ -342,24 +371,10 @@ var editApp = new Vue({
                 TelNos = editApp.addPhones;
             }
             if(val.length>=7){
-                // setIndex
-                console.log("+++++++");
-                // if(!TelNos[index].IsDefault){
-                //     console.log("=======");
-                //     TelNos[index].IsDefault = true;
-                // }
                 TelNos[index].IsDefault = false;
             }else if(val.length<7){
                 TelNos[index].IsDefault = true;
             }
-
-            // if (val.match(this.re[reType])) {
-            //     // 有效
-            //     element.value = val.match(this.re[reType])[0];
-            // } else {
-            //     // 无效
-            //     // element.value = element.value.match(this.re[reType]);
-            // }
         },
         // 设置默认
         setDefault: function(event) {

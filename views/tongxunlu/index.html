@@ -44,16 +44,14 @@
     <div class="smart-content" id="app" v-cloak>
         <!-- 选项卡 -->
         <div class="tabs">
+            <div class="editBtn" v-if = false>
+                <button class="edit-btn" v-on:click="changeEditStartFn" v-show=!isShow >编辑</button>
+                <button class="done-btn" v-on:click="changeEditStartFn" v-show=isShow>完成</button>
+            </div>
             <a href="#">联系人</a>
             <a href="#">按组织查</a>
         </div>
-        <!-- 临时编辑按钮 -->
-        <div class="editBtn">
-            <!-- <button open-type=launchApp>应用</button> -->
-            <button class="edit-btn" v-on:click="changeEditStartFn" v-show=!isShow >编辑</button>
-            <button class="done-btn" v-on:click="changeEditStartFn" v-show=isShow>完成</button>
-            <button class="cancel-btn" v-on:click="changeEditStartFn" v-show=isShow>取消</button>
-        </div>
+        
         <!-- list -->
         <div class="swiper-container">
             <div class="swiper-wrapper">
