@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
+		<title>file</title>
+		<link rel="stylesheet" href="../../content/common/css/common.css" />
+		<link rel="stylesheet" href="../../content/file/css/file.css" />
+	</head>
+	<body>
+		<header>
+			<div class="header header-border">
+				<img class="header-login" src="../../content/common/img/logo@2x.png" srcset="../../content/common/img/logo@2x.png 2x,../../content/common/img/logo@3x.png 3x" />
+				<h3 class="header-title header-title-top">快享</h3>
+			</div>
+		</header>
+		
+		<div class="content">
+			
+			<div class="file_botton position_file">
+				<button id="file" type="button" class="btn-button position_file_button">上传文件</button>
+				<input id="input-file" type="file" class="btn-button position_file_input" />
+			</div>
+			<button id="file-bar" type="button" class="btn-button btn-button-null">
+				<p class="file-tip">正在上传<i id="fileacce">0</i>%</p>
+				<span class="file-bar_"></span>
+			</button>
+			<button class="btn-button" style="margin-top: 100px; width: 200px;" id="endtime">点击此处代表上传成功</button>
+		</div>
+		<div class="Popup" id="Popup">
+			<img src="../../content/file/img/invalid-name@2x.png" srcset="../../content/file/img/invalid-name@2x.png 2x,../../content/file/img/invalid-name@3x.png 3x" />
+		</div>
+		
+	</body>
+	<script type="text/javascript" src="../../content/common/js/jquery.main.js" ></script>
+	<script>
+		var Interval;
+		$("#input-file").on("change",function(){
+			$(".position_file").css("display","none");
+			$("#file-bar").css("display","block");
+			$(".file-bar_").stop().animate({
+				width: "100%"
+			}, 10000);
+			doit(100,100);//第一个值为从第一个数到第100个数；第二个参数是每100毫秒进度条上的数字变换一次
+			setTimeout(function(){
+				fileseccer_style()
+			},10000)
+		})
+		
+		$("#endtime").click(function(){
+			fileseccer();
+			fileseccer_style()
+		})
+		//当上传成功后调取fileseccer方法，进度条立刻变为100%
+		function fileseccer(){
+			$(".file-bar_").stop().animate({
+				width: "100%"
+			}, 1);
+			clearInterval(Interval);
+			$("#fileacce").text("100");
+		}
+		//成功后样式重置
+		function fileseccer_style(){
+			$("#Popup").fadeIn(300);
+			setTimeout(function(){
+				$(".position_file").css("display","block");
+				$("#file-bar").css({"display":"none"});
+				$(".file-bar_").css("width","0");
+				$("#Popup").fadeOut(300);
+			},3000)
+		}
+		function doit(val,time){
+			var i = 0;
+			//console.log(i<val);
+			if(i<val){
+				Interval=setInterval(function(){
+					//console.log(i.toString())
+			   		$("#fileacce").text(i.toString());
+			   		i++;
+			   		if(i>val) {
+			   			clearInterval(Interval);
+			   			i = 0;
+			   		}
+				},time);
+			}
+			else alert('参数有误');
+		}
+	</script>
+</html>

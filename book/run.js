@@ -10,7 +10,7 @@ var router = express.Router();
 app.use(express.static(__dirname));
 app.use(express.static("views/"));
 app.use(express.static("content/"));
-// app.use(express.static("H5/"));
+app.use(express.static("download/"));
 // app.use(express.static("views/faceManage/"));
 // app.use(express.static("js/"));
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -21,7 +21,7 @@ app.get("/", function(req,res) {
   var options = {
     root:__dirname,
   }
-  var src = "views/index.html";
+  var src = "download/views/download.html";
   // var src = "/qr.html";
   // var src = "/try/try.html";
   res.sendFile(src,options,function(err){
@@ -35,7 +35,7 @@ app.get("/", function(req,res) {
 });
 
 
-var server = app.listen("8082",function(){
+var server = app.listen("8083",function(){
     var host = server.address().address;
     var port = server.address().port;
     console.log("应用实例，访问地址为 http://%s:%s", host, port)
