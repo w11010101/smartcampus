@@ -5,7 +5,7 @@
 function postList() {
     // 用data.js 中的数据对象；
     // post newApp
-    console.log(app);
+    console.log(newapps.data);
     app.newApps = newapps.data;
     // post tabs
     app.tabs = tabs.data;

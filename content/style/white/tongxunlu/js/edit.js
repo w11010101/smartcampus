@@ -166,7 +166,7 @@ var editApp = new Vue({
             console.log(argument);
             var _this = this;
             setTimeout(function(){
-                _this.setPickerIcon(document.querySelector(".org"));
+                // _this.setPickerIcon(document.querySelector(".org"));
             },100);
         },
         // 观察办公室名字变化
@@ -174,7 +174,7 @@ var editApp = new Vue({
             console.log(argument);
             var _this = this;
             setTimeout(function(){
-                _this.setPickerIcon(document.querySelector(".offce"));
+                // _this.setPickerIcon(document.querySelector(".offce"));
             },100);
             
         }, // 当前选择办公室名字
@@ -265,7 +265,7 @@ var editApp = new Vue({
                     _this.currentOffceName = "办公室";
 
                 }
-                _this.setPickerIcon(element);
+                // _this.setPickerIcon(element);
                 
             });
         },
@@ -396,9 +396,29 @@ var editApp = new Vue({
         },
         // 删除联系人
         delPersonFn: function(event) {
-            
-            
-            console.log('删除联系人 = ', event.target);
+            var option = {
+                type: "alert",
+                boxStyle: {
+                    "width": "60%",
+                    "margin-left":"-30%",
+                    "min-height":'150px'
+                },
+                title: {
+                    val: "您确定要删除吗？",
+                },
+                content: {
+                },
+                btns: {
+                    cancel: true,
+                    sureVal: "确定",
+                    cancelVal:"取消",
+                    order:true
+                }
+            }
+            campus.popup(option, function(data) {
+                console.log('删除 = ', data)
+                campus.togglePopup("hide","alert");
+            });
         },
         // 提交按钮
         submitFn: function() {

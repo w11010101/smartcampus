@@ -1,3 +1,4 @@
+
 .content.collection{
     font-size: 0;
     padding: 30px 0;
@@ -102,9 +103,6 @@
     border:1px solid #e6e6e6;
     overflow:hidden;
 }
-.content-left {
-    padding-top: 25px;
-}
 .content-left .list li{ 
     margin:0;
     height: auto;
@@ -153,6 +151,21 @@
     color:#999;
     float:right;
 }
+.list li .list-header .laud{
+    padding-left: 20px;
+    background: url(../img/tuijian.png) no-repeat left center;
+    background-size: 15px;
+}
+.list li .list-header .laud.active{
+    background: url(../img/tuijian-selected.png) no-repeat left center;
+}
+.list li .list-header .laud:hover{
+    cursor:pointer;
+}
+.list li .list-header em i{
+    float: none;
+    font-size: 12px;
+}
 .list li .list-word{
     font-size: 14px;
     color:#666;
@@ -160,13 +173,15 @@
     margin-bottom: 10px;
     text-align: justify;
 }
-.list li .list-title{
+.list li .list-title,
+.popupBox .list-title{
     height: 90px;
     font-size: 0;
     overflow:hidden;
     background:#f9f9f9;
 }
-.list li .list-title h1{
+.list li .list-title h1,
+.popupBox .list-title h1{
     font-size: 14px;
     display: inline-block;
     vertical-align: top;
@@ -177,8 +192,10 @@
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
     overflow: hidden;
+    
 }
-.list li .list-title img{
+.list li .list-title img,
+.popupBox .list-title img{
     width: 90px;
     height: 90px;
     display: inline-block;
@@ -238,26 +255,24 @@
     border:0;
 }
 .list li .list-source .tool .collection-btn{
-    background: url(../img/shoucang-shoucang@2x.png) no-repeat center;
+    background: url(../img/collectio-collectio@2x.png) no-repeat center;
     background-size: 20px;
 }
 .list li .list-source .tool .share-btn{
     background: url(../img/tuijiangtuijian@2x.png) no-repeat center;
     background-size: 20px;
 }
-
-.list li:hover{
+.list li.active,
+.content >.list li:hover,
+.content .content-left .list li:hover{
     cursor:pointer;
     background:#f9f9f9;
 
 }
-.list li:hover .list-title{
-
-}
-.list li:hover .list-source i{
+.content .list li:hover .list-source i{
     display: none;
 }
-.list li:hover .list-source .tool{ 
+.content .list li:hover .list-source .tool{ 
     opacity: 1;
     transform: translateX(0);
     -webkit-transform: translateX(0);
@@ -270,14 +285,71 @@
     display: inline-block;
     width: 328px;
     vertical-align: top;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    height: calc(100vh - 115px);
+    position: fixed;
+    background: #f9f9f9;
+    margin-top: 25px;
 }
+ 
 .content-right{
     display: inline-block;
     width: calc(100% - 330px);
+    height: calc(100vh - 200px);
+    overflow-y: scroll;
     vertical-align: top;
+    margin-left: 330px;
+    background: #f9f9f9;
 }
 .content-right.hasTools{
-    padding-top: 94px;
+    margin-top: 94px;
+}
+
+/* =============== 推荐 =============== */
+/* 全部通知 */
+.share-notice .notice-title{
+    font-size: 18px;
+    color:#333;
+    padding-top: 20px;
+    padding-bottom: 22px;
+}
+.share-notice .part:not(:last-child) {
+    margin-bottom: 20px;
+}
+.share-notice .part h3{
+    font-size: 14px;
+    color:#333;
+    font-weight: normal;
+    margin-bottom: 5px;
+}
+.share-notice .part .list{
+    border-top: 1px solid #e6e6e6;
+    border-bottom: 1px solid #e6e6e6;
+}
+.share-notice .part .list li{
+    width: 100%;
+    height: auto;
+    background: none;
+    border:0;
+    margin:0;
+    padding-top: 10px;
+    padding-left: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+}
+.share-notice .part .list li .list-header{
+    margin-bottom: 3px;
+}
+.share-notice .part .list li >p{
+    padding-bottom: 15px;
+    font-size: 14px;
+    color:#666;
+    margin-left: 40px;
+    line-height: 23px;
+}
+.share-notice .part .list li:not(:last-child) >p{
+    border-bottom: 1px solid #e6e6e6;
 }
 @media screen and (min-width: 826px) and (max-width: 1050px){
     .list {

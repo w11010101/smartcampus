@@ -1,0 +1,124 @@
+.ztree{
+    margin-left:-20px;
+    margin-right:-20px;
+    padding:0;
+   
+}
+.ztree * {
+    font-size: 14px;
+    color:#333;
+}
+.ztree li ul {
+    margin: 0;
+    padding: 0
+}
+.ztree li {
+    line-height: 60px;
+    /*border-bottom:1px solid #e6e6e6;*/
+}
+.ztree li a {
+    display: block;
+    height: 60px;
+    padding-top: 0px;
+    padding-left:20px;
+    border-bottom:1px solid #e6e6e6;
+}
+.ztree li a:hover {
+    text-decoration: none;
+}
+.ztree li li {
+    padding-left: 0;
+    margin-left: 40px;
+}
+.ztree li li a{
+    padding-left: 0;
+}
+.ztree li a span.button.switch {
+    visibility: hidden
+}
+.ztree.showIcon li a span.button.switch {
+    visibility: visible
+}
+.ztree li a.curSelectedNode {
+    background: none;
+    border: 0;
+    border-bottom:1px solid #e6e6e6;
+    height: 60px;
+}
+.ztree li span {
+    line-height: 60px;
+}
+.ztree li span[treenode_switch].button {
+    margin-top: -7px;
+    transform: rotateZ(0deg);
+    -webkit-transform: rotateZ(0deg);
+    transition: all .2s ease;
+    -webkit-transition: all .2s ease;
+}
+.ztree li span.button.switch {
+    width: 20px;
+    height: 20px;
+}
+.ztree li a.level0 span {
+    font-size:14px;
+    padding-left:5px;
+}
+.ztree li span.button {
+    background: url("../../common/img/jinru@3x.png");
+    background-size: 20px;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+.ztree li span.button.ico_docu{
+    width: 30px;
+    height:30px;
+    background-size: 30px!important;
+    vertical-align: middle;
+}
+.ztree li span.button.switch.level0 {
+    width: 20px;
+    height: 20px;
+}
+.ztree li span.button.switch.level1 {
+    width: 20px;
+    height: 20px;
+}
+.ztree li span.button.noline_docu.level1,
+/*.ztree li .level0 .ico_close,*/
+/*.ztree li .level1 .ico_close,*/
+/*.ztree li .level0 .ico_open,*/
+/*.ztree li .level2 .noline_docu,
+.ztree li .level3 .noline_docu,
+.ztree li .level4 .noline_docu*/
+.ztree li [class *='level'] .noline_docu,
+.ztree li [class *='level'] .ico_close,
+.ztree li [class *='level'] .ico_open
+{
+    display: none;
+    
+}
+.ztree li span.button.noline_docu.level1+span,
+.ztree li span.button.noline_docu.level2+span,
+.ztree li span.button.noline_docu.level3+span,
+.ztree li span.button.noline_docu.level4+span{
+
+    margin-right: 10px;
+}
+.ztree li li span.button.noline_open {
+
+    background-position: center;
+    transform: rotateZ(90deg);
+    -webkit-transform: rotateZ(90deg);
+}
+.ztree li span.button.noline_close {
+    background-position: center;
+    
+}
+.ztree li span.button.noline_open.level0 {
+    background-position: center;
+    transform: rotateZ(90deg);
+    -webkit-transform: rotateZ(90deg);
+}
+.ztree li span.button.noline_close.level0 {
+    background-position: center;
+}

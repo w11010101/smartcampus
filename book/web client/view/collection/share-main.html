@@ -5,8 +5,12 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
 		<title>快享client-收藏</title>
 		<link rel="stylesheet" href="../../content/common/css/common.css" />
-		<link rel="stylesheet" href="../../content/shoucang/css/shoucang.css" />
-		<script type="text/javascript" src="../../content/common/js/jquery.min.js" ></script>
+		<link rel="stylesheet" href="../../content/collection/css/collection.css" />
+		<link rel="stylesheet" href="../../content/common/css/zTreeStyle.css" />
+	    <link rel="stylesheet" href="../../content/common/css/my-zTreeStyle.css" />
+	    <script type="text/javascript" src="../../content/common/js/jquery.min.js"></script>
+	    <script type="text/javascript" src="../../content/common/js/jquery.ztree.core.min.js"></script>
+	    <script type="text/javascript" src="../../content/common/js/my-ztree.js"></script>
 	</head>
 	<body>
 		<header>
@@ -64,7 +68,7 @@
 						<p class="list-word">天气一天比一天冷，穿什么更时髦讲真我们已经没那么care了。要知道，最近oversize毛衣已经成为编辑部出勤率最高的员工了。</p>
 						<div class="list-title">
 							<h1>腾讯金融学院成立，致力成为培养互联网与金融</h1>
-							<img src="../../content/shoucang/img/inset.png" alt="">
+							<img src="../../content/collection/img/inset.png" alt="">
 						</div>
 					</li>
 					<li>
@@ -76,7 +80,7 @@
 						</div>
 						<div class="list-title">
 							<h1>腾讯金融学院成立，致力成为培养互联网与金融</h1>
-							<img src="../../content/shoucang/img/inset.png" alt="">
+							<img src="../../content/collection/img/inset.png" alt="">
 						</div>
 					</li>
 					<li>
@@ -88,7 +92,7 @@
 						</div>
 						<div class="list-title">
 							<h1>腾讯金融学院成立，致力成为培养互联网与金融</h1>
-							<img src="../../content/shoucang/img/inset.png" alt="">
+							<img src="../../content/collection/img/inset.png" alt="">
 						</div>
 					</li>
 					<li>
@@ -101,7 +105,7 @@
 						<p class="list-word">天气一天比一天冷，穿什么更时髦讲真我们已经没那么care了。要知道，最近oversize毛衣已经成为编辑部出勤率最高的员工了。</p>
 						<div class="list-title">
 							<h1>腾讯金融学院成立，致力成为培养互联网与金融</h1>
-							<img src="../../content/shoucang/img/inset.png" alt="">
+							<img src="../../content/collection/img/inset.png" alt="">
 						</div>
 					</li>
 					<li>
@@ -113,7 +117,7 @@
 						</div>
 						<div class="list-title">
 							<h1>腾讯金融学院成立，致力成为培养互联网与金融</h1>
-							<img src="../../content/shoucang/img/inset.png" alt="">
+							<img src="../../content/collection/img/inset.png" alt="">
 						</div>
 					</li>
 					<li>
@@ -125,7 +129,7 @@
 						</div>
 						<div class="list-title">
 							<h1>腾讯金融学院成立，致力成为培养互联网与金融</h1>
-							<img src="../../content/shoucang/img/inset.png" alt="">
+							<img src="../../content/collection/img/inset.png" alt="">
 						</div>
 					</li>
 				</ul>
@@ -142,22 +146,76 @@
 				<!-- p 文章内容 -->
 				<p>腾讯金融学院挂牌仪式在深圳举行。腾讯集团副总裁、腾讯支付基础平台与金融应用线负责人腾讯金融学院院长赖智明，北京大学汇丰商学院经济学教授何帆，国家金融与发展实验室银行研究中心主任曾刚等嘉宾出席仪式。</p>
 				<div class="content-img">
-					<img src="../../content/shoucang/img/img-1.jpg">
+					<img src="../../content/collection/img/img-1.jpg">
 				</div>
 				<p>腾讯金融学院挂牌仪式在深圳举行。腾讯集团副总裁、腾讯支付基础平台与金融应用线负责人腾讯金融学院院长赖智明，北京大学汇丰商学院经济学教授何帆，国家金融与发展实验室银行研究中心主任曾刚等嘉宾出席仪式。</p>
 				<div class="content-img">
-					<img src="../../content/shoucang/img/img-2.jpg">
+					<img src="../../content/collection/img/img-2.jpg">
 				</div>
 				<p>腾讯金融学院挂牌仪式在深圳举行。腾讯集团副总裁、腾讯支付基础平台与金融应用线负责人腾讯金融学院院长赖智明，北京大学汇丰商学院经济学教授何帆，国家金融与发展实验室银行研究中心主任曾刚等嘉宾出席仪式。</p>
 			</div>			
 		</div>
 		<!-- float tools -->
-		<div class="float-tools active">
-			<a href="#n" class="collection-btn"><img src="../../content/shoucang/img/group-16-copy@2x.png"></a>
-			<a href="#n" class="share-btn"><img src="../../content/shoucang/img/tuijian-tanchuang@2x.png"></a>
-			<a href="#n" class="laud-btn"><img src="../../content/shoucang/img/tuijian@2x.png"><em>123</em></a>
-			<a href="#n" class="comment-btn"><img src="../../content/shoucang/img/invalid-name@2x.png"><em>123</em></a>
+		<div class="float-tools">
+			<a class="collection-btn"><img src="../../content/collection/img/group-16-copy@2x.png"></a>
+			<a class="share-btn" onclick="$('.popupBox,.mask').show(0);"><img src="../../content/collection/img/tuijian-tanchuang@2x.png"></a>
+			<a class="laud-btn"><img src="../../content/collection/img/tuijian@2x.png"><em>123</em></a>
+			<a class="comment-btn" onclick="$('aside').show(0);"><img src="../../content/collection/img/invalid-name@2x.png"><em>123</em></a>
 		</div>
+
+		<!-- aside 侧边栏 -->
+		
+		<!-- popupBox -->
+		
+		<div class="popupBox">
+			<h2><label>推荐给朋友</label><button onclick="$('.popupBox,.mask').hide(0);"></button></h2>
+			<div class="list-title">
+				<h1>腾讯金融学院成立，致力成为培养互联网与金融</h1>
+				<img src="../../content/collection/img/inset.png" alt="">
+			</div>
+			<div class="expandingArea " id="textarea">
+				<pre><span class="textarea-span"></span><br></pre>
+				<textarea class="textarea" placeholder="推荐理由..." maxlength="120"></textarea>
+			</div>
+			<p class="font-statis">0/120</p>
+			<h3>选择推荐人</h3>
+			<ul>
+				<li><img src="../../content/common/img/header.png"><a class="del"></a></li>
+				<li><img src="../../content/common/img/head-1.png"><a class="del"></a></li>
+				<li><img src="../../content/common/img/head-3.png"><a class="del"></a></li>
+				<li><img src="../../content/common/img/header.png"><a class="del"></a></li>
+				<li><img src="../../content/common/img/head-1.png"><a class="del"></a></li>
+				<li><img src="../../content/common/img/head-3.png"><a class="del"></a></li>
+				<li><img src="../../content/common/img/header.png"><a class="del"></a></li>
+				<li><img src="../../content/common/img/head-1.png"><a class="del"></a></li>
+				<li><img src="../../content/common/img/head-3.png"><a class="del"></a></li>
+				<li><img src="../../content/common/img/header.png"><a class="del"></a></li>
+				<li><img src="../../content/common/img/head-1.png"><a class="del"></a></li>
+				<li><img src="../../content/common/img/head-3.png"><a class="del"></a></li>
+				<li><img src="../../content/common/img/header.png"><a class="del"></a></li>
+				<li><img src="../../content/common/img/head-1.png"><a class="del"></a></li>
+				<li><img src="../../content/common/img/head-3.png"><a class="del"></a></li>
+				<li><img src="../../content/common/img/header.png"><a class="del"></a></li>
+				<li><img src="../../content/common/img/head-1.png"><a class="del"></a></li>
+				<li><img src="../../content/common/img/head-3.png"><a class="del"></a></li>
+				<li><img src="../../content/common/img/header.png"><a class="del"></a></li>
+				<li><img src="../../content/common/img/head-1.png"><a class="del"></a></li>
+				<li><img src="../../content/common/img/head-3.png"><a class="del"></a></li>
+				<li><img src="../../content/common/img/header.png"><a class="del"></a></li>
+				<li><img src="../../content/common/img/head-1.png"><a class="del"></a></li>
+				<li><img src="../../content/common/img/head-3.png"><a class="del"></a></li>
+				<li><img src="../../content/common/img/header.png"><a class="del"></a></li>
+				<li><img src="../../content/common/img/head-1.png"><a class="del"></a></li>
+				
+				<li class="add"></li>
+			</ul>
+			<div class="send">
+				<label><a></a>公开次推送</label>
+				<button class="sendBtn">发送</button>
+			</div>
+		</div>
+		<!-- mask -->
+		<div class="mask"></div>
 	</body>
 	<script type="text/javascript" src="../../content/common/js/common.js"></script>
 </html>

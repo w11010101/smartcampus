@@ -46,14 +46,38 @@ var editToolObj = {
     methods:{
         delFn:function (event) {
             // 删除联系人
-            $(event.target).parents(".mail-list-info").parent().remove();
+            // $(event.target).parents(".mail-list-info").parent().remove();
+            console.log(123)
+            var option = {
+                type: "alert",
+                boxStyle: {
+                    "width": "60%",
+                    "margin-left":"-30%",
+                    "min-height":'150px'
+                },
+                title: {
+                    val: "您确定要删除吗？",
+                },
+                content: {
+                },
+                btns: {
+                    cancel: true,
+                    sureVal: "确定",
+                    cancelVal:"取消",
+                    order:true
+                }
+            }
+            campus.popup(option, function(data) {
+                console.log('删除 = ', data);
+                campus.togglePopup("hide","alert");
+                $(event.target).parents(".mail-list-info").parent().remove();
+            });
         },
         jumpEdit:function (event) {
             window.location.href = "edit.html?infoObj="+encodeURI(event.target.getAttribute("info"));
         }
     }
 }
-
 // vuejs 实例app
 var app = new Vue({
     el: '#app',
@@ -68,6 +92,7 @@ var app = new Vue({
         deptsObj:{},        // 部门对象，渲染选项卡第2页
         editStart:false,    // 编辑状态，false为不编辑，true为正在编辑
         isShow:false,   // 完成按钮的显示
+        ifEditBtn:true,
         deptNames:[         // 部门名称
             {
                 id:1,
@@ -87,7 +112,11 @@ var app = new Vue({
             }
         ],
         defaultImg:"../../content/style/white/tongxunlu/images/default.png",// 默认联系人头像
-        sorTableObjs:{}
+        sorTableObjs:{
+            deptSorTableObj:{},
+
+        }
+
     },
     components:{    // 组件
         'communication-box':communicationObj,
@@ -99,27 +128,31 @@ var app = new Vue({
             var _this = this;
             console.log('手风琴监听事件')
             setTimeout(function (argument) {
-                // 设置高度
-                _this.setTop();
                 // 手风琴监听事件
+                console.log($('.panel-group >div').eq(app.deptNativeIndex))
                 $('.panel-group').on('show.bs.collapse', function(e) {
                     console.log("展开");
-                    
+                    console.log(e.target);
                     $("#accordion .smart-active").removeClass("active");
                     $(e.target).prev().addClass("smart-active");
-
+                    // 手动隐藏其他展开项
+                    $(e.target).parent().siblings().find("div.panel-collapse").collapse('hide');
                     // 当前为编辑模式时，运行
                     if(_this.editStart){
                         console.log('当前为编辑模式');
                         // 传true或者其他真值：为禁止拖动
-                        _this.disabledSortable(_this.sorTableObjs.deptSorTableObj,true);
+                        _this.disabledSortable(_this.sorTableObjs.deptSorTableObj["dept"+_this.deptNativeIndex],true);
                         var _currentList = e.target.querySelector(".smart-sub-list");
                         if(_this.sorTableObjs.currentListObjs){
                             // 如果已存在就注销，下面重新创建；
                             _this.sorTableObjs.currentListObjs.destroy();
                         }
                         // 重新创建
-                        _this.runSortable(_currentList,"currentListObjs",".smart-sub-list-item");
+                        _this.runSortable({
+                            el:_currentList,
+                            key:"currentListObjs",
+                            draggable:".smart-sub-list-item"
+                        });
                     }else{
                         console.log('当前为完成');
                     }
@@ -127,7 +160,7 @@ var app = new Vue({
                 $('.panel-group').on('hidden.bs.collapse', function(e) {
                     console.log("收起");
                     $(e.target).prev().toggleClass("smart-active");
-
+                    console.log(e.target);
                     // 当前为编辑模式时，运行
                     if(_this.editStart){
                         console.log('当前为编辑模式');
@@ -135,13 +168,12 @@ var app = new Vue({
                             // 收起时还有其他的展开
                             // 不传或者穿false；为恢复拖动
                             _this.disabledSortable(_this.sorTableObjs.currentListObjs);
-                            _this.disabledSortable(_this.sorTableObjs.deptSorTableObj,true);
+                            _this.disabledSortable(_this.sorTableObjs.deptSorTableObj["dept"+_this.deptNativeIndex],true);
                         }else{
                             // 收起时没有其他的展开
                             // 不传或者穿false；为恢复拖动
                             _this.disabledSortable(_this.sorTableObjs.currentListObjs,true);
-                            var el = document.querySelector("#accordion");
-                            _this.runSortable(el,"deptSorTableObj",".panel-default");
+                            _this.disabledSortable(_this.sorTableObjs.deptSorTableObj["dept"+_this.deptNativeIndex]);
                         };
                     }else{
                         console.log('当前为完成');
@@ -189,13 +221,27 @@ var app = new Vue({
                 // 编辑
                 this.editStart = true;
                 $(event.target).addClass("active").siblings().removeClass("active");
-                // 点击编辑,把部门和成员的都显示出来；然后在下面判断禁止掉一个
-                // 启动拖拽 (部门拖动)；
-                var el = document.querySelector("#accordion");
-                this.runSortable(el,"deptSorTableObj",".panel-default");
-                // 启动拖拽 (当前部门中 列表拖动)；
-                var _current = currentCollapse.length?currentCollapse[0].querySelector(".smart-sub-list"):document.querySelector("#accordion");
-                this.runSortable(_current,"currentListObjs",".smart-sub-list-item");
+                
+                if(currentCollapse.length){
+                    // 启动拖拽 (当前部门中 列表拖动)；
+                    var _current = currentCollapse[0].querySelector(".smart-sub-list");
+                    this.runSortable({
+                        el:_current,
+                        key:"currentListObjs",
+                        draggable:".smart-sub-list-item"
+                    });
+                }else{
+                   // 将全部的创建拖动实例
+                    var accordionAll = document.querySelectorAll("#accordion > div");
+                    $.each(accordionAll,function(i,e){
+                        app.runSortable({
+                            el:e,
+                            key:"deptSorTableObj",
+                            draggable:".panel-default",
+                            index:i
+                        })
+                    }) 
+                }
 
             }else if($(event.target).text() === "完成"){
                 this.isShow = false;
@@ -204,43 +250,57 @@ var app = new Vue({
                 $(event.target).siblings().removeClass("active");
                 if(this.editStart){
                     this.editStart = false;
-                    var currentCollapse = $(".panel-collapse[aria-expanded='true']");
 
                     $("#accordion .active").removeClass("active");
                     
-                    this.disabledSortable(this.sorTableObjs.deptSorTableObj,true);
-                    this.disabledSortable(this.sorTableObjs.currentListObjs,true);
+                    // this.disabledSortable(this.sorTableObjs.deptSorTableObj["dept"+this.deptNativeIndex],true);
+                    // this.disabledSortable(this.sorTableObjs.currentListObjs,true);
+                    // 点击完成，哪个拖动启动就 禁止掉哪个；
+                    
+                    if(currentCollapse.length){
+                        this.disabledSortable(this.sorTableObjs.currentListObjs,true);
+                    }else{
+                        this.disabledSortable(this.sorTableObjs.deptSorTableObj["dept"+this.deptNativeIndex],true);
+                    }
                 }
             }else{
-                // 取消
-                this.isShow = false;
-                $(event.target).siblings().removeClass("active");
-                if(this.editStart){
-                    this.editStart = false;
-                    var currentCollapse = $(".panel-collapse[aria-expanded='true']");
-
-                    $("#accordion .active").removeClass("active");
-                    
-                    this.disabledSortable(this.sorTableObjs.deptSorTableObj,true);
-                    this.disabledSortable(this.sorTableObjs.currentListObjs,true);
-                }
+                // // 取消``
+                // console.log('取消');
+                // this.isShow = false;
+                // $(event.target).siblings().removeClass("active");
+                // if(this.editStart){
+                //     this.editStart = false;
+                //     $("#accordion .active").removeClass("active");
+                //     this.disabledSortable(this.sorTableObjs.deptSorTableObj,true);
+                //     this.disabledSortable(this.sorTableObjs.currentListObjs,true);
+                // }
             }
             // 在这里判断，然后在下面判断禁止掉一个，后续点击手风琴就不需要判断重新生成实例了
-            if(currentCollapse.length){
-                this.disabledSortable(this.sorTableObjs.deptSorTableObj,true);
-            }else{
-                this.disabledSortable(this.sorTableObjs.currentListObjs,true);
-            }
-            setTimeout(function (argument) {
-                // 设置高度
-                app.setTop();
-            },200);
+            // if(currentCollapse.length){
+            //     this.disabledSortable(this.sorTableObjs.deptSorTableObj["dept"+this.deptNativeIndex],true);
+            // }else{
+            //     if(this.sorTableObjs.currentListObjs){
+            //         this.disabledSortable(this.sorTableObjs.currentListObjs,true);
+            //     }
+            // }
         },  
-
+        // 更改机构
         changeDept:function(event) {
             $(event.target).addClass("active").siblings().removeClass("active");
             this.deptNativeIndex = $(event.target).index();
-            // console.log("changeDept = ", this.deptNativeIndex);
+            $('.panel-group .panel-collapse').collapse('hide');
+
+            if($("div[aria-expanded=true]").length){
+                // 收起时还有其他的展开
+                // 不传或者穿false；为恢复拖动
+                this.disabledSortable(this.sorTableObjs.currentListObjs);
+                this.disabledSortable(this.sorTableObjs.deptSorTableObj["dept"+this.deptNativeIndex],true);
+            }else{
+                // 收起时没有其他的展开
+                // 不传或者穿false；为恢复拖动
+                this.disabledSortable(this.sorTableObjs.currentListObjs,true);
+                this.disabledSortable(this.sorTableObjs.deptSorTableObj["dept"+this.deptNativeIndex]);
+            };
         },
         // 重命名
         renameFn:function(event){
@@ -278,54 +338,47 @@ var app = new Vue({
             console.log('重命名 = ', event.target);
         },
         // 创建拖拽列表实例
-        runSortable:function(objs,key,draggable){
-            var SortableObj = Sortable.create(objs,{
-                draggable: draggable||"",   // 定义哪些列表单元可以进行拖放
+        runSortable:function(option){
+            
+            var SortableObj = Sortable.create(option.el,{
+                draggable: option.draggable||"",   // 定义哪些列表单元可以进行拖放
                 forceFallback:true,
                 fallbackClass:"fallbackClass",
                 // delay:200,    // 长按时间
                 // 拖拽元素被选中的回调函数
                 onChoose:function(event) {
-                    // $(event.item).addClass("active");
-                    console.log("sortable onChoose");
+                    // console.log("sortable onChoose");
                 },
                 // 拖拽元素拖动开始的回调函数
                 onStart:function(event){
-                    console.log("sortable onStart");
+                    // console.log("sortable onStart");
                 },
                 // 排序发生变化后的回调函数
                 onUpdate:function (event){
-                    // console.log(event.item.querySelector(".panel-collapse").getAttribute("deptid"));
-                    console.log("sortable onUpdate");
+                    // console.log("sortable onUpdate");
                 },
                 // 拖放结束后的回调函数
                 onEnd:function(event) {
-                    console.log("sortable onEnd");
-                    // $(event.item).removeClass("active");
+                    // console.log("sortable onEnd");
                 }
             });
-            app.$set(this.sorTableObjs,key,SortableObj);
-            // this.sorTableObjs[key] = SortableObj;
+            if(option.key == 'deptSorTableObj'){
+                app.$set(this.sorTableObjs.deptSorTableObj,"dept"+option.index,SortableObj);
+            }else{
+                app.$set(this.sorTableObjs,option.key,SortableObj);
+            }
+            
+            
         },
         // 拖动功能的 禁止和启动
         // 不传或者穿false；为恢复拖动
         // 传true或者其他真值：为禁止拖动
         disabledSortable:function(obj,start){
-            // console.log(obj)
-            obj.options.disabled = start?true:false;
+            if(obj) obj.options.disabled = start?true:false;
         },
         // 销毁拖动
         destroy:function (obj) {
             obj.destroy();
-        },
-        // 设置选项卡2的列表top值
-        setTop:function(){
-            // 设置高度
-            var top = 0;
-            $.each($('.panel-group').prevAll(),function(i,e){
-                top += e.clientHeight;
-            });
-            $('.panel-group').css("top",top+"px");
         },
         // 搜索
         searchFn:_.debounce(
@@ -362,7 +415,7 @@ var app = new Vue({
         ),
         jump:function (argument) {
             window.location.href = "info.html?infoObj="+encodeURI(JSON.stringify(argument));
-        }
+        },
     }
 });
 

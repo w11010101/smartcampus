@@ -44,7 +44,7 @@
     <div class="smart-content" id="app" v-cloak>
         <!-- 选项卡 -->
         <div class="tabs">
-            <div class="editBtn" v-if = false>
+            <div class="editBtn" v-if = ifEditBtn>
                 <button class="edit-btn" v-on:click="changeEditStartFn" v-show=!isShow >编辑</button>
                 <button class="done-btn" v-on:click="changeEditStartFn" v-show=isShow>完成</button>
             </div>
@@ -98,42 +98,45 @@
                     </div>
                     <!-- tips -->
                     <div class="tips" v-if=editStart>
-                        点击组织名可修改，长按拖动可对组织排序；点击“向下箭头”展开成员列表，长按可拖动成员进行排序；
+                        点击组织名可修改，长按拖动可对组织排序；点击“向下箭头”展开成员列表，长按可拖动成员进行排序;
                     </div>
                     <!-- list -->
-                    <div class="panel-group smart-accordion" id="accordion">
+                    <!-- group 1 -->
+                    <div class="panel-group smart-accordion" id="accordion" >
                         <!-- part -->
-                        <div class="panel panel-default" v-for="(todo,index) in deptNativeArr[deptNativeIndex].Items">
-                            <div class="panel-heading">
-                                <!-- {{todo}} -->
-                                <a data-toggle="collapse" data-parent="#accordion"  v-bind:href="'#collapse'+index">
-                                   <h2>{{todo.Name}}</h2>
-                                   <!-- <input type="text" name="" v-show=editStart v-model=todo.Name class="editInput" readonly="readonly"> -->
-                                   <em class="smart-list-end-icon"></em>
+                        <div v-bind:id="'part'+i" v-for="(e,i) in deptNames" v-show = 'i == deptNativeIndex' >
+                            <div class="panel panel-default" v-for="(todo,index) in deptNativeArr[deptNativeIndex].Items" v-bind:deptId = todo.Id>
+                                <div class="panel-heading" >
+                                    <!-- {{todo}} -->
+                                    <a data-toggle="collapse" data-parent="#accordion"  v-bind:href="'#part'+i+'-collapse'+index">
+                                       <h2>{{todo.Name}}</h2>
+                                       <!-- <input type="text" name="" v-show=editStart v-model=todo.Name class="editInput" readonly="readonly"> -->
+                                       <em class="smart-list-end-icon"></em>
 
-                                </a>
-                                <!-- <button class="rename" v-show=editStart @click="renameFn">重命名</button> -->
-                            </div>
-                            <div  v-bind:id="'collapse'+index" class="panel-collapse collapse" v-bind:deptId="todo.Id">
-                                <div class="panel-body">
-                                    <ul class="smart-sub-list">
-                                        <li class="smart-sub-list-item" 
-                                        v-for="sub in deptsObj[todo.Id]"
-                                        v-bind:personId ='sub.Id'
-                                        v-bind:personSequence = 'sub.Sequence' >
-                                            <img v-bind:src="defaultImg" class="mail-list-img">
-                                            <div class="mail-list-info">
-                                                <div class="mail-list-name">
-                                                    <h2>{{sub.Name}}</h2>
-                                                    <p>{{sub.Title}}</p>
+                                    </a>
+                                    <!-- <button class="rename" v-show=editStart @click="renameFn">重命名</button> -->
+                                </div>
+                                <div v-bind:id="'part'+i+'-collapse'+index" class="panel-collapse collapse" v-bind:deptId="todo.Id">
+                                    <div class="panel-body">
+                                        <ul class="smart-sub-list">
+                                            <li class="smart-sub-list-item" 
+                                            v-for="sub in deptsObj[todo.Id]"
+                                            v-bind:personId ='sub.Id'
+                                            v-bind:personSequence = 'sub.Sequence' >
+                                                <img v-bind:src="defaultImg" class="mail-list-img">
+                                                <div class="mail-list-info">
+                                                    <div class="mail-list-name">
+                                                        <h2>{{sub.Name}}</h2>
+                                                        <p>{{sub.Title}}</p>
+                                                    </div>
+                                                    <em class="smart-list-end-icon" v-if=editStart>
+                                                        <img src="../../content/style/white/tongxunlu/images/sortable.png" alt="">
+                                                    </em>
+                                                    <communication-box v-bind:tels="sub.TelNos" v-else></communication-box>
                                                 </div>
-                                                <em class="smart-list-end-icon" v-if=editStart>
-                                                    <img src="../../content/style/white/tongxunlu/images/sortable.png" alt="">
-                                                </em>
-                                                <communication-box v-bind:tels="sub.TelNos" v-else></communication-box>
-                                            </div>
-                                        </li>
-                                    </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
                         </div>

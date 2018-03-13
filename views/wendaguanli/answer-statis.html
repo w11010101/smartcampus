@@ -2,52 +2,49 @@
 <html lang="zh-CN">
 
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <!-- <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"> -->
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-  <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
-  <title>问答管理-统计</title>
-
-  <!-- Bootstrap -->
-
-  <link href="../../content/style/frame/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="../../content/style/common/css/xiaoyuanka/common.css" rel="stylesheet">
-  
-  <link href="../../content/style/frame/mui/css/mui.min.css" rel="stylesheet">
-  <link href="../../content/style/frame/mui/css/mui.picker.min.css" rel="stylesheet">
-
-  <link href="../../content/style/frame/iscroll4/css/pullToRefresh.css" rel="stylesheet">
-  <link href="../../content/style/white/wendaguanli/css/wenda.css" rel="stylesheet">
-  <link href="../../content/style/common/css/proportion.css" rel="stylesheet">
-  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-  <!--[if lt IE 9]> param.month = getOtherDate(getM);
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>问答管理-统计</title>
+    <!-- Bootstrap -->
+    <link href="../../content/style/frame/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../content/style/common/css/xiaoyuanka/common.css" rel="stylesheet">
+    <link href="../../content/style/frame/mui/css/mui.min.css" rel="stylesheet">
+    <link href="../../content/style/frame/mui/css/mui.picker.min.css" rel="stylesheet">
+    <link href="../../content/style/frame/iscroll4/css/pullToRefresh.css" rel="stylesheet">
+    <link href="../../content/style/white/wendaguanli/css/wenda.css" rel="stylesheet">
+    <link href="../../content/style/common/css/proportion.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]> param.month = getOtherDate(getM);
       <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
 <!-- smart-answer-statis 标示，css -->
-<body class="smart-answer-statis"> 
-  <div class="smart-content">
-    <!-- 横向滚动 -->
-    <div class="smart-probe">
-      <div id="wrapper-probe">
-        <div id="scroller-probe">
-           <ul class="">
-             <li class="active"><a>最近一月</a></li>
-             <li><a>最近半年</a></li>
-             <li><a>最近一年</a></li>
-             <li><a>全部</a></li>
-           </ul>
+
+<body class="smart-answer-statis">
+    <div class="smart-content">
+        <!-- 横向滚动 -->
+        <div class="smart-probe">
+            <div id="wrapper-probe">
+                <div id="scroller-probe">
+                    <ul class="">
+                        <li class="active"><a>最近一月</a></li>
+                        <li><a>最近半年</a></li>
+                        <li><a>最近一年</a></li>
+                        <li><a>全部</a></li>
+                    </ul>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-    <!-- 数据统计 -->
-    <div class="smart-statis-box smart-statis-box-1">
-      <h2>校园精灵</h2>
-      <div class="proportion-box">
-        <!-- <div class="clearfix">
+        <!-- 数据统计 -->
+        <div class="smart-statis-box smart-statis-box-1">
+            <h2>校园精灵</h2>
+            <div class="proportion-box">
+                <!-- <div class="clearfix">
           <div class="proportion-part proportion-part-left" length="50">
             <label>Q</label>
             <div class="bars-value-container">
@@ -70,28 +67,26 @@
             <li><span>平均回答时间</span><em>3天</em></li>
           </ul>
         </div> -->
-      </div>
-    </div>
-    <div class="smart-statis-box smart-statis-box-2">
-      <h2>意见反馈</h2> 
-      <div class="proportion-box-2">
-        
-      </div>
-    </div>
-    <!-- 管理员回复排行 -->
-    <div class="smart-Echarts-container">
-      <div class="Echarts-line"></div>
-     <!--  <ul>
+            </div>
+        </div>
+        <div class="smart-statis-box smart-statis-box-2">
+            <h2>意见反馈</h2>
+            <div class="proportion-box-2">
+            </div>
+        </div>
+        <!-- 管理员回复排行 -->
+        <div class="smart-Echarts-container">
+            <div class="Echarts-line"></div>
+            <!--  <ul>
         <li><em>1</em></li>
         <li><em>2</em></li>
         <li><em>3</em></li>
         <li><em>4</em></li>
         <li><em>5</em></li>
         <li><em>6</em></li>
-      </ul>    --> 
+      </ul>    -->
+        </div>
     </div>
-    
-  </div>
 </body>
 <script src="../../content/style/frame/jquery/jquery-3.2.1.min.js"></script>
 <script src="../../content/style/frame/bootstrap/js/bootstrap.min.js"></script>
@@ -100,47 +95,47 @@
 <script src="../../content/style/white/wendaguanli/js/answer-statis.js"></script>
 <script src="../../content/style/common/js/proportion-es5.js"></script>
 <script type="text/javascript">
-  //  横向滚动
-  scrollPorbe();
-  //  对比1
-  var obj = document.querySelector(".proportion-box");
-  var options1 = {
-      data: [0, 0],
-      dataAlign: "center",            //  data 数据对齐方式 center：居中; edge:靠边 
-      dataTitle: [`Q`, 'A'],          //  数据对应标签
-      dataProportion: false,          //  是否显示比例
-      otherSeries: {                  //  附加信息
-          show:true,
-          type: "list",
-          value:["回答查看率","回答率","平均回答时间"],
-          data:["0%","0%","0天"],  //  当type 为 list时，有data数据自定义添加
-      },
-  }
-  var prop = new Proportion(obj,options1);
-  //  对比2
-  var obj_2 = document.querySelector(".proportion-box-2");
-  var options2 = {
-      data: [5000, 10000],
-      dataAlign: "center",            //  data 数据对其方式 center：居中; edge:靠边 
-      dataTitle: [`Q`, 'A'],          //  数据对应标签
-      dataProportion: false,          //  是否显示比例
-      otherSeries: {                  //  附加信息
-          show:true,
-          type: "list",
-          value:["回答查看率","回答率","平均回答时间"],
-          data:["40%","78%","130天"],  //  当type 为 list时，有data数据自定义添加
-      },
-  }
-  var prop_2 = new Proportion(obj_2,options2);
-  //  加载图表
-  var myData = [100,90,80,70,60,50,0];
-
-  $(".Echarts-line").height(myData.length*.6+"rem");
-  runEcharts({
-    data:myData,
-    value:["a|1|李白|200920020","b|2|杜甫|200920020","c|3|白居易啊|200920020","d|4|王安石啊|200920020","d|5|辛弃疾|200920020","d|6|辛弃疾|200920020",'d|7|方文山|200920020'],
-  })
-  
-  
+//  横向滚动
+scrollPorbe();
+//  对比1
+var obj = document.querySelector(".proportion-box");
+var options1 = {
+    data: [0, 0],
+    dataAlign: "center", //  data 数据对齐方式 center：居中; edge:靠边 
+    dataTitle: [`Q`, 'A'], //  数据对应标签
+    dataProportion: false, //  是否显示比例
+    otherSeries: { //  附加信息
+        show: true,
+        type: "list",
+        value: ["回答查看率", "回答率", "平均回答时间"],
+        data: ["0%", "0%", "0天"], //  当type 为 list时，有data数据自定义添加
+    },
+}
+var prop = new Proportion(obj, options1);
+//  对比2
+var obj_2 = document.querySelector(".proportion-box-2");
+var options2 = {
+    data: [5000, 10000],
+    dataAlign: "center", //  data 数据对其方式 center：居中; edge:靠边 
+    dataTitle: [`Q`, 'A'], //  数据对应标签
+    dataProportion: false, //  是否显示比例
+    otherSeries: { //  附加信息
+        show: true,
+        type: "list",
+        value: ["回答查看率", "回答率", "平均回答时间"],
+        data: ["40%", "78%", "130天"], //  当type 为 list时，有data数据自定义添加
+    },
+}
+var prop_2 = new Proportion(obj_2, options2);
+//  加载图表
+// var myData = [100, 90, 80, 70, 60, 50, 0];
+var myData = [100, 90];
+$(".Echarts-line").height((myData.length+1) * .6 + "rem");
+runEcharts({
+    data: myData,
+    value: ["a|1|李白|200920020", "b|2|杜甫|200920020"],
+    // value: ["a|1|李白|200920020", "b|2|杜甫|200920020", "c|3|白居易啊|200920020", "d|4|王安石啊|200920020", "d|5|辛弃疾|200920020", "d|6|辛弃疾|200920020", 'd|7|方文山|200920020'],
+})
 </script>
+
 </html>

@@ -62,7 +62,7 @@ function runTabSwiper() {
         e.preventDefault();
         $(".tabs .active").removeClass('active');
         $(this).addClass('active');
-        tabsSwiper.swipeTo($(this).index(), false);
+        tabsSwiper.swipeTo($(this).index()-(app.ifEditBtn?1:0), false);
         scrollState = true;
     });
 }

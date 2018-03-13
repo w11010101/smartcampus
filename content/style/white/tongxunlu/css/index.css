@@ -195,9 +195,10 @@
     height: .4rem;
     display: inline-block;
     vertical-align: middle;
-    background: #a8a8a8;
-    border-radius: 5px;
+    background: #C8C8C8;
+    border-radius: 5px;overflow:hidden;
 }
+.mail-list-img img {width:100%;vertical-align:baseline;}
 .mail-list-info {
     height: .6rem;
     width: calc(100% - .6rem);
@@ -231,6 +232,7 @@
 .mail-list-btn {
     width: 1rem;
     vertical-align: middle;
+    padding-top: .075rem;
 }
 .mail-list-btn *:first-child {
     margin: 0 .1rem;
@@ -239,11 +241,17 @@
     font-size: .15rem;
     color: #3c3c3c;
     line-height: .25rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .mail-list-name p {
     font-size: .12rem;
     color: #a8a8a8;
     line-height: .25rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .mail-list-btn button,
 .mail-list-btn a {
@@ -335,11 +343,14 @@
 .panel-group {
     position: absolute;
     width: 100%;
-    top: 1.41rem;
+    top: .6rem;
     bottom: 0;
     margin-bottom: 0;
     overflow-y: scroll;
     /*-webkit-overflow-scrolling:touch;*/
+}
+.tips+.panel-group {
+    top: 1.2rem;
 }
 .panel-group::-webkit-scrollbar {
     display: none;
@@ -392,10 +403,13 @@
 }
 .panel-default>.panel-heading>a h2,
 .panel-default>.panel-heading .editInput{
-    margin-right: .3rem;
+    margin-right: .5rem;
     line-height: .4rem;
     color: #3c3c3c;
     font-size: .15rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .panel-default>.panel-heading .editInput{
     position: absolute;
@@ -423,7 +437,7 @@
 /*手风琴效果的结尾图标*/
 
 .smart-sub-list {
-    height: calc(.6rem * 5);
+    max-height: calc(.6rem * 5);
     overflow-x: hidden;
     overflow-y: scroll;
     background: none;
@@ -465,7 +479,7 @@
 .fallbackClass {
     background-color: rgba(218, 244, 255, 1)!important;
     margin-left: 50%!important;
-    margin-top: -.8rem!important;
+    margin-top: -.4rem!important;
 }
 
 /* ================================================================================ */
@@ -527,9 +541,11 @@
 .apps-info .person-info .header{
     width: 1.1rem;
     height: 1.1rem;
-    border:5px solid #fff;
+    border:5px solid rgba(255,255,255,0.6);
     border-radius: 50%;
-    background: #fff;
+}
+.apps-info .person-info .header .photo{
+    width:100%;height:100%;display:block;border-radius:50%;overflow:hidden;box-sizing:content-box;background:url(../images/default.png) no-repeat 0 0;background-size:100%;
 }
 .apps-info .person-info .header img{
     width: 100%;
@@ -703,9 +719,15 @@
 .apps-edit .mandatory-info .header{
     width: 1.25rem;
     height: 1.5rem;
-    background: url(../images/default.png) no-repeat #fff top .3rem center;
-    background-size: 55%;
+    /*background: url(../images/default.png) no-repeat #fff top .3rem center;
+    background-size: 55%;*/ 
     position: relative;
+}
+.mandatory-info .header span.photo{
+    overflow:hidden;border-radius:50%;display:block;width:.7rem;height:.7rem;position:absolute; left:.28rem;top:.3rem;background:url(../images/default.png) no-repeat #fff;background-size:100%;
+}
+.mandatory-info .header span.photo img {
+    vertical-align:baseline;
 }
 .apps-edit .mandatory-info .header:after{
     position: absolute;
@@ -727,14 +749,14 @@
     opacity: 0;
     z-index: 1;
 }
-.apps-edit .mandatory-info .header img{
-    position: absolute;
+.apps-edit .mandatory-info .header span.photo img{width:100%;
+    /*position: absolute;
     /*z-index: 1;*/
-    width: 80%;
+   /* width: 80%;
     top:50%;
     left:50%;
     margin-top: -40%;
-    margin-left: -40%;
+    margin-left: -40%;*/
 }
 .apps-edit .mandatory-info .infos{
     width: calc(100% - 1.25rem);
@@ -774,7 +796,7 @@
     width: 45%;
     height: .49rem;
     text-align: left;
-    background: url(../images/down.png) no-repeat #fff ;
+    background: url(../images/down.png) no-repeat #fff right .1rem center;
     background-size: .18rem;
     border:0;
     padding: 0;
@@ -789,9 +811,9 @@
 .apps-edit .mandatory-info .infos input.org{
     background-position: left .7rem center;
 }
-.apps-edit .mandatory-info .infos input.offce{
+/*.apps-edit .mandatory-info .infos input.offce{
     background-position: left .55rem center;
-}
+}*/
 .apps-edit .mandatory-info .phones,
 .apps-edit .mandatory-info .addPhone,
 .apps-edit .added div{
