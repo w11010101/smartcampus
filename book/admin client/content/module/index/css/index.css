@@ -1,0 +1,76 @@
+body {
+    background: #f9f9f9;
+}
+.container-left{
+    padding: 0 20px;
+}
+.synjones-logo{
+    width: 70px;
+    height: 70px;
+    padding: 5px;
+    background:#f9f9f9;
+    border-radius: 50%;
+    margin: 40px auto 10px;
+}
+.synjones-logo img{
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+
+}
+.synjones-name{
+    text-align: center;
+    font-size:16px;
+    margin-bottom: 20px;
+}
+.container-left >div:not(.synjones-logo){
+    padding-top: 20px;
+    border-top: 1px solid #e6e6e6;
+    
+}
+.container-left >div:not(.synjones-logo):last-child{
+    border-bottom: 1px solid #e6e6e6;
+}
+.container-left p{
+    height: 20px;
+    line-height: 20px;
+    margin-bottom: 20px;
+}
+.container-left p em{
+    float:right;
+    font-size: 14px;
+}
+.container-left p em i{
+    color:#999;
+    font-size: 12px;
+}
+.container-right h2{
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+.container-right .tools{
+    font-size: 0;
+}
+.container-right .tools li{
+    display: inline-block;
+    width: 185px;
+    height: 66px;
+    border:1px solid #e6e6e6;
+    background:#fff;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    padding: 10px;
+    font-size: 14px;
+}
+.container-right .tools li a{
+    text-decoration: none;
+}
+.container-right .tools li:nth-child(4n){
+    margin-right: 0;
+}
+.container-right .tools li img{
+    width: 46px;
+    height: 46px;
+    vertical-align: middle;
+    margin-right: 20px;
+}

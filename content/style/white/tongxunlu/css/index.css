@@ -371,6 +371,7 @@
     background: none;
     height: .6rem;
     padding-left: .25rem;
+    overflow: hidden;
 }
 .smart-sub-list .smart-sub-list-item:after {
     left: .8rem!important;
@@ -437,7 +438,7 @@
 /*手风琴效果的结尾图标*/
 
 .smart-sub-list {
-    max-height: calc(.6rem * 5);
+    max-height: 3rem;
     overflow-x: hidden;
     overflow-y: scroll;
     background: none;

@@ -173,7 +173,20 @@ var app = new Vue({
                             // 收起时没有其他的展开
                             // 不传或者穿false；为恢复拖动
                             _this.disabledSortable(_this.sorTableObjs.currentListObjs,true);
-                            _this.disabledSortable(_this.sorTableObjs.deptSorTableObj["dept"+_this.deptNativeIndex]);
+                            if(!_this.sorTableObjs.deptSorTableObj["dept"+_this.deptNativeIndex]){
+                                var accordionAll = document.querySelectorAll("#accordion > div");
+                                $.each(accordionAll,function(i,e){
+                                    app.runSortable({
+                                        el:e,
+                                        key:"deptSorTableObj",
+                                        draggable:".panel-default",
+                                        index:i
+                                    })
+                                }) 
+                            }else{
+                                _this.disabledSortable(_this.sorTableObjs.deptSorTableObj["dept"+_this.deptNativeIndex]);
+                            }
+                            
                         };
                     }else{
                         console.log('当前为完成');
@@ -231,7 +244,7 @@ var app = new Vue({
                         draggable:".smart-sub-list-item"
                     });
                 }else{
-                   // 将全部的创建拖动实例
+                    // 将全部的创建拖动实例
                     var accordionAll = document.querySelectorAll("#accordion > div");
                     $.each(accordionAll,function(i,e){
                         app.runSortable({
@@ -351,7 +364,11 @@ var app = new Vue({
                 },
                 // 拖拽元素拖动开始的回调函数
                 onStart:function(event){
-                    // console.log("sortable onStart");
+                    // 判断滑动的列表高度，如果超出就可以滚动，反之禁止滚动
+                    var lis = $("li",event.target).length;
+                    var liH = $("li",event.target).height();
+                    var maxH = parseInt($(event.target).css("max-height"));
+                    this.options.scroll = (liH*lis)<=maxH?false:true;
                 },
                 // 排序发生变化后的回调函数
                 onUpdate:function (event){
@@ -367,8 +384,6 @@ var app = new Vue({
             }else{
                 app.$set(this.sorTableObjs,option.key,SortableObj);
             }
-            
-            
         },
         // 拖动功能的 禁止和启动
         // 不传或者穿false；为恢复拖动
