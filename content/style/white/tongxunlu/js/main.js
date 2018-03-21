@@ -166,7 +166,7 @@ var app = new Vue({
                         console.log('当前为编辑模式');
                         if($("div[aria-expanded=true]").length){
                             // 收起时还有其他的展开
-                            // 不传或者穿false；为恢复拖动
+                            // 不传或者穿false；为恢复拖动 
                             _this.disabledSortable(_this.sorTableObjs.currentListObjs);
                             _this.disabledSortable(_this.sorTableObjs.deptSorTableObj["dept"+_this.deptNativeIndex],true);
                         }else{

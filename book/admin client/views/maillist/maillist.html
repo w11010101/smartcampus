@@ -4,174 +4,131 @@
 <head>
     <meta charset="UTF-8">
     <title>管理中心-通讯录</title>
-    <link rel="stylesheet" type="text/css" href="../content/common/css/common.css">
-    <link rel="stylesheet" type="text/css" href="../content/module/index/css/index.css">
-    <script type="text/javascript" src="../content/plugin/jquery/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../content/plugin/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="../../content/common/css/common.css">
+    <link rel="stylesheet" type="text/css" href="../../content/module/maillist/maillist.css">
+    <!-- ztree css -->
+    <link rel="stylesheet" type="text/css" href="../../content/plugin/ztree/css/zTreeStyle.css">
+    <link rel="stylesheet" type="text/css" href="../../content/plugin/ztree/css/my-zTreeStyle.css">
+
+    <!-- js -->
+    <script type="text/javascript" src="../../content/plugin/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="../../content/plugin/bootstrap/js/bootstrap.min.js"></script>
+    <!-- ztree js -->
+    <script type="text/javascript" src="../../content/plugin/ztree/js/jquery.ztree.core.min.js"></script>
+    <script type="text/javascript" src="../../content/plugin/lodash/lodash.js"></script>
     
 </head>
 
 <body>
     <header>
         <div class="header-content">
-            <div class="logo">
-                <img src="../content/common/img/logo.png">
-                <span>快享管理中心</span>
-            </div>
-            <nav>
-                <ul>
-                    <li class='active'><a href="maillist/maillist.html">通讯录</a></li>
-                    <li><a>企业数据</a></li>
-                    <li><a>标签管理</a></li>
-                    <li><a>运营为管理</a></li>
-                    <li><a>设置</a></li>
-                </ul>
-            </nav>
+            <a href="../index.html">
+                <div class="logo">
+                    <img src="../../content/common/img/logo.png">
+                    <span>快享管理中心</span>
+                </div>
+                <nav>
+                    <ul>
+                        <li class='active'><a href="maillist/maillist.html">通讯录</a></li>
+                        <li><a>企业数据</a></li>
+                        <li><a>标签管理</a></li>
+                        <li><a>运营为管理</a></li>
+                        <li><a>设置</a></li>
+                    </ul>
+                </nav>
+            </a>
         </div>
     </header>
     <!-- container -->
     <div class="container">
         <!-- left -->
         <div class="container-left container-nav">
-            <div class="synjones-logo">
-                <img src="../content/common/img/synjones.png">
+            <!-- tab -->
+            <div class="style-box">
+                <ul id="myTab" class="nav nav-tabs">
+                    <li class="active"><a href="#tab1" data-toggle="tab">组织架构</a></li>
+                    <li><a href="#tab2" data-toggle="tab">角色管理</a></li>
+                </ul>
             </div>
-            <h2 class="synjones-name">新中新集团</h2>
-            <div>
-                <p><span>组织人数</span><em>1200人</em></p>
-                <p><span>部门数</span><em>62人</em></p>
-                <p><span>昨日使用人数</span><em>668人</em></p>
-            </div>
-            <div>
-                <p><span>组织存储使用量</span><em>32G<i>/120G</i></em></p>
+            <!-- tab content -->
+            <div id="myTabContent" class="tab-content">
+                <div class="tab-pane fade in active" id="tab1">
+                    <form>
+                        <input type="search" name="" placeholder="搜索">    
+                    </form>
+                    <ul id="treeDemo" class="ztree showIcon"></ul>
+                    <p class="person-sum">共162人</p>
+                </div>
+                <div class="tab-pane fade" id="tab2">
+                    <p>iOS 是一个由苹果公司开发和发布的手机操作系统。最初是于 2007 年首次发布 iPhone、iPod Touch 和 Apple 
+                        TV。iOS 派生自 OS X，它们共享 Darwin 基础。OS X 操作系统是用在苹果电脑上，iOS 是苹果的移动版本。</p>
+                </div>
             </div>
         </div>
         <!-- right -->
         <div class="container-right container-box">
-            <h2>快捷入口</h2>
-            <ul class="tools">
-                <li>
-                    <a href="#n">
-                        <img src="">
-                        <span>企业数据</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#n">
-                        <img src="">
-                        <span>组织存储</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#n">
-                        <img src="">
-                        <span>标签管理</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#n">
-                        <img src="">
-                        <span>企业数据</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#n">
-                        <img src="">
-                        <span>企业数据</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#n">
-                        <img src="">
-                        <span>组织存储</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#n">
-                        <img src="">
-                        <span>标签管理</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#n">
-                        <img src="">
-                        <span>企业数据</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#n">
-                        <img src="">
-                        <span>企业数据</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#n">
-                        <img src="">
-                        <span>组织存储</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#n">
-                        <img src="">
-                        <span>标签管理</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#n">
-                        <img src="">
-                        <span>企业数据</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#n">
-                        <img src="">
-                        <span>企业数据</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#n">
-                        <img src="">
-                        <span>组织存储</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#n">
-                        <img src="">
-                        <span>标签管理</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#n">
-                        <img src="">
-                        <span>企业数据</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#n">
-                        <img src="">
-                        <span>企业数据</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#n">
-                        <img src="">
-                        <span>组织存储</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#n">
-                        <img src="">
-                        <span>标签管理</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#n">
-                        <img src="">
-                        <span>企业数据</span>
-                    </a>
-                </li>
-            </ul>
+            <div class="console">
+                <!-- 标题1 -->
+                <h2 class="title firsh-title"><em>治理中心</em> <button class="white-btn edit-btn">编辑部门</button></h2>
+                <!-- 面包屑 -->
+                <ol class="breadcrumb">
+                    <li><a href="#">新中新集团</a></li>
+                </ol>
+                <!-- 标题2 -->
+                <h2 class="title"><em>下级部门</em></h2>
+                <button class="white-btn">添加子部门</button>
+                <ul class="list">
+                    <li>组织部(9人)</li>
+                    <li>资本运营中心(12人)</li>
+                </ul>
+                <!-- 标题3 -->
+                <h2 class="title"><em>部门成员</em></h2>
+                <div class="btns">
+                    <button class="white-btn add-btn">添加成员</button>
+                    <button class="white-btn import-btn">批量导入/导出</button>
+                    <button class="white-btn toggle-btn adjust-btn" disabled="disabled">调整部门</button>
+                    <button class="white-btn toggle-btn batch-del-btn" disabled="disabled">批量删除</button>
+                </div>
+                <div class="tips"><a href="maillist-not-active.html">当前部门有1人未激活</a></div>
+                <!-- table -->
+                <div class="table-container">
+                    <div class="row table-header">
+                        <div class="col-xs-2"><span class="radio all" selectType=false></span>姓名</div>
+                        <div class="col-xs-2">职位</div>
+                        <div class="col-xs-2">工号</div>
+                        <div class="col-xs-2">手机号</div>
+                        <div class="col-xs-4">邮箱</div>
+                    </div>
+                    <!-- <div class="row table-tips">
+                        <div class="col-xs-12">无更多信息</div>
+                    </div> -->
+                    <div class="row">
+                        <div class="col-xs-2"><span class="radio"></span>雷佳音</div>
+                        <div class="col-xs-2">演员</div>
+                        <div class="col-xs-2">2013121201234</div>
+                        <div class="col-xs-2 phone" phone-num=1>13124681111</div>
+                        <div class="col-xs-4">leijiayin13124681111@hotmail.com</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-2"><span class="radio"></span>王力宏</div>
+                        <div class="col-xs-2">歌手</div>
+                        <div class="col-xs-2">2013121201234</div>
+                        <div class="col-xs-2 phone" phone-num=2>13124681111\13124681111</div>
+                        <div class="col-xs-4">wanglihong13124681111@hotmail.com</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-2"><span class="radio"></span>周一围</div>
+                        <div class="col-xs-2">演员</div>
+                        <div class="col-xs-2">2013121201234</div>
+                        <div class="col-xs-2 phone" phone-num=3>13124681111\\13124681111\13124681111</div>
+                        <div class="col-xs-4">zhouyiwei13124681111@hotmail.com</div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+    <script type="text/javascript" src="../../content/common/js/common.js"></script>
+    <script type="text/javascript" src="../../content/plugin/ztree/js/my-ztree.js"></script>
 </body>
-<script type="text/javascript" src="../content/common/js/index.js"></script>
 </html>

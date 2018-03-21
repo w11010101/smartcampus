@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>管理中心-通讯录-未激活</title>
+    <link rel="stylesheet" type="text/css" href="../../content/plugin/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="../../content/common/css/common.css">
+    <link rel="stylesheet" type="text/css" href="../../content/module/maillist/maillist.css">
+    <!-- ztree css -->
+    <link rel="stylesheet" type="text/css" href="../../content/plugin/ztree/css/zTreeStyle.css">
+    <link rel="stylesheet" type="text/css" href="../../content/plugin/ztree/css/my-zTreeStyle.css">
+
+    <!-- js -->
+    <script type="text/javascript" src="../../content/plugin/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="../../content/plugin/bootstrap/js/bootstrap.min.js"></script>
+    <!-- ztree js -->
+    <script type="text/javascript" src="../../content/plugin/ztree/js/jquery.ztree.core.min.js"></script>
+
+    
+</head>
+
+<body>
+    <header>
+        <div class="header-content">
+            <a href="../index.html">
+                <div class="logo">
+                    <img src="../../content/common/img/logo.png">
+                    <span>快享管理中心</span>
+                </div>
+                <nav>
+                    <ul>
+                        <li class='active'><a href="maillist/maillist.html">通讯录</a></li>
+                        <li><a>企业数据</a></li>
+                        <li><a>标签管理</a></li>
+                        <li><a>运营为管理</a></li>
+                        <li><a>设置</a></li>
+                    </ul>
+                </nav>
+            </a>
+        </div>
+    </header>
+    <!-- container -->
+    <div class="container">
+        <!-- left -->
+        <div class="container-left container-nav">
+            <!-- tab -->
+            <div class="style-box">
+                <ul id="myTab" class="nav nav-tabs">
+                    <li class="active"><a href="#tab1" data-toggle="tab">组织架构</a></li>
+                    <li><a href="#tab2" data-toggle="tab">角色管理</a></li>
+                </ul>
+            </div>
+            <!-- tab content -->
+            <div id="myTabContent" class="tab-content">
+                <div class="tab-pane fade in active" id="tab1">
+                    <form>
+                        <input type="search" name="" placeholder="搜索">    
+                    </form>
+                    <ul id="treeDemo" class="ztree showIcon"></ul>
+                    <p class="person-sum">共162人</p>
+                </div>
+                <div class="tab-pane fade" id="tab2">
+                    <p>iOS 是一个由苹果公司开发和发布的手机操作系统。最初是于 2007 年首次发布 iPhone、iPod Touch 和 Apple 
+                        TV。iOS 派生自 OS X，它们共享 Darwin 基础。OS X 操作系统是用在苹果电脑上，iOS 是苹果的移动版本。</p>
+                </div>
+            </div>
+        </div>
+        <!-- right -->
+        <div class="container-right container-box">
+            <div class="console">
+                <a href="maillist.html" class="back-page">返回</a>
+                <!-- table -->
+                <div class="table-container">
+                    <div class="row table-header">
+                        <div class="col-xs-2"><span class="radio all" selectType=false></span>姓名</div>
+                        <div class="col-xs-2">职位</div>
+                        <div class="col-xs-2">工号</div>
+                        <div class="col-xs-2">手机号</div>
+                        <div class="col-xs-4">邮箱</div>
+                    </div>
+                    <!-- <div class="row table-tips">
+                        <div class="col-xs-12">无更多信息</div>
+                    </div> -->
+                    <div class="row">
+                        <div class="col-xs-2"><span class="radio"></span>雷佳音</div>
+                        <div class="col-xs-2">演员</div>
+                        <div class="col-xs-2">2013121201234</div>
+                        <div class="col-xs-2 phone" phone-num=1>13124681111</div>
+                        <div class="col-xs-4">leijiayin13124681111@hotmail.com</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-2"><span class="radio"></span>王力宏</div>
+                        <div class="col-xs-2">歌手</div>
+                        <div class="col-xs-2">2013121201234</div>
+                        <div class="col-xs-2 phone" phone-num=2>13124681111\13124681111</div>
+                        <div class="col-xs-4">wanglihong13124681111@hotmail.com</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-2"><span class="radio"></span>周一围</div>
+                        <div class="col-xs-2">演员</div>
+                        <div class="col-xs-2">2013121201234</div>
+                        <div class="col-xs-2 phone" phone-num=3>13124681111\\13124681111\13124681111</div>
+                        <div class="col-xs-4">zhouyiwei13124681111@hotmail.com</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-2"><span class="radio"></span>雷佳音</div>
+                        <div class="col-xs-2">演员</div>
+                        <div class="col-xs-2">2013121201234</div>
+                        <div class="col-xs-2 phone" phone-num=1>13124681111</div>
+                        <div class="col-xs-4">leijiayin13124681111@hotmail.com</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-2"><span class="radio"></span>王力宏</div>
+                        <div class="col-xs-2">歌手</div>
+                        <div class="col-xs-2">2013121201234</div>
+                        <div class="col-xs-2 phone" phone-num=2>13124681111\13124681111</div>
+                        <div class="col-xs-4">wanglihong13124681111@hotmail.com</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-2"><span class="radio"></span>周一围</div>
+                        <div class="col-xs-2">演员</div>
+                        <div class="col-xs-2">2013121201234</div>
+                        <div class="col-xs-2 phone" phone-num=3>13124681111\\13124681111\13124681111</div>
+                        <div class="col-xs-4">zhouyiwei13124681111@hotmail.com</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-2"><span class="radio"></span>雷佳音</div>
+                        <div class="col-xs-2">演员</div>
+                        <div class="col-xs-2">2013121201234</div>
+                        <div class="col-xs-2 phone" phone-num=1>13124681111</div>
+                        <div class="col-xs-4">leijiayin13124681111@hotmail.com</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-2"><span class="radio"></span>王力宏</div>
+                        <div class="col-xs-2">歌手</div>
+                        <div class="col-xs-2">2013121201234</div>
+                        <div class="col-xs-2 phone" phone-num=2>13124681111\13124681111</div>
+                        <div class="col-xs-4">wanglihong13124681111@hotmail.com</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-2"><span class="radio"></span>周一围</div>
+                        <div class="col-xs-2">演员</div>
+                        <div class="col-xs-2">2013121201234</div>
+                        <div class="col-xs-2 phone" phone-num=3>13124681111\\13124681111\13124681111</div>
+                        <div class="col-xs-4">zhouyiwei13124681111@hotmail.com</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-2"><span class="radio"></span>雷佳音</div>
+                        <div class="col-xs-2">演员</div>
+                        <div class="col-xs-2">2013121201234</div>
+                        <div class="col-xs-2 phone" phone-num=1>13124681111</div>
+                        <div class="col-xs-4">leijiayin13124681111@hotmail.com</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-2"><span class="radio"></span>王力宏</div>
+                        <div class="col-xs-2">歌手</div>
+                        <div class="col-xs-2">2013121201234</div>
+                        <div class="col-xs-2 phone" phone-num=2>13124681111\13124681111</div>
+                        <div class="col-xs-4">wanglihong13124681111@hotmail.com</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-2"><span class="radio"></span>周一围</div>
+                        <div class="col-xs-2">演员</div>
+                        <div class="col-xs-2">2013121201234</div>
+                        <div class="col-xs-2 phone" phone-num=3>13124681111\\13124681111\13124681111</div>
+                        <div class="col-xs-4">zhouyiwei13124681111@hotmail.com</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-2"><span class="radio"></span>雷佳音</div>
+                        <div class="col-xs-2">演员</div>
+                        <div class="col-xs-2">2013121201234</div>
+                        <div class="col-xs-2 phone" phone-num=1>13124681111</div>
+                        <div class="col-xs-4">leijiayin13124681111@hotmail.com</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-2"><span class="radio"></span>王力宏</div>
+                        <div class="col-xs-2">歌手</div>
+                        <div class="col-xs-2">2013121201234</div>
+                        <div class="col-xs-2 phone" phone-num=2>13124681111\13124681111</div>
+                        <div class="col-xs-4">wanglihong13124681111@hotmail.com</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-2"><span class="radio"></span>周一围</div>
+                        <div class="col-xs-2">演员</div>
+                        <div class="col-xs-2">2013121201234</div>
+                        <div class="col-xs-2 phone" phone-num=3>13124681111\\13124681111\13124681111</div>
+                        <div class="col-xs-4">zhouyiwei13124681111@hotmail.com</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-2"><span class="radio"></span>雷佳音</div>
+                        <div class="col-xs-2">演员</div>
+                        <div class="col-xs-2">2013121201234</div>
+                        <div class="col-xs-2 phone" phone-num=1>13124681111</div>
+                        <div class="col-xs-4">leijiayin13124681111@hotmail.com</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-2"><span class="radio"></span>王力宏</div>
+                        <div class="col-xs-2">歌手</div>
+                        <div class="col-xs-2">2013121201234</div>
+                        <div class="col-xs-2 phone" phone-num=2>13124681111\13124681111</div>
+                        <div class="col-xs-4">wanglihong13124681111@hotmail.com</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-2"><span class="radio"></span>周一围</div>
+                        <div class="col-xs-2">演员</div>
+                        <div class="col-xs-2">2013121201234</div>
+                        <div class="col-xs-2 phone" phone-num=3>13124681111\\13124681111\13124681111</div>
+                        <div class="col-xs-4">zhouyiwei13124681111@hotmail.com</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="../../content/common/js/common.js"></script>
+    <script type="text/javascript" src="../../content/plugin/ztree/js/my-ztree.js"></script>
+</body>
+</html>

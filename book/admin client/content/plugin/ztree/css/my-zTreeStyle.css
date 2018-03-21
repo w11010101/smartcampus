@@ -1,6 +1,6 @@
 .ztree{
     padding:0;
-   
+    margin-top: 20px;
 }
 .ztree * {
     font-size: 14px;
@@ -26,8 +26,7 @@
     text-decoration: none;
 }
 .ztree li li {
-    padding-left: 0;
-    margin-left: 40px;
+    margin-left: 50px;
 }
 .ztree li li a{
     padding-left: 0;
@@ -54,24 +53,15 @@
     transition: all .2s ease;
     -webkit-transition: all .2s ease;
 }
-.ztree li span.button.switch {
-    width: 20px;
-    height: 20px;
-}
+
 .ztree li a.level0 span {
     font-size:14px;
     padding-left:5px;
 }
 .ztree li span.button {
-    background: url("../../common/img/jinru@3x.png");
+    background: url("../../../common/img/jinru.png")  no-repeat center;
     background-size: 20px;
     margin-right: 10px;
-    vertical-align: middle;
-}
-.ztree li span.button.ico_docu{
-    width: 30px;
-    height:30px;
-    background-size: 30px!important;
     vertical-align: middle;
 }
 .ztree li span.button.switch.level0 {
@@ -82,17 +72,7 @@
     width: 20px;
     height: 20px;
 }
-.ztree li span.button.noline_docu.level1,
-/*.ztree li .level0 .ico_close,*/
-/*.ztree li .level1 .ico_close,*/
-/*.ztree li .level0 .ico_open,*/
-/*.ztree li .level2 .noline_docu,
-.ztree li .level3 .noline_docu,
-.ztree li .level4 .noline_docu*/
-.ztree li [class *='level'] .noline_docu,
-.ztree li [class *='level'] .ico_close,
-.ztree li [class *='level'] .ico_open
-{
+.ztree li [id *='_ico'].button{
     display: none;
     
 }
@@ -121,3 +101,11 @@
 .ztree li span.button.noline_close.level0 {
     background-position: center;
 }
+.ztree li[class*=level] > a:hover
+/*.ztree li[class*=level]:hover > a*/
+{
+    background: #f9f9f9
+}
+/*.ztree li[id*=treeDemo].active >a{
+    background: #f9f9f9
+}*/

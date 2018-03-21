@@ -4,9 +4,9 @@
  * Tempest
  * v 1.0.0
  */
-html .content *{
+html  *{
     font-size:16px;
-    max-width:100%;
+    /*max-width:100%;*/
     padding:0;
     margin:0;
     list-style:none;
@@ -107,9 +107,7 @@ button:focus {
     outline: none;
     border: 1px solid #3f9dd0;
 }
-::-webkit-scrollbar {
-    /*display: none*/
-}
+
 
 /*自适应样式*/
 
@@ -141,7 +139,9 @@ aside .comment-state .comment-state-reply-btn:hover,
 .popupBox label:hover,
 .popupBox ul li .del,
 .level-catalog ul li:hover,
-.level-catalog h3.back{
+.level-catalog h3.back,
+.popupBox h2 button:hover,
+.header-add-btn button{
     cursor: pointer;
 }
 
@@ -155,23 +155,9 @@ aside .comment-state .comment-state-reply-btn:hover,
     background: #eaeaea;
 }
 ::-webkit-scrollbar-track {
-
     background-color: none;
 }
-/*.popupBox ul::-webkit-scrollbar {
-    width: 3px;
-    height: 1px;
-}
-.popupBox ul::-webkit-scrollbar-thumb {
-    border-radius: 0px;
-    -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0);
-    background: #eaeaea;
-}
-.popupBox ul::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 0px rgba(0, 0, 0, 0);
-    border-radius: 0px;
-    background: none;
-}*/
+
 /*
  * 页面header
  */
@@ -180,7 +166,6 @@ header {
     position: fixed;
     width: 100%;
     height: 60px;
-    overflow: hidden;
     top: 0;
     left: 0;
     background: #fff;
@@ -237,7 +222,9 @@ aside h2,
 .popupBox h3,
 .popupBox .list-title h1,
 .level-catalog h3,
-.share-notice .notice-title{
+.share-notice .notice-title,
+.popup-box h3,
+.header-add-btn .popup-box >button{
     font-family: 'PingFangSC-Semibold', 'Microsoft YaHei', helvetica, sans-serif;
 }
 .header-tools .header-search-btn input,
@@ -255,7 +242,11 @@ aside h2,
 aside .comment li .comment-state form a,
 .popupBox .sendBtn,
 .share-notice .part h3,
-.share-notice .list li >p{
+.share-notice .list li >p,
+.popup-box h3 span,
+.header-tools .popup-box h3 span a,
+.header-add-input-btn input[type=text],
+.header-add-btn .popup-box > button em{
     font-family: 'PingFangSC-Regular', 'Microsoft YaHei', helvetica, sans-serif;
 }
 .list li .list-source p,
@@ -265,7 +256,8 @@ aside .comment li .comment-state,
 .popupBox .font-statis,
 .person-sum,
 .level-catalog h3 em,
-.ztree li a.level0 span{
+.ztree li a.level0 span,
+.header-add-input-btn button{
     font-family: 'PingFang-Light', 'Microsoft YaHei', helvetica, sans-serif;
 }
 .content {
@@ -299,18 +291,23 @@ aside .comment li .comment-state,
 .header-tools>[class*=header-] a {
     display: block;
     min-width: 32px;
-    text-align: center;
+    /*text-align: center;*/
     border: 0;
     background: #fff;
     height: 60px;
     line-height: 60px;
     color: #333333;
+    font-size: 0;
 }
 .header-tools>[class*=header-] a.active {
     border-bottom: 4px solid #27b3cb;
     color: #27b3cb;
+    
 }
-
+.header-tools .header-collcetion-btn a,
+.header-tools .header-recommend-btn a{
+    font-size: 16px;
+}
 .header-tools .header-search-btn {
     width: 330px;
     height: 37px;
@@ -319,11 +316,15 @@ aside .comment li .comment-state,
     font-size: 0;
     margin-right: 0;
 }
+.collect .header-tools .header-search-btn {
+    display: none;
+}
+
 .header-tools .header-search-btn input {
     display: inline-block;
-    -webkit-width: calc(100% - 67px);
-    -moz-width: calc(100% - 67px);
-    width: calc(100% - 67px);
+    -webkit-width: calc(100% - 37px);
+    -moz-width: calc(100% - 37px);
+    width: calc(100% - 37px);
     height: inherit;
     border: 0;
     background: none;
@@ -341,7 +342,7 @@ aside .comment li .comment-state,
     position: relative;
     border: 0;
 }
-.header-tools .header-search-btn button:before {
+.collect .header-tools .header-search-btn button:before {
     position: absolute;
     content: " ";
     width: 18px;
@@ -352,7 +353,7 @@ aside .comment li .comment-state,
     margin-top: -1px;
     margin-left: -9px;
 }
-.header-tools .header-search-btn button:after {
+.collect .header-tools .header-search-btn button:after {
     position: absolute;
     content: " ";
     margin-top: -9px;
@@ -361,14 +362,14 @@ aside .comment li .comment-state,
     height: 18px;
     background: #cbcbcb;
 }
-.header-tools .header-search-btn button.active {
+.collect .header-tools .header-search-btn button.active {
     background: #27b3cb;
 }
-.header-tools .header-search-btn button.active:before,
-.header-tools .header-search-btn button.active:after {
+.collect .header-tools .header-search-btn button.active:before,
+.collect .header-tools .header-search-btn button.active:after {
     background: #fff;
 }
-.header-tools .header-search-btn button.active:after {
+.collect .header-tools .header-search-btn button.active:after {
     position: absolute;
     content: " ";
     margin-top: -9px;
@@ -376,6 +377,15 @@ aside .comment li .comment-state,
     width: 2px;
     height: 18px;
     background: #fff;
+}
+.share .header-tools .header-search-btn button[disabled]{
+    background:url(../img/search.png) no-repeat center;
+    background-size: 22px;
+}
+.share .header-tools .header-search-btn button,
+.share .header-tools .header-search-btn button.active{
+    background:url(../img/search-1.png) no-repeat center #27b3cb;
+    background-size: 22px;
 }
 .header-tools .header-right {
     float: right;
@@ -413,6 +423,7 @@ aside .comment li .comment-state,
     margin-right: 30px;
     display: inline-block;
     vertical-align: middle;
+    position: relative;
 }
 .header-tools .header-right .header-info {
     margin: 0;
@@ -421,6 +432,13 @@ aside .comment li .comment-state,
     background-size: 20px;
 }
 .header-tools .header-maillist-btn {}
+.header-tools .header-add-btn > a{
+    background: url(../img/add.png) no-repeat center;
+    background-size: 20px;
+}
+.share .header-tools .header-add-btn{
+    display: none;
+}
 .header-tools .header-maillist-btn a {
     background: url(../img/tongxunlu@2x.png) no-repeat center;
     background-size: 20px;
@@ -438,12 +456,140 @@ aside .comment li .comment-state,
     right: 3px;
     border-radius: 50%;
 }
-.header-tools .header-message-btn a {
+.header-tools .header-message-btn > a {
     background: url(../img/tongzhi-weixuan@2x.png) no-repeat center;
     background-size: 20px;
 }
-
-
+.popup-box{
+    position: absolute;
+    z-index: 2;
+    top:65px;
+    left:50%;
+    width: 330px;
+    height: 200px;
+    margin-left: -165px;
+    background:#fff;
+    box-shadow: 2px 2px 5px rgba(0,0,0,.1);
+    display: none;
+}
+.header-message-btn .popup-box{
+    height: auto;
+    max-height: 500px;
+    padding-bottom: 45px;
+}
+.popup-box:before{
+    content:" ";
+    width: 16px;
+    height: 16px;
+    background:#fff;
+    transform: rotateZ(-135deg);
+    -webkit-transform:rotateZ(-135deg);
+    box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.1);
+    position: absolute;
+    top:-8px;
+    left:50%;
+    z-index: -1;
+    margin-left:-8px;
+}
+.popup-box h3{
+    height: 44px;
+    line-height: 44px;
+    padding: 0 20px;
+    font-size: 14px;
+    
+}
+.popup-box h3 span{
+    font-size: 12px;
+    color:#999;
+    float:right;
+    line-height: 44px;
+}
+.header-tools .popup-box h3 span a{
+    font-size: 12px;
+    display: inline-block;
+    color:#27b3cb;
+    padding-left: 10px;
+    height: 44px;
+    line-height: 44px;
+}
+.header-add-input-btn{
+    text-align: center;
+    font-size: 0;
+    height: 40px;
+    line-height: 40px;
+    margin-bottom: 20px;
+}
+.header-add-input-btn input[type=text]{
+    display: inline-block;
+    width: 210px;
+    border:0;
+    background:#f9f9f9;
+    height: 40px;
+    font-size: 14px;
+    padding: 0 14px;
+}
+.header-add-input-btn input[type=text]::placeholder{
+    color:#999999;
+}
+.header-add-input-btn button{
+    width: 80px;
+    height: 40px;
+    border:0;
+    vertical-align: top;
+    background: #27b3cb;
+    color:#fff;
+    font-size: 14px;
+}
+/*.header-add-btn:hover .popup-box{
+    display: block;
+}*/
+.header-add-btn .popup-box > button{
+    display: block;
+    width: 100%;
+    height: 44px;
+    border:0;
+    line-height: 44px;
+    background:none;
+    font-size: 14px;
+    border-top:1px solid #e6e6e6;
+    text-align: left;
+    padding-left: 20px;
+}
+.header-add-btn .popup-box > button em{
+    font-size:12px;
+    color:#999;
+}
+.header-message-btn .popup-box .list{
+    max-height:450px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding: 20px;
+}
+.popup-box .list li{
+    width: 100%;
+    height: auto;
+    margin:0;
+    border:0;
+    padding: 0;
+    border-bottom: 1px solid #e6e6e6;
+    margin-bottom: 15px;
+}
+.popup-box .list li a{
+    height: auto;
+}
+.popup-box .list li a .list-header *{
+    vertical-align: top;
+}
+.header-tools .popup-box .inform{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 44px;
+    line-height: 44px;
+    font-size: 14px;
+    text-align: center;
+    border-top:1px solid #e6e6e6;
+}
 /* 收藏 */
 
 .content {
@@ -560,83 +706,6 @@ aside .comment li .comment-state,
     margin-left: 4px;
 }
 
-/* prop */
-
-.prop {
-    position: absolute;
-    z-index: 100;
-    padding-top: 8px;
-    right: -12px;
-    top: -8px;
-    display: none;
-}
-.prop:before {
-    position: absolute;
-    z-index: 1;
-    content: " ";
-    top: 0;
-    left: 50%;
-    width: 14px;
-    height: 14px;
-    transform: rotateZ(45deg);
-    -webkit-transform: rotateZ(45deg);
-    background: #FFF;
-    box-shadow: -3px -3px 6px 0 rgba(0, 0, 0, .1);
-}
-.prop-content {
-    padding: 20px;
-    width: 330px;
-    max-height: 500px;
-    
-    background: #fff;
-    box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.1);
-    position: relative;
-}
-.prop-content .list{
-	padding-bottom: 20px;
-	max-height: 460px;
-	overflow-y: scroll;
-} 
-
-.prop-content .list li {
-    width: 100%;
-    height: auto;
-    border: 0;
-    margin: 0;
-    padding: 0;
-    margin-bottom: 15px;
-}
-
-.prop-content .list li:hover {}
-.prop-content .list li a {
-    display: block;
-    border-bottom: 1px solid #e6e6e6;
-}
-.prop-content .list li:last-child a{
-	border:0;
-}
-.prop-content .list li .list-header {
-    margin-bottom: 0;
-}
-.prop-content .list li .list-word {
-    padding-left: 40px;
-}
-.prop-content .inform {
-    display: block;
-    width: 100%;
-    height: 44px;
-    line-height: 44px;
-    font-size: 14px;
-    color: #333;
-    text-align: center;
-    position: absolute;
-    bottom: 0;
-    left:0;
-    z-index: 1;
-    background: #fff;
-    border-top: 1px solid #e6e6e6;
-}
-
 
 /* 侧边栏 */
 
@@ -647,7 +716,7 @@ aside {
     top: 60px;
     right: 0;
     background: #fff;
-    padding: 22px 20px;
+    padding: 22px 0;
     z-index: 999;
     overflow-y: scroll;
     transform: translateX(100%);
@@ -657,6 +726,11 @@ aside {
 
     /*display: none;*/
 }
+@-moz-document url-prefix() { 
+    aside {
+        width: 365px;
+    }
+}
 aside.show{
 	transform: translateX(0);
     -webkit-transform: translateX(0);
@@ -664,6 +738,7 @@ aside.show{
 aside h2 {
     font-size: 16px;
     color: #333;
+    padding: 0 20px;
 }
 aside h2 button,
 .popupBox h2 button {
@@ -679,13 +754,16 @@ aside h2 button,
     transition: all .2s ease-in;
     -webkit-transition: all .2s ease-in;
 }
-aside h2 button:hover {
+aside h2 button:hover,
+.popupBox h2 button:hover{
     transform: rotateZ(90deg);
     -webkit-transform: rotateZ(90deg);
 }
 aside form {
     font-size: 0px;
     margin-top: 24px;
+    padding: 0 20px;
+
 }
 aside form input[type=text],
 aside form input[type=search] {
@@ -898,20 +976,16 @@ aside .comment li .comment-state a {
     margin-right: 5px;
     overflow-y: auto;
 }
-.popupBox ul::-webkit-scrollbar {
+/*.popupBox ul::-webkit-scrollbar {
     width: 3px;
     height: 1px;
 }
 .popupBox ul::-webkit-scrollbar-thumb {
-    border-radius: 0px;
-    -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0);
     background: #eaeaea;
 }
 .popupBox ul::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 0px rgba(0, 0, 0, 0);
-    border-radius: 0px;
     background: none;
-}
+}*/
 .popupBox ul li {
     display: inline-block;
     width: 30px;
@@ -999,15 +1073,14 @@ aside .comment li .comment-state a {
 }
 /* level-catalog */
 .level-catalog{
-	height: calc(100vh - 210px);
+	height: calc(100vh - 160px);
 	position: relative;
+    overflow-x: hidden;
 }
 
 .level-catalog h3 {
 	font-size: 14px;
 	margin-top: 22px;
-	margin-left: -20px;
-	margin-right: -20px;
 	height: 42px;
 	line-height: 20px;
 
@@ -1031,7 +1104,10 @@ aside .comment li .comment-state a {
 	transition: all .3s ease;
     -webkit-transition: all .3s ease;
 }
+.level-catalog ul {
 
+    padding: 0 20px;
+}
 .level-catalog ul li{
 	height: 60px;
 	line-height: 60px;
@@ -1081,7 +1157,7 @@ aside .comment li .comment-state a {
 }
 [class*=level-sub]{
 	position: absolute;
-	top:43px;
+	top:65px;
 	width: 100%;
 	background: #fff;
 	transform: translateX(150%);

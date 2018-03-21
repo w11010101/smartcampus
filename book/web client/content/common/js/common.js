@@ -10,42 +10,51 @@
 
     }
     win.local = new setlocal();
-    // 添加收藏 ================================================================
-    // 
+    // 收藏页面的 添加按钮 ================================================================
+    var add = $(".header-right > div");
+    add.on("click",function () {
+        if($(".popup-box",this)){
+            $(this).siblings().find(".popup-box").fadeOut(200).removeClass('show');
+            $(".popup-box",this).fadeIn(200).addClass('show');
+        }
+    });
+
+    // 推荐页面的 搜索按钮 ================================================================
+
     var content = $(".content");
     var input = $(".header-search-btn input");
-    var collcetionBtn = $(".header-search-btn button");
+    var searchBtn = $(".header-search-btn button");
     var list = $(".list");
     input.on("input", function() {
         if (this.value.length > 0) {
-            collcetionBtn.addClass("active").attr("disabled", false);
+            searchBtn.addClass("active").attr("disabled", false);
         } else {
-            collcetionBtn.removeClass("active").attr("disabled", true);
+            searchBtn.removeClass("active").attr("disabled", true);
         }
     });
-    // 加号按钮的点击事件
-    collcetionBtn.on("click", function(argument) {
+    // 推荐页面的 搜索按钮 点击事件
+    searchBtn.on("click", function(argument) {
         console.log("添加收藏！！！");
-        list.prepend(collcetionHtml());
+        // list.prepend(collcetionHtml());
         input.val("");
-        collcetionBtn.removeClass("active").attr("disabled", true);
+        searchBtn.removeClass("active").attr("disabled", true);
     });
     // 要插入的列表dom结构
-    function collcetionHtml(data) {
-        return '<li><a href="article.html">\
-        <div class="list-title">\
-            <h1>腾讯金融学院成立，致力成为培养互联网与金融11111111111</h1>\
-            <img src="../../content/collection/img/inset.png" alt="">\
-        </div><div class="list-source">\
-            <img src="../../content/common/img/Bitmap@2x.png" alt="">\
-            <p>微信</p>\
-            <em>刚刚</em>\
-            <i>互联网</i>\
-            <div class="tool">\
-                <button class="collection-btn"></button>\
-                <button class="share-btn"></button>\
-            </div></div></a></li>';
-    }
+    // function collcetionHtml(data) {
+    //     return '<li><a href="article.html">\
+    //     <div class="list-title">\
+    //         <h1>腾讯金融学院成立，致力成为培养互联网与金融11111111111</h1>\
+    //         <img src="../../content/collection/img/inset.png" alt="">\
+    //     </div><div class="list-source">\
+    //         <img src="../../content/common/img/Bitmap@2x.png" alt="">\
+    //         <p>微信</p>\
+    //         <em>刚刚</em>\
+    //         <i>互联网</i>\
+    //         <div class="tool">\
+    //             <button class="collection-btn"></button>\
+    //             <button class="share-btn"></button>\
+    //         </div></div></a></li>';
+    // }
     // 分类选择 ================================================================
     // 
     var classArr = [{ title: "汽车", num: 2 }, { title: "新闻", num: 10 }, { title: "视频", num: 17 }, { title: "互联网", num: 8 }, { title: "人工智能", num: 5 }, { title: "消费升级", num: 7 }, { title: "娱乐", num: 30 }, { title: "体育", num: 15 }];
@@ -82,7 +91,7 @@
     $(".header-maillist-btn").on("click", function() {
         createAside({
             label: "新中新集团",
-            formType: "sreach",
+            formType: "search",
             listType: "list",
             isHas:$("aside").length?true:false
         });
@@ -90,45 +99,40 @@
     // 通知提示框 ================================================================
 
     $(".header-message-btn").on("click", function() {
-        createProp();
+        // createProp();
     });
 
-    function createProp() {
-        var container = `<div class="prop">
-                    <div class="prop-content">
-                        <ul class="list">
-                        </ul>
-                        <!--  -->
-                        <a href="share-notice.html" class="inform">查看全部通知</a>
-                    </div>
-                </div>`;
-        var li = `<li>
-                <a href="#n">
-                    <div class="list-header">
-                        <img src="../../content/common/img/header.png">
-                        <em>周红</em>
-                        <p>推荐给战略文章集等推荐给战略文章集等</p>
-                        <i>刚刚</i>
-                    </div>
-                    <p class="list-word">天气一天比一天冷，穿什么更时髦讲真我们已经没那么care了。要知道，最近oversize毛衣已经成为编辑部出勤率最高的员工了。</p>
-                </a>
-            </li>`;
+    // function createProp() {
+    //     var container = `<div class="prop">
+    //                 <div class="prop-content">
+    //                     <ul class="list">
+    //                     </ul>
+    //                     <!--  -->
+    //                     <a href="share-notice.html" class="inform">查看全部通知</a>
+    //                 </div>
+    //             </div>`;
+    //     var li = `<li>
+    //             <a href="#n">
+    //                 <div class="list-header">
+    //                     <img src="../../content/common/img/header.png">
+    //                     <em>周红</em>
+    //                     <p>推荐给战略文章集等推荐给战略文章集等</p>
+    //                     <i>刚刚</i>
+    //                 </div>
+    //                 <p class="list-word">天气一天比一天冷，穿什么更时髦讲真我们已经没那么care了。要知道，最近oversize毛衣已经成为编辑部出勤率最高的员工了。</p>
+    //             </a>
+    //         </li>`;
 
-        if (true) {
-            content.append(container);
-            var prop = $(".prop");
-            prop.show(0).css("z-index", 1001);
-            var ul = $(".prop .list");
-            ul.append(li);
-        }
+    //     if (!$(".prop").length) {
+    //         content.append(container);
+    //         var prop = $(".prop");
+    //         prop.show(0).css("z-index", 1001);
+    //         var ul = $(".prop .list");
+    //         ul.append(li);
+    //     }
 
-        // 隐藏 prop
-        $("body").on("click", function(event) {
-            if ($(event.target).parents(".prop").length <= 0 && $(event.target).parents(".header-message-btn").length <= 0) {
-                prop.remove();
-            }
-        });
-    }
+        
+    // }
     
     
     // 创建侧边栏 ================================================================
@@ -189,9 +193,9 @@
                     <input type="search" name="" placeholder="写下你的评论...">
                     <button>搜索</button>`;
                 break;
-            case "sreach":
+            case "search":
                 return `<form action="">
-                    <input type="text" name="" placeholder="搜索关键字">
+                    <input type="text" name="" placeholder="搜索联系人">
                     <input type="submit" name="" value="搜索">
                 </form>`;
                 break;
@@ -254,8 +258,8 @@
     // 添加推荐人
     $("body").on("click",".popupBox .add",function(){
         createAside({
-            label: "评论",
-            formType: "sreach",
+            label: "选择推荐人",
+            formType: "search",
             listType: "level",
             isHas:$("aside").length?true:false
         });
@@ -326,7 +330,7 @@
                 levelName:$(this).text(),
                 subtitle:"副标题副标题"+levelIndex
             });
-
+            
             setTimeout(()=>{
                 if(levelIndex <= 1){
                     $('.level-parent').addClass("hide");
@@ -342,18 +346,25 @@
 
             $('.level-catalog h3').html(levelList[levelIndex-1].levelName+' <em>'+levelList[levelIndex-1].subtitle+'</em>').addClass("back");
         });
+        // 返回上一级
+        // 
         $("body").on("click","h3.back",function (argument) {
             levelIndex--;
             levelOldIndex--;
-            console.log(levelList)
-            $(".level-sub-"+levelOldIndex).removeClass("hide");
-            $(".level-sub-"+levelIndex).remove();
-            $('.level-catalog h3').html(levelList[levelOldIndex-1].levelName+' <em>'+levelList[levelOldIndex-1].subtitle+'</em>').addClass("back");
-            if(levelOldIndex-1 == 0){
-                $(this).removeClass("back");
+            if(levelOldIndex == 0){
+                $("h3.back").removeClass("back");
+                $(".level-parent").removeClass("hide");
+            }else{
+                $(".level-sub-"+levelOldIndex).removeClass("hide");
+                
             }
-
-
+            $(".level-sub-"+levelIndex).remove();
+            levelList.splice(levelList.length-1);
+            var last = levelList.length-1;
+            if(last >= 0){
+                $('.level-catalog h3').html(levelList[last].levelName+' <em>'+levelList[last].subtitle+'</em>');
+            }
+            
         });
     }
 })(window);
@@ -403,7 +414,19 @@ function makeExpandingArea(container) {
 
 var areas = document.getElementById('textarea');
 makeExpandingArea(areas);
+// 隐藏 prop 、popup
+$("body").on("click", function(event) {
+    console.log($(".prop,.popup-box"));
+    var eventP = $(event.target).parent();
+    if(eventP.hasClass('header-message-btn') || eventP.hasClass('header-add-btn') || $(event.target).parents('.popup-box').hasClass('show')){
 
+    }else{
+        $(".prop,.popup-box").fadeOut(200).removeClass('show');
+    }
+    // if ($(event.target).parents(".prop").length <= 0 && $(event.target).parents(".header-message-btn").length <= 0) {
+        
+    // }
+});
 // function inputFn(obj){
 //     console.log(obj.getAttribute("maxlength"));
 //     console.log($(obj).text())
