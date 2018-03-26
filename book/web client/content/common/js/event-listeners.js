@@ -130,5 +130,12 @@ $("body").on("click",".collapse-container li",function(){
 	$(".collapse-title em").text($(this).text());
 });
 
-// 
-$('.pgwSlideshow').pgwSlideshow();
+// 文件列表 ================================================================
+var pgwSlideshow = null;
+$('body').on("click",".file-list li",function(){
+	$(".pgwSlideshow-fixed-box").fadeIn(200);
+	if(!pgwSlideshow){
+		pgwSlideshow  = $('.pgwSlideshow').pgwSlideshow();
+		pgwSlideshow.displaySlide($(this).index()+1);
+	}
+});

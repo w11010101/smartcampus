@@ -148,7 +148,8 @@ aside .comment-state .comment-state-reply-btn:hover,
 .popupBox .popup-btns button:hover,
 .collection-word .word .video-tool .full-screen:hover,
 .collection-word .word video:hover,
-.collection-word .word .video-tool .playPause:hover{
+.collection-word .word .video-tool .playPause:hover,
+.file-list ul li:hover{
     cursor: pointer;
 }
 
@@ -232,7 +233,8 @@ aside h2,
 .share-notice .notice-title,
 .popup-box h3,
 .header-add-btn .popup-box >button,
-.content .word h2{
+.content .word h2,
+.file-list >h3{
     font-family: 'PingFangSC-Semibold', 'Microsoft YaHei', helvetica, sans-serif;
 }
 .header-tools .header-search-btn input,
@@ -258,7 +260,8 @@ aside .comment li .comment-state form a,
 .popupBox .collapse-title,
 .content .word p,
 .popupBox .popup-btns button,
-.collection-word .word .video-tool .progress-bar span{
+.collection-word .word .video-tool .progress-bar span,
+.file-list ul li em{
     font-family: 'PingFangSC-Regular', 'Microsoft YaHei', helvetica, sans-serif;
 }
 .list li .list-source p,
@@ -299,6 +302,8 @@ aside .comment li .comment-state,
     height: inherit;
     vertical-align: top;
     margin-right: 50px;
+    height: 59px;
+    overflow: hidden;
 }
 .header-tools>[class*=header-] a {
     display: block;
