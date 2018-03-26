@@ -1,0 +1,189 @@
+/* 视频文件 */
+.video{
+    text-align: center;
+    position: relative;
+    width:600px;
+    height: 340px;
+    margin: 0 auto;
+}
+video{
+    position: absolute;
+    width: 100%;
+    height:100%;
+    top:0;
+    left:50%;
+    margin-left: -300px;
+}
+
+video::-webkit-media-controls,
+video::-moz-media-controls,
+video::-webkit-media-controls-enclosure{
+    display:none !important;
+}
+
+video::-webkit-media-controls-panel,
+video::-webkit-media-controls-panel-container,
+video::-webkit-media-controls-start-playback-button {
+    display:none !important;
+    -webkit-appearance: none;
+}
+.video-tool{
+    position: absolute;
+    width:100%;
+    height: 100%;
+    top:50%;
+    left:50%;
+    z-index: 2147483647;
+    transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%,-50%);
+}
+.video-tool .playPause{
+    width: 45px;
+    height: 45px;
+    background: url(../../common/img/kaishi@3x.png) no-repeat ;
+    background-size: 45px;
+    border:0;
+    position: absolute;
+    top:50%;
+    left:50%;
+    margin-top: -23px;
+    margin-left: -23px;
+
+}
+.video-tool .playPause.toggle{
+    background: url(../../common/img/zhanting@3x.png) no-repeat ;
+    background-size: 45px;
+}
+.video-tool .video-tool-floot{
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    height: 40px;
+    left:0;
+    bottom: 0;
+    background:rgba(0,0,0,0.6);
+    text-align: left;
+    font-size: 0;
+}
+.video-tool .progress-bar{
+    display: inline-block;
+    width: 560px;
+    height: 40px;
+    line-height: 40px;
+
+}
+.video-tool .progress-bar > *{
+    float:left
+}
+.video-tool .progress-bar span{
+    color:#fff;
+    width: 65px;
+    height: 40px;
+    font-size: 13px;
+    display: inline-block;
+    text-align: center;
+}
+.video-tool .progress-bar .range{
+    width: 430px;
+}
+.video-tool .full-screen{
+    width: 40px;
+    height:40px;
+    border:0;
+    display: inline-block;
+    background: url(../../common/img/quanping@3x.png) no-repeat center;
+    background-size: 15px;
+    vertical-align: top;
+}
+
+.range{
+    height: 1.5px;
+    margin-top: 20px;
+    background: #adadad;
+    position: relative;
+}
+input[type=range] {
+    position: absolute;
+    -webkit-appearance: none;
+    width: 100%;
+    cursor: pointer;
+    border:0;
+    background: -webkit-linear-gradient(#37b9cf, #37b9cf) no-repeat;
+    background-size: 0% 100%;
+}
+input[type=range]:focus{
+    outline: none;
+}
+
+/*range轨道*/
+input[type=range]::-webkit-slider-runnable-track {
+    display: block;
+    width: 500px;
+    height: 1.5px;
+}
+input[type=range]::-moz-range-track {
+    display: block;
+    width: 500px;
+    height: 1.5px;
+}
+input[type=range]::-ms-track {
+    display: block;
+    width: 500px;
+    height: 1.5px;
+}
+/*range中心圆点*/
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 10px;
+    width: 10px;
+    margin-top: -4px; /*使滑块超出轨道部分的偏移量相等*/
+    background: #ffffff; 
+    border-radius: 50%; /*外观设置为圆形*/
+}
+input[type=range]::-moz-range-thumb {
+    -webkit-appearance: none;
+    height: 10px;
+    width: 10px;
+    margin-top: -5px; /*使滑块超出轨道部分的偏移量相等*/
+    background: #ffffff; 
+    border-radius: 50%; /*外观设置为圆形*/
+}
+input[type=range]::-ms-thumb {
+    -webkit-appearance: none;
+    height: 10px;
+    width: 10px;
+    margin-top: -5px; /*使滑块超出轨道部分的偏移量相等*/
+    background: #ffffff; 
+    border-radius: 50%; /*外观设置为圆形*/
+}
+input[type=range]::slider-thumb {
+    -webkit-appearance: none;
+    height: 10px;
+    width: 10px;
+    margin-top: -5px; /*使滑块超出轨道部分的偏移量相等*/
+    background: #ffffff; 
+    border-radius: 50%; /*外观设置为圆形*/
+}
+/*已达进度*/
+input[type=range]::-ms-fill-lower {
+    background-color: #37b9cf;
+}
+/*未达进度*/
+ 
+input[type=range]::-ms-fill-upper {
+    background-color: #adadad;
+}
+ 
+input[type=range]::-ms-ticks-before {
+    display: none;
+}
+input[type=range]::-ms-ticks-after {
+    display: none;
+}
+/*  */
+input[type=range]::-moz-range-progress {
+    background: -webkit-linear-gradient(to right, #37b9cf,  100%, #adadad) no-repeat;
+    /*background: -webkit-linear-gradient(#37b9cf, #37b9cf) no-repeat;*/
+    /*background-size: 0% 100%;*/
+    height: 1.5px;
+}
