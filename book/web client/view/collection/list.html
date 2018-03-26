@@ -1,371 +1,371 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no,text/x-component">
-		<!-- <meta content-type="text/x-component"> -->
-		<title>快享client-收藏</title>
-		<link rel="stylesheet" href="../../content/common/css/listcommon.css" />
-		<link rel="stylesheet" href="../../content/collection/css/collection.css" />
-		<link rel="stylesheet" href="../../content/common/css/zTreeStyle.css" />
-	    <link rel="stylesheet" href="../../content/common/css/my-zTreeStyle.css" />
-	    <!-- js -->
-	    <script type="text/javascript" src="../../content/common/js/jquery.min.js"></script>
-	    <script type="text/javascript" src="../../content/common/js/jquery.ztree.core.min.js"></script>
-	    <script type="text/javascript" src="../../content/common/js/my-ztree.js"></script>
-		<script type="text/javascript" src="../../content/common/js/common.js"></script>
-	</head>
-	<body class="collection">
-		<header>
-			<div class="header header-border">
-					<!-- 搜索 -->
-				<img class="header-login" src="../../content/common/img/logo@2x.png" srcset="../../content/common/img/logo@2x.png 2x,../../content/common/img/logo@3x.png 3x" />
-				<h3 class="header-title header-title-top">快享</h3>
-				<!-- 头部工具 -->
-				<div class="header-tools">
-					<!-- 收藏 -->
-					<div class='header-collcetion-btn'>
-						<a class="active">收藏</a>
-					</div>
-					<!-- 推荐 -->
-					<div class="header-recommend-btn">
-						<a href="share-main.html">推荐</a>
-					</div>
-					<div class="header-search-btn">
-						<input type="text" name="" placeholder="请输入关键字">
-						<button disabled="disabled"></button>
-					</div>
-					<div class="header-right">
-						<!-- 添加 -->
-						<div class="header-add-btn">
-							<a></a>
-							<div class="popup-box">
-								<h3>收藏网页内容 <span>快速收藏请添加<a href="#">浏览器插件</a></span></h3>
-								<div class="header-add-input-btn">
-									<input type="text" name="" placeholder="请输入关键字">
-									<button>保存</button>
-								</div>
-								<button class="upload-file">上传文件</button>
-								<button class="upload-photo" max-length="12">上传照片 <em>12张上限</em></button>
-							</div>
-						</div>
-						<!-- 通讯录 -->
-						<div class="header-maillist-btn">
-							<a></a>
-						</div>
-						<!-- 消息 -->
-						<div class="header-message-btn">
-							<a></a>
-							<em class="message-tips"></em>
-							<div class="popup-box">
-		                        <ul class="list">
-		                        	<li>
-						                <a href="#n">
-						                    <div class="list-header">
-						                        <img src="../../content/common/img/header.png">
-						                        <em>周红</em>
-						                        <p>推荐给战略文章集等推荐给战略文章集等</p>
-						                        <i>刚刚</i>
-						                    </div>
-						                    <p class="list-word">天气一天比一天冷，穿什么更时髦讲真我们已经没那么care了。要知道，最近oversize毛衣已经成为编辑部出勤率最高的员工了。</p>
-						                </a>
-						            </li>
-						            <li>
-						                <a href="#n">
-						                    <div class="list-header">
-						                        <img src="../../content/common/img/header.png">
-						                        <em>周红</em>
-						                        <p>推荐给战略文章集等推荐给战略文章集等</p>
-						                        <i>刚刚</i>
-						                    </div>
-						                    <p class="list-word">天气一天比一天冷，穿什么更时髦讲真我们已经没那么care了。要知道，最近oversize毛衣已经成为编辑部出勤率最高的员工了。</p>
-						                </a>
-						            </li>
-						            <li>
-						                <a href="#n">
-						                    <div class="list-header">
-						                        <img src="../../content/common/img/header.png">
-						                        <em>周红</em>
-						                        <p>推荐给战略文章集等推荐给战略文章集等</p>
-						                        <i>刚刚</i>
-						                    </div>
-						                    <p class="list-word">天气一天比一天冷，穿什么更时髦讲真我们已经没那么care了。要知道，最近oversize毛衣已经成为编辑部出勤率最高的员工了。</p>
-						                </a>
-						            </li>
-						            <li>
-						                <a href="#n">
-						                    <div class="list-header">
-						                        <img src="../../content/common/img/header.png">
-						                        <em>周红</em>
-						                        <p>推荐给战略文章集等推荐给战略文章集等</p>
-						                        <i>刚刚</i>
-						                    </div>
-						                    <p class="list-word">天气一天比一天冷，穿什么更时髦讲真我们已经没那么care了。要知道，最近oversize毛衣已经成为编辑部出勤率最高的员工了。</p>
-						                </a>
-						            </li>
-		                        </ul>
-		                        <a href="share-notice.html" class="inform">查看全部通知</a>
-							</div>
-						</div>
-						<!-- 个人 -->
-						<div class="header-info">
-							<a>
-								<div class="header-info-img">
-									<img src="../../content/common/img/header.png">
-								</div>
-								<p>风清扬</p>
-							</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</header>
-		
-		<!--  -->
-		<div class="content">
-			<!--  -->
-			<div class="select-type">
-				<button>全部分类(22)</button>
-			</div>
-			<!--  -->
-			<ul class="list">
-				<li>
-					<a href="article.html">
-						<div class="list-title">
-							<h1>腾讯金融学院成立，致力成为培养互联网与金融</h1>
-							<img src="../../content/collection/img/inset.png" alt="">
-						</div>
-						<div class="list-source">
-							<img src="../../content/common/img/Bitmap@2x.png" alt="">
-							<p>微信</p>
-							<em>刚刚</em>
-							<i>互联网</i>
-							<div class='tool'>
-								<button class="downLoad-btn"></button>
-								<button class="collection-btn"></button>
-								<button class="share-btn"></button>
-							</div>
-						</div>
-					</a>
-				</li>
-				<li>
-					<a href="article.html">
-						<div class="list-title">
-							<h1>腾讯金融学院成立，致力成为培养互联网与金融</h1>
-							<img src="../../content/collection/img/inset.png" alt="">
-						</div>
-						<div class="list-source">
-							<img src="../../content/common/img/Bitmap@2x.png" alt="">
-							<p>微信</p>
-							<em>刚刚</em>
-							<i>互联网</i>
-							<div class='tool'>
-								<button class="downLoad-btn"></button>
-								<button class="collection-btn"></button>
-								<button class="share-btn"></button>
-							</div>
-						</div>
-					</a>
-				</li>
-				<li>
-					<a href="article.html">
-						<div class="list-title">
-							<h1>腾讯金融学院成立，致力成为培养互联网与金融</h1>
-							<img src="../../content/collection/img/inset.png" alt="">
-						</div>
-						<div class="list-source">
-							<img src="../../content/common/img/Bitmap@2x.png" alt="">
-							<p>微信</p>
-							<em>刚刚</em>
-							<i>互联网</i>
-							<div class='tool'>
-								<button class="downLoad-btn"></button>
-								<button class="collection-btn"></button>
-								<button class="share-btn"></button>
-							</div>
-						</div>
-					</a>
-				</li>
-				<li>
-					<a href="article.html">
-						<div class="list-title">
-							<h1>腾讯金融学院成立，致力成为培养互联网与金融</h1>
-							<img src="../../content/collection/img/inset.png" alt="">
-						</div>
-						<div class="list-source">
-							<img src="../../content/common/img/Bitmap@2x.png" alt="">
-							<p>微信</p>
-							<em>刚刚</em>
-							<i>互联网</i>
-							<div class='tool'>
-								<button class="downLoad-btn"></button>
-								<button class="collection-btn"></button>
-								<button class="share-btn"></button>
-							</div>
-						</div>
-					</a>
-				</li>
-				<li>
-					<a href="article.html">
-						<div class="list-title">
-							<h1>腾讯金融学院成立，致力成为培养互联网与金融</h1>
-							<img src="../../content/collection/img/inset.png" alt="">
-						</div>
-						<div class="list-source">
-							<img src="../../content/common/img/Bitmap@2x.png" alt="">
-							<p>微信</p>
-							<em>刚刚</em>
-							<i>互联网</i>
-							<div class='tool'>
-								<button class="downLoad-btn"></button>
-								<button class="collection-btn"></button>
-								<button class="share-btn"></button>
-							</div>
-						</div>
-					</a>
-				</li>
-				<li>
-					<a href="article.html">
-						<div class="list-title">
-							<h1>腾讯金融学院成立，致力成为培养互联网与金融</h1>
-							<img src="../../content/collection/img/inset.png" alt="">
-						</div>
-						<div class="list-source">
-							<img src="../../content/common/img/Bitmap@2x.png" alt="">
-							<p>微信</p>
-							<em>刚刚</em>
-							<i>互联网</i>
-							<div class='tool'>
-								<button class="downLoad-btn"></button>
-								<button class="collection-btn"></button>
-								<button class="share-btn"></button>
-							</div>
-						</div>
-					</a>
-				</li>
-				<li>
-					<a href="article.html">
-						<div class="list-title">
-							<h1>腾讯金融学院成立，致力成为培养互联网与金融</h1>
-							<img src="../../content/collection/img/inset.png" alt="">
-						</div>
-						<div class="list-source">
-							<img src="../../content/common/img/Bitmap@2x.png" alt="">
-							<p>微信</p>
-							<em>刚刚</em>
-							<i>互联网</i>
-							<div class='tool'>
-								<button class="downLoad-btn"></button>
-								<button class="collection-btn"></button>
-								<button class="share-btn"></button>
-							</div>
-						</div>
-					</a>
-				</li>
-				<li>
-					<a href="article.html">
-						<div class="list-title">
-							<h1>腾讯金融学院成立，致力成为培养互联网与金融</h1>
-							<img src="../../content/collection/img/inset.png" alt="">
-						</div>
-						<div class="list-source">
-							<img src="../../content/common/img/Bitmap@2x.png" alt="">
-							<p>微信</p>
-							<em>刚刚</em>
-							<i>互联网</i>
-							<div class='tool'>
-								<button class="downLoad-btn"></button>
-								<button class="collection-btn"></button>
-								<button class="share-btn"></button>
-							</div>
-						</div>
-					</a>
-				</li>
-				<li>
-					<a href="article.html">
-						<div class="list-title">
-							<h1>腾讯金融学院成立，致力成为培养互联网与金融</h1>
-							<img src="../../content/collection/img/inset.png" alt="">
-						</div>
-						<div class="list-source">
-							<img src="../../content/common/img/Bitmap@2x.png" alt="">
-							<p>微信</p>
-							<em>刚刚</em>
-							<i>互联网</i>
-							<div class='tool'>
-								<button class="downLoad-btn"></button>
-								<button class="collection-btn"></button>
-								<button class="share-btn"></button>
-							</div>
-						</div>
-					</a>
-				</li>
-				<li>
-					<a href="article.html">
-						<div class="list-title">
-							<h1>腾讯金融学院成立，致力成为培养互联网与金融</h1>
-							<img src="../../content/collection/img/inset.png" alt="">
-						</div>
-						<div class="list-source">
-							<img src="../../content/common/img/Bitmap@2x.png" alt="">
-							<p>微信</p>
-							<em>刚刚</em>
-							<i>互联网</i>
-							<div class='tool'>
-								<button class="downLoad-btn"></button>
-								<button class="collection-btn"></button>
-								<button class="share-btn"></button>
-							</div>
-						</div>
-					</a>
-				</li>
-				<li>
-					<a href="article.html">
-						<div class="list-title">
-							<h1>腾讯金融学院成立，致力成为培养互联网与金融</h1>
-							<img src="../../content/collection/img/inset.png" alt="">
-						</div>
-						<div class="list-source">
-							<img src="../../content/common/img/Bitmap@2x.png" alt="">
-							<p>微信</p>
-							<em>刚刚</em>
-							<i>互联网</i>
-							<div class='tool'>
-								<button class="downLoad-btn"></button>
-								<button class="collection-btn"></button>
-								<button class="share-btn"></button>
-							</div>
-						</div>
-					</a>
-				</li>
-				<li>
-					<a href="article.html">
-						<div class="list-title">
-							<h1>腾讯金融学院成立，致力成为培养互联网与金融</h1>
-							<img src="../../content/collection/img/inset.png" alt="">
-						</div>
-						<div class="list-source">
-							<img src="../../content/common/img/Bitmap@2x.png" alt="">
-							<p>微信</p>
-							<em>刚刚</em>
-							<i>互联网</i>
-							<div class='tool'>
-								<button class="downLoad-btn"></button>
-								<button class="collection-btn"></button>
-								<button class="share-btn"></button>
-							</div>
-						</div>
-					</a>
-				</li>
 
-			</ul>
-		</div>
-		<!-- 遮罩提示信息 -->
-		<div class="tips">
-			<div class="tips-content">
-				<ul>
-					<li class='active'>全部分类(94)</li>
-					<!-- <li>汽车(2)</li>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no,text/x-component">
+    <!-- <meta content-type="text/x-component"> -->
+    <title>快享client-收藏</title>
+    <link rel="stylesheet" href="../../content/common/css/listcommon.css" />
+    <link rel="stylesheet" href="../../content/collection/css/collection.css" />
+    <link rel="stylesheet" href="../../content/common/css/zTreeStyle.css" />
+    <link rel="stylesheet" href="../../content/common/css/my-zTreeStyle.css" />
+    <!-- js -->
+    <script type="text/javascript" src="../../content/common/js/jquery.min.js"></script>
+    <script type="text/javascript" src="../../content/common/js/jquery.ztree.core.min.js"></script>
+    <script type="text/javascript" src="../../content/common/js/my-ztree.js"></script>
+    <script type="text/javascript" src="../../content/common/js/common.js"></script>
+</head>
+
+<body class="collection">
+    <header>
+        <div class="header header-border">
+            <!-- 搜索 -->
+            <img class="header-login" src="../../content/common/img/logo@2x.png" srcset="../../content/common/img/logo@2x.png 2x,../../content/common/img/logo@3x.png 3x" />
+            <h3 class="header-title header-title-top">快享</h3>
+            <!-- 头部工具 -->
+            <div class="header-tools">
+                <!-- 收藏 -->
+                <div class='header-collcetion-btn'>
+                    <a class="active">收藏</a>
+                </div>
+                <!-- 推荐 -->
+                <div class="header-recommend-btn">
+                    <a href="share-main.html">推荐</a>
+                </div>
+                <div class="header-search-btn">
+                    <input type="text" name="" placeholder="请输入关键字">
+                    <button disabled="disabled"></button>
+                </div>
+                <div class="header-right">
+                    <!-- 添加 -->
+                    <div class="header-add-btn">
+                        <a></a>
+                        <div class="popup-box">
+                            <h3>收藏网页内容 <span>快速收藏请添加<a href="#">浏览器插件</a></span></h3>
+                            <div class="header-add-input-btn">
+                                <input type="text" name="" placeholder="请输入关键字">
+                                <button>保存</button>
+                            </div>
+                            <button class="upload-file">上传文件</button>
+                            <button class="upload-photo" max-length="12">上传照片 <em>12张上限</em></button>
+                        </div>
+                    </div>
+                    <!-- 通讯录 -->
+                    <div class="header-maillist-btn">
+                        <a></a>
+                    </div>
+                    <!-- 消息 -->
+                    <div class="header-message-btn">
+                        <a></a>
+                        <em class="message-tips"></em>
+                        <div class="popup-box">
+                            <ul class="list">
+                                <li>
+                                    <a href="#n">
+                                        <div class="list-header">
+                                            <img src="../../content/common/img/header.png">
+                                            <em>周红</em>
+                                            <p>推荐给战略文章集等推荐给战略文章集等</p>
+                                            <i>刚刚</i>
+                                        </div>
+                                        <p class="list-word">天气一天比一天冷，穿什么更时髦讲真我们已经没那么care了。要知道，最近oversize毛衣已经成为编辑部出勤率最高的员工了。</p>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#n">
+                                        <div class="list-header">
+                                            <img src="../../content/common/img/header.png">
+                                            <em>周红</em>
+                                            <p>推荐给战略文章集等推荐给战略文章集等</p>
+                                            <i>刚刚</i>
+                                        </div>
+                                        <p class="list-word">天气一天比一天冷，穿什么更时髦讲真我们已经没那么care了。要知道，最近oversize毛衣已经成为编辑部出勤率最高的员工了。</p>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#n">
+                                        <div class="list-header">
+                                            <img src="../../content/common/img/header.png">
+                                            <em>周红</em>
+                                            <p>推荐给战略文章集等推荐给战略文章集等</p>
+                                            <i>刚刚</i>
+                                        </div>
+                                        <p class="list-word">天气一天比一天冷，穿什么更时髦讲真我们已经没那么care了。要知道，最近oversize毛衣已经成为编辑部出勤率最高的员工了。</p>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#n">
+                                        <div class="list-header">
+                                            <img src="../../content/common/img/header.png">
+                                            <em>周红</em>
+                                            <p>推荐给战略文章集等推荐给战略文章集等</p>
+                                            <i>刚刚</i>
+                                        </div>
+                                        <p class="list-word">天气一天比一天冷，穿什么更时髦讲真我们已经没那么care了。要知道，最近oversize毛衣已经成为编辑部出勤率最高的员工了。</p>
+                                    </a>
+                                </li>
+                            </ul>
+                            <a href="share-notice.html" class="inform">查看全部通知</a>
+                        </div>
+                    </div>
+                    <!-- 个人 -->
+                    <div class="header-info">
+                        <a>
+                            <div class="header-info-img">
+                                <img src="../../content/common/img/header.png">
+                            </div>
+                            <p>风清扬</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!--  -->
+    <div class="content">
+        <!--  -->
+        <div class="select-type">
+            <button>全部分类(22)</button>
+        </div>
+        <!--  -->
+        <ul class="list">
+            <li>
+                <a href="article.html">
+                    <div class="list-title">
+                        <h1>腾讯金融学院成立，致力成为培养互联网与金融</h1>
+                        <img src="../../content/collection/img/inset.png" alt="">
+                    </div>
+                </a>
+                <div class="list-source">
+                    <img src="../../content/common/img/Bitmap@2x.png" alt="">
+                    <p>微信</p>
+                    <em>刚刚</em>
+                    <i>互联网</i>
+                    <div class='tool'>
+                        <button class="upLoad-btn"></button>
+                        <button class="collection-btn"></button>
+                        <button class="share-btn"></button>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <a href="article.html">
+                    <div class="list-title">
+                        <h1>腾讯金融学院成立，致力成为培养互联网与金融</h1>
+                        <img src="../../content/collection/img/inset.png" alt="">
+                    </div>
+                </a>
+                <div class="list-source">
+                    <img src="../../content/common/img/Bitmap@2x.png" alt="">
+                    <p>微信</p>
+                    <em>刚刚</em>
+                    <i>互联网</i>
+                    <div class='tool'>
+                        <button class="upLoad-btn"></button>
+                        <button class="collection-btn"></button>
+                        <button class="share-btn"></button>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <a href="article.html">
+                    <div class="list-title">
+                        <h1>腾讯金融学院成立，致力成为培养互联网与金融</h1>
+                        <img src="../../content/collection/img/inset.png" alt="">
+                    </div>
+                </a>
+                <div class="list-source">
+                    <img src="../../content/common/img/Bitmap@2x.png" alt="">
+                    <p>微信</p>
+                    <em>刚刚</em>
+                    <i>互联网</i>
+                    <div class='tool'>
+                        <button class="upLoad-btn"></button>
+                        <button class="collection-btn"></button>
+                        <button class="share-btn"></button>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <a href="article.html">
+                    <div class="list-title">
+                        <h1>腾讯金融学院成立，致力成为培养互联网与金融</h1>
+                        <img src="../../content/collection/img/inset.png" alt="">
+                    </div>
+                </a>
+                <div class="list-source">
+                    <img src="../../content/common/img/Bitmap@2x.png" alt="">
+                    <p>微信</p>
+                    <em>刚刚</em>
+                    <i>互联网</i>
+                    <div class='tool'>
+                        <button class="upLoad-btn"></button>
+                        <button class="collection-btn"></button>
+                        <button class="share-btn"></button>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <a href="article.html">
+                    <div class="list-title">
+                        <h1>腾讯金融学院成立，致力成为培养互联网与金融</h1>
+                        <img src="../../content/collection/img/inset.png" alt="">
+                    </div>
+                </a>
+                <div class="list-source">
+                    <img src="../../content/common/img/Bitmap@2x.png" alt="">
+                    <p>微信</p>
+                    <em>刚刚</em>
+                    <i>互联网</i>
+                    <div class='tool'>
+                        <button class="upLoad-btn"></button>
+                        <button class="collection-btn"></button>
+                        <button class="share-btn"></button>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <a href="article.html">
+                    <div class="list-title">
+                        <h1>腾讯金融学院成立，致力成为培养互联网与金融</h1>
+                        <img src="../../content/collection/img/inset.png" alt="">
+                    </div>
+                </a>
+                <div class="list-source">
+                    <img src="../../content/common/img/Bitmap@2x.png" alt="">
+                    <p>微信</p>
+                    <em>刚刚</em>
+                    <i>互联网</i>
+                    <div class='tool'>
+                        <button class="upLoad-btn"></button>
+                        <button class="collection-btn"></button>
+                        <button class="share-btn"></button>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <a href="article.html">
+                    <div class="list-title">
+                        <h1>腾讯金融学院成立，致力成为培养互联网与金融</h1>
+                        <img src="../../content/collection/img/inset.png" alt="">
+                    </div>
+                </a>
+                <div class="list-source">
+                    <img src="../../content/common/img/Bitmap@2x.png" alt="">
+                    <p>微信</p>
+                    <em>刚刚</em>
+                    <i>互联网</i>
+                    <div class='tool'>
+                        <button class="upLoad-btn"></button>
+                        <button class="collection-btn"></button>
+                        <button class="share-btn"></button>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <a href="article.html">
+                    <div class="list-title">
+                        <h1>腾讯金融学院成立，致力成为培养互联网与金融</h1>
+                        <img src="../../content/collection/img/inset.png" alt="">
+                    </div>
+                </a>
+                <div class="list-source">
+                    <img src="../../content/common/img/Bitmap@2x.png" alt="">
+                    <p>微信</p>
+                    <em>刚刚</em>
+                    <i>互联网</i>
+                    <div class='tool'>
+                        <button class="upLoad-btn"></button>
+                        <button class="collection-btn"></button>
+                        <button class="share-btn"></button>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <a href="article.html">
+                    <div class="list-title">
+                        <h1>腾讯金融学院成立，致力成为培养互联网与金融</h1>
+                        <img src="../../content/collection/img/inset.png" alt="">
+                    </div>
+                </a>
+                <div class="list-source">
+                    <img src="../../content/common/img/Bitmap@2x.png" alt="">
+                    <p>微信</p>
+                    <em>刚刚</em>
+                    <i>互联网</i>
+                    <div class='tool'>
+                        <button class="upLoad-btn"></button>
+                        <button class="collection-btn"></button>
+                        <button class="share-btn"></button>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <a href="article.html">
+                    <div class="list-title">
+                        <h1>腾讯金融学院成立，致力成为培养互联网与金融</h1>
+                        <img src="../../content/collection/img/inset.png" alt="">
+                    </div>
+                </a>
+                <div class="list-source">
+                    <img src="../../content/common/img/Bitmap@2x.png" alt="">
+                    <p>微信</p>
+                    <em>刚刚</em>
+                    <i>互联网</i>
+                    <div class='tool'>
+                        <button class="upLoad-btn"></button>
+                        <button class="collection-btn"></button>
+                        <button class="share-btn"></button>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <a href="article.html">
+                    <div class="list-title">
+                        <h1>腾讯金融学院成立，致力成为培养互联网与金融</h1>
+                        <img src="../../content/collection/img/inset.png" alt="">
+                    </div>
+                </a>
+                <div class="list-source">
+                    <img src="../../content/common/img/Bitmap@2x.png" alt="">
+                    <p>微信</p>
+                    <em>刚刚</em>
+                    <i>互联网</i>
+                    <div class='tool'>
+                        <button class="upLoad-btn"></button>
+                        <button class="collection-btn"></button>
+                        <button class="share-btn"></button>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <a href="article.html">
+                    <div class="list-title">
+                        <h1>腾讯金融学院成立，致力成为培养互联网与金融</h1>
+                        <img src="../../content/collection/img/inset.png" alt="">
+                    </div>
+                </a>
+                <div class="list-source">
+                    <img src="../../content/common/img/Bitmap@2x.png" alt="">
+                    <p>微信</p>
+                    <em>刚刚</em>
+                    <i>互联网</i>
+                    <div class='tool'>
+                        <button class="upLoad-btn"></button>
+                        <button class="collection-btn"></button>
+                        <button class="share-btn"></button>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <!-- 遮罩提示信息 -->
+    <div class="tips">
+        <div class="tips-content">
+            <ul>
+                <li class='active'>全部分类(94)</li>
+                <!-- <li>汽车(2)</li>
 					<li>新闻(10)</li>
 					<li>汽车(17)</li>
 					<li>互联网(8)</li>
@@ -373,10 +373,44 @@
 					<li>消费升级(7)</li>
 					<li>娱乐(30)</li>
 					<li>体育(15)</li> -->
-				</ul>
+            </ul>
+        </div>
+        <div class="tips-mask" onclick="this.parentElement.style.display='none';"></div>
+    </div>
+    <!-- upload  -->
+    <div class="upload-container">
+		<div class="upload-title"><em>正在下载（1/2）</em><div><button class="toggle-fade-btn"></button><button class="close-btn"></button></div></div>
+		<div class="upload-file">
+			<div class="upload-img">
+				<img src="../../content/common/img/Group 3@3x.png" alt="">
 			</div>
-			<div class="tips-mask" onclick="this.parentElement.style.display='none';"></div>
+			<div>
+				<div class="upload-info">
+					<p>快享优化方案</p>
+					<em>12MB</em>
+				</div>
+				<div class="upload-edit">
+					<img src="../../content/common/img/quanxuan@2x.png" alt="">
+					<button>查看</button>
+				</div>
+			</div>
 		</div>
-	</body>
-	<script type="text/javascript" src="../../content/common/js/event-listeners.js"></script>
+		<div class="upload-file">
+			<div class="upload-img">
+				<img src="../../content/common/img/Group 3@3x.png" alt="">
+			</div>
+			<div>
+				<div class="upload-info">
+					<p>快享优化方案</p>
+					<div class="bar-range">
+						<div class="bar-track"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+    </div>
+
+</body>
+<script type="text/javascript" src="../../content/common/js/event-listeners.js"></script>
+
 </html>

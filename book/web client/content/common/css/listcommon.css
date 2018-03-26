@@ -149,7 +149,9 @@ aside .comment-state .comment-state-reply-btn:hover,
 .collection-word .word .video-tool .full-screen:hover,
 .collection-word .word video:hover,
 .collection-word .word .video-tool .playPause:hover,
-.file-list ul li:hover{
+.file-list ul li:hover,
+.list li .list-source .tool button:hover,
+.upload-container .upload-title >div button:hover{
     cursor: pointer;
 }
 
@@ -234,7 +236,9 @@ aside h2,
 .popup-box h3,
 .header-add-btn .popup-box >button,
 .content .word h2,
-.file-list >h3{
+.file-list >h3,
+.upload-container .upload-title em,
+.upload-container .upload-file .upload-info p{
     font-family: 'PingFangSC-Semibold', 'Microsoft YaHei', helvetica, sans-serif;
 }
 .header-tools .header-search-btn input,
@@ -272,7 +276,8 @@ aside .comment li .comment-state,
 .person-sum,
 .level-catalog h3 em,
 .ztree li a.level0 span,
-.header-add-input-btn button{
+.header-add-input-btn button,
+.upload-container .upload-file .upload-info em{
     font-family: 'PingFang-Light', 'Microsoft YaHei', helvetica, sans-serif;
 }
 .content {
@@ -752,7 +757,7 @@ aside {
     }
 }
 aside.show{
-	transform: translateX(0);
+    transform: translateX(0);
     -webkit-transform: translateX(0);
 }
 aside h2 {
@@ -804,9 +809,9 @@ aside form input[type=search]::placeholder{
     color: #999;
 }
 aside form input[type=search]::placeholder{
-	background: url(../../common/img/group-3@2x.png) no-repeat;
-	background-size: 20px;
-	text-indent: 25px;
+    background: url(../../common/img/group-3@2x.png) no-repeat;
+    background-size: 20px;
+    text-indent: 25px;
 }
 aside form input[type=submit] {
     width: 80px;
@@ -958,13 +963,13 @@ aside .comment li .comment-state a {
     position: relative;
 }
 .popupBox .del {
-	position: absolute;
-	width: 20px;
-	height: 20px;
-	background: url(../../common/img/shanchu@3x.png) no-repeat;
-	background-size: 20px; 
-	top:-10px;
-	right: -10px;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: url(../../common/img/shanchu@3x.png) no-repeat;
+    background-size: 20px; 
+    top:-10px;
+    right: -10px;
 }
 .popupBox ul li img {
     width: 100%;
@@ -1081,8 +1086,119 @@ aside .comment li .comment-state a {
     /* Hide the text; just using it for sizing */
     visibility: hidden;
 }
-
-
+/* upload-container */
+.upload-container{
+    position: fixed;
+    width: 440px;
+    height: 172px;
+    background: #fff;
+    top:188px;
+    right: 0;
+    box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+.upload-container .upload-title{
+    height: 20px;
+    line-height: 20px;
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+.upload-container .upload-title em{
+    font-size: 16px;
+}
+.upload-container .upload-title >div{
+    float:right;
+}
+.upload-container .upload-title >div button{
+    border:0;
+    width: 20px;
+    height: 20px;
+    margin-left: 20px;
+}
+.upload-container .upload-title .toggle-fade-btn{
+    background: url(../../common/img/jinru-1.png) no-repeat center;
+    background-size: 20px;
+}
+.upload-container .upload-title .close-btn{
+    background: url(../img/combined-shape@2x.png) no-repeat center;
+    background-size: 20px;
+}
+.upload-container .upload-file{
+    width: 100%;
+    height: 40px;
+    font-size: 0;
+    margin-bottom: 15px;
+}
+.upload-container .upload-file:last-child{
+    margin-bottom: 0
+}
+.upload-container .upload-file > div{
+    width:360px;
+    height: 40px;
+    display: inline-block;
+    vertical-align: middle;
+    overflow: hidden;
+}
+.upload-container .upload-file > div.upload-img{
+    width: 40px;
+}
+.upload-container .upload-file > div.upload-img img{
+    width: 40px;
+}
+.upload-container .upload-file .upload-info{
+    width: 200px;
+    height: 40px;
+    padding: 5px 0;
+    margin-left: 15px;
+    display: inline-block;
+} 
+.upload-container .upload-file .upload-edit{
+    display: inline-block;
+    vertical-align: middle;
+}
+.upload-container .upload-file .upload-info p{
+    font-size: 14px;
+    line-height: 15px;
+}
+.upload-container .upload-file .upload-info em{
+    font-size: 12px;
+    line-height: 15px;
+}
+.upload-container .upload-file .upload-edit{
+    width: 100px;
+    height: 40px;
+    line-height: 40px;
+    float:right;
+    text-align: right;
+}
+.upload-container .upload-file .upload-edit img{
+    width: 22px;
+    display: inline-block;
+    vertical-align: middle;
+}
+.upload-container .upload-file .upload-edit button{
+    display: inline-block;
+    width: 33px;
+    height: 20px;
+    border:0;
+    background: #fff;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 14px;
+    line-height: 20px;
+    margin-left: 20px;
+}
+.upload-container .upload-file .bar-range{
+    width: 200px;
+    height: 4px;
+    background: #eaeaea;
+    margin-top: 10px;
+}
+.upload-container .upload-file .bar-track{
+    height: 4px;
+    background: -webkit-linear-gradient(#37b9cf, #37b9cf) no-repeat;
+    background-size: 10% 100%;
+}
 /* 媒体 */
 
 @media screen and (max-width: 826px) {

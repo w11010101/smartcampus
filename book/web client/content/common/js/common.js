@@ -396,4 +396,12 @@ function makeExpandingArea(container) {
 //     win.a1 = new a();
 // })(window)
 
-// console.log(a1)
+// console.log(a1);
+
+// 创建下载的方法 ================================================================
+function createDownLoadFn(){
+    $("body").append()
+}
+function createHtml(){
+
+}

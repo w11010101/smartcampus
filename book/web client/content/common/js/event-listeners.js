@@ -139,3 +139,6 @@ $('body').on("click",".file-list li",function(){
 		pgwSlideshow.displaySlide($(this).index()+1);
 	}
 });
+// 创建下载 ================================================================
+
+$('body').on("click",".downLoad-btn",createDownLoadFn);
