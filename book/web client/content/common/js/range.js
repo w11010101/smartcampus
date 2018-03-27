@@ -72,7 +72,7 @@ var playtime = "";
 myVideo.addEventListener("playing",function(){
     playtime = setInterval(function(){
         var currentTime = ((myVideo.currentTime/myVideo.duration)*100).toFixed(2);
-        $('input[type=range]').val(currentTime).css( 'background-size', $('input[type=range]').val() + '% 100%' ) ; 
+        $('input[type=range]').val(currentTime).css( 'background-size', $('input[type=range]').val() + '% 100%' ); 
         var startTime = new Date(myVideo.currentTime*1000);
         var m = startTime.getMinutes();
         var s = startTime.getSeconds();

@@ -1,30 +1,34 @@
 // 正则表达式判断对象
 var re = {
-    name:'[\-\u4e00-\u9fa5]{2,6}|[A-Za-z_\ ]{4,16}',
-    job:'[A-Za-z0-9_\-\u4e00-\u9fa5]{2,10}',
-    deptName:'[A-Za-z0-9_\-\u4e00-\u9fa5]{2,10}',
-    phone:'[0-9]{11}',
-    space:'[0-9A-Z]{2,4}',
-    jobNum:'[0-9]{6,16}',
-    email:"[\w!#$%&'*+/=?^_`{|}~-]+(?:\.[\w!#$%&'*+/=?^_`{|}~-]+)*@(?:[\w](?:[\w-]*[\w])?\.)+[\w](?:[\w-]*[\w])?"
+    name:/^[\-\u4e00-\u9fa5]{2,10}$|^[A-Za-z_\ ]{4,16}$/,
+    job:/[\-\u4e00-\u9fa5A-Za-z0-9_]{2,10}/,
+    deptName:/[A-Za-z0-9_\-\u4e00-\u9fa5]{2,10}/,
+    phone:/[0-9]{11}/,
+    space:/[0-9A-Z]{2,4}/,
+    jobNum:/^[0-9]{6,16}$/,
+    email:/\w[-\w.+]*@([A-Za-z0-9][-A-Za-z0-9]+\.)+[A-Za-z]{2,14}/
 }
 
 // breadcrumb 面包屑导航 ========================================
-function setBreadcrumbFn(argument,arr,obj) {
+function setBreadcrumbFn(argument,treeObj,obj) {
     // 标题
     if(argument.name){
         $(".firsh-title em").text(argument.name);
     }
     // 面包屑导航
-    var l = arr.length;
+    var l = treeObj.length;
     var li = [];
-    $.each(arr,function (i,e) {
-        if(argument.level){
-            if(i <= argument.level){
-                li.push(`<li><a href="#">${e}</a></li>`); 
-            }
+    // console.log(treeObj)
+    $.each(treeObj,function (i,e) {
+        var index = i.substr(5);
+
+        if(argument.level == 0){
+            li.push(`<li set-level = ""><a href="#">${treeObj["level"]}</a></li>`); 
+            return false;
         }else{
-            li.push(`<li><a href="#">${e}</a></li>`); 
+            if(index < argument.level){
+                li.push(`<li set-level = "${argument.level}"><a href="#">${e}</a></li>`); 
+            }
         }
         
     });
@@ -66,74 +70,13 @@ radioFn();
 
 // createMask fn 创建遮罩层 ========================================
 function createMaskFn() {
-    $("body").append('<div class="mask"></div>');
-   
+    if(!$(".mask").length){
+        $("body").append('<div class="mask"></div>');
+    }
     return;
 }
 
-// 给按钮 添加 绑定事件 ========================================
-// 1.编辑部门
-$("body").on("click",".edit-btn",function(){
-    createPopupFn({
-        title:$(this).text(),       // 标题
-        type:"aside",       // 侧边栏                  
-        popupContentType:"edit-dept",     // 内容主体 类型
-        data:{
-            thisVal:$(this).prev().text(),
 
-        },
-        flootBtn:["确认","删除","取消"],
-        callbackFn:{
-            saveFn:function(){
-                console.log(arguments);
-            },
-            cancelFn:function () {
-                console.log(arguments);
-            },
-            delFn:function () {
-                console.log(arguments);
-            }
-        }
-    });
-});
-// 2.批量导入/导出 按钮
-$("body").on("click",".import-btn",function(){
-    createPopupFn({
-        title:'批量导入',       // 标题
-        type:"alert",       // 类似alert  
-        popupContentType:"import", // 内容主体 类型：import 导入
-        close:true,
-        data:{
-            breadcrumb:true,        // 是否显示面包屑
-            breadcrumbData:['通讯录','通讯录导入'],     // 面包屑路径
-            breadcrumbEl:'.breadcrumb'     // 面包屑容器对象
-        }
-    });
-});
-// 3.批量删除
-$("body").on("click",".batch-del-btn",function(){
-    var rowObj = $(".table-container .row:not(:first-child) .active").parents(".row");
-    console.log(rowObj.remove());
-});
-// 4.添加成员
-$("body").on("click",".add-btn",function(){
-    createPopupFn({
-        title:'添加成员',
-        type:"aside",               
-        popupContentType:"aside-add", // import 导入
-        callbackFn:{
-            saveFn:function(){
-                console.log(arguments);
-            },
-            cancelFn:function () {
-                console.log(arguments);
-            },
-            delFn:function () {
-                console.log(arguments);
-            }
-        }
-    });
-});
 // create popup fn 创建弹出框 ========================================
 function createPopupFn(option) {
     if(!option) alert("没有参数，无法创建！");
@@ -141,20 +84,20 @@ function createPopupFn(option) {
 
     // 添加容器
     if($("."+option.type+"-container").length) {
-        $("."+option.type+"-container").remove();
+        // $("."+option.type+"-container").remove();
     }
     $("body").append(containerHtml(option));
-    var container = $("."+option.type+"-container");
+    var container = $("."+option.type+"-"+option.popupContentType);
     setTimeout(()=>{
         container.addClass("show");
     },10);
 
-    container.addClass(option.type+"-"+option.popupContentType);
+    // container.addClass(option.type+"-"+option.popupContentType);
     // 添加面包屑容器
     if(data.breadcrumb) {
         container.append('<ol class="breadcrumb"></ol>');
         // 添加面包屑导航
-        setBreadcrumbFn({},data.breadcrumbData,container.find(data.breadcrumbEl));
+        setBreadcrumbFn({level:2},data.breadcrumbData,container.find(data.breadcrumbEl));
     } 
     // 添加主体内容
     container.append(mainHtml(option));
@@ -168,9 +111,13 @@ function createPopupFn(option) {
     }else{
         flootArr = ['<button type="submit" class="save-btn active">保存</button>','<button class="cancel-btn">取消</button>'];
     }
-    container.append('<div class="floot-btns">'+flootArr.join("")+'</div>');
+    console.log(container.find(".floot-btns").length)
+    if(!container.find(".floot-btns").length){
+        container.append('<div class="floot-btns">'+flootArr.join("")+'</div>');
+    }
+    
     // 保存 按钮 事件
-    $('body .save-btn').on('click',function (event) {
+    container.find('.save-btn').on('click',function (event) {
         if(!option.callbackFn) return false;
         var obj = {};
         var urlPar = '';
@@ -209,32 +156,56 @@ function createPopupFn(option) {
         });
 
         obj["urlPar"] = urlPar;
-        option.callbackFn.saveFn(obj);
+        obj["removeContainer"] = removeContainer;
+        option.callbackFn.saveFn(obj,event);
     });
     // 监听 input 的value change 事件 lodash  
     $("body").on("input",".aside-main input",_.debounce(function () {
-        console.log(this)
+        console.log(this.value.match(re[$(this).attr("name")]))
+        if(this.value.match(re[$(this).attr("name")])){
+            $(this).removeClass("input-error");
+        }else{
+            $(this).addClass("input-error");
+        }
     },1000));
 
     // 取消 按钮 事件
-    $('body .cancel-btn').on('click',function (event) {
+    container.find('.cancel-btn').on('click',function (event) {
         if(!option.callbackFn) return false;
-        option.callbackFn.cancelFn('cancelCallBackFn',option);
+        var obj={};
+        obj["removeContainer"] = removeContainer;
+        option.callbackFn.cancelFn(obj,this);
     });
     // 删除 按钮 事件
-    $('body .del-btn').on('click',function (event) {
+    container.find('.del-btn').on('click',function (event) {
         if(!option.callbackFn) return false;
-        option.callbackFn.delFn('delCallBackFn',option);
+        var obj={};
+        obj["removeContainer"] = removeContainer;
+        option.callbackFn.delFn(obj,this);
     });
     // 关闭 (包括：遮罩层、关闭按钮、保存按钮、取消按钮)；
-    $("body .mask,body .close-btn,body .cancel-btn").on("click",function (argument) {
-        $(".mask").remove();
-        $("."+option.type+"-container").removeClass("show");
-        setTimeout(()=>{
-            $("."+option.type+"-container").remove();
-        },300);
+    $("body .mask,body .close-btn").on("click",function (argument) {
+        removeContainer($(this));
     });
-    
+    function removeContainer(obj,deltype){
+        
+        if(deltype){
+            $(".mask").remove();
+        }else{
+            if($(".my-popup").length<=1){
+                $(".mask").remove();
+            }
+        }
+        
+        var events = deltype?$(".my-popup"):$(obj).parents(".my-popup");
+        console.log(events)
+        events.removeClass("show");
+        // $("."+option.type+"-container").removeClass("show");
+        setTimeout(()=>{
+            events.remove();
+            // $("."+option.type+"-container").remove();
+        },300);
+    }
 
 }
 // 容器分类 Html
@@ -243,10 +214,10 @@ function containerHtml(option){
         case "alert":
             // 添加遮罩层
             createMaskFn();
-            return '<div class="alert alert-container"><h2>'+option.title+'<em class='+(option.close?"close-btn":"")+'></em></h2></div>'
+            return '<div class="my-popup alert alert-container alert-'+option.popupContentType+'"><h2>'+option.title+'<em class='+(option.close?"close-btn":"")+'></em></h2></div>'
         break;
         case "aside":
-            return '<aside class="aside-container"><h2>'+option.title+'</h2></aside>';
+            return '<aside class="my-popup aside-container aside-'+option.popupContentType+'"><h2>'+option.title+'</h2></aside>';
         break;
     }
 }
@@ -272,7 +243,10 @@ function mainHtml(option){
                 <div class="step">
                     <label>第二步</label>
                     <span>上传填写好的员工信息表</span>
-                    <div class="file-btn"><span class="file-select-btn">选择文件上传</span><em class="route">未选择任何文件</em><input type="file"/></div>
+                    <div class="file-btn"><span class="file-select-btn">选择文件上传</span><em class="route">未选择任何文件</em><input type="file" multiple/></div>
+                </div>
+                <div class="track-bar">
+                    <div class="scroll-bar"></div>
                 </div>
             </div>`;
         break;
@@ -284,7 +258,7 @@ function mainHtml(option){
                 <div class='aside-main'>
                     <div class="aside-row">
                         <label class='must'>部门名称</label>
-                        <input type="text" placeholder = "${data.thisVal}" name ="deptName" />
+                        <input type="text" placeholder = "" name ="deptName" />
                     </div>
                     <div class="aside-row">
                         <label>上级部门</label>
@@ -373,18 +347,3 @@ function mainHtml(option){
 
     }
 }
-// 上传 按钮 事件
-$("body").on("change",".file-btn input[type=file]",function (argument) {
-    var f= this.files[0]||this.files.item(0);
-    var url = window.URL.createObjectURL(f);
-    $(".route").text(this.value.split("\\")[this.value.split("\\").length-1]);
-});
-// 下拉菜单 监听事件
-$('body').on('show.bs.dropdown','.dropdown', function () {
-    // console.log(arguments)
-})
-// 下拉菜单 的 选择事件
-$('body').on('click','.dropdown-menu li', function (event) {
-    $(this).parents('.dropdown').find("a input[readonly]").val($(this).text());
-})
-

@@ -308,7 +308,7 @@ aside .comment li .comment-state,
     vertical-align: top;
     margin-right: 50px;
     height: 59px;
-    overflow: hidden;
+    /*overflow: hidden;*/
 }
 .header-tools>[class*=header-] a {
     display: block;
