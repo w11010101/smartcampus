@@ -312,7 +312,7 @@ function toggleFadeCollapse(obj){
 
 }
 // uploadFn 上传 按钮点击事件 ================================================================
-
+var percentsObj = [];
 function uploadFn(obj){
     console.log("uploadFn 这里");
     
@@ -332,7 +332,6 @@ function uploadFn(obj){
         });
         $(".popupBox,.mask").remove(0);
 
-        // $(".upload-container").append(getUploadListHtml()).toggleClass("toggleShow");
     }else{
         console.log("长度为<=1");
     }
@@ -342,35 +341,21 @@ function uploadFn(obj){
     }
 }
 function progressBar(option){
-    var persent = "";
-    persent = setInterval(setPercent,10);
+    var percent = "";
+    percent = setInterval(setPercent,10);
     var n = 0;
     function setPercent(){
         
         if(n <= 1000){
-            $(".scroll-bar").css( 'background-size', (n/10) + '% 100%' ); 
+            $(".bar-track").css( 'background-size', (n/10) + '% 100%' ); 
             
         }else{
+            console.log("tingzhi")
             clearInterval(percent);
-            createPopupFn({
-                title:'上传成功',       // 标题
-                type:"alert",       // 类似alert  
-                popupContentType:"batchDel", // 内容主体 类型：import 导入
-                close:true,
-                flootBtn:["确认"],
-                callbackFn:{
-                    saveFn:function(){
-                        state = false;
-                        arguments[0].removeContainer(arguments[1],true);
-                    },
-                    cancelFn:function () {
-                        state = true;
-                    }
-                }
-            }); 
         }
         n++;
     }
+    return percent;
 }
 function getUploadListHtml(options){
     return (function(){
