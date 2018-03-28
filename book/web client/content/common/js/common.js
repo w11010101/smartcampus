@@ -312,12 +312,13 @@ function toggleFadeCollapse(obj){
 
 }
 // uploadFn 上传 按钮点击事件 ================================================================
-var percentsObj = [];
+var percentsObj = {};
+var n = 0;
 function uploadFn(obj){
     console.log("uploadFn 这里");
     
     // 判断 要上传的图片个数
-    if($(".file").length>1){
+    if($(".file").length>=1){
         $(".upload-container").removeClass("toggleShow");
 
         $.each($(".file"),function(i,e){
@@ -327,36 +328,72 @@ function uploadFn(obj){
                 size:$(e).attr("setSize"),
             }
             $(".upload-file-list").append(getUploadListHtml(obj));
-            // 启动 进度条（用计时器模拟，设置css 样式；percent 为百分比）
-            progressBar();
+            // window["currentIndex"] = i;
+            // 启动 进度条（用 计时器 来 模拟，设置css 样式；percent 为百分比）
+            // progressBar("start",i);
         });
+        progressBar("start");
         $(".popupBox,.mask").remove(0);
 
     }else{
-        console.log("长度为<=1");
+        console.log("长度为<1");
     }
 
     var data = {
         files:123
     }
 }
-function progressBar(option){
-    var percent = "";
-    percent = setInterval(setPercent,10);
-    var n = 0;
-    function setPercent(){
+// 设置 进度条 显示效果 百分比
+var num = 0;
+var startTime = 0;
+var pauseTime = 0;
+function progressBar(type,i){
+    console.log('percent');
+    
+    var files = $(".upload-file-list .upload-file");
+    for (var i = 0; i < files.length; i++) {
         
-        if(n <= 1000){
-            $(".bar-track").css( 'background-size', (n/10) + '% 100%' ); 
-            
-        }else{
-            console.log("tingzhi")
-            clearInterval(percent);
-        }
-        n++;
+        // setTimeout(function(){
+        //     num = i;
+        //     console.log("num = " ,num);
+        // },10);
+        // percentsObj["percent"+i] = setInterval(setPercent,10); 
+        // num++
+        files.attr('startTime',startTime = new Date().getTime());
+        files.eq(i).find(".bar-track").animate({
+            width:"100%"
+        },5000,function(){
+            console.log("done1");
+        });
     }
-    return percent;
+
+    // if(type == 'start'){
+    //     console.log("progressBar= ",currentIndex);
+    //     console.log("progressBar= ",i); 
+    //     percentsObj["percent"+i] = setInterval(setPercent,10); 
+    // }else if(type == "pause"){
+    //     clearInterval(percentsObj["percent"+i]);
+    // }
+    
 }
+function setPercent(){
+    
+    var files = $(".upload-file-list .upload-file");
+
+    console.log(num);
+
+
+    if(n <= 1000){
+        files.eq(num).find(".bar-track").css('background-size', (n/10) + '% 100%' ); 
+        // $(".bar-track").css('background-size', (n/10) + '% 100%' )     
+    }else{
+        console.log(" > 1000 停止")
+        // progressBar(currentIndex,"pause")
+        clearInterval(percentsObj["percent"+num]);
+    }   
+    n++;
+}
+// 获取上传列表的html结构
 function getUploadListHtml(options){
     return (function(){
         var html = '<div class="upload-file">\
@@ -373,15 +410,18 @@ function getUploadListHtml(options){
                 </div>\
                 <div class="upload-edit">\
                     <em class=""></em>\
-                    <em class="start"></em>\
+                    <em class="paused"></em>\
                     <em class="close"></em>\
                 </div>\
             </div>\
         </div>';
-
+        // <em class="start"></em>
+        // <em class="paused"></em>
+        // <em class="close"></em>
         return html;
     })()
 }
+
 // 输入框自动调整高度 ================================================================
 function makeExpandingArea(container) {
     if(!container) return false;

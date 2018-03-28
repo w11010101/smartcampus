@@ -121,7 +121,8 @@
     vertical-align: top;
 }
 .upload-container .upload-file .upload-edit em.start:hover,
-.upload-container .upload-file .upload-edit em.close:hover{
+.upload-container .upload-file .upload-edit em.close:hover,
+.upload-container .upload-file .upload-edit em.paused:hover{
     cursor: pointer;
 }
 .upload-container .upload-file .upload-edit em.done{
@@ -134,6 +135,10 @@
 }
 .upload-container .upload-file .upload-edit em.pause:before{
     content:"已暂停";
+}
+.upload-container .upload-file .upload-edit em.paused{
+    background: url(../img/zanting@3x.png) no-repeat center;
+    background-size: 20px;
 }
 .upload-container .upload-file .upload-edit em.cancel:before{
     content:"已取消";
@@ -185,7 +190,12 @@
     margin-top: 10px;
 }
 .upload-container .upload-file .bar-track{
+    
     height: 4px;
     background: -webkit-linear-gradient(#37b9cf, #37b9cf) no-repeat;
-    background-size: 10% 100%;
+
+    width: 0;
+    background-size: 100% 100%;
+    
+    /*background-size: 0% 100%;*/
 }

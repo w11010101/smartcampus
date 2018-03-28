@@ -172,7 +172,65 @@ if($('.pgwSlideshow').pgwSlideshow) {
 }
 
 // 上传容器 展开 & 折叠 ================================================================
-
+// var percentsObj = {};
+// var percentsArr = [];
+// var n = 0;
 $(".toggle-fade-btn").on("click",function(){
     $(".upload-container").toggleClass("toggleShow");
 })
+// percentsObj["percent"+i] = setInterval(setPercent,10);
+// function setPercent(){
+//     console.log("zhixingle jici ")
+//     if(n <= 1000){
+//         $(".bar-track").css( 'background-size', (n/10) + '% 100%' );      
+//     }else{
+//         // clearInterval(percentsObj["percent"+i]);
+//     }   
+//     n++;
+// }
+// 上传任务 开始 按钮 点击 事件
+$("body").on("click",".start",function(){
+    console.log("start btns");
+    var thisP = $(this).parents('.upload-file');
+    var i = thisP.index();
+    var timeDiff = thisP.attr("pauseTime") - thisP.attr("startTime");
+    console.log("pauseTime:",thisP.attr("pauseTime"), " - " ,"startTime:",thisP.attr("startTime")," = " , timeDiff);
+    thisP.find(".bar-track").animate({
+        width:"100%"
+    },timeDiff,function(){
+        console.log("done2");
+    });
+    // 设置一个中间点击的时间
+    // 设置一个中间点击的时间
+    // 设置一个中间点击的时间
+    // 设置一个中间点击的时间
+    // 设置一个中间点击的时间
+    // 设置一个中间点击的时间
+    // 设置一个中间点击的时间
+    // 设置一个中间点击的时间
+    
+    $(this).removeClass('start').addClass('paused');
+});
+// 上传任务 暂停 按钮 点击 事件
+$("body").on("click",".paused",function(){
+    console.log("paused btns");
+    var thisP = $(this).parents('.upload-file');
+    var i = thisP.index();
+    thisP.attr('pauseTime',new Date().getTime()).find(".bar-track").stop();
+
+    $(this).parents('.upload-file').attr('startTime')
+
+    $(this).removeClass('paused').addClass('start');
+
+});
+// 上传任务 重新下载 按钮 点击 事件
+$("body").on("click",".refresh",function(){
+    console.log("refresh btns");
+    $(this).removeClass('refresh').addClass('close');
+});
+// 上传任务 取消 按钮 点击 事件
+$("body").on("click",".close",function(){
+    console.log("close btns");
+    $(this).removeClass('close').addClass('refresh');
+});
+
