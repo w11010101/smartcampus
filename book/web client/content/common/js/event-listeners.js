@@ -94,12 +94,15 @@ selectBtn.on("click", function() {
         }
     }
 });
-// 推荐页面的 推荐功能
+// 推荐页面的 推荐功能 ================================================================
 $("body").on("click",".share-btn",function(){
 	console.log(0);
 	createPopupFn({
         title:"推荐给朋友",
         type:"share",
+        setData:{
+            name:$(this).parents("li").find("h1").text()
+        },
         isHas:$(".popupBox").length?true:false
     })
     $(".popup-box").stop().fadeOut(200).removeClass('show');
@@ -125,20 +128,51 @@ $("body").on("click",".upload-photo",function(){
 });
 // 上传照片 —— 上传到：***；
 $("body").on("click",".collapse-container li",function(){
-
 	$(this).addClass("active").siblings().removeClass("active");
 	$(".collapse-title em").text($(this).text());
 });
+// 监听 input file 的change 事件
+$("body").on("change",".file-add-btn input[type=file]",function(){
+    var filePath = $(this).val();//读取图片路径  
 
-// 文件列表 ================================================================
-var pgwSlideshow = null;
-$('body').on("click",".file-list li",function(){
-	$(".pgwSlideshow-fixed-box").fadeIn(200);
-	if(!pgwSlideshow){
-		pgwSlideshow  = $('.pgwSlideshow').pgwSlideshow();
-		pgwSlideshow.displaySlide($(this).index()+1);
-	}
+    var imgObjs = this.files;//获取图片
+
+    $.each(imgObjs,function(i,e){
+        var fr = new FileReader();
+        fr.readAsDataURL(e);
+        if(filePath.indexOf("jpg") != -1 || filePath.indexOf("JPG") != -1 || filePath.indexOf("PNG") != -1 || filePath.indexOf("png") != -1) {  
+            var arr = filePath.split('\\');  
+            var fileName = arr[arr.length - 1];
+            var size = (e.size/1024).toFixed(2);
+            size = (parseFloat(size)>1000)?(parseFloat(size)/1024).toFixed(2)+"MB" : size+"KB";
+            fr.onload = function() {
+                if($(".files .file").length<12){
+                    $(".files").prepend('<div class="file" setSize = '+ size+'><img src="'+this.result+'" alt="" /><em>'+e.name+'</em><a class="del"></a></div>')
+                }else{
+                    return false;
+                }
+            };  
+        }
+    });
+      
+    
 });
-// 创建下载 ================================================================
+// 文件列表 幻灯片 ================================================================
 
-$('body').on("click",".downLoad-btn",createDownLoadFn);
+var pgwSlideshow = null;
+if($('.pgwSlideshow').pgwSlideshow) {
+    pgwSlideshow = $('.pgwSlideshow').pgwSlideshow();
+    $('body').on("click",".file-list li",function(){
+        $(".pgwSlideshow-fixed-box").fadeIn(200);
+        pgwSlideshow.reload({
+            maxHeight:600
+        });
+        pgwSlideshow.displaySlide($(this).index()+ 1);
+    });  
+}
+
+// 上传容器 展开 & 折叠 ================================================================
+
+$(".toggle-fade-btn").on("click",function(){
+    $(".upload-container").toggleClass("toggleShow");
+})

@@ -364,14 +364,16 @@ header {
     
 }
 /* mask */
-.mask{
+.mask,.masks{
     position: absolute;
     width: 100%;
     top:0;
     bottom: 0;
     background:rgba(0,0,0,0.3);
-    z-index: 998;
-
+    z-index: 999;
+}
+.masks{
+    background:rgba(0,0,0,0);
 }
 /* alert alert-container */
 .my-popup{

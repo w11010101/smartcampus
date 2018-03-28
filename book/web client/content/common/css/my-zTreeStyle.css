@@ -63,7 +63,7 @@
     padding-left:5px;
 }
 .ztree li span.button {
-    background: url("../../common/img/jinru@3x.png");
+    background: url("../../common/img/jinru@3x.png") no-repeat center;
     background-size: 20px;
     margin-right: 10px;
     vertical-align: middle;
@@ -71,7 +71,6 @@
 .ztree li span.button.ico_docu{
     width: 30px;
     height:30px;
-    background-size: 30px!important;
     vertical-align: middle;
 }
 .ztree li span.button.switch.level0 {

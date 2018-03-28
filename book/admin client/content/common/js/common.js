@@ -72,11 +72,45 @@ radioFn();
 function createMaskFn() {
     if(!$(".mask").length){
         $("body").append('<div class="mask"></div>');
+    }else{
+        $("body").append('<div class="masks"></div>');
     }
     return;
 }
+// 防暴力点击 ========================================
+var clickState = true;
+// var btns = document.querySelectorAll("button");
+// console.log(btns);
+// $.each(btns,function(i,e){
+//     e.addEventListener("click",function(event){
+//         console.log(clickState);
+//         if(clickState) {
+//             clickState = false;
+//             console.log('防暴力点击')
+//             setTimeout(function(){clickState = true;},3000);
+//         }else{
+//             console.log("防暴力点击 成功")
+//             return false;
+//         }
+//     })
+// });
+$("body").on("click","button",function(event){
+    var that = $(this);
+    console.log(clickState);
+    if(clickState) {
+        clickState = false;
+        console.log('防暴力点击');
+        setTimeout(function(){
+            clickState = true;
+        },3000);
+    }else{
+        console.log("防暴力点击 成功");
+        // that.off("click").on("click");
+        // event.stopPropagation();
+        return false;
+    }
 
-
+});
 // create popup fn 创建弹出框 ========================================
 function createPopupFn(option) {
     if(!option) alert("没有参数，无法创建！");
@@ -110,15 +144,19 @@ function createPopupFn(option) {
         }
     }else{
         flootArr = ['<button type="submit" class="save-btn active">保存</button>','<button class="cancel-btn">取消</button>'];
-    }
-    console.log(container.find(".floot-btns").length)
-    if(!container.find(".floot-btns").length){
+    }    if(!container.find(".floot-btns").length){
         container.append('<div class="floot-btns">'+flootArr.join("")+'</div>');
     }
-    
     // 保存 按钮 事件
+    
     container.find('.save-btn').on('click',function (event) {
-        if(!option.callbackFn) return false;
+        // if(clickState) {
+        //     clickState = !clickState;
+        //     setTimeout(function(){clickState = true;},3000);
+        // }else{
+        //     return false;
+        // }
+        if(!option.callbackFn.saveFn) return false;
         var obj = {};
         var urlPar = '';
 
@@ -161,7 +199,6 @@ function createPopupFn(option) {
     });
     // 监听 input 的value change 事件 lodash  
     $("body").on("input",".aside-main input",_.debounce(function () {
-        console.log(this.value.match(re[$(this).attr("name")]))
         if(this.value.match(re[$(this).attr("name")])){
             $(this).removeClass("input-error");
         }else{
@@ -171,39 +208,45 @@ function createPopupFn(option) {
 
     // 取消 按钮 事件
     container.find('.cancel-btn').on('click',function (event) {
-        if(!option.callbackFn) return false;
+        if(!option.callbackFn.cancelFn) return false;
         var obj={};
         obj["removeContainer"] = removeContainer;
         option.callbackFn.cancelFn(obj,this);
     });
     // 删除 按钮 事件
     container.find('.del-btn').on('click',function (event) {
-        if(!option.callbackFn) return false;
+        if(!option.callbackFn.delFn) return false;
         var obj={};
         obj["removeContainer"] = removeContainer;
         option.callbackFn.delFn(obj,this);
     });
     // 关闭 (包括：遮罩层、关闭按钮、保存按钮、取消按钮)；
-    $("body .mask,body .close-btn").on("click",function (argument) {
-        removeContainer($(this));
+    container.find('.close-btn').on("click",function (argument) {
+        if(!option.callbackFn.closeFn) {
+            removeContainer($(this),true);
+            return false;
+        }
+        var obj={};
+        obj["removeContainer"] = removeContainer;
+        option.callbackFn.closeFn(obj,this);
     });
     function removeContainer(obj,deltype){
         
         if(deltype){
-            $(".mask").remove();
+            $(".mask,.masks").remove();
         }else{
             if($(".my-popup").length<=1){
-                $(".mask").remove();
+                $(".mask,.masks").remove();
+            }else{
+                $(".masks").remove();
             }
         }
         
         var events = deltype?$(".my-popup"):$(obj).parents(".my-popup");
-        console.log(events)
+
         events.removeClass("show");
-        // $("."+option.type+"-container").removeClass("show");
         setTimeout(()=>{
             events.remove();
-            // $("."+option.type+"-container").remove();
         },300);
     }
 

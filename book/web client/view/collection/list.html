@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="../../content/collection/css/collection.css" />
     <link rel="stylesheet" href="../../content/common/css/zTreeStyle.css" />
     <link rel="stylesheet" href="../../content/common/css/my-zTreeStyle.css" />
+    <link rel="stylesheet" href="../../content/common/css/upload.css" />
     <!-- js -->
     <script type="text/javascript" src="../../content/common/js/jquery.min.js"></script>
     <script type="text/javascript" src="../../content/common/js/jquery.ztree.core.min.js"></script>
@@ -133,7 +134,7 @@
             <li>
                 <a href="article.html">
                     <div class="list-title">
-                        <h1>腾讯金融学院成立，致力成为培养互联网与金融</h1>
+                        <h1>腾讯金融学院成立，</h1>
                         <img src="../../content/collection/img/inset.png" alt="">
                     </div>
                 </a>
@@ -379,24 +380,35 @@
         <div class="tips-mask" onclick="this.parentElement.style.display='none';"></div>
     </div>
     <!-- upload  -->
-    <div class="upload-container">
-		<div class="upload-title"><em>正在下载（1/2）</em><div><button class="toggle-fade-btn"></button><button class="close-btn"></button></div></div>
-		<div class="upload-file">
+    <div class="upload-container toggleShow">
+
+		<div class="upload-title">
+            <em>上传</em>
+            <div>
+                <button class="toggle-fade-btn"></button>
+                <button class="close-btn"></button>
+            </div>
+        </div>
+        <div class="upload-file-list"></div>
+        <!-- flie 1 -->
+		<!-- <div class="upload-file">
 			<div class="upload-img">
 				<img src="../../content/common/img/Group 3@3x.png" alt="">
 			</div>
 			<div>
 				<div class="upload-info">
-					<p>快享优化方案</p>
+					<p>快享优化方案快享优化方案快享优化方案快享优化方案快享优化方案</p>
 					<em>12MB</em>
 				</div>
 				<div class="upload-edit">
-					<img src="../../content/common/img/quanxuan@2x.png" alt="">
-					<button>查看</button>
+					<em class="done"></em>
+                    <em class="pause"></em>
+                    <em class="cancel"></em>
 				</div>
 			</div>
-		</div>
-		<div class="upload-file">
+		</div> -->
+        <!-- flie 2 -->
+		<!-- <div class="upload-file">
 			<div class="upload-img">
 				<img src="../../content/common/img/Group 3@3x.png" alt="">
 			</div>
@@ -407,8 +419,14 @@
 						<div class="bar-track"></div>
 					</div>
 				</div>
+                <div class="upload-edit">
+                    <em class="start"></em>
+                    <em></em>
+                    <em class="close"></em>
+                </div>
 			</div>
-		</div>
+		</div> -->
+
     </div>
 
 </body>

@@ -25,7 +25,7 @@ $("body").on("click",".edit-btn",function(){
 });
 // 2.批量导入/导出 按钮
 $("body").on("click",".import-btn",function(){
-    var parcent = '';
+    var percent = '';
     var state = false;
     createPopupFn({
         title:'批量导入',       // 标题
@@ -43,52 +43,25 @@ $("body").on("click",".import-btn",function(){
                 
                 if (fileList) {
                     state = true;
-                    parcent = setInterval(setParcent,10);
+                    percent = setInterval(setPercent,10);
                 }
-                console.log(fileList);
-                console.log(arguments);
             },
             cancelFn:function () {
-                if(state){
-                    clearInterval(parcent);
-                    createPopupFn({
-                        title:'您确认要取消？',       // 标题
-                        type:"alert",       // 类似alert  
-                        popupContentType:"batchDel", // 内容主体 类型：import 导入
-                        close:true,
-                        callbackFn:{
-                            saveFn:function(){
-                                state = false;
-                                clearInterval(parcent);
-                                arguments[0].removeContainer(arguments[1],"all");
-                                console.log(arguments);
-                            },
-                            cancelFn:function () {
-                                state = true;
-                                console.log(arguments);
-                                console.log(this)
-                                arguments[0].removeContainer(arguments[1]);
-                                parcent = setInterval(setParcent,10);
-                                console.log("cancel？？");
-                            }
-                        }
-                    }); 
-                }else{
-                    arguments[0].removeContainer(arguments[1]);
-                }
-                
-                console.log(21345678);
+                cancelUploadFn(arguments);
+            },
+            closeFn:function(){
+                cancelUploadFn(arguments);
             }
         }
     });
     var n = 0;
-    function setParcent(){
+    function setPercent(){
         
-        if(n <= 100){
-            $(".scroll-bar").css( 'background-size', n + '% 100%' ); 
+        if(n <= 1000){
+            $(".scroll-bar").css( 'background-size', (n/10) + '% 100%' ); 
             
         }else{
-            clearInterval(parcent);
+            clearInterval(percent);
             createPopupFn({
                 title:'上传成功',       // 标题
                 type:"alert",       // 类似alert  
@@ -98,23 +71,47 @@ $("body").on("click",".import-btn",function(){
                 callbackFn:{
                     saveFn:function(){
                         state = false;
-                        console.log(arguments);
                         arguments[0].removeContainer(arguments[1],true);
                     },
                     cancelFn:function () {
                         state = true;
-                        console.log(arguments);
                     }
                 }
             }); 
         }
         n++;
     }
+    // 取消 和关闭按钮
+    function cancelUploadFn(arguments){
+        if(state){
+            clearInterval(percent);
+            createPopupFn({
+                title:'您确认要取消？',       // 标题
+                type:"alert",       // 类似alert  
+                popupContentType:"batchDel", // 内容主体 类型：import 导入
+                close:true,
+                flootBtn:["确认","取消"],
+                callbackFn:{
+                    saveFn:function(){
+                        state = false;
+                        clearInterval(percent);
+                        arguments[0].removeContainer(arguments[1],"all");
+                    },
+                    cancelFn:function () {
+                        state = true;
+                        arguments[0].removeContainer(arguments[1]);
+                        percent = setInterval(setPercent,10);
+                    }
+                }
+            }); 
+        }else{
+            arguments[0].removeContainer(arguments[1]);
+        }
+    }
 });
 // 3.批量删除
 $("body").on("click",".batch-del-btn",function(){
     var rowObj = $(".table-container .row:not(:first-child) .active").parents(".row");
-    console.log(rowObj.remove());
     createPopupFn({
         title:'批量删除',       // 标题
         type:"alert",       // 类似alert  

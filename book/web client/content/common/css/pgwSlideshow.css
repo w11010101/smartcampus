@@ -19,7 +19,7 @@
 .pgwSlideshow .ps-current {
     text-align: center;
     position: relative;
-    min-height: 150px;
+    min-height: 400px;
     overflow: hidden;
     margin-bottom: 10px;
 }
@@ -30,12 +30,20 @@
     z-index: 1;
     opacity: 0;
     display: block;
+    min-height: 400px;
+    position: relative;
 }
 
 .pgwSlideshow .ps-current > ul  > li img {
     display: block;
     max-width: 100%;
     margin: auto;
+    max-height: 400px!important;
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%,-50%);
 }
 
 .pgwSlideshow .ps-caption {
@@ -126,6 +134,7 @@
     left: 0;
     top: 45%;
     cursor: pointer;
+    z-index: 3;
 }
 
 .pgwSlideshow .ps-current .ps-next {
@@ -133,6 +142,7 @@
     right: 0;
     top: 45%;
     cursor: pointer;
+    z-index: 3;
 }
 
 

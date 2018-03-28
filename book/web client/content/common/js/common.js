@@ -261,7 +261,7 @@ function getMainHtml(option){
     switch (option.type){
         case "share":
             return '<div class="list-title">\
-                    <h1>腾讯金融学院成立，致力成为培养互联网与金融</h1>\
+                    <h1>'+option.setData.name+'</h1>\
                     <img src="../../content/collection/img/inset.png" alt="">\
                 </div>\
                 <div class="expandingArea " id="textarea">\
@@ -288,33 +288,21 @@ function getMainHtml(option){
             for (var i = 0; i < classArr.length; i++) {
                 lis+='<li>' + classArr[i].title + '(' + classArr[i].num + ')</li>';
             }
-            return '<div class="photos">\
-                <div class="photo"><img src="../../content/collection/img/img-2.jpg" alt="" /><em>插画1.png</em><a class="del"></a></div>\
-                <div class="photo"><img src="../../content/collection/img/img-2.jpg" alt="" /><em>插画1插画1插画1插画1插画1.png</em><a class="del"></a></div>\
-                <div class="photo"><img src="../../content/collection/img/img-2.jpg" alt="" /><em>插画1.png</em><a class="del"></a></div>\
-                <div class="photo"><img src="../../content/collection/img/img-2.jpg" alt="" /><em>插画1.png</em><a class="del"></a></div>\
-                <div class="photo"><img src="../../content/collection/img/img-2.jpg" alt="" /><em>插画1.png</em><a class="del"></a></div>\
-                <div class="photo"><img src="../../content/collection/img/img-2.jpg" alt="" /><em>插画1.png</em><a class="del"></a></div>\
-                <div class="photo"><img src="../../content/collection/img/img-2.jpg" alt="" /><em>插画1.png</em><a class="del"></a></div>\
-                <div class="photo"><img src="../../content/collection/img/img-2.jpg" alt="" /><em>插画1.png</em><a class="del"></a></div>\
-                <div class="photo"><img src="../../content/collection/img/img-2.jpg" alt="" /><em>插画1.png</em><a class="del"></a></div>\
-                <div class="photo"><img src="../../content/collection/img/img-2.jpg" alt="" /><em>插画1.png</em><a class="del"></a></div>\
-                <div class="photo"><img src="../../content/collection/img/img-2.jpg" alt="" /><em>插画1.png</em><a class="del"></a></div>\
-                <div class="photo"><img src="../../content/collection/img/img-2.jpg" alt="" /><em>插画1.png</em><a class="del"></a></div>\
-                <div class="photo-add-btn"></div>\
-            </div>\
-            <div class="collapse-box">\
-                <h3 class="collapse-title">上传到：<em>互联网</em><button class="collapse-btn" onclick="toggleFadeCollapse(this)"></button></h3>\
-                <div class="collapse-container">\
-                    <ul>\
-                        <li class="active">全部分类(94)</li>'+lis+'\
-                    </ul>\
-                </div>\
-            </div>\
-            <div class="send popup-btns">\
-                <button class="upload-btn" onclick="uploadFn(this);">发送</button>\
-                <button class="upload-cancel" onclick="$(".popupBox,.mask").remove(0);">取消</button>\
-            </div>';
+            return '<div class="files">\
+                        <div class="file-add-btn"><input type="file" multiple/></div>\
+                    </div>\
+                    <div class="collapse-box">\
+                        <h3 class="collapse-title">上传到：<em>互联网</em><button class="collapse-btn" onclick="toggleFadeCollapse(this)"></button></h3>\
+                        <div class="collapse-container">\
+                            <ul>\
+                                <li class="active">全部分类(94)</li>'+lis+'\
+                            </ul>\
+                        </div>\
+                    </div>\
+                    <div class="send popup-btns">\
+                        <button class="upload-btn" onclick="uploadFn(this);">上传</button>\
+                        <button class="upload-cancel" onclick=$(".popupBox,.mask").remove();>取消</button>\
+                    </div>';
         break;
     }
 }
@@ -323,11 +311,91 @@ function toggleFadeCollapse(obj){
     $(obj).toggleClass("active").parent().next(".collapse-container").stop().slideToggle(200);
 
 }
-// uploadFn 上传 按钮点击事件
+// uploadFn 上传 按钮点击事件 ================================================================
+
 function uploadFn(obj){
     console.log("uploadFn 这里");
-    $(".popupBox,.mask").remove(0);
+    
+    // 判断 要上传的图片个数
+    if($(".file").length>1){
+        $(".upload-container").removeClass("toggleShow");
 
+        $.each($(".file"),function(i,e){
+            var obj = {
+                name:$("em",e).text(),
+                src:$("img",e).attr("src"),
+                size:$(e).attr("setSize"),
+            }
+            $(".upload-file-list").append(getUploadListHtml(obj));
+            // 启动 进度条（用计时器模拟，设置css 样式；percent 为百分比）
+            progressBar();
+        });
+        $(".popupBox,.mask").remove(0);
+
+        // $(".upload-container").append(getUploadListHtml()).toggleClass("toggleShow");
+    }else{
+        console.log("长度为<=1");
+    }
+
+    var data = {
+        files:123
+    }
+}
+function progressBar(option){
+    var persent = "";
+    persent = setInterval(setPercent,10);
+    var n = 0;
+    function setPercent(){
+        
+        if(n <= 1000){
+            $(".scroll-bar").css( 'background-size', (n/10) + '% 100%' ); 
+            
+        }else{
+            clearInterval(percent);
+            createPopupFn({
+                title:'上传成功',       // 标题
+                type:"alert",       // 类似alert  
+                popupContentType:"batchDel", // 内容主体 类型：import 导入
+                close:true,
+                flootBtn:["确认"],
+                callbackFn:{
+                    saveFn:function(){
+                        state = false;
+                        arguments[0].removeContainer(arguments[1],true);
+                    },
+                    cancelFn:function () {
+                        state = true;
+                    }
+                }
+            }); 
+        }
+        n++;
+    }
+}
+function getUploadListHtml(options){
+    return (function(){
+        var html = '<div class="upload-file">\
+            <div class="upload-img">\
+                <img src="'+options.src+'" alt="">\
+            </div>\
+            <div>\
+                <div class="upload-info">\
+                    <p>'+options.name+'</p>\
+                    <em class="file-size">'+options.size+'</em>\
+                    <div class="bar-range">\
+                        <div class="bar-track"></div>\
+                    </div>\
+                </div>\
+                <div class="upload-edit">\
+                    <em class=""></em>\
+                    <em class="start"></em>\
+                    <em class="close"></em>\
+                </div>\
+            </div>\
+        </div>';
+
+        return html;
+    })()
 }
 // 输入框自动调整高度 ================================================================
 function makeExpandingArea(container) {
@@ -397,11 +465,3 @@ function makeExpandingArea(container) {
 // })(window)
 
 // console.log(a1);
-
-// 创建下载的方法 ================================================================
-function createDownLoadFn(){
-    $("body").append()
-}
-function createHtml(){
-
-}
