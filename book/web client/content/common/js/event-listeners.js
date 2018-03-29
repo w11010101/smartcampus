@@ -62,7 +62,10 @@ $("body").on("click",".popupBox .add",function(){
 $("body").on("click",".popupBox .del",function(){
     console.log("del= " ,this);
     $(this).parent().fadeOut(100,function(){
-    	$(this).remove()
+    	$(this).remove();
+        if($("input[type=file]").length){
+            $("input[type=file]").val("");
+        }
     });
 });
 // 隐藏popup ================================================================
@@ -108,13 +111,13 @@ $("body").on("click",".share-btn",function(){
     $(".popup-box").stop().fadeOut(200).removeClass('show');
 });
 // 上传文件 ================================================================
-$("body").on("click",".upload-file",function(){
-	// createAside({
- //        label: "上传找",
- //        formType: "search",
- //        listType: "level",
- //        isHas:$("aside").length?true:false
- //    });
+$("body").on("click",".header-right .upload-file",function(){
+	createPopupFn({
+        title:"上传文件",
+        type:"upload-photo",
+        isHas:$(".popupBox").length?true:false,
+    });
+    $(".popup-box").stop().fadeOut(200).removeClass('show');
 });
 // 上传照片 ================================================================
 $("body").on("click",".upload-photo",function(){
@@ -122,7 +125,8 @@ $("body").on("click",".upload-photo",function(){
 	createPopupFn({
         title:"上传照片",
         type:"upload-photo",
-        isHas:$(".popupBox").length?true:false
+        isHas:$(".popupBox").length?true:false,
+        uploadType:"multiple"
     })
     $(".popup-box").stop().fadeOut(200).removeClass('show');
 });
@@ -131,7 +135,7 @@ $("body").on("click",".collapse-container li",function(){
 	$(this).addClass("active").siblings().removeClass("active");
 	$(".collapse-title em").text($(this).text());
 });
-// 监听 input file 的change 事件
+// 监听 input file 的change 事件 （选择文件）
 $("body").on("change",".file-add-btn input[type=file]",function(){
     var filePath = $(this).val();//读取图片路径  
 
@@ -140,23 +144,72 @@ $("body").on("change",".file-add-btn input[type=file]",function(){
     $.each(imgObjs,function(i,e){
         var fr = new FileReader();
         fr.readAsDataURL(e);
+        console.log(filePath);
+
+        var arr = filePath.split('\\');  
+        var fileName = arr[arr.length - 1];
+        var size = (e.size/1024).toFixed(2);
+        size = (parseFloat(size)>1000)?(parseFloat(size)/1024).toFixed(2)+"MB" : size+"KB";
+
+        
         if(filePath.indexOf("jpg") != -1 || filePath.indexOf("JPG") != -1 || filePath.indexOf("PNG") != -1 || filePath.indexOf("png") != -1) {  
-            var arr = filePath.split('\\');  
-            var fileName = arr[arr.length - 1];
-            var size = (e.size/1024).toFixed(2);
-            size = (parseFloat(size)>1000)?(parseFloat(size)/1024).toFixed(2)+"MB" : size+"KB";
             fr.onload = function() {
                 if($(".files .file").length<12){
-                    $(".files").prepend('<div class="file" setSize = '+ size+'><img src="'+this.result+'" alt="" /><em>'+e.name+'</em><a class="del"></a></div>')
+                
+                    $(".files").prepend('<div class="file" setSize = '+ size+'><img src="'+selectUploadImg(this)+'" alt="" /><em>'+e.name+'</em><a class="del"></a></div>')
+                }else{
+                    return false;
+                }
+            };
+        }else if(filePath.indexOf("txt") != -1 ||filePath.indexOf("ppt") != -1||filePath.indexOf("pptx") != -1||filePath.indexOf("doc") != -1||filePath.indexOf("pdf") != -1||filePath.indexOf("xls") != -1||filePath.indexOf("xlsx") != -1){
+            console.log('除 图片文件 以外的 其他的文件');
+            fr.onload = function() {
+                if($(".files .file").length<12){
+                
+                    $(".files").prepend('<div class="file" setSize = '+ size+'><img src="'+selectUploadImg(this,filePath)+'" alt="" /><em>'+e.name+'</em><a class="del"></a></div>')
                 }else{
                     return false;
                 }
             };  
         }
     });
-      
-    
 });
+// 上传图片选择
+function selectUploadImg(obj,filePath){
+    if(obj.result.indexOf('data:image') != -1){
+        
+        // 图片文件
+        return obj.result;
+    }else{
+        // 除 图片文件 以外的 其他的文件
+        var fileType = filePath.split(".")[filePath.split(".").length-1];
+        switch (fileType){
+            case "txt":
+                return '../../content/common/img/Group 3@3x.png';
+            break;
+            case "doc":
+                return '../../content/common/img/word@3x.png';
+            break;
+            case "xlsx":
+                return '../../content/common/img/Group 4@3x.png';
+            break;
+            case "xls":
+                return '../../content/common/img/Group 4@3x.png';
+            break;
+            case "pdf":
+                return '../../content/common/img/Group@3x.png';
+            break;
+            case "ppt":
+                return '../../content/common/img/Group 5@3x.png';
+            break;
+            case "pptx":
+                return '../../content/common/img/Group 5@3x.png';
+            break;
+        }
+        console.log(fileType);
+    }
+    console.log(obj)
+}
 // 文件列表 幻灯片 ================================================================
 
 var pgwSlideshow = null;
@@ -172,65 +225,106 @@ if($('.pgwSlideshow').pgwSlideshow) {
 }
 
 // 上传容器 展开 & 折叠 ================================================================
-// var percentsObj = {};
-// var percentsArr = [];
-// var n = 0;
+
 $(".toggle-fade-btn").on("click",function(){
     $(".upload-container").toggleClass("toggleShow");
-})
-// percentsObj["percent"+i] = setInterval(setPercent,10);
-// function setPercent(){
-//     console.log("zhixingle jici ")
-//     if(n <= 1000){
-//         $(".bar-track").css( 'background-size', (n/10) + '% 100%' );      
-//     }else{
-//         // clearInterval(percentsObj["percent"+i]);
-//     }   
-//     n++;
-// }
-// 上传任务 开始 按钮 点击 事件
+});
+
+// 上传任务 开始 按钮 点击 事件 *******
 $("body").on("click",".start",function(){
     console.log("start btns");
     var thisP = $(this).parents('.upload-file');
     var i = thisP.index();
-    var timeDiff = thisP.attr("pauseTime") - thisP.attr("startTime");
-    console.log("pauseTime:",thisP.attr("pauseTime"), " - " ,"startTime:",thisP.attr("startTime")," = " , timeDiff);
+    // 停止时间
+    var PT = thisP.attr("pauseTime");
+    // 开始时间
+    var ST = thisP.attr("startTime");
+    // 剩余时间
+    var surplusDiff = longTime - thisP.attr("runTime");
+    // 设置 当前任务的 暂停时间
+    thisP.attr("startTime",new Date().getTime());
     thisP.find(".bar-track").animate({
-        width:"100%"
-    },timeDiff,function(){
+        width:"100%",
+    },surplusDiff,"linear",function(){
         console.log("done2");
+        console.log(thisP);
+        thisP.find(".paused").removeClass('paused');
+        thisP.find(".close").removeClass('close');
+        thisP.find(".refresh").removeClass('refresh');
+        thisP.find(".upload-edit-em").eq(0).removeClass('pause cancel').addClass("done");
     });
-    // 设置一个中间点击的时间
-    // 设置一个中间点击的时间
-    // 设置一个中间点击的时间
-    // 设置一个中间点击的时间
-    // 设置一个中间点击的时间
-    // 设置一个中间点击的时间
-    // 设置一个中间点击的时间
-    // 设置一个中间点击的时间
-    
+    thisP.find(".upload-edit-em").eq(0).removeClass('pause');
     $(this).removeClass('start').addClass('paused');
 });
-// 上传任务 暂停 按钮 点击 事件
+
+// 上传任务 暂停 按钮 点击 事件 *******
 $("body").on("click",".paused",function(){
     console.log("paused btns");
     var thisP = $(this).parents('.upload-file');
     var i = thisP.index();
-    thisP.attr('pauseTime',new Date().getTime()).find(".bar-track").stop();
 
-    $(this).parents('.upload-file').attr('startTime')
+    // 设置 当前任务的 暂停时间
+    thisP.attr('pauseTime',new Date().getTime()).find(".bar-track").stop();
+    
+    // 停止时间
+    var PT = thisP.attr("pauseTime");
+    // 开始时间
+    var ST = thisP.attr("startTime");
+
+    // 设置 截止到现在运行了多长时间
+    thisP.attr("runTime",parseInt(thisP.attr("runTime")) + (PT - ST));
+
+    $(this).parents('.upload-file').attr('startTime');
 
     $(this).removeClass('paused').addClass('start');
 
+    thisP.find(".upload-edit-em").eq(0).addClass("pause");
+
 });
-// 上传任务 重新下载 按钮 点击 事件
+
+// 上传任务 重新下载 按钮 点击 事件   *******
 $("body").on("click",".refresh",function(){
     console.log("refresh btns");
     $(this).removeClass('refresh').addClass('close');
+    var thisP = $(this).parents('.upload-file');
+    thisP.find(".upload-edit-em").eq(1).addClass('paused');
+    thisP.find(".upload-edit-em").eq(0).removeClass('cancel');
+    thisP.attr("startTime",new Date().getTime());
+    // 停止时间
+    var PT = thisP.attr("pauseTime");
+    // 开始时间
+    var ST = thisP.attr("startTime");
+    // 剩余时间
+    var surplusDiff = longTime - thisP.attr("runTime");
+    thisP.find(".bar-track").animate({
+        width:"100%",
+    },surplusDiff,"linear",function(){
+        console.log("done3");
+        console.log(thisP);
+        thisP.find(".paused").removeClass('paused');
+        thisP.find(".close").removeClass('close');
+        thisP.find(".refresh").removeClass('refresh');
+        thisP.find(".upload-edit-em").eq(0).removeClass('pause cancel').addClass("done");
+        
+    });
+
 });
-// 上传任务 取消 按钮 点击 事件
+
+// 上传任务 取消 按钮 点击 事件 *******
 $("body").on("click",".close",function(){
     console.log("close btns");
-    $(this).removeClass('close').addClass('refresh');
+    
+    var thisP = $(this).parents('.upload-file');
+    thisP.find(".upload-edit-em").eq(1).removeClass('start paused');
+    
+    thisP.attr("startTime",0).attr("pauseTime",longTime).attr("runTime",0);
+
+    thisP.find(".bar-track").finish().animate({
+        width:"0%",
+    },0,"linear",function(){
+        thisP.find(".upload-edit-em").eq(0).removeClass('pause done').addClass("cancel");
+        thisP.find(".upload-edit-em").eq(2).removeClass('close').addClass('refresh');
+    });
+    
 });
 

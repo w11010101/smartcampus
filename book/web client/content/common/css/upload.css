@@ -122,7 +122,8 @@
 }
 .upload-container .upload-file .upload-edit em.start:hover,
 .upload-container .upload-file .upload-edit em.close:hover,
-.upload-container .upload-file .upload-edit em.paused:hover{
+.upload-container .upload-file .upload-edit em.paused:hover,
+.upload-container .upload-file .upload-edit em.refresh:hover{
     cursor: pointer;
 }
 .upload-container .upload-file .upload-edit em.done{
@@ -164,7 +165,7 @@
 }
 .upload-container .upload-file .upload-edit em.refresh{
     background: url(../img/chongxinxiazai@3x.png) no-repeat center;
-    background-size: 15px;
+    background-size: 20px;
 }
 .upload-container .upload-file .upload-edit img{
     width: 22px;

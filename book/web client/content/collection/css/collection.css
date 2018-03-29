@@ -249,7 +249,7 @@
     background: #f9f9f9;
 }
 .content-right.hasTools{
-    margin-top: 94px;
+    /*margin-top: 94px;*/
 }
 
 /* =============== 推荐 =============== */
@@ -331,6 +331,7 @@
     width: 100%;
     opacity: 0;
 }
+.popupBox .files .file:nth-child(1) + .file-add-btn.file-text,
 .popupBox .files .file:nth-child(12) + .file-add-btn{
     display: none;
 }

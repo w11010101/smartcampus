@@ -78,37 +78,9 @@ function createMaskFn() {
     return;
 }
 // 防暴力点击 ========================================
-var clickState = true;
-// var btns = document.querySelectorAll("button");
-// console.log(btns);
-// $.each(btns,function(i,e){
-//     e.addEventListener("click",function(event){
-//         console.log(clickState);
-//         if(clickState) {
-//             clickState = false;
-//             console.log('防暴力点击')
-//             setTimeout(function(){clickState = true;},3000);
-//         }else{
-//             console.log("防暴力点击 成功")
-//             return false;
-//         }
-//     })
-// });
-$("body").on("click","button",function(event){
-    var that = $(this);
-    console.log(clickState);
-    if(clickState) {
-        clickState = false;
-        console.log('防暴力点击');
-        setTimeout(function(){
-            clickState = true;
-        },3000);
-    }else{
-        console.log("防暴力点击 成功");
-        // that.off("click").on("click");
-        // event.stopPropagation();
-        return false;
-    }
+
+$("body").on("click",".my-popup button",function(event){
+    $(this).off("click");
 
 });
 // create popup fn 创建弹出框 ========================================
@@ -126,7 +98,6 @@ function createPopupFn(option) {
         container.addClass("show");
     },10);
 
-    // container.addClass(option.type+"-"+option.popupContentType);
     // 添加面包屑容器
     if(data.breadcrumb) {
         container.append('<ol class="breadcrumb"></ol>');
@@ -150,12 +121,7 @@ function createPopupFn(option) {
     // 保存 按钮 事件
     
     container.find('.save-btn').on('click',function (event) {
-        // if(clickState) {
-        //     clickState = !clickState;
-        //     setTimeout(function(){clickState = true;},3000);
-        // }else{
-        //     return false;
-        // }
+
         if(!option.callbackFn.saveFn) return false;
         var obj = {};
         var urlPar = '';

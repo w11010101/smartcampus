@@ -288,8 +288,10 @@ function getMainHtml(option){
             for (var i = 0; i < classArr.length; i++) {
                 lis+='<li>' + classArr[i].title + '(' + classArr[i].num + ')</li>';
             }
+            var inputFile = option.uploadType == "multiple"?'<input type="file" multiple accept="image/gif, image/jpeg, image/png, image/jpg" />':'<input type="file" accept="text/plain, application/pdf, application/vnd.ms-works , application/vnd.ms-powerpoint ,application/vnd.ms-excel,application/msword,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.openxmlformats-officedocument.presentationml.presentation"/>'
+            // var inputFile = option.uploadType == "multiple"?'<input type="file" multiple accept="image/gif, image/jpeg, image/png, image/jpg" />':'<input id="fileSelect" type="file" accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" />  '
             return '<div class="files">\
-                        <div class="file-add-btn"><input type="file" multiple/></div>\
+                        <div class="file-add-btn '+(option.uploadType == "multiple"?"":"file-text")+'">'+inputFile+'</div>\
                     </div>\
                     <div class="collapse-box">\
                         <h3 class="collapse-title">上传到：<em>互联网</em><button class="collapse-btn" onclick="toggleFadeCollapse(this)"></button></h3>\
@@ -314,13 +316,13 @@ function toggleFadeCollapse(obj){
 // uploadFn 上传 按钮点击事件 ================================================================
 var percentsObj = {};
 var n = 0;
+var longTime = 10000;
 function uploadFn(obj){
     console.log("uploadFn 这里");
     
     // 判断 要上传的图片个数
     if($(".file").length>=1){
         $(".upload-container").removeClass("toggleShow");
-
         $.each($(".file"),function(i,e){
             var obj = {
                 name:$("em",e).text(),
@@ -328,71 +330,45 @@ function uploadFn(obj){
                 size:$(e).attr("setSize"),
             }
             $(".upload-file-list").append(getUploadListHtml(obj));
-            // window["currentIndex"] = i;
-            // 启动 进度条（用 计时器 来 模拟，设置css 样式；percent 为百分比）
-            // progressBar("start",i);
         });
-        progressBar("start");
+        // 开始上传
+        uploadStart("start",longTime,$(".file").length);
         $(".popupBox,.mask").remove(0);
 
     }else{
         console.log("长度为<1");
     }
-
-    var data = {
-        files:123
-    }
 }
-// 设置 进度条 显示效果 百分比
+// 设置 进度条 显示效果 
 var num = 0;
 var startTime = 0;
 var pauseTime = 0;
-function progressBar(type,i){
+var runTime = 0;
+function uploadStart(type,time,length){
     console.log('percent');
     
     var files = $(".upload-file-list .upload-file");
-    for (var i = 0; i < files.length; i++) {
-        
-        // setTimeout(function(){
-        //     num = i;
-        //     console.log("num = " ,num);
-        // },10);
-        // percentsObj["percent"+i] = setInterval(setPercent,10); 
-        // num++
-        files.attr('startTime',startTime = new Date().getTime());
-        files.eq(i).find(".bar-track").animate({
-            width:"100%"
-        },5000,function(){
-            console.log("done1");
-        });
+    // 防止之前 添加的任务 反复运行
+    if(files.length>1){
+        files = files.eq(files.length - length - 1).nextAll();
     }
-
-    // if(type == 'start'){
-    //     console.log("progressBar= ",currentIndex);
-    //     console.log("progressBar= ",i); 
-    //     percentsObj["percent"+i] = setInterval(setPercent,10); 
-    // }else if(type == "pause"){
-    //     clearInterval(percentsObj["percent"+i]);
-    // }
     
+    for (var i = 0; i < files.length; i++) {
+        // 设置 当前任务 的开始时间
+        files.eq(i).attr('startTime',startTime = new Date().getTime()).attr('runTime',0);
+
+        files.eq(i).find(".bar-track").animate({
+            width:"100%",
+        },time,"linear",function(){
+            console.log("done1");
+            var thisP = $(this).parents('.upload-file');
+            thisP.find(".paused").removeClass('paused');
+            thisP.find(".close").removeClass('close');
+            thisP.find(".upload-edit-em").eq(0).addClass("done");
+        });
+    }    
 }
-function setPercent(){
-    
-    var files = $(".upload-file-list .upload-file");
-
-    console.log(num);
-
-
-    if(n <= 1000){
-        files.eq(num).find(".bar-track").css('background-size', (n/10) + '% 100%' ); 
-        // $(".bar-track").css('background-size', (n/10) + '% 100%' )     
-    }else{
-        console.log(" > 1000 停止")
-        // progressBar(currentIndex,"pause")
-        clearInterval(percentsObj["percent"+num]);
-    }   
-    n++;
-}
+ 
 // 获取上传列表的html结构
 function getUploadListHtml(options){
     return (function(){
@@ -409,9 +385,9 @@ function getUploadListHtml(options){
                     </div>\
                 </div>\
                 <div class="upload-edit">\
-                    <em class=""></em>\
-                    <em class="paused"></em>\
-                    <em class="close"></em>\
+                    <em class="upload-edit-em "></em>\
+                    <em class="upload-edit-em paused"></em>\
+                    <em class="upload-edit-em close"></em>\
                 </div>\
             </div>\
         </div>';
