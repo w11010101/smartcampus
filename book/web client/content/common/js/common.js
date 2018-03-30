@@ -440,29 +440,3 @@ function makeExpandingArea(container) {
     
     container.className += "active";
 }
-
-
-
-// function inputFn(obj){
-//     console.log(obj.getAttribute("maxlength"));
-//     console.log($(obj).text())
-//     if(obj.innerHTML.length < obj.getAttribute("maxlength")){
-//         $('.font-statis').text(obj.innerHTML.length+'/120');
-//     }else{
-//         obj.setAttribute("contenteditable",false);
-//     }
-// }
-// (function(win){
-//     function a(){
-//         // 隐藏属性
-//         this._abc = 11;
-//         // 公开属性
-//         return {
-//             f1:22*this._abc,
-//             f2:123
-//         }
-//     }
-//     win.a1 = new a();
-// })(window)
-
-// console.log(a1);
