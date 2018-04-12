@@ -3,7 +3,6 @@ var curMenu = null,
 var setting = {
     view: {
         showLine: false,
-        // showIcon: false,
         selectedMulti: false,
         dblClickExpand: false,
         addDiyDom: addDiyDom
@@ -14,9 +13,8 @@ var setting = {
         }
     },
     callback: {
-        // beforeClick: beforeClick
     }
-};
+}
 var zNodes = [{
         name: "父节点1 - 展开",
         

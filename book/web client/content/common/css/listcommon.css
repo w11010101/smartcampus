@@ -47,8 +47,8 @@ body {
     font-family: 'PingFang-Light';
     src: url('../font/PingFang-Light.ttf');
     src: local('☺'),
-    /*url('../../common/PingFang Light.eot?#iefix') format('embedded-opentype'),  
-        url('../../common/PingFang Light.woff') format('woff'),  */
+    /*url('../../common/PingFang Light.eot?#iefix') format('embedded-opentype'),  */
+    url('../../common/PingFang Light.woff') format('woff'),  
     url('../font/PingFang-Light.ttf') format('truetype'),
     /*url('../../common/PingFang Light.svg#webfontOTINA1xY') format('svg');  */
     /*font-weight:normal;  
@@ -58,8 +58,8 @@ body {
     font-family: 'PingFangSC-Semibold';
     src: url('../font/PingFangSC-Semibold.ttf');
     src: local('☺'),
-    /*url('../../common/PingFang SC Semibold.eot?#iefix') format('embedded-opentype'),  
-        url('../../common/PingFang SC Semibold.woff') format('woff'),  */
+    /*url('../../common/PingFang SC Semibold.eot?#iefix') format('embedded-opentype'),  */
+    url('../../common/PingFang SC Semibold.woff') format('woff'),  
     url('../font/PingFangSC-Semibold.ttf') format('truetype'),
     /*url('../../common/PingFang SC Semibold.svg#webfontOTINA1xY') format('svg');  */
     /*font-weight:normal;  
@@ -122,6 +122,7 @@ button:focus {
     opacity: 1;
     transition: all .2s ease;
     -webkit-transition: all .2s ease;
+    -ms-transition: all .2s ease;
 }
 .state-laud:active,
 .popupBox .sendBtn:active {
@@ -304,6 +305,7 @@ aside .comment li .comment-state,
     position: absolute;
     -webkit-width: calc(100% - 160px);
     -moz-width: calc(100% - 160px);
+    -ms-width: calc(100% - 160px);
     width: calc(100% - 160px);
     top: 0;
     right: 0;
@@ -354,6 +356,7 @@ aside .comment li .comment-state,
     display: inline-block;
     -webkit-width: calc(100% - 37px);
     -moz-width: calc(100% - 37px);
+    -ms-width: calc(100% - 37px);
     width: calc(100% - 37px);
     height: inherit;
     border: 0;
@@ -420,7 +423,8 @@ aside .comment li .comment-state,
 .header-tools .header-right {
     float: right;
     margin: 0;
-    -webkit-width: calc(88px * 2 + 140px) -moz-width: calc(88px * 2 + 140px) width: calc(88px * 2 + 140px)
+    -webkit-width: calc(88px * 2 + 140px) -moz-width: calc(88px * 2 + 140px) width: calc(88px * 2 + 140px);
+    -ms-width: calc(88px * 2 + 140px) -moz-width: calc(88px * 2 + 140px) width: calc(88px * 2 + 140px);
 }
 .header-tools .header-info {
     width: 170px;
@@ -723,6 +727,12 @@ aside .comment li .comment-state,
     -webkit-transition: all .2s ease-in-out;
     -ms-transition: all .2s ease-in-out;
 }
+.collection .float-tools{
+    width: auto;
+    transform: translateX(0);
+    -webkit-transform: translateX(0);
+    -ms-transform: translateX(0);
+}
 .float-tools:hover,
 .float-tools.active {
     transform: translateX(0);
@@ -735,12 +745,16 @@ aside .comment li .comment-state,
     text-align: center;
     padding: 12px 0;
     color: #999;
+    position: static;
 }
 .float-tools a:first-child {
     display: none;
 }
 .float-tools:hover a:first-child,
 .float-tools.active a:first-child {
+    display: block;
+}
+.collection .float-tools a:first-child{
     display: block;
 }
 .float-tools a img {
@@ -760,6 +774,8 @@ aside .comment li .comment-state,
 aside {
     position: fixed;
     width: 350px;
+    width: 380px\9;
+    width: 380px\0;
     height: calc(100vh - 60px);
     top: 60px;
     right: 0;
@@ -769,8 +785,10 @@ aside {
     overflow-y: scroll;
     transform: translateX(100%);
     -webkit-transform: translateX(100%);
+    -ms-transform: translateX(100%);
     transition: all .3s ease;
     -webkit-transition: all .3s ease;
+    -ms-transition: all .3s ease;
 
     /*display: none;*/
 }
@@ -782,6 +800,7 @@ aside {
 aside.show{
     transform: translateX(0);
     -webkit-transform: translateX(0);
+    -ms-transform: translateX(0);
 }
 aside h2 {
     font-size: 16px;
@@ -799,13 +818,17 @@ aside h2 button,
     float: right;
     transform: rotateZ(0);
     -webkit-transform: rotateZ(0);
+    -ms-transform: rotateZ(0);
     transition: all .2s ease-in;
     -webkit-transition: all .2s ease-in;
+    -ms-transition: all .2s ease-in;
 }
 aside h2 button:hover,
 .popupBox h2 button:hover{
     transform: rotateZ(90deg);
     -webkit-transform: rotateZ(90deg);
+    -moz-transform: rotateZ(90deg);
+    -ms-transform: rotateZ(90deg);
 }
 aside form {
     font-size: 0px;
@@ -908,8 +931,9 @@ aside .comment li .comment-state a {
     left: 50%;
     margin-top: -20%;
     margin-left: -240px;
+    margin-left: -255px\0;
     width: 480px;
-    -moz-
+    width: 510px\0;
     max-height: 550px;
     background: #fff;
     z-index: 201;
@@ -1059,10 +1083,13 @@ aside .comment li .comment-state a {
     border-radius: 50%;
     vertical-align: middle;
     margin-right: 10px;
-
+    -ms-transition: all .2s ease;
     -webkit-transition: all .2s ease;
-    -o-transition: all .2s ease;
+    -moz-transition: all .2s ease;
     transition: all .2s ease;
+    -webkit-transition: all .2s ease;
+    -moz-transition: all .2s ease;
+    -ms-transition: all .2s ease;
 }
 .popupBox label.active a {
     background: #27b3cb;
@@ -1071,11 +1098,11 @@ aside .comment li .comment-state a {
 /* textarea */
 .expandingArea {
     width: 440px;
-    max-height: 101px;
-    left: 20px;
+    max-height: 101px;  
     position: relative;
     background: #fff;
     overflow-y: auto;
+    margin: 10px auto;
 }
 .expandingArea textarea,
 .expandingArea pre {
@@ -1098,6 +1125,8 @@ aside .comment li .comment-state a {
     width: 100%;
     /* This height is used when JS is disabled */
     height: 100px;
+
+    
 }
 .expandingArea.active textarea {
     /* Hide any scrollbars */

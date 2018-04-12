@@ -148,10 +148,11 @@ $("body").on("click",".add-btn",function(){
                         <div class="col-xs-4">'+arguments[0].email+'</div>\
                     </div>';
                 $(".table-container").append(lis);
-                arguments[0].removeContainer();
+                arguments[0].removeContainer(arguments[1],true);
             },
             cancelFn:function () {
                 console.log(arguments);
+                arguments[0].removeContainer(arguments[1],true);
             },
             delFn:function () {
                 console.log(arguments);
@@ -192,7 +193,7 @@ $('body').on('click','.add-subDept-btn', function (event) {
             saveFn:function(){
                 if(arguments[0].deptName){
                     $(".subDept-list").append('<li>'+arguments[0].deptName+'(0人)</li>')
-                    arguments[0].removeContainer();
+                    arguments[0].removeContainer(arguments[1],true);
                     console.log(zNodes)
                     var zTree = $.fn.zTree.getZTreeObj("treeDemo"); 
                     zTree.reAsyncChildNodes(null, "refresh");
@@ -200,6 +201,7 @@ $('body').on('click','.add-subDept-btn', function (event) {
             },
             cancelFn:function () {
                 console.log(arguments);
+                arguments[0].removeContainer(arguments[1],true);
             },
             delFn:function () {
                 console.log(arguments);
@@ -212,8 +214,10 @@ $('body').on('click','.add-subDept-btn', function (event) {
 $("body").on("click",".breadcrumb li:not(:last-child)",function(){
 
     var text = $(this).text();
-    // console.log('"level"+($(this).index() - 1) = ',"level"+($(this).index() - 1));
-    treeObj["level"+($(this).index() - 1)] = text;
+    if($(this).index() - 1>0){
+        treeObj["level"+($(this).index() - 1)] = text;
+    }
+    
 
     $(".firsh-title em").text(text);
 

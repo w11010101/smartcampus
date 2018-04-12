@@ -2,6 +2,7 @@
 .upload-container{
     position: fixed;
     width: 440px;
+    width: 460px\0;
     height: 340px;
     background: #fff;
     bottom: 0px;
@@ -10,12 +11,15 @@
     padding: 20px;
     transform: translateY(0);
     -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
     transition: all .3s ease;
     -webkit-transition: all .3s ease;
+    -ms-transition: all .3s ease;
 }
 .upload-container.toggleShow{
     transform: translateY(285px);
-    -webkit-transform: translateY(285px); 
+    -webkit-transform: translateY(285px);
+    -ms-transform: translateY(285px); 
 }
 .upload-container .upload-title{
     height: 20px;
@@ -42,6 +46,7 @@
 .upload-container.toggleShow .upload-title .toggle-fade-btn{
     transform: rotateZ(180deg);
     -webkit-transform: rotateZ(180deg);
+    -ms-transform: rotateZ(180deg);
 }
 .upload-container .upload-title .close-btn{
     background: url(../img/combined-shape@2x.png) no-repeat center;
@@ -155,6 +160,7 @@
     height: 0;
     border-left: 8px dashed;
     border-left: 8px solid \9;
+    border-left: 8px solid \0;
     border-top: 8px solid transparent;
     border-bottom: 8px solid transparent;
     border-left-color: rgba(0, 0, 0, 0.1);
@@ -194,7 +200,9 @@
     
     height: 4px;
     background: -webkit-linear-gradient(#37b9cf, #37b9cf) no-repeat;
-
+    background: -ms-linear-gradient(#37b9cf, #37b9cf) no-repeat;
+    background: linear-gradient(#37b9cf, #37b9cf) no-repeat;
+    filter: progid:DXImageTransform.Microsoft.gradient(enabled='false', startColorstr=#37b9cf, endColorstr=#37b9cf);
     width: 0;
     background-size: 100% 100%;
     

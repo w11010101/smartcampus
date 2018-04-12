@@ -90,7 +90,7 @@ function createPopupFn(option) {
 
     // 添加容器
     if($("."+option.type+"-container").length) {
-        // $("."+option.type+"-container").remove();
+        $("."+option.type+"-container").remove();
     }
     $("body").append(containerHtml(option));
     var container = $("."+option.type+"-"+option.popupContentType);
@@ -174,7 +174,9 @@ function createPopupFn(option) {
 
     // 取消 按钮 事件
     container.find('.cancel-btn').on('click',function (event) {
+        console.log(!option.callbackFn.cancelFn)
         if(!option.callbackFn.cancelFn) return false;
+        console.log(12312)
         var obj={};
         obj["removeContainer"] = removeContainer;
         option.callbackFn.cancelFn(obj,this);
@@ -197,7 +199,7 @@ function createPopupFn(option) {
         option.callbackFn.closeFn(obj,this);
     });
     function removeContainer(obj,deltype){
-        
+        console.log(1)
         if(deltype){
             $(".mask,.masks").remove();
         }else{
@@ -209,7 +211,7 @@ function createPopupFn(option) {
         }
         
         var events = deltype?$(".my-popup"):$(obj).parents(".my-popup");
-
+        console.log($(obj))
         events.removeClass("show");
         setTimeout(()=>{
             events.remove();

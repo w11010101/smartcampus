@@ -47,7 +47,7 @@ var editToolObj = {
         delFn:function (event) {
             // 删除联系人
             // $(event.target).parents(".mail-list-info").parent().remove();
-            console.log(123)
+            console.log(123);
             var option = {
                 type: "alert",
                 boxStyle: {

@@ -14,7 +14,44 @@
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elkements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 </head>
+<style type="text/css">
+    .float-tips{
+        position: fixed;
+        bottom: 0;
+        z-index: 99999999999;
+        height: .54rem;
+        width: 100%;
+        background: rgba(255,255,255,0.9);
+        padding: .08rem ;
+    }
+    .float-tips > *{
+        display: inline-block;
+        vertical-align: middle;
 
+    }
+    .float-tips h3{
+        font-size: .15rem;
+
+    }
+    .float-tips h3 + p{
+        font-size: .11rem;
+    }
+    .float-tips img{
+        width: .37rem;
+        height: .37rem;
+
+    }
+    .float-tips a {
+        float:right;
+        width: .9rem;
+        height: .3rem;
+        background: #33b8ce;
+        color:#fff;
+        text-align: center;
+        line-height: .3rem;
+        margin-top: .05rem;
+    }
+</style>
 <body>
     <!-- 内容 content -->
     <div class="content baguetteBox">
@@ -191,6 +228,15 @@
     <div class="share-btn">
         <a class="icon-share" href="#n">
       </a>
+    </div>
+    <!-- 悬浮提示框 -->
+    <div class="float-tips float-tips-down">
+        <img src="../content/images/logo@3x.png">
+        <div>
+            <h3>快享</h3>
+            <p>收藏好文章，共享知识库</p>
+        </div>
+        <a href="#">立即下载</a>
     </div>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="../content/plugin/jquery/jquery-3.2.1.min.js"></script>

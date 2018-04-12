@@ -170,8 +170,14 @@ function beforeClick(treeId, treeNode) {
     // 获取父级
     var parent = treeNode.getParentNode();
     if(parent){
-        treeObj["level"+parent.level] = parent.name;
+        console.log(parent.level);
         console.log(treeObj);
+        console.log(parent.name);
+        if(parent.level){
+            treeObj["level"+parent.level] = parent.name;
+        }
+        
+        
     }
     setBreadcrumbFn(treeNode,treeObj,$('.container-box .breadcrumb'));
     return true;

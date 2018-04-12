@@ -242,7 +242,7 @@
 .content-right{
     display: inline-block;
     width: calc(100% - 330px);
-    height: calc(100vh - 200px);
+    height: calc(100vh - 100px);
     overflow-y: scroll;
     vertical-align: top;
     margin-left: 330px;
@@ -401,6 +401,7 @@
     height: 0;
     border-top: 8px dashed;
     border-top: 8px solid \9;
+    border-top: 8px solid \0;
     border-left: 7px solid transparent;
     border-right: 7px solid transparent;
     border-top-color: #d8d8d8;
@@ -455,8 +456,8 @@
 .popupBox .popup-btns button{
     width: 80px;
     height: 36px;
-    background:#f9f9f9;
-    color:#999;
+   /* background:#f9f9f9;
+    color:#999;*/
     text-align: center;
     line-height: 36px;
     border:0;

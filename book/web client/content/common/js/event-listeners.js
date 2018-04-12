@@ -60,12 +60,20 @@ $("body").on("click",".popupBox .add",function(){
 });
 // 删除联系人
 $("body").on("click",".popupBox .del",function(){
-    console.log("del= " ,this);
+    console.dir(this);
+    var _this = $(this);
+
     $(this).parent().fadeOut(100,function(){
     	$(this).remove();
         if($("input[type=file]").length){
-            $("input[type=file]").val("");
+            for(var i = 0;i<filearr.length;i++){
+                if(filearr[i].name == _this.prev().text()){
+                    filearr.splice(i,1);
+                    formData.delete(filearr[i].name);
+                }
+            }
         }
+        console.log(filearr);
     });
 });
 // 隐藏popup ================================================================
@@ -99,7 +107,6 @@ selectBtn.on("click", function() {
 });
 // 推荐页面的 推荐功能 ================================================================
 $("body").on("click",".share-btn",function(){
-	console.log(0);
 	createPopupFn({
         title:"推荐给朋友",
         type:"share",
@@ -121,7 +128,6 @@ $("body").on("click",".header-right .upload-file",function(){
 });
 // 上传照片 ================================================================
 $("body").on("click",".upload-photo",function(){
-	console.log(0);
 	createPopupFn({
         title:"上传照片",
         type:"upload-photo",
@@ -136,15 +142,30 @@ $("body").on("click",".collapse-container li",function(){
 	$(".collapse-title em").text($(this).text());
 });
 // 监听 input file 的change 事件 （选择文件）
+
+var filearr = [];
+var formData = null;
 $("body").on("change",".file-add-btn input[type=file]",function(){
+
+    var files = $("input[type=file]")[0].files;
+    
+    for(var i=0;i<files.length;i++){
+        filearr.push(files[i]);
+    }
+    formData = new FormData($("#myform")[0]);  //formData提交
+
+    for(var i =0;i<filearr.length;i++){
+         formData.append(filearr[i].name, filearr[i]);    
+    };
+
+
     var filePath = $(this).val();//读取图片路径  
 
-    var imgObjs = this.files;//获取图片
+    var imgObjs = $(this)[0].files;//获取图片
 
     $.each(imgObjs,function(i,e){
         var fr = new FileReader();
         fr.readAsDataURL(e);
-        console.log(filePath);
 
         var arr = filePath.split('\\');  
         var fileName = arr[arr.length - 1];
@@ -155,14 +176,13 @@ $("body").on("change",".file-add-btn input[type=file]",function(){
         if(filePath.indexOf("jpg") != -1 || filePath.indexOf("JPG") != -1 || filePath.indexOf("PNG") != -1 || filePath.indexOf("png") != -1) {  
             fr.onload = function() {
                 if($(".files .file").length<12){
-                
                     $(".files").prepend('<div class="file" setSize = '+ size+'><img src="'+selectUploadImg(this)+'" alt="" /><em>'+e.name+'</em><a class="del"></a></div>')
                 }else{
                     return false;
                 }
             };
         }else if(filePath.indexOf("txt") != -1 ||filePath.indexOf("ppt") != -1||filePath.indexOf("pptx") != -1||filePath.indexOf("doc") != -1||filePath.indexOf("pdf") != -1||filePath.indexOf("xls") != -1||filePath.indexOf("xlsx") != -1){
-            console.log('除 图片文件 以外的 其他的文件');
+            
             fr.onload = function() {
                 if($(".files .file").length<12){
                 
@@ -173,6 +193,13 @@ $("body").on("change",".file-add-btn input[type=file]",function(){
             };  
         }
     });
+    setTimeout(function(){
+        console.log("已有 = ",$(".files .file").length);
+        if ($(".files .file").length>12) {
+            
+        }
+    },1000);
+    
 });
 // 上传图片选择
 function selectUploadImg(obj,filePath){

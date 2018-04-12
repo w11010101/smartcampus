@@ -1,4 +1,111 @@
-
+// 推荐人 ================================================================
+var referee = [{
+    name: "新中信集团",
+    id: 0,
+    level: 1,
+    children: [{
+            name: "总裁办公室",
+            id: 1,
+            level: 2,
+            type: "dept",
+            children: [{
+                name: "总裁办公室_部门1",
+                id: 11,
+                level: 3,
+                type: "dept",
+                children: [{
+                    name: "总裁办公室_部门1_子部门1",
+                    id: 111,
+                    level: 4,
+                    type: "dept"
+                }, {
+                    name: "总裁办公室_部门1_子部门2",
+                    id: 112,
+                    level: 4,
+                    type: "dept"
+                }, {
+                    name: "总裁办公室_部门1_子部门3",
+                    id: 112,
+                    level: 4,
+                    type: "dept"
+                }, {
+                    name: "总裁办公室_部门1_员工1",
+                    id: 12235648687,
+                    level: 4,
+                }]
+            }, {
+                name: "总裁办公室_部门2",
+                id: 12,
+                level: 3,
+                type: "dept",
+            }, {
+                name: "总裁办公室_部门3",
+                id: 13,
+                level: 3,
+                type: "dept",
+            }, {
+                name: "总裁办公室_部门1_员工2",
+                id: 12235648687,
+                level: 3,
+            }]
+        },
+        {
+            name: "发展研究院",
+            id: 2,
+            level: 2,
+            type: "dept",
+            children: [{
+                name: "发展研究院_部门1",
+                id: 21,
+                level: 3,
+                type: "dept",
+                children: [{
+                    name: "发展研究院_部门1_子部门1",
+                    id: 211,
+                    level: 4,
+                    type: "dept",
+                }, {
+                    name: "发展研究院_部门1_子部门2",
+                    id: 212,
+                    level: 4,
+                    type: "dept",
+                }, {
+                    name: "发展研究院_部门1_子部门3",
+                    id: 212,
+                    level: 4,
+                    type: "dept",
+                }, {
+                    name: "发展研究院_部门1_员工1",
+                    id: 22235648687,
+                    level: 4,
+                }]
+            }, {
+                name: "发展研究院_部门2",
+                id: 22,
+                level: 3,
+                type: "dept",
+            }]
+        },
+        {
+            name: "治理中心",
+            id: 3,
+            level: 2,
+            type: "dept",
+        },
+        {
+            name: "资本经营中心",
+            id: 4,
+            level: 2,
+            type: "dept",
+        },
+        {
+            name: "2C业务发展中心",
+            id: 5,
+            level: 2,
+            type: "dept",
+        }
+    ]
+}, ]
 // 本地存储 ================================================================
 function setlocal() {
     this.saveDate = function(key, val) {
@@ -14,44 +121,44 @@ window.local = new setlocal();
 
 function createAside(option) {
     var aside;
-    if(!option.isHas){
+    if (!option.isHas) {
         var container = '<aside></aside>';
         $("body").append(container);
         aside = $("aside");
-    }else{
+    } else {
         aside = $("aside");
         aside.html("");
     }
 
     // 存储数据
     // local.saveDate("b123", 212312);
-    
-    var header = `<h2><label>${option.label}</label><button class="close"></button></h2>`;
+
+    var header = "<h2><label>" + option.label + "</label><button class=\"close\"></button></h2>";
     var fromHtml = getFromHtml(option.formType);
     var listHtml = getLiHtml(option.listType);
 
     aside.append(header);
     aside.append(fromHtml);
     aside.append(listHtml);
-    
-    switch (option.listType){
+
+    switch (option.listType) {
         case "list":
             $.fn.zTree.init($("#treeDemo"), setting, zNodes);
             break;
         default:
-            levelEventFn();  
+            levelEventFn();
             break;
     }
     // 关闭
-    $("body").on("click","aside .close",function(argument) {
+    $("body").on("click", "aside .close", function(argument) {
         aside.removeClass("show");
-        setTimeout(()=>{
+        setTimeout(function() {
             aside.remove();
-        },300)
-       
+        }, 300)
+
     });
     // 显示
-    aside.fadeIn(100,function(argument) {
+    aside.fadeIn(100, function(argument) {
         aside.addClass("show");
     });
     return aside;
@@ -61,15 +168,10 @@ function createAside(option) {
 function getFromHtml(type) {
     switch (type) {
         case "comment":
-            return `<form action="">
-                <input type="search" name="" placeholder="写下你的评论...">
-                <button>搜索</button>`;
+            return '<form action=""><input type="search" name="" placeholder="写下你的评论..."><button>搜索</button>';
             break;
         case "search":
-            return `<form action="">
-                <input type="text" name="" placeholder="搜索联系人">
-                <input type="submit" name="" value="搜索">
-            </form>`;
+            return '<form action=""><input type="text" name="" placeholder="搜索联系人"><input type="submit" name="" value="搜索"></form>';
             break;
 
     }
@@ -81,48 +183,41 @@ function getLiHtml(type, data) {
         case "comment":
             var html = [];
             for (var i = 0; i < 10; i++) {
-                html.push(`<li>
-                    <div class="list-header">
-                        <img src="../../content/common/img/header.png">
-                        <em>周红<i>回复</i>廖凡</em>
-                        <i class="laud">16</i>
-                    </div>
-                    <p class="list-word">天气一天比一天冷，穿什么更时髦讲真我们已经没那么care了。要知道，最近oversize毛衣已经成为编辑部出勤率最高的员工了。</p>
-                    <div class="comment-state">
-                        <div>刚刚·<a class="comment-state-reply-btn">回复</a></div>
-                        <form>
-                            <input type="text" name="" placeholder="回复周一围">
-                            <a class="state-laud">评论</a>
-                            <a class="state-cancel" onclick="$(this).parent().prev().removeClass('none')">取消</a>
-                        </form>
-                    </div>
-                </li>`);
+                html.push('<li>\
+                    <div class="list-header">\
+                        <img src="../../content/common/img/header.png">\
+                        <em>周红<i>回复</i>廖凡</em>\
+                        <i class="laud">16</i>\
+                    </div>\
+                    <p class="list-word">天气一天比一天冷，穿什么更时髦讲真我们已经没那么care了。要知道，最近oversize毛衣已经成为编辑部出勤率最高的员工了。</p>\
+                    <div class="comment-state">\
+                        <div>刚刚·<a class="comment-state-reply-btn">回复</a></div>\
+                        <form>\
+                            <input type="text" name="" placeholder="回复周一围">\
+                            <a class="state-laud">评论</a>\
+                            <a class="state-cancel" onclick="$(this).parent().prev().removeClass("none")">取消</a>\
+                        </form>\
+                    </div>\
+                </li>');
             }
 
             return html.join("");
             break;
         case "laud":
-            return ``;
+            return "";
             break;
         case "level":
-            return `<div class='level-catalog'>
-                <h3 class="">通讯录 <em></em></h3>
-                <ul class="level-parent">
-                    <li class="all"><i selectType=false></i>全部</li>
-                    <li listType = "item"><i></i><p>总裁办公室</p></li>
-                    <li listType = "item"><i></i><p>发展研究院</p></li>
-                    <li listType = "item"><i></i><p>治理中心</p></li>
-                    <li listType = "item"><i></i><p>资本经营中心</p></li>
-                    <li listType = "item"><i></i><p>2c业务发展中心</p></li>
-                </ul>
-                <p class="person-sum">共162人</p>
 
-            </div>`;
+            var level1 = referee[0].children;
+            var html = ['<li class="all"><i selectType=false></i>全部</li>'];
+            $.each(level1, function(i, e) {
+                html.push('<li listType = "item" setId = ' + e.id + ' level = "' + e.level + '"><i></i><p>' + e.name + '</p></li>');
+
+            });
+            return '<div class="level-catalog"><h3 class="">' + referee[0].name + '<em></em></h3><ul class="level-parent">' + html.join('') + '</ul><p class="person-sum">共162人</p></div>';
             break;
         case "list":
-            return `
-                <ul id="treeDemo" class="ztree showIcon"></ul>
-                <p class="person-sum">共162人</p>`;
+            return '<ul id="treeDemo" class="ztree showIcon"></ul><p class="person-sum">共162人</p>';
             break;
 
     }
@@ -130,7 +225,7 @@ function getLiHtml(type, data) {
 
 // 通讯录选择 —— 事件 ================================================================
 
-function levelEventFn(){
+function levelEventFn() {
     var allBtn = $("body .level-catalog li.all i");
     var allLi = $("body .level-catalog li.all");
     var selectAllBtn = $("body .level-catalog li i");
@@ -139,30 +234,30 @@ function levelEventFn(){
 
     // 全选
     var queryAll = ".level-catalog li.all";
-    $("body").off("click",queryAll).on("click",queryAll,function (argument) {
+    $("body").off("click", queryAll).on("click", queryAll, function(argument) {
         var state = allBtn.attr("selectType");
 
-        if(typeof allBtn.attr("selectType") === 'string'){
+        if (typeof allBtn.attr("selectType") === 'string') {
             state = JSON.parse(allBtn.attr("selectType"));
         }
-        if(state){
+        if (state) {
             selectAllBtn.removeClass("active");
-            allBtn.attr("selectType",false);
-        }else{
-            allBtn.attr("selectType",true);
+            allBtn.attr("selectType", false);
+        } else {
+            allBtn.attr("selectType", true);
             selectAllBtn.addClass("active");
         }
     });
-    
+
     // 单选 (除了全选按钮)
     var queryNotAll = ".level-catalog li:not(.all) i";
-    $("body").off("click",queryNotAll).on("click",queryNotAll,function (argument) {
+    $("body").off("click", queryNotAll).on("click", queryNotAll, function(argument) {
         $(this).toggleClass("active");
         var allLength = selectAllBtn.not(allBtn).length;
-        if(allLength === selectAllBtn.not(allBtn).parent().find(".active").length){
-            allBtn.addClass("active").attr("selectType",true);
-        }else{
-            allBtn.removeClass("active").attr("selectType",false);
+        if (allLength === selectAllBtn.not(allBtn).parent().find(".active").length) {
+            allBtn.addClass("active").attr("selectType", true);
+        } else {
+            allBtn.removeClass("active").attr("selectType", false);
         }
     });
 
@@ -171,97 +266,116 @@ function levelEventFn(){
     var levelOldIndex;
     var levelList = [];
     var queryLevel = ".level-catalog li:not(.all)[listType='item'] p";
-    $("body").off("click",queryLevel).on("click",queryLevel,function (){
-        
-        var ul = '<ul class="level-sub-'+levelIndex+'"></ul>';
+    $("body").off("click", queryLevel).on("click", queryLevel, function() {
+
+        var ul = '<ul class="level-sub-' + levelIndex + '"></ul>';
         levelContainer.append(ul);
         // lis 假列表
-        var lis = [
-            '<li listType = "item"><i></i><p>部门1'+levelIndex+'</p></li>',
-            '<li listType = "item"><i></i><p>部门2'+levelIndex+'</p></li>',
-            '<li listType><i></i><p>周一围'+levelIndex+'</p></li>',
-            '<li listType><i></i><p>张晋'+levelIndex+'</p></li>'];
-        $(".level-sub-"+levelIndex).append(lis.join(''));
+        var lis = [];
 
+        var activeArr = getActiveLevelList(referee, $(this).parent().attr("level"), $(this).parent().attr("setId"));
+        if (activeArr) {
+            $.each(activeArr, function(i, e) {
+                lis.push('<li listType = "' + (e.type == "dept" ? 'item' : '') + '" setId = ' + e.id + ' level = "' + e.level + '" ><i></i><p>' + e.name + '</p></li>')
+            });
+        } else {
+            lis.push('<div class="nothing">暂无成员</div>')
+        }
+        $(".level-sub-" + levelIndex).append(lis.join(''));
         levelList.push({
-            levelIndex:0,
-            levelName:$(this).text(),
-            subtitle:"副标题副标题"+levelIndex
+            levelIndex: 0,
+            levelName: $(this).text(),
+            subtitle: "副标题副标题" + levelIndex
         });
-        
-        setTimeout(()=>{
-            if(levelIndex <= 1){
+
+        setTimeout(function() {
+            if (levelIndex <= 1) {
                 $('.level-parent').addClass("hide");
-            }else{
-                $(".level-sub-"+levelOldIndex).addClass("hide");
+            } else {
+                $(".level-sub-" + levelOldIndex).addClass("hide");
             }
-            $(".level-sub-"+levelIndex).addClass("show");
+            $(".level-sub-" + levelIndex).addClass("show");
             levelOldIndex = levelIndex;
             levelIndex++;
 
-        },100);
+        }, 100);
         // 修改标题
 
-        $('.level-catalog h3').html(levelList[levelIndex-1].levelName+' <em>'+levelList[levelIndex-1].subtitle+'</em>').addClass("back");
+        $('.level-catalog h3').html(levelList[levelIndex - 1].levelName + ' <em>' + levelList[levelIndex - 1].subtitle + '</em>').addClass("back");
     });
     // 返回上一级
     // 
-    $("body").on("click","h3.back",function (argument) {
+    $("body").on("click", "h3.back", function(argument) {
         levelIndex--;
         levelOldIndex--;
-        if(levelOldIndex == 0){
-            $("h3.back").removeClass("back");
+        if (levelOldIndex == 0) {
+            $("h3.back").removeClass("back").text("新中信集团");
             $(".level-parent").removeClass("hide");
-        }else{
-            $(".level-sub-"+levelOldIndex).removeClass("hide");
-            
+        } else {
+            $(".level-sub-" + levelOldIndex).removeClass("hide");
+
         }
-        $(".level-sub-"+levelIndex).remove();
-        levelList.splice(levelList.length-1);
-        var last = levelList.length-1;
-        if(last >= 0){
-            $('.level-catalog h3').html(levelList[last].levelName+' <em>'+levelList[last].subtitle+'</em>');
+        $(".level-sub-" + levelIndex).remove();
+        levelList.splice(levelList.length - 1);
+        var last = levelList.length - 1;
+        if (last >= 0) {
+            $('.level-catalog h3').html(levelList[last].levelName + ' <em>' + levelList[last].subtitle + '</em>');
         }
-        
+
     });
 }
-
+// 获取对应的层级 的子集列表
+function getActiveLevelList(levelObj, level, id) {
+    if (!levelObj) return false;
+    var l = levelObj.length;
+    var active;
+    if (!l) return false;
+    for (var i = 0; i < l; i++) {
+        var e = levelObj[i];
+        if (e.level == level && e.id == id) {
+            return e['children'] ? e.children : null;
+        } else {
+            if (e["children"]) {
+                active = getActiveLevelList(e.children, level, id);
+                return active;
+            } else {
+                // 没找到
+                return null;
+            }
+        }
+    }
+}
+// console.log(getActiveLevelList(referee,2,1))
 // 创建弹出层 ================================================================
 function createPopupFn(option) {
     var alertObj;
-    if(!$(".mask").length){
+    if (!$(".mask").length) {
         $("body").append('<div class="mask"></div>');
     }
-    if(!option.isHas){
+    if (!option.isHas) {
         var container = '<div class="popupBox"></div>';
         $("body").append(container);
         popupBox = $(".popupBox");
-
-    }else{
-        popupBox = $(".popupBox");  
-        popupBox.html("");  
+    } else {
+        popupBox = $(".popupBox");
+        popupBox.html("");
     }
+    popupBox.addClass('popup-' + option.type);
+    popupBox.append("<h2><label>" + option.title + "</label><button onclick=$('.popupBox,.mask').remove(0);></button></h2>");
 
-    popupBox.addClass('popup-'+option.type);
-    popupBox.append(`<h2><label>${option.title}</label><button onclick='$(".popupBox,.mask").remove(0);'></button></h2>`);
     popupBox.append(getMainHtml(option));
-
-
-    
-    if(option.type == "share"){
+    if (option.type == "share") {
         var areas = document.getElementById('textarea');
         makeExpandingArea(areas);
     }
-    
     $('.popupBox,.mask').show(0);
-
-
 }
-function getMainHtml(option){
-    switch (option.type){
+
+function getMainHtml(option) {
+    switch (option.type) {
         case "share":
             return '<div class="list-title">\
-                    <h1>'+option.setData.name+'</h1>\
+                    <h1>' + option.setData.name + '</h1>\
                     <img src="../../content/collection/img/inset.png" alt="">\
                 </div>\
                 <div class="expandingArea " id="textarea">\
@@ -280,62 +394,63 @@ function getMainHtml(option){
                     <label><a></a>公开次推送</label>\
                     <button class="sendBtn">发送</button>\
                 </div>';
-        break;
+            break;
         case "upload-photo":
             // 加载列表
-            var classArr = [{ title: "汽车", num: 2 }, { title: "新闻1", num: 10 }, { title: "视频2", num: 17 }, { title: "互联网", num: 8 }, { title: "人工智能", num: 5 }, { title: "消费升级", num: 7 }, { title: "娱乐", num: 30 }, { title: "体育", num: 15 },{ title: "汽车", num: 2 }, { title: "新闻1", num: 10 }, { title: "视频2", num: 17 }, { title: "互联网", num: 8 }, { title: "人工智能", num: 5 }, { title: "消费升级", num: 7 }, { title: "娱乐", num: 30 }, { title: "体育", num: 15 }];
+            var classArr = [{ title: "汽车", num: 2 }, { title: "新闻1", num: 10 }, { title: "视频2", num: 17 }, { title: "互联网", num: 8 }, { title: "人工智能", num: 5 }, { title: "消费升级", num: 7 }, { title: "娱乐", num: 30 }, { title: "体育", num: 15 }, { title: "汽车", num: 2 }, { title: "新闻1", num: 10 }, { title: "视频2", num: 17 }, { title: "互联网", num: 8 }, { title: "人工智能", num: 5 }, { title: "消费升级", num: 7 }, { title: "娱乐", num: 30 }, { title: "体育", num: 15 }];
             var lis = '';
             for (var i = 0; i < classArr.length; i++) {
-                lis+='<li>' + classArr[i].title + '(' + classArr[i].num + ')</li>';
+                lis += '<li>' + classArr[i].title + '(' + classArr[i].num + ')</li>';
             }
-            var inputFile = option.uploadType == "multiple"?'<input type="file" multiple accept="image/gif, image/jpeg, image/png, image/jpg" />':'<input type="file" accept="text/plain, application/pdf, application/vnd.ms-works , application/vnd.ms-powerpoint ,application/vnd.ms-excel,application/msword,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.openxmlformats-officedocument.presentationml.presentation"/>'
+            var inputFile = option.uploadType == "multiple" ? '<input type="file" multiple accept="image/gif, image/jpeg, image/png, image/jpg" />' : '<input type="file" accept="text/plain, application/pdf, application/vnd.ms-works , application/vnd.ms-powerpoint ,application/vnd.ms-excel,application/msword,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.openxmlformats-officedocument.presentationml.presentation"/>'
             // var inputFile = option.uploadType == "multiple"?'<input type="file" multiple accept="image/gif, image/jpeg, image/png, image/jpg" />':'<input id="fileSelect" type="file" accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" />  '
-            return '<div class="files">\
-                        <div class="file-add-btn '+(option.uploadType == "multiple"?"":"file-text")+'">'+inputFile+'</div>\
+            return '<form id="myForm" enctype="multipart/form-data" method="post" action="" ><div class="files">\
+                        <div class="file-add-btn ' + (option.uploadType == "multiple" ? "" : "file-text") + '">' + inputFile + '</div>\
                     </div>\
                     <div class="collapse-box">\
                         <h3 class="collapse-title">上传到：<em>互联网</em><button class="collapse-btn" onclick="toggleFadeCollapse(this)"></button></h3>\
                         <div class="collapse-container">\
                             <ul>\
-                                <li class="active">全部分类(94)</li>'+lis+'\
+                                <li class="active">全部分类(94)</li>' + lis + '\
                             </ul>\
                         </div>\
                     </div>\
                     <div class="send popup-btns">\
                         <button class="upload-btn" onclick="uploadFn(this);">上传</button>\
                         <button class="upload-cancel" onclick=$(".popupBox,.mask").remove();>取消</button>\
-                    </div>';
-        break;
+                    </div></form>';
+            break;
     }
 }
 // 类型 展开 和 收起 事件
-function toggleFadeCollapse(obj){
+function toggleFadeCollapse(obj) {
     $(obj).toggleClass("active").parent().next(".collapse-container").stop().slideToggle(200);
-
 }
 // uploadFn 上传 按钮点击事件 ================================================================
 var percentsObj = {};
 var n = 0;
 var longTime = 10000;
-function uploadFn(obj){
+
+function uploadFn(obj) {
+    
     console.log("uploadFn 这里");
     
     // 判断 要上传的图片个数
-    if($(".file").length>=1){
+    if ($(".file").length >= 1) {
         $(".upload-container").removeClass("toggleShow");
-        $.each($(".file"),function(i,e){
+        $.each($(".file"), function(i, e) {
             var obj = {
-                name:$("em",e).text(),
-                src:$("img",e).attr("src"),
-                size:$(e).attr("setSize"),
+                name: $("em", e).text(),
+                src: $("img", e).attr("src"),
+                size: $(e).attr("setSize"),
             }
             $(".upload-file-list").append(getUploadListHtml(obj));
         });
         // 开始上传
-        uploadStart("start",longTime,$(".file").length);
+        uploadStart("start", longTime, $(".file").length);
         $(".popupBox,.mask").remove(0);
 
-    }else{
+    } else {
         console.log("长度为<1");
     }
 }
@@ -344,42 +459,40 @@ var num = 0;
 var startTime = 0;
 var pauseTime = 0;
 var runTime = 0;
-function uploadStart(type,time,length){
-    console.log('percent');
-    
+
+function uploadStart(type, time, length) {
     var files = $(".upload-file-list .upload-file");
     // 防止之前 添加的任务 反复运行
-    if(files.length>1){
+    if (files.length > 1&&(files.length - length)>0) {
         files = files.eq(files.length - length - 1).nextAll();
     }
-    
+
     for (var i = 0; i < files.length; i++) {
         // 设置 当前任务 的开始时间
-        files.eq(i).attr('startTime',startTime = new Date().getTime()).attr('runTime',0);
+        files.eq(i).attr('startTime', startTime = new Date().getTime()).attr('runTime', 0);
 
         files.eq(i).find(".bar-track").animate({
-            width:"100%",
-        },time,"linear",function(){
-            console.log("done1");
+            width: "100%",
+        }, time, "linear", function() {
             var thisP = $(this).parents('.upload-file');
             thisP.find(".paused").removeClass('paused');
             thisP.find(".close").removeClass('close');
             thisP.find(".upload-edit-em").eq(0).addClass("done");
         });
-    }    
+    }
 }
- 
+
 // 获取上传列表的html结构
-function getUploadListHtml(options){
-    return (function(){
+function getUploadListHtml(options) {
+    return (function() {
         var html = '<div class="upload-file">\
             <div class="upload-img">\
-                <img src="'+options.src+'" alt="">\
+                <img src="' + options.src + '" alt="">\
             </div>\
             <div>\
                 <div class="upload-info">\
-                    <p>'+options.name+'</p>\
-                    <em class="file-size">'+options.size+'</em>\
+                    <p>' + options.name + '</p>\
+                    <em class="file-size">' + options.size + '</em>\
                     <div class="bar-range">\
                         <div class="bar-track"></div>\
                     </div>\
@@ -400,7 +513,7 @@ function getUploadListHtml(options){
 
 // 输入框自动调整高度 ================================================================
 function makeExpandingArea(container) {
-    if(!container) return false;
+    if (!container) return false;
     var area = container.querySelector('.textarea');
     var span = container.querySelector('.textarea-span');
     if (area.addEventListener) {
@@ -419,24 +532,24 @@ function makeExpandingArea(container) {
         span.innerText = html;
 
     }
-    if (window.VBArray && window.addEventListener) { //IE9
-        area.attachEvent("onkeydown", function() {
-            var key = window.event.keyCode;
-            if (key == 8 || key == 46) {
-                span.textContent = area.value;
-                fontStatis($(area).val());
-            }
+    // if (window.VBArray && window.addEventListener) { //IE9
+    //     area.attachEvent("onkeydown", function() {
+    //         var key = window.event.keyCode;
+    //         if (key == 8 || key == 46) {
+    //             span.textContent = area.value;
+    //             fontStatis($(area).val());
+    //         }
 
-        });
-        area.attachEvent("oncut", function() {
-            span.textContent = area.value;
-            fontStatis($(area).val());
-        }); //处理粘贴
+    //     });
+    //     area.attachEvent("oncut", function() {
+    //         span.textContent = area.value;
+    //         fontStatis($(area).val());
+    //     }); //处理粘贴
+    // }
+
+    function fontStatis(val) {
+        $(".font-statis").html(val.length + '/120');
     }
 
-    function fontStatis(val){
-        $(".font-statis").html(val.length+'/120');
-    }
-    
     container.className += "active";
 }
