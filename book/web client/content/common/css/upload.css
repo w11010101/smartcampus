@@ -197,14 +197,14 @@
     margin-top: 10px;
 }
 .upload-container .upload-file .bar-track{
-    
     height: 4px;
     background: -webkit-linear-gradient(#37b9cf, #37b9cf) no-repeat;
     background: -ms-linear-gradient(#37b9cf, #37b9cf) no-repeat;
     background: linear-gradient(#37b9cf, #37b9cf) no-repeat;
     filter: progid:DXImageTransform.Microsoft.gradient(enabled='false', startColorstr=#37b9cf, endColorstr=#37b9cf);
-    width: 0;
-    background-size: 100% 100%;
-    
-    /*background-size: 0% 100%;*/
+    width: 100%;
+    background-size: 0% 100%;
+}
+.file-video{
+    display: none;
 }

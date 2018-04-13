@@ -69,7 +69,6 @@ $("body").on("click",".popupBox .del",function(){
             for(var i = 0;i<filearr.length;i++){
                 if(filearr[i].name == _this.prev().text()){
                     filearr.splice(i,1);
-                    formData.delete(filearr[i].name);
                 }
             }
         }
@@ -148,16 +147,10 @@ var formData = null;
 $("body").on("change",".file-add-btn input[type=file]",function(){
 
     var files = $("input[type=file]")[0].files;
-    
+    console.log(files)
     for(var i=0;i<files.length;i++){
         filearr.push(files[i]);
     }
-    formData = new FormData($("#myform")[0]);  //formData提交
-
-    for(var i =0;i<filearr.length;i++){
-         formData.append(filearr[i].name, filearr[i]);    
-    };
-
 
     var filePath = $(this).val();//读取图片路径  
 
@@ -172,27 +165,51 @@ $("body").on("change",".file-add-btn input[type=file]",function(){
         var size = (e.size/1024).toFixed(2);
         size = (parseFloat(size)>1000)?(parseFloat(size)/1024).toFixed(2)+"MB" : size+"KB";
 
-        
+        var options = {
+            fr:fr,
+            size:size,
+            el:e,
+            filePath:filePath
+        }
+
         if(filePath.indexOf("jpg") != -1 || filePath.indexOf("JPG") != -1 || filePath.indexOf("PNG") != -1 || filePath.indexOf("png") != -1) {  
-            fr.onload = function() {
-                if($(".files .file").length<12){
-                    $(".files").prepend('<div class="file" setSize = '+ size+'><img src="'+selectUploadImg(this)+'" alt="" /><em>'+e.name+'</em><a class="del"></a></div>')
-                }else{
-                    return false;
-                }
-            };
+            FR_onLoad(options);
         }else if(filePath.indexOf("txt") != -1 ||filePath.indexOf("ppt") != -1||filePath.indexOf("pptx") != -1||filePath.indexOf("doc") != -1||filePath.indexOf("pdf") != -1||filePath.indexOf("xls") != -1||filePath.indexOf("xlsx") != -1){
+            FR_onLoad(options);
+        }else if(filePath.indexOf("mp4") != -1 || filePath.indexOf("MP4") != -1||filePath.indexOf("RMVB") != -1||filePath.indexOf("rmbv") != -1||filePath.indexOf("avi") != -1||filePath.indexOf("AVI") != -1){
+            var url = window.URL.createObjectURL($("input[type=file]")[0].files[0])
+            console.log("视频文件");
+            $(".files").prepend('<div class="file" setSize = '+ size+'>\
+                <canvas id="myCanvas" width="90" height="90"></canvas>\
+                <video class="file-video"><source src="'+url+'" type="video/mp4"></video>\
+                <em>123</em><a class="del"></a></div>');
+            var c = document.querySelector("#myCanvas");
+            var v = document.querySelector(".file-video");
+            var ctx = c.getContext("2d");
+            v.addEventListener('canplay',function(){
+                setTimeout(function(){
+                    ctx.drawImage(v,0,0,90,90);
+                    // 保存图片
+                    var newImg = c.toDataURL("image/jpg");
+                    $(v).attr("src",newImg);
+                },1000);
+            });
+
             
-            fr.onload = function() {
-                if($(".files .file").length<12){
-                
-                    $(".files").prepend('<div class="file" setSize = '+ size+'><img src="'+selectUploadImg(this,filePath)+'" alt="" /><em>'+e.name+'</em><a class="del"></a></div>')
-                }else{
-                    return false;
-                }
-            };  
+            
         }
     });
+    function FR_onLoad(options){
+        
+        options.fr.onload = function() {
+            if($(".files .file").length<12){
+            
+                $(".files").prepend('<div class="file" setSize = '+ options.size+'><img src="'+selectUploadImg(this,options.filePath)+'" alt="" /><em>'+options.el.name+'</em><a class="del"></a></div>');
+            }else{
+                return false;
+            }
+        }; 
+    }
     setTimeout(function(){
         console.log("已有 = ",$(".files .file").length);
         if ($(".files .file").length>12) {
@@ -274,7 +291,6 @@ $("body").on("click",".start",function(){
         width:"100%",
     },surplusDiff,"linear",function(){
         console.log("done2");
-        console.log(thisP);
         thisP.find(".paused").removeClass('paused');
         thisP.find(".close").removeClass('close');
         thisP.find(".refresh").removeClass('refresh');

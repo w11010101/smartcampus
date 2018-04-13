@@ -345,7 +345,6 @@ function getActiveLevelList(levelObj, level, id) {
         }
     }
 }
-// console.log(getActiveLevelList(referee,2,1))
 // 创建弹出层 ================================================================
 function createPopupFn(option) {
     var alertObj;
@@ -402,9 +401,9 @@ function getMainHtml(option) {
             for (var i = 0; i < classArr.length; i++) {
                 lis += '<li>' + classArr[i].title + '(' + classArr[i].num + ')</li>';
             }
-            var inputFile = option.uploadType == "multiple" ? '<input type="file" multiple accept="image/gif, image/jpeg, image/png, image/jpg" />' : '<input type="file" accept="text/plain, application/pdf, application/vnd.ms-works , application/vnd.ms-powerpoint ,application/vnd.ms-excel,application/msword,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.openxmlformats-officedocument.presentationml.presentation"/>'
-            // var inputFile = option.uploadType == "multiple"?'<input type="file" multiple accept="image/gif, image/jpeg, image/png, image/jpg" />':'<input id="fileSelect" type="file" accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" />  '
-            return '<form id="myForm" enctype="multipart/form-data" method="post" action="" ><div class="files">\
+            var inputFile = option.uploadType == "multiple" ? '<input type="file" name="file" multiple accept="image/gif, image/jpeg, image/png, image/jpg" />' : '<input type="file" name="file" accept="video/*,text/plain, application/pdf, application/vnd.ms-works , application/vnd.ms-powerpoint ,application/vnd.ms-excel,application/msword,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.openxmlformats-officedocument.presentationml.presentation"/>';
+            return '<form id="myForm" enctype="multipart/form-data" method="post" >\
+                    <div class="files">\
                         <div class="file-add-btn ' + (option.uploadType == "multiple" ? "" : "file-text") + '">' + inputFile + '</div>\
                     </div>\
                     <div class="collapse-box">\
@@ -419,6 +418,7 @@ function getMainHtml(option) {
                         <button class="upload-btn" onclick="uploadFn(this);">上传</button>\
                         <button class="upload-cancel" onclick=$(".popupBox,.mask").remove();>取消</button>\
                     </div></form>';
+                    // 
             break;
     }
 }
@@ -440,14 +440,18 @@ function uploadFn(obj) {
         $(".upload-container").removeClass("toggleShow");
         $.each($(".file"), function(i, e) {
             var obj = {
+                el:e,
+                url:"http://172.16.15.95:8047/web/upload",
                 name: $("em", e).text(),
-                src: $("img", e).attr("src"),
+                src: $("img,.file-video", e).attr("src"),
                 size: $(e).attr("setSize"),
             }
             $(".upload-file-list").append(getUploadListHtml(obj));
+            upload(obj);
         });
         // 开始上传
-        uploadStart("start", longTime, $(".file").length);
+        // uploadStart($(".file").length);
+        
         $(".popupBox,.mask").remove(0);
 
     } else {
@@ -460,7 +464,7 @@ var startTime = 0;
 var pauseTime = 0;
 var runTime = 0;
 
-function uploadStart(type, time, length) {
+function uploadStart(length) {
     var files = $(".upload-file-list .upload-file");
     // 防止之前 添加的任务 反复运行
     if (files.length > 1&&(files.length - length)>0) {
@@ -468,17 +472,8 @@ function uploadStart(type, time, length) {
     }
 
     for (var i = 0; i < files.length; i++) {
-        // 设置 当前任务 的开始时间
-        files.eq(i).attr('startTime', startTime = new Date().getTime()).attr('runTime', 0);
-
-        files.eq(i).find(".bar-track").animate({
-            width: "100%",
-        }, time, "linear", function() {
-            var thisP = $(this).parents('.upload-file');
-            thisP.find(".paused").removeClass('paused');
-            thisP.find(".close").removeClass('close');
-            thisP.find(".upload-edit-em").eq(0).addClass("done");
-        });
+        files.eq(i).find(".bar-track").css("background-size","100% 100%");
+        
     }
 }
 
@@ -504,11 +499,46 @@ function getUploadListHtml(options) {
                 </div>\
             </div>\
         </div>';
-        // <em class="start"></em>
-        // <em class="paused"></em>
-        // <em class="close"></em>
         return html;
     })()
+}
+
+
+function upload(options){
+    // console.log(formData);
+    
+    if (document.querySelector("input[type=file]").value == "") {
+        alert("没有文件");
+    }else {
+        //创建xhr
+        // formData.append("acttime",new Date().toString());    //本人喜欢在参数中添加时间戳，防止缓存（--、）
+        var fd = new FormData();
+        console.log(filearr);
+        for(var f of filearr){
+            fd.append('file',f);
+        }
+
+        // ===================================
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "http://172.16.15.95:8047/web/upload", true);
+        // done state
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                var result = xhr.responseText;
+                console.log(arguments);
+            }
+        }
+        // 进度条部分
+        xhr.upload.onprogress = function (evt) {
+            console.log(evt);
+            if (evt.lengthComputable) {
+
+            }
+        }        
+        // 发送ajax请求
+        xhr.send(fd);
+        // ===================================
+    }
 }
 
 // 输入框自动调整高度 ================================================================
@@ -532,20 +562,6 @@ function makeExpandingArea(container) {
         span.innerText = html;
 
     }
-    // if (window.VBArray && window.addEventListener) { //IE9
-    //     area.attachEvent("onkeydown", function() {
-    //         var key = window.event.keyCode;
-    //         if (key == 8 || key == 46) {
-    //             span.textContent = area.value;
-    //             fontStatis($(area).val());
-    //         }
-
-    //     });
-    //     area.attachEvent("oncut", function() {
-    //         span.textContent = area.value;
-    //         fontStatis($(area).val());
-    //     }); //处理粘贴
-    // }
 
     function fontStatis(val) {
         $(".font-statis").html(val.length + '/120');
@@ -553,3 +569,4 @@ function makeExpandingArea(container) {
 
     container.className += "active";
 }
+
