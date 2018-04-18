@@ -181,6 +181,7 @@
     height: 30px;
     vertical-align: middle;
     margin-right: 10px;
+    border-radius: 50%;
 }
 .level-catalog ul li img + p{
     display: inline-block;

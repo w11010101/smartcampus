@@ -209,3 +209,6 @@
 .file-video{
     display: none;
 }
+.paused,.start{
+    display: none;
+}

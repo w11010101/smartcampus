@@ -501,8 +501,8 @@ function getUploadListHtml(options) {
                 </div>\
                 <div class="upload-edit">\
                     <em class="upload-edit-em "></em>\
-                    <em class="upload-edit-em paused"></em>\
-                    <em class="upload-edit-em close"></em>\
+                    <em class="upload-edit-em "></em>\
+                    <em class="upload-edit-em "></em>\
                 </div>\
             </div>\
         </div>';
@@ -530,7 +530,7 @@ function fileUpLoading(){
         // 创建xhr
         var xhr = new XMLHttpRequest();
         xhrObj.push({xhr:xhr,setloaded:""});
-        xhr.open("POST", "http://127.0.0.1:3000/", true);
+        xhr.open("POST", "http://172.16.24.248:3000/", true);
         // 监听上传状态
         xhr.onreadystatechange = function () {
             if (xhr.readyState == 4 && xhr.status == 200) {
@@ -607,3 +607,13 @@ function makeExpandingArea(container) {
     container.className += "active";
 }
 
+function stateTips(value,state){
+    if($("body .state-tips").length <= 0){
+        console.log(1)
+        $("body").append('<div class="state-tips"><div class="tips-icon '+(state?"success":"fail")+'"><img src="../../content/common/img/success.png" alt="" /><p>'+value+'</p></div></div>');
+        console.log($(".state-tips"))
+    }
+    
+}
+
+stateTips("上传成功",true);

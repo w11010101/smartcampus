@@ -258,67 +258,67 @@ $(".toggle-fade-btn").on("click",function(){
     $(".upload-container").toggleClass("toggleShow");
 });
 
-// 上传任务 开始 按钮 点击 事件 *******
-$("body").on("click",".start",function(){
-    console.log(xhrObj);
-    // xhr.upload.onloadstart();
+// // 上传任务 开始 按钮 点击 事件 *******
+// $("body").on("click",".start",function(){
+//     console.log(xhrObj);
+//     // xhr.upload.onloadstart();
     
-    console.log("start btns");
-    var thisP = $(this).parents('.upload-file');
-    var i = thisP.index();
+//     console.log("start btns");
+//     var thisP = $(this).parents('.upload-file');
+//     var i = thisP.index();
 
-    uploadXMLHttpRequest(i);
+//     uploadXMLHttpRequest(i);
 
-    // // 停止时间
-    // var PT = thisP.attr("pauseTime");
-    // // 开始时间
-    // var ST = thisP.attr("startTime");
-    // // 剩余时间
-    // var surplusDiff = longTime - thisP.attr("runTime");
-    // // 设置 当前任务的 暂停时间
-    // thisP.attr("startTime",new Date().getTime());
-    // thisP.find(".bar-track").animate({
-    //     width:"100%",
-    // },surplusDiff,"linear",function(){
-    //     thisP.find(".paused").removeClass('paused');
-    //     thisP.find(".close").removeClass('close');
-    //     thisP.find(".refresh").removeClass('refresh');
-    //     thisP.find(".upload-edit-em").eq(0).removeClass('pause cancel').addClass("done");
-    // });
-    thisP.find(".upload-edit-em").eq(0).removeClass('pause');
-    if(!thisP.find(".done").length){
-        $(this).addClass('paused');
-    }
-    $(this).removeClass('start');
-});
+//     // // 停止时间
+//     // var PT = thisP.attr("pauseTime");
+//     // // 开始时间
+//     // var ST = thisP.attr("startTime");
+//     // // 剩余时间
+//     // var surplusDiff = longTime - thisP.attr("runTime");
+//     // // 设置 当前任务的 暂停时间
+//     // thisP.attr("startTime",new Date().getTime());
+//     // thisP.find(".bar-track").animate({
+//     //     width:"100%",
+//     // },surplusDiff,"linear",function(){
+//     //     thisP.find(".paused").removeClass('paused');
+//     //     thisP.find(".close").removeClass('close');
+//     //     thisP.find(".refresh").removeClass('refresh');
+//     //     thisP.find(".upload-edit-em").eq(0).removeClass('pause cancel').addClass("done");
+//     // });
+//     thisP.find(".upload-edit-em").eq(0).removeClass('pause');
+//     if(!thisP.find(".done").length){
+//         $(this).addClass('paused');
+//     }
+//     $(this).removeClass('start');
+// });
 // 上传任务 暂停 按钮 点击 事件 *******
-$("body").on("click",".paused",function(){
-    console.log("paused btns");
-    var thisP = $(this).parents('.upload-file');
-    var i = thisP.index();
-    // 终止任务
-    console.log(xhrObj);
-    xhrObj[i].xhr.abort();
+// $("body").on("click",".paused",function(){
+//     console.log("paused btns");
+//     var thisP = $(this).parents('.upload-file');
+//     var i = thisP.index();
+//     // 终止任务
+//     console.log(xhrObj);
+//     xhrObj[i].xhr.abort();
 
-    // // 设置 当前任务的 暂停时间
-    // thisP.attr('pauseTime',new Date().getTime()).find(".bar-track").stop();    
-    // // 停止时间
-    // var PT = thisP.attr("pauseTime");
-    // // 开始时间
-    // var ST = thisP.attr("startTime");
-    // // 设置 截止到现在运行了多长时间
-    // thisP.attr("runTime",parseInt(thisP.attr("runTime")) + (PT - ST));
-    $(this).parents('.upload-file').attr('startTime');
-    $(this).removeClass('paused').addClass('start');
-    thisP.find(".upload-edit-em").eq(0).addClass("pause");
-});
+//     // // 设置 当前任务的 暂停时间
+//     // thisP.attr('pauseTime',new Date().getTime()).find(".bar-track").stop();    
+//     // // 停止时间
+//     // var PT = thisP.attr("pauseTime");
+//     // // 开始时间
+//     // var ST = thisP.attr("startTime");
+//     // // 设置 截止到现在运行了多长时间
+//     // thisP.attr("runTime",parseInt(thisP.attr("runTime")) + (PT - ST));
+//     // $(this).parents('.upload-file').attr('startTime');
+//     // $(this).removeClass('paused').addClass('start');
+//     // thisP.find(".upload-edit-em").eq(0).addClass("pause");
+// });
 
 // 上传任务 重新下载 按钮 点击 事件   *******
 $("body").on("click",".refresh",function(){
     console.log("refresh btns");
     $(this).removeClass('refresh').addClass('close');
     var thisP = $(this).parents('.upload-file');
-    thisP.find(".upload-edit-em").eq(1).addClass('paused');
+    // thisP.find(".upload-edit-em").eq(1).addClass('paused');
     thisP.find(".upload-edit-em").eq(0).removeClass('cancel');
     thisP.attr("startTime",new Date().getTime());
     // 停止时间
@@ -331,7 +331,7 @@ $("body").on("click",".refresh",function(){
         width:"100%",
     },surplusDiff,"linear",function(){
         console.log("done3");
-        thisP.find(".paused").removeClass('paused');
+        // thisP.find(".paused").removeClass('paused');
         thisP.find(".close").removeClass('close');
         thisP.find(".refresh").removeClass('refresh');
         thisP.find(".upload-edit-em").eq(0).removeClass('pause cancel').addClass("done");

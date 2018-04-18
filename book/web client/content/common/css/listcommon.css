@@ -410,16 +410,23 @@ header nav ul li a.active{
     height: auto;
     max-height: 500px;
     padding-bottom: 45px;
+
 }
 .header-tools .header-info .popup-box{
     width: 150px;
     margin-left: -75px;
     height: auto;
+    padding: 5px 0;
 }
 .header-tools .header-info .popup-box a{
-    font-size: 16px;
+    font-size: 14px;
     text-align: center;
+    height: 30px;
+    line-height: 30px;
 }
+/*.header-tools .header-info .popup-box a:hover{
+    background: #eee
+}*/
 .popup-box .i-before{
     display: block;
     width: 16px;
@@ -910,6 +917,7 @@ aside .comment li .comment-state a {
 }
 .popupBox ul li img {
     width: 100%;
+    border-radius: 50%;
 }
 .popupBox ul .add {
     border: 1px solid #e6e6e6;
@@ -1024,7 +1032,37 @@ aside .comment li .comment-state a {
     /* Hide the text; just using it for sizing */
     visibility: hidden;
 }
+/* 2018.4.18 添加*/
+.state-tips{
+    position: absolute;
+    top:0;
 
+    bottom: 0;
+    left:0;
+    right: 0;
+    background: rgba(255,255,255,0.3);
+    z-index: 100000;
+
+}
+.state-tips .tips-icon{
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%,-50%);
+    -moz-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+}
+.state-tips .tips-icon img{
+    display: block;
+    height: 100px;
+
+}
+.state-tips .tips-icon p{
+    text-align: center;
+}
 /* 媒体 */
 
 @media screen and (max-width: 826px) {
