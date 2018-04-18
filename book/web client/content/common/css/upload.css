@@ -97,7 +97,6 @@
     line-height: 40px;
     display: inline-block;
     vertical-align: middle;
-    /*background: #bdcedd;*/
     text-align: center;
 }
 .upload-container .upload-file .upload-info p{
@@ -155,7 +154,6 @@
     margin-top: 12px;
     margin-right: 22px;
     margin-left: 22px;
-    /*padding:0 10px;*/
     width: 0;
     height: 0;
     border-left: 8px dashed;
@@ -204,6 +202,9 @@
     filter: progid:DXImageTransform.Microsoft.gradient(enabled='false', startColorstr=#37b9cf, endColorstr=#37b9cf);
     width: 100%;
     background-size: 0% 100%;
+    /*模拟加载*/
+    /*width: 100%;
+    background-size: 0% 100%;*/
 }
 .file-video{
     display: none;

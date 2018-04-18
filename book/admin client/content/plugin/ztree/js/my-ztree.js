@@ -154,46 +154,53 @@ var treeObj = {
     level:'新中信集团',   
 }
 function beforeExpand(treeId, treeNode) {
-    console.log('beforeExpand')
+    // console.log('beforeExpand')
     var parent = treeNode.getParentNode();
     if(parent){
         treeObj["level"+parent.level] = parent.name;
         console.log(treeObj);
     }
-    setBreadcrumbFn(treeNode,treeObj,$('.container-box .breadcrumb'));
+    // setBreadcrumbFn(treeNode,treeObj,$('.container-box .breadcrumb'));
 }
 function beforeClick(treeId, treeNode) {
-
-    var zTree = $.fn.zTree.getZTreeObj("treeDemo");      
-    zTree.expandNode(treeNode);
-    $("#"+treeNode.tId).toggleClass("active");
-    // 获取父级
-    var parent = treeNode.getParentNode();
-    if(parent){
-        console.log(parent.level);
-        console.log(treeObj);
-        console.log(parent.name);
-        if(parent.level){
-            treeObj["level"+parent.level] = parent.name;
-        }
-        
-        
+    console.log('beforeClick = ',treeObj);
+    
+    var subList = treeNode.children;
+    if(subList){
+        $(".subDept-title,.subDept-list,.add-subDept-btn").show(0);
+        addSubDeptlist(subList);
+    }else{
+        $(".subDept-title,.subDept-list,.add-subDept-btn").hide(0);
     }
+
+    // 设置面包屑对象
+    
+    setTreeObj(treeNode);
     setBreadcrumbFn(treeNode,treeObj,$('.container-box .breadcrumb'));
-    return true;
+    // return true;
 }
+var myZtree;
 $(document).ready(function() {
-    $.fn.zTree.init($("#treeDemo"), setting, zNodes);
+    myZtree = $.fn.zTree.init($("#treeDemo"), setting, zNodes);
 
 
 });
 
-function expandNode(e) {
-    var zTree = $.fn.zTree.getZTreeObj("treeDemo"),
-    nodes = zTree.getSelectedNodes();
-    for (var i=0, l=nodes.length; i<l; i++) {
+function expandNode(type,text) {
+    var zTree = $.fn.zTree.getZTreeObj("treeDemo");
+    var nodes = zTree.transformToArray(zTree.getNodes());
+    if (nodes.length>0) {
+        $.each(nodes,function(i,e){
+            if(e.name == text){
+                zTree.selectNode(nodes[i]);
+            }
+        })
+    }
+
+    var selectNodes = zTree.getSelectedNodes();
+    for (var i=0, l=selectNodes.length; i<l; i++) {
         zTree.setting.view.fontCss = {};
-        zTree.expandNode(nodes[i], false, true, null);
+        zTree.expandNode(selectNodes[i], type, true, null);
     }
 
 }

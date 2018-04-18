@@ -27,7 +27,7 @@ function setBreadcrumbFn(argument,treeObj,obj) {
             return false;
         }else{
             if(index < argument.level){
-                li.push(`<li set-level = "${argument.level}"><a href="#">${e}</a></li>`); 
+                li.push('<li set-level = "'+index+'"><a href="#">'+e+'</a></li>'); 
             }
         }
         
@@ -175,8 +175,11 @@ function createPopupFn(option) {
     // 取消 按钮 事件
     container.find('.cancel-btn').on('click',function (event) {
         console.log(!option.callbackFn.cancelFn)
-        if(!option.callbackFn.cancelFn) return false;
-        console.log(12312)
+        if(!option.callbackFn.cancelFn) {
+            console.log(this)
+            removeContainer(this,true);
+            return false;
+        }
         var obj={};
         obj["removeContainer"] = removeContainer;
         option.callbackFn.cancelFn(obj,this);
@@ -356,5 +359,18 @@ function mainHtml(option){
             `
         break;
 
+    }
+}
+// 设置面包屑对象
+function setTreeObj(node){
+    var parent = node.getParentNode();
+    if(parent){
+        if(parent.level >= 0){
+            treeObj["level"+parent.level] = parent.name;
+        } 
+        setTreeObj(parent);
+        return false;
+    }else{
+        return false;
     }
 }

@@ -32,6 +32,7 @@ var referee = [{
                     name: "总裁办公室_部门1_员工1",
                     id: 12235648687,
                     level: 4,
+                    icon:"../../content/common/img/head-1.png"
                 }]
             }, {
                 name: "总裁办公室_部门2",
@@ -47,6 +48,7 @@ var referee = [{
                 name: "总裁办公室_部门1_员工2",
                 id: 12235648687,
                 level: 3,
+                icon:"../../content/common/img/header.png"
             }]
         },
         {
@@ -78,6 +80,7 @@ var referee = [{
                     name: "发展研究院_部门1_员工1",
                     id: 22235648687,
                     level: 4,
+                    icon:"../../content/common/img/header.png"
                 }]
             }, {
                 name: "发展研究院_部门2",
@@ -106,6 +109,7 @@ var referee = [{
         }
     ]
 }, ]
+
 // 本地存储 ================================================================
 function setlocal() {
     this.saveDate = function(key, val) {
@@ -276,7 +280,9 @@ function levelEventFn() {
         var activeArr = getActiveLevelList(referee, $(this).parent().attr("level"), $(this).parent().attr("setId"));
         if (activeArr) {
             $.each(activeArr, function(i, e) {
-                lis.push('<li listType = "' + (e.type == "dept" ? 'item' : '') + '" setId = ' + e.id + ' level = "' + e.level + '" ><i></i><p>' + e.name + '</p></li>')
+                var img = e.icon?'<img src="'+e.icon+'" alt="" />':"";
+                console.log(e)
+                lis.push('<li listType = "' + (e.type == "dept" ? 'item' : '') + '" setId = ' + e.id + ' level = "' + e.level + '" ><i></i>'+img+'<p>' + e.name + '</p></li>')
             });
         } else {
             lis.push('<div class="nothing">暂无成员</div>')
@@ -402,7 +408,9 @@ function getMainHtml(option) {
                 lis += '<li>' + classArr[i].title + '(' + classArr[i].num + ')</li>';
             }
             var inputFile = option.uploadType == "multiple" ? '<input type="file" name="file" multiple accept="image/gif, image/jpeg, image/png, image/jpg" />' : '<input type="file" name="file" accept="video/*,text/plain, application/pdf, application/vnd.ms-works , application/vnd.ms-powerpoint ,application/vnd.ms-excel,application/msword,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.openxmlformats-officedocument.presentationml.presentation"/>';
-            return '<form id="myForm" enctype="multipart/form-data" method="post" >\
+            // 本地没有提交接口，暂时删除form（可无视）
+            // <form id="myForm" enctype="multipart/form-data" method="post" >
+            return '\
                     <div class="files">\
                         <div class="file-add-btn ' + (option.uploadType == "multiple" ? "" : "file-text") + '">' + inputFile + '</div>\
                     </div>\
@@ -440,43 +448,42 @@ function uploadFn(obj) {
         $(".upload-container").removeClass("toggleShow");
         $.each($(".file"), function(i, e) {
             var obj = {
-                el:e,
-                url:"http://172.16.15.95:8047/web/upload",
                 name: $("em", e).text(),
                 src: $("img,.file-video", e).attr("src"),
                 size: $(e).attr("setSize"),
             }
             $(".upload-file-list").append(getUploadListHtml(obj));
-            upload(obj);
+            
         });
-        // 开始上传
-        // uploadStart($(".file").length);
-        
-        $(".popupBox,.mask").remove(0);
-
+        fileUpLoading();
+        // 先隐藏，onloaded(); 后再删除；
+        $(".popupBox,.mask").hide(0);
     } else {
         console.log("长度为<1");
     }
 }
 // 设置 进度条 显示效果 
-var num = 0;
-var startTime = 0;
-var pauseTime = 0;
-var runTime = 0;
-
-function uploadStart(length) {
+// var num = 0;
+// var startTime = 0;
+// var pauseTime = 0;
+// var runTime = 0;
+function uploadStart(length,percent) {
+    console.log("length = " , length);
     var files = $(".upload-file-list .upload-file");
+    console.log(files.length)
     // 防止之前 添加的任务 反复运行
-    if (files.length > 1&&(files.length - length)>0) {
+    if (files.length > 1 && files.length - length>0){
         files = files.eq(files.length - length - 1).nextAll();
     }
 
+    // console.log(percent)
+    console.log(files.length)
+    
     for (var i = 0; i < files.length; i++) {
-        files.eq(i).find(".bar-track").css("background-size","100% 100%");
-        
+        files.eq(i).find(".bar-track").css('background-size', percent+'% 100%');
+        // files.find(".bar-track").css('background-size', percent+'% 100%');
     }
 }
-
 // 获取上传列表的html结构
 function getUploadListHtml(options) {
     return (function() {
@@ -502,41 +509,71 @@ function getUploadListHtml(options) {
         return html;
     })()
 }
-
-
-function upload(options){
-    // console.log(formData);
-    
-    if (document.querySelector("input[type=file]").value == "") {
+// xhr 请求集合
+var xhrObj = [];
+function fileUpLoading(){
+    var input = document.querySelector("input[type=file]");
+    var files = $(".upload-file-list .upload-file");
+    // 下载列表（files） 中 当前的任务的下标
+    // var i = files.length-1+index;
+    // console.log("第",i,"下标的任务开始");
+    if (input && input.value == "") {
         alert("没有文件");
     }else {
-        //创建xhr
-        // formData.append("acttime",new Date().toString());    //本人喜欢在参数中添加时间戳，防止缓存（--、）
+        // 创建FormData
         var fd = new FormData();
-        console.log(filearr);
         for(var f of filearr){
             fd.append('file',f);
         }
 
         // ===================================
+        // 创建xhr
         var xhr = new XMLHttpRequest();
-        xhr.open("POST", "http://172.16.15.95:8047/web/upload", true);
-        // done state
+        xhrObj.push({xhr:xhr,setloaded:""});
+        xhr.open("POST", "http://127.0.0.1:3000/", true);
+        // 监听上传状态
         xhr.onreadystatechange = function () {
             if (xhr.readyState == 4 && xhr.status == 200) {
                 var result = xhr.responseText;
                 console.log(arguments);
+                filearr = [];
             }
         }
         // 进度条部分
         xhr.upload.onprogress = function (evt) {
-            console.log(evt);
+            // console.log(evt);
+            var loaded = evt.loaded;
+            var total = evt.total;
+            var percent = (loaded/total*100).toFixed(1);
+            // console.log(percent);
             if (evt.lengthComputable) {
-
+                uploadStart($(".file").length,percent);
+                filearr = [];
             }
-        }        
+        }
+        xhr.upload.onloadstart = function (evt) {
+            console.log('onloadstart',evt);
+            
+        }
+        // 终止
+        xhr.upload.onabort = function (evt) {
+            console.log('onabort',evt);
+            
+        }
+        // var thisFile = $('.upload-file').eq(i);
+        // console.log(thisFile)
+        // 加载进度停止后被触发
+        xhr.upload.onloadend = function (evt) {
+            console.log('onloadend',evt);
+            $(".popupBox,.mask").remove(0);
+            // thisFile.find(".paused").removeClass('paused');
+            // thisFile.find(".close").removeClass('close');
+            // thisFile.find(".refresh").removeClass('refresh');
+            // thisFile.find(".upload-edit-em").eq(0).removeClass('pause cancel').addClass("done");
+        }
         // 发送ajax请求
         xhr.send(fd);
+        
         // ===================================
     }
 }

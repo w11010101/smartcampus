@@ -6,6 +6,7 @@
  */
 html  *{
     font-size:16px;
+    font-family: "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei";
     /*max-width:100%;*/
     padding:0;
     margin:0;
@@ -20,7 +21,9 @@ html  *{
     box-sizing:border-box
 }
 body {
-    background: #f9f9f9
+    background: #eee;
+    height: 100%;
+    overflow:hidden;
 }
 *:not(input) {
     margin: 0;
@@ -128,18 +131,27 @@ aside .comment-state .comment-state-reply-btn:hover,
 /* 滚动条 */
 
 ::-webkit-scrollbar {
-    width: 3px;
+    width: 7px;
     height: 1px;
 }
 ::-ms-scrollbar {
-    width: 3px;
+    width: 7px;
     height: 1px;
 }
 ::-webkit-scrollbar-thumb {
-    background: #eaeaea;
+    background: #eee;
 }
 ::-webkit-scrollbar-track {
-    background-color: none;
+    background-color: #fff;
+}
+.content {
+    margin: 60px auto 0;
+    /*overflow:hidden;*/
+}
+.content.collection {
+    /*max-width: 1200px;*/
+    min-width: 826px;
+    background: #f9f9f9;
 }
 
 
@@ -155,10 +167,10 @@ header {
     left: 0;
     background: #fff;
     border-bottom: 1px solid #e6e6e6;
-    z-index: 1000
+    z-index: 100
 }
 .header {
-    max-width: 1200px;
+
     min-width: 826px;
     margin: 0 auto;
     height: 59px;
@@ -166,6 +178,9 @@ header {
     background-color: #fff;
     position: relative;
     font-size: 0;
+}
+header .logo{
+    display: inline-block;
 }
 .header-login {
     width: 36px;
@@ -193,88 +208,34 @@ header {
 .header-title-top {
     top: 18px;
 }
-.header-title-top,
-.header-tools>[class*=header-] a,
-.header-tools .header-info p,
-.select-type button,
-.list li .list-title h1,
-.content-right>h1,
-.content.collection>h1,
-.list li .list-header em,
-.list li .list-title h1,
-aside h2,
-.popupBox h2,
-.popupBox h3,
-.popupBox .list-title h1,
-.level-catalog h3,
-.share-notice .notice-title,
-.popup-box h3,
-.header-add-btn .popup-box >button,
-.content .word h2,
-.file-list >h3,
-.upload-container .upload-title em,
-.upload-container .upload-file .upload-info p{
-    font-family: 'PingFangSC-Semibold', 'Microsoft YaHei', helvetica, sans-serif;
+header nav{
+   display: inline-block;
+   margin-top: -12px;
 }
-.header-tools .header-search-btn input,
-.list li .list-source i,
-.content.collection>h2 em,
-.content-right>h2 i,
-.content.collection>h2 i,
-.content-right>p,
-.content.collection>p,
-.tips .tips-content li,
-.list li .list-header p,
-.list li .list-header i,
-.list li .list-word,
-.float-tools a em,
-aside .comment li .comment-state form a,
-.popupBox .sendBtn,
-.share-notice .part h3,
-.share-notice .list li >p,
-.popup-box h3 span,
-.header-tools .popup-box h3 span a,
-.header-add-input-btn input[type=text],
-.header-add-btn .popup-box > button em,
-.popupBox .collapse-title,
-.content .word p,
-.popupBox .popup-btns button,
-.collection-word .word .video-tool .progress-bar span,
-.file-list ul li em{
-    font-family: 'PingFangSC-Regular', 'Microsoft YaHei', helvetica, sans-serif;
+header nav ul{
+    height: 59px;
+    margin-left: 57px;
 }
-.list li .list-source p,
-.list li .list-source em,
-aside .comment li .comment-state,
-.popupBox textarea,
-.popupBox .font-statis,
-.person-sum,
-.level-catalog h3 em,
-.ztree li a.level0 span,
-.header-add-input-btn button,
-.upload-container .upload-file .upload-info em,
-.upload-container .upload-file .upload-edit em.pause:before,
-.upload-container .upload-file .upload-edit em.cancel:before{
-    font-family: 'PingFang-Light', 'Microsoft YaHei', helvetica, sans-serif;
+header nav ul li{
+    display: inline-block;
+    vertical-align: middle;
 }
-.content {
-    margin: 60px auto 0;
-    /*overflow:hidden;*/
+header nav ul li a{
+    display: block;
+    font-size: 16px;
+    color:#333;
+    line-height: 56px;
+    height: 56px;
+    margin-right: 50px;
 }
-.content.collection {
-    max-width: 1200px;
-    min-width: 826px;
-    background: #f9f9f9;
+header nav ul li a.active{
+    border-bottom: 4px solid #27b3cb;
+    color: #27b3cb;
 }
-
 /* 头部工具 */
 
 .header-tools {
     position: absolute;
-    -webkit-width: calc(100% - 160px);
-    -moz-width: calc(100% - 160px);
-    -ms-width: calc(100% - 160px);
-    width: calc(100% - 160px);
     top: 0;
     right: 0;
     height: 60px;
@@ -299,28 +260,29 @@ aside .comment li .comment-state,
     color: #333333;
     font-size: 0;
 }
-.header-tools>[class*=header-] a.active {
-    border-bottom: 4px solid #27b3cb;
-    color: #27b3cb;
-    
-}
+
 .header-tools .header-collcetion-btn a,
 .header-tools .header-recommend-btn a{
     font-size: 16px;
 }
-.header-tools .header-search-btn {
+.collection .header-search-btn{
+    display: none;
+}
+.header-search-btn {
+    display: inline-block;
     width: 330px;
     height: 37px;
-    margin-top: 12px;
-    background: #f9f9f9;
+    margin-top: -10px;
+    background: #eee;
     font-size: 0;
     margin-right: 0;
+    vertical-align: middle;
 }
-.collection .header-tools .header-search-btn {
+.collection .header-tools .header-sea1rch-btn {
     display: none;
 }
 
-.header-tools .header-search-btn input {
+.header-search-btn input {
     display: inline-block;
     -webkit-width: calc(100% - 37px);
     -moz-width: calc(100% - 37px);
@@ -334,7 +296,7 @@ aside .comment li .comment-state,
     line-height: 37px;
     vertical-align: top;
 }
-.header-tools .header-search-btn button {
+.header-search-btn button {
     display: inline-block;
     width: 37px;
     height: 37px;
@@ -343,48 +305,17 @@ aside .comment li .comment-state,
     position: relative;
     border: 0;
 }
-.collect .header-tools .header-search-btn button:before {
-    position: absolute;
-    content: " ";
-    width: 18px;
-    height: 2px;
-    background: #cbcbcb;
-    top: 50%;
-    left: 50%;
-    margin-top: -1px;
-    margin-left: -9px;
-}
-.collect .header-tools .header-search-btn button:after {
-    position: absolute;
-    content: " ";
-    margin-top: -9px;
-    margin-left: -1px;
-    width: 2px;
-    height: 18px;
-    background: #cbcbcb;
-}
-.collect .header-tools .header-search-btn button.active {
+
+.header-search-btn button.active {
     background: #27b3cb;
 }
-.collect .header-tools .header-search-btn button.active:before,
-.collect .header-tools .header-search-btn button.active:after {
-    background: #fff;
-}
-.collect .header-tools .header-search-btn button.active:after {
-    position: absolute;
-    content: " ";
-    margin-top: -9px;
-    margin-left: -1px;
-    width: 2px;
-    height: 18px;
-    background: #fff;
-}
-.share .header-tools .header-search-btn button[disabled]{
+
+.header-search-btn button[disabled]{
     background:url(../img/search.png) no-repeat center;
     background-size: 22px;
 }
-.share .header-tools .header-search-btn button,
-.share .header-tools .header-search-btn button.active{
+.header-search-btn button,
+.header-search-btn button.active{
     background:url(../img/search-1.png) no-repeat center #27b3cb;
     background-size: 22px;
 }
@@ -415,6 +346,7 @@ aside .comment li .comment-state,
     vertical-align: middle;
     font-size: 16px;
 }
+
 .header-tools .header-info-img img {
     width: 30px;
     height: 30px;
@@ -479,7 +411,15 @@ aside .comment li .comment-state,
     max-height: 500px;
     padding-bottom: 45px;
 }
-
+.header-tools .header-info .popup-box{
+    width: 150px;
+    margin-left: -75px;
+    height: auto;
+}
+.header-tools .header-info .popup-box a{
+    font-size: 16px;
+    text-align: center;
+}
 .popup-box .i-before{
     display: block;
     width: 16px;
@@ -496,12 +436,7 @@ aside .comment li .comment-state,
     z-index: -1;
     margin-left:-8px;
 }
-/*{
-    -moz-transform:rotate(5deg);
-    -webkit-transform:rotate(5deg);
-    -ms-transform:rotate(5deg);
-    transform:rotate(5deg);
-}*/
+
 .popup-box h3{
     height: 44px;
     line-height: 44px;
@@ -536,7 +471,7 @@ aside .comment li .comment-state,
     display: inline-block;
     width: 210px;
     border:0;
-    background:#f9f9f9;
+    background:#eee;
     height: 40px;
     font-size: 14px;
     padding: 0 14px;
@@ -553,9 +488,7 @@ aside .comment li .comment-state,
     color:#fff;
     font-size: 14px;
 }
-/*.header-add-btn:hover .popup-box{
-    display: block;
-}*/
+
 .header-add-btn .popup-box > button{
     display: block;
     width: 100%;
@@ -609,17 +542,22 @@ aside .comment li .comment-state,
 /* 收藏 */
 
 .content {
-    max-width: 1050px;
     min-width: 826px;
-    height: auto!important;
-    /*height: calc(100vh - 60px);*/
-    /*overflow-y:  hidden;*/
+    height: calc(100vh - 60px);
     font-size: 0;
     position: relative;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
-.content.collection {
+.collection-acticle .content{
     width: 1000px;
+    padding-top: 50px;
+    /*overflow:hidden;*/
 }
+.collection-word .content {
+    padding: 0 90px;
+}
+
 .header-tools {}
 
 /* tips */
@@ -683,17 +621,12 @@ aside .comment li .comment-state,
     position: fixed;
     height: 45px;
     z-index: 199;
-    width: 220px;
+    /*width: 220px;*/
     top: 81px;
     right: 0px;
     background: #fff;
     box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, .1);
-    transform: translateX(165px);
-    -webkit-transform: translateX(165px);
-    -ms-transform: translateX(180px);
-    transition: all .2s ease-in-out;
-    -webkit-transition: all .2s ease-in-out;
-    -ms-transition: all .2s ease-in-out;
+
 }
 .collection .float-tools{
     width: auto;
@@ -701,12 +634,7 @@ aside .comment li .comment-state,
     -webkit-transform: translateX(0);
     -ms-transform: translateX(0);
 }
-.float-tools:hover,
-.float-tools.active {
-    transform: translateX(0);
-    -webkit-transform: translateX(0);
-    -ms-transform: translateX(0);
-}
+
 .float-tools a {
     width: 55px;
     float: left;
@@ -715,16 +643,7 @@ aside .comment li .comment-state,
     color: #999;
     position: static;
 }
-.float-tools a:first-child {
-    display: none;
-}
-.float-tools:hover a:first-child,
-.float-tools.active a:first-child {
-    display: block;
-}
-.collection .float-tools a:first-child{
-    display: block;
-}
+
 .float-tools a img {
     width: 20px;
     height: 20px;
@@ -744,8 +663,8 @@ aside {
     width: 350px;
     width: 380px\9;
     width: 380px\0;
-    height: calc(100vh - 60px);
-    top: 60px;
+    height: 100%;
+    top: 0px;
     right: 0;
     background: #fff;
     padding: 22px 0;
@@ -757,8 +676,6 @@ aside {
     transition: all .3s ease;
     -webkit-transition: all .3s ease;
     -ms-transition: all .3s ease;
-
-    /*display: none;*/
 }
 @-moz-document url-prefix() { 
     aside {
@@ -791,13 +708,7 @@ aside h2 button,
     -webkit-transition: all .2s ease-in;
     -ms-transition: all .2s ease-in;
 }
-aside h2 button:hover,
-.popupBox h2 button:hover{
-/*    transform: rotateZ(90deg);
-    -webkit-transform: rotateZ(90deg);
-    -moz-transform: rotateZ(90deg);
-    -ms-transform: rotateZ(90deg);*/
-}
+
 aside form {
     font-size: 0px;
     margin-top: 24px;
@@ -897,10 +808,13 @@ aside .comment li .comment-state a {
     position: fixed;
     top: 50%;
     left: 50%;
-    margin-top: -20%;
-    margin-left: -240px;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    margin-left: -250px;
     margin-left: -255px\0;
-    width: 480px;
+    width: 500px;
     width: 510px\0;
     max-height: 550px;
     background: #fff;
@@ -1082,16 +996,12 @@ aside .comment li .comment-state a {
     word-wrap: break-word;
 }
 .expandingArea textarea {
-    /* The border-box box model is used to allow
-       * padding whilst still keeping the overall width
-       * at exactly that of the containing element.
-       */
+
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     -ms-box-sizing: border-box;
     box-sizing: border-box;
     width: 100%;
-    /* This height is used when JS is disabled */
     height: 100px;
 
     
@@ -1118,21 +1028,21 @@ aside .comment li .comment-state a {
 /* 媒体 */
 
 @media screen and (max-width: 826px) {
-    .header-tools .header-search-btn {
+    .header-search-btn {
         max-width: 150px;
     }
-    .header-tools .header-search-btn input {
+    .header-search-btn input {
         max-width: 113px;
     }
 }
 @media screen and (min-width: 827px) and (max-width: 1000px) {
-    .header-tools .header-search-btn {
+    .header-search-btn {
         -webkit-width: calc(100% - 316px - 82px * 2 - 40px * 2);
         -moz-width: calc(100% - 316px - 82px * 2 - 40px * 2);
         width: calc(100% - 316px - 82px * 2 - 40px * 2);
         min-width: 150px;
     }
-    .header-tools .header-search-btn input {
+    .header-search-btn input {
         -webkit-width: calc(100% - 67px);
         -moz-width: calc(100% - 67px);
         width: calc(100% - 67px);

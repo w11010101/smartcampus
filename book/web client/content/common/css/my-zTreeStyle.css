@@ -13,7 +13,6 @@
 }
 .ztree li {
     line-height: 60px;
-    /*border-bottom:1px solid #e6e6e6;*/
 }
 .ztree li a {
     display: block;
@@ -72,6 +71,8 @@
     width: 30px;
     height:30px;
     vertical-align: middle;
+    background-size: contain!important;
+    background-position: center!important;
 }
 .ztree li span.button.switch.level0 {
     width: 20px;
@@ -82,12 +83,6 @@
     height: 20px;
 }
 .ztree li span.button.noline_docu.level1,
-/*.ztree li .level0 .ico_close,*/
-/*.ztree li .level1 .ico_close,*/
-/*.ztree li .level0 .ico_open,*/
-/*.ztree li .level2 .noline_docu,
-.ztree li .level3 .noline_docu,
-.ztree li .level4 .noline_docu*/
 .ztree li [class *='level'] .noline_docu,
 .ztree li [class *='level'] .ico_close,
 .ztree li [class *='level'] .ico_open
@@ -123,7 +118,7 @@
 
 /* level-catalog */
 .level-catalog{
-    height: calc(100vh - 160px);
+    height: calc(100vh - 100px);
     position: relative;
     overflow-x: hidden;
 }
@@ -133,8 +128,6 @@
     margin-top: 22px;
     height: 42px;
     line-height: 42px;
-
-    /*padding-bottom: 22px;*/
     padding-left: 20px;
     border-bottom: 1px solid #e6e6e6;
 
@@ -181,6 +174,17 @@
 .level-catalog ul li p{
     display: inline-block;
     width: calc(100% - 40px)
+}
+.level-catalog ul li img{
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    vertical-align: middle;
+    margin-right: 10px;
+}
+.level-catalog ul li img + p{
+    display: inline-block;
+    width: calc(100% - 80px)
 }
 .level-catalog ul li > i.active{
     background: url(../../common/img/quanxuan@2x.png) no-repeat center;

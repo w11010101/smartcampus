@@ -78,28 +78,28 @@ var zNodes = [{
                 name: "父节点21 - 展开",
                 open: true,
                 children: [
-                    { name: "叶子节点211" },
-                    { name: "叶子节点212" },
-                    { name: "叶子节点213" },
-                    { name: "叶子节点214" }
+                    { name: "叶子节点211",icon:"../../content/common/img/header.png" },
+                    { name: "叶子节点212",icon:"../../content/common/img/header.png" },
+                    { name: "叶子节点213",icon:"../../content/common/img/header.png" },
+                    { name: "叶子节点214",icon:"../../content/common/img/header.png" }
                 ]
             },
             {
                 name: "父节点22 - 折叠",
                 children: [
-                    { name: "叶子节点221" },
-                    { name: "叶子节点222" },
-                    { name: "叶子节点223" },
-                    { name: "叶子节点224" }
+                    { name: "叶子节点221",icon:"../../content/common/img/header.png" },
+                    { name: "叶子节点222",icon:"../../content/common/img/header.png" },
+                    { name: "叶子节点223",icon:"../../content/common/img/header.png" },
+                    { name: "叶子节点224",icon:"../../content/common/img/header.png" }
                 ]
             },
             {
                 name: "父节点23 - 折叠",
                 children: [
-                    { name: "叶子节点231" },
-                    { name: "叶子节点232" },
-                    { name: "叶子节点233" },
-                    { name: "叶子节点234" }
+                    { name: "叶子节点231",icon:"../../content/common/img/header.png" },
+                    { name: "叶子节点232",icon:"../../content/common/img/header.png" },
+                    { name: "叶子节点233",icon:"../../content/common/img/header.png" },
+                    { name: "叶子节点234",icon:"../../content/common/img/header.png" }
                 ]
             }
         ]

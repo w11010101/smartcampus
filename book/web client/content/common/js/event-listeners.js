@@ -60,9 +60,7 @@ $("body").on("click",".popupBox .add",function(){
 });
 // 删除联系人
 $("body").on("click",".popupBox .del",function(){
-    console.dir(this);
     var _this = $(this);
-
     $(this).parent().fadeOut(100,function(){
     	$(this).remove();
         if($("input[type=file]").length){
@@ -72,16 +70,13 @@ $("body").on("click",".popupBox .del",function(){
                 }
             }
         }
-        console.log(filearr);
     });
 });
 // 隐藏popup ================================================================
 $("body").on("click", function(event) {
-    var eventP = $(event.target).parent();
-    if(eventP.hasClass('header-message-btn') || eventP.hasClass('header-add-btn') || $(event.target).parents('.popup-box').hasClass('show')){
-    	console.log(123)
+    var eventP = $(event.target).parents("header");
+    if(eventP.length || $(event.target).parents('.popup-box').hasClass('show')){
     }else{
-
         $(".popup-box").stop().fadeOut(200).removeClass('show');
     }
 
@@ -147,7 +142,6 @@ var formData = null;
 $("body").on("change",".file-add-btn input[type=file]",function(){
 
     var files = $("input[type=file]")[0].files;
-    console.log(files)
     for(var i=0;i<files.length;i++){
         filearr.push(files[i]);
     }
@@ -155,48 +149,35 @@ $("body").on("change",".file-add-btn input[type=file]",function(){
     var filePath = $(this).val();//读取图片路径  
 
     var imgObjs = $(this)[0].files;//获取图片
-
+    
     $.each(imgObjs,function(i,e){
-        var fr = new FileReader();
-        fr.readAsDataURL(e);
+        // console.log(e);
+        var maxSize = 1024 * 1024 * 20;
+        if(e.size >=maxSize){
+            console.log("大文件");
+            $(".files").prepend('<div class="file" setSize = '+ e.size+'><img src="../../content/common/img/qita@3x.png" alt="" /><em>'+e.name+'</em><a class="del"></a></div>');
+        }else{
+            console.log("小文件");
+            var fr = new FileReader();
+            fr.readAsDataURL(e);
 
-        var arr = filePath.split('\\');  
-        var fileName = arr[arr.length - 1];
-        var size = (e.size/1024).toFixed(2);
-        size = (parseFloat(size)>1000)?(parseFloat(size)/1024).toFixed(2)+"MB" : size+"KB";
+            var arr = filePath.split('\\');  
+            var fileName = arr[arr.length - 1];
+            var size = (e.size/1024).toFixed(2);
+            size = (parseFloat(size)>1000)?(parseFloat(size)/1024).toFixed(2)+"MB" : size+"KB";
 
-        var options = {
-            fr:fr,
-            size:size,
-            el:e,
-            filePath:filePath
-        }
+            var options = {
+                fr:fr,
+                size:size,
+                el:e,
+                filePath:filePath
+            }
 
-        if(filePath.indexOf("jpg") != -1 || filePath.indexOf("JPG") != -1 || filePath.indexOf("PNG") != -1 || filePath.indexOf("png") != -1) {  
-            FR_onLoad(options);
-        }else if(filePath.indexOf("txt") != -1 ||filePath.indexOf("ppt") != -1||filePath.indexOf("pptx") != -1||filePath.indexOf("doc") != -1||filePath.indexOf("pdf") != -1||filePath.indexOf("xls") != -1||filePath.indexOf("xlsx") != -1){
-            FR_onLoad(options);
-        }else if(filePath.indexOf("mp4") != -1 || filePath.indexOf("MP4") != -1||filePath.indexOf("RMVB") != -1||filePath.indexOf("rmbv") != -1||filePath.indexOf("avi") != -1||filePath.indexOf("AVI") != -1){
-            var url = window.URL.createObjectURL($("input[type=file]")[0].files[0])
-            console.log("视频文件");
-            $(".files").prepend('<div class="file" setSize = '+ size+'>\
-                <canvas id="myCanvas" width="90" height="90"></canvas>\
-                <video class="file-video"><source src="'+url+'" type="video/mp4"></video>\
-                <em>123</em><a class="del"></a></div>');
-            var c = document.querySelector("#myCanvas");
-            var v = document.querySelector(".file-video");
-            var ctx = c.getContext("2d");
-            v.addEventListener('canplay',function(){
-                setTimeout(function(){
-                    ctx.drawImage(v,0,0,90,90);
-                    // 保存图片
-                    var newImg = c.toDataURL("image/jpg");
-                    $(v).attr("src",newImg);
-                },1000);
-            });
-
-            
-            
+            if(filePath.indexOf("jpg") != -1 || filePath.indexOf("JPG") != -1 || filePath.indexOf("PNG") != -1 || filePath.indexOf("png") != -1) {  
+                FR_onLoad(options);
+            }else if(filePath.indexOf("txt") != -1 ||filePath.indexOf("ppt") != -1||filePath.indexOf("pptx") != -1||filePath.indexOf("doc") != -1||filePath.indexOf("pdf") != -1||filePath.indexOf("xls") != -1||filePath.indexOf("xlsx") != -1){
+                FR_onLoad(options);
+            }
         }
     });
     function FR_onLoad(options){
@@ -211,7 +192,7 @@ $("body").on("change",".file-add-btn input[type=file]",function(){
         }; 
     }
     setTimeout(function(){
-        console.log("已有 = ",$(".files .file").length);
+        // console.log("已有 = ",$(".files .file").length);
         if ($(".files .file").length>12) {
             
         }
@@ -249,6 +230,9 @@ function selectUploadImg(obj,filePath){
             case "pptx":
                 return '../../content/common/img/Group 5@3x.png';
             break;
+            default:
+                return '../../content/common/img/qita@3x.png';
+            break;
         }
         console.log(fileType);
     }
@@ -276,53 +260,57 @@ $(".toggle-fade-btn").on("click",function(){
 
 // 上传任务 开始 按钮 点击 事件 *******
 $("body").on("click",".start",function(){
+    console.log(xhrObj);
+    // xhr.upload.onloadstart();
+    
     console.log("start btns");
     var thisP = $(this).parents('.upload-file');
     var i = thisP.index();
-    // 停止时间
-    var PT = thisP.attr("pauseTime");
-    // 开始时间
-    var ST = thisP.attr("startTime");
-    // 剩余时间
-    var surplusDiff = longTime - thisP.attr("runTime");
-    // 设置 当前任务的 暂停时间
-    thisP.attr("startTime",new Date().getTime());
-    thisP.find(".bar-track").animate({
-        width:"100%",
-    },surplusDiff,"linear",function(){
-        console.log("done2");
-        thisP.find(".paused").removeClass('paused');
-        thisP.find(".close").removeClass('close');
-        thisP.find(".refresh").removeClass('refresh');
-        thisP.find(".upload-edit-em").eq(0).removeClass('pause cancel').addClass("done");
-    });
-    thisP.find(".upload-edit-em").eq(0).removeClass('pause');
-    $(this).removeClass('start').addClass('paused');
-});
 
+    uploadXMLHttpRequest(i);
+
+    // // 停止时间
+    // var PT = thisP.attr("pauseTime");
+    // // 开始时间
+    // var ST = thisP.attr("startTime");
+    // // 剩余时间
+    // var surplusDiff = longTime - thisP.attr("runTime");
+    // // 设置 当前任务的 暂停时间
+    // thisP.attr("startTime",new Date().getTime());
+    // thisP.find(".bar-track").animate({
+    //     width:"100%",
+    // },surplusDiff,"linear",function(){
+    //     thisP.find(".paused").removeClass('paused');
+    //     thisP.find(".close").removeClass('close');
+    //     thisP.find(".refresh").removeClass('refresh');
+    //     thisP.find(".upload-edit-em").eq(0).removeClass('pause cancel').addClass("done");
+    // });
+    thisP.find(".upload-edit-em").eq(0).removeClass('pause');
+    if(!thisP.find(".done").length){
+        $(this).addClass('paused');
+    }
+    $(this).removeClass('start');
+});
 // 上传任务 暂停 按钮 点击 事件 *******
 $("body").on("click",".paused",function(){
     console.log("paused btns");
     var thisP = $(this).parents('.upload-file');
     var i = thisP.index();
+    // 终止任务
+    console.log(xhrObj);
+    xhrObj[i].xhr.abort();
 
-    // 设置 当前任务的 暂停时间
-    thisP.attr('pauseTime',new Date().getTime()).find(".bar-track").stop();
-    
-    // 停止时间
-    var PT = thisP.attr("pauseTime");
-    // 开始时间
-    var ST = thisP.attr("startTime");
-
-    // 设置 截止到现在运行了多长时间
-    thisP.attr("runTime",parseInt(thisP.attr("runTime")) + (PT - ST));
-
+    // // 设置 当前任务的 暂停时间
+    // thisP.attr('pauseTime',new Date().getTime()).find(".bar-track").stop();    
+    // // 停止时间
+    // var PT = thisP.attr("pauseTime");
+    // // 开始时间
+    // var ST = thisP.attr("startTime");
+    // // 设置 截止到现在运行了多长时间
+    // thisP.attr("runTime",parseInt(thisP.attr("runTime")) + (PT - ST));
     $(this).parents('.upload-file').attr('startTime');
-
     $(this).removeClass('paused').addClass('start');
-
     thisP.find(".upload-edit-em").eq(0).addClass("pause");
-
 });
 
 // 上传任务 重新下载 按钮 点击 事件   *******
@@ -343,31 +331,24 @@ $("body").on("click",".refresh",function(){
         width:"100%",
     },surplusDiff,"linear",function(){
         console.log("done3");
-        console.log(thisP);
         thisP.find(".paused").removeClass('paused');
         thisP.find(".close").removeClass('close');
         thisP.find(".refresh").removeClass('refresh');
         thisP.find(".upload-edit-em").eq(0).removeClass('pause cancel').addClass("done");
-        
     });
-
 });
 
 // 上传任务 取消 按钮 点击 事件 *******
 $("body").on("click",".close",function(){
     console.log("close btns");
-    
     var thisP = $(this).parents('.upload-file');
     thisP.find(".upload-edit-em").eq(1).removeClass('start paused');
-    
     thisP.attr("startTime",0).attr("pauseTime",longTime).attr("runTime",0);
-
     thisP.find(".bar-track").finish().animate({
         width:"0%",
     },0,"linear",function(){
         thisP.find(".upload-edit-em").eq(0).removeClass('pause done').addClass("cancel");
         thisP.find(".upload-edit-em").eq(2).removeClass('close').addClass('refresh');
     });
-    
 });
 

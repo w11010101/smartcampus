@@ -101,11 +101,10 @@
 .ztree li span.button.noline_close.level0 {
     background-position: center;
 }
-.ztree li[class*=level] > a:hover
-/*.ztree li[class*=level]:hover > a*/
-{
+.ztree li[class*=level] > a.curSelectedNode{
     background: #f9f9f9
 }
-/*.ztree li[id*=treeDemo].active >a{
-    background: #f9f9f9
-}*/
+
+.subDept-title,.subDept-list,.add-subDept-btn{
+    display: none;
+}

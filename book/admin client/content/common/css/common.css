@@ -22,39 +22,6 @@ body{
     list-style: none;
     text-decoration: none;
 }*/
-@font-face {
-    font-family: 'PingFang-Light';
-    src: url('../font/PingFang-Light.ttf');
-    src: local('☺'),
-    /*url('../../common/PingFang Light.eot?#iefix') format('embedded-opentype'),  
-        url('../../common/PingFang Light.woff') format('woff'),  */
-    url('../font/PingFang-Light.ttf') format('truetype'),
-    /*url('../../common/PingFang Light.svg#webfontOTINA1xY') format('svg');  */
-    /*font-weight:normal;  
-        font-style:normal; */
-}
-@font-face {
-    font-family: 'PingFangSC-Semibold';
-    src: url('../font/PingFangSC-Semibold.ttf');
-    src: local('☺'),
-    /*url('../../common/PingFang SC Semibold.eot?#iefix') format('embedded-opentype'),  
-        url('../../common/PingFang SC Semibold.woff') format('woff'),  */
-    url('../font/PingFangSC-Semibold.ttf') format('truetype'),
-    /*url('../../common/PingFang SC Semibold.svg#webfontOTINA1xY') format('svg');  */
-    /*font-weight:normal;  
-        font-style:normal;*/
-}
-@font-face {
-    font-family: 'PingFangSC-Regular';
-    src: url('../font/PingFangSC-Regular.otf');
-    src: local('☺'),
-    /*url('../../common/font/PingFangSC-Regular.eot?#iefix') format('embedded-opentype'),  
-        url('../../common/font/PingFangSC-Regular.woff') format('woff'), */
-    /*url('../../common/font/PingFangSC-Regular.ttf') format('truetype'),  */
-    /*url('../../common/font/PingFangSC-Regular.svg#webfontOTINA1xY') format('svg');  */
-    /*font-weight:normal;  
-        font-style:normal;*/
-}
 
 input::-webkit-input-placeholder {
     color: #333;
@@ -114,37 +81,7 @@ button:focus,
     padding-left:25px;
 }
 
-/* 字体设置 */
-.header-content .logo span,
-.header-content ul li a,
-.synjones-name,
-.container-right h2,
-.console .title em,
-.alert-container h2,
-.alert-container .step label,
-aside > h2,
-aside > div label{
-    font-family: 'PingFangSC-Semibold', 'Microsoft YaHei', helvetica, sans-serif;
-}
-.container-left p span,
-.container-left p em,
-#myTab li a,
-#myTabContent form input[type=search],
-.person-sum,
-.console .title button,
-.breadcrumb a,
-.alert-container .import-main h3,
-.alert-container .import-main p,
-.alert-container .step span,
-.alert-container .step button,
-.alert-container .step input,
-.alert-batchDel h2,
-aside > div label + input,
-.aside-main .dropdown,
-.aside-main .dropdown input[readonly]{
-    font-family: 'PingFangSC-Regular', 'Microsoft YaHei', helvetica, sans-serif;
 
-}
 .person-sum {
     padding-left: 40px;
     font-size: 13px;
@@ -177,7 +114,6 @@ header {
     padding: 0 20px;
 }
 .header-content{
-    width: 1200px;
     margin:0 auto;
 }
 .header-content .logo,
@@ -232,11 +168,11 @@ header {
 }
 /* container */
 .container{
+    width: 100%;
     padding-top: 81px;
     padding-bottom: 20px;
     padding-right: 0;
     padding-left: 0;
-    width: 1200px;
     height: 100vh;
     margin-top: -61px;
     position: relative;
@@ -255,7 +191,7 @@ header {
     margin-right: 30px
 }
 .container-right{
-    width: 820px;
+    width: calc(100% - 370px);
     height: 100%;
     padding-right: 20px;
 }
@@ -549,7 +485,13 @@ header {
 .floot-btns button +button{
     margin-left: 10px;
 }
-
+.breadcrumb > li + li:before{
+    /*content: '\3009';*/
+    content: '>';
+    font-family: "SimSun";
+    font-weight: bold;
+    padding: 0 10px;
+}
 /* aside 侧边栏 */
 aside{
     position: absolute;

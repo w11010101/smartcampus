@@ -16,97 +16,114 @@
 	</head>
 	<body class="share">
 		<header>
-			<div class="header header-border">
-				<img class="header-login" src="../../content/common/img/logo@2x.png" srcset="../../content/common/img/logo@2x.png 2x,../../content/common/img/logo@3x.png 3x" />
-				<h3 class="header-title header-title-top">快享</h3>
-				<!-- 头部工具 -->
-				<div class="header-tools">
-					<!-- 收藏 -->
-					<div class='header-collcetion-btn'>
-						<a href="list.html" >收藏</a>
-					</div>
-					<!-- 推荐 -->
-					<div class="header-recommend-btn">
-						<a class="active">推荐</a>
-					</div>
-					<!-- 搜索 -->
-					<div class="header-search-btn">
-						<input type="text" name="" placeholder="搜索...">
-						<button disabled="disabled"></button>
-					</div>
-					<div class="header-right">
-						<!-- 通讯录 -->
-						<div class="header-maillist-btn">
-							<a></a>
-						</div>
-						<!-- 消息 -->
-						<div class="header-message-btn">
-							<a></a>
-							<em class="message-tips"></em>
-							<div class="popup-box">
-								<i class="i-before"></i>
-		                        <ul class="list">
-		                        	<li>
-						                <a href="#n">
-						                    <div class="list-header">
-						                        <img src="../../content/common/img/header.png">
-						                        <em>周红</em>
-						                        <p>推荐给战略文章集等推荐给战略文章集等</p>
-						                        <i>刚刚</i>
-						                    </div>
-						                    <p class="list-word">天气一天比一天冷，穿什么更时髦讲真我们已经没那么care了。要知道，最近oversize毛衣已经成为编辑部出勤率最高的员工了。</p>
-						                </a>
-						            </li>
-						            <li>
-						                <a href="#n">
-						                    <div class="list-header">
-						                        <img src="../../content/common/img/header.png">
-						                        <em>周红</em>
-						                        <p>推荐给战略文章集等推荐给战略文章集等</p>
-						                        <i>刚刚</i>
-						                    </div>
-						                    <p class="list-word">天气一天比一天冷，穿什么更时髦讲真我们已经没那么care了。要知道，最近oversize毛衣已经成为编辑部出勤率最高的员工了。</p>
-						                </a>
-						            </li>
-						            <li>
-						                <a href="#n">
-						                    <div class="list-header">
-						                        <img src="../../content/common/img/header.png">
-						                        <em>周红</em>
-						                        <p>推荐给战略文章集等推荐给战略文章集等</p>
-						                        <i>刚刚</i>
-						                    </div>
-						                    <p class="list-word">天气一天比一天冷，穿什么更时髦讲真我们已经没那么care了。要知道，最近oversize毛衣已经成为编辑部出勤率最高的员工了。</p>
-						                </a>
-						            </li>
-						            <li>
-						                <a href="#n">
-						                    <div class="list-header">
-						                        <img src="../../content/common/img/header.png">
-						                        <em>周红</em>
-						                        <p>推荐给战略文章集等推荐给战略文章集等</p>
-						                        <i>刚刚</i>
-						                    </div>
-						                    <p class="list-word">天气一天比一天冷，穿什么更时髦讲真我们已经没那么care了。要知道，最近oversize毛衣已经成为编辑部出勤率最高的员工了。</p>
-						                </a>
-						            </li>
-		                        </ul>
-		                        <a href="share-notice.html" class="inform">查看全部通知</a>
-							</div>
-						</div>
-						<!-- 个人 -->
-						<div class="header-info">
-							<a>
-								<div class="header-info-img">
-									<img src="../../content/common/img/header.png">
-								</div>
-								<p>风清扬</p>
-							</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</header>
+	        <div class="header header-border">
+	            <div class="logo">
+	                <a href="list.html">
+	                    <img class="header-login" src="../../content/common/img/logo@3x.png" srcset="../../content/common/img/logo@2x.png 2x,../../content/common/img/logo@3x.png 3x" />
+	                    <h3 class="header-title header-title-top">快享</h3>
+	                </a>
+	            </div>
+	            <!-- header nav -->
+	            <nav>
+	                <ul>
+	                    <li><a href="list.html">收藏</a></li>
+	                    <li><a class="active" >推荐</a></li>
+	                </ul>
+	            </nav>
+	            <!-- 搜索 -->
+	            <div class="header-search-btn">
+	                <input type="text" name="" placeholder="请输入关键字">
+	                <button disabled="disabled"></button>
+	            </div>
+	            <!-- 头部工具 -->
+	            <div class="header-tools">  
+	                <div class="header-right">
+	                    <!-- 添加 -->
+	                    <div class="header-add-btn">
+	                        <a></a>
+	                        <div class="popup-box">
+	                            <i class="i-before"></i>
+	                            <h3>收藏网页内容 <span>快速收藏请添加<a href="#">浏览器插件</a></span></h3>
+	                            <div class="header-add-input-btn">
+	                                <input type="text" name="" placeholder="请输入关键字">
+	                                <button>保存</button>
+	                            </div>
+	                            <button class="upload-file">上传文件</button>
+	                            <button class="upload-photo" max-length="12">上传照片 <em>12张上限</em></button>
+	                        </div>
+	                    </div>
+	                    <!-- 通讯录 -->
+	                    <div class="header-maillist-btn">
+	                        <a></a>
+	                    </div>
+	                    <!-- 消息 -->
+	                    <div class="header-message-btn">
+	                        <a></a>
+	                        <em class="message-tips"></em>
+	                        <div class="popup-box">
+	                            <i class="i-before"></i>
+	                            <ul class="list">
+	                                <li>
+	                                    <a href="#n">
+	                                        <div class="list-header">
+	                                            <img src="../../content/common/img/header.png">
+	                                            <em>周红</em>
+	                                            <p>推荐给战略文章集等推荐给战略文章集等</p>
+	                                            <i>刚刚</i>
+	                                        </div>
+	                                        <p class="list-word">天气一天比一天冷，穿什么更时髦讲真我们已经没那么care了。要知道，最近oversize毛衣已经成为编辑部出勤率最高的员工了。</p>
+	                                    </a>
+	                                </li>
+	                                <li>
+	                                    <a href="#n">
+	                                        <div class="list-header">
+	                                            <img src="../../content/common/img/header.png">
+	                                            <em>周红</em>
+	                                            <p>推荐给战略文章集等推荐给战略文章集等</p>
+	                                            <i>刚刚</i>
+	                                        </div>
+	                                        <p class="list-word">天气一天比一天冷，穿什么更时髦讲真我们已经没那么care了。要知道，最近oversize毛衣已经成为编辑部出勤率最高的员工了。</p>
+	                                    </a>
+	                                </li>
+	                                <li>
+	                                    <a href="#n">
+	                                        <div class="list-header">
+	                                            <img src="../../content/common/img/header.png">
+	                                            <em>周红</em>
+	                                            <p>推荐给战略文章集等推荐给战略文章集等</p>
+	                                            <i>刚刚</i>
+	                                        </div>
+	                                        <p class="list-word">天气一天比一天冷，穿什么更时髦讲真我们已经没那么care了。要知道，最近oversize毛衣已经成为编辑部出勤率最高的员工了。</p>
+	                                    </a>
+	                                </li>
+	                                <li>
+	                                    <a href="#n">
+	                                        <div class="list-header">
+	                                            <img src="../../content/common/img/header.png">
+	                                            <em>周红</em>
+	                                            <p>推荐给战略文章集等推荐给战略文章集等</p>
+	                                            <i>刚刚</i>
+	                                        </div>
+	                                        <p class="list-word">天气一天比一天冷，穿什么更时髦讲真我们已经没那么care了。要知道，最近oversize毛衣已经成为编辑部出勤率最高的员工了。</p>
+	                                    </a>
+	                                </li>
+	                            </ul>
+	                            <a href="share-notice.html" class="inform">查看全部通知</a>
+	                        </div>
+	                    </div>
+	                    <!-- 个人 -->
+	                    <div class="header-info">
+	                        <a>
+	                            <div class="header-info-img">
+	                                <img src="../../content/common/img/header.png">
+	                            </div>
+	                            <p>风清扬</p>
+	                        </a>
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+	    </header>
 		<div class="content">
 			<div class="content-left">
 				<ul class="list">

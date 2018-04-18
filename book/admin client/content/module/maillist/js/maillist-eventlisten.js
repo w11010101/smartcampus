@@ -11,15 +11,15 @@ $("body").on("click",".edit-btn",function(){
         },
         flootBtn:["确认","删除","取消"],
         callbackFn:{
-            saveFn:function(){
-                console.log(arguments);
-            },
-            cancelFn:function () {
-                console.log(arguments);
-            },
-            delFn:function () {
-                console.log(arguments);
-            }
+            // saveFn:function(){
+            //     console.log(arguments);
+            // },
+            // cancelFn:function () {
+            //     console.log(arguments);
+            // },
+            // delFn:function () {
+            //     console.log(arguments);
+            // }
         }
     });
 });
@@ -118,16 +118,16 @@ $("body").on("click",".batch-del-btn",function(){
         popupContentType:"batchDel", // 内容主体 类型：import 导入
         close:true,
         callbackFn:{
-            saveFn:function(){
-                console.log("del");
-                console.log(arguments);
-            },
-            cancelFn:function () {
-                console.log(arguments);
-            },
-            delFn:function () {
-                console.log(arguments);
-            }
+            // saveFn:function(){
+            //     console.log("del");
+            //     console.log(arguments);
+            // },
+            // cancelFn:function () {
+            //     console.log(arguments);
+            // },
+            // delFn:function () {
+            //     console.log(arguments);
+            // }
         }
     });
 });
@@ -150,13 +150,13 @@ $("body").on("click",".add-btn",function(){
                 $(".table-container").append(lis);
                 arguments[0].removeContainer(arguments[1],true);
             },
-            cancelFn:function () {
-                console.log(arguments);
-                arguments[0].removeContainer(arguments[1],true);
-            },
-            delFn:function () {
-                console.log(arguments);
-            }
+            // cancelFn:function () {
+            //     console.log(arguments);
+            //     arguments[0].removeContainer(arguments[1],true);
+            // },
+            // delFn:function () {
+            //     console.log(arguments);
+            // }
         }
     });
 });
@@ -177,7 +177,15 @@ $('body').on('show.bs.dropdown','.dropdown', function () {
 $('body').on('click','.dropdown-menu li', function (event) {
     $(this).parents('.dropdown').removeClass("input-error").find("a input[readonly]").val($(this).text());
 })
-
+// 加载下级部门的列表
+function addSubDeptlist(arr){
+    var html = []
+    $.each(arr,function(i,e){
+        html.push('<li tId="'+e.tId+'" set-level="'+e.level+'">'+e.name+'</li>');
+        console.log(e)
+    });
+    $(".subDept-list").html(html);
+}
 
 // 添加子部门
 $('body').on('click','.add-subDept-btn', function (event) {
@@ -199,15 +207,31 @@ $('body').on('click','.add-subDept-btn', function (event) {
                     zTree.reAsyncChildNodes(null, "refresh");
                 }
             },
-            cancelFn:function () {
-                console.log(arguments);
-                arguments[0].removeContainer(arguments[1],true);
-            },
-            delFn:function () {
-                console.log(arguments);
-            }
+            // cancelFn:function () {
+            //     console.log(arguments);
+            //     arguments[0].removeContainer(arguments[1],true);
+            // },
+            // delFn:function () {
+            //     console.log(arguments);
+            // }
         }
     });
+})
+// 下级部门的 部门点击事件
+$("body").on("click",'.subDept-list li',function(){
+    console.log(this);
+    
+    var currentNode = myZtree.getNodeByTId($(this).attr("tid"));
+    console.log(currentNode);
+    setTreeObj(currentNode);
+    // treeObj["level"+($(this).attr('set-level') - 1)] = $(".curSelectedNode").attr("title");
+
+    setBreadcrumbFn({level:$(this).attr("set-level")},treeObj,$('.container-box .breadcrumb'));
+    $(".firsh-title em").text($(this).text());
+    // 与左边组织架构进行 联动
+    // 第一个参数是：true收起; false：展开
+    // 第二个参数是：当前点击的 text值；
+    expandNode(true,$(this).text());
 })
 
 // 面包屑 的 点击事件
@@ -215,24 +239,16 @@ $("body").on("click",".breadcrumb li:not(:last-child)",function(){
 
     var text = $(this).text();
     if($(this).index() - 1>0){
-        treeObj["level"+($(this).index() - 1)] = text;
+        treeObj["level"+$(this).attr("set-level")] = text;
     }
     
 
     $(".firsh-title em").text(text);
 
-    setBreadcrumbFn({level:$(this).index() - 1},treeObj,$('.container-box .breadcrumb'));
+    setBreadcrumbFn({level:$(this).attr("set-level")},treeObj,$('.container-box .breadcrumb'));
 
-    var zTree = $.fn.zTree.getZTreeObj("treeDemo");
-
-    var nodes = zTree.transformToArray(zTree.getNodes());
-    // console.log(nodes)
-    if (nodes.length>0) {
-        $.each(nodes,function(i,e){
-            if(e.name == text){
-                zTree.selectNode(nodes[i]);
-            }
-        })
-    }
-    expandNode();
+    // 与左边组织架构进行 联动
+    // 第一个参数是：true收起; false：展开
+    // 第二个参数是：当前点击的 text值；
+    expandNode(false,text);
 })

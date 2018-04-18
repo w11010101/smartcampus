@@ -28,23 +28,26 @@
 <body class="collection collection-word">
     <header>
         <div class="header header-border">
+            <div class="logo">
+                <a href="list.html">
+                    <img class="header-login" src="../../content/common/img/logo@3x.png" srcset="../../content/common/img/logo@2x.png 2x,../../content/common/img/logo@3x.png 3x" />
+                    <h3 class="header-title header-title-top">快享</h3>
+                </a>
+            </div>
+            <!-- header nav -->
+            <nav>
+                <ul>
+                    <li><a class="active">收藏</a></li>
+                    <li><a href="share-main.html">推荐</a></li>
+                </ul>
+            </nav>
             <!-- 搜索 -->
-            <img class="header-login" src="../../content/common/img/logo@2x.png" srcset="../../content/common/img/logo@2x.png 2x,../../content/common/img/logo@3x.png 3x" />
-            <h3 class="header-title header-title-top">快享</h3>
+            <div class="header-search-btn">
+                <input type="text" name="" placeholder="请输入关键字">
+                <button disabled="disabled"></button>
+            </div>
             <!-- 头部工具 -->
-            <div class="header-tools">
-                <!-- 收藏 -->
-                <div class='header-collcetion-btn'>
-                    <a class="active">收藏</a>
-                </div>
-                <!-- 推荐 -->
-                <div class="header-recommend-btn">
-                    <a href="share-main.html">推荐</a>
-                </div>
-                <div class="header-search-btn">
-                    <input type="text" name="" placeholder="请输入关键字">
-                    <button disabled="disabled"></button>
-                </div>
+            <div class="header-tools">  
                 <div class="header-right">
                     <!-- 添加 -->
                     <div class="header-add-btn">
@@ -134,8 +137,9 @@
     </header>
     <!--  -->
     <div class="content">
-        <!--  -->
+
         <div class="word">
+
             <h2>用户协议.txt</h2>
             <!-- 无效文件 -->
             <div class="invalid-file">
@@ -242,6 +246,10 @@
         <a class="share-btn" onclick="$('.popupBox,.mask').show(0);"><img src="../../content/collection/img/tuijian-tanchuang@2x.png"></a>
         <a class="laud-btn"><img src="../../content/collection/img/tuijian@2x.png"><em>123</em></a>
         <a class="comment-btn" onclick="$('aside').show(0);"><img src="../../content/collection/img/invalid-name@2x.png"><em>123</em></a>
+    </div>
+    <!-- 返回按钮 -->
+    <div class="go-back">
+        <a href="javascript:window.history.go(-1);" ></a>   
     </div>
 </body>
 <script type="text/javascript" src="../../content/common/js/range.js"></script>
