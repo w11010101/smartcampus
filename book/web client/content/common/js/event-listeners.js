@@ -143,6 +143,7 @@ $("body").on("change",".file-add-btn input[type=file]",function(){
 
     var files = $("input[type=file]")[0].files;
     for(var i=0;i<files.length;i++){
+        if(i == 12) break;
         filearr.push(files[i]);
     }
 
@@ -153,11 +154,11 @@ $("body").on("change",".file-add-btn input[type=file]",function(){
     $.each(imgObjs,function(i,e){
         // console.log(e);
         var maxSize = 1024 * 1024 * 20;
-        if(e.size >=maxSize){
-            console.log("大文件");
+        if(e.type.indexOf("mp4")>=0 || e.type.indexOf("mov")>=0|| e.type.indexOf("rmvb")>=0|| e.type.indexOf("avi")>=0|| e.type.indexOf("video")>=0){
+            console.log("视频文件");
             $(".files").prepend('<div class="file" setSize = '+ e.size+'><img src="../../content/common/img/qita@3x.png" alt="" /><em>'+e.name+'</em><a class="del"></a></div>');
         }else{
-            console.log("小文件");
+            console.log("其他文件");
             var fr = new FileReader();
             fr.readAsDataURL(e);
 
@@ -259,7 +260,7 @@ $(".toggle-fade-btn").on("click",function(){
 });
 
 // // 上传任务 开始 按钮 点击 事件 *******
-// $("body").on("click",".start",function(){
+// $("body").on("click",".upload-file .start",function(){
 //     console.log(xhrObj);
 //     // xhr.upload.onloadstart();
     
@@ -292,7 +293,7 @@ $(".toggle-fade-btn").on("click",function(){
 //     $(this).removeClass('start');
 // });
 // 上传任务 暂停 按钮 点击 事件 *******
-// $("body").on("click",".paused",function(){
+// $("body").on("click",".upload-file .paused",function(){
 //     console.log("paused btns");
 //     var thisP = $(this).parents('.upload-file');
 //     var i = thisP.index();
@@ -314,41 +315,48 @@ $(".toggle-fade-btn").on("click",function(){
 // });
 
 // 上传任务 重新下载 按钮 点击 事件   *******
-$("body").on("click",".refresh",function(){
-    console.log("refresh btns");
-    $(this).removeClass('refresh').addClass('close');
-    var thisP = $(this).parents('.upload-file');
-    // thisP.find(".upload-edit-em").eq(1).addClass('paused');
-    thisP.find(".upload-edit-em").eq(0).removeClass('cancel');
-    thisP.attr("startTime",new Date().getTime());
-    // 停止时间
-    var PT = thisP.attr("pauseTime");
-    // 开始时间
-    var ST = thisP.attr("startTime");
-    // 剩余时间
-    var surplusDiff = longTime - thisP.attr("runTime");
-    thisP.find(".bar-track").animate({
-        width:"100%",
-    },surplusDiff,"linear",function(){
-        console.log("done3");
-        // thisP.find(".paused").removeClass('paused');
-        thisP.find(".close").removeClass('close');
-        thisP.find(".refresh").removeClass('refresh');
-        thisP.find(".upload-edit-em").eq(0).removeClass('pause cancel').addClass("done");
-    });
-});
+// $("body").on("click",".upload-file .refresh",function(){
+//     console.log("refresh btns");
+//     $(this).removeClass('refresh').addClass('close');
+//     var thisP = $(this).parents('.upload-file');
+//     // 重新开始 
+//     // 注意，fileUpLoading方法里有个全局变量filearr，要是当前下载的文件对象
+//     fileUpLoading();
 
-// 上传任务 取消 按钮 点击 事件 *******
-$("body").on("click",".close",function(){
-    console.log("close btns");
-    var thisP = $(this).parents('.upload-file');
-    thisP.find(".upload-edit-em").eq(1).removeClass('start paused');
-    thisP.attr("startTime",0).attr("pauseTime",longTime).attr("runTime",0);
-    thisP.find(".bar-track").finish().animate({
-        width:"0%",
-    },0,"linear",function(){
-        thisP.find(".upload-edit-em").eq(0).removeClass('pause done').addClass("cancel");
-        thisP.find(".upload-edit-em").eq(2).removeClass('close').addClass('refresh');
-    });
-});
+
+//     // thisP.find(".upload-edit-em").eq(1).addClass('paused');
+//     // thisP.find(".upload-edit-em").eq(0).removeClass('cancel');
+//     // thisP.attr("startTime",new Date().getTime());
+//     // // 停止时间
+//     // var PT = thisP.attr("pauseTime");
+//     // // 开始时间
+//     // var ST = thisP.attr("startTime");
+//     // // 剩余时间
+//     // var surplusDiff = longTime - thisP.attr("runTime");
+//     // thisP.find(".bar-track").animate({
+//     //     width:"100%",
+//     // },surplusDiff,"linear",function(){
+//     //     console.log("done3");
+//     //     // thisP.find(".paused").removeClass('paused');
+//     //     thisP.find(".close").removeClass('close');
+//     //     thisP.find(".refresh").removeClass('refresh');
+//     //     thisP.find(".upload-edit-em").eq(0).removeClass('pause cancel').addClass("done");
+//     // });
+// });
+
+// // 上传任务 取消 按钮 点击 事件 *******
+// $("body").on("click",".upload-file .close",function(){
+//     console.log("close btns");
+//     var thisP = $(this).parents('.upload-file');
+//     // 终止任务
+//     xhrObj[thisP.index()].xhr.abort();
+//     // thisP.find(".upload-edit-em").eq(1).removeClass('start paused');
+//     // thisP.attr("startTime",0).attr("pauseTime",longTime).attr("runTime",0);
+//     // thisP.find(".bar-track").finish().animate({
+//     //     width:"0%",
+//     // },0,"linear",function(){
+//         // thisP.find(".upload-edit-em").eq(0).removeClass('pause done').addClass("cancel");
+//         thisP.find(".upload-edit-em").eq(2).removeClass('close').addClass('refresh');
+//     // });
+// });
 

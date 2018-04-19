@@ -46,7 +46,9 @@ body {
     list-style: none;
     text-decoration: none;
 }
-
+img{
+    border:0\9;
+}
 a:link,
 a:visited,
 a:hover,
@@ -167,7 +169,7 @@ header {
     left: 0;
     background: #fff;
     border-bottom: 1px solid #e6e6e6;
-    z-index: 100
+    z-index: 200
 }
 .header {
 
@@ -1036,20 +1038,20 @@ aside .comment li .comment-state a {
 .state-tips{
     position: absolute;
     top:0;
-
     bottom: 0;
     left:0;
     right: 0;
-    background: rgba(255,255,255,0.3);
     z-index: 100000;
 
 }
 .state-tips .tips-icon{
-    width: 100px;
-    height: 100px;
+    width: 300px;
+    height: 170px;
     position: absolute;
     top:50%;
     left:50%;
+    background: #fff;
+    box-shadow: 0 0 6px 0 rgba(0,0,0,.1);
     transform: translate(-50%,-50%);
     -webkit-transform: translate(-50%,-50%);
     -moz-transform: translate(-50%,-50%);
@@ -1057,11 +1059,16 @@ aside .comment li .comment-state a {
 }
 .state-tips .tips-icon img{
     display: block;
-    height: 100px;
+    width: 70px;
+    height: 70px;
+
+    margin:32px auto 15px;
 
 }
 .state-tips .tips-icon p{
+    font-size: 14px;
     text-align: center;
+    color:#333;
 }
 /* 媒体 */
 
