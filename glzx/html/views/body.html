@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>body</title>
+</head>
+<link rel="stylesheet" type="text/css" href="../content/css/body-style.css">
+<script type="text/javascript" src="../content/js/jQuery.1.11.3.js"></script>
+<script type="text/javascript" src="../content/js/browser.min.js"></script>
+<script type="text/javascript" src="../content/js/vue.js"></script>
+<body>
+    <!-- 外部容器 -->
+    <div class="container" id="vm-container" v-cloak>
+        <!-- header -->
+        <header>header</header>
+        <!-- left-nav -->
+        <div class="left-nav">
+            
+        </div>
+        <!-- right-content -->
+        <div class="right-content">
+            <!-- <div class="loaded"></div> -->
+
+        </div>
+    </div>
+</body>
+<script type="text/babel">
+    $("header").load("views/header.html");
+    $(".left-nav").load("views/left-nav.html");
+    $(".right-content").load("views/right-content.html");
+
+</script>
+<script type="text/javascript"></script>
+<script type="text/javascript" src="../content/normal/js/v-body.js"></script>
+</html>

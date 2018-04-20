@@ -48,6 +48,7 @@ body {
 }
 img{
     border:0\9;
+    margin: 0!important;
 }
 a:link,
 a:visited,
@@ -150,8 +151,10 @@ aside .comment-state .comment-state-reply-btn:hover,
     margin: 60px auto 0;
     /*overflow:hidden;*/
 }
+.content.baguetteBox{
+    margin: 0 auto;
+}
 .content.collection {
-    /*max-width: 1200px;*/
     min-width: 826px;
     background: #f9f9f9;
 }
@@ -347,13 +350,15 @@ header nav ul li a.active{
     display: inline-block;
     vertical-align: middle;
     font-size: 16px;
+    padding-right: 70px;
+    background: url(../img/jinru@2x.png) no-repeat right 30px center;
+    background-size: 20px;
 }
 
 .header-tools .header-info-img img {
-    width: 30px;
-    height: 30px;
+    width: 38px;
+    height: 38px;
     display: block;
-    margin: 4px;
 }
 .header-tools .header-right>[class*=header-] {
     margin-right: 30px;
@@ -363,9 +368,7 @@ header nav ul li a.active{
 }
 .header-tools .header-right .header-info {
     margin: 0;
-    padding-right: 70px;
-    background: url(../img/jinru@2x.png) no-repeat right 30px center;
-    background-size: 20px;
+    
 }
 .header-tools .header-maillist-btn {}
 .header-tools .header-add-btn > a{

@@ -1,0 +1,37 @@
+*{
+    font-size: 14px;
+    text-align: center;
+    padding: 0;
+    margin:0;
+    font-size: 14px;
+    color:#333;
+    list-style: none;
+}
+html,body{
+    height: 100%;
+}
+.container{
+    font-size: 0;
+    height: inherit;
+}
+header{
+    height: 60px;
+    background: #abcdef;
+}
+.left-nav{
+    display: inline-block;
+    width: 300px;
+    height: calc(100% - 60px);
+    background: #fedcba;
+    vertical-align: middle;
+}
+.right-content{
+    width: calc(100% - 300px);
+    display: inline-block;
+    background: #123456;
+    height: calc(100% - 60px);
+    vertical-align: middle;
+}
+[v-cloak]{
+    display: none;
+}
