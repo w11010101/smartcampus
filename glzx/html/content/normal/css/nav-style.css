@@ -1,0 +1,7 @@
+.right-page-content{
+    color:#fff;
+    font-size: 100px;
+}
+.navbar-nav.side-nav.collapsed > li.navigation .menu{
+	display: none;
+}

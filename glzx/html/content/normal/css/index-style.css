@@ -1,10 +1,8 @@
 *{
     font-size: 14px;
-    text-align: center;
     padding: 0;
     margin:0;
     font-size: 14px;
-    color:#333;
     list-style: none;
 }
 html,body{
@@ -15,22 +13,24 @@ html,body{
     height: inherit;
 }
 header{
-    height: 60px;
-    background: #abcdef;
+    height: 50px;
+    overflow: hidden;
 }
-.left-nav{
+nav{
     display: inline-block;
-    width: 300px;
+    width: 315px;
     height: calc(100% - 60px);
     background: #fedcba;
     vertical-align: middle;
+    overflow-x: hidden;
 }
 .right-content{
-    width: calc(100% - 300px);
+    width: calc(100% - 315px);
     display: inline-block;
     background: #123456;
     height: calc(100% - 60px);
     vertical-align: middle;
+    overflow-x: hidden;
 }
 [v-cloak]{
     display: none;

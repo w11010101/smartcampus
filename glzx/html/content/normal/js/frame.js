@@ -33,23 +33,20 @@ var widthLess1024 = function() {
 };
 // 手风琴点击事件
 $(function() {
-    $(".quick-actions .dropdown").on("show.bs.dropdown",
-    function(d) {
+    $(".quick-actions .dropdown").on("show.bs.dropdown", function(d) {
+        console.log("quick-actions .dropdown")
         $(this).find(".dropdown-menu").addClass("animated fadeInDown");
         $(this).find("#user-inbox").addClass("animated bounceIn")
     });
-    $("#navigation .dropdown").on("show.bs.dropdown",
-    function(d) {
+    $("#navigation .dropdown").on("show.bs.dropdown",  function(d) {
         $(this).find(".dropdown-menu").addClass("animated fadeInLeft")
     });
-    $("#sidebar .sidebar-toggle").on("click",
-    function() {
+    $("#sidebar .sidebar-toggle").on("click", function() {
         var d = $(this).data("toggle");
         $(d).toggleClass("collapsed")
     });
 
-    $("#sec-sidebar .sidebar-toggle").on("click",
-    function() {
+    $("#sec-sidebar .sidebar-toggle").on("click", function() {
         var d = $(this).data("toggle");
         $(d).toggleClass("collapsed")
     });
@@ -162,8 +159,7 @@ $(function() {
     });
 
     //添加
-    $(".sidebar-collapse.sec-sidebar-collapse a").on("click",
-    function() {
+    $(".sidebar-collapse.sec-sidebar-collapse a").on("click", function() {
         $("#sidebar,#sec-sidebar, #navbar").toggleClass("collapsed");
         $(".navigation").find(".dropdown.open").removeClass("open");
         $(".navigation").find(".dropdown-menu.animated").removeClass("animated");
