@@ -1,8 +1,10 @@
 <!--/.nav-collapse -->
 <!-- Sidebar -->
 <link rel="stylesheet" href="../../content/normal/css/nav-style.css">
-<div id="vm-nav">
-
+<!-- <script type="text/javascript" src="../../content/frame/bootstrap/js/bootstrap-treeview.min.js"></script> -->
+<script type="text/javascript" src="../../content/frame/bootstrap/js/my-dropdown.js"></script>
+<script type="text/javascript" src="../content/frame/bootstrap/js/bootstrap.js"></script>
+<div id="vm-nav" >
     <ul class="nav navbar-nav side-nav" id="sidebar">
         <li>
             <div class="sidebar-collapse">
@@ -11,21 +13,14 @@
                 </a>
             </div>
         </li>
-        <li class="navigation active" v-for="(e,i) in navData">
-            <dropdown-title v-bind:todo ='e'></dropdown-title>
-
-            <ul class="menu">
-                <li class="active1">
-                    <a href="#">
-                        <i class="icon-notice"></i>{{e.name}}
-                        <span class="badge badge-red"></span>
-                    </a>
-                </li>
-                <!-- <dropdown-list v-if="e.children" v-for="sub in e.children" v-bind:subtodo ='sub' v-bind:index ='i'></dropdown-list> -->
+        <li class="navigation" v-for="(e,i) in navData">
+            <dropdown-menu v-bind:todo ='e'></dropdown-menu>
+            <ul class="dropdown-menu">
+                <dropdown-sub-list v-if="e.nodes" v-for="sub in e.nodes" v-bind:subtodo ='sub' v-bind:index ='i'></dropdown-sub-list>
             </ul>
         </li>
-
-        <li class="navigation active" id="navigation0">
+    <!-- ================================================================================================== -->
+      <!--   <li class="navigation active" id="navigation0">
             <a href="#" class="sidebar-toggle" data-toggle="#navigation0">
                 <i class="icon-service"></i><span>示例管理***********</span><i class="ico-arr-project"></i>
             </a>
@@ -156,7 +151,7 @@
                     </ul>
                 </li>
             </ul>
-        </li>
+        </li> -->
 <!--         <li class="navigation collapsed" id="yunwei">
             <a href="#" class="sidebar-toggle" data-toggle="#yunwei"><i class="icon-service"></i><span>运维管理</span><i class="ico-arr-project"></i></a>
             <ul class="menu">
@@ -321,7 +316,7 @@
                 </li>
             </ul>
         </li> -->
-    </ul>
+    <!-- </ul> -->
     <!-- Sidebar end -->
 
 

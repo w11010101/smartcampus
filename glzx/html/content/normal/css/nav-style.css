@@ -2,6 +2,32 @@
     color:#fff;
     font-size: 100px;
 }
-.navbar-nav.side-nav.collapsed > li.navigation .menu{
+.navbar-nav.side-nav.collapsed > li.navigation >.dropdown-menu{
 	display: none;
+}
+.node-sidebar,.list-group-item{
+    background: none;
+    border:none;
+}
+.node-sidebar{
+    color:#fff;
+}
+.node-sidebar:not(.node-disabled):hover{
+
+}
+/*.navbar-nav.side-nav > li.navigation >.dropdown-menu li a*/
+.navbar-nav.side-nav > li.navigation .dropdown-menu .dropdown-menu li a{
+    padding-left: 50px;
+}
+.navbar-nav.side-nav > li.navigation >.dropdown-menu > li.dropdown.open > ul.dropdown-menu > li > ul.dropdown-menu > li a,
+.navbar-nav.side-nav > li.navigation .dropdown-menu .dropdown-menu .dropdown-menu li a{
+    padding-left: 80px;
+    background: none
+}
+.navbar-nav.side-nav > li.navigation >.dropdown-menu > li.dropdown.open > ul.dropdown-menu > li > ul.dropdown-menu > li> ul.dropdown-menu > li a ,
+.navbar-nav .dropdown-menu .dropdown-menu .dropdown-menu .dropdown-menu li a{
+    padding-left: 110px;
+}
+.dropdown-menu>li>a:focus, .dropdown-menu>li>a:hover{
+    background: none;
 }

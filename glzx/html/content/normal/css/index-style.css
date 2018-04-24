@@ -18,14 +18,14 @@ header{
 }
 nav{
     display: inline-block;
-    width: 315px;
+    width: 230px;
     height: calc(100% - 60px);
     background: #fedcba;
     vertical-align: middle;
     overflow-x: hidden;
 }
 .right-content{
-    width: calc(100% - 315px);
+    width: calc(100% - 230px);
     display: inline-block;
     background: #123456;
     height: calc(100% - 60px);
@@ -34,4 +34,28 @@ nav{
 }
 [v-cloak]{
     display: none;
+}
+.navbar-nav.side-nav {
+    width:230px;
+}
+.navbar-nav.side-nav:before {
+    width:230px;
+}
+.dropdown, .dropup{
+    
+}
+.dropdown-menu .dropdown a i{
+    /*display: none*/
+}
+.navbar-nav .open .dropdown-menu>li>a{
+    line-height: 30px;
+}
+.navigation > ul.dropdown-menu>li a{
+    padding: 0 15px;
+}   
+body .navbar-nav.side-nav > li.navigation >.dropdown-menu > li.dropdown.open > a b.ico-arr-dropdown,.open .ico-arr-dropdown {
+    /*margin-top:10px;*/
+}
+.navbar-nav [class*="icon-"], .navbar-nav [class*="ico-"]{
+    vertical-align:middle;
 }

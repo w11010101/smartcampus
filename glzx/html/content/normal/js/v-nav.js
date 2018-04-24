@@ -3,27 +3,75 @@ $(function(){
     var navData = [
     	{
     		level:0,
-    		name:'示例管理',
+    		text:'示例管理',
     		id:1,
-    		children:[
+    		nodes:[
     			{
     				level:1,
-    				name:"示例管理-sub1",
+    				text:"示例-2层",
     				id:11,
-    				children:[
+    				nodes:[
     					{
     						level:1,
-    						name:"示例管理-sub2-sub",
+    						text:"示例-3层1",
     						id:12,
+                            nodes:[
+                                {
+                                    level:1,
+                                    text:"示例-4层1",
+                                    id:12,
+                                    nodes:[
+                                        {
+                                            level:1,
+                                            text:"示例-5层1",
+                                            id:12,
+                                        },
+                                        {
+                                            level:1,
+                                            text:"示例-5层2",
+                                            id:12,
+                                        },
+                                    ]
+                                },
+                                {
+                                    level:1,
+                                    text:"示例-4层2",
+                                    id:12,
+                                },
+                            ]
     					},
                         {
                             level:1,
-                            name:"示例管理-sub2-sub",
+                            text:"示例-3层2",
                             id:12,
+                            nodes:[
+                                {
+                                    level:1,
+                                    text:"示例-4层1",
+                                    id:12,
+                                    nodes:[
+                                        {
+                                            level:1,
+                                            text:"示例-5层1",
+                                            id:12,
+                                        },
+                                        {
+                                            level:1,
+                                            text:"示例-5层2",
+                                            id:12,
+                                        },
+                                    ]
+                                },
+                                {
+                                    level:1,
+                                    text:"示例-4层2",
+                                    id:12,
+                                },
+                            ]
                         },
                         {
                             level:1,
-                            name:"示例管理-sub2-sub",
+                            text:"示例-3层3",
                             id:12,
                         },
 
@@ -31,34 +79,75 @@ $(function(){
     			},
     			{
     				level:1,
-    				name:"示例管理-sub2",
+    				text:"示例-sub2",
     				id:12,
+                    nodes:[
+                        {
+                            level:1,
+                            text:"示例-sub2-sub",
+                            id:12,
+                        },
+                        {
+                            level:1,
+                            text:"示例-sub2-sub",
+                            id:12,
+                        },
+                        {
+                            level:1,
+                            text:"示例-sub2-sub",
+                            id:12,
+                        },
+
+                    ]
     			},
+                {
+                    level:1,
+                    text:"示例-sub3",
+                    id:12,
+                    nodes:[
+                        {
+                            level:1,
+                            text:"示例-sub3-sub",
+                            id:12,
+                        },
+                        {
+                            level:1,
+                            text:"示例-sub3-sub",
+                            id:12,
+                        },
+                        {
+                            level:1,
+                            text:"示例-sub3-sub",
+                            id:12,
+                        },
+
+                    ]
+                },
     		]
     	},
         {
             level:0,
-            name:'运维管理',
+            text:'运维管理',
             id:2,
-            children:[
+            nodes:[
                 {
                     level:1,
-                    name:"运维管理-sub1",
+                    text:"运维管理-sub1",
                     id:21,
-                    children:[
+                    nodes:[
                         {
                             level:1,
-                            name:"运维管理-sub2-sub",
+                            text:"运维管理-sub2-sub",
                             id:22,
                         },
                         {
                             level:1,
-                            name:"运维管理-sub2-sub",
+                            text:"运维管理-sub2-sub",
                             id:22,
                         },
                         {
                             level:1,
-                            name:"运维管理-sub2-sub",
+                            text:"运维管理-sub2-sub",
                             id:22,
                         },
                         
@@ -66,34 +155,98 @@ $(function(){
                 },
                 {
                     level:1,
-                    name:"运维管理-sub2",
+                    text:"运维管理-sub2",
                     id:22,
+                    nodes:[
+                        {
+                            level:1,
+                            text:"运维管理-sub2-sub",
+                            id:22,
+                        },
+                        {
+                            level:1,
+                            text:"运维管理-sub2-sub",
+                            id:22,
+                        },
+                        {
+                            level:1,
+                            text:"运维管理-sub2-sub",
+                            id:22,
+                        },
+                        
+                    ]
+                },
+                {
+                    level:1,
+                    text:"运维管理-sub3",
+                    id:22,
+                    nodes:[
+                        {
+                            level:1,
+                            text:"运维管理-sub3-sub",
+                            id:22,
+                        },
+                        {
+                            level:1,
+                            text:"运维管理-sub3-sub",
+                            id:22,
+                        },
+                        {
+                            level:1,
+                            text:"运维管理-sub3-sub",
+                            id:22,
+                        },
+                        
+                    ]
+                },
+                {
+                    level:1,
+                    text:"运维管理-sub4",
+                    id:22,
+                    nodes:[
+                        {
+                            level:1,
+                            text:"运维管理-sub4-sub",
+                            id:22,
+                        },
+                        {
+                            level:1,
+                            text:"运维管理-sub4-sub",
+                            id:22,
+                        },
+                        {
+                            level:1,
+                            text:"运维管理-sub4-sub",
+                            id:22,
+                        },
+                        
+                    ]
                 },
             ]
         },
         {
             level:0,
-            name:'智慧食堂',
+            text:'智慧食堂',
             id:3,
-            children:[
+            nodes:[
                 {
                     level:1,
-                    name:"智慧食堂-sub1",
+                    text:"智慧食堂-sub1",
                     id:31,
-                    children:[
+                    nodes:[
                         {
                             level:1,
-                            name:"智慧食堂-sub2-sub",
+                            text:"智慧食堂-sub2-sub",
                             id:32,
                         },
                         {
                             level:1,
-                            name:"智慧食堂-sub2-sub",
+                            text:"智慧食堂-sub2-sub",
                             id:32,
                         },
                         {
                             level:1,
-                            name:"智慧食堂-sub2-sub",
+                            text:"智慧食堂-sub2-sub",
                             id:32,
                         },
                         
@@ -101,34 +254,34 @@ $(function(){
                 },
                 {
                     level:1,
-                    name:"智慧食堂-sub2",
+                    text:"智慧食堂-sub2",
                     id:32,
                 },
             ]
         },
         {
             level:0,
-            name:'APP管理',
+            text:'APP管理',
             id:4,
-            children:[
+            nodes:[
                 {
                     level:1,
-                    name:"APP管理-sub1",
+                    text:"APP管理-sub1",
                     id:41,
-                    children:[
+                    nodes:[
                         {
                             level:1,
-                            name:"APP管理-sub2-sub",
+                            text:"APP管理-sub2-sub",
                             id:42,
                         },
                         {
                             level:1,
-                            name:"APP管理-sub2-sub",
+                            text:"APP管理-sub2-sub",
                             id:42,
                         },
                         {
                             level:1,
-                            name:"APP管理-sub2-sub",
+                            text:"APP管理-sub2-sub",
                             id:42,
                         },
                         
@@ -136,103 +289,117 @@ $(function(){
                 },
                 {
                     level:1,
-                    name:"APP管理-sub2",
+                    text:"APP管理-sub2",
                     id:42,
                 },
             ]
         },
     ]
-    console.log(navData)
+    // console.log(navData)
+    
     // vue ================================
-    Vue.component("dropdown-title",{
+    Vue.component("dropdown-menu",{
         props:["todo"],
-        template:`<a href="#" class="sidebar-toggle" data-toggle="dropdown" v-bind=fn1>
-                    <i class="icon-service"></i><span>{{todo.name}}</span><i class="ico-arr-project"></i>
+        template:`<a href="#" class="sidebar-toggle" data-toggle="dropdown" v-on:click=toggleDropdown>
+                    <i class="icon-service"></i><span>{{todo.text}}</span><i class="ico-arr-project"></i>
+                </a>`,
+        computed:{
+            fn1:function(){
+                // console.log(this.tode);
+            }
+        },
+        methods:{
+            toggleDropdown:function(){
+                var _this = this.$el;
+            }
+        }
+    });
+    // 子集
+    Vue.component("dropdown-sub-list",{
+        props:["subtodo",'index'],
+        template:`<li class="dropdown">
+                    <dropdown-sub-menu v-bind:todo ='subtodo'></dropdown-sub-menu>
+                    <ul class="dropdown-menu" >
+                        <dropdown-child-list v-if="subtodo.nodes" v-for="event in subtodo.nodes" v-bind:subtodo ='event'></dropdown-child-list>
+                    </ul>
+                </li>`,
+        computed:{
+            fn1:function(){
+                console.log(this.subtodo);
+                console.log(this.index);
+            },
+        },
+    })
+    Vue.component("dropdown-sub-menu",{
+        props:["todo"],
+        template:`<a href="#" class="dropdown-toggle" data-toggle="dropdown" v-on:click="subClick">
+                        <i class="icon-repair"></i>{{todo.text}}<b class="ico-arr-dropdown"></b>
+                    </a>`,
+        computed:{
+            fn1:function(){
+                // console.log(this.tode);
+            },
 
-                </a>
-                `,
-                // <dropdown-title v-if="tode.children" v-for="event in tode.children" v-bind:tode ='event'></dropdown-title>
+        },
+        methods:{
+            subClick:function(){
+                var _this = $(this.$el);
+                console.log(_this);
+                _this.parents(".navigation").addClass("open");
+
+            }
+        }
+    });
+    // 子集以下
+    Vue.component("dropdown-child-list",{
+        props:["subtodo",'index'],
+        template:`<li class="dropdown">
+                    <dropdown-child-menu v-bind:todo ='subtodo'></dropdown-child-menu>
+                    <ul class="dropdown-menu" >
+                        <dropdown-child-list v-if="subtodo.nodes" v-for="event in subtodo.nodes" v-bind:subtodo ='event'></dropdown-child-list>
+                    </ul>
+                </li>`,
+        computed:{
+            fn1:function(){
+                console.log(this.subtodo);
+                console.log(this.index);
+            },
+        },
+    })
+    Vue.component("dropdown-child-menu",{
+        props:["todo"],
+        template:`<a href="#" data-toggle="dropdown" class="dropdown-toggle" aria-expanded="false">
+                {{todo.text}}<b class="ico-arr-plus"></b></a>`,
         computed:{
             fn1:function(){
                 // console.log(this.tode);
             }
         }
     });
-    Vue.component("dropdown-menu",{
-        props:["menu"],
-        template:`
-            <ul class="menu">
-                <li class="">
-                    <a href="#">
-                        <i class="icon-notice"></i>
-                        "树形标题一"
-                        <span class="badge badge-red"></span>
-                    </a>
-                </li>
-                <li class="dropdown">
-                    <!-- <dropdown-title v-bind:todo ='e'></dropdown-title>-->
 
-                </li>
-            </ul>
-        `
-    });
-    Vue.component("dropdown-list",{
-        props:["subtodo",'index'],
-        template:`<li class="">
-                    <a href="#">
-                        <i v-bind:class=icon></i>{{subtodo.name}}
-                        <span class="badge badge-red">1</span>
-                    </a>
-
-                    <ul class="dropdown-menu" v-if="subtodo.children">
-                        <li>
-                            <a href="#">
-                                {{subtodo.name}}
-                            </a>
-                        </li>
-                        <li class="dropdown open">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                树形标题子集二<b class="ico-arr-plus"></b>
-                            </a>
-
-                            <dropdown-title v-bind:todo ='subtodo'></dropdown-title>
-
-                            <ul class="dropdown-menu">
-                                <dropdown-list v-if="subtodo.children" v-for="sub in subtodo.children" v-bind:subtodo ='sub' v-bind:index ='index'></dropdown-list>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>`,
-                // <dropdown-title v-if="tode.children" v-for="event in tode.children" v-bind:tode ='event'></dropdown-title>
-        computed:{
-            fn1:function(){
-                console.log(this.subtodo);
-                console.log(this.index);
-            },
-            icon:function(argument) {
-                switch (this.index){
-                    case 0:
-                        return 'icon-notice'
-                    break;
-                    case 1:
-                        return 'icon-repair'
-                    break;
-                    case 2:
-                        return 'icon-school'
-                    break;
-                    case 3:
-                        return 'icon-user'
-                    break;
-                }
-            }
-        },
-
-    })
+   
+    
     // vue 实例
     var vmNav = new Vue({
         el:"#vm-nav",
         data:{
-            navData:navData
+            navData:""
+        },
+        watch:{
+            navData:function(){
+                // console.log(this)
+                // 创建 导航
+            }
+        },
+        computed:{
+        },
+        methods:{
         }
-    })
+    });
+
+    function postData(){
+        vmNav.navData = navData
+    }   
+    postData();
+
 })
