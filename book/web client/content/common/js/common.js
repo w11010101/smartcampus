@@ -377,7 +377,7 @@ function createPopupFn(option) {
     }
 
     popupBox.addClass('popup-' + option.type);
-    popupBox.append("<h2><label>" + option.title + "</label><button onclick=$('.popupBox,.mask').remove(0);></button></h2>");
+    popupBox.append("<h2><label>" + option.title + "</label><button onclick=$('.popupBox,.mask,aside').remove(0);></button></h2>");
 
     popupBox.append(getMainHtml(option));
     if (option.type == "share") {
@@ -458,7 +458,7 @@ function uploadFn(obj) {
     var text = $(obj).parents(".popupBox").find('label').text();
     // 判断 要上传的图片个数
     if ($(".file").length >= 1) {
-        $(".upload-container").removeClass("toggleShow");
+        $(".upload-container").removeClass("toggleShow").show(0);
 
         var obj = {
             name: text.indexOf("文件")?'文件':'图片',
@@ -496,7 +496,7 @@ function getUploadListHtml(options) {
                 <div class="upload-edit">\
                     <em class="upload-edit-em "></em>\
                     <em class="upload-edit-em "></em>\
-                    <em class="upload-edit-em close"></em>\
+                    <em class="upload-edit-em "></em>\
                 </div>\
             </div>\
         </div>';
@@ -598,21 +598,63 @@ function makeExpandingArea(container) {
     container.className += "active";
 }
 
-function stateTips(value,state){
-    if($("body .state-tips").length <= 0){
-        $("body").append('<div class="state-tips"><div class="tips-icon "><img src="../../content/common/img/'+(state?"success":"fail")+'.png" alt="" /><p>'+value+'</p></div></div>');
+function stateTips(option){
+    if(option.type == $("body .state-tips").attr("set-type")){
+        console.log("相同");
+        return false;
+    }
+    if($("body .state-tips").length >=1){
+        $("body .state-tips").eq(0).remove();
+    }
+
+    switch (option.type){
+            case "tips":
+                $("body").append('<div class="state-tips" set-type="'+option.type+'"><div class="tips-icon "><img src="../../content/common/img/'+(option.state?"success":"fail")+'.png" alt="" /><p>'+option.value+'</p></div></div>');
+            break;
+            case "confirm":
+                $("body").append('<div class="state-tips" set-type="'+option.type+'"><div class="tips-icon "><p>'+option.value+'</p><div class="btns"><button class="sure-btn">确定</button><button class="cancel-btn">取消</button></div></div></div>');
+            break;
+        }
+        // 按钮点击事件
+        $("body").on("click",".btns button",function(){
+            option.callback({
+                el:this,
+                type:$(this).text() == "确定"?true:false
+            })
+        });
         setTimeout(function(){
-            $("body .state-tips").fadeOut(200,function(){
+            $("body .state-tips[set-type=tips]").fadeOut(200,function(){
                 $(this).remove();
             })
         },2000);
-    }
-    
 }
 // 提示语调用方法
-stateTips("上传成功",true);
+
 // 退出登录
 function singOut(obj) {
     console.log("退出登录");
+    stateTips({
+        value:"确认要推出快享吗？",
+        state:true,
+        type:"confirm",
+        callback:function(event){
+            if(event.type){
+                // 确定
+                console.log('确定');
+                stateTips({
+                    value:"退出成功",
+                    state:true,
+                    type:"tips",
+                })
+            }else{
+                // 取消
+                console.log('取消');
+                $('.state-tips').fadeOut(200,function(){
+                    $(this).remove();
+                })
+            }
+            console.log(event)
+        }
+    });
     // $(obj).parent(".popup-box").removeClass("show")
 }

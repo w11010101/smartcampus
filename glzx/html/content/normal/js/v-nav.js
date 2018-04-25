@@ -1,306 +1,11 @@
 $(function(){
-    // navData
-    var navData = [
-    	{
-    		level:0,
-    		text:'示例管理',
-    		id:1,
-    		nodes:[
-    			{
-    				level:1,
-    				text:"示例-2层",
-    				id:11,
-    				nodes:[
-    					{
-    						level:1,
-    						text:"示例-3层1",
-    						id:12,
-                            nodes:[
-                                {
-                                    level:1,
-                                    text:"示例-4层1",
-                                    id:12,
-                                    nodes:[
-                                        {
-                                            level:1,
-                                            text:"示例-5层1",
-                                            id:12,
-                                        },
-                                        {
-                                            level:1,
-                                            text:"示例-5层2",
-                                            id:12,
-                                        },
-                                    ]
-                                },
-                                {
-                                    level:1,
-                                    text:"示例-4层2",
-                                    id:12,
-                                },
-                            ]
-    					},
-                        {
-                            level:1,
-                            text:"示例-3层2",
-                            id:12,
-                            nodes:[
-                                {
-                                    level:1,
-                                    text:"示例-4层1",
-                                    id:12,
-                                    nodes:[
-                                        {
-                                            level:1,
-                                            text:"示例-5层1",
-                                            id:12,
-                                        },
-                                        {
-                                            level:1,
-                                            text:"示例-5层2",
-                                            id:12,
-                                        },
-                                    ]
-                                },
-                                {
-                                    level:1,
-                                    text:"示例-4层2",
-                                    id:12,
-                                },
-                            ]
-                        },
-                        {
-                            level:1,
-                            text:"示例-3层3",
-                            id:12,
-                        },
-
-    				]
-    			},
-    			{
-    				level:1,
-    				text:"示例-sub2",
-    				id:12,
-                    nodes:[
-                        {
-                            level:1,
-                            text:"示例-sub2-sub",
-                            id:12,
-                        },
-                        {
-                            level:1,
-                            text:"示例-sub2-sub",
-                            id:12,
-                        },
-                        {
-                            level:1,
-                            text:"示例-sub2-sub",
-                            id:12,
-                        },
-
-                    ]
-    			},
-                {
-                    level:1,
-                    text:"示例-sub3",
-                    id:12,
-                    nodes:[
-                        {
-                            level:1,
-                            text:"示例-sub3-sub",
-                            id:12,
-                        },
-                        {
-                            level:1,
-                            text:"示例-sub3-sub",
-                            id:12,
-                        },
-                        {
-                            level:1,
-                            text:"示例-sub3-sub",
-                            id:12,
-                        },
-
-                    ]
-                },
-    		]
-    	},
-        {
-            level:0,
-            text:'运维管理',
-            id:2,
-            nodes:[
-                {
-                    level:1,
-                    text:"运维管理-sub1",
-                    id:21,
-                    nodes:[
-                        {
-                            level:1,
-                            text:"运维管理-sub2-sub",
-                            id:22,
-                        },
-                        {
-                            level:1,
-                            text:"运维管理-sub2-sub",
-                            id:22,
-                        },
-                        {
-                            level:1,
-                            text:"运维管理-sub2-sub",
-                            id:22,
-                        },
-                        
-                    ]
-                },
-                {
-                    level:1,
-                    text:"运维管理-sub2",
-                    id:22,
-                    nodes:[
-                        {
-                            level:1,
-                            text:"运维管理-sub2-sub",
-                            id:22,
-                        },
-                        {
-                            level:1,
-                            text:"运维管理-sub2-sub",
-                            id:22,
-                        },
-                        {
-                            level:1,
-                            text:"运维管理-sub2-sub",
-                            id:22,
-                        },
-                        
-                    ]
-                },
-                {
-                    level:1,
-                    text:"运维管理-sub3",
-                    id:22,
-                    nodes:[
-                        {
-                            level:1,
-                            text:"运维管理-sub3-sub",
-                            id:22,
-                        },
-                        {
-                            level:1,
-                            text:"运维管理-sub3-sub",
-                            id:22,
-                        },
-                        {
-                            level:1,
-                            text:"运维管理-sub3-sub",
-                            id:22,
-                        },
-                        
-                    ]
-                },
-                {
-                    level:1,
-                    text:"运维管理-sub4",
-                    id:22,
-                    nodes:[
-                        {
-                            level:1,
-                            text:"运维管理-sub4-sub",
-                            id:22,
-                        },
-                        {
-                            level:1,
-                            text:"运维管理-sub4-sub",
-                            id:22,
-                        },
-                        {
-                            level:1,
-                            text:"运维管理-sub4-sub",
-                            id:22,
-                        },
-                        
-                    ]
-                },
-            ]
-        },
-        {
-            level:0,
-            text:'智慧食堂',
-            id:3,
-            nodes:[
-                {
-                    level:1,
-                    text:"智慧食堂-sub1",
-                    id:31,
-                    nodes:[
-                        {
-                            level:1,
-                            text:"智慧食堂-sub2-sub",
-                            id:32,
-                        },
-                        {
-                            level:1,
-                            text:"智慧食堂-sub2-sub",
-                            id:32,
-                        },
-                        {
-                            level:1,
-                            text:"智慧食堂-sub2-sub",
-                            id:32,
-                        },
-                        
-                    ]
-                },
-                {
-                    level:1,
-                    text:"智慧食堂-sub2",
-                    id:32,
-                },
-            ]
-        },
-        {
-            level:0,
-            text:'APP管理',
-            id:4,
-            nodes:[
-                {
-                    level:1,
-                    text:"APP管理-sub1",
-                    id:41,
-                    nodes:[
-                        {
-                            level:1,
-                            text:"APP管理-sub2-sub",
-                            id:42,
-                        },
-                        {
-                            level:1,
-                            text:"APP管理-sub2-sub",
-                            id:42,
-                        },
-                        {
-                            level:1,
-                            text:"APP管理-sub2-sub",
-                            id:42,
-                        },
-                        
-                    ]
-                },
-                {
-                    level:1,
-                    text:"APP管理-sub2",
-                    id:42,
-                },
-            ]
-        },
-    ]
-    // console.log(navData)
+    // from in data.js
+    console.log(data);
     
     // vue ================================
     Vue.component("dropdown-menu",{
-        props:["todo"],
-        template:`<a href="#" class="sidebar-toggle" data-toggle="dropdown" v-on:click=toggleDropdown>
+        props:["todo","index"],
+        template:`<a href="#" class="sidebar-toggle" data-toggle="dropdown" v-on:click=toggleDropdown v-bind:set-index=index>
                     <i class="icon-service"></i><span>{{todo.text}}</span><i class="ico-arr-project"></i>
                 </a>`,
         computed:{
@@ -310,7 +15,13 @@ $(function(){
         },
         methods:{
             toggleDropdown:function(){
-                var _this = this.$el;
+                var $this = $(this.$el);
+                var sidebar = $this.parents("#sidebar");
+                // 当屏幕小鱼1024时，会添加classname 'collapsed';
+                if(sidebar.hasClass("collapsed")){
+                    console.log("you",vmNav);
+                    vmNav.activeNav = vmNav.navData[parseInt($this.attr("set-index"))];
+                }
             }
         }
     });
@@ -333,20 +44,18 @@ $(function(){
     Vue.component("dropdown-sub-menu",{
         props:["todo"],
         template:`<a href="#" class="dropdown-toggle" data-toggle="dropdown" v-on:click="subClick">
-                        <i class="icon-repair"></i>{{todo.text}}<b class="ico-arr-dropdown"></b>
+                        <i class="icon-repair"></i>{{todo.text}}<b class="ico-arr-dropdown" ></b>
                     </a>`,
         computed:{
             fn1:function(){
                 // console.log(this.tode);
             },
-
         },
         methods:{
             subClick:function(){
                 var _this = $(this.$el);
                 console.log(_this);
                 _this.parents(".navigation").addClass("open");
-
             }
         }
     });
@@ -369,26 +78,49 @@ $(function(){
     Vue.component("dropdown-child-menu",{
         props:["todo"],
         template:`<a href="#" data-toggle="dropdown" class="dropdown-toggle" aria-expanded="false">
-                {{todo.text}}<b class="ico-arr-plus"></b></a>`,
+                {{todo.text}}<b class="ico-arr-plus" v-if="todo.nodes" ></b></a>`,
         computed:{
             fn1:function(){
                 // console.log(this.tode);
             }
         }
     });
+    // sec-Sidebar 
+    Vue.component("dropdown-product-menu",{
+        props:["todo","index"],
+        template:`<a href="#" class="sidebar-toggle" data-toggle="#navigation1" v-bind:set-index=index>
+                <i class="ico-arr-down-black"></i>{{todo.text}}</a>`,
+        computed:{
+            fn1:function(){
+                // console.log(this.tode);
+            }
+        },
+        methods:{
+            // toggleDropdown:function(){
+            //     var $this = $(this.$el);
+            //     var sidebar = $this.parents("#sidebar");
+            //     // 当屏幕小鱼1024时，会添加classname 'collapsed';
+            //     if(sidebar.hasClass("collapsed")){
+            //         console.log("you",vmNav);
+            //         vmNav.activeNav = vmNav.navData[parseInt($this.attr("set-index"))];
+            //     }
+            // }
+        }
+    });
 
-   
     
     // vue 实例
     var vmNav = new Vue({
         el:"#vm-nav",
         data:{
-            navData:""
+            navData:"",
+            activeNav:''
         },
         watch:{
-            navData:function(){
-                // console.log(this)
-                // 创建 导航
+            navData:function(event){
+                console.log(event);
+                console.log(vmNav);
+                vmNav.activeNav = event[0];
             }
         },
         computed:{
@@ -398,7 +130,7 @@ $(function(){
     });
 
     function postData(){
-        vmNav.navData = navData
+        vmNav.navData = data;
     }   
     postData();
 

@@ -17,12 +17,14 @@ video{
     -webkit-transform: translate(-50%,-50%);
     -ms-transform: translate(-50%,-50%);
     z-index: 1;
+
 }
 
 video::-webkit-media-controls,
 video::-moz-media-controls,
 video::-webkit-media-controls-enclosure{
     display:none !important;
+
 }
 
 video::-webkit-media-controls-panel,
@@ -30,13 +32,16 @@ video::-webkit-media-controls-panel-container,
 video::-webkit-media-controls-start-playback-button {
     display:none !important;
     -webkit-appearance: none;
+
 }
 
 video:-webkit-full-screen, audio:-webkit-full-screen {
     position: static;
+
 }
 
 :-webkit-full-screen{
+
     z-index: 1!important;
 }
 
@@ -178,6 +183,7 @@ input[type=range]::-moz-range-thumb {
     margin-top: -10px; /*使滑块超出轨道部分的偏移量相等*/
     background: #ffffff; 
     border-radius: 50%; /*外观设置为圆形*/
+    
 }
 input[type=range]::-ms-thumb {
     -mz-appearance: none;

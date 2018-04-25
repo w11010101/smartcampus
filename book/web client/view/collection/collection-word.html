@@ -13,11 +13,13 @@
     <link rel="stylesheet" href="../../content/common/css/zTreeStyle.css" />
     <link rel="stylesheet" href="../../content/common/css/my-zTreeStyle.css" />
     <link rel="stylesheet" href="../../content/common/css/pgwSlideshow.css" />
+    <link rel="stylesheet" href="../../content/common/css/video-js.css" />
     <!-- js -->
     <script src="../../content/common/js/browser.min.js"></script>
     <script type="text/javascript" src="../../content/common/js/jquery.min.js"></script>
     <script type="text/javascript" src="../../content/common/js/jquery.ztree.core.min.js"></script>
     <script type="text/javascript" src="../../content/common/js/my-ztree.js"></script>
+    <script type="text/javascript" src="../../content/common/js/video.js"></script>
     <script type="text/javascript" src="../../content/common/js/common.js"></script>
     <!-- [if IE 9] >    
         <script type="text/babel" src="../../content/common/js/common.js"></script>
@@ -152,12 +154,23 @@
             </div>
             <!-- 视频 -->
             <div class="video">
-                <video controls="false">
-                    <source src="../../content/common/video/20180322170212.mp4" type="video/mp4">
-                    <!-- <source src="../../content/common/video/20180326104424.mp4" type="video/mp4" > -->
+                <!-- <video controls="false">
+                    <source src="../../content/common/video/CgkPFlpr6RqAcfRPABhrhKj-Lco680.avi" type="video/mp4">
+                    <source src="../../content/common/video/CgkPFlpr6RqAcfRPABhrhKj-Lco680.avi" type="video/webm">
+                    <source src="../../content/common/video/CgkPFlpr6RqAcfRPABhrhKj-Lco680.avi" type="video/ogg">
+                    <object data="movie.mp4" width="600" height="340">
+                        <embed width="600" height="340" src="../../content/common/video/CgkPFlpr6RqAcfRPABhrhKj-Lco680.avi">
+                    </object>
                     您的浏览器不支持Video标签。
-                </video>
-                <div class="video-tool">
+                </video> -->
+                <object id="Slider1"  width="600" height="340" data="../../content/common/video/CgkPFlpr6RqAcfRPABhrhKj-Lco680.avi">
+                    <param name="BorderStyle" value="1" />
+                    <param name="MousePointer" value="0" />
+                    <param name="Enabled" value="1" />
+                    <param name="Min" value="0" />
+                    <param name="Max" value="10" />
+                </object>
+                <!-- <div class="video-tool">
                     <button onclick="playPause()" class="playPause"></button>
                     <div class="video-tool-floot">
                         <div class="progress-bar">
@@ -168,9 +181,8 @@
                             <span class="endTime">11:11</span>
                         </div>
                         <button class="full-screen" onclick="fullScreen();"></button>
-                        <!-- <button class="full-screen" onclick="alert(1);"></button> -->
                     </div>
-                </div>
+                </div> -->
             </div>
             <!-- 文字 -->
             <p>
