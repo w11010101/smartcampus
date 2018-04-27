@@ -38,10 +38,10 @@ body {
     /*IE8*/
     box-sizing: border-box;
     /*W3C标准(IE9+，Safari5.1+,Chrome10.0+,Opera10.6+都符合box-sizing的w3c标准语法)*/
-    -webkit-user-select: none;
+    /*-webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
-    user-select: none;
+    user-select: none;*/
     font-style: normal;
     list-style: none;
     text-decoration: none;
@@ -863,7 +863,7 @@ aside .comment li .comment-state a {
     margin: 10px auto;
 }
 .popupBox .list-title h1 {
-    width: 350px!important;
+    width: 320px!important;
 }
 .popupBox textarea,
 .popupBox .textarea {

@@ -20,6 +20,7 @@ $(function(){
                 // 当屏幕小鱼1024时，会添加classname 'collapsed';
                 if(sidebar.hasClass("collapsed")){
                     console.log("you",vmNav);
+                    $this.parents(".navigation").addClass("active").siblings().removeClass("active");
                     vmNav.activeNav = vmNav.navData[parseInt($this.attr("set-index"))];
                 }
             }
@@ -53,9 +54,9 @@ $(function(){
         },
         methods:{
             subClick:function(){
-                var _this = $(this.$el);
-                console.log(_this);
-                _this.parents(".navigation").addClass("open");
+                var $this = $(this.$el);
+                console.log($this);
+                $this.parents(".navigation").addClass("open");
             }
         }
     });
@@ -80,35 +81,65 @@ $(function(){
         template:`<a href="#" data-toggle="dropdown" class="dropdown-toggle" aria-expanded="false">
                 {{todo.text}}<b class="ico-arr-plus" v-if="todo.nodes" ></b></a>`,
         computed:{
-            fn1:function(){
-                // console.log(this.tode);
+        }
+    });
+    // sec-Sidebar  product
+    Vue.component("dropdown-product-menu",{
+        props:["todo","index"],
+        template:`<a href="#" class="sidebar-toggle" v-bind:set-index=index v-on:click="subClick">
+                <i class="ico-arr-down-black" ></i>{{todo.text}}</a>`,
+        computed:{
+            
+        },
+        methods:{
+            subClick:function(){
+                var $this = $(this.$el);
+                $this.parents(".navigation").siblings().addClass("menu-hide").find(".menu").slideUp(200);
+                $this.next(".menu").slideToggle(200).parents(".navigation").toggleClass("menu-hide");
             }
         }
     });
-    // sec-Sidebar 
-    Vue.component("dropdown-product-menu",{
+    Vue.component("dropdown-product-a",{
         props:["todo","index"],
-        template:`<a href="#" class="sidebar-toggle" data-toggle="#navigation1" v-bind:set-index=index>
-                <i class="ico-arr-down-black"></i>{{todo.text}}</a>`,
+        template:`<a href="#" v-bind:set-index=index>{{todo.text}}</a>`,
+        computed:{
+        },
+        methods:{
+        }
+    });
+    Vue.component("dropdown-product-sub-menu",{
+        props:["todo"],
+        template:`<a href="#" data-toggle="dropdown" class="dropdown-toggle">{{todo.text}}<b class="ico-arr-plus-black"></b></a>`,
         computed:{
             fn1:function(){
                 // console.log(this.tode);
-            }
+            },
         },
         methods:{
-            // toggleDropdown:function(){
-            //     var $this = $(this.$el);
-            //     var sidebar = $this.parents("#sidebar");
-            //     // 当屏幕小鱼1024时，会添加classname 'collapsed';
-            //     if(sidebar.hasClass("collapsed")){
-            //         console.log("you",vmNav);
-            //         vmNav.activeNav = vmNav.navData[parseInt($this.attr("set-index"))];
-            //     }
-            // }
+            subClick:function(){
+                var $this = $(this.$el);
+                console.log($this);
+                $this.parents(".navigation").addClass("open");
+            }
         }
     });
-
-    
+    // <a href="#" data-toggle="dropdown" class="dropdown-toggle">树形子标题三 <b class="ico-arr-plus-black"></b></a>
+    Vue.component("dropdown-product-sub-list",{
+        props:["subtodo",'index'],
+        template:`<li class="dropdown">
+                    <dropdown-product-sub-menu v-bind:todo ='subtodo' v-bind:index="index" v-if="subtodo.nodes"></dropdown-product-sub-menu>
+                    <dropdown-product-a v-bind:todo ='subtodo' v-bind:index="index"  v-else></dropdown-product-a>
+                    <ul class="dropdown-menu" >
+                        <dropdown-product-sub-list v-if="subtodo.nodes" v-for="sub in subtodo.nodes" v-bind:subtodo ='sub' v-bind:index ='index'></dropdown-product-sub-list>
+                    </ul>
+                </li>`,
+        computed:{
+            fn1:function(){
+                console.log(this.subtodo);
+                console.log(this.index);
+            },
+        },
+    })
     // vue 实例
     var vmNav = new Vue({
         el:"#vm-nav",
@@ -118,9 +149,14 @@ $(function(){
         },
         watch:{
             navData:function(event){
-                console.log(event);
                 console.log(vmNav);
                 vmNav.activeNav = event[0];
+                this.$nextTick(function () {
+                    // DOM 现在更新了
+                    // `this` 绑定到当前实例
+                    $("#sidebar .navigation").eq(0).addClass("active");
+                })
+                
             }
         },
         computed:{

@@ -326,150 +326,15 @@
         <div class="sec-sidebar" id="sec-sidebar">
             <h1 class="h1">{{activeNav.text}}</h1>
             <ul class="nav navbar-nav sec-side-nav">
-                <li v-for="(event,index) in activeNav">
-                    <dropdown-product-menu v-bind:todo ='event' v-bind:index="index"  v-if="event.node"></dropdown-product-menu>
-                    <!-- <product-nav-menu v-if="event.node"></product-nav-menu>
-                    <product-nav-a v-else="event.node"></product-nav-a> -->
-                </li>
-                <li><a href="#">树形标题一</a></li>
-                <li class="navigation" id="navigation1">
-                    <a href="#" class="sidebar-toggle" data-toggle="#navigation1"><i class="ico-arr-down-black"></i>树形标题二</a>
+                <li v-for="(event,index) in activeNav.nodes" class="navigation menu-hide" >
+                    <dropdown-product-menu v-bind:todo ='event' v-bind:index="index"  v-if="event.nodes"></dropdown-product-menu>
+                    <dropdown-product-a v-bind:todo ='event' v-bind:index="index"  v-else="event.nodes"></dropdown-product-a>
                     <ul class="menu">
-                        <li class="active">
-                            <a href="#">树形子标题一</a>
-                        </li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">树形子标题二 <b class="ico-arr-plus-black"></b></a>
+                        <li v-for="(item,index) in event.nodes" class="dropdown">
+                            <dropdown-product-sub-menu v-bind:todo ='item' v-bind:index="index" v-if="event.nodes"></dropdown-product-sub-menu>
+                            <dropdown-product-a v-bind:todo ='event' v-bind:index="index"  v-else></dropdown-product-a>
                             <ul class="dropdown-menu">
-                                <li>
-                                    <a href="#">树形孙标题一</a>
-                                </li>
-                                <li>
-                                    <a href="#">树形孙标题二</a>
-                                </li>
-                                <li>
-                                    <a href="#">树形孙标题三</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">树形子标题三 <b class="ico-arr-plus-black"></b></a>
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <a href="#">树形孙标题一</a>
-                                </li>
-                                <li>
-                                    <a href="#">树形孙标题二</a>
-                                </li>
-                                <li>
-                                    <a href="#">树形孙标题三</a>
-                                </li>
-                                <li>
-                                    <a href="#">树形孙标题一</a>
-                                </li>
-                                <li>
-                                    <a href="#">树形孙标题二</a>
-                                </li>
-                                <li>
-                                    <a href="#">树形孙标题三</a>
-                                </li>
-                                <li>
-                                    <a href="#">树形孙标题一</a>
-                                </li>
-                                <li>
-                                    <a href="#">树形孙标题二</a>
-                                </li>
-                                <li>
-                                    <a href="#">树形孙标题三</a>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
-                <li class="navigation collapsed" id="navigation2">
-                    <a href="#" class="sidebar-toggle" data-toggle="#navigation2"><i class="ico-arr-down-black"></i>树形标题三</a>
-                    <ul class="menu">
-                        <li>
-                            <a href="#">树形子标题一</a>
-                        </li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">树形子标题二<b class="ico-arr-plus-black"></b></a>
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <a href="#">树形孙标题一</a>
-                                </li>
-                                <li>
-                                    <a href="#">树形孙标题二</a>
-                                </li>
-                                <li>
-                                    <a href="#">树形孙标题三</a>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
-                <li class="navigation collapsed" id="navigation3">
-                    <a href="#" class="sidebar-toggle" data-toggle="#navigation3"><i class="ico-arr-down-black"></i>树形标题四</a>
-                    <ul class="menu">
-                        <li>
-                            <a href="#">树形子标题一</a>
-                        </li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">树形子标题二<b class="ico-arr-plus-black"></b></a>
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <a href="#">树形孙标题一</a>
-                                </li>
-                                <li>
-                                    <a href="#">树形孙标题二</a>
-                                </li>
-                                <li>
-                                    <a href="#">树形孙标题三</a>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
-                <li class="navigation collapsed" id="navigation4">
-                    <a href="#" class="sidebar-toggle" data-toggle="#navigation4">树形标题四<i class="ico-arr-down-black"></i></a>
-                    <ul class="menu">
-                        <li>
-                            <a href="#">树形子标题一</a>
-                        </li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">树形子标题二 <b class="ico-arr-plus-black"></b></a>
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <a href="#">树形孙标题一</a>
-                                </li>
-                                <li>
-                                    <a href="#">树形孙标题二</a>
-                                </li>
-                                <li>
-                                    <a href="#">树形孙标题三</a>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
-                <li class="navigation collapsed" id="navigation5">
-                    <a href="#" class="sidebar-toggle" data-toggle="#navigation5">树形标题五<i class="ico-arr-down-black"></i></a>
-                    <ul class="menu">
-                        <li>
-                            <a href="#">树形子标题一</a>
-                        </li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">树形子标题二<b class="ico-arr-plus-black"></b></a>
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <a href="#">树形孙标题一</a>
-                                </li>
-                                <li>
-                                    <a href="#">树形孙标题二</a>
-                                </li>
-                                <li>
-                                    <a href="#">树形孙标题三</a>
-                                </li>
+                                <dropdown-product-sub-list v-if="event.nodes" v-for="sub in event.nodes" v-bind:subtodo ='sub' v-bind:index ='index'></dropdown-product-sub-list>
                             </ul>
                         </li>
                     </ul>
@@ -483,5 +348,5 @@
 
 </div>
 
-<!-- <script type="text/javascript" src="../../content/normal/js/frame.js"></script> -->
+<script type="text/javascript" src="../../content/normal/js/frame.js"></script>
 <script type="text/javascript" src="../../content/normal/js/v-nav.js"></script>

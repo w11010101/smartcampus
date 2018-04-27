@@ -39,11 +39,11 @@
     width: 343px;
     height: 160px;
     display: inline-block;
-    margin:0 10px;
+    /*margin:0 10px;*/
     background:#fff;
     padding: 20px;
     margin-bottom: 20px;
-    margin-left: -1px;
+    margin-right: 10px;
     border:1px solid #e6e6e6;
     overflow:hidden;
 }
@@ -139,15 +139,23 @@
     float: left;
     
 }
+.popupBox .list-title,
 .list li .list-title {
     background:none;
+    position: relative;
 }
 .list li .list-title img,
 .popupBox .list-title img{
-    width: 90px;
-    height: 90px;
+    max-width: 90px;
+    max-height: 90px;
     display: inline-block;
-    float: right;
+    position: absolute;
+    right:45px;
+    top:45px;
+    transform: translate(50%,-50%);
+    -webkit-transform: translate(50%,-50%);
+    -moz-transform: translate(50%,-50%);
+    -ms-transform: translate(50%,-50%);
 }
 .list li .list-source{
     height: 20px;
@@ -576,32 +584,35 @@
         text-align: left;
     }
 }
-@media screen and (max-width: 1052px){
+@media screen and (max-width: 1067px){
     /* 2 */
     .collection-list .list{
-        padding: 0 calc((100vw - 352px * 2) / 2);
+        padding: 0 calc((100vw - 353px * 2 - 10px) / 2);
     }
     .collection-list .list li:nth-child(2n){
         margin-right: 0;
     }
 }
-@media screen and (min-width: 1053px) and (max-width: 1399px){
+@media screen and (min-width: 1068px) and (max-width: 1399px){
     .collection-list .list{
-        padding: 0 calc((100vw - 352px * 3) / 2);
+        padding: 0 calc((100vw - 353px * 3 - 10px) / 2);
     }
     .collection-list .list li:nth-child(3n){
         margin-right: 0;
     }
 }
-@media screen and (min-width: 1367px) and (max-width: 1400px){
+@media screen and (min-width: 1367px) and (max-width: 1414px){
     /* 4 */
     .collection-list .list{
-        padding: 0;
+        padding: 0 calc((100vw - 353px * 3 - 10px) / 2);
+    }
+    .collection-list .list li:nth-child(3n){
+        margin-right: 0;
     }
 }
-@media screen and (min-width: 1401px) and (max-width: 1749px){
+@media screen and (min-width: 1415px) and (max-width: 1749px){
     .collection-list .list{
-        padding: 0 calc((100vw - 352px * 4) / 2);
+        padding: 0 calc((100vw - 353px * 4 - 10px) / 2);
     }
     .collection-list .list li:nth-child(4n){
         margin-right: 0;
@@ -610,7 +621,7 @@
 @media screen and (min-width: 1750px) and (max-width: 1920px){
     /* 5 */
     .collection-list .list{
-        padding: 0 calc((100vw - 352px * 5) / 2);
+        padding: 0 calc((100vw - 353px * 5 - 10px) / 2);
     }
     .collection-list .list li:nth-child(5n){
         margin-right: 0;
@@ -619,7 +630,7 @@
 @media screen and (min-width: 1921px) and (max-width: 2099px){
     /* 6 */
     .collection-list .list{
-        padding: 0 calc((100vw - 352px * 6) / 2);
+        padding: 0 calc((100vw - 353px * 6 - 10px) / 2);
     }
     .collection-list .list li:nth-child(6n){
         margin-right: 0;

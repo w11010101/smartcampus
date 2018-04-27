@@ -180,7 +180,7 @@
     width: 30px;
     height: 30px;
     vertical-align: middle;
-    margin-right: 10px;
+    margin-right: 10px!important;
     border-radius: 50%;
 }
 .level-catalog ul li img + p{

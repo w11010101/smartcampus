@@ -1,0 +1,9 @@
+#right-container{
+    width: calc(100vw - 230px);
+    float:right;
+    top:5px;
+}
+#right-container *{
+    color:#333;
+    font-size: 16px;
+}

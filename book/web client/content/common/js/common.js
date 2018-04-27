@@ -599,34 +599,37 @@ function makeExpandingArea(container) {
 }
 
 function stateTips(option){
+    console.log(1);
     if(option.type == $("body .state-tips").attr("set-type")){
         console.log("相同");
         return false;
     }
     if($("body .state-tips").length >=1){
+        console.log(4);
         $("body .state-tips").eq(0).remove();
     }
-
+    console.log(2);
     switch (option.type){
-            case "tips":
-                $("body").append('<div class="state-tips" set-type="'+option.type+'"><div class="tips-icon "><img src="../../content/common/img/'+(option.state?"success":"fail")+'.png" alt="" /><p>'+option.value+'</p></div></div>');
-            break;
-            case "confirm":
-                $("body").append('<div class="state-tips" set-type="'+option.type+'"><div class="tips-icon "><p>'+option.value+'</p><div class="btns"><button class="sure-btn">确定</button><button class="cancel-btn">取消</button></div></div></div>');
-            break;
-        }
-        // 按钮点击事件
-        $("body").on("click",".btns button",function(){
-            option.callback({
-                el:this,
-                type:$(this).text() == "确定"?true:false
-            })
-        });
-        setTimeout(function(){
-            $("body .state-tips[set-type=tips]").fadeOut(200,function(){
-                $(this).remove();
-            })
-        },2000);
+        case "tips":
+            $("body").append('<div class="state-tips" set-type="'+option.type+'"><div class="tips-icon "><img src="../../content/common/img/'+(option.state?"success":"fail")+'.png" alt="" /><p>'+option.value+'</p></div></div>');
+        break;
+        case "confirm":
+            $("body").append('<div class="state-tips" set-type="'+option.type+'"><div class="tips-icon "><p>'+option.value+'</p><div class="btns"><button class="sure-btn">确定</button><button class="cancel-btn">取消</button></div></div></div>');
+        break;
+    }
+    console.log(3);
+    // 按钮点击事件
+    $("body").on("click",".btns button",function(){
+        option.callback({
+            el:this,
+            type:$(this).text() == "确定"?true:false
+        })
+    });
+    setTimeout(function(){
+        $("body .state-tips[set-type=tips]").fadeOut(200,function(){
+            $(this).remove();
+        })
+    },2000);
 }
 // 提示语调用方法
 
@@ -636,15 +639,15 @@ function singOut(obj) {
     stateTips({
         value:"确认要推出快享吗？",
         state:true,
-        type:"confirm",
+        type:"confirm", // 确定 or 取消 
         callback:function(event){
             if(event.type){
                 // 确定
                 console.log('确定');
                 stateTips({
-                    value:"退出成功",
+                    value:"退成成功",
                     state:true,
-                    type:"tips",
+                    type:"tips", // 提示
                 })
             }else{
                 // 取消
