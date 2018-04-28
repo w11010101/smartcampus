@@ -371,3 +371,21 @@ $(".toggle-fade-btn").on("click",function(){
 // //     // });
 // });
 
+
+// 图片居中
+function imgCenterStyle(objs){
+    var imgs = $(objs);
+    if(imgs.length<0) return false;
+    $.each(imgs,function(i,e){
+        var w = e.naturalWidth;
+        var h = e.naturalHeight;
+        if(w > h){
+            console.log('横向');
+            $(e).css({"height":'100%'});
+        }else{
+            console.log('zongxiang');
+            $(e).css({"width":'100%'});
+        }
+    });
+}
+imgCenterStyle(".list .img-box img");

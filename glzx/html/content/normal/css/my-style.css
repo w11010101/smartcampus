@@ -13,8 +13,7 @@ html,body{
     height: inherit;
 }
 header{
-    height: 50px;
-    overflow: hidden;
+    /*height: 50px;*/
 }
 nav{
     display: inline-block;
@@ -34,4 +33,23 @@ nav{
 }
 [v-cloak]{
     display: none;
+}
+.navbar .navbar-nav.quick-actions .dropdown .dropdown-menu.settings > li #color-schemes > li > a{
+    width: 100%;
+}
+header ul.dropdown-menu > li a{
+    padding: 0;
+}
+.navbar .navbar-nav.quick-actions .dropdown .dropdown-menu.settings{
+    position: absolute;
+    width: 150px;
+    margin: 0;
+}
+.navbar .navbar-nav.quick-actions .dropdown .dropdown-menu.settings > li #color-schemes{
+    margin:10px 0;
+}
+#right-container{
+    height:calc(100vh - 50px);
+    overflow-x: hidden;
+    overflow-y: auto; 
 }

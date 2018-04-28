@@ -392,7 +392,7 @@ function getMainHtml(option) {
         case "share":
             return '<div class="list-title">\
                     <h1>' + option.setData.name + '</h1>\
-                    <img src="../../content/collection/img/inset.png" alt="">\
+                    <div class="img-box"><img src="../../content/collection/img/inset.png" alt=""></div>\
                 </div>\
                 <div class="expandingArea " id="textarea">\
                     <pre><span class="textarea-span"></span><br></pre>\

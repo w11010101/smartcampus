@@ -142,7 +142,7 @@ aside .comment-state .comment-state-reply-btn:hover,
     height: 8px;
 }
 ::-webkit-scrollbar-thumb {
-    background: #eee;
+    background: #ddd;
     border-radius: 5rem;
 }
 ::-webkit-scrollbar-track {
@@ -558,8 +558,6 @@ header nav ul li a.active{
     height: calc(100vh - 60px);
     font-size: 0;
     position: relative;
-    overflow-x: hidden;
-    overflow-y: auto;
 }
 .collection-acticle{
     background: #fff;
