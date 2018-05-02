@@ -9,6 +9,8 @@ var data = [
         level:1,
         text:"示例-2层",
         id:11,
+        icon:"",
+        href:"/index.html",
         nodes:[
         {
             level:1,
@@ -294,3 +296,13 @@ var data = [
     ]
 },
 ]
+
+// var objs = {
+//     level:1,
+//     text:"示例-2层",
+//     id:11,
+//     icon:"",
+//     href:"/index.html",
+// }
+// objs["nodes"] = [];
+// objs["nodes"].append(objs)

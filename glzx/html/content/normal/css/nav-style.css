@@ -112,7 +112,7 @@ body .navbar-nav.side-nav.collapsed .navigation.active .sidebar-toggle{
 .navigation.menu-hide .menu{
     display: none;
 }
-.open>.dropdown-menu{
+nav .open>.dropdown-menu{
     margin-left:20px; 
 }
 .dropdown.open .ico-arr-plus-black {

@@ -1,63 +1,249 @@
 <link rel="stylesheet" type="text/css" href="../../content/normal/css/container.css">
 <style type="text/css" media="screen">
-    .demo .demo-title{
-        font-size: 30px;
-        margin:10px 0;
-        line-height: 50px;
-        padding: 0 10px;
-        background: #aabbcc;
-        font-weight: bold;
-    }
-    .demo .row{
-        height: 80px;
-    }
-    .demo .col-sm-2{
-        padding: 0 30px;
-        line-height: 80px;
-    }
-    .demo .col-sm-10 img{
-        border
-    }
-    /*
     
-    .col-sm-10{
-        height:inherit;
-        background: #aabbcc;
-    }
-    .col-sm-2 a{
-        height:inherit;
-    }
-    .col-sm-2 a,.col-sm-10 img{
-        display: block;
-        padding: 10px 0;
-        height: 100%;
-    }
-    .col-sm-2 a:hover{
-        text-decoration: underline;
-    }*/
-    .demo  ul{
-        /*height: 500px;*/
-    }
-    .demo  a:hover{
-        text-decoration: underline;
-    }
-    .demo .demo-container h2{
-        background: #abdeff;
-    }
 </style>
 <div class="right-page-content">
-    <div class="demo">
-        <h1 class="demo-title" id="demo-title">相关Demo 目录</h1>
+    <div class="demo">        
+        <!--  -->
+        <h1 class="demo-title" id="demo-title">相关Demo 目录 <em>(注：点击demo 查看使用方法 )</em></h1>
         <!-- 目录 -->
-        <div class="row">
-            <div class="col-sm-2"><a href="#"># 大标题</a></div>
-            <div class="col-sm-10"><label>例如：</label><img src="../../content/normal/images/demo-img/h1.png" alt=""></div>
-        </div>
+        <table class="table table-bordered" >
+          <thead>
+            <tr>
+              <th>dome 名</th>
+              <th>图例</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+                <td><a href="#demo-express-h2"># 大标题</a></td>
+                <td>
+                    <div class="img-box">
+                        <img src="../../content/normal/images/demo-img/h1.png" alt="">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><a href="#demo-express-form-1"># 表单——输入框</a></td>
+                <td>
+                    <div class="img-box">
+                        <img src="../../content/normal/images/demo-img/table-1.png" alt="">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><a href="#demo-express-form-2"># 表单——下拉框</a></td>
+                <td>
+                    <div class="img-box">
+                        <img src="../../content/normal/images/demo-img/table-2.png" alt="">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><a href="#demo-express-form-3"># 表单——按钮</a></td>
+                <td>
+                    <div class="img-box">
+                        <img src="../../content/normal/images/demo-img/table-3.png" alt="">
+                    </div>
+                </td>
+            </tr>
+          </tbody>
+        </table>
+        <!-- ======================================== -->
+        <form class="form-inline">
+            <div class="form-line form-group">
+                <label>部门信息：</label>
+                <div class="dropdown">
+                    <div class="btn btn-default dropdown-toggle" type="text" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Dropdown
+                        <span class="caret"></span>
+                    </div>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                        <li><a href="#">Action</a></li>
+                        <li><a href="#">Another action</a></li>
+                        <li><a href="#">Something else here</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#">Separated link</a></li>
+                    </ul>
+                </div>
+            </div>
+            <button class="btn btn-default" type="submit">查询按钮</button>
+        </form>
+        <!-- ======================================== -->
         <!-- 具体 结构部分 -->
         <h1 class="demo-title" id="demo-title">具体结构的使用方法</h1>
         <div class="demo-container">
-            <h2 id="demo-express-h2">h2 标题 <a href="#demo-title">back</a></h2>
-            
+            <!-- part-1 -->
+            <h2 id="demo-express-h2">大标题 <a href="#demo-title">返回</a></h2>
+            <div class="demo-express-code-box row">
+                <div class="col-sm-6">
+                    <h3>html</h3>
+                    <pre name="" readonly="readonly">
+                        <span>&lt;h1 class='CON-title'&gt;标题展示 &lt;button class="refresh"&gt;&lt;/button&gt;&lt;/h1&gt;</span>
+                    </pre>
+                </div>
+                <div class="col-sm-6">
+                    <h3>css</h3>
+                    <pre>
+                        <span>.CON-title{</span>
+                        <span>    height: 66px;</span>
+                        <span>    padding: 0 30px 0 38px;</span>
+                        <span>    background: url(../../content/normal/images/ico-title.png) no-repeat left center;</span>
+                        <span>    line-height: 66px;</span>
+                        <span>    font-size: 24px;</span>
+                        <span>    color:#000;</span>
+                        <span>    margin:0;</span>
+                        <span>    border-bottom:1px solid #979797;</span>
+                        <span>}</span>
+                        <span>.CON-title .refresh{</span>
+                        <span>    width: 24px;</span>
+                        <span>    height: 24px;</span>
+                        <span>    float: right;</span>
+                        <span>    margin-top:21px;</span>
+                        <span>    border:0;</span>
+                        <span>    background: url(../../content/normal/images/refresh.png) no-repeat;</span>
+                        <span>}</span>
+                    </pre>
+                </div>
+                
+            </div>
+            <!-- part-2 -->
+            <h2 id="demo-express-form-1">表单——输入框<a href="#demo-title">返回</a></h2>
+            <div class="demo-express-code-box row">
+                <div class="col-sm-6">
+                    <h3>html</h3>
+                    <pre>
+                        <span>&lt;form action="" method="get" accept-charset="utf-8"&gt;</span>
+                        <span>    &lt;div class="form-line"&gt;</span>
+                        <span>        &lt;label&gt;部门信息：&lt;/label&gt;&lt;input type="text" name="" placeholder="部门编号/</span>
+                        <span>名称/助记码"&gt;</span>
+                        <span>    &lt;/div&gt;</span>
+                        <span>&lt;/form&gt;</span>
+                    </pre>
+                </div>
+                <div class="col-sm-6">
+                    <h3>css</h3>
+                    <pre>
+                        <span>form{</span>
+                        <span>    margin:30px 0;</span>
+                        <span>}</span>
+                        <span>.form-line{</span>
+                        <span>    display: inline-block;</span>
+                        <span>    height: 30px;</span>
+                        <span>    line-height: 30px;</span>
+                        <span>    margin-right: 26px;</span>
+                        <span>}</span>
+                        <span>.form-line *{</span>
+                        <span>    font-size: 14px;</span>
+                        <span>}</span>
+                        <span>.form-line label{</span>
+                        <span>    width: 80px;</span>
+                        <span>    font-weight: normal;</span>
+                        <span>    vertical-align: middle;</span>
+                        <span>    margin: 0;</span>
+                        <span>}</span>
+                        <span>.form-line input[type=text]{</span>
+                        <span>    width: 200px;</span>
+                        <span>    height: 30px;</span>
+                        <span>    padding:0 5px;</span>
+                        <span>    border:1px solid #c5c5c5;</span>
+                        <span>}</span>
+                        <span>.form-line input[type=text]::placeholder{</span>
+                        <span>    color:#8B8B8B;</span>
+                        <span>}</span>
+                    </pre>
+                </div>
+                
+            </div>
+            <!-- part-3 -->
+            <h2 id="demo-express-form-2">表单——下拉框<a href="#demo-title">返回</a></h2>
+            <div class="demo-express-code-box row">
+                <div class="col-sm-4">
+                    <h3>html</h3>
+                    <pre>
+                        <span>注意：不要忘记修改下拉关联的id（模板里的‘dropdownMenu1’）</span>
+                        <span>&lt;form class="form-inline"&gt;</span>
+                        <span>    &lt;div class="form-line form-group"&gt;</span>
+                        <span>        &lt;label&gt;部门信息：&lt;/label&gt;</span>
+                        <span>        &lt;div class="dropdown"&gt;</span>
+                        <span>            &lt;button class="btn btn-default dropdown-toggle" type="text" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"&gt;</span>
+                        <span>            Dropdown</span>
+                        <span>                &lt;span class="caret"&gt;&lt;/span&gt;</span>
+                        <span>            &lt;/button&gt;</span>
+                        <span>            &lt;ul class="dropdown-menu" aria-labelledby="dropdownMenu1"&gt;</span>
+                        <span>                &lt;li&gt;&lt;a href="#"&gt;Action&lt;/a&gt;&lt;/li&gt;</span>
+                        <span>                &lt;li&gt;&lt;a href="#"&gt;Another action&lt;/a&gt;&lt;/li&gt;</span>
+                        <span>                &lt;li&gt;&lt;a href="#"&gt;Something else here&lt;/a&gt;&lt;/li&gt;</span>
+                        <span>                &lt;li role="separator" class="divider"&gt;&lt;/li&gt;</span>
+                        <span>                &lt;li&gt;&lt;a href="#"&gt;Separated link&lt;/a&gt;&lt;/li&gt;</span>
+                        <span>            &lt;/ul&gt;</span>
+                        <span>        &lt;/div&gt;</span>
+                        <span>    &lt;/div&gt;</span>
+                        <span>&lt;/form&gt;</span>
+                    </pre>
+                </div>
+                <div class="col-sm-4">
+                    <h3>css</h3>
+                    <pre>
+                        <span>form{</span>
+                        <span>    margin:30px 0;</span>
+                        <span>}</span>
+                        <span>.form-line{</span>
+                        <span>    display: inline-block;</span>
+                        <span>    height: 30px;</span>
+                        <span>    line-height: 30px;</span>
+                        <span>    margin-right: 26px;</span>
+                        <span>}</span>
+                        <span>.form-line *{</span>
+                        <span>    font-size: 14px;</span>
+                        <span>}</span>
+                        <span>.form-line label{</span>
+                        <span>    width: 80px;</span>
+                        <span>    font-weight: normal;</span>
+                        <span>    vertical-align: middle;</span>
+                        <span>    margin: 0;</span>
+                        <span>}</span>
+                        <span>.form-line label + .dropdown{</span>
+                        <span>    display: inline-block;</span>
+                        <span>    height: 30px;</span>
+                        <span>    vertical-align: middle;</span>
+                        <span>}</span>
+                        <span>.form-line label + .dropdown .dropdown-toggle{</span>
+                        <span>    height: 30px;</span>
+                        <span>    line-height: 10px;</span>
+                        <span>    border-radius:0;</span>
+                        <span>    border:1px solid #c5c5c5;</span>
+                        <span>}</span>
+                    </pre>
+                </div>
+                <div class="col-sm-4">
+                    <h3>js</h3>
+                    <pre>
+                        <span>备注：点击选择后隐藏下拉框，</span>
+                        <span>      并添加到点击按钮上</span>
+                    </pre>
+                </div>
+                
+            </div>
+            <!-- part-4 -->
+            <h2 id="demo-express-form-3">表单——按钮<a href="#demo-title">返回</a></h2>
+            <div class="demo-express-code-box row">
+                <div class="col-sm-6">
+                    <h3>html</h3>
+                    <pre>
+                        <span>&lt;form class="form-inline"&gt;</span>
+                        <span>&lt;button class="btn btn-default" type="submit"&gt;查询按钮&lt;/button&gt;</span>
+                        <span>&lt;/form&gt;</span>
+                    </pre>
+                </div>
+                <div class="col-sm-6">
+                    <h3>css</h3>
+                    <pre>
+                        
+                    </pre>
+                </div>
+                
+            </div>
         </div>
     </div>
 </div>

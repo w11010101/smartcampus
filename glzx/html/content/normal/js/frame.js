@@ -4,15 +4,14 @@ var widthLess1024 = function() {
         $("#sidebar, #navbar").addClass("collapsed");
         $("#navigation").find(".dropdown.open").removeClass("open");
         $("#navigation").find(".dropdown-menu.animated").removeClass("animated");
-        if ($("#sidebar").hasClass("collapsed")) {
+        if ($("#sidebar").hasClass("closed")) {
             $("#content").animate({
-                left: "0px",
-                paddingLeft: "227px"
+                left: "0px"
             },
             150)
         } else {
             $("#content").animate({
-                paddingLeft: "227px"
+               
             },
             150)
         }
@@ -20,12 +19,12 @@ var widthLess1024 = function() {
         $("#sidebar, #navbar").removeClass("collapsed");
         if ($("#sidebar").hasClass("collapsed")) {
             $("#content").animate({
-                paddingLeft: "215px"
+                
             },
             150)
         } else {
             $("#content").animate({
-                paddingLeft: "215px"
+                
             },
             150)
         }
@@ -56,56 +55,62 @@ $(function() {
     });
 
     //美化滚动条
-    // $("#sidebar").niceScroll({
-    //     cursorcolor: "#000000",
-    //     zindex: 999999,
-    //     bouncescroll: true,
-    //     cursoropacitymax: 0.3,
-    //     cursorborder: "",
-    //     cursorborderradius: 4,
-    //     cursorwidth: "7px",
-    //     railalign: "left",
-    //     railoffset: {
-    //         top: 50,
-    //         left: 0
-    //     }
-    // });
-    // $("#sec-sidebar").niceScroll({
-    //     cursorcolor: "#000000",
-    //     zindex: 999999,
-    //     bouncescroll: true,
-    //     cursoropacitymax: 0.05,
-    //     cursorborder: "",
-    //     cursorborderradius: 4,
-    //     cursorwidth: "7px",
-    //     railalign: "right",
-    //     background: "rgba(0,0,0,.1)",
-    //     railoffset: {
-    //         top: 55,
-    //         left: 0
-    //     }
-    // });
-    // $("#content").niceScroll({
-    //     cursorcolor: "#4c4c4c",
-    //     zindex: 999999,
-    //     bouncescroll: true,
-    //     cursoropacitymax: 0.3,
-    //     cursorborder: "",
-    //     cursorborderradius: 10,
-    //     cursorwidth: "7px",
-    //     background: "rgba(0,0,0,.1)",
-    //     autohidemode: false,
-    //     railoffset: {
-    //         top: 5,
-    //         left: 0
-    //     },
-    //     railpadding: {
-    //         top: 0,
-    //         right: 2,
-    //         left: 2,
-    //         bottom: 0
-    //     }
-    // });
+     $("#sidebar").niceScroll({
+        cursorcolor: "#000000",
+        zindex: 999999,
+        bouncescroll: true,
+        cursoropacitymax: 0.3,
+        cursorborder: "",
+        cursorborderradius: 10,
+        cursorwidth: "6px",
+        railalign: "right",
+        railoffset: {
+            top: 50,
+            right:0
+        },
+        railpadding: {
+            top: 0,
+            right: 2,
+            left: 2,
+            bottom: 0
+        }
+     });
+    $("#sec-sidebar").css("width","180px").niceScroll({
+        cursorcolor: "#000000",
+        zindex: 999999,
+        bouncescroll: true,
+        cursoropacitymax: 0.05,
+        cursorborder: "",
+        cursorborderradius: 4,
+        cursorwidth: "7px",
+        railalign: "right",
+        background: "rgba(0,0,0,.1)",
+        railoffset: {
+            top: 55,
+            left: 0
+        }
+    });
+    $("#content").niceScroll({
+        cursorcolor: "#4c4c4c",
+        zindex: 999999,
+        bouncescroll: true,
+        cursoropacitymax: 0.3,
+        cursorborder: "",
+        cursorborderradius: 10,
+        cursorwidth: "6px",
+        background: "rgba(0,0,0,.1)",
+        //autohidemode: false,
+        railoffset: {
+            top: 5,
+            left: 0
+        },
+        railpadding: {
+            top: 0,
+            right: 2,
+            left: 2,
+            bottom: 0
+        }
+     });
 
     $("#navigation .dropdown.open").data("closable", false);
     $("#navigation .dropdown").on({
@@ -146,8 +151,7 @@ $(function() {
                 150)
             } else {
                 $("#content").animate({
-                    //paddingLeft: "65px"
-                     paddingLeft: "227px"
+        
                 },
                 150)
             }
@@ -159,7 +163,7 @@ $(function() {
                 150)
             } else {
                 $("#content").animate({
-                    paddingLeft: "215px"
+                   
                 },
                 150)
             }
@@ -168,11 +172,11 @@ $(function() {
 
     //添加
     $(".sidebar-collapse.sec-sidebar-collapse a").on("click", function() {
-        $("#sidebar,#sec-sidebar, #navbar").toggleClass("collapsed");
+        $("#sidebar,#sec-sidebar, #navbar").toggleClass("collapsed closed");
         $(".navigation").find(".dropdown.open").removeClass("open");
         $(".navigation").find(".dropdown-menu.animated").removeClass("animated");
         $("#sec-sidebar > li.collapsed").removeClass("collapsed");
-        if ($("#sec-sidebar").hasClass("collapsed")) {
+        if ($("#sec-sidebar").hasClass("collapsed closed")) {
             if ($(window).width() < 1024) {
                 $("#content").animate({
                     left: "0px"
@@ -180,7 +184,6 @@ $(function() {
                 150)
             } else {
                 $("#content").animate({
-                    paddingLeft: "65px"
                 },
                 150)
             }
@@ -192,7 +195,6 @@ $(function() {
                 150)
             } else {
                 $("#content").animate({
-                    paddingLeft: "215px"
                 },
                 150)
             }
