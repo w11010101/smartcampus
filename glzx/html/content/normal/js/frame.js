@@ -45,17 +45,18 @@ $(function() {
     $("#sidebar .sidebar-toggle").on("click", function() {
         console.log(1)
         var d = $(this).data("toggle");
-        $(d).toggleClass("collapsed")
+        $(d).toggleClass("collapsed");
     });
 
     $("#sec-sidebar .sidebar-toggle").on("click", function() {
         console.log(2)
         var d = $(this).data("toggle");
-        $(d).toggleClass("collapsed")
+        $(d).toggleClass("collapsed");
     });
 
     //美化滚动条
-     $("#sidebar").niceScroll({
+    // $("#sidebar").css("width","230px");
+    $("#sidebar").niceScroll({
         cursorcolor: "#000000",
         zindex: 999999,
         bouncescroll: true,
@@ -74,7 +75,7 @@ $(function() {
             left: 2,
             bottom: 0
         }
-     });
+    });
     $("#sec-sidebar").css("width","180px").niceScroll({
         cursorcolor: "#000000",
         zindex: 999999,
@@ -90,7 +91,7 @@ $(function() {
             left: 0
         }
     });
-    $("#content").niceScroll({
+    $("#content,#right-container").niceScroll({
         cursorcolor: "#4c4c4c",
         zindex: 999999,
         bouncescroll: true,

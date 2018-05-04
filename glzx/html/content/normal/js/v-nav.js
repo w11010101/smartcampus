@@ -16,13 +16,7 @@ $(function(){
         methods:{
             toggleDropdown:function(){
                 var $this = $(this.$el);
-                var sidebar = $this.parents("#sidebar");
-                // 当屏幕小鱼1024时，会添加classname 'collapsed';
-                if(sidebar.hasClass("collapsed")){
-                    console.log("you",vmNav);
-                    $this.parents(".navigation").addClass("active").siblings().removeClass("active");
-                    vmNav.activeNav = vmNav.navData[parseInt($this.attr("set-index"))];
-                }
+                vmNav.toggleDropdown($this);
             }
         }
     });
@@ -162,6 +156,17 @@ $(function(){
         computed:{
         },
         methods:{
+            toggleDropdown:function(obj){
+                var sidebar = obj.parents("#sidesbar");
+                // 当屏幕小鱼1024时，会添加classname 'collapsed';
+                if(sidebar.hasClass("collapsed")){
+                    console.log("you",vmNav);
+                    obj.parents(".navigation").addClass("active").siblings().removeClass("active");
+                    vmNav.activeNav = vmNav.navData[parseInt(obj.attr("set-index"))];
+                }else{
+
+                }
+            }
         }
     });
 

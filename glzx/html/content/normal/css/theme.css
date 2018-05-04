@@ -650,10 +650,12 @@ h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6 {
 	background-image:url(../images/ico-arr-right-big.png);background-repeat: no-repeat;
 	background-position:30px center;
 }
+/*ico-arr-right-big.png*/
 .side-nav.collapsed > li.navigation > .dropdown-menu > li.dropdown.open > ul.dropdown-menu > li a {
 
 	background-image:url(../images/ico-arr-right-black-big.png);background-position:25px center;
 }
+/*ico-arr-right-black-big.png*/
 .side-nav > li.navigation > .dropdown-menu > li.dropdown.open > ul.dropdown-menu > li.dropdown.open > ul.dropdown-menu > li a {
 	font-weight:normal;
 }
@@ -720,7 +722,7 @@ h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6 {
 	padding:10px 0;
 }
 
-.dropdown-menu {
+nav .dropdown-menu {
 	float: none;
     position:relative;
     top: 100%;
@@ -816,7 +818,7 @@ body .side-nav.collapsed .sidebar-toggle {
     border-top:1px solid rgba(255,255,255,0.4);
 }
 .collapsed .navigation > a {
-    border-bottom:1px solid rgba(255,255,255,0.4);
+    /*border-bottom:1px solid rgba(255,255,255,0.4);*/
 }
 .side-nav.collapsed .navigation:before {display:none;}
 
@@ -956,10 +958,10 @@ body .side-nav.collapsed .menu,body .side-nav.collapsed .sidebar-toggle,body .si
 }
 .product-nav > .collapsed,
 .nav.side-nav.collapsed.closed ~ .product-nav > .sec-sidebar {
-	left:-120px;
+	left:-130px;
 }
 .product-nav > .collapsed ~ .sec-sidebar-collapse {
-	left:50px;
+	left:0px;
 }
 .sec-sidebar-collapse {
 	position:absolute;
@@ -1137,7 +1139,8 @@ body .side-nav > li.navigation .dropdown-menu > li.dropdown.open > a b.ico-arr-d
 	margin-top:0;
 }
 .side-nav.collapsed > li.navigation .dropdown-menu .dropdown.open > a .ico-arr-plus {
-	background:url(../images/ico-arr-minus.png);background-image:url(../images/ico-arr-minus-black.png);
+	background:url(../images/ico-arr-minus.png);
+	background-image:url(../images/ico-arr-minus-black.png);
 }
 .side-nav > li.navigation .dropdown-menu .dropdown a b.ico-arr-plus {
 	background:url(../images/ico-arr-plus.png);
@@ -1161,7 +1164,7 @@ body .side-nav > li.navigation .dropdown-menu > li.dropdown.open > a b.ico-arr-d
 }
 .navbar-nav.sec-side-nav .ico-arr-plus-black {
 	top:8px;
-	display:none;
+	/*display:none;*/
 }
 .ico-arr-plus-black {
 	background:url(../images/ico-arr-plus-black.png) no-repeat 0 0;

@@ -21,7 +21,9 @@
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-    <![endif]-->
+  <![endif]-->
+  <link rel="stylesheet" type="text/css" href="../content/frame/jquery.date/jquery.datetimepicker.min.css">
+
 </head>
 
 <body class="bg-1">
@@ -146,92 +148,118 @@
             <!-- Fixed navbar end -->
             <!-- Page content -->
             <div id="content" class="col-md-12">
-                <div class="demo">        
+                <div class="demo">  
+                    <div class="show-box">
+                        <div id="main" style="width: 1000px;height:700px;"></div>
+                        
+                    </div>      
                     <!--  -->
-                    <h1 class="demo-title" id="demo-title">相关Demo 目录 <em>(注：点击demo 查看使用方法 )</em></h1>
+                    <h1 class="demo-title" id="demo-title">相关Demo 目录 <em>(注：点击demo名 查看使用方法 )</em></h1>
+                    <!-- 文档分类 -->
+                    <a href="#dome-table">html</a>
+                    <a href="">js</a>
                     <!-- 目录 -->
-                    <table class="table table-bordered" >
-                      <thead>
-                        <tr>
-                          <th>dome 名</th>
-                          <th>图例</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                            <td><a href="#demo-express-h2"># 大标题</a></td>
-                            <td>
-                                <div class="img-box">
-                                    <img src="../content/normal/images/demo-img/h1.png" alt="">
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><a href="#demo-express-form-1"># 表单——输入框</a></td>
-                            <td>
-                                <div class="img-box">
-                                    <img src="../content/normal/images/demo-img/table-1.png" alt="">
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><a href="#demo-express-form-2"># 表单——下拉框</a></td>
-                            <td>
-                                <div class="img-box">
-                                    <img src="../content/normal/images/demo-img/table-2.png" alt="">
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><a href="#demo-express-form-3"># 表单——按钮</a></td>
-                            <td>
-                                <div class="img-box">
-                                    <img src="../content/normal/images/demo-img/table-3.png" alt="">
-                                </div>
-                            </td>
-                        </tr>
-                      </tbody>
+                    <table class="table table-bordered" id="dome-table">
+                        <thead>
+                            <tr>
+                                <th>dome 名</th>
+                                <th>图例</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><a style="font-weight:bold;color:red;font-size:40px;">声明</a></td>
+                                <td style="font-weight:bold;color:red;line-height: 80px;font-size:20px;">
+                                    以下所有css和js分别依赖bootstrao.min.css、boostrap.js(源码有删减)、jquery.min.js
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><a href="#demo-express-h2" id="demo-a-express-h2"># 大标题</a></td>
+                                <td>
+                                    <div class="img-box">
+                                        <img src="../content/normal/images/demo-img/h1.png" alt="">
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><a href="#demo-express-form" id="demo-a-express-form"># 表单——form</a></td>
+                                <td>
+                                    form统一；以下关于表单内部的样式都依赖form，以及对label的样式说明
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><a href="#demo-express-form-1" id="demo-a-express-form-1"># 表单——输入框</a></td>
+                                <td>
+                                    <div class="img-box">
+                                        <img src="../content/normal/images/demo-img/table-1.png" alt="">
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><a href="#demo-express-form-2" id="demo-a-express-form-2"># 表单——下拉框</a></td>
+                                <td>
+                                    <div class="img-box">
+                                        <img src="../content/normal/images/demo-img/table-2.png" alt="">
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><a href="#demo-express-form-3" id="demo-a-express-form-3"># 表单——按钮</a></td>
+                                <td>
+                                    <div class="img-box">
+                                        <img src="../content/normal/images/demo-img/table-3.png" alt="">
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><a href="#demo-express-form-4" id="demo-a-express-form-4"># 表单——时间</a></td>
+                                <td>
+                                    <div class="img-box">
+                                        <img src="../content/normal/images/demo-img/table-4.png" alt="">
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><a href="#demo-express-form-5" id="demo-a-express-form-5"># 表单——数字</a></td>
+                                <td>
+                                    <div class="img-box">
+                                        <img src="../content/normal/images/demo-img/table-5.png" alt="">
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><a href="#demo-express-form-5" id="demo-a-express-form-5"># 图表——折线图</a></td>
+                                <td>
+                                    <div class="img-box" style="height:400px;">
+                                        <img src="../content/normal/images/demo-img/line.png" alt="">
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
                     </table>
                     <!-- ======================================== -->
-                    <form class="form-inline">
-                        <div class="form-line form-group">
-                            <label>部门信息：</label>
-                            <div class="dropdown">
-                                <div class="btn btn-default dropdown-toggle" type="text" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Dropdown
-                                    <span class="caret"></span>
-                                </div>
-                                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                                    <li><a href="#">Action</a></li>
-                                    <li><a href="#">Another action</a></li>
-                                    <li><a href="#">Something else here</a></li>
-                                    <li role="separator" class="divider"></li>
-                                    <li><a href="#">Separated link</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <button class="btn btn-default" type="submit">查询按钮</button>
-                    </form>
+
                     <!-- ======================================== -->
                     <!-- 具体 结构部分 -->
                     <h1 class="demo-title" id="demo-title">具体结构的使用方法</h1>
                     <div class="demo-container">
-                        <!-- part-1 -->
-                        <h2 id="demo-express-h2">大标题 <a href="#demo-title">返回</a></h2>
+                        <!--  -->
+                        <h2 id="demo-express-h2">大标题 <a href="#demo-a-express-h2">返回</a></h2>
                         <div class="demo-express-code-box row">
                             <div class="col-sm-6">
-                                <h3>html</h3>
-                                <pre name="" readonly="readonly">
+                                <h3><span>html</span><button class="copy" data-clipboard-target="#foo1"></button></h3>
+
+                                <pre id="foo1">
                                     <span>&lt;h1 class='CON-title'&gt;标题展示 &lt;button class="refresh"&gt;&lt;/button&gt;&lt;/h1&gt;</span>
                                 </pre>
                             </div>
                             <div class="col-sm-6">
-                                <h3>css</h3>
-                                <pre>
+                                <h3><span>css</span><button class="copy" data-clipboard-target="#foo2"></button></h3>
+                                <pre id="foo2">
                                     <span>.CON-title{</span>
                                     <span>    height: 66px;</span>
-                                    <span>    padding: 0 30px 0 38px;</span>
-                                    <span>    background: url(../../content/normal/images/ico-title.png) no-repeat left center;</span>
+                                    <span>    padding: 0 10px 0 38px;</span>
+                                    <span>    background: url(../normal/images/ico-title.png) no-repeat left center;</span>
                                     <span>    line-height: 66px;</span>
                                     <span>    font-size: 24px;</span>
                                     <span>    color:#000;</span>
@@ -244,18 +272,54 @@
                                     <span>    float: right;</span>
                                     <span>    margin-top:21px;</span>
                                     <span>    border:0;</span>
-                                    <span>    background: url(../../content/normal/images/refresh.png) no-repeat;</span>
+                                    <span>    background: url(../normal/images/refresh.png) no-repeat;</span>
                                     <span>}</span>
                                 </pre>
                             </div>
                             
                         </div>
-                        <!-- part-2 -->
-                        <h2 id="demo-express-form-1">表单——输入框<a href="#demo-title">返回</a></h2>
+                        <!--  -->
+                        <h2 id="demo-express-form">表单——form<a href="#demo-a-express-form">返回</a></h2>
                         <div class="demo-express-code-box row">
                             <div class="col-sm-6">
-                                <h3>html</h3>
-                                <pre>
+                                <h3><span>html</span><button class="copy" data-clipboard-target="#form"></button></h3>
+                                <pre id="form">
+                                    <span>&lt;form class="form-inline"&gt; </span>
+                                    <span>        &lt;label&gt;部门信息：&lt;/label&gt;</span>
+                                    <span>&lt;/form&gt;</span>
+                                </pre>
+                            </div>
+                            <div class="col-sm-6">
+                                <h3><span>css</span><button class="copy" data-clipboard-target="#form-css"></button></h3>
+                                <pre id="form-css">
+                                    <span>form{</span>
+                                    <span>    margin:30px 0;</span>
+                                    <span>}</span>
+                                    <span>form .form-line *{</span>
+                                    <span>    font-size: 14px;</span>
+                                    <span>}</span>
+                                    <span>.form-line{</span>
+                                    <span>    display: inline-block;</span>
+                                    <span>    height: 30px;</span>
+                                    <span>    line-height: 30px;</span>
+                                    <span>    margin-right: 26px;</span>
+                                    <span>}</span>
+                                    <span>.form-line label{</span>
+                                    <span>    width: 80px;</span>
+                                    <span>    font-weight: normal;</span>
+                                    <span>    vertical-align: middle;</span>
+                                    <span>    margin: 0;</span>
+                                    <span>}</span>
+                                </pre>
+                            </div>
+                            
+                        </div>
+                        <!--  -->
+                        <h2 id="demo-express-form-1">表单——输入框<a href="#demo-a-express-form-1">返回</a></h2>
+                        <div class="demo-express-code-box row">
+                            <div class="col-sm-6">
+                                <h3><span>html</span><button class="copy" data-clipboard-target="#foo3"></button></h3>
+                                <pre id="foo3">
                                     <span>&lt;form action="" method="get" accept-charset="utf-8"&gt;</span>
                                     <span>    &lt;div class="form-line"&gt;</span>
                                     <span>        &lt;label&gt;部门信息：&lt;/label&gt;&lt;input type="text" name="" placeholder="部门编号/</span>
@@ -265,45 +329,28 @@
                                 </pre>
                             </div>
                             <div class="col-sm-6">
-                                <h3>css</h3>
-                                <pre>
-                                    <span>form{</span>
-                                    <span>    margin:30px 0;</span>
-                                    <span>}</span>
-                                    <span>.form-line{</span>
-                                    <span>    display: inline-block;</span>
-                                    <span>    height: 30px;</span>
-                                    <span>    line-height: 30px;</span>
-                                    <span>    margin-right: 26px;</span>
-                                    <span>}</span>
-                                    <span>.form-line *{</span>
-                                    <span>    font-size: 14px;</span>
-                                    <span>}</span>
-                                    <span>.form-line label{</span>
-                                    <span>    width: 80px;</span>
-                                    <span>    font-weight: normal;</span>
-                                    <span>    vertical-align: middle;</span>
-                                    <span>    margin: 0;</span>
-                                    <span>}</span>
-                                    <span>.form-line input[type=text]{</span>
+                                <h3><span>css</span><button class="copy" data-clipboard-target="#foo4"></button></h3>
+                                <pre id="foo4">
+                                    <span>.form-line input{</span>
                                     <span>    width: 200px;</span>
                                     <span>    height: 30px;</span>
                                     <span>    padding:0 5px;</span>
                                     <span>    border:1px solid #c5c5c5;</span>
+                                    <span>    outline: none;</span>
                                     <span>}</span>
-                                    <span>.form-line input[type=text]::placeholder{</span>
+                                    <span>.form-line input::placeholder{</span>
                                     <span>    color:#8B8B8B;</span>
                                     <span>}</span>
                                 </pre>
                             </div>
                             
                         </div>
-                        <!-- part-3 -->
-                        <h2 id="demo-express-form-2">表单——下拉框<a href="#demo-title">返回</a></h2>
+                        <!--  -->
+                        <h2 id="demo-express-form-2">表单——下拉框<a href="#demo-a-express-form-2">返回</a></h2>
                         <div class="demo-express-code-box row">
                             <div class="col-sm-4">
-                                <h3>html</h3>
-                                <pre>
+                                <h3><span>html</span><button class="copy" data-clipboard-target="#foo5"></button></h3>
+                                <pre id="foo5">
                                     <span>注意：不要忘记修改下拉关联的id（模板里的‘dropdownMenu1’）</span>
                                     <span>&lt;form class="form-inline"&gt;</span>
                                     <span>    &lt;div class="form-line form-group"&gt;</span>
@@ -326,88 +373,175 @@
                                 </pre>
                             </div>
                             <div class="col-sm-4">
-                                <h3>css</h3>
-                                <pre>
-                                    <span>form{</span>
-                                    <span>    margin:30px 0;</span>
-                                    <span>}</span>
-                                    <span>.form-line{</span>
-                                    <span>    display: inline-block;</span>
-                                    <span>    height: 30px;</span>
-                                    <span>    line-height: 30px;</span>
-                                    <span>    margin-right: 26px;</span>
-                                    <span>}</span>
-                                    <span>.form-line *{</span>
-                                    <span>    font-size: 14px;</span>
-                                    <span>}</span>
-                                    <span>.form-line label{</span>
-                                    <span>    width: 80px;</span>
-                                    <span>    font-weight: normal;</span>
-                                    <span>    vertical-align: middle;</span>
-                                    <span>    margin: 0;</span>
-                                    <span>}</span>
+                                <h3><span>css</span><button class="copy" data-clipboard-target="#foo6"></button></h3>
+                                <pre id="foo6">
                                     <span>.form-line label + .dropdown{</span>
                                     <span>    display: inline-block;</span>
                                     <span>    height: 30px;</span>
                                     <span>    vertical-align: middle;</span>
                                     <span>}</span>
-                                    <span>.form-line label + .dropdown .dropdown-toggle{</span>
+                                    <span>.form-line label + .dropdown [data-toggle=dropdown]{</span>
                                     <span>    height: 30px;</span>
-                                    <span>    line-height: 10px;</span>
+                                    <span>    line-height: 16px;</span>
                                     <span>    border-radius:0;</span>
                                     <span>    border:1px solid #c5c5c5;</span>
                                     <span>}</span>
                                 </pre>
                             </div>
                             <div class="col-sm-4">
-                                <h3>js</h3>
-                                <pre>
+                                <h3><span>js</span><button class="copy" data-clipboard-target="#foo7"></button></h3>
+                                <pre id="foo7">
                                     <span>备注：点击选择后隐藏下拉框，</span>
                                     <span>      并添加到点击按钮上</span>
+                                    <span>$(".form-line .dropdown-menu").on("click","li a",function(event){</span>
+                                    <span>    var dropdown = $(this).parents(".form-line").find('[data-toggle=dropdown]');</span>
+                                    <span>    dropdown.text($(this).text()).parent().removeClass("open");</span>
+                                    <span>});</span>
                                 </pre>
                             </div>
                             
                         </div>
-                        <!-- part-4 -->
-                        <h2 id="demo-express-form-3">表单——按钮<a href="#demo-title">返回</a></h2>
+                        <!--  -->
+                        <h2 id="demo-express-form-3">表单——按钮<a href="#demo-a-express-form-3">返回</a></h2>
                         <div class="demo-express-code-box row">
                             <div class="col-sm-6">
-                                <h3>html</h3>
-                                <pre>
+                                <h3><span>html</span><button class="copy" data-clipboard-target="#foo8"></button></h3>
+                                <pre id="foo8">
                                     <span>&lt;form class="form-inline"&gt;</span>
                                     <span>&lt;button class="btn btn-default" type="submit"&gt;查询按钮&lt;/button&gt;</span>
                                     <span>&lt;/form&gt;</span>
                                 </pre>
                             </div>
                             <div class="col-sm-6">
-                                <h3>css</h3>
-                                <pre>
-                                    
+                                <h3><span>css</span><button class="copy" data-clipboard-target="#foo9"></button></h3>
+                                <pre id="foo9">
+
                                 </pre>
                             </div>
                             
                         </div>
+                        <!--  -->
+                        <h2 id="demo-express-form-4">表单——时间<a href="#demo-a-express-form-4">返回</a></h2>
+                        <div class="demo-express-code-box row">
+                            <div class="col-sm-12">
+                                <h3><span>plugin</span><button class="copy" data-clipboard-target="#foo10"></button></h3>
+                                <pre id="foo10">
+                                    <span>引用 link</span>
+                                    <span>&lt;link rel="stylesheet" type="text/css" href="../content/frame/jquery.date/jquery.datetimepicker.min.css"&gt;
+                                        <span>引用 js</span>
+                                        <span>&lt;script type="text/javascript" src="../content/frame/jquery.date/jquery.datetimepicker.full.min.js"&gt;&lt;/script&gt;</span>
+                                    </pre>
+                                </div>
+                                <div class="col-sm-4">
+                                    <h3><span>html</span><button class="copy" data-clipboard-target="#foo11"></button></h3>
+                                    <pre id="foo11">
+                                        <span>&lt;div class="form-line"&gt;</span>
+                                        <span>    &lt;label&gt;就餐时间：&lt;/label&gt;</span>
+                                        <span>    &lt;div class="form-date"&gt;</span>
+                                        <span>        &lt;input id="startDate" type="text" placeholder="选择时间"&gt;</span>
+                                        <span>    &lt;/div&gt;</span>
+                                        <span>    &lt;em&gt; — &lt;/em&gt;</span>
+                                        <span>    &lt;div class="form-date"&gt;</span>
+                                        <span>        &lt;input id="endDate" type="text" placeholder="选择时间"&gt;</span>
+                                        <span>    &lt;/div&gt;</span>
+                                        <span>&lt;/div&gt;</span>
+                                    </pre>
+                                </div>
+                                <div class="col-sm-4">
+                                    <h3><span>css</span><button class="copy" data-clipboard-target="#foo12"></button></h3>
+                                    <pre id="foo12">
+                                        <span>.form-line .form-date{</span>
+                                        <span>    display: inline-block;</span>
+                                        <span>    width: 120px;</span>
+                                        <span>    position: relative;</span>
+                                        <span>    vertical-align: top</span>
+                                        <span>}</span>
+                                        <span>.form-line .form-date + em{</span>
+                                        <span>    display: inline-block;</span>
+                                        <span>    height: 30px;</span>
+                                        <span>    color:#e6e6e6;</span>
+                                        <span>}</span>
+                                        <span>.form-line .form-date input[type=text]{</span>
+                                        <span>    width: 100%;</span>
+                                        <span>}</span>
+                                        <span>.form-line .form-date input[type=text]{</span>
+                                        <span>    background: url(../normal/images/clock.png) no-repeat right 5px center;</span>
+                                        <span>}</span>
+                                    </pre>
+                                </div>
+                                <div class="col-sm-4">
+                                    <h3><span>js</span><button class="copy" data-clipboard-target="#foo13"></button></h3>
+                                    <pre id="foo13">
+                                        <span>$.datetimepicker.setLocale('zh');</span>
+                                        <span>$('#startDate').datetimepicker({        </span>
+                                        <span>    timepicker:false,</span>
+                                        <span>    format:'Y.m.d',</span>
+                                        <span>    onShow:function( ct ){</span>
+                                        <span>        this.setOptions({</span>
+                                        <span>            maxDate:$('#endDate').val()?$('#endDate').val():false</span>
+                                        <span>        })</span>
+                                        <span>    },</span>
+                                        <span>});</span>
+                                        <span>$('#endDate').datetimepicker({</span>
+                                        <span>    timepicker:false,</span>
+                                        <span>    format:'Y.m.d',</span>
+                                        <span>    onShow:function( ct ){</span>
+                                        <span>        this.setOptions({</span>
+                                        <span>            minDate:$('#startDate').val()?$('#startDate').val():false</span>
+                                        <span>        })</span>
+                                        <span>    },</span>
+                                        <span>});</span>
+
+                                    </pre>
+                                </div>
+                            </div>
+                            <!--  -->
+                            <h2 id="demo-express-form-5">表单——数字<a href="#demo-a-express-form-5">返回</a></h2>
+                            <div class="demo-express-code-box row">                
+                                <div class="col-sm-6">
+                                    <h3><span>html</span><button class="copy" data-clipboard-target="#foo14"></button></h3>
+                                    <pre id="foo14">
+                                        <span>&lt;div class="form-line"&gt;</span>
+                                        <span>    &lt;input type="number" name=""&gt;</span>
+                                        <span>&lt;/div&gt;</span>
+                                    </pre>
+                                </div>
+                                <div class="col-sm-6">
+                                    <h3><span>css</span><button class="copy" data-clipboard-target="#foo15"></button></h3>
+                                    <pre id="foo15">
+                                        <span>.form-line input[type=number]{</span>
+                                        <span>    width: 50px;</span>
+                                        <span>}</span>
+                                    </pre>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-            <!-- Page content end -->
+                </div>   
+            </div>  
         </div>
-        <!-- Make page fluid-->
+        <!-- Page content end -->
     </div>
+    <!-- Make page fluid-->
     <!-- Wrap all page content end -->
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script type="text/javascript" src="../content/frame/jquery/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script type="text/javascript" src="../content/frame/bootstrap/js/bootstrap.js"></script>
 
+    <script type="text/javascript" src="../content/frame/echarts/echarts.min.js"></script>
     <!-- my js start -->
     <script type="text/javascript" src="../content/frame/bootstrap/js/my-dropdown.js"></script>
     <script type="text/javascript" src="../content/frame/vuejs/vue.js"></script>
     <script type="text/javascript" src="../content/normal/js/data.js"></script>
     <script type="text/javascript" src="../content/normal/js/v-nav.js"></script>
-    <!-- my js end -->
+
     <script type="text/javascript" src="../content/frame/nicescroll/jquery.nicescroll.min.js"></script>
+
+    <script type="text/javascript" src="../content/frame/clipboard/clipboard.min.js"></script>
+    <script type="text/javascript" src="../content/frame/jquery.date/jquery.datetimepicker.full.min.js"></script>
     <script type="text/javascript" src="../content/normal/js/frame.js"></script>
+    <script type="text/javascript" src="../content/normal/js/v-container.js"></script>
 </body>
 
 </html>

@@ -1,257 +1,720 @@
 <link rel="stylesheet" type="text/css" href="../../content/normal/css/container.css">
-<style type="text/css" media="screen">
-    
-</style>
+<link rel="stylesheet" type="text/css" href="../../content/frame/jquery.date/jquery.datetimepicker.min.css">
+<script type="text/javascript" src="../../content/frame/clipboard/clipboard.min.js"></script>
+<script type="text/javascript" src="../../content/frame/jquery.date/jquery.datetimepicker.full.min.js"></script>
+<script type="text/javascript" src="../../content/frame/echarts/echarts.min.js"></script>
 <div class="right-page-content">
-    <div class="demo">        
+    <div class="demo">  
+        <div class="show-box">
+            <!-- <div id="myChart" style="width: 1000px;height:700px;"></div> -->
+            <h1 class='content-h1'>标题展示 <button class="refresh"></button></h1>
+            <h2 class='content-h2'>标题展示
+                <div class="form-line">
+                    <label>部门信息：</label><input type="number" name="">
+                </div>
+            </h2>
+            <!-- <form class="form-inline">
+                <div class="form-line form-group">
+                    <label>部门信息：</label>
+                    <div class="dropdown">
+                        <div class="btn btn-default dropdown-toggle" type="text" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Dropdown
+                            <span class="caret"></span>
+                        </div>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                            <li><a href="#">Action</a></li>
+                            <li><a href="#">Another action</a></li>
+                            <li><a href="#">Something else here</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">Separated link</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <button class="btn btn-default" type="submit">查询按钮</button>
+            </form> -->
+
+            <form action="" method="get" accept-charset="utf-8">
+                <div class="form-line">
+                    <label>部门信息：</label><input type="text" name="" placeholder="部门编号/名称/助记码">
+                </div>
+                <div class="form-line">
+                    <label>就餐时间：</label>
+                    <div class="form-date">
+                        <input id="startDate" type="text" placeholder="选择时间">
+                    </div>
+                    <em> — </em>
+                    <div class="form-date">
+                        <input id="endDate" type="text" placeholder="选择时间">
+                    </div>
+                </div>
+                <div class="form-line">
+                    <input type="number" name="">
+                </div>
+            </form>
+
+        </div>      
         <!--  -->
-        <h1 class="demo-title" id="demo-title">相关Demo 目录 <em>(注：点击demo 查看使用方法 )</em></h1>
+        <h1 class="demo-title" id="demo-title">相关Demo 目录 <em>(注：点击demo名 查看使用方法 )</em></h1>
+        <!-- 文档分类 -->
+        <a href="#dome-table">html</a>
+        <a href="">js</a>
         <!-- 目录 -->
-        <table class="table table-bordered" >
-          <thead>
-            <tr>
-              <th>dome 名</th>
-              <th>图例</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-                <td><a href="#demo-express-h2"># 大标题</a></td>
-                <td>
-                    <div class="img-box">
-                        <img src="../../content/normal/images/demo-img/h1.png" alt="">
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td><a href="#demo-express-form-1"># 表单——输入框</a></td>
-                <td>
-                    <div class="img-box">
-                        <img src="../../content/normal/images/demo-img/table-1.png" alt="">
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td><a href="#demo-express-form-2"># 表单——下拉框</a></td>
-                <td>
-                    <div class="img-box">
-                        <img src="../../content/normal/images/demo-img/table-2.png" alt="">
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td><a href="#demo-express-form-3"># 表单——按钮</a></td>
-                <td>
-                    <div class="img-box">
-                        <img src="../../content/normal/images/demo-img/table-3.png" alt="">
-                    </div>
-                </td>
-            </tr>
-          </tbody>
+        <table class="table table-bordered" id="dome-table">
+            <thead>
+                <tr>
+                    <th>dome 名</th>
+                    <th>图例</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><a style="font-weight:bold;color:red;font-size:40px;">声明</a></td>
+                    <td style="font-weight:bold;color:red;line-height: 80px;font-size:20px;">
+                        以下所有css和js分别依赖bootstrao.min.css、boostrap.js(源码有删减)、jquery.min.js
+                    </td>
+                </tr>
+                <tr>
+                    <td><a href="#demo-express-h1" id="demo-a-express-h1"># 大标题</a></td>
+                    <td>
+                        <div class="img-box">
+                            <img src="../../content/normal/images/demo-img/h1.png" alt="">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td><a href="#demo-express-h2" id="demo-a-express-h2"># 小标题</a></td>
+                    <td>
+                        <div class="img-box">
+                            <img src="../../content/normal/images/demo-img/h2.png" alt="">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td><a href="#demo-express-form" id="demo-a-express-form"># 表单——form</a></td>
+                    <td>
+                        form统一；以下关于表单内部的样式都依赖form; 还有对label的样式说明
+                    </td>
+                </tr>
+                <tr>
+                    <td><a href="#demo-express-form-1" id="demo-a-express-form-1"># 表单——输入框</a></td>
+                    <td>
+                        <div class="img-box">
+                            <img src="../../content/normal/images/demo-img/table-1.png" alt="">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td><a href="#demo-express-form-2" id="demo-a-express-form-2"># 表单——下拉框</a></td>
+                    <td>
+                        <div class="img-box">
+                            <img src="../../content/normal/images/demo-img/table-2.png" alt="">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td><a href="#demo-express-form-3" id="demo-a-express-form-3"># 表单——按钮</a></td>
+                    <td>
+                        <div class="img-box">
+                            <img src="../../content/normal/images/demo-img/table-3.png" alt="">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td><a href="#demo-express-form-4" id="demo-a-express-form-4"># 表单——时间</a></td>
+                    <td>
+                        <div class="img-box">
+                            <img src="../../content/normal/images/demo-img/table-4.png" alt="">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td><a href="#demo-express-form-5" id="demo-a-express-form-5"># 表单——数字</a></td>
+                    <td>
+                        <div class="img-box">
+                            <img src="../../content/normal/images/demo-img/table-5.png" alt="">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td><a href="#demo-express-form-6" id="demo-a-express-form-6"># 图表——折线图</a></td>
+                    <td>
+                        <div class="img-box" style="height:400px;">
+                            <img src="../../content/normal/images/demo-img/line.png" alt="">
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
         </table>
         <!-- ======================================== -->
-        <form class="form-inline">
-            <div class="form-line form-group">
-                <label>部门信息：</label>
-                <div class="dropdown">
-                    <div class="btn btn-default dropdown-toggle" type="text" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Dropdown
-                        <span class="caret"></span>
-                    </div>
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                        <li><a href="#">Action</a></li>
-                        <li><a href="#">Another action</a></li>
-                        <li><a href="#">Something else here</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a href="#">Separated link</a></li>
-                    </ul>
-                </div>
-            </div>
-            <button class="btn btn-default" type="submit">查询按钮</button>
-        </form>
+
         <!-- ======================================== -->
         <!-- 具体 结构部分 -->
         <h1 class="demo-title" id="demo-title">具体结构的使用方法</h1>
         <div class="demo-container">
-            <!-- part-1 -->
-            <h2 id="demo-express-h2">大标题 <a href="#demo-title">返回</a></h2>
+            <!-- 大标题 -->
+            <h2 id="demo-express-h1">大标题 <a href="#demo-a-express-h1">返回</a></h2>
             <div class="demo-express-code-box row">
-                <div class="col-sm-6">
-                    <h3>html</h3>
-                    <pre name="" readonly="readonly">
-                        <span>&lt;h1 class='CON-title'&gt;标题展示 &lt;button class="refresh"&gt;&lt;/button&gt;&lt;/h1&gt;</span>
-                    </pre>
+                <div class="col-sm-12">
+                    <h3><span>html</span><button class="copy" data-clipboard-target="#foo1"></button></h3>
+
+<pre id="foo1">
+&lt;h1 class='content-h1'&gt;标题展示 &lt;button class="refresh"&gt;&lt;/button&gt;&lt;/h1&gt;
+</pre>
                 </div>
-                <div class="col-sm-6">
-                    <h3>css</h3>
-                    <pre>
-                        <span>.CON-title{</span>
-                        <span>    height: 66px;</span>
-                        <span>    padding: 0 30px 0 38px;</span>
-                        <span>    background: url(../../content/normal/images/ico-title.png) no-repeat left center;</span>
-                        <span>    line-height: 66px;</span>
-                        <span>    font-size: 24px;</span>
-                        <span>    color:#000;</span>
-                        <span>    margin:0;</span>
-                        <span>    border-bottom:1px solid #979797;</span>
-                        <span>}</span>
-                        <span>.CON-title .refresh{</span>
-                        <span>    width: 24px;</span>
-                        <span>    height: 24px;</span>
-                        <span>    float: right;</span>
-                        <span>    margin-top:21px;</span>
-                        <span>    border:0;</span>
-                        <span>    background: url(../../content/normal/images/refresh.png) no-repeat;</span>
-                        <span>}</span>
-                    </pre>
+                <div class="col-sm-12">
+                    <h3><span>css</span><button class="copy" data-clipboard-target="#foo2"></button></h3>
+<pre id="foo2">
+.content-h1{
+    height: 66px;
+    padding: 0 10px 0 38px;
+    background: url(../../normal/images/ico-title.png) no-repeat left center;
+    line-height: 66px;
+    font-size: 24px;
+    color:#000;
+    margin:0;
+    border-bottom:1px solid #979797;
+}
+.content-h1 .refresh{
+    width: 24px;
+    height: 24px;
+    float: right;
+    margin-top:21px;
+    border:0;
+    background: url(../../normal/images/refresh.png) no-repeat;
+}
+</pre>
                 </div>
-                
             </div>
-            <!-- part-2 -->
-            <h2 id="demo-express-form-1">表单——输入框<a href="#demo-title">返回</a></h2>
+            <!-- 小标题 -->
+            <h2 id="demo-express-h2">小标题 <a href="#demo-a-express-h2">返回</a></h2>
             <div class="demo-express-code-box row">
-                <div class="col-sm-6">
-                    <h3>html</h3>
-                    <pre>
-                        <span>&lt;form action="" method="get" accept-charset="utf-8"&gt;</span>
-                        <span>    &lt;div class="form-line"&gt;</span>
-                        <span>        &lt;label&gt;部门信息：&lt;/label&gt;&lt;input type="text" name="" placeholder="部门编号/</span>
-                        <span>名称/助记码"&gt;</span>
-                        <span>    &lt;/div&gt;</span>
-                        <span>&lt;/form&gt;</span>
-                    </pre>
+                <div class="col-sm-12">
+                    <h3><span>html</span><button class="copy" data-clipboard-target="#h2"></button></h3>
+
+<pre id="h2">
+&lt;h2 class='content-h2'&gt;标题展示&lt;/h2&gt;
+</pre>
                 </div>
-                <div class="col-sm-6">
-                    <h3>css</h3>
-                    <pre>
-                        <span>form{</span>
-                        <span>    margin:30px 0;</span>
-                        <span>}</span>
-                        <span>.form-line{</span>
-                        <span>    display: inline-block;</span>
-                        <span>    height: 30px;</span>
-                        <span>    line-height: 30px;</span>
-                        <span>    margin-right: 26px;</span>
-                        <span>}</span>
-                        <span>.form-line *{</span>
-                        <span>    font-size: 14px;</span>
-                        <span>}</span>
-                        <span>.form-line label{</span>
-                        <span>    width: 80px;</span>
-                        <span>    font-weight: normal;</span>
-                        <span>    vertical-align: middle;</span>
-                        <span>    margin: 0;</span>
-                        <span>}</span>
-                        <span>.form-line input[type=text]{</span>
-                        <span>    width: 200px;</span>
-                        <span>    height: 30px;</span>
-                        <span>    padding:0 5px;</span>
-                        <span>    border:1px solid #c5c5c5;</span>
-                        <span>}</span>
-                        <span>.form-line input[type=text]::placeholder{</span>
-                        <span>    color:#8B8B8B;</span>
-                        <span>}</span>
-                    </pre>
+                <div class="col-sm-12">
+                    <h3><span>css</span><button class="copy" data-clipboard-target="#_h2"></button></h3>
+<pre id="_h2">
+.content-h2{
+    height: 30px;
+    line-height: 30px;
+    padding: 0 10px;
+    font-size: 18px;
+    border:0;
+    position: relative;
+}
+.content-h2:before{
+    position: absolute;
+    top:50%;
+    left:0;
+    margin-top: -9px;
+    content: " ";
+    width: 3px;
+    height: 18px;
+    filter: progid:DXImageTransform.Microsoft.gradient(startcolorstr=#06bce1,endcolorstr=#5682fd,gradientType=1);
+    background: -linear-gradient(top,#06bce1,#5682fd);
+    background: -moz-linear-gradient(top,#06bce1,#5682fd);
+    background: -webkit-linear-gradient(top,#06bce1,#5682fd);
+}
+</pre>
                 </div>
-                
             </div>
-            <!-- part-3 -->
-            <h2 id="demo-express-form-2">表单——下拉框<a href="#demo-title">返回</a></h2>
+            <!-- 表单——form -->
+            <h2 id="demo-express-form">表单——form<a href="#demo-a-express-form">返回</a></h2>
             <div class="demo-express-code-box row">
-                <div class="col-sm-4">
-                    <h3>html</h3>
-                    <pre>
-                        <span>注意：不要忘记修改下拉关联的id（模板里的‘dropdownMenu1’）</span>
-                        <span>&lt;form class="form-inline"&gt;</span>
-                        <span>    &lt;div class="form-line form-group"&gt;</span>
-                        <span>        &lt;label&gt;部门信息：&lt;/label&gt;</span>
-                        <span>        &lt;div class="dropdown"&gt;</span>
-                        <span>            &lt;button class="btn btn-default dropdown-toggle" type="text" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"&gt;</span>
-                        <span>            Dropdown</span>
-                        <span>                &lt;span class="caret"&gt;&lt;/span&gt;</span>
-                        <span>            &lt;/button&gt;</span>
-                        <span>            &lt;ul class="dropdown-menu" aria-labelledby="dropdownMenu1"&gt;</span>
-                        <span>                &lt;li&gt;&lt;a href="#"&gt;Action&lt;/a&gt;&lt;/li&gt;</span>
-                        <span>                &lt;li&gt;&lt;a href="#"&gt;Another action&lt;/a&gt;&lt;/li&gt;</span>
-                        <span>                &lt;li&gt;&lt;a href="#"&gt;Something else here&lt;/a&gt;&lt;/li&gt;</span>
-                        <span>                &lt;li role="separator" class="divider"&gt;&lt;/li&gt;</span>
-                        <span>                &lt;li&gt;&lt;a href="#"&gt;Separated link&lt;/a&gt;&lt;/li&gt;</span>
-                        <span>            &lt;/ul&gt;</span>
-                        <span>        &lt;/div&gt;</span>
-                        <span>    &lt;/div&gt;</span>
-                        <span>&lt;/form&gt;</span>
-                    </pre>
+                <div class="col-sm-12">
+                    <h3><span>html</span><button class="copy" data-clipboard-target="#form"></button></h3>
+<pre id="form">
+&lt;form class="form-inline"&gt; 
+    &lt;div class="form-line&gt;
+        &lt;label&gt;部门信息：&lt;/label&gt;
+    &lt;/div&gt; 
+&lt;/form&gt;
+</pre>
                 </div>
-                <div class="col-sm-4">
-                    <h3>css</h3>
-                    <pre>
-                        <span>form{</span>
-                        <span>    margin:30px 0;</span>
-                        <span>}</span>
-                        <span>.form-line{</span>
-                        <span>    display: inline-block;</span>
-                        <span>    height: 30px;</span>
-                        <span>    line-height: 30px;</span>
-                        <span>    margin-right: 26px;</span>
-                        <span>}</span>
-                        <span>.form-line *{</span>
-                        <span>    font-size: 14px;</span>
-                        <span>}</span>
-                        <span>.form-line label{</span>
-                        <span>    width: 80px;</span>
-                        <span>    font-weight: normal;</span>
-                        <span>    vertical-align: middle;</span>
-                        <span>    margin: 0;</span>
-                        <span>}</span>
-                        <span>.form-line label + .dropdown{</span>
-                        <span>    display: inline-block;</span>
-                        <span>    height: 30px;</span>
-                        <span>    vertical-align: middle;</span>
-                        <span>}</span>
-                        <span>.form-line label + .dropdown .dropdown-toggle{</span>
-                        <span>    height: 30px;</span>
-                        <span>    line-height: 10px;</span>
-                        <span>    border-radius:0;</span>
-                        <span>    border:1px solid #c5c5c5;</span>
-                        <span>}</span>
-                    </pre>
+                <div class="col-sm-12">
+                    <h3><span>css</span><button class="copy" data-clipboard-target="#form-css"></button></h3>
+<pre id="form-css">
+form{
+    margin:30px 0;
+}
+form .form-line *{
+    font-size: 14px;
+}
+.form-line{
+    display: inline-block;
+    height: 30px;
+    line-height: 30px;
+    margin-right: 26px;
+}
+.form-line label{
+    width: 80px;
+    height:30px;
+    font-weight: normal;
+    vertical-align: top;
+    margin: 0;
+}
+</pre>
                 </div>
-                <div class="col-sm-4">
-                    <h3>js</h3>
-                    <pre>
-                        <span>备注：点击选择后隐藏下拉框，</span>
-                        <span>      并添加到点击按钮上</span>
-                    </pre>
-                </div>
-                
             </div>
-            <!-- part-4 -->
-            <h2 id="demo-express-form-3">表单——按钮<a href="#demo-title">返回</a></h2>
+            <!-- 表单——输入框 -->
+            <h2 id="demo-express-form-1">表单——输入框<a href="#demo-a-express-form-1">返回</a></h2>
             <div class="demo-express-code-box row">
-                <div class="col-sm-6">
-                    <h3>html</h3>
-                    <pre>
-                        <span>&lt;form class="form-inline"&gt;</span>
-                        <span>&lt;button class="btn btn-default" type="submit"&gt;查询按钮&lt;/button&gt;</span>
-                        <span>&lt;/form&gt;</span>
-                    </pre>
+                <div class="col-sm-12">
+                    <h3><span>html</span><button class="copy" data-clipboard-target="#foo3"></button></h3>
+<pre id="foo3">
+&lt;form action="" method="get" accept-charset="utf-8"&gt;
+    &lt;div class="form-line"&gt;
+        &lt;label&gt;部门信息：&lt;/label&gt;&lt;input type="text" name="" placeholder="部门编号/
+名称/助记码"&gt;
+    &lt;/div&gt;
+&lt;/form&gt;
+</pre>
                 </div>
-                <div class="col-sm-6">
-                    <h3>css</h3>
-                    <pre>
-                        
-                    </pre>
+                <div class="col-sm-12">
+                    <h3><span>css</span><button class="copy" data-clipboard-target="#foo4"></button></h3>
+<pre id="foo4">
+.form-line input{
+    width: 200px;
+    height: 30px;
+    padding:0 5px;
+    border:1px solid #c5c5c5;
+    outline: none;
+}
+.form-line input::placeholder{
+    color:#8B8B8B;
+}
+</pre>
                 </div>
-                
+            </div>
+            <!-- 表单——下拉框 -->
+            <h2 id="demo-express-form-2">表单——下拉框<a href="#demo-a-express-form-2">返回</a></h2>
+            <div class="demo-express-code-box row">
+                <div class="col-sm-12">
+                    <h3><span>html</span><button class="copy" data-clipboard-target="#foo5"></button></h3>
+<pre id="foo5">
+注意：不要忘记修改下拉关联的id（模板里的‘dropdownMenu1’）
+&lt;form class="form-inline"&gt;
+    &lt;div class="form-line form-group"&gt;
+        &lt;label&gt;部门信息：&lt;/label&gt;
+        &lt;div class="dropdown"&gt;
+            &lt;button class="btn btn-default dropdown-toggle" type="text" id="dropdownMenu1" data-toggle="dropdown" aspopup="true" aria-expanded="false"&gt;
+            Dropdown
+                &lt;span class="caret"&gt;&lt;/span&gt;
+            &lt;/button&gt;
+            &lt;ul class="dropdown-menu" aria-labelledby="dropdownMenu1"&gt;
+                &lt;li&gt;&lt;a href="#"&gt;Action&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="#"&gt;Another action&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="#"&gt;Something else here&lt;/a&gt;&lt;/li&gt;
+                &lt;li role="separator" class="divider"&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="#"&gt;Separated link&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/form&gt;
+</pre>
+                </div>
+                <div class="col-sm-12">
+                    <h3><span>css</span><button class="copy" data-clipboard-target="#foo6"></button></h3>
+<pre id="foo6">
+.form-line label + .dropdown{
+    display: inline-block;
+    height: 30px;
+    vertical-align: middle;
+}
+.form-line label + .dropdown [data-toggle=dropdown]{
+    height: 30px;
+    line-height: 16px;
+    border-radius:0;
+    border:1px solid #c5c5c5;
+}
+</pre>
+                </div>
+                <div class="col-sm-12">
+                    <h3><span>javascript</span><button class="copy" data-clipboard-target="#foo7"></button></h3>
+<pre id="foo7">
+备注：点击选择后隐藏下拉框，
+      并添加到点击按钮上
+$(".form-line .dropdown-menu").on("click","li a",function(event){
+    var dropdown = $(this).parents(".form-line").find('[data-toggle=dropdown]');
+    dropdown.text($(this).text()).parent().removeClass("open");
+});
+</pre>
+                </div>
+            </div>
+            <!-- 表单——按钮 -->
+            <h2 id="demo-express-form-3">表单——按钮<a href="#demo-a-express-form-3">返回</a></h2>
+            <div class="demo-express-code-box row">
+                <div class="col-sm-12">
+                    <h3><span>html</span><button class="copy" data-clipboard-target="#foo8"></button></h3>
+<pre id="foo8">
+&lt;form class="form-inline"&gt;
+    &lt;button class="btn btn-default" type="submit"&gt;查询按钮&lt;/button&gt;
+&lt;/form&gt;
+</pre>
+                </div>
+            </div>
+            <!-- 表单——时间 -->
+            <h2 id="demo-express-form-4">表单——时间<a href="#demo-a-express-form-4">返回</a></h2>
+            <div class="demo-express-code-box row">
+                <div class="col-sm-12">
+                    <h3><span>plugin</span><button class="copy" data-clipboard-target="#foo10"></button></h3>
+<pre id="foo10">
+# 依赖
+# 引用 css
+&lt;link rel="stylesheet" type="text/css" href="../../content/frame/jquery.date/jquery.datetimepicker.min.css"&gt;
+# 引用 js
+&lt;script type="text/javascript" src="../../content/frame/jquery.date/jquery.datetimepicker.full.min.js"&gt;&lt;/script&gt;
+</pre>
+                </div>
+                <div class="col-sm-12">
+                    <h3><span>html</span><button class="copy" data-clipboard-target="#foo11"></button></h3>
+<pre id="foo11">
+&lt;div class="form-line"&gt;
+    &lt;label&gt;就餐时间：&lt;/label&gt;
+    &lt;div class="form-date"&gt;
+        &lt;input id="startDate" type="text" placeholder="选择时间"&gt;
+    &lt;/div&gt;
+    &lt;em&gt; — &lt;/em&gt;
+    &lt;div class="form-date"&gt;
+        &lt;input id="endDate" type="text" placeholder="选择时间"&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</pre>
+                </div>
+                <div class="col-sm-12">
+                    <h3><span>css</span><button class="copy" data-clipboard-target="#foo12"></button></h3>
+<pre id="foo12">
+.form-line .form-date{
+    display: inline-block;
+    width: 120px;
+    position: relative;
+    vertical-align: top
+}
+.form-line .form-date + em{
+    display: inline-block;
+    height: 30px;
+    color:#e6e6e6;
+}
+.form-line .form-date input[type=text]{
+    width: 100%;
+}
+.form-line .form-date input[type=text]{
+    background: url(../../normal/images/clock.png) no-repeat right 5px center;
+}
+</pre>
+                </div>
+                <div class="col-sm-12">
+                    <h3><span>javascript</span><button class="copy" data-clipboard-target="#foo13"></button></h3>
+<pre id="foo13">
+$.datetimepicker.setLocale('zh');
+$('#startDate').datetimepicker({        
+    timepicker:false,
+    format:'Y.m.d',
+    onShow:function( ct ){
+        this.setOptions({
+            maxDate:$('#endDate').val()?$('#endDate').val():false
+        })
+    },
+});
+$('#endDate').datetimepicker({
+    timepicker:false,
+    format:'Y.m.d',
+    onShow:function( ct ){
+        this.setOptions({
+            minDate:$('#startDate').val()?$('#startDate').val():false
+        })
+    },
+});
+</pre>
+                </div>
+            </div>
+            <!-- 表单——数字 -->
+            <h2 id="demo-express-form-5">表单——数字<a href="#demo-a-express-form-5">返回</a></h2>
+            <div class="demo-express-code-box row">                
+                <div class="col-sm-12">
+                    <h3><span>html</span><button class="copy" data-clipboard-target="#foo14"></button></h3>
+<pre id="foo14">
+&lt;div class="form-line"&gt;
+    &lt;input type="number" name=""&gt;
+&lt;/div&gt;
+</pre>
+                </div>
+                <div class="col-sm-12">
+                    <h3><span>css</span><button class="copy" data-clipboard-target="#foo15"></button></h3>
+<pre id="foo15">
+.form-line input[type=number]{
+    width: 50px;
+}
+</pre>
+                </div>
+            </div>
+            <!-- 图表——echarts -->
+            <h2 id="demo-express-form-6">echarts图表——折线图<a href="#demo-a-express-form-6">返回</a></h2>
+            <div class="demo-express-code-box row">
+                <div class="col-sm-12">
+                    <h3><span>plugin</span><button class="copy" data-clipboard-target="#foo17"></button></h3>
+<pre id="foo17">
+# 依赖
+# 引用 js
+&lt;script type="text/javascript" src="../../content/frame/echarts/echarts.min.js"&gt;&lt;/script&gt;
+</pre>
+                </div>            
+                <div class="col-sm-12">
+                    <h3><span>html</span><button class="copy" data-clipboard-target="#foo17"></button></h3>
+<pre id="foo17">
+&lt;div id="myChart" style="width: 1000px;height:700px;"&gt;&lt;/div&gt;
+</pre>
+                </div>
+                <div class="col-sm-12">
+                    <h3><span>javascript</span><button class="copy" data-clipboard-target="#foo18"></button></h3>
+<pre id="foo18">
+// echarts
+// 基于准备好的dom，初始化echarts实例
+var myChart = echarts.init(document.getElementById('myChart'));
+// 指定图表的配置项和数据
+var option = {
+    title: {
+        text: '堆叠区域图'
+    },
+    tooltip : {
+        trigger: 'axis',
+        axisPointer: {
+            type: 'cross',
+            label: {
+                backgroundColor: '#6a7985'
+            }
+        }
+    },
+    legend: {
+        bottom:10,
+        itemGap:20,
+        data:[
+            {
+                name:'数据1',
+                icon:"rect"
+            },
+            {
+                name:'数据2',
+                icon:"rect"
+            },
+            {
+                name:'数据3',
+                icon:"rect"
+            },
+            {
+                name:'数据4',
+                icon:"rect"
+            },
+            {
+                name:'数据5',
+                icon:"rect"
+            }]
+    },
+    toolbox: {
+        right:50,
+        feature: {
+            saveAsImage: {},
+            restore:{},
+            magicType:{
+                type: ['line', 'bar'],
+            },
+        }
+    },
+    grid: {
+        left: '3%',
+        right: '4%',
+        bottom: '10%',
+        containLabel: true
+    },
+    xAxis : [
+        {
+            type : 'category',
+            boundaryGap : false,
+            data : ['周一','周二','周三','周四','周五','周六','周日']
+        }
+    ],
+    yAxis : [
+        {
+            type : 'value'
+        }
+    ],
+    series : [
+        {
+            name:'数据1',
+            type:'line',
+            stack: '总量',
+            areaStyle: {
+                color: {
+                    type: 'linear',
+                    x: 0,
+                    y: 0,
+                    x2: 0,
+                    y2: 1,
+                    colorStops: [{
+                        offset: 0, color: '#02a6ff' // 0% 处的颜色
+                    }, {
+                        offset: 1, color: '#8ce6ff' // 100% 处的颜色
+                    }],
+                    globalCoord: false // 缺省为 false
+                }
+            },
+            lineStyle:{
+                color:"#0098eb"
+            },
+            symbolSize:10,
+            itemStyle:{
+                color:"#0098eb"
+            },
+            data:[120, 132, 101, 134, 90, 230, 210]
+        },
+        {
+            name:'数据2',
+            type:'line',
+            stack: '总量',
+            areaStyle: {
+                color: {
+                    type: 'linear',
+                    x: 0,
+                    y: 0,
+                    x2: 0,
+                    y2: 1,
+                    colorStops: [{
+                        offset: 0, color: '#a9f9f8' // 0% 处的颜色
+                    }, {
+                        offset: 1, color: '#5cf0f0' // 100% 处的颜色
+                    }],
+                    globalCoord: false // 缺省为 false
+                }
+            },
+            lineStyle:{
+                color:"#57c7c8"
+            },
+            symbolSize:10,
+            itemStyle:{
+                color:"#57c7c8"
+            },
+            data:[220, 182, 191, 234, 290, 330, 310]
+        },
+        {
+            name:'数据3',
+            type:'line',
+            stack: '总量',
+            areaStyle: {
+                color: {
+                    type: 'linear',
+                    x: 0,
+                    y: 0,
+                    x2: 0,
+                    y2: 1,
+                    colorStops: [{
+                        offset: 0, color: '#ffe47d ' // 0% 处的颜色
+                    }, {
+                        offset: 1, color: '#ffe88a' // 100% 处的颜色
+                    }],
+                    globalCoord: false // 缺省为 false
+                }
+            },
+            lineStyle:{
+                color:"#deae06"
+            },
+            symbolSize:10,
+            itemStyle:{
+                color:"#deae06"
+            },
+            data:[150, 232, 201, 154, 190, 330, 410]
+        },
+        {
+            name:'数据4',
+            type:'line',
+            stack: '总量',
+            areaStyle: {
+                color: {
+                    type: 'linear',
+                    x: 0,
+                    y: 0,
+                    x2: 0,
+                    y2: 1,
+                    colorStops: [{
+                        offset: 0, color: '#feb89f' // 0% 处的颜色
+                    }, {
+                        offset: 1, color: '#ffb99f' // 100% 处的颜色
+                    }],
+                    globalCoord: false // 缺省为 false
+                }
+            },
+            lineStyle:{
+                color:"#e78352"
+            },
+            symbolSize:10,
+            itemStyle:{
+                color:"#e78352"
+            },
+            data:[320, 332, 301, 334, 390, 330, 320]
+        },
+        {
+            name:'数据5',
+            type:'line',
+            stack: '总量',
+            label: {
+                normal: {
+                    show: true,
+                    position: 'top'
+                }
+            },
+            areaStyle: {
+                color: {
+                    type: 'linear',
+                    x: 0,
+                    y: 0,
+                    x2: 0,
+                    y2: 1,
+                    colorStops: [{
+                        offset: 0, color: '#e837aa' // 0% 处的颜色
+                    }, {
+                        offset: 1, color: '#ffb1e5' // 100% 处的颜色
+                    }],
+                    globalCoord: false // 缺省为 false
+                }
+            },
+            lineStyle:{
+                color:"#d02597"
+            },
+            symbolSize:10,
+            itemStyle:{
+                color:"#d02597"
+            },
+            data:[820, 932, 901, 934, 1290, 1330, 1320]
+        }
+    ]
+};
+// 使用刚指定的配置项和数据显示图表。
+myChart.setOption(option);
+// 更改图标类型事件
+myChart.on("magictypechanged",function(params){
+    var newSeies = [];
+    for(var i = 0;i<5;i++){
+        newSeies.push({
+                stack: null,
+                areaStyle: null,
+            });
+    }
+    myChart.setOption({
+        series:newSeies
+    });
+});
+// 重置事件
+myChart.on("restore",function(params){
+    myChart.setOption(option);
+});
+</pre>
+                </div>
             </div>
         </div>
     </div>
 </div>
-<script type="text/javascript">
-    var vmRightContainer = new Vue({
-        el:".right-page-content",
-        data:{
-            
-        }
-    })
-</script>
+<script type="text/javascript" src="../../content/normal/js/v-container.js"></script>

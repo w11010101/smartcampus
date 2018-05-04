@@ -23,13 +23,17 @@ nav{
     vertical-align: middle;
     overflow-x: hidden;
 }
-.right-content{
-    width: calc(100% - 230px);
-    display: inline-block;
-    background: #123456;
-    height: calc(100% - 60px);
-    vertical-align: middle;
-    overflow-x: hidden;
+
+#right-container{
+    width: calc(100vw - 230px);
+    float:right;
+    top:5px;
+}
+#navbar.closed.collapsed nav{
+    width: 50px;
+}
+#navbar.closed.collapsed + #right-container{
+    width: calc(100vw - 50px);
 }
 [v-cloak]{
     display: none;
