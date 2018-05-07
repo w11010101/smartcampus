@@ -1,22 +1,21 @@
-$(function(){
+// $(function(){
     // from in data.js
     console.log(data);
     
     // vue ================================
     Vue.component("dropdown-menu",{
         props:["todo","index"],
-        template:`<a href="#" class="sidebar-toggle" data-toggle="dropdown" v-on:click=toggleDropdown v-bind:set-index=index>
+        template:`<a v-bind:href="todo.href" class="sidebar-toggle" data-toggle="dropdown" v-on:click=toggleDropdown v-bind:set-id=todo.id>
                     <i class="icon-service"></i><span>{{todo.text}}</span><i class="ico-arr-project"></i>
                 </a>`,
         computed:{
             fn1:function(){
-                // console.log(this.tode);
             }
         },
         methods:{
             toggleDropdown:function(){
                 var $this = $(this.$el);
-                vmNav.toggleDropdown($this);
+                navVM.toggleDropdown($this);
             }
         }
     });
@@ -38,12 +37,11 @@ $(function(){
     })
     Vue.component("dropdown-sub-menu",{
         props:["todo"],
-        template:`<a href="#" class="dropdown-toggle" data-toggle="dropdown" v-on:click="subClick">
+        template:`<a v-bind:href="todo.href" class="dropdown-toggle" data-toggle="dropdown" v-on:click="subClick">
                         <i class="icon-repair"></i>{{todo.text}}<b class="ico-arr-dropdown" ></b>
                     </a>`,
         computed:{
             fn1:function(){
-                // console.log(this.tode);
             },
         },
         methods:{
@@ -72,15 +70,22 @@ $(function(){
     })
     Vue.component("dropdown-child-menu",{
         props:["todo"],
-        template:`<a href="#" data-toggle="dropdown" class="dropdown-toggle" aria-expanded="false">
+        template:`<a v-bind:href="todo.href" data-toggle="dropdown" class="dropdown-toggle" aria-expanded="false" v-on:click="subJump">
                 {{todo.text}}<b class="ico-arr-plus" v-if="todo.nodes" ></b></a>`,
         computed:{
+            
+        },
+        methods:{
+            subJump:function(){
+                var $this = $(this.$el);
+                navVM.jumpPage($this);
+            }
         }
     });
     // sec-Sidebar  product
     Vue.component("dropdown-product-menu",{
         props:["todo","index"],
-        template:`<a href="#" class="sidebar-toggle" v-bind:set-index=index v-on:click="subClick">
+        template:`<a v-bind:href="todo.href"  class="sidebar-toggle" v-bind:set-id=todo.id v-on:click="subClick">
                 <i class="ico-arr-down-black" ></i>{{todo.text}}</a>`,
         computed:{
             
@@ -95,18 +100,19 @@ $(function(){
     });
     Vue.component("dropdown-product-a",{
         props:["todo","index"],
-        template:`<a href="#" v-bind:set-index=index>{{todo.text}}</a>`,
-        computed:{
-        },
+        template:`<a v-bind:href="todo.href" v-bind:set-id=todo.id v-on:click="subJump(this)">{{todo.text}}</a>`,
         methods:{
+            subJump:function(){
+                var $this = $(this.$el);
+                navVM.jumpPage($this);
+            }
         }
     });
     Vue.component("dropdown-product-sub-menu",{
         props:["todo"],
-        template:`<a href="#" data-toggle="dropdown" class="dropdown-toggle">{{todo.text}}<b class="ico-arr-plus-black"></b></a>`,
+        template:`<a data-toggle="dropdown" class="dropdown-toggle" v-on:click="subClick(this)">{{todo.text}}<b class="ico-arr-plus-black"></b></a>`,
         computed:{
             fn1:function(){
-                // console.log(this.tode);
             },
         },
         methods:{
@@ -117,7 +123,6 @@ $(function(){
             }
         }
     });
-    // <a href="#" data-toggle="dropdown" class="dropdown-toggle">树形子标题三 <b class="ico-arr-plus-black"></b></a>
     Vue.component("dropdown-product-sub-list",{
         props:["subtodo",'index'],
         template:`<li class="dropdown">
@@ -135,19 +140,20 @@ $(function(){
         },
     })
     // vue 实例
-    var vmNav = new Vue({
+    var navVM = new Vue({
         el:"#vm-nav",
         data:{
             navData:"",
-            activeNav:''
+            activeNav:'',
+            current_nav:""
         },
         watch:{
             navData:function(event){
-                console.log(vmNav);
-                vmNav.activeNav = event[0];
+                console.log(navVM);
+                navVM.activeNav = event[0];
                 this.$nextTick(function () {
                     // DOM 现在更新了
-                    // `this` 绑定到当前实例
+                    // `this` 绑定到当前实例z
                     $("#sidebar .navigation").eq(0).addClass("active");
                 })
                 
@@ -156,24 +162,53 @@ $(function(){
         computed:{
         },
         methods:{
+            jumpPage:function(obj){
+                var setId = obj.attr("set-id");
+                this.setActive(this.navData,setId);
+                var id = obj.attr("href");
+                console.log(setId);
+                if(!id) return false;
+                if(!$(id).attr("loaded")){
+                    console.log("loaded");
+                    $(id).load("views/container/"+(id.substr(1))+".html").attr("loaded",true);
+                }
+                $(id).show(0).siblings().hide(0);
+
+                // obj.parent().addClass("active").siblings().removeClass("active");
+            },
             toggleDropdown:function(obj){
                 var sidebar = obj.parents("#sidesbar");
                 // 当屏幕小鱼1024时，会添加classname 'collapsed';
                 if(sidebar.hasClass("collapsed")){
-                    console.log("you",vmNav);
+                    console.log("you",navVM);
                     obj.parents(".navigation").addClass("active").siblings().removeClass("active");
-                    vmNav.activeNav = vmNav.navData[parseInt(obj.attr("set-index"))];
+                    navVM.activeNav = navVM.navData[parseInt(obj.attr("set-id"))]
                 }else{
 
+                }
+            },
+            setActive:function(arr,setId){
+                for(var i=0;i<arr.length;i++){
+                    if(arr[i].id == setId){
+                        
+                        arr["active"] = "active";
+                        navVM.$set(arr[i],"active","active");
+                        return false;
+                    }else{
+                        if(arr[i]['nodes']){
+                            this.setActive(arr[i]['nodes'],setId);
+                            return false;
+                        }
+                    }
                 }
             }
         }
     });
 
     function postData(){
-        vmNav.navData = data;
+        navVM.navData = data;
     }   
     postData();
 
-})
+// })
 

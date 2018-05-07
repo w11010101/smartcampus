@@ -1,0 +1,1226 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Minimal 1.0 - Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <!-- <link rel="icon" type="image/ico" href="../content/normal/images/favicon.ico" /> -->
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="../content/frame/bootstrap/css/bootstrap.min.css" >
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" >
+    <link rel="stylesheet" href="../content/frame/animate/animate.min.css" >
+    <link rel="stylesheet" href="../content/normal/css/theme.css" >
+    <!-- my style start -->
+    <link rel="stylesheet" href="../content/normal/css/my-theme.css" >
+    <link rel="stylesheet" href="../content/normal/css/nav-style.css" >
+    <link rel="stylesheet" href="../content/normal/css/container.css">
+    <!-- my style end -->
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+  <![endif]-->
+  <link rel="stylesheet" type="text/css" href="../content/frame/jquery.date/jquery.datetimepicker.min.css">
+
+</head>
+
+<body class="bg-1">
+    <!-- Wrap all page content here -->
+    <div id="wrap">
+        <!-- Make page fluid -->
+        <div class="row">
+            <!-- Fixed navbar -->
+            <div class="navbar navbar-fixed-top" role="navigation" id="navbar">
+                <!-- .nav-collapse -->
+                <div class="navbar-collapse">
+                    <!-- logo-->
+                    <div class="navbar-header">
+                        <div class="navbar-brand">
+                            微校园后台管理系统
+                        </div>
+                    </div>
+                    <!-- logo end-->
+                    <!-- Quick Actions -->
+                    <ul class="nav navbar-nav quick-actions">
+                        <li class="dropdown">
+                            <a href="#">
+                                <i class="ico-mail"></i>
+                                <span class="label">1</span>
+                            </a>
+                        </li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                <i class="ico-theme"></i>
+                            </a>
+                            <ul class="dropdown-menu arrow settings">
+                                <li>
+                                    <ul id="color-schemes">
+                                        <li><a href="#" class="bg-1"></a></li>
+                                        <li><a href="#" class="bg-2"></a></li>
+                                        <li><a href="#" class="bg-3"></a></li>
+                                        <li><a href="#" class="bg-4"></a></li>
+                                        <li><a href="#" class="bg-5"></a></li>
+                                        <li><a href="#" class="bg-6"></a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="dropdown user">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                <span class="profile-photo">
+                                    <img src="../content/normal/images/profile-photo.jpg" alt />
+                                </span>
+                                系统管理员<i class="ico-arr-dropdown"></i>
+                            </a>
+                            <ul class="dropdown-menu arrow settings">
+                                <li>
+                                    <a href="#"><i class="fa fa-user"></i>基本信息</a>
+                                </li>
+                                <li>
+                                    <a href="#"><i class="fa fa-envelope"></i> 消息 <span class="badge badge-red" id="user-inbox">3</span></a>
+                                </li>
+                                <li class="divider"></li>
+                                <li>
+                                    <a href="#"><i class="fa fa-power-off"></i> 退出系统</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#" class="language">
+                                英文版
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- /Quick Actions -->
+                    <!-- Search -->
+                    <div class="search" id="main-search">
+                        <input type="text" placeholder="Search..."><i class="ico-search"></i>
+                    </div>
+                    <!-- Search end -->
+                </div>
+                <!--/.nav-collapse -->
+                <!-- Sidebar -->
+                <div id="vm-nav" >
+                    <ul class="nav navbar-nav side-nav" id="sidebar">
+                        <li>
+                            <div class="sidebar-collapse">
+                                <a href="#">
+                                    <i class="ico-bars"></i>
+                                </a>
+                            </div>
+                        </li>
+                        <li class="navigation" v-for="(e,i) in navData">
+                            <dropdown-menu v-bind:todo ='e' v-bind:index="i"></dropdown-menu>
+                            <ul class="dropdown-menu">
+                                <dropdown-sub-list v-if="e.nodes" v-for="sub in e.nodes" v-bind:subtodo ='sub' v-bind:index ='i'></dropdown-sub-list>
+                            </ul>
+                        </li>
+                    </ul>
+                    <!-- Sidebar end -->
+                    <!-- sec-Sidebar -->
+                    <div class="product-nav">
+                        <div class="sec-sidebar" id="sec-sidebar">
+                            <h1 class="h1">{{activeNav.text}}</h1>
+                            <ul class="nav navbar-nav sec-side-nav">
+                                <li v-for="(event,index) in activeNav.nodes" class="navigation menu-hide" >
+                                    <dropdown-product-menu v-bind:todo ='event' v-bind:index="index"  v-if="event.nodes"></dropdown-product-menu>
+                                    <dropdown-product-a v-bind:todo ='event' v-bind:index="index"  v-else="event.nodes"></dropdown-product-a>
+                                    <ul class="menu">
+                                        <li v-for="(item,index) in event.nodes" class="dropdown">
+                                            <dropdown-product-sub-menu v-bind:todo ='item' v-bind:index="index" v-if="event.nodes"></dropdown-product-sub-menu>
+                                            <dropdown-product-a v-bind:todo ='event' v-bind:index="index"  v-else></dropdown-product-a>
+                                            <ul class="dropdown-menu">
+                                                <dropdown-product-sub-list v-if="event.nodes" v-for="sub in event.nodes" v-bind:subtodo ='sub' v-bind:index ='index'></dropdown-product-sub-list>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="sidebar-collapse sec-sidebar-collapse">
+                            <a href="#"><i class="ico-arr-collapse"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Fixed navbar end -->
+            <!-- Page content -->
+            <div id="content" class="col-md-12">
+                <!-- demo -->
+                <div class="demo">  
+        <div class="show-box">
+            <!-- 实力展示 -->
+            <h1 class='content-h1'>实例展示（大标题） <button class="refresh"></button></h1>
+            <h2 class='content-h2'>小标题展示
+                <div class="form-line">
+                    <label>部门信息：</label><input type="number" name="">
+                </div>
+            </h2>
+            <div class="grid row">
+                <div class="col-md-3">
+                    部门编号：<span>12312312312</span>
+                </div>
+                <div class="col-md-3">
+                    部门助记码：<span>12312312312</span>
+                </div>
+                <div class="col-md-3">
+                    分区名称：<span>子单位A</span>
+                </div>
+                <div class="col-md-3">
+                    分区编号：<span>20202020</span>
+                </div>
+            </div>
+            <div class="grid row">
+                <div class="col-md-3">
+                    部门层级：<div class="dropdown">
+                        <div class="btn btn-default dropdown-toggle" type="text" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Dropdown
+                            <span class="caret"></span>
+                        </div>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                            <li><a href="#">Action</a></li>
+                            <li><a href="#">Another action</a></li>
+                            <li><a href="#">Something else here</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">Separated link</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    部门助记码：<span>12312312312</span>
+                </div>
+            </div>
+            <div id="paging-app" v-cloak>
+                <div>
+                    <div class="page"  v-show="show">
+                        <div class="pagelist">
+                            <span class="auxiliary">共</span>
+                            <span class="auxiliary">10</span>
+                            <span class="auxiliary">页/</span>
+                            <span class="auxiliary auxiliary-last">100条数据</span>
+                            <span class="jump" :class="{disabled:pstart}" @click="{current_page--}"><</span>
+                            <span v-show="current_page>5" class="jump" @click="jumpPage(1)">1</span>
+                            <span class="ellipsis"  v-show="efont">...</span>
+                            <span class="jump" v-for="num in indexs" :class="{bgprimary:current_page==num}" @click="jumpPage(num)">{{num}}</span>
+                            <span class="ellipsis"  v-show="ebehind">...</span>
+
+                            <span :class="{disabled:pend}" class="jump" @click="{current_page++}">></span>
+                            <span v-show="current_page<pages-4" class="jump" @click="jumpPage(pages)">{{pages}}</span>
+
+                            <span class="jumppoint auxiliary">跳至：</span>
+                            <span class="jumpinp "><input type="text" v-model="changePage"></span>
+                            <span class="jumppoint auxiliary">页</span>
+                            <span class="jump gobtn auxiliary" @click="jumpPage(changePage)">GO</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="myChart" style="width: 100%;height:500px;"></div>
+            
+            <form class="form-inline">
+                <div class="form-line form-group">
+                    <label>部门信息：</label>
+                    <div class="dropdown">
+                        <div class="btn btn-default dropdown-toggle" type="text" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Dropdown
+                            <span class="caret"></span>
+                        </div>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                            <li><a href="#">Action</a></li>
+                            <li><a href="#">Another action</a></li>
+                            <li><a href="#">Something else here</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">Separated link</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <button class="btn btn-default" type="">查询按钮</button>
+            </form>
+
+            <form action="" method="get" accept-charset="utf-8">
+                <div class="form-line">
+                    <label>部门信息：</label><input type="text" name="" placeholder="部门编号/名称/助记码">
+                </div>
+                <div class="form-line">
+                    <label>就餐时间：</label>
+                    <div class="form-date">
+                        <input id="startDate" type="text" placeholder="选择时间">
+                    </div>
+                    <em> — </em>
+                    <div class="form-date">
+                        <input id="endDate" type="text" placeholder="选择时间">
+                    </div>
+                </div>
+            </form>
+
+        </div>      
+        <!--  -->
+        <h1 class="demo-title" id="demo-title">相关Demo 目录 <em>(注：点击demo名 查看使用方法 )</em></h1>
+        <!-- 文档分类 -->
+        <a href="#dome-table">html</a>
+        <a href="">js</a>
+        <!-- 目录 -->
+        <table class="table table-bordered" id="dome-table">
+            <thead>
+                <tr>
+                    <th>dome 名</th>
+                    <th>图例</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><a style="font-weight:bold;color:red;font-size:40px;">声明</a></td>
+                    <td style="font-weight:bold;color:red;line-height: 80px;font-size:20px;">
+                        以下所有css和js分别依赖bootstrao.min.css、boostrap.js(源码有删减)、jquery.min.js
+                    </td>
+                </tr>
+                <tr>
+                    <td><a href="#demo-express-h1" id="demo-a-express-h1"># 大标题</a></td>
+                    <td>
+                        <div class="img-box">
+                            <img src="../content/normal/images/demo-img/h1.png" alt="">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td><a href="#demo-express-h2" id="demo-a-express-h2"># 小标题</a></td>
+                    <td>
+                        <div class="img-box">
+                            <img src="../content/normal/images/demo-img/h2.png" alt="">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td><a href="#demo-express-form" id="demo-a-express-form"># 表单——form</a></td>
+                    <td>
+                        form统一；以下关于表单内部的样式都依赖form; 还有对label的样式说明
+                    </td>
+                </tr>
+                <tr>
+                    <td><a href="#demo-express-form-1" id="demo-a-express-form-1"># 表单——输入框</a></td>
+                    <td>
+                        <div class="img-box">
+                            <img src="../content/normal/images/demo-img/table-1.png" alt="">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td><a href="#demo-express-form-2" id="demo-a-express-form-2"># 表单——下拉框</a></td>
+                    <td>
+                        <div class="img-box">
+                            <img src="../content/normal/images/demo-img/table-2.png" alt="">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td><a href="#demo-express-form-3" id="demo-a-express-form-3"># 表单——按钮</a></td>
+                    <td>
+                        <div class="img-box">
+                            <img src="../content/normal/images/demo-img/table-3.png" alt="">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td><a href="#demo-express-form-4" id="demo-a-express-form-4"># 表单——时间</a></td>
+                    <td>
+                        <div class="img-box">
+                            <img src="../content/normal/images/demo-img/table-4.png" alt="">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td><a href="#demo-express-form-5" id="demo-a-express-form-5"># 表单——数字</a></td>
+                    <td>
+                        <div class="img-box">
+                            <img src="../content/normal/images/demo-img/table-5.png" alt="">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td><a href="#demo-express-form-6" id="demo-a-express-form-6"># 图表——折线图</a></td>
+                    <td>
+                        <div class="img-box" style="height:400px;">
+                            <img src="../content/normal/images/demo-img/line.png" alt="">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td><a href="#demo-express-paging" id="demo-a-express-paging"># 分页</a></td>
+                    <td>
+                        <div class="img-box">
+                            <img src="../content/normal/images/demo-img/page.png" alt="">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td><a href="#demo-express-grid" id="demo-a-express-grid"># 栅格系统</a></td>
+                    <td>
+                        <div class="img-box">
+                            <img src="../content/normal/images/demo-img/grid.png" alt="">
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <!-- ======================================== -->
+
+        <!-- ======================================== -->
+        <!-- 具体 结构部分 -->
+        <h1 class="demo-title" id="demo-title">具体结构的使用方法</h1>
+        <div class="demo-container">
+            <!-- 大标题 -->
+            <h2 id="demo-express-h1">大标题 <a href="#demo-a-express-h1">返回</a></h2>
+            <div class="demo-express-code-box row">
+                <div class="col-sm-12">
+                    <h3><span>html</span><button class="copy" data-clipboard-target="#foo1"></button></h3>
+
+<pre id="foo1">
+&lt;h1 class='content-h1'&gt;标题展示 &lt;button class="refresh"&gt;&lt;/button&gt;&lt;/h1&gt;
+</pre>
+                </div>
+                <div class="col-sm-12">
+                    <h3><span>css</span><button class="copy" data-clipboard-target="#foo2"></button></h3>
+<pre id="foo2">
+.content-h1{
+    height: 66px;
+    padding: 0 10px 0 38px;
+    background: url(../normal/images/ico-title.png) no-repeat left center;
+    line-height: 66px;
+    font-size: 24px;
+    color:#000;
+    margin:0;
+    border-bottom:1px solid #979797;
+}
+.content-h1 .refresh{
+    width: 24px;
+    height: 24px;
+    float: right;
+    margin-top:21px;
+    border:0;
+    background: url(../normal/images/refresh.png) no-repeat;
+}
+</pre>
+                </div>
+            </div>
+            <!-- 小标题 -->
+            <h2 id="demo-express-h2">小标题 <a href="#demo-a-express-h2">返回</a></h2>
+            <div class="demo-express-code-box row">
+                <div class="col-sm-12">
+                    <h3><span>html</span><button class="copy" data-clipboard-target="#h2"></button></h3>
+
+<pre id="h2">
+&lt;h2 class='content-h2'&gt;标题展示&lt;/h2&gt;
+</pre>
+                </div>
+                <div class="col-sm-12">
+                    <h3><span>css</span><button class="copy" data-clipboard-target="#_h2"></button></h3>
+<pre id="_h2">
+.content-h2{
+    height: 30px;
+    line-height: 30px;
+    padding: 0 10px;
+    font-size: 18px;
+    border:0;
+    position: relative;
+}
+.content-h2:before{
+    position: absolute;
+    top:50%;
+    left:0;
+    margin-top: -9px;
+    content: " ";
+    width: 3px;
+    height: 18px;
+    filter: progid:DXImageTransform.Microsoft.gradient(startcolorstr=#06bce1,endcolorstr=#5682fd,gradientType=1);
+    background: -linear-gradient(top,#06bce1,#5682fd);
+    background: -moz-linear-gradient(top,#06bce1,#5682fd);
+    background: -webkit-linear-gradient(top,#06bce1,#5682fd);
+}
+</pre>
+                </div>
+            </div>
+            <!-- 表单——form -->
+            <h2 id="demo-express-form">表单——form<a href="#demo-a-express-form">返回</a></h2>
+            <div class="demo-express-code-box row">
+                <div class="col-sm-12">
+                    <h3><span>html</span><button class="copy" data-clipboard-target="#form"></button></h3>
+<pre id="form">
+&lt;form class="form-inline"&gt; 
+    &lt;div class="form-line&gt;
+        &lt;label&gt;部门信息：&lt;/label&gt;
+    &lt;/div&gt; 
+&lt;/form&gt;
+</pre>
+                </div>
+                <div class="col-sm-12">
+                    <h3><span>css</span><button class="copy" data-clipboard-target="#form-css"></button></h3>
+<pre id="form-css">
+form{
+    margin:30px 0;
+}
+form .form-line *{
+    font-size: 14px;
+}
+.form-line{
+    display: inline-block;
+    height: 30px;
+    line-height: 30px;
+    margin-right: 26px;
+}
+.form-line label{
+    width: 80px;
+    height:30px;
+    font-weight: normal;
+    vertical-align: top;
+    margin: 0;
+}
+</pre>
+                </div>
+            </div>
+            <!-- 表单——输入框 -->
+            <h2 id="demo-express-form-1">表单——输入框<a href="#demo-a-express-form-1">返回</a></h2>
+            <div class="demo-express-code-box row">
+                <div class="col-sm-12">
+                    <h3><span>html</span><button class="copy" data-clipboard-target="#foo3"></button></h3>
+<pre id="foo3">
+&lt;form action="" method="get" accept-charset="utf-8"&gt;
+    &lt;div class="form-line"&gt;
+        &lt;label&gt;部门信息：&lt;/label&gt;&lt;input type="text" name="" placeholder="部门编号/
+名称/助记码"&gt;
+    &lt;/div&gt;
+&lt;/form&gt;
+</pre>
+                </div>
+                <div class="col-sm-12">
+                    <h3><span>css</span><button class="copy" data-clipboard-target="#foo4"></button></h3>
+<pre id="foo4">
+.form-line input{
+    width: 200px;
+    height: 30px;
+    padding:0 5px;
+    border:1px solid #c5c5c5;
+    outline: none;
+}
+.form-line input::placeholder{
+    color:#8B8B8B;
+}
+</pre>
+                </div>
+            </div>
+            <!-- 表单——下拉框 -->
+            <h2 id="demo-express-form-2">表单——下拉框<a href="#demo-a-express-form-2">返回</a></h2>
+            <div class="demo-express-code-box row">
+                <div class="col-sm-12">
+                    <h3><span>html</span><button class="copy" data-clipboard-target="#foo5"></button></h3>
+<pre id="foo5">
+注意：不要忘记修改下拉关联的id（模板里的‘dropdownMenu1’）
+&lt;form class="form-inline"&gt;
+    &lt;div class="form-line form-group"&gt;
+        &lt;label&gt;部门信息：&lt;/label&gt;
+        &lt;div class="dropdown"&gt;
+            &lt;button class="btn btn-default dropdown-toggle" type="text" id="dropdownMenu1" data-toggle="dropdown" aspopup="true" aria-expanded="false"&gt;
+            Dropdown
+                &lt;span class="caret"&gt;&lt;/span&gt;
+            &lt;/button&gt;
+            &lt;ul class="dropdown-menu" aria-labelledby="dropdownMenu1"&gt;
+                &lt;li&gt;&lt;a href="#"&gt;Action&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="#"&gt;Another action&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="#"&gt;Something else here&lt;/a&gt;&lt;/li&gt;
+                &lt;li role="separator" class="divider"&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="#"&gt;Separated link&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/form&gt;
+</pre>
+                </div>
+                <div class="col-sm-12">
+                    <h3><span>css</span><button class="copy" data-clipboard-target="#foo6"></button></h3>
+<pre id="foo6">
+.form-line label + .dropdown{
+    display: inline-block;
+    height: 30px;
+    vertical-align: middle;
+}
+.form-line label + .dropdown [data-toggle=dropdown]{
+    height: 30px;
+    line-height: 16px;
+    border-radius:0;
+    border:1px solid #c5c5c5;
+}
+</pre>
+                </div>
+                <div class="col-sm-12">
+                    <h3><span>javascript</span><button class="copy" data-clipboard-target="#foo7"></button></h3>
+<pre id="foo7">
+备注：点击选择后隐藏下拉框，
+      并添加到点击按钮上
+$(".form-line .dropdown-menu").on("click","li a",function(event){
+    var dropdown = $(this).parents(".form-line").find('[data-toggle=dropdown]');
+    dropdown.text($(this).text()).parent().removeClass("open");
+});
+</pre>
+                </div>
+            </div>
+            <!-- 表单——按钮 -->
+            <h2 id="demo-express-form-3">表单——按钮<a href="#demo-a-express-form-3">返回</a></h2>
+            <div class="demo-express-code-box row">
+                <div class="col-sm-12">
+                    <h3><span>html</span><button class="copy" data-clipboard-target="#foo8"></button></h3>
+<pre id="foo8">
+&lt;form class="form-inline"&gt;
+    &lt;button class="btn btn-default" type="submit"&gt;查询按钮&lt;/button&gt;
+&lt;/form&gt;
+</pre>
+                </div>
+            </div>
+            <!-- 表单——时间 -->
+            <h2 id="demo-express-form-4">表单——时间<a href="#demo-a-express-form-4">返回</a></h2>
+            <div class="demo-express-code-box row">
+                <div class="col-sm-12">
+                    <h3><span>plugin</span><button class="copy" data-clipboard-target="#foo10"></button></h3>
+<pre id="foo10">
+# 依赖
+# 引用 css
+&lt;link rel="stylesheet" type="text/css" href="../content/frame/jquery.date/jquery.datetimepicker.min.css"&gt;
+# 引用 js
+&lt;script type="text/javascript" src="../content/frame/jquery.date/jquery.datetimepicker.full.min.js"&gt;&lt;/script&gt;
+</pre>
+                </div>
+                <div class="col-sm-12">
+                    <h3><span>html</span><button class="copy" data-clipboard-target="#foo11"></button></h3>
+<pre id="foo11">
+&lt;div class="form-line"&gt;
+    &lt;label&gt;就餐时间：&lt;/label&gt;
+    &lt;div class="form-date"&gt;
+        &lt;input id="startDate" type="text" placeholder="选择时间"&gt;
+    &lt;/div&gt;
+    &lt;em&gt; — &lt;/em&gt;
+    &lt;div class="form-date"&gt;
+        &lt;input id="endDate" type="text" placeholder="选择时间"&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</pre>
+                </div>
+                <div class="col-sm-12">
+                    <h3><span>css</span><button class="copy" data-clipboard-target="#foo12"></button></h3>
+<pre id="foo12">
+.form-line .form-date{
+    display: inline-block;
+    width: 120px;
+    position: relative;
+    vertical-align: top
+}
+.form-line .form-date + em{
+    display: inline-block;
+    height: 30px;
+    color:#e6e6e6;
+}
+.form-line .form-date input[type=text]{
+    width: 100%;
+}
+.form-line .form-date input[type=text]{
+    background: url(../normal/images/clock.png) no-repeat right 5px center;
+}
+</pre>
+                </div>
+                <div class="col-sm-12">
+                    <h3><span>javascript</span><button class="copy" data-clipboard-target="#foo13"></button></h3>
+<pre id="foo13">
+$.datetimepicker.setLocale('zh');
+$('#startDate').datetimepicker({        
+    timepicker:false,
+    format:'Y.m.d',
+    onShow:function( ct ){
+        this.setOptions({
+            maxDate:$('#endDate').val()?$('#endDate').val():false
+        })
+    },
+});
+$('#endDate').datetimepicker({
+    timepicker:false,
+    format:'Y.m.d',
+    onShow:function( ct ){
+        this.setOptions({
+            minDate:$('#startDate').val()?$('#startDate').val():false
+        })
+    },
+});
+</pre>
+                </div>
+            </div>
+            <!-- 表单——数字 -->
+            <h2 id="demo-express-form-5">表单——数字<a href="#demo-a-express-form-5">返回</a></h2>
+            <div class="demo-express-code-box row">                
+                <div class="col-sm-12">
+                    <h3><span>html</span><button class="copy" data-clipboard-target="#foo14"></button></h3>
+<pre id="foo14">
+&lt;div class="form-line"&gt;
+    &lt;input type="number" name=""&gt;
+&lt;/div&gt;
+</pre>
+                </div>
+                <div class="col-sm-12">
+                    <h3><span>css</span><button class="copy" data-clipboard-target="#foo15"></button></h3>
+<pre id="foo15">
+.form-line input[type=number]{
+    width: 50px;
+}
+</pre>
+                </div>
+            </div>
+            <!-- 图表——echarts -->
+            <h2 id="demo-express-form-6">echarts图表——折线图<a href="#demo-a-express-form-6">返回</a></h2>
+            <div class="demo-express-code-box row">
+                <div class="col-sm-12">
+                    <h3><span>plugin</span><button class="copy" data-clipboard-target="#foo17"></button></h3>
+<pre id="foo17">
+# 依赖
+# 引用 js
+&lt;script type="text/javascript" src="../content/frame/echarts/echarts.min.js"&gt;&lt;/script&gt;
+</pre>
+                </div>            
+                <div class="col-sm-12">
+                    <h3><span>html</span><button class="copy" data-clipboard-target="#foo17"></button></h3>
+<pre id="foo17">
+&lt;div id="myChart" style="width: 1000px;height:700px;"&gt;&lt;/div&gt;
+</pre>
+                </div>
+                <div class="col-sm-12">
+                    <h3><span>javascript</span><button class="copy" data-clipboard-target="#foo18"></button></h3>
+<pre id="foo18">
+// echarts
+// 基于准备好的dom，初始化echarts实例
+var myChart = echarts.init(document.getElementById('myChart'));
+// 指定图表的配置项和数据
+var option = {
+    title: {
+        text: '堆叠区域图'
+    },
+    tooltip : {
+        trigger: 'axis',
+        axisPointer: {
+            type: 'cross',
+            label: {
+                backgroundColor: '#6a7985'
+            }
+        }
+    },
+    legend: {
+        bottom:10,
+        itemGap:20,
+        data:[
+            {
+                name:'数据1',
+                icon:"rect"
+            },
+            {
+                name:'数据2',
+                icon:"rect"
+            },
+            {
+                name:'数据3',
+                icon:"rect"
+            },
+            {
+                name:'数据4',
+                icon:"rect"
+            },
+            {
+                name:'数据5',
+                icon:"rect"
+            }]
+    },
+    toolbox: {
+        right:50,
+        feature: {
+            saveAsImage: {},
+            restore:{},
+            magicType:{
+                type: ['line', 'bar'],
+            },
+        }
+    },
+    grid: {
+        left: '3%',
+        right: '4%',
+        bottom: '10%',
+        containLabel: true
+    },
+    xAxis : [
+        {
+            type : 'category',
+            boundaryGap : false,
+            data : ['周一','周二','周三','周四','周五','周六','周日']
+        }
+    ],
+    yAxis : [
+        {
+            type : 'value'
+        }
+    ],
+    series : [
+        {
+            name:'数据1',
+            type:'line',
+            stack: '总量',
+            areaStyle: {
+                color: {
+                    type: 'linear',
+                    x: 0,
+                    y: 0,
+                    x2: 0,
+                    y2: 1,
+                    colorStops: [{
+                        offset: 0, color: '#02a6ff' // 0% 处的颜色
+                    }, {
+                        offset: 1, color: '#8ce6ff' // 100% 处的颜色
+                    }],
+                    globalCoord: false // 缺省为 false
+                }
+            },
+            lineStyle:{
+                color:"#0098eb"
+            },
+            symbolSize:10,
+            itemStyle:{
+                color:"#0098eb"
+            },
+            data:[120, 132, 101, 134, 90, 230, 210]
+        },
+        {
+            name:'数据2',
+            type:'line',
+            stack: '总量',
+            areaStyle: {
+                color: {
+                    type: 'linear',
+                    x: 0,
+                    y: 0,
+                    x2: 0,
+                    y2: 1,
+                    colorStops: [{
+                        offset: 0, color: '#a9f9f8' // 0% 处的颜色
+                    }, {
+                        offset: 1, color: '#5cf0f0' // 100% 处的颜色
+                    }],
+                    globalCoord: false // 缺省为 false
+                }
+            },
+            lineStyle:{
+                color:"#57c7c8"
+            },
+            symbolSize:10,
+            itemStyle:{
+                color:"#57c7c8"
+            },
+            data:[220, 182, 191, 234, 290, 330, 310]
+        },
+        {
+            name:'数据3',
+            type:'line',
+            stack: '总量',
+            areaStyle: {
+                color: {
+                    type: 'linear',
+                    x: 0,
+                    y: 0,
+                    x2: 0,
+                    y2: 1,
+                    colorStops: [{
+                        offset: 0, color: '#ffe47d ' // 0% 处的颜色
+                    }, {
+                        offset: 1, color: '#ffe88a' // 100% 处的颜色
+                    }],
+                    globalCoord: false // 缺省为 false
+                }
+            },
+            lineStyle:{
+                color:"#deae06"
+            },
+            symbolSize:10,
+            itemStyle:{
+                color:"#deae06"
+            },
+            data:[150, 232, 201, 154, 190, 330, 410]
+        },
+        {
+            name:'数据4',
+            type:'line',
+            stack: '总量',
+            areaStyle: {
+                color: {
+                    type: 'linear',
+                    x: 0,
+                    y: 0,
+                    x2: 0,
+                    y2: 1,
+                    colorStops: [{
+                        offset: 0, color: '#feb89f' // 0% 处的颜色
+                    }, {
+                        offset: 1, color: '#ffb99f' // 100% 处的颜色
+                    }],
+                    globalCoord: false // 缺省为 false
+                }
+            },
+            lineStyle:{
+                color:"#e78352"
+            },
+            symbolSize:10,
+            itemStyle:{
+                color:"#e78352"
+            },
+            data:[320, 332, 301, 334, 390, 330, 320]
+        },
+        {
+            name:'数据5',
+            type:'line',
+            stack: '总量',
+            label: {
+                normal: {
+                    show: true,
+                    position: 'top'
+                }
+            },
+            areaStyle: {
+                color: {
+                    type: 'linear',
+                    x: 0,
+                    y: 0,
+                    x2: 0,
+                    y2: 1,
+                    colorStops: [{
+                        offset: 0, color: '#e837aa' // 0% 处的颜色
+                    }, {
+                        offset: 1, color: '#ffb1e5' // 100% 处的颜色
+                    }],
+                    globalCoord: false // 缺省为 false
+                }
+            },
+            lineStyle:{
+                color:"#d02597"
+            },
+            symbolSize:10,
+            itemStyle:{
+                color:"#d02597"
+            },
+            data:[820, 932, 901, 934, 1290, 1330, 1320]
+        }
+    ]
+};
+// 使用刚指定的配置项和数据显示图表。
+myChart.setOption(option);
+// 更改图标类型事件
+myChart.on("magictypechanged",function(params){
+    var newSeies = [];
+    for(var i = 0;i<5;i++){
+        newSeies.push({
+                stack: null,
+                areaStyle: null,
+            });
+    }
+    myChart.setOption({
+        series:newSeies
+    });
+});
+// 重置事件
+myChart.on("restore",function(params){
+    myChart.setOption(option);
+});
+</pre>
+                </div>
+            </div>
+            <!-- 分页 -->
+            <h2 id="demo-express-paging">分页<a href="#demo-a-express-paging">返回</a></h2>
+            <div class="demo-express-code-box row">
+                <div class="col-sm-12">
+                    <h3><span>plugin</span><button class="copy" data-clipboard-target="#paging-plugin"></button></h3>
+<pre id="paging-plugin">
+    依赖vuejs
+</pre>
+                </div>
+                <div class="col-sm-12">
+                    <h3><span>html</span><button class="copy" data-clipboard-target="#paging"></button></h3>
+<pre id="paging">
+&lt;div id="paging-app"&gt;
+    &lt;div&gt;
+        &lt;div class="page"  v-show="show"&gt;
+            &lt;div class="pagelist"&gt;
+                &lt;span class="auxiliary"&gt;共&lt;/span&gt;
+                &lt;span class="auxiliary"&gt;10&lt;/span&gt;
+                &lt;span class="auxiliary"&gt;页/&lt;/span&gt;
+                &lt;span class="auxiliary auxiliary-last"&gt;100条数据&lt;/span&gt;
+                &lt;span class="jump" :class="{disabled:pstart}" @click="{current_page--}"&gt;&lt;/span&gt;
+                &lt;span v-show="current_page&gt;5" class="jump" @click="jumpPage(1)"&gt;1&lt;/span&gt;
+                &lt;span class="ellipsis"  v-show="efont"&gt;...&lt;/span&gt;
+                &lt;span class="jump" v-for="num in indexs" :class="{bgprimary:current_page==num}" @click="jumpPage(num)"&gt;{{num}}&lt;/span&gt;
+                &lt;span class="ellipsis"  v-show="ebehind"&gt;...&lt;/span&gt;
+
+                &lt;span :class="{disabled:pend}" class="jump" @click="{current_page++}"&gt;&lt;/span&gt;
+                &lt;span v-show="current_page&lt;pages-4" class="jump" @click="jumpPage(pages)"&gt;{{pages}}&lt;/span&gt;
+
+                &lt;span class="jumppoint auxiliary"&gt;跳至：&lt;/span&gt;
+                &lt;span class="jumpinp "&gt;&lt;input type="text" v-model="changePage"&gt;&lt;/span&gt;
+                &lt;span class="jumppoint auxiliary"&gt;页&lt;/span&gt;
+                &lt;span class="jump gobtn auxiliary" @click="jumpPage(changePage)"&gt;GO&lt;/span&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</pre>
+                </div>
+                <div class="col-sm-12">
+                    <h3><span>css</span><button class="copy" data-clipboard-target="#paging-css"></button></h3>
+<pre id="paging-css">
+#paging-app{
+    text-align: right;
+}
+.page {
+    display: inline-block;
+    height: 40px;
+    text-align: center;
+    margin: 20px auto 0;
+    background: #f2f2f2;
+    user-select: none;
+}
+.pagelist {
+    font-size: 0;
+    background: #fff;
+    height: 50px;
+    line-height: 50px;
+}
+
+.pagelist span {
+    font-size: 14px;
+    color: #d7d7d7;
+}
+
+.pagelist .jump {
+    border: 1px solid #d7d7d7;
+    padding: 2px 10px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.pagelist .bgprimary {
+    cursor: default;
+    color: #fff;
+    background: #0188c8;
+    border-color: #0188c8;
+}
+.jumpinp input {
+    width: 40px;
+    height: 22px;
+    font-size: 13px;
+    border: 1px solid #ccc;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.ellipsis {
+    width: 30px;
+    height: 24px;
+    padding: 2px 8px;
+    border: 1px solid #d7d7d7;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    margin-left: 10px;
+}
+
+.jumppoint {
+    margin-left: 10px;
+}
+
+.pagelist .gobtn {
+    font-size: 12px;
+    padding: 4px 10px;
+}
+
+.bgprimary {
+    cursor: default;
+    color: #fff;
+    background: #337ab7;
+    border-color: #337ab7;
+}
+.pagelist .jump.disabled{
+    pointer-events: none;
+    background: #ddd;
+    display: none;
+}
+.page .auxiliary{
+    color:#333;
+}
+.auxiliary-last{
+    margin-right: 10px;
+}
+</pre>
+                </div>
+                <div class="col-sm-12">
+                    <h3><span>javascript</span><button class="copy" data-clipboard-target="#paging-css"></button></h3>
+<pre id="paging-css">
+var pagingVM = new Vue({
+    el: '#paging-app',
+    data: {
+        current_page: 1, //当前页
+        pages: 50, //总页数
+        changePage:'',//跳转页
+        nowIndex:0
+    },
+    computed:{
+        show:function(){
+            return this.pages && this.pages !=1
+        },
+        pstart: function() {
+            return this.current_page == 1;
+        },
+        pend: function() {
+            return this.current_page == this.pages;
+        },
+        efont: function() {
+            if (this.pages <= 7) return false;
+            return this.current_page > 5
+        },
+        ebehind: function() {
+            if (this.pages <= 7) return false;
+            var nowAy = this.indexs;
+            return nowAy[nowAy.length - 1] != this.pages;
+        },
+        indexs: function() {
+
+            var left = 1,
+            right = this.pages,
+            ar = [];
+            if (this.pages >= 7) {
+                if (this.current_page > 5 && this.current_page < this.pages - 4) {
+                    left = Number(this.current_page) - 3;
+                    right = Number(this.current_page) + 3;
+                } else {
+                    if (this.current_page <= 5) {
+                        left = 1;
+                        right = 7;
+                    } else {
+                        right = this.pages;
+
+                        left = this.pages - 6;
+                    }
+                }
+            }
+           while (left <= right) {
+               ar.push(left);
+               left++;
+           }
+            return ar;
+        },
+    },
+    methods: {
+        jumpPage: function(id) {
+            this.current_page = id;
+        },
+    },
+
+})
+
+</pre>
+                </div>
+            </div>
+            <!-- 栅格系统 -->
+            <h2 id="demo-express-grid">栅格系统 <a href="#demo-a-express-grid">返回</a></h2>
+            <div class="demo-express-code-box row">
+                <div class="col-sm-12">
+                    <h3><span>plugin</span><button class="copy" data-clipboard-target="#paging-plugin"></button></h3>
+<pre id="paging-plugin">
+    依赖bootstrap；其他分栏格式请参考 <a href="https://v3.bootcss.com/css/#grid" target='_blank' >bootstrap 栅格系统</a>
+</pre>
+                </div>
+                <div class="col-sm-12">
+                    <h3><span>html</span><button class="copy" data-clipboard-target="#grid"></button></h3>
+<pre id="grid">
+&lt;div class="grid row"&gt;
+    &lt;div class="col-md-3"&gt;
+        部门编号：&lt;span&gt;12312312312&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div class="col-md-3"&gt;
+        部门助记码：&lt;span&gt;12312312312&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div class="col-md-3"&gt;
+        分区名称：&lt;span&gt;子单位A&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div class="col-md-3"&gt;
+        分区编号：&lt;span&gt;20202020&lt;/span&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="grid row"&gt;
+    &lt;div class="col-md-3"&gt;
+        部门层级：&lt;div class="dropdown"&gt;
+            &lt;div class="btn btn-default dropdown-toggle" type="text" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"&gt;
+                Dropdown
+                &lt;span class="caret"&gt;&lt;/span&gt;
+            &lt;/div&gt;
+            &lt;ul class="dropdown-menu" aria-labelledby="dropdownMenu1"&gt;
+                &lt;li&gt;&lt;a href="#"&gt;Action&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="#"&gt;Another action&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="#"&gt;Something else here&lt;/a&gt;&lt;/li&gt;
+                &lt;li role="separator" class="divider"&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="#"&gt;Separated link&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="col-md-3"&gt;
+        部门助记码：&lt;span&gt;12312312312&lt;/span&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</pre>
+                </div>
+                <div class="col-sm-12">
+                    <h3><span>css</span><button class="copy" data-clipboard-target="#grid-css"></button></h3>
+<pre id="grid-css">
+※ 注：
+.grid.row{
+    padding-left: 40px;
+}
+.grid.row [class*=col-md-]{
+    margin: 13px 0 ;
+}
+</pre>
+                </div>
+            </div>
+        </div>
+    </div>
+                <!-- demo end -->
+            </div>  
+        </div>
+        <!-- Page content end -->
+    </div>
+    <!-- Make page fluid-->
+    <!-- Wrap all page content end -->
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script type="text/javascript" src="../content/frame/jquery/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script type="text/javascript" src="../content/frame/bootstrap/js/bootstrap.js"></script>
+
+    <script type="text/javascript" src="../content/frame/echarts/echarts.min.js"></script>
+    <!-- my js start -->
+    <script type="text/javascript" src="../content/frame/bootstrap/js/my-dropdown.js"></script>
+    <script type="text/javascript" src="../content/frame/vuejs/vue.js"></script>
+    <script type="text/javascript" src="../content/normal/js/data.js"></script>
+    <script type="text/javascript" src="../content/normal/js/v-nav.js"></script>
+
+    <script type="text/javascript" src="../content/frame/nicescroll/jquery.nicescroll.min.js"></script>
+
+    <script type="text/javascript" src="../content/frame/clipboard/clipboard.min.js"></script>
+    <script type="text/javascript" src="../content/frame/jquery.date/jquery.datetimepicker.full.min.js"></script>
+    <script type="text/javascript" src="../content/normal/js/frame.js"></script>
+    <script type="text/javascript" src="../content/normal/js/v-container.js"></script>
+</body>
+
+</html>

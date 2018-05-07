@@ -1,0 +1,12 @@
+<div class="">
+    <br>
+    contianer-1.html
+    <a href="#container-2" class="contianer-1">跳转到container-2.html</a>
+</div>
+<script type="text/javascript">
+    $(".contianer-1").on("click",function(){
+
+        console.log(navVM)
+        navVM.jumpPage($(this));
+    });
+</script>

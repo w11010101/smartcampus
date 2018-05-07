@@ -18,6 +18,9 @@
 .navbar-nav.side-nav > li.navigation >.dropdown-menu li a{
     padding-left:34px;
 }
+nav a:hover{
+    cursor: pointer;
+}
 .navbar-nav.side-nav > li.navigation .dropdown-menu .dropdown-menu li a{
     padding-left: 51px;
 }
