@@ -1,12 +1,6 @@
 <div class="">
     <br>
-    contianer-1.html
-    <a href="#container-2" class="contianer-1">跳转到container-2.html</a>
+    contianer-1.html<br> 
+    <a href="#" action="views/container/dome-Doc" nid="dome-Doc" onclick="navVM.jumpPage($(this));" set-id="111">跳转到dome-Doc.html</a><br>   
+    <a href="#" action="views/container/container-2" nid="container-2" onclick="navVM.jumpPage($(this));" set-id="113">跳转到container-2.html</a>
 </div>
-<script type="text/javascript">
-    $(".contianer-1").on("click",function(){
-
-        console.log(navVM)
-        navVM.jumpPage($(this));
-    });
-</script>

@@ -35,17 +35,17 @@
 .demo  a:hover{
     text-decoration: underline;
 }
-.demo table tbody td{
+table tbody td{
     height: 60px;
 }
-.demo table tbody td .img-box{
+table tbody td .img-box{
     height: 80px;
     display: inline-block;
 }
-.demo table tbody td img{
+table tbody td img{
     height: 100%;
 }
-.demo table a{
+table a{
     padding: 30px 0;
     line-height: 80px;
 }
@@ -217,6 +217,7 @@ form button.btn-default{
 /*  */
 .form-line input[type=number]{
     width: 50px;
+    height: 25px;
     padding-right: 0;
 }
 /* paging */
@@ -313,4 +314,98 @@ form button.btn-default{
 }
 .grid.row [class*=col-md-]{
     margin: 13px 0 ;
+}
+/* #table */
+#table{
+
+}
+#table thead{
+    background: #f1f1f1;
+
+}
+#table.table>thead>tr>th{
+    border: 0;
+    height: 40px;
+    line-height: 40px;
+    color:#4A4A4A;
+    font-weight: normal;
+}
+#table.table tbody td{
+    height: 40px;
+    line-height: 40px;
+}
+#table.table .table-checkbox{
+    display: inline-block;
+    width: 16px;
+    height: 16px;  
+    margin: 0;
+    vertical-align: middle;
+    margin-right: 6px;
+    background: url(../images/Checkbox-off.png) no-repeat center;
+    -webkit-background-size: contain;
+    background-size: contain;
+    
+}
+#table.table .table-checkbox.active{
+    background: url(../images/Checkbox-off-half.png) no-repeat center;
+    -webkit-background-size: contain;
+    background-size: contain;
+    
+}   
+#table.table tbody td a{
+    padding: 0;
+    line-height: 40px;
+    color:#3F9EE7;
+}
+#table.table tbody td a + a{
+    margin-left: 18px;
+}
+#table.table tbody td img{
+    width: 50px;
+    height: 50px;
+}
+#table.table tbody td a:hover{
+    text-decoration: none;
+}
+#table.table.table-hover>tbody>tr:hover{
+    background: #FFF7EA;
+}
+#table.table tbody td.time{
+    color:#bdbdbd;
+}
+#table.table tbody td.ongoing,
+#table.table tbody td.notSarted,
+#table.table tbody td.started{
+    color:#2ead88;
+}
+#table.table tbody td.cancelled,
+#table.table tbody td.ban{
+    color:#974343;
+}
+#table.table tbody td.agreed{
+    color:#535353;
+}
+@media screen and (min-width: 768px) and (max-width: 1366px){
+    .table-responsive {
+        width: 100%;
+        margin-bottom: 15px;
+        overflow-y: hidden;
+        -ms-overflow-style: -ms-autohiding-scrollbar;
+        border: 1px solid #ddd;
+    }
+}
+@media screen and (min-width: 768px) and (max-width: 1600px){
+    .table-responsive>#table>.table {
+        margin-bottom: 0;
+    } 
+}
+@media screen and (min-width: 768px) and (max-width: 1600px){
+    .table-responsive>#table.table>tbody>tr>td,
+    .table-responsive>#table.table>tbody>tr>th,
+    .table-responsive>#table.table>tfoot>tr>td,
+    .table-responsive>#table.table>tfoot>tr>th,
+    .table-responsive>#table.table>thead>tr>td, 
+    .table-responsive>#table.table>thead>tr>th {
+        white-space: nowrap;
+    }
 }

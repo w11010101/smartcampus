@@ -15,19 +15,33 @@ var data = [
             level:1,
             text:"dome文档",
             id:111,
-            href:"#dome-Doc",
+            href:"views/container/dome-Doc",
+            nid:"dome-Doc",
+            nodes:null
         },
         {
             level:1,
             text:"container-1.html",
             id:112,
-            href:"#container-1",
+            href:"views/container/container-1",
+            nid:"container-1",
+            nodes:null
         },
         {
             level:1,
             text:"container-2.html",
             id:113,
-            href:"#container-2",
+            href:"views/container/container-2",
+            nid:"container-2",
+            nodes:null
+        },
+        {
+            level:1,
+            text:"不存在的",
+            id:115,
+            href:"views/container/container-2",
+            nid:"1123abacdedf",
+            nodes:null
         },
         {
             level:1,
@@ -39,11 +53,13 @@ var data = [
                     level:2,
                     text:"子集4-1",
                     id:1141,
+                    nodes:null
                 },
                 {
                     level:2,
                     text:"子集4-2",
                     id:1142,
+                    nodes:null
                 },
             ]
         },
@@ -54,21 +70,24 @@ var data = [
         text:"示例-sub2",
         id:12,
         nodes:[
-        {
-            level:1,
-            text:"示例-sub2-sub",
-            id:121,
-        },
-        {
-            level:1,
-            text:"示例-sub2-sub",
-            id:122,
-        },
-        {
-            level:1,
-            text:"示例-sub2-sub",
-            id:123,
-        },
+            {
+                level:1,
+                text:"示例-sub2-sub",
+                id:121,
+                nodes:null
+            },
+            {
+                level:1,
+                text:"示例-sub2-sub",
+                id:122,
+                nodes:null
+            },
+            {
+                level:1,
+                text:"示例-sub2-sub",
+                id:123,
+                nodes:null
+            },
 
         ]
     },
@@ -77,21 +96,24 @@ var data = [
         text:"示例-sub3",
         id:13,
         nodes:[
-        {
-            level:1,
-            text:"示例-sub3-sub",
-            id:131,
-        },
-        {
-            level:1,
-            text:"示例-sub3-sub",
-            id:132,
-        },
-        {
-            level:1,
-            text:"示例-sub3-sub",
-            id:133,
-        },
+            {
+                level:1,
+                text:"示例-sub3-sub",
+                id:131,
+                nodes:null
+            },
+            {
+                level:1,
+                text:"示例-sub3-sub",
+                id:132,
+                nodes:null
+            },
+            {
+                level:1,
+                text:"示例-sub3-sub",
+                id:133,
+                nodes:null
+            },
 
         ]
     },
@@ -107,21 +129,24 @@ var data = [
         text:"运维管理-sub1",
         id:21,
         nodes:[
-        {
-            level:1,
-            text:"运维管理-sub2-sub",
-            id:211,
-        },
-        {
-            level:1,
-            text:"运维管理-sub2-sub",
-            id:212,
-        },
-        {
-            level:1,
-            text:"运维管理-sub2-sub",
-            id:213,
-        },
+            {
+                level:1,
+                text:"运维管理-sub2-sub",
+                id:211,
+                nodes:null
+            },
+            {
+                level:1,
+                text:"运维管理-sub2-sub",
+                id:212,
+                nodes:null
+            },
+            {
+                level:1,
+                text:"运维管理-sub2-sub",
+                id:213,
+                nodes:null
+            },
 
         ]
     },
@@ -130,21 +155,24 @@ var data = [
         text:"运维管理-sub2",
         id:22,
         nodes:[
-        {
-            level:1,
-            text:"运维管理-sub2-sub",
-            id:221,
-        },
-        {
-            level:1,
-            text:"运维管理-sub2-sub",
-            id:222,
-        },
-        {
-            level:1,
-            text:"运维管理-sub2-sub",
-            id:223,
-        },
+            {
+                level:1,
+                text:"运维管理-sub2-sub",
+                id:221,
+                nodes:null
+            },
+            {
+                level:1,
+                text:"运维管理-sub2-sub",
+                id:222,
+                nodes:null
+            },
+            {
+                level:1,
+                text:"运维管理-sub2-sub",
+                id:223,
+                nodes:null
+            },
 
         ]
     },
@@ -153,21 +181,24 @@ var data = [
         text:"运维管理-sub3",
         id:23,
         nodes:[
-        {
-            level:1,
-            text:"运维管理-sub3-sub",
-            id:231,
-        },
-        {
-            level:1,
-            text:"运维管理-sub3-sub",
-            id:232,
-        },
-        {
-            level:1,
-            text:"运维管理-sub3-sub",
-            id:233,
-        },
+            {
+                level:1,
+                text:"运维管理-sub3-sub",
+                id:231,
+                nodes:null
+            },
+            {
+                level:1,
+                text:"运维管理-sub3-sub",
+                id:232,
+                nodes:null
+            },
+            {
+                level:1,
+                text:"运维管理-sub3-sub",
+                id:233,
+                nodes:null
+            },
 
         ]
     },
@@ -176,21 +207,24 @@ var data = [
         text:"运维管理-sub4",
         id:24,
         nodes:[
-        {
-            level:1,
-            text:"运维管理-sub4-sub",
-            id:241,
-        },
-        {
-            level:1,
-            text:"运维管理-sub4-sub",
-            id:242,
-        },
-        {
-            level:1,
-            text:"运维管理-sub4-sub",
-            id:243,
-        },
+            {
+                level:1,
+                text:"运维管理-sub4-sub",
+                id:241,
+                nodes:null
+            },
+            {
+                level:1,
+                text:"运维管理-sub4-sub",
+                id:242,
+                nodes:null
+            },
+            {
+                level:1,
+                text:"运维管理-sub4-sub",
+                id:243,
+                nodes:null
+            },
 
         ]
     },
@@ -206,21 +240,24 @@ var data = [
         text:"智慧食堂-sub1",
         id:31,
         nodes:[
-        {
-            level:1,
-            text:"智慧食堂-sub2-sub",
-            id:32,
-        },
-        {
-            level:1,
-            text:"智慧食堂-sub2-sub",
-            id:32,
-        },
-        {
-            level:1,
-            text:"智慧食堂-sub2-sub",
-            id:32,
-        },
+            {
+                level:1,
+                text:"智慧食堂-sub2-sub",
+                id:311,
+                nodes:null
+            },
+            {
+                level:1,
+                text:"智慧食堂-sub2-sub",
+                id:312,
+                nodes:null
+            },
+            {
+                level:1,
+                text:"智慧食堂-sub2-sub",
+                id:313,
+                nodes:null
+            },
 
         ]
     },
@@ -228,6 +265,7 @@ var data = [
         level:1,
         text:"智慧食堂-sub2",
         id:32,
+        nodes:null
     },
     ]
 },
@@ -240,40 +278,14 @@ var data = [
         level:1,
         text:"APP管理-sub1",
         id:41,
-        nodes:[
-        {
-            level:1,
-            text:"APP管理-sub2-sub",
-            id:42,
-        },
-        {
-            level:1,
-            text:"APP管理-sub2-sub",
-            id:42,
-        },
-        {
-            level:1,
-            text:"APP管理-sub2-sub",
-            id:42,
-        },
-
-        ]
+        nodes:[]
     },
     {
         level:1,
         text:"APP管理-sub2",
         id:42,
+        nodes:null
     },
     ]
 },
 ]
-
-// var objs = {
-//     level:1,
-//     text:"示例-2层",
-//     id:11,
-//     icon:"",
-//     href:"/index.html",
-// }
-// objs["nodes"] = [];
-// objs["nodes"].append(objs)

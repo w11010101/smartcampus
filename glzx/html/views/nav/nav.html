@@ -14,8 +14,8 @@
         </li>
         <li class="navigation" v-for="(e,i) in navData">
             <dropdown-menu v-bind:todo ='e' v-bind:index="i"></dropdown-menu>
-            <ul class="dropdown-menu">
-                <dropdown-sub-list v-if="e.nodes" v-for="sub in e.nodes" v-bind:subtodo ='sub' v-bind:index ='i'></dropdown-sub-list>
+            <ul class="dropdown-menu" v-if="e.nodes&&e.nodes.length">
+                <dropdown-sub-list class="dropdown" v-if="e.nodes" v-for="sub in e.nodes" v-bind:subtodo ='sub' v-bind:index ='i'></dropdown-sub-list>
             </ul>
         </li>
     </ul>
@@ -27,15 +27,15 @@
         <div class="sec-sidebar" id="sec-sidebar">
             <h1 class="h1">{{activeNav.text}}</h1>
             <ul class="nav navbar-nav sec-side-nav">
-                <li v-for="(event,index) in activeNav.nodes" class="navigation menu-hide" >
+                <li v-for="(event,index) in activeNav.nodes" class="navigation menu-hide">
                     <dropdown-product-menu v-bind:todo ='event' v-bind:index="index"  v-if="event.nodes"></dropdown-product-menu>
                     <dropdown-product-a v-bind:todo ='event' v-bind:index="index"  v-else></dropdown-product-a>
                     <ul class="menu">
-                        <li v-for="(item,index) in event.nodes" class="dropdown">
+                        <li v-for="(item,index) in event.nodes"  v-bind:class="{'dropdown':true,active:item.active}">
                             <dropdown-product-sub-menu v-bind:todo ='item' v-bind:index="index" v-if="item.nodes"></dropdown-product-sub-menu>
                             <dropdown-product-a v-bind:todo ='item' v-bind:index="index"  v-else></dropdown-product-a>
-                            <ul class="dropdown-menu">
-                                <dropdown-product-sub-list v-if="item.nodes" v-for="sub in item.nodes" v-bind:subtodo ='sub' v-bind:index ='index'></dropdown-product-sub-list>
+                            <ul class="dropdown-menu" v-if="item.nodes&&item.nodes">
+                                <dropdown-product-sub-list v-for="sub in item.nodes" v-bind:subtodo ='sub' v-bind:index ='index'></dropdown-product-sub-list>
                             </ul>
                         </li>
                     </ul>

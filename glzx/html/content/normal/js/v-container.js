@@ -53,7 +53,7 @@ $(function(){
     });
     // echarts
     // 基于准备好的dom，初始化echarts实例
-    runEcharts();
+    // runEcharts();
     function runEcharts(){
         var myChart = echarts.init(document.getElementById('myChart'));
 
@@ -312,7 +312,7 @@ function getBase64(url,cb){
         cb?cb(dataURL):null;
     }
 }
-runPaging();
+// runPaging();
 function runPaging(){
     var pagingVM = new Vue({
         el: '#paging-app',
@@ -378,3 +378,28 @@ function runPaging(){
         },
     });
 }
+// 表格 多选
+function table_checkbox_change(){
+    $("#table").on("click",".table-checkbox",function(){
+        var table = $("#table");
+        $(this).toggleClass("active");
+
+        if($("tbody .table-checkbox").length == $("tbody .table-checkbox.active").length){
+            $("thead .table-checkbox").addClass("active");
+        }else{
+            $("thead .table-checkbox").removeClass("active");
+        }
+    });
+    
+    $("#table").on("click","thead .table-checkbox",function(){
+        var table = $("#table");
+        $(this).toggleClass("active");
+        if($(this).hasClass("active")){
+            $("tbody .table-checkbox").addClass("active");
+        }else{
+            $("tbody .table-checkbox").removeClass("active");
+        }
+        
+    });
+}
+table_checkbox_change();

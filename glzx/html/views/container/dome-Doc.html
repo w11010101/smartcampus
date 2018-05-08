@@ -13,7 +13,135 @@
                     <label>部门信息：</label><input type="number" name="">
                 </div>
             </h2>
-            <div class="grid row">
+            <div class="table-responsive">
+                <table class="table table-hover table-condensed" id='table'>
+                    <thead>
+                        <tr>
+                            <th><span class="table-checkbox"></span>部门编号</th>
+                            <th>部门名称</th>
+                            <th>助记码</th>
+                            <th>部门层级</th>
+                            <th>部门所在分区</th>
+                            <th>封面图片</th>
+                            <th>发布时间</th>
+                            <th>就餐详情</th>
+                            <th>限额</th>
+                            <th>就餐折扣</th>
+                            <th>余额</th>
+                            <th>部门状态</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="table-checkbox"></span>12345678901234567890</td>
+                            <td>测试角色一</td>
+                            <td>1234567</td>
+                            <td>测试层级一</td>
+                            <td>测试部门所在分区一</td>
+                            <td></td>
+                            <td class="time">2018-12-12 12:12:12</td>
+                            <td>测试就餐详情</td>
+                            <td>1231元</td>
+                            <td>7.77折</td>
+                            <td>12311111</td>
+                            <td>测试部门状态</td>
+                            <td><a href="#">查看</a><a href="#">编辑</a></td>
+                        </tr>
+                        <tr>
+                            <td><span class="table-checkbox"></span>12345678901234567890</td>
+                            <td>测试角色二</td>
+                            <td>1234567</td>
+                            <td>11测试层级一</td>
+                            <td>11测试部门所在分区一</td>
+                            <td><img src="../../content/normal/images/profile-photo.jpg" alt=""></td>
+                            <td class="time">2018-12-12 12:12:12</td>
+                            <td>11测试就餐详情</td>
+                            <td>111231元</td>
+                            <td>7.77折</td>
+                            <td>12311111</td>
+                            <td class="ongoing">进行中</td>
+                            <td><a href="#">查看</a><a href="#">编辑</a></td>
+                        </tr>
+                        <tr>
+                            <td><span class="table-checkbox"></span>12345678901234567890</td>
+                            <td>测试角色三</td>
+                            <td>1234567</td>
+                            <td>11测试层级一</td>
+                            <td>11测试部门所在分区一</td>
+                            <td><img src="../../content/normal/images/profile-photo.jpg" alt=""></td>
+                            <td class="time">2018-12-12 12:12:12</td>
+                            <td>11测试就餐详情</td>
+                            <td>111231元</td>
+                            <td>7.77折</td>
+                            <td>12311111</td>
+                            <td class="notSarted">未开始</td>
+                            <td><a href="#">查看</a><a href="#">编辑</a></td>
+                        </tr>
+                        <tr>
+                            <td><span class="table-checkbox"></span>12345678901234567890</td>
+                            <td>测试角色四</td>
+                            <td>1234567</td>
+                            <td>11测试层级一</td>
+                            <td>11测试部门所在分区一</td>
+                            <td><img src="../../content/normal/images/profile-photo.jpg" alt=""></td>
+                            <td class="time">2018-12-12 12:12:12</td>
+                            <td>11测试就餐详情</td>
+                            <td>111231元</td>
+                            <td>7.77折</td>
+                            <td>12311111</td>
+                            <td class="cancelled">已退回</td>
+                            <td><a href="#">查看</a><a href="#">编辑</a></td>
+                        </tr>
+                        <tr>
+                            <td><span class="table-checkbox"></span>12345678901234567890</td>
+                            <td>测试角色五</td>
+                            <td>1234567</td>
+                            <td>11测试层级一</td>
+                            <td>11测试部门所在分区一</td>
+                            <td><img src="../../content/normal/images/profile-photo.jpg" alt=""></td>
+                            <td class="time">2018-12-12 12:12:12</td>
+                            <td>11测试就餐详情</td>
+                            <td>111231元</td>
+                            <td>7.77折</td>
+                            <td>12311111</td>
+                            <td class="agreed">已审批</td>
+                            <td><a href="#">查看</a><a href="#">编辑</a></td>
+                        </tr>
+                        <tr>
+                            <td><span class="table-checkbox"></span>12345678901234567890</td>
+                            <td>测试角色五</td>
+                            <td>1234567</td>
+                            <td>11测试层级一</td>
+                            <td>11测试部门所在分区一</td>
+                            <td><img src="../../content/normal/images/profile-photo.jpg" alt=""></td>
+                            <td class="time">2018-12-12 12:12:12</td>
+                            <td>11测试就餐详情</td>
+                            <td>111231元</td>
+                            <td>7.77折</td>
+                            <td>12311111</td>
+                            <td class="started">启用</td>
+                            <td><a href="#">查看</a><a href="#">编辑</a></td>
+                        </tr>
+                        <tr>
+                            <td><span class="table-checkbox"></span>12345678901234567890</td>
+                            <td>测试角色五</td>
+                            <td>1234567</td>
+                            <td>11测试层级一</td>
+                            <td>11测试部门所在分区一</td>
+                            <td><img src="../../content/normal/images/profile-photo.jpg" alt=""></td>
+                            <td class="time">2018-12-12 12:12:12</td>
+                            <td>11测试就餐详情</td>
+                            <td>111231元</td>
+                            <td>7.77折</td>
+                            <td>12311111</td>
+                            <td class="ban">禁止</td>
+                            <td><a href="#">查看</a><a href="#">编辑</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <!-- <div class="grid row">
                 <div class="col-md-3">
                     部门编号：<span>12312312312</span>
                 </div>
@@ -110,7 +238,7 @@
                         <input id="endDate" type="text" placeholder="选择时间">
                     </div>
                 </div>
-            </form>
+            </form> -->
 
         </div>      
         <!--  -->
@@ -525,6 +653,8 @@ $('#endDate').datetimepicker({
 <pre id="foo15">
 .form-line input[type=number]{
     width: 50px;
+    height: 25px;
+    padding-right: 0;
 }
 </pre>
                 </div>
