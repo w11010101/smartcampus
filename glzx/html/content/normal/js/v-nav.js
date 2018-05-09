@@ -201,7 +201,7 @@
                 console.log(page)
                 if(!page.attr("loaded")){
                     console.log("loaded");
-                    page.load(href+".html").attr("loaded",true);
+                    page.load(href).attr("loaded",true);
                 }
                 page.show(0).siblings().hide(0);
             },

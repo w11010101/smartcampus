@@ -65,6 +65,9 @@ body .navbar-nav.side-nav > li.navigation >.dropdown-menu > li.dropdown.open > a
     width: 180px;
     margin-left: 50px;
 }
+.nav.navbar-nav.side-nav.closed.collapsed + .product-nav{
+    width: 0px;
+}
 .product-nav > .sec-sidebar{
     width: inherit;
 }

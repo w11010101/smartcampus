@@ -1,0 +1,71 @@
+<h2 id="demo-express-h1">大标题 
+    <button type="button" class="btn btn-default" onclick="$('.demo').load('views/container/demo/demo.html');">返回</button>
+</h2>
+<!-- css -->
+<style type="text/css" media="screen">
+    .content-h1{
+        height: 66px;
+        padding: 0 10px 0 38px;
+        background: url(../../../content/normal/images/ico-title.png) no-repeat left center;
+        line-height: 66px;
+        font-size: 24px;
+        color:#000;
+        margin:0;
+        border-bottom:1px solid #979797;
+    }
+    .content-h1 .refresh{
+        width: 24px;
+        height: 24px;
+        float: right;
+        margin-top:21px;
+        border:0;
+        background: url(../../../content/normal/images/refresh.png) no-repeat;
+    }
+</style>
+<!-- html -->
+<div class="demo-express">
+    <h3>结果展示</h3>
+    <div class="demo-express-bg">
+        <!--  -->
+        <h1 class='content-h1'>标题展示 <button class="refresh"></button></h1>
+        <!--  -->
+    </div>
+</div>
+<div class="demo-express">
+    <h3>代码</h3>
+    <div class="demo-express-bg">
+<!-- js -->
+<div class="demo-express-code-box row">
+                <div class="col-sm-12">
+                    <h3><span>html</span><button class="copy" data-clipboard-target="#foo1"></button></h3>
+
+<pre id="foo1">
+&lt;h1 class='content-h1'&gt;标题展示 &lt;button class="refresh"&gt;&lt;/button&gt;&lt;/h1&gt;
+</pre>
+                </div>
+                <div class="col-sm-12">
+                    <h3><span>css</span><button class="copy" data-clipboard-target="#foo2"></button></h3>
+<pre id="foo2">
+.content-h1{
+    height: 66px;
+    padding: 0 10px 0 38px;
+    background: url(../../normal/images/ico-title.png) no-repeat left center;
+    line-height: 66px;
+    font-size: 24px;
+    color:#000;
+    margin:0;
+    border-bottom:1px solid #979797;
+}
+.content-h1 .refresh{
+    width: 24px;
+    height: 24px;
+    float: right;
+    margin-top:21px;
+    border:0;
+    background: url(../../normal/images/refresh.png) no-repeat;
+}
+</pre>
+                </div>
+            </div>
+    </div>
+</div>

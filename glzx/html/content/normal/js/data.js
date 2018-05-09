@@ -13,17 +13,17 @@ var data = [
         nodes:[
         {
             level:1,
-            text:"dome文档",
+            text:"新demo文档",
             id:111,
-            href:"views/container/dome-Doc",
-            nid:"dome-Doc",
+            href:"views/container/demo/demo.html",
+            nid:"demo",
             nodes:null
         },
         {
             level:1,
             text:"container-1.html",
             id:112,
-            href:"views/container/container-1",
+            href:"views/container/container-1.html",
             nid:"container-1",
             nodes:null
         },
@@ -31,16 +31,16 @@ var data = [
             level:1,
             text:"container-2.html",
             id:113,
-            href:"views/container/container-2",
+            href:"views/container/container-2.html",
             nid:"container-2",
             nodes:null
         },
         {
             level:1,
-            text:"不存在的",
+            text:"旧demo文档.html",
             id:115,
-            href:"views/container/container-2",
-            nid:"1123abacdedf",
+            href:"views/container/demo-Doc.html",
+            nid:"demo-Doc",
             nodes:null
         },
         {

@@ -1,0 +1,165 @@
+
+<h2 id="demo-express-h1">
+     栅格系统
+    <button type="button" class="btn btn-default" onclick="$('.demo').load('views/container/demo/demo.html');">返回</button>
+</h2>
+<!-- css -->
+<style type="text/css" media="screen">
+※ 注：
+.grid.row{
+    padding-left: 40px;
+}
+.grid.row [class*=col-md-]{
+    margin: 13px 0 ;
+}
+.grid .dropdown{
+    display: inline-block;
+    height: 30px;
+    line-height: 16px;
+    max-width: 136px;
+}
+.grid .dropdown .btn {
+    height: 30px;
+    line-height: 16px;
+    max-width: 136px;
+    overflow-x: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    border-radius: 0;
+}
+</style>
+<!-- html -->
+<div class="demo-express">
+    <h3>结果展示</h3>
+    <div class="demo-express-bg">
+        <div class="grid row">
+            <div class="col-md-3">
+                部门编号：<span>12312312312</span>
+            </div>
+            <div class="col-md-3">
+                部门助记码：<span>12312312312</span>
+            </div>
+            <div class="col-md-3">
+                分区名称：<span>子单位A</span>
+            </div>
+            <div class="col-md-3">
+                分区编号：<span>20202020</span>
+            </div>
+        </div>
+        <div class="grid row">
+            <div class="col-md-3">
+                部门层级：<div class="dropdown">
+                    <div class="btn btn-default dropdown-toggle" type="text" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Dropdown
+                        <span class="caret"></span>
+                    </div>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                        <li><a href="#">Action</a></li>
+                        <li><a href="#">Another action</a></li>
+                        <li><a href="#">Something else here</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#">Separated link</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-3">
+                部门助记码：<span>12312312312</span>
+            </div>
+        </div>
+        <!--  -->
+    </div>
+</div>
+<div class="demo-express">
+    <h3>代码</h3>
+    <div class="demo-express-bg">
+<!-- js -->
+<div class="demo-express-code-box row">
+                <div class="col-sm-12">
+                    <h3><span>html</span><button class="copy" data-clipboard-target="#foo1"></button></h3>
+
+<pre id="foo1">
+依赖bootstrap；其他分栏格式请参考 <a href="https://v3.bootcss.com/css/#grid" target='_blank' >bootstrap 栅格系统</a>
+
+&lt;div class="grid row"&gt;
+    &lt;div class="col-md-3"&gt;
+        部门编号：&lt;span&gt;12312312312&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div class="col-md-3"&gt;
+        部门助记码：&lt;span&gt;12312312312&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div class="col-md-3"&gt;
+        分区名称：&lt;span&gt;子单位A&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div class="col-md-3"&gt;
+        分区编号：&lt;span&gt;20202020&lt;/span&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="grid row"&gt;
+    &lt;div class="col-md-3"&gt;
+        部门层级：&lt;div class="dropdown"&gt;
+            &lt;div class="btn btn-default dropdown-toggle" type="text" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"&gt;
+                Dropdown
+                &lt;span class="caret"&gt;&lt;/span&gt;
+            &lt;/div&gt;
+            &lt;ul class="dropdown-menu" aria-labelledby="dropdownMenu1"&gt;
+                &lt;li&gt;&lt;a href="#"&gt;Action&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="#"&gt;Another action&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="#"&gt;Something else here&lt;/a&gt;&lt;/li&gt;
+                &lt;li role="separator" class="divider"&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="#"&gt;Separated link&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="col-md-3"&gt;
+        部门助记码：&lt;span&gt;12312312312&lt;/span&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</pre>
+                </div>
+                <div class="col-sm-12">
+                    <h3><span>css</span><button class="copy" data-clipboard-target="#foo2"></button></h3>
+<pre id="foo2">
+※ 注：
+.grid.row{
+    padding-left: 40px;
+}
+.grid.row [class*=col-md-]{
+    margin: 13px 0 ;
+}
+.grid .dropdown{
+    display: inline-block;
+    height: 30px;
+    line-height: 16px;
+    max-width: 136px;
+}
+.grid .dropdown .btn {
+    height: 30px;
+    line-height: 16px;
+    max-width: 136px;
+    overflow-x: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    border-radius: 0;
+}
+</pre>
+                </div>
+                <div class="col-sm-12">
+                    <h3><span>javascript</span><button class="copy" data-clipboard-target="#foo3"></button></h3>
+<pre id="foo3">
+$("#right-container .dropdown-menu").on("click","li a",function(event){
+    var dropdown = $(this).parents("ul").prev('[data-toggle=dropdown]');
+    dropdown.text($(this).text()).parent().removeClass("open");
+});
+</pre>
+                </div>
+            </div>
+    </div>
+</div>
+<script type="text/javascript">
+// 下拉选项
+    
+$("#right-container .dropdown-menu").on("click","li a",function(event){
+    var dropdown = $(this).parents("ul").prev('[data-toggle=dropdown]');
+    dropdown.text($(this).text()).parent().removeClass("open");
+});
+</script>

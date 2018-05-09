@@ -14,7 +14,7 @@
     <!-- my style start -->
     <link rel="stylesheet" href="../content/normal/css/my-theme.css" >
     <link rel="stylesheet" href="../content/normal/css/nav-style.css" >
-    <link rel="stylesheet" href="../content/normal/css/container.css">
+    <link rel="stylesheet" href="../content/normal/css/demo.css">
     <!-- my style end -->
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -153,14 +153,141 @@
                 <!-- demo -->
                 <div class="demo">  
         <div class="show-box">
-            <!-- 实力展示 -->
-            <h1 class='content-h1'>实例展示（大标题） <button class="refresh"></button></h1>
-            <h2 class='content-h2'>小标题展示
+            <!-- <h1 class='content-h1'>实例展示（大标题） <button class="refresh"></button></h1> -->
+            <!-- <h2 class='content-h2'>小标题展示
                 <div class="form-line">
                     <label>部门信息：</label><input type="number" name="">
                 </div>
-            </h2>
-            <div class="grid row">
+            </h2> -->
+            <!-- <div class="table-responsive">
+                <table class="table table-hover table-condensed" id='table'>
+                    <thead>
+                        <tr>
+                            <th><span class="table-checkbox"></span>部门编号</th>
+                            <th>部门名称</th>
+                            <th>助记码</th>
+                            <th>部门层级</th>
+                            <th>部门所在分区</th>
+                            <th>封面图片</th>
+                            <th>发布时间</th>
+                            <th>就餐详情</th>
+                            <th>限额</th>
+                            <th>就餐折扣</th>
+                            <th>余额</th>
+                            <th>部门状态</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="table-checkbox"></span>12345678901234567890</td>
+                            <td>测试角色一</td>
+                            <td>1234567</td>
+                            <td>测试层级一</td>
+                            <td>测试部门所在分区一</td>
+                            <td></td>
+                            <td class="time">2018-12-12 12:12:12</td>
+                            <td>测试就餐详情</td>
+                            <td>1231元</td>
+                            <td>7.77折</td>
+                            <td>12311111</td>
+                            <td>测试部门状态</td>
+                            <td><a href="#">查看</a><a href="#">编辑</a></td>
+                        </tr>
+                        <tr>
+                            <td><span class="table-checkbox"></span>12345678901234567890</td>
+                            <td>测试角色二</td>
+                            <td>1234567</td>
+                            <td>11测试层级一</td>
+                            <td>11测试部门所在分区一</td>
+                            <td><img src="../content/normal/images/profile-photo.jpg" alt=""></td>
+                            <td class="time">2018-12-12 12:12:12</td>
+                            <td>11测试就餐详情</td>
+                            <td>111231元</td>
+                            <td>7.77折</td>
+                            <td>12311111</td>
+                            <td class="ongoing">进行中</td>
+                            <td><a href="#">查看</a><a href="#">编辑</a></td>
+                        </tr>
+                        <tr>
+                            <td><span class="table-checkbox"></span>12345678901234567890</td>
+                            <td>测试角色三</td>
+                            <td>1234567</td>
+                            <td>11测试层级一</td>
+                            <td>11测试部门所在分区一</td>
+                            <td><img src="../content/normal/images/profile-photo.jpg" alt=""></td>
+                            <td class="time">2018-12-12 12:12:12</td>
+                            <td>11测试就餐详情</td>
+                            <td>111231元</td>
+                            <td>7.77折</td>
+                            <td>12311111</td>
+                            <td class="notSarted">未开始</td>
+                            <td><a href="#">查看</a><a href="#">编辑</a></td>
+                        </tr>
+                        <tr>
+                            <td><span class="table-checkbox"></span>12345678901234567890</td>
+                            <td>测试角色四</td>
+                            <td>1234567</td>
+                            <td>11测试层级一</td>
+                            <td>11测试部门所在分区一</td>
+                            <td><img src="../content/normal/images/profile-photo.jpg" alt=""></td>
+                            <td class="time">2018-12-12 12:12:12</td>
+                            <td>11测试就餐详情</td>
+                            <td>111231元</td>
+                            <td>7.77折</td>
+                            <td>12311111</td>
+                            <td class="cancelled">已退回</td>
+                            <td><a href="#">查看</a><a href="#">编辑</a></td>
+                        </tr>
+                        <tr>
+                            <td><span class="table-checkbox"></span>12345678901234567890</td>
+                            <td>测试角色五</td>
+                            <td>1234567</td>
+                            <td>11测试层级一</td>
+                            <td>11测试部门所在分区一</td>
+                            <td><img src="../content/normal/images/profile-photo.jpg" alt=""></td>
+                            <td class="time">2018-12-12 12:12:12</td>
+                            <td>11测试就餐详情</td>
+                            <td>111231元</td>
+                            <td>7.77折</td>
+                            <td>12311111</td>
+                            <td class="agreed">已审批</td>
+                            <td><a href="#">查看</a><a href="#">编辑</a></td>
+                        </tr>
+                        <tr>
+                            <td><span class="table-checkbox"></span>12345678901234567890</td>
+                            <td>测试角色五</td>
+                            <td>1234567</td>
+                            <td>11测试层级一</td>
+                            <td>11测试部门所在分区一</td>
+                            <td><img src="../content/normal/images/profile-photo.jpg" alt=""></td>
+                            <td class="time">2018-12-12 12:12:12</td>
+                            <td>11测试就餐详情</td>
+                            <td>111231元</td>
+                            <td>7.77折</td>
+                            <td>12311111</td>
+                            <td class="started">启用</td>
+                            <td><a href="#">查看</a><a href="#">编辑</a></td>
+                        </tr>
+                        <tr>
+                            <td><span class="table-checkbox"></span>12345678901234567890</td>
+                            <td>测试角色五</td>
+                            <td>1234567</td>
+                            <td>11测试层级一</td>
+                            <td>11测试部门所在分区一</td>
+                            <td><img src="../content/normal/images/profile-photo.jpg" alt=""></td>
+                            <td class="time">2018-12-12 12:12:12</td>
+                            <td>11测试就餐详情</td>
+                            <td>111231元</td>
+                            <td>7.77折</td>
+                            <td>12311111</td>
+                            <td class="ban">禁止</td>
+                            <td><a href="#">查看</a><a href="#">编辑</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div> -->
+            <!-- <div class="grid row">
                 <div class="col-md-3">
                     部门编号：<span>12312312312</span>
                 </div>
@@ -193,8 +320,8 @@
                 <div class="col-md-3">
                     部门助记码：<span>12312312312</span>
                 </div>
-            </div>
-            <div id="paging-app" v-cloak>
+            </div> -->
+            <!-- <div id="paging-app" v-cloak>
                 <div>
                     <div class="page"  v-show="show">
                         <div class="pagelist">
@@ -218,11 +345,11 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
 
-            <div id="myChart" style="width: 100%;height:500px;"></div>
+            <!-- <div id="myChart" style="width: 700px;height:500px;"></div> -->
             
-            <form class="form-inline">
+            <!-- <form class="form-inline">
                 <div class="form-line form-group">
                     <label>部门信息：</label>
                     <div class="dropdown">
@@ -241,9 +368,9 @@
                 </div>
 
                 <button class="btn btn-default" type="">查询按钮</button>
-            </form>
+            </form> -->
 
-            <form action="" method="get" accept-charset="utf-8">
+           <form action="#">
                 <div class="form-line">
                     <label>部门信息：</label><input type="text" name="" placeholder="部门编号/名称/助记码">
                 </div>
@@ -255,6 +382,55 @@
                     <em> — </em>
                     <div class="form-date">
                         <input id="endDate" type="text" placeholder="选择时间">
+                    </div>
+                    <div class="checkbox-btns">
+                        <label class="checkbox-inline">
+                            <span class="form-checkbox"></span> 1
+                        </label>
+                    </div>
+                </div>
+                <div class="form-line form-line-textarea">
+                    <label>描述：</label><textarea class="" rows="2"></textarea>
+                </div>
+                <div class="form-line">
+                    <label>开餐编号：</label><span>123123123</span>
+                </div>
+                <div class="form-line">
+                    <label>就餐时间：</label><span>11:30—13:00</span>
+                </div>
+                <div class="form-line">
+                    <label>多选：</label>
+                    <div class="checkbox-btns">
+                        <label class="checkbox-inline">
+                            <span class="form-checkbox"></span> 1
+                        </label>
+                        <label class="checkbox-inline">
+                            <span class="form-checkbox"></span> 2
+                        </label>
+                        <label class="checkbox-inline">
+                            <span class="form-checkbox"></span> 3
+                        </label>
+                    </div>
+                </div>
+                <div class="form-line">
+                    <label>单选：</label>
+                    <div class="radio-btns">                        
+                        <label class="radio-inline">
+                            <span class="form-radio"></span> 1
+                        </label>
+                        <label class="radio-inline">
+                            <span class="form-radio"></span> 2
+                        </label>
+                        <label class="radio-inline">
+                            <span class="form-radio"></span> 3
+                        </label>
+                    </div>
+                </div>
+                <div class="form-line">
+                    <label>上传：</label>
+                    <div class="file-upload">
+                        <span><input type="file" multiple="true" name="" value="" placeholder=""></span>
+                        <button>上传</button>
                     </div>
                 </div>
             </form>
@@ -366,6 +542,15 @@
                         </div>
                     </td>
                 </tr>
+                <tr>
+                    <td><a href="#demo-express-table" id="demo-a-express-table"># table</a></td>
+                    <td>
+                        <div class="img-box" style="height:200px;">
+                            <img src="../content/normal/images/demo-img/table.png" alt="">
+                        </div>
+                    </td>
+                </tr>
+
             </tbody>
         </table>
         <!-- ======================================== -->
@@ -451,6 +636,7 @@
                 <div class="col-sm-12">
                     <h3><span>html</span><button class="copy" data-clipboard-target="#form"></button></h3>
 <pre id="form">
+※ 注 .form-inline 为bootstrap内联样式（及横向排列）
 &lt;form class="form-inline"&gt; 
     &lt;div class="form-line&gt;
         &lt;label&gt;部门信息：&lt;/label&gt;
@@ -671,6 +857,8 @@ $('#endDate').datetimepicker({
 <pre id="foo15">
 .form-line input[type=number]{
     width: 50px;
+    height: 25px;
+    padding-right: 0;
 }
 </pre>
                 </div>
@@ -679,8 +867,8 @@ $('#endDate').datetimepicker({
             <h2 id="demo-express-form-6">echarts图表——折线图<a href="#demo-a-express-form-6">返回</a></h2>
             <div class="demo-express-code-box row">
                 <div class="col-sm-12">
-                    <h3><span>plugin</span><button class="copy" data-clipboard-target="#foo17"></button></h3>
-<pre id="foo17">
+                    <h3><span>plugin</span><button class="copy" data-clipboard-target="#foo16"></button></h3>
+<pre id="foo16">
 # 依赖
 # 引用 js
 &lt;script type="text/javascript" src="../content/frame/echarts/echarts.min.js"&gt;&lt;/script&gt;
@@ -1068,8 +1256,8 @@ myChart.on("restore",function(params){
 </pre>
                 </div>
                 <div class="col-sm-12">
-                    <h3><span>javascript</span><button class="copy" data-clipboard-target="#paging-css"></button></h3>
-<pre id="paging-css">
+                    <h3><span>javascript</span><button class="copy" data-clipboard-target="#paging-js"></button></h3>
+<pre id="paging-js">
 var pagingVM = new Vue({
     el: '#paging-app',
     data: {
@@ -1139,8 +1327,8 @@ var pagingVM = new Vue({
             <h2 id="demo-express-grid">栅格系统 <a href="#demo-a-express-grid">返回</a></h2>
             <div class="demo-express-code-box row">
                 <div class="col-sm-12">
-                    <h3><span>plugin</span><button class="copy" data-clipboard-target="#paging-plugin"></button></h3>
-<pre id="paging-plugin">
+                    <h3><span>plugin</span><button class="copy" data-clipboard-target="#grid-plugin"></button></h3>
+<pre id="grid-plugin">
     依赖bootstrap；其他分栏格式请参考 <a href="https://v3.bootcss.com/css/#grid" target='_blank' >bootstrap 栅格系统</a>
 </pre>
                 </div>
@@ -1196,6 +1384,273 @@ var pagingVM = new Vue({
 </pre>
                 </div>
             </div>
+                            <!-- 栅格系统 -->
+            <h2 id="demo-express-table">table <a href="#demo-a-express-table">返回</a></h2>
+            <div class="demo-express-code-box row">
+                <div class="col-sm-12">
+                    <h3><span>html</span><button class="copy" data-clipboard-target="#table"></button></h3>
+<pre id="talbe">
+&lt;div class="table-responsive"&gt;
+    &lt;table class="table table-hover table-condensed" id='table'&gt;
+        &lt;thead&gt;
+            &lt;tr&gt;
+                &lt;th&gt;&lt;span class="table-checkbox"&gt;&lt;/span&gt;部门编号&lt;/th&gt;
+                &lt;th&gt;部门名称&lt;/th&gt;
+                &lt;th&gt;助记码&lt;/th&gt;
+                &lt;th&gt;部门层级&lt;/th&gt;
+                &lt;th&gt;部门所在分区&lt;/th&gt;
+                &lt;th&gt;封面图片&lt;/th&gt;
+                &lt;th&gt;发布时间&lt;/th&gt;
+                &lt;th&gt;就餐详情&lt;/th&gt;
+                &lt;th&gt;限额&lt;/th&gt;
+                &lt;th&gt;就餐折扣&lt;/th&gt;
+                &lt;th&gt;余额&lt;/th&gt;
+                &lt;th&gt;部门状态&lt;/th&gt;
+                &lt;th&gt;操作&lt;/th&gt;
+            &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody&gt;
+            &lt;tr&gt;
+                &lt;td&gt;&lt;span class="table-checkbox"&gt;&lt;/span&gt;12345678901234567890&lt;/td&gt;
+                &lt;td&gt;测试角色一&lt;/td&gt;
+                &lt;td&gt;1234567&lt;/td&gt;
+                &lt;td&gt;测试层级一&lt;/td&gt;
+                &lt;td&gt;测试部门所在分区一&lt;/td&gt;
+                &lt;td&gt;&lt;/td&gt;
+                &lt;td class="time"&gt;2018-12-12 12:12:12&lt;/td&gt;
+                &lt;td&gt;测试就餐详情&lt;/td&gt;
+                &lt;td&gt;1231元&lt;/td&gt;
+                &lt;td&gt;7.77折&lt;/td&gt;
+                &lt;td&gt;12311111&lt;/td&gt;
+                &lt;td&gt;测试部门状态&lt;/td&gt;
+                &lt;td&gt;&lt;a href="#"&gt;查看&lt;/a&gt;&lt;a href="#"&gt;编辑&lt;/a&gt;&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &lt;td&gt;&lt;span class="table-checkbox"&gt;&lt;/span&gt;12345678901234567890&lt;/td&gt;
+                &lt;td&gt;测试角色二&lt;/td&gt;
+                &lt;td&gt;1234567&lt;/td&gt;
+                &lt;td&gt;11测试层级一&lt;/td&gt;
+                &lt;td&gt;11测试部门所在分区一&lt;/td&gt;
+                &lt;td&gt;&lt;img src="../../../content/normal/images/profile-photo.jpg" alt=""&gt;&lt;/td&gt;
+                &lt;td class="time"&gt;2018-12-12 12:12:12&lt;/td&gt;
+                &lt;td&gt;11测试就餐详情&lt;/td&gt;
+                &lt;td&gt;111231元&lt;/td&gt;
+                &lt;td&gt;7.77折&lt;/td&gt;
+                &lt;td&gt;12311111&lt;/td&gt;
+                &lt;td class="ongoing"&gt;进行中&lt;/td&gt;
+                &lt;td&gt;&lt;a href="#"&gt;查看&lt;/a&gt;&lt;a href="#"&gt;编辑&lt;/a&gt;&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &lt;td&gt;&lt;span class="table-checkbox"&gt;&lt;/span&gt;12345678901234567890&lt;/td&gt;
+                &lt;td&gt;测试角色三&lt;/td&gt;
+                &lt;td&gt;1234567&lt;/td&gt;
+                &lt;td&gt;11测试层级一&lt;/td&gt;
+                &lt;td&gt;11测试部门所在分区一&lt;/td&gt;
+                &lt;td&gt;&lt;img src="../../../content/normal/images/profile-photo.jpg" alt=""&gt;&lt;/td&gt;
+                &lt;td class="time"&gt;2018-12-12 12:12:12&lt;/td&gt;
+                &lt;td&gt;11测试就餐详情&lt;/td&gt;
+                &lt;td&gt;111231元&lt;/td&gt;
+                &lt;td&gt;7.77折&lt;/td&gt;
+                &lt;td&gt;12311111&lt;/td&gt;
+                &lt;td class="notSarted"&gt;未开始&lt;/td&gt;
+                &lt;td&gt;&lt;a href="#"&gt;查看&lt;/a&gt;&lt;a href="#"&gt;编辑&lt;/a&gt;&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &lt;td&gt;&lt;span class="table-checkbox"&gt;&lt;/span&gt;12345678901234567890&lt;/td&gt;
+                &lt;td&gt;测试角色四&lt;/td&gt;
+                &lt;td&gt;1234567&lt;/td&gt;
+                &lt;td&gt;11测试层级一&lt;/td&gt;
+                &lt;td&gt;11测试部门所在分区一&lt;/td&gt;
+                &lt;td&gt;&lt;img src="../../../content/normal/images/profile-photo.jpg" alt=""&gt;&lt;/td&gt;
+                &lt;td class="time"&gt;2018-12-12 12:12:12&lt;/td&gt;
+                &lt;td&gt;11测试就餐详情&lt;/td&gt;
+                &lt;td&gt;111231元&lt;/td&gt;
+                &lt;td&gt;7.77折&lt;/td&gt;
+                &lt;td&gt;12311111&lt;/td&gt;
+                &lt;td class="cancelled"&gt;已退回&lt;/td&gt;
+                &lt;td&gt;&lt;a href="#"&gt;查看&lt;/a&gt;&lt;a href="#"&gt;编辑&lt;/a&gt;&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &lt;td&gt;&lt;span class="table-checkbox"&gt;&lt;/span&gt;12345678901234567890&lt;/td&gt;
+                &lt;td&gt;测试角色五&lt;/td&gt;
+                &lt;td&gt;1234567&lt;/td&gt;
+                &lt;td&gt;11测试层级一&lt;/td&gt;
+                &lt;td&gt;11测试部门所在分区一&lt;/td&gt;
+                &lt;td&gt;&lt;img src="../../../content/normal/images/profile-photo.jpg" alt=""&gt;&lt;/td&gt;
+                &lt;td class="time"&gt;2018-12-12 12:12:12&lt;/td&gt;
+                &lt;td&gt;11测试就餐详情&lt;/td&gt;
+                &lt;td&gt;111231元&lt;/td&gt;
+                &lt;td&gt;7.77折&lt;/td&gt;
+                &lt;td&gt;12311111&lt;/td&gt;
+                &lt;td class="agreed"&gt;已审批&lt;/td&gt;
+                &lt;td&gt;&lt;a href="#"&gt;查看&lt;/a&gt;&lt;a href="#"&gt;编辑&lt;/a&gt;&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &lt;td&gt;&lt;span class="table-checkbox"&gt;&lt;/span&gt;12345678901234567890&lt;/td&gt;
+                &lt;td&gt;测试角色五&lt;/td&gt;
+                &lt;td&gt;1234567&lt;/td&gt;
+                &lt;td&gt;11测试层级一&lt;/td&gt;
+                &lt;td&gt;11测试部门所在分区一&lt;/td&gt;
+                &lt;td&gt;&lt;img src="../../../content/normal/images/profile-photo.jpg" alt=""&gt;&lt;/td&gt;
+                &lt;td class="time"&gt;2018-12-12 12:12:12&lt;/td&gt;
+                &lt;td&gt;11测试就餐详情&lt;/td&gt;
+                &lt;td&gt;111231元&lt;/td&gt;
+                &lt;td&gt;7.77折&lt;/td&gt;
+                &lt;td&gt;12311111&lt;/td&gt;
+                &lt;td class="started"&gt;启用&lt;/td&gt;
+                &lt;td&gt;&lt;a href="#"&gt;查看&lt;/a&gt;&lt;a href="#"&gt;编辑&lt;/a&gt;&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &lt;td&gt;&lt;span class="table-checkbox"&gt;&lt;/span&gt;12345678901234567890&lt;/td&gt;
+                &lt;td&gt;测试角色五&lt;/td&gt;
+                &lt;td&gt;1234567&lt;/td&gt;
+                &lt;td&gt;11测试层级一&lt;/td&gt;
+                &lt;td&gt;11测试部门所在分区一&lt;/td&gt;
+                &lt;td&gt;&lt;img src="../../../content/normal/images/profile-photo.jpg" alt=""&gt;&lt;/td&gt;
+                &lt;td class="time"&gt;2018-12-12 12:12:12&lt;/td&gt;
+                &lt;td&gt;11测试就餐详情&lt;/td&gt;
+                &lt;td&gt;111231元&lt;/td&gt;
+                &lt;td&gt;7.77折&lt;/td&gt;
+                &lt;td&gt;12311111&lt;/td&gt;
+                &lt;td class="ban"&gt;禁止&lt;/td&gt;
+                &lt;td&gt;&lt;a href="#"&gt;查看&lt;/a&gt;&lt;a href="#"&gt;编辑&lt;/a&gt;&lt;/td&gt;
+            &lt;/tr&gt;
+        &lt;/tbody&gt;
+    &lt;/table&gt;
+&lt;/div&gt;
+</pre>
+                </div>
+                <div class="col-sm-12">
+                    <h3><span>css</span><button class="copy" data-clipboard-target="#table-css"></button></h3>
+<pre id="table-css">
+#table{
+
+}
+#table thead{
+    background: #f1f1f1;
+
+}
+#table.table>thead>tr>th{
+    border: 0;
+    height: 40px;
+    line-height: 40px;
+    color:#4A4A4A;
+    font-weight: normal;
+}
+#table.table tbody td{
+    height: 40px;
+    line-height: 40px;
+}
+#table.table .table-checkbox{
+    display: inline-block;
+    width: 16px;
+    height: 16px;  
+    margin: 0;
+    vertical-align: middle;
+    margin-right: 6px;
+    background: url(../../../content/normal/images/Checkbox-off.png) no-repeat center;
+    -webkit-background-size: contain;
+    background-size: contain;
+    
+}
+#table.table .table-checkbox.active{
+    background: url(../../../content/normal/images/Checkbox-off-half.png) no-repeat center;
+    -webkit-background-size: contain;
+    background-size: contain;
+    
+}   
+#table.table tbody td a{
+    padding: 0;
+    line-height: 40px;
+    color:#3F9EE7;
+}
+#table.table tbody td a + a{
+    margin-left: 18px;
+}
+#table.table tbody td img{
+    width: 50px;
+    height: 50px;
+}
+#table.table tbody td a:hover{
+    text-decoration: none;
+}
+#table.table.table-hover>tbody>tr:hover{
+    background: #FFF7EA;
+}
+#table.table tbody td.time{
+    color:#bdbdbd;
+}
+#table.table tbody td.ongoing,
+#table.table tbody td.notSarted,
+#table.table tbody td.started{
+    color:#2ead88;
+}
+#table.table tbody td.cancelled,
+#table.table tbody td.ban{
+    color:#974343;
+}
+#table.table tbody td.agreed{
+    color:#535353;
+}
+@media screen and (min-width: 768px) and (max-width: 1366px){
+    .table-responsive {
+        width: 100%;
+        margin-bottom: 15px;
+        overflow-y: hidden;
+        -ms-overflow-style: -ms-autohiding-scrollbar;
+        border: 1px solid #ddd;
+    }
+}
+@media screen and (min-width: 768px) and (max-width: 1600px){
+    .table-responsive>#table>.table {
+        margin-bottom: 0;
+    } 
+}
+@media screen and (min-width: 768px) and (max-width: 1600px){
+    .table-responsive>#table.table>tbody>tr>td,
+    .table-responsive>#table.table>tbody>tr>th,
+    .table-responsive>#table.table>tfoot>tr>td,
+    .table-responsive>#table.table>tfoot>tr>th,
+    .table-responsive>#table.table>thead>tr>td, 
+    .table-responsive>#table.table>thead>tr>th {
+        white-space: nowrap;
+    }
+}
+
+</pre>
+                </div>
+                <div class="col-sm-12">
+                    <h3><span>javascript</span><button class="copy" data-clipboard-target="#table-js"></button></h3>
+<pre id="table-js">
+// 多选
+function table_checkbox_change(){
+    $("#table").on("click",".table-checkbox",function(){
+        var table = $("#table");
+        $(this).toggleClass("active");
+
+        if($("tbody .table-checkbox").length == $("tbody .table-checkbox.active").length){
+            $("thead .table-checkbox").addClass("active");
+        }else{
+            $("thead .table-checkbox").removeClass("active");
+        }
+    });
+
+    $("#table").on("click","thead .table-checkbox",function(){
+        var table = $("#table");
+        $(this).toggleClass("active");
+        if($(this).hasClass("active")){
+            $("tbody .table-checkbox").addClass("active");
+        }else{
+            $("tbody .table-checkbox").removeClass("active");
+        }
+        
+    });
+}
+table_checkbox_change();
+</pre>
+                </div>
+            </div>
+
         </div>
     </div>
                 <!-- demo end -->
@@ -1222,7 +1677,7 @@ var pagingVM = new Vue({
     <script type="text/javascript" src="../content/frame/clipboard/clipboard.min.js"></script>
     <script type="text/javascript" src="../content/frame/jquery.date/jquery.datetimepicker.full.min.js"></script>
     <script type="text/javascript" src="../content/normal/js/frame.js"></script>
-    <script type="text/javascript" src="../content/normal/js/v-container.js"></script>
+    <script type="text/javascript" src="../content/normal/js/v-demo.js"></script>
 </body>
 
 </html>

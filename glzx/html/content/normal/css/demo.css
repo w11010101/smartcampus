@@ -1,8 +1,21 @@
+.list{
+    /*display: inline-block;*/
+    padding: 10px; 
+    border: 1px solid #aaa;
+    border-radius: 5px
+}
+.list li a{
+    font-size: 16px;
+    line-height: 30px;
+}
 .show-box{
     border:3px solid #333;
     margin:50px 0;
     padding: 15px;
     /*display: none;*/
+}
+.demo kbd{
+    color:#fff;
 }
 .copy{
     width: 25px;
@@ -14,7 +27,7 @@
     vertical-align: middle;
     margin-left: 5px;
 }
-/*dome */
+/* demo */
 .demo .demo-title{
     font-size: 24px;
     margin:10px 0;
@@ -23,18 +36,42 @@
     background: #aabbcc;
     font-weight: bold;
 }
+.demo-express{
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background: #d9edf7;
+    margin-bottom: 20px;
+}
+.demo-express .demo-express-bg{
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+}
 #right-container .demo-title em{
     color:red; 
 }
 .demo * {
-    font-size: 14px;
     color:#000;
 }
-.demo  ul{
+.demo ul{
 }
-.demo  a:hover{
+.demo a:hover{
     text-decoration: underline;
 }
+.demo h3{
+    font-size: 16px;
+    margin-top:0;
+}
+.demo h3.cul-h3{
+    font-size: 14px;
+    background: #abddef;
+    line-height: 30px;
+    padding: 0 10px;
+    margin-top:0;
+}
+/* 栅格系统 */
 table tbody td{
     height: 60px;
 }
@@ -49,24 +86,29 @@ table a{
     padding: 30px 0;
     line-height: 80px;
 }
-.demo .demo-container h2{
+.demo #demo-express-h1,
+.demo [id*='demo-express-']{
     background: #abdeff;
 }
-.demo .demo-container h2 a{
+.demo #demo-express-h1 button,
+.demo [id*='demo-express-'] a{
     float: right;
+    margin-top: 10px;
     margin-right: 20px;
 }
-.demo textarea,.demo-container pre{
+.demo [id*='demo-express-'] a{
+    margin-top: 0px;
+}
+.demo-container pre{
     resize: none;
     width: 100%;
-    /*height: 300px;*/
     font-size: 16px;
     color:#000;
 }
-.demo-container pre{
+.demo pre{
     position: relative;
 }
-.demo-container pre a{
+.demo pre a{
     color:#0188c8;
 }
 .demo-container pre span{
@@ -79,15 +121,18 @@ table a{
     white-space: pre;
     color: #657b83;
 }
-.demo-express-code-box .btn-default{
+.goTop.btn-info,
+.goTop.btn-default{
     background: #1893cc;
     border:#1893cc;
     color:#fff;
     float: right;
     margin-right: 15px;
     font-size: 14px;
+    margin-bottom: 20px;
 }
-.demo-express-code-box .btn-default:hover{
+.goTop.btn-info:hover,
+.goTop.btn-default:hover{
     text-decoration: none;
 }
 /* h1、h2 */
@@ -137,40 +182,35 @@ form{
 form .form-line *{
     font-size: 14px;
 }
-.form-line{
+.form-inline .form-line,{
     display: inline-block;
+    margin: 0;
+}
+.content-h2 .form-line{
+    display: inline-block;
+    margin: 0;
+}
+.form-line{
+    font-size: 0;
     height: 30px;
     line-height: 30px;
     margin-right: 26px;
+    margin-bottom: 10px;
 }
-.form-line label{
+.form-line >label{
     width: 80px;
     height:30px;
     font-weight: normal;
     vertical-align: top;
-    margin: 0;
+    text-align: right;
 }
-#right-container .dropdown{
-    display: inline-block;
-    height: 30px;
-    line-height: 16px;
-    max-width: 136px;
-}
-#right-container .dropdown .btn {
-    height: 30px;
-    line-height: 16px;
-    max-width: 136px;
-    overflow-x: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    border-radius: 0;
-}
-.form-line label + .dropdown{
+
+.form-line >label + .dropdown{
     display: inline-block;
     height: 30px;
     vertical-align: top;
 }
-.form-line label + .dropdown [data-toggle=dropdown]{
+.form-line >label + .dropdown [data-toggle=dropdown]{
     height: 30px;
     line-height: 16px;
     border-radius:0;
@@ -219,6 +259,70 @@ form button.btn-default{
     width: 50px;
     height: 25px;
     padding-right: 0;
+}
+/*  */
+.form-line textarea{
+    padding: 0 5px;
+    line-height: 20px;
+}
+.form-line.form-line-textarea{
+    height: auto;
+}
+/*  */
+.form-line .checkbox-btns,
+.form-line .radio-btns{
+    display: inline-block;
+}
+.form-line .checkbox-btns .form-checkbox,
+.form-line .radio-btns .form-radio{
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    vertical-align: middle;
+
+}
+.form-line .checkbox-btns .form-checkbox{
+    background: #fff url(../images/Checkbox-off.png) 0 0 no-repeat;
+    -webkit-background-size: contain;
+    background-size: contain;
+}
+.form-line .checkbox-btns .form-checkbox.active{
+    background: #fff url(../images/Checkbox-on.png) 0 0 no-repeat;
+    -webkit-background-size: contain;
+    background-size: contain;
+}
+.form-line .radio-btns .form-radio{
+    background: #fff url(../images/Radio-button-off.png) 0 0 no-repeat;
+    -webkit-background-size: contain;
+    background-size: contain;
+}
+.form-line .radio-btns .form-radio.active{
+    background: #fff url(../images/Radio-button-on.png) 0 0 no-repeat;
+    -webkit-background-size: contain;
+    background-size: contain;
+}
+.form-line .file-upload{
+    display: inline-block;
+}
+.form-line .file-upload span{
+    display: inline-block;
+    width: 200px;
+    height: 30px;
+    border: 1px solid #c5c5c5;
+}
+.form-line .file-upload input[type=file]{
+    display: inline-block;
+    width: 200px;
+    height: 30px;
+    opacity: 0;
+}
+.form-line .file-upload button{
+    display: inline-block;
+    vertical-align: top;
+    width: 56px;
+    height: 30px;
+    background-color: #f7f7f7;
+    border: 1px solid #c5c5c5;
 }
 /* paging */
 #paging-app{
@@ -309,11 +413,27 @@ form button.btn-default{
     margin-right: 10px;
 }
 /* 栅格系统 */
+
 .grid.row{
     padding-left: 40px;
 }
 .grid.row [class*=col-md-]{
     margin: 13px 0 ;
+}
+.grid .dropdown{
+    display: inline-block;
+    height: 30px;
+    line-height: 16px;
+    max-width: 136px;
+}
+.grid .dropdown .btn {
+    height: 30px;
+    line-height: 16px;
+    max-width: 136px;
+    overflow-x: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    border-radius: 0;
 }
 /* #table */
 #table{

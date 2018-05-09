@@ -1,0 +1,397 @@
+
+<h2 id="demo-express-h1">
+    分页 
+    <button type="button" class="btn btn-default" onclick="$('.demo').load('views/container/demo/demo.html');">返回</button>
+</h2>
+<!-- css -->
+<style type="text/css" media="screen">
+#paging-app{
+    text-align: right;
+}
+.page {
+    display: inline-block;
+    height: 40px;
+    text-align: center;
+    margin: 20px auto 0;
+    background: #f2f2f2;
+    user-select: none;
+}
+.pagelist {
+    font-size: 0;
+    background: #fff;
+    height: 50px;
+    line-height: 50px;
+}
+
+.pagelist span {
+    font-size: 14px;
+    color: #d7d7d7;
+}
+
+.pagelist .jump {
+    border: 1px solid #d7d7d7;
+    padding: 2px 10px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.pagelist .bgprimary {
+    cursor: default;
+    color: #fff;
+    background: #0188c8;
+    border-color: #0188c8;
+}
+.jumpinp input {
+    width: 40px;
+    height: 22px;
+    font-size: 13px;
+    border: 1px solid #ccc;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.ellipsis {
+    width: 30px;
+    height: 24px;
+    padding: 2px 8px;
+    border: 1px solid #d7d7d7;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    margin-left: 10px;
+}
+
+.jumppoint {
+    margin-left: 10px;
+}
+
+.pagelist .gobtn {
+    font-size: 12px;
+    padding: 4px 10px;
+}
+
+.bgprimary {
+    cursor: default;
+    color: #fff;
+    background: #337ab7;
+    border-color: #337ab7;
+}
+.pagelist .jump.disabled{
+    pointer-events: none;
+    background: #ddd;
+    display: none;
+}
+.page .auxiliary{
+    color:#333;
+}
+.auxiliary-last{
+    margin-right: 10px;
+}
+
+</style>
+<!-- html -->
+<div class="demo-express">
+    <h3>结果展示</h3>
+    <div class="demo-express-bg">
+        依赖vuejs
+        <div id="paging-app">
+            <div>
+                <div class="page"  v-show="show">
+                    <div class="pagelist">
+                        <span class="auxiliary">共</span>
+                        <span class="auxiliary">10</span>
+                        <span class="auxiliary">页/</span>
+                        <span class="auxiliary auxiliary-last">100条数据</span>
+                        <span class="jump" :class="{disabled:pstart}" @click="{current_page--}"><</span>
+                        <span v-show="current_page>5" class="jump" @click="jumpPage(1)">1</span>
+                        <span class="ellipsis"  v-show="efont">...</span>
+                        <span class="jump" v-for="num in indexs" :class="{bgprimary:current_page==num}" @click="jumpPage(num)">{{num}}</span>
+                        <span class="ellipsis"  v-show="ebehind">...</span>
+
+                        <span :class="{disabled:pend}" class="jump" @click="{current_page++}">></span>
+                        <span v-show="current_page<pages-4" class="jump" @click="jumpPage(pages)">{{pages}}</span>
+
+                        <span class="jumppoint auxiliary">跳至：</span>
+                        <span class="jumpinp "><input type="text" v-model="changePage"></span>
+                        <span class="jumppoint auxiliary">页</span>
+                        <span class="jump gobtn auxiliary" @click="jumpPage(changePage)">GO</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--  -->
+    </div>
+</div>
+<div class="demo-express">
+    <h3>代码</h3>
+    <div class="demo-express-bg">
+<!-- js -->
+<div class="demo-express-code-box row">
+                <div class="col-sm-12">
+                    <h3><span>html</span><button class="copy" data-clipboard-target="#foo1"></button></h3>
+
+<pre id="foo1">
+&lt;div id="paging-app"&gt;
+    &lt;div&gt;
+        &lt;div class="page"  v-show="show"&gt;
+            &lt;div class="pagelist"&gt;
+                &lt;span class="auxiliary"&gt;共&lt;/span&gt;
+                &lt;span class="auxiliary"&gt;10&lt;/span&gt;
+                &lt;span class="auxiliary"&gt;页/&lt;/span&gt;
+                &lt;span class="auxiliary auxiliary-last"&gt;100条数据&lt;/span&gt;
+                &lt;span class="jump" :class="{disabled:pstart}" @click="{current_page--}"&gt;<&lt;/span&gt;
+                &lt;span v-show="current_page&gt;5" class="jump" @click="jumpPage(1)"&gt;1&lt;/span&gt;
+                &lt;span class="ellipsis"  v-show="efont"&gt;...&lt;/span&gt;
+                &lt;span class="jump" v-for="num in indexs" :class="{bgprimary:current_page==num}" @click="jumpPage(num)"&gt;{{num}}&lt;/span&gt;
+                &lt;span class="ellipsis"  v-show="ebehind"&gt;...&lt;/span&gt;
+
+                &lt;span :class="{disabled:pend}" class="jump" @click="{current_page++}"&gt;>&lt;/span&gt;
+                &lt;span v-show="current_page&lt;pages-4" class="jump" @click="jumpPage(pages)"&gt;{{pages}}&lt;/span&gt;
+
+                &lt;span class="jumppoint auxiliary"&gt;跳至：&lt;/span&gt;
+                &lt;span class="jumpinp "&gt;&lt;input type="text" v-model="changePage"&gt;&lt;/span&gt;
+                &lt;span class="jumppoint auxiliary"&gt;页&lt;/span&gt;
+                &lt;span class="jump gobtn auxiliary" @click="jumpPage(changePage)"&gt;GO&lt;/span&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</pre>
+                </div>
+                <div class="col-sm-12">
+                    <h3><span>css</span><button class="copy" data-clipboard-target="#foo2"></button></h3>
+<pre id="foo2">
+#paging-app{
+    text-align: right;
+}
+.page {
+    display: inline-block;
+    height: 40px;
+    text-align: center;
+    margin: 20px auto 0;
+    background: #f2f2f2;
+    user-select: none;
+}
+.pagelist {
+    font-size: 0;
+    background: #fff;
+    height: 50px;
+    line-height: 50px;
+}
+
+.pagelist span {
+    font-size: 14px;
+    color: #d7d7d7;
+}
+
+.pagelist .jump {
+    border: 1px solid #d7d7d7;
+    padding: 2px 10px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.pagelist .bgprimary {
+    cursor: default;
+    color: #fff;
+    background: #0188c8;
+    border-color: #0188c8;
+}
+.jumpinp input {
+    width: 40px;
+    height: 22px;
+    font-size: 13px;
+    border: 1px solid #ccc;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.ellipsis {
+    width: 30px;
+    height: 24px;
+    padding: 2px 8px;
+    border: 1px solid #d7d7d7;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    margin-left: 10px;
+}
+
+.jumppoint {
+    margin-left: 10px;
+}
+
+.pagelist .gobtn {
+    font-size: 12px;
+    padding: 4px 10px;
+}
+
+.bgprimary {
+    cursor: default;
+    color: #fff;
+    background: #337ab7;
+    border-color: #337ab7;
+}
+.pagelist .jump.disabled{
+    pointer-events: none;
+    background: #ddd;
+    display: none;
+}
+.page .auxiliary{
+    color:#333;
+}
+.auxiliary-last{
+    margin-right: 10px;
+}
+</pre>
+                </div>
+                <div class="col-sm-12">
+                    <h3><span>javascript</span><button class="copy" data-clipboard-target="#foo3"></button></h3>
+<pre id="foo3">
+var pagingVM = new Vue({
+    el: '#paging-app',
+    data: {
+        current_page: 1, //当前页
+        pages: 50, //总页数
+        changePage:'',//跳转页
+        nowIndex:0
+    },
+    computed:{
+        show:function(){
+            return this.pages && this.pages !=1
+        },
+        pstart: function() {
+            return this.current_page == 1;
+        },
+        pend: function() {
+            return this.current_page == this.pages;
+        },
+        efont: function() {
+            if (this.pages <= 7) return false;
+            return this.current_page > 5
+        },
+        ebehind: function() {
+            if (this.pages <= 7) return false;
+            var nowAy = this.indexs;
+            return nowAy[nowAy.length - 1] != this.pages;
+        },
+        indexs: function() {
+
+            var left = 1,
+            right = this.pages,
+            ar = [];
+            if (this.pages >= 7) {
+                if (this.current_page > 5 && this.current_page < this.pages - 4) {
+                    left = Number(this.current_page) - 3;
+                    right = Number(this.current_page) + 3;
+                } else {
+                    if (this.current_page <= 5) {
+                        left = 1;
+                        right = 7;
+                    } else {
+                        right = this.pages;
+
+                        left = this.pages - 6;
+                    }
+                }
+            }
+           while (left <= right) {
+               ar.push(left);
+               left++;
+           }
+            return ar;
+        },
+    },
+    methods: {
+        jumpPage: function(id) {
+            this.current_page = id;
+        },
+    },
+
+})
+
+</pre>
+                </div>
+            </div>
+    </div>
+</div>
+<script type="text/javascript">
+setTimeout(runPaging,1000);
+function runPaging(){
+    var pagingVM = new Vue({
+        el: '#paging-app',
+        data: {
+            current_page: 1, //当前页
+            pages: 50, //总页数
+            changePage:'',//跳转页
+            nowIndex:0
+        },
+        computed:{
+            show:function(){
+                return this.pages && this.pages !=1
+            },
+            pstart: function() {
+                return this.current_page == 1;
+            },
+            pend: function() {
+                return this.current_page == this.pages;
+            },
+            efont: function() {
+                if (this.pages <= 7) return false;
+                return this.current_page > 5
+            },
+            ebehind: function() {
+                if (this.pages <= 7) return false;
+                var nowAy = this.indexs;
+                return nowAy[nowAy.length - 1] != this.pages;
+            },
+            indexs: function() {
+
+                var left = 1,
+                right = this.pages,
+                ar = [];
+                if (this.pages >= 7) {
+                    if (this.current_page > 5 && this.current_page < this.pages - 4) {
+                        left = Number(this.current_page) - 3;
+                        right = Number(this.current_page) + 3;
+                    } else {
+                        if (this.current_page <= 5) {
+                            left = 1;
+                            right = 7;
+                        } else {
+                            right = this.pages;
+
+                            left = this.pages - 6;
+                        }
+                    }
+                }
+
+                console.log(left," ：",right)
+                while (left <= right) {
+                   ar.push(left);
+                   left++;
+                }
+                return ar;
+            },
+        },
+        methods: {
+            jumpPage: function(id) {
+                this.current_page = id;
+                if(this.current_page>this.pages){
+                    console.log("cuowu");
+                }
+            },
+        },
+    });
+}
+</script>
