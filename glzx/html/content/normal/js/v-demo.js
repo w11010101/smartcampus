@@ -375,19 +375,19 @@ function getBase64(url,cb){
 
 // 表单 单选和多选
 
-form_checkbox_change();
-function form_checkbox_change(){
-    // 多选
-    $("form").on("click",".form-checkbox",function(){
-        $(this).toggleClass("active");
-    });
-    // 单选
-    $("form").on("click",".form-radio",function(){
-        $(this).addClass("active").parent().siblings().find(".form-radio").removeClass("active");
-    });
-}
-// 上传按钮
-$(".file-upload").on("click","button",uploadBtnFn);
-function uploadBtnFn(){
-    $(this).prev().find("input[type=file]").trigger("click");
-}
+// form_checkbox_change();
+// function form_checkbox_change(){
+//     // 多选
+//     $("form").on("click",".form-checkbox",function(){
+//         $(this).toggleClass("active");
+//     });
+//     // 单选
+//     $("form").on("click",".form-radio",function(){
+//         $(this).addClass("active").parent().siblings().find(".form-radio").removeClass("active");
+//     });
+// }
+// // 上传按钮
+// $(".file-upload").on("click","button",uploadBtnFn);
+// function uploadBtnFn(){
+//     $(this).prev().find("input[type=file]").trigger("click");
+// }

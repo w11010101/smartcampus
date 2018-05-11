@@ -1,15 +1,24 @@
+
+<link rel="stylesheet" type="text/css" href="../../../content/frame/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="../../../content/normal/css/my-theme.css">
+<link rel="stylesheet" type="text/css" href="../../../content/normal/css/demo.css">
+<script type="text/javascript" src="../../../content/frame/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../content/frame/clipboard/clipboard.min.js"></script>
+<script type="text/javascript" src="../../../content/normal/js/v-demo.js"></script>
+<!-- end -->
 <h2 id="demo-express-h1">小标题 
-    <button type="button" class="btn btn-default" onclick="$('.demo').load('views/container/demo/demo.html');">返回</button>
+    <a type="button" class="btn btn-default" href="../../local-index.html">返回</a>
 </h2>
 <!-- css -->
 <style type="text/css" media="screen">
-    .content-h2{
+.content-h2{
     height: 30px;
     line-height: 30px;
-    padding: 0 10px;
+    padding-left: 10px;
     font-size: 18px;
     border:0;
     position: relative;
+    margin: 20px 13px 20px 10px;
 }
 .content-h2:before{
     position: absolute;
@@ -24,13 +33,25 @@
     background: -moz-linear-gradient(top,#06bce1,#5682fd);
     background: -webkit-linear-gradient(top,#06bce1,#5682fd);
 }
+.content-h2 .form-line{
+    display: inline-block;
+    margin: 0;
+    vertical-align: top;
+}
+.content-h2 .form-line.form-line-right{
+    float: right;
+}
 </style>
 <!-- html -->
 <div class="demo-express">
     <h3>结果展示</h3>
     <div class="demo-express-bg">
         <!--  -->
-        <h2 class='content-h2'>标题展示</h2>
+        <h2 class='content-h2'>小标题展示
+            <div class="form-line form-line-right">
+                <label>部门信息：</label><input type="number" name="">
+            </div>
+        </h2>
         <!--  -->
     </div>
 </div>
@@ -43,7 +64,12 @@
                     <h3><span>html</span><button class="copy" data-clipboard-target="#foo1"></button></h3>
 
 <pre id="foo1">
-&lt;h2 class='content-h2'&gt;标题展示&lt;/h2&gt;
+※ form-line-right 靠右对齐
+&lt;h2 class='content-h2'&gt;标题展示
+    &lt;div class="form-line form-line-right"&gt;
+        &lt;label&gt;部门信息：&lt;/label&gt;&lt;input type="number" name=""&gt;
+    &lt;/div&gt;
+&lt;/h2&gt;
 </pre>
                 </div>
                 <div class="col-sm-12">
@@ -52,10 +78,11 @@
 .content-h2{
     height: 30px;
     line-height: 30px;
-    padding: 0 10px;
+    padding-left: 10px;
     font-size: 18px;
     border:0;
     position: relative;
+    margin: 20px 10px;
 }
 .content-h2:before{
     position: absolute;
@@ -69,6 +96,14 @@
     background: -linear-gradient(top,#06bce1,#5682fd);
     background: -moz-linear-gradient(top,#06bce1,#5682fd);
     background: -webkit-linear-gradient(top,#06bce1,#5682fd);
+}
+.content-h2 .form-line{
+    display: inline-block;
+    margin: 0;
+    vertical-align: top;
+}
+.content-h2 .form-line.form-line-right{
+    float: right;
 }
 </pre>
                 </div>

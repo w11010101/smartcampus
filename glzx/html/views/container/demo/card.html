@@ -1,0 +1,334 @@
+
+<link rel="stylesheet" type="text/css" href="../../../content/frame/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="../../../content/normal/css/my-theme.css">
+<link rel="stylesheet" type="text/css" href="../../../content/normal/css/demo.css">
+<link rel="stylesheet" type="text/css" href="../../../content/frame/jquery.date/jquery.datetimepicker.min.css">
+<script type="text/javascript" src="../../../content/frame/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../content/frame/clipboard/clipboard.min.js"></script>
+<script type="text/javascript" src="../../../content/normal/js/v-demo.js"></script>
+<!-- end -->
+<h2 id="demo-express-h1">
+    卡片
+    <a type="button" class="btn btn-default" href="../../local-index.html">返回</a>
+</h2>
+<!-- css -->
+<style type="text/css" media="screen">
+    .cards{
+        padding: 25px;
+    }
+    .item-card{
+        display: inline-block;
+        width: 260px;
+        height: 124px;
+        margin-right: 20px;
+        margin-bottom: 20px;
+        border: 1px solid #d2d2d2;
+        background: #fff;
+        padding: 18px 20px;
+        position: relative;
+
+        overflow: hidden;
+    }
+    .item-card:hover{
+        cursor: pointer;
+        background: #fafafa;
+    }
+    .item-card label{
+        font-weight: normal;
+        display: block;
+    }
+    .item-card label{
+        height: 20px;
+    }
+    .item-card label button{
+        float:right;
+        border:0;
+        margin-right: 50px;
+        background: none;
+        padding-left: 25px;
+        color: #7fd4e9;
+        background: url(../../../content/normal/images/ico-edit.png) no-repeat center left;
+    }
+    .item-card label em i{
+        font-style: normal;
+        display: block;
+        font-size: 12px;
+        -webkit-transform: scale(.9);
+        -ms-transform: scale(.9);
+        -o-transform: scale(.9);
+        transform: scale(.9);
+        text-align: center;
+    }
+    .item-card label em{
+        font-style: normal;
+        font-size: .2em;
+        position: absolute;
+        height: 20px;
+        line-height: 20px;
+        right: 0;
+        width: 43px;
+        background: #7fd4e9;
+        color: #fff;
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+
+    }
+    .item-card label .forbid{
+        background: #ec877f;
+    }
+    .item-card >div{
+        height: 30px;
+        line-height: 30px;
+        padding-left: 25px;
+    }
+    .item-card >div.tools{
+        position: absolute;
+        width: 100%;
+        height: 55px;
+        background: rgba(0,0,0,.3);
+        left:0;
+        bottom: 0;
+        text-align: center;
+        padding: 0;
+        -webkit-transform: translateY(100%);
+        -ms-transform: translateY(100%);
+        -o-transform: translateY(100%);
+        transform: translateY(100%);
+        -webkit-transition: all .2s;
+        -o-transition: all .2s;
+        transition: all .2s;
+    }
+    .item-card >div.tools.show{
+        -webkit-transform: translateY(0%);
+        -ms-transform: translateY(0%);
+        -o-transform: translateY(0%);
+        transform: translateY(0%);
+    }
+    .item-card >div.tools button{
+        width: 50px;
+        height: 50px;
+        border:0;
+        background: none;
+        color:#fff;
+    }
+    .item-card >div.tools button + button{
+        margin-left: 50px;
+    }
+    .item-card >div.person{
+        background: url(../../../content/normal/images/ico-user.png) center left no-repeat;
+    }
+    .item-card >div.time{
+        background: url(../../../content/normal/images/clock.png) center left no-repeat;
+    }
+</style>
+<!-- html -->
+<div class="demo-express">
+    <h3>结果展示</h3>
+    <div class="demo-express-bg">
+        <div class="cards">
+            <div class="item-card">
+                <label for="">
+                    <span>水费</span>
+                    <button class="edit">编辑</button>
+                    <em><i>已使用</i></em>
+                </label>
+                <div class="person">赵老师</div>
+                <div class="time">2018.12.12 12：12</div>
+                <div class="tools">
+                    <button>编辑</button>
+                    <button>删除</button>
+                </div>
+            </div>
+            <div class="item-card">
+                <label for="">
+                    <span>房屋维修</span>
+                    <button class="edit">编辑</button>
+                    <em class="forbid"><i>已禁用</i></em>
+                </label>
+                <div class="person">赵老师</div>
+                <div class="time">2018.12.12 12：12</div>
+                <div class="tools">
+                    <button>编辑</button>
+                    <button>删除</button>
+                </div>
+            </div>
+        </div>
+        <!--  -->
+    </div>
+</div>
+<div class="demo-express">
+    <h3>代码</h3>
+    <div class="demo-express-bg">
+<!-- js -->
+<div class="demo-express-code-box row">
+                <div class="col-sm-12">
+                    <h3><span>html</span><button class="copy" data-clipboard-target="#foo1"></button></h3>
+
+<pre id="foo1">
+&lt;div class="cards"&gt;
+    &lt;div class="item-card"&gt;
+        &lt;label for=""&gt;
+            &lt;span&gt;水费&lt;/span&gt;
+            &lt;button class="edit"&gt;编辑&lt;/button&gt;
+            &lt;em&gt;&lt;i&gt;已使用&lt;/i&gt;&lt;/em&gt;
+        &lt;/label&gt;
+        &lt;div class="person"&gt;赵老师&lt;/div&gt;
+        &lt;div class="time"&gt;2018.12.12 12：12&lt;/div&gt;
+        &lt;div class="tools"&gt;
+            &lt;button&gt;编辑&lt;/button&gt;
+            &lt;button&gt;删除&lt;/button&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="item-card"&gt;
+        &lt;label for=""&gt;
+            &lt;span&gt;房屋维修&lt;/span&gt;
+            &lt;button class="edit"&gt;编辑&lt;/button&gt;
+            &lt;em class="forbid"&gt;&lt;i&gt;已禁用&lt;/i&gt;&lt;/em&gt;
+        &lt;/label&gt;
+        &lt;div class="person"&gt;赵老师&lt;/div&gt;
+        &lt;div class="time"&gt;2018.12.12 12：12&lt;/div&gt;
+        &lt;div class="tools"&gt;
+            &lt;button&gt;编辑&lt;/button&gt;
+            &lt;button&gt;删除&lt;/button&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</pre>
+                </div>
+                <div class="col-sm-12">
+                    <h3><span>css</span><button class="copy" data-clipboard-target="#foo2"></button></h3>
+<pre id="foo2">
+.cards{
+    padding: 25px;
+}
+.item-card{
+    display: inline-block;
+    width: 260px;
+    height: 124px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    border: 1px solid #d2d2d2;
+    background: #fff;
+    padding: 18px 20px;
+    position: relative;
+
+    overflow: hidden;
+}
+.item-card:hover{
+    cursor: pointer;
+    background: #fafafa;
+}
+.item-card label{
+    font-weight: normal;
+    display: block;
+}
+.item-card label{
+    height: 20px;
+}
+.item-card label button{
+    float:right;
+    border:0;
+    margin-right: 50px;
+    background: none;
+    padding-left: 25px;
+    color: #7fd4e9;
+    background: url(../../../content/normal/images/ico-edit.png) no-repeat center left;
+}
+.item-card label em i{
+    font-style: normal;
+    display: block;
+    font-size: 12px;
+    -webkit-transform: scale(.9);
+    -ms-transform: scale(.9);
+    -o-transform: scale(.9);
+    transform: scale(.9);
+    text-align: center;
+}
+.item-card label em{
+    font-style: normal;
+    font-size: .2em;
+    position: absolute;
+    height: 20px;
+    line-height: 20px;
+    right: 0;
+    width: 43px;
+    background: #7fd4e9;
+    color: #fff;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+
+}
+.item-card label .forbid{
+    background: #ec877f;
+}
+.item-card >div{
+    height: 30px;
+    line-height: 30px;
+    padding-left: 25px;
+}
+.item-card >div.tools{
+    position: absolute;
+    width: 100%;
+    height: 55px;
+    background: rgba(0,0,0,.3);
+    left:0;
+    bottom: 0;
+    text-align: center;
+    padding: 0;
+    -webkit-transform: translateY(100%);
+    -ms-transform: translateY(100%);
+    -o-transform: translateY(100%);
+    transform: translateY(100%);
+    -webkit-transition: all .2s;
+    -o-transition: all .2s;
+    transition: all .2s;
+}
+.item-card >div.tools.show{
+    -webkit-transform: translateY(0%);
+    -ms-transform: translateY(0%);
+    -o-transform: translateY(0%);
+    transform: translateY(0%);
+}
+.item-card >div.tools button{
+    width: 50px;
+    height: 50px;
+    border:0;
+    background: none;
+    color:#fff;
+}
+.item-card >div.tools button + button{
+    margin-left: 50px;
+}
+.item-card >div.person{
+    background: url(../../../content/normal/images/ico-user.png) center left no-repeat;
+}
+.item-card >div.time{
+    background: url(../../../content/normal/images/clock.png) center left no-repeat;
+}
+</pre>
+                </div>
+                <div class="col-sm-12">
+                    <h3><span>javascript</span><button class="copy" data-clipboard-target="#foo3"></button></h3>
+<pre id="foo3">
+// 卡片
+$(".item-card").on("click",function(event){
+    if($(event.target).hasClass("edit")){
+        $(".tools",this).addClass("show");
+    }else{
+        $(".tools",this).removeClass("show");
+    }
+});
+</pre>
+                </div>
+            </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(".item-card").on("click",function(event){
+        if($(event.target).hasClass("edit")){
+            $(".tools",this).addClass("show");
+        }else{
+            $(".tools",this).removeClass("show");
+        }
+    });
+</script>

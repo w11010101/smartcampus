@@ -139,7 +139,7 @@ table a{
 .content-h1{
     height: 66px;
     padding: 0 10px 0 38px;
-    background: url(../../normal/images/ico-title.png) no-repeat left center;
+    background: url(../../../content/normal/images/ico-title.png) no-repeat left center;
     line-height: 66px;
     font-size: 24px;
     color:#000;
@@ -152,15 +152,31 @@ table a{
     float: right;
     margin-top:21px;
     border:0;
-    background: url(../../normal/images/refresh.png) no-repeat;
+    background: url(../../../content/normal/images/refresh.png) no-repeat;
+}
+.content-h1 .breadcrumb{
+    display: inline-block;
+    background: none;
+    padding: 0;
+}
+.content-h1 .breadcrumb a{
+    color: #000;
+}
+.content-h1 .breadcrumb>li:before,
+.content-h1 .breadcrumb>li+li:before{
+    font-family: monospace;
+    font-size: 12px;
+    content:"〉";
+    color: #9f9f9f;
 }
 .content-h2{
     height: 30px;
     line-height: 30px;
-    padding: 0 10px;
+    padding-left: 10px;
     font-size: 18px;
     border:0;
     position: relative;
+    margin: 20px 13px 20px 10px;
 }
 .content-h2:before{
     position: absolute;
@@ -175,36 +191,59 @@ table a{
     background: -moz-linear-gradient(top,#06bce1,#5682fd);
     background: -webkit-linear-gradient(top,#06bce1,#5682fd);
 }
+.content-h2 .form-line{
+    display: inline-block;
+    margin: 0;
+    vertical-align: top;
+}
+.content-h2 .form-line.form-line-right{
+    float: right;
+}
 /* form */
 form{
-    margin:30px 0;
+    margin:30px 0 50px 0;
+    padding-left:120px; 
 }
 form .form-line *{
     font-size: 14px;
 }
-.form-inline .form-line,{
+.form-inline{
+    padding: 0 13px 0 20px;
+}
+.form-inline .form-line{
     display: inline-block;
     margin: 0;
 }
-.content-h2 .form-line{
-    display: inline-block;
-    margin: 0;
+.form-inline .form-line + .form-line{
+    margin-left: 40px;
+}
+.content-h2 .form-line + .form-line{
+    margin-right: 30px;
 }
 .form-line{
     font-size: 0;
     height: 30px;
     line-height: 30px;
     margin-right: 26px;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
+    vertical-align: top;
 }
 .form-line >label{
-    width: 80px;
+    width: 160px;
     height:30px;
     font-weight: normal;
     vertical-align: top;
     text-align: right;
+    margin-right: 50px;
 }
-
+.content-h2 .form-line >label,
+.form-inline .form-line >label{
+    width: auto;
+    margin-right: 0px;
+}
+.btn .caret{
+    margin-left: 10px;
+}
 .form-line >label + .dropdown{
     display: inline-block;
     height: 30px;
@@ -238,15 +277,16 @@ form .form-line *{
     display: inline-block;
     height: 30px;
     color:#e6e6e6;
+    padding:0 5px;
 }
 .form-line .form-date input[type=text]{
     width: 100%;
 }
 .form-line .form-date input[type=text]{
-    background: url(../../normal/images/clock.png) no-repeat right 5px center;
+    background: url(../../../content/normal/images/clock.png) no-repeat right 5px center;
 }
 /*  */
-form button.btn-default{
+.form-line button.btn-default{
     background: #F7F7F7;
     line-height: 10px;
     font-size: 14px;
@@ -257,8 +297,8 @@ form button.btn-default{
 /*  */
 .form-line input[type=number]{
     width: 50px;
-    height: 25px;
     padding-right: 0;
+    font-size: 12px;
 }
 /*  */
 .form-line textarea{
@@ -281,23 +321,33 @@ form button.btn-default{
     vertical-align: middle;
 
 }
+.form-line .checkbox-btns .checkbox-inline,
+.form-line .radio-btns .radio-inline{
+    padding: 0;
+
+}
+.form-line .checkbox-btns .checkbox-inline + .checkbox-inline,
+.form-line .radio-btns .radio-inline + .radio-inline{
+    margin-left: 50px;
+}
+
 .form-line .checkbox-btns .form-checkbox{
-    background: #fff url(../images/Checkbox-off.png) 0 0 no-repeat;
+    background: #fff url(../../../content/normal/images/Checkbox-off.png) 0 0 no-repeat;
     -webkit-background-size: contain;
     background-size: contain;
 }
 .form-line .checkbox-btns .form-checkbox.active{
-    background: #fff url(../images/Checkbox-on.png) 0 0 no-repeat;
+    background: #fff url(../../../content/normal/images/Checkbox-on.png) 0 0 no-repeat;
     -webkit-background-size: contain;
     background-size: contain;
 }
 .form-line .radio-btns .form-radio{
-    background: #fff url(../images/Radio-button-off.png) 0 0 no-repeat;
+    background: #fff url(../../../content/normal/images/Radio-button-off.png) 0 0 no-repeat;
     -webkit-background-size: contain;
     background-size: contain;
 }
 .form-line .radio-btns .form-radio.active{
-    background: #fff url(../images/Radio-button-on.png) 0 0 no-repeat;
+    background: #fff url(../../../content/normal/images/Radio-button-on.png) 0 0 no-repeat;
     -webkit-background-size: contain;
     background-size: contain;
 }
@@ -324,9 +374,34 @@ form button.btn-default{
     background-color: #f7f7f7;
     border: 1px solid #c5c5c5;
 }
+/* btn-theme */
+.btn-theme{
+    height: 30px;
+    padding: 0px 12px;
+    line-height: 28px;
+    border-radius: 0;
+    filter: progid:DXImageTransform.Microsoft.gradient(startcolorstr=#02c1de,endcolorstr=#44b9eb,gradientType=1);
+    background: -linear-gradient(right,#02c1de,#44b9eb);
+    background: -moz-linear-gradient(right,#02c1de,#44b9eb);
+    background: -webkit-linear-gradient(right,#02c1de,#44b9eb);
+    border-color: #31afe4;
+    color: #fff;
+}
+.btn-theme:hover{
+    border-color: #31afe4;
+    color: #fff;
+    opacity: .7;
+}
+.form-line .btn + .btn{
+    margin-left: 20px;
+}
+.form-inline .search-btn{
+    float: right;
+}
 /* paging */
-#paging-app{
+#paging-app {
     text-align: right;
+    padding-right: 13px;
 }
 .page {
     display: inline-block;
@@ -413,7 +488,9 @@ form button.btn-default{
     margin-right: 10px;
 }
 /* 栅格系统 */
-
+.content-h1 + .grid.row{
+    margin-top: 30px;
+}
 .grid.row{
     padding-left: 40px;
 }
@@ -451,8 +528,9 @@ form button.btn-default{
     font-weight: normal;
 }
 #table.table tbody td{
-    height: 40px;
-    line-height: 40px;
+    /*height: 50px;*/
+    line-height: 20px;
+    vertical-align: middle;
 }
 #table.table .table-checkbox{
     display: inline-block;
@@ -505,10 +583,15 @@ form button.btn-default{
 #table.table tbody td.agreed{
     color:#535353;
 }
-@media screen and (min-width: 768px) and (max-width: 1366px){
+.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th{
+    border-top: 0;
+    border-bottom: 1px solid #ddd;
+}
+@media screen and (min-width: 768px) and (max-width: 1600px){
     .table-responsive {
-        width: 100%;
+        width: calc(100% - 23px);
         margin-bottom: 15px;
+        margin-left: 10px;
         overflow-y: hidden;
         -ms-overflow-style: -ms-autohiding-scrollbar;
         border: 1px solid #ddd;
@@ -528,4 +611,136 @@ form button.btn-default{
     .table-responsive>#table.table>thead>tr>th {
         white-space: nowrap;
     }
+}
+.table-responsive.table-nothing{
+    position: relative;
+    padding-bottom: 60px;
+}
+.nothing{
+    position: absolute;
+    height: 40px;
+    text-align: center;
+    left: 50%;
+    margin: 10px 0;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
+.nothing span{
+    display: inline-block;
+    height: 40px;
+    line-height: 40px;
+    padding-left: 50px;
+    background: url(../../../content/normal/images/default-none.png) no-repeat left;
+    -webkit-background-size: contain;
+    background-size: contain;
+}
+/* card */
+.cards{
+    padding: 25px;
+}
+.item-card{
+    display: inline-block;
+    width: 260px;
+    height: 124px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    border: 1px solid #d2d2d2;
+    background: #fff;
+    padding: 18px 20px;
+    position: relative;
+
+    overflow: hidden;
+}
+.item-card:hover{
+    cursor: pointer;
+    background: #fafafa;
+}
+.item-card label{
+    font-weight: normal;
+    display: block;
+}
+.item-card label{
+    height: 20px;
+}
+.item-card label button{
+    float:right;
+    border:0;
+    margin-right: 50px;
+    background: none;
+    padding-left: 25px;
+    color: #7fd4e9;
+    background: url(../../../content/normal/images/ico-edit.png) no-repeat center left;
+}
+.item-card label em i{
+    font-style: normal;
+    display: block;
+    font-size: 12px;
+    -webkit-transform: scale(.9);
+    -ms-transform: scale(.9);
+    -o-transform: scale(.9);
+    transform: scale(.9);
+    text-align: center;
+}
+.item-card label em{
+    font-style: normal;
+    font-size: .2em;
+    position: absolute;
+    height: 20px;
+    line-height: 20px;
+    right: 0;
+    width: 43px;
+    background: #7fd4e9;
+    color: #fff;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+
+}
+.item-card label .forbid{
+    background: #ec877f;
+}
+.item-card >div{
+    height: 30px;
+    line-height: 30px;
+    padding-left: 25px;
+}
+.item-card >div.tools{
+    position: absolute;
+    width: 100%;
+    height: 55px;
+    background: rgba(0,0,0,.3);
+    left:0;
+    bottom: 0;
+    text-align: center;
+    padding: 0;
+    -webkit-transform: translateY(100%);
+    -ms-transform: translateY(100%);
+    -o-transform: translateY(100%);
+    transform: translateY(100%);
+    -webkit-transition: all .2s;
+    -o-transition: all .2s;
+    transition: all .2s;
+}
+.item-card >div.tools.show{
+    -webkit-transform: translateY(0%);
+    -ms-transform: translateY(0%);
+    -o-transform: translateY(0%);
+    transform: translateY(0%);
+}
+.item-card >div.tools button{
+    width: 50px;
+    height: 50px;
+    border:0;
+    background: none;
+    color:#fff;
+}
+.item-card >div.tools button + button{
+    margin-left: 50px;
+}
+.item-card >div.person{
+    background: url(../../../content/normal/images/ico-user.png) center left no-repeat;
+}
+.item-card >div.time{
+    background: url(../../../content/normal/images/clock.png) center left no-repeat;
 }

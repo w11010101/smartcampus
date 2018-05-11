@@ -1,40 +1,66 @@
+
+<link rel="stylesheet" type="text/css" href="../../../content/frame/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="../../../content/normal/css/my-theme.css">
+<link rel="stylesheet" type="text/css" href="../../../content/normal/css/demo.css">
 <link rel="stylesheet" type="text/css" href="../../../content/frame/jquery.date/jquery.datetimepicker.min.css">
+<script type="text/javascript" src="../../../content/frame/jquery/jquery.min.js"></script>
 <script type="text/javascript" src="../../../content/frame/jquery.date/jquery.datetimepicker.full.min.js"></script>
+<script type="text/javascript" src="../../../content/frame/clipboard/clipboard.min.js"></script>
+<script type="text/javascript" src="../../../content/frame/bootstrap/js/bootstrap.js"></script>
+<script type="text/javascript" src="../../../content/frame/bootstrap/js/my-dropdown.js"></script>
+<script type="text/javascript" src="../../../content/normal/js/v-demo.js"></script>
+
 <h2 id="demo-express-h1">form 
-    <button type="button" class="btn btn-default" onclick="$('.demo').load('views/container/demo/demo.html');">返回</button>
+    <a type="button" class="btn btn-default" href="../../local-index.html">返回</a>
 </h2>
 <!-- css -->
 <style type="text/css" media="screen">
+
 /* form */
 form{
-    margin:30px 0;
+    margin:30px 0 50px 0;
+    padding-left:120px; 
 }
 form .form-line *{
     font-size: 14px;
 }
-.form-inline .form-line,{
+.form-inline{
+    padding: 0 13px 0 20px;
+}
+.form-inline .form-line{
     display: inline-block;
     margin: 0;
 }
-.content-h2 .form-line{
-    display: inline-block;
-    margin: 0;
+.form-inline .form-line + .form-line{
+    margin-left: 40px;
+}
+.content-h2 .form-line + .form-line{
+    margin-right: 30px;
 }
 .form-line{
     font-size: 0;
     height: 30px;
     line-height: 30px;
     margin-right: 26px;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
+    vertical-align: top;
 }
 .form-line >label{
-    width: 80px;
+    width: 160px;
     height:30px;
     font-weight: normal;
     vertical-align: top;
     text-align: right;
+    margin-right: 50px;
 }
-
+.content-h2 .form-line >label,
+.form-inline .form-line >label{
+    width: auto;
+    margin-right: 0px;
+}
+.btn .caret{
+    margin-left: 10px;
+}
 .form-line >label + .dropdown{
     display: inline-block;
     height: 30px;
@@ -68,6 +94,7 @@ form .form-line *{
     display: inline-block;
     height: 30px;
     color:#e6e6e6;
+    padding:0 5px;
 }
 .form-line .form-date input[type=text]{
     width: 100%;
@@ -76,10 +103,10 @@ form .form-line *{
     background: url(../../../content/normal/images/clock.png) no-repeat right 5px center;
 }
 /*  */
-form button.btn-default{
+.form-line button.btn-default{
     background: #F7F7F7;
-    line-height: 10px;
     font-size: 14px;
+    line-height: 10px;
     height: 30px;
     border-radius:0;
     border:1px solid #c5c5c5;
@@ -87,8 +114,8 @@ form button.btn-default{
 /*  */
 .form-line input[type=number]{
     width: 50px;
-    height: 25px;
     padding-right: 0;
+    font-size: 12px;
 }
 /*  */
 .form-line textarea{
@@ -111,6 +138,16 @@ form button.btn-default{
     vertical-align: middle;
 
 }
+.form-line .checkbox-btns .checkbox-inline,
+.form-line .radio-btns .radio-inline{
+    padding: 0;
+
+}
+.form-line .checkbox-btns .checkbox-inline + .checkbox-inline,
+.form-line .radio-btns .radio-inline + .radio-inline{
+    margin-left: 50px;
+}
+
 .form-line .checkbox-btns .form-checkbox{
     background: #fff url(../../../content/normal/images/Checkbox-off.png) 0 0 no-repeat;
     -webkit-background-size: contain;
@@ -130,6 +167,53 @@ form button.btn-default{
     background: #fff url(../../../content/normal/images/Radio-button-on.png) 0 0 no-repeat;
     -webkit-background-size: contain;
     background-size: contain;
+}
+.form-line .file-upload{
+    display: inline-block;
+}
+.form-line .file-upload span{
+    display: inline-block;
+    width: 200px;
+    height: 30px;
+    border: 1px solid #c5c5c5;
+}
+.form-line .file-upload input[type=file]{
+    display: inline-block;
+    width: 200px;
+    height: 30px;
+    opacity: 0;
+}
+.form-line .file-upload button{
+    display: inline-block;
+    vertical-align: top;
+    width: 56px;
+    height: 30px;
+    background-color: #f7f7f7;
+    border: 1px solid #c5c5c5;
+}
+/* btn-theme */
+.btn-theme{
+    height: 30px;
+    padding: 0px 12px;
+    line-height: 28px;
+    border-radius: 0;
+    filter: progid:DXImageTransform.Microsoft.gradient(startcolorstr=#02c1de,endcolorstr=#44b9eb,gradientType=1);
+    background: -linear-gradient(right,#02c1de,#44b9eb);
+    background: -moz-linear-gradient(right,#02c1de,#44b9eb);
+    background: -webkit-linear-gradient(right,#02c1de,#44b9eb);
+    border-color: #31afe4;
+    color: #fff;
+}
+.btn-theme:hover{
+    border-color: #31afe4;
+    color: #fff;
+    opacity: .7;
+}
+.form-line .btn + .btn{
+    margin-left: 20px;
+}
+.form-inline .search-btn{
+    float: right;
 }
 </style>
 <!-- html -->
@@ -175,43 +259,55 @@ form button.btn-default{
                 <label>数字：</label><input type="number" name="">
             </div>
             <div class="form-line form-line-textarea">
-                    <label>描述：</label><textarea class="" rows="2"></textarea>
+                <label>描述：</label><textarea class="" rows="2"></textarea>
+            </div>
+            <div class="form-line">
+                <label>开餐编号：</label><span>123123123</span>
+            </div>
+            <div class="form-line">
+                <label>就餐时间：</label><span>11:30—13:00</span>
+            </div>
+            <div class="form-line">
+                <label>多选：</label>
+                <div class="checkbox-btns">
+                    <label class="checkbox-inline">
+                        <span class="form-checkbox"></span> 多选一
+                    </label>
+                    <label class="checkbox-inline">
+                        <span class="form-checkbox"></span> 多选二
+                    </label>
+                    <label class="checkbox-inline">
+                        <span class="form-checkbox"></span> 多选三
+                    </label>
                 </div>
-                <div class="form-line">
-                    <label>开餐编号：</label><span>123123123</span>
+            </div>
+            <div class="form-line">
+                <label>单选：</label>
+                <div class="radio-btns">                        
+                    <label class="radio-inline">
+                        <span class="form-radio"></span> 单选一
+                    </label>
+                    <label class="radio-inline">
+                        <span class="form-radio"></span> 单选二
+                    </label>
+                    <label class="radio-inline">
+                        <span class="form-radio"></span> 单选三
+                    </label>
                 </div>
-                <div class="form-line">
-                    <label>就餐时间：</label><span>11:30—13:00</span>
-                </div>
-                <div class="form-line">
-                    <label>多选：</label>
-                    <div class="checkbox-btns">
-                        <label class="checkbox-inline">
-                            <span class="form-checkbox"></span> 1
-                        </label>
-                        <label class="checkbox-inline">
-                            <span class="form-checkbox"></span> 2
-                        </label>
-                        <label class="checkbox-inline">
-                            <span class="form-checkbox"></span> 3
-                        </label>
-                    </div>
-                </div>
-                <div class="form-line">
-                    <label>单选：</label>
-                    <div class="radio-btns">                        
-                        <label class="radio-inline">
-                            <span class="form-radio"></span> 1
-                        </label>
-                        <label class="radio-inline">
-                            <span class="form-radio"></span> 2
-                        </label>
-                        <label class="radio-inline">
-                            <span class="form-radio"></span> 3
-                        </label>
-                    </div>
-                </div>
-            <button class="btn btn-default" type="">查询按钮</button>
+            </div>
+            <div class="form-line">
+                <label>测试主题主题颜色按钮：</label>
+                <div class="btn btn-default btn-theme">主题按钮</div>
+            </div>
+            <div class="form-line">
+                <label>表单按钮：</label>
+                <div class="btn btn-default">表单按钮</div>
+                <div class="btn btn-default">提交并设置活动商户</div>
+            </div>
+            <div class="form-line">
+                <button class="btn btn-default search-btn" type="">查询按钮</button>
+            </div>
+            
         </form>
         <!--  -->
     </div>
@@ -221,6 +317,14 @@ form button.btn-default{
     <div class="demo-express-bg">
 <!-- js -->
 <div class="demo-express-code-box row">
+                <div class="col-sm-12">
+                    <h3><span>plugin</span><button class="copy" data-clipboard-target="#foo"></button></h3>
+<pre id="foo">
+&lt;!-- 日期控件依赖 --&gt;
+&lt;link rel="stylesheet" type="text/css" href="../../../content/frame/jquery.date/jquery.datetimepicker.min.css"&gt;
+&lt;script type="text/javascript" src="../../../content/frame/jquery.date/jquery.datetimepicker.full.min.js"&gt;&lt;/script&gt;
+</pre>
+                </div>
                 <div class="col-sm-12">
                     <h3><span>html</span><button class="copy" data-clipboard-target="#foo1"></button></h3>
 
@@ -276,13 +380,13 @@ form button.btn-default{
         &lt;label&gt;多选：&lt;/label&gt;
         &lt;div class="checkbox-btns"&gt;
             &lt;label class="checkbox-inline"&gt;
-                &lt;span class="form-checkbox"&gt;&lt;/span&gt; 1
+                &lt;span class="form-checkbox"&gt;&lt;/span&gt; 多选一
             &lt;/label&gt;
             &lt;label class="checkbox-inline"&gt;
-                &lt;span class="form-checkbox"&gt;&lt;/span&gt; 2
+                &lt;span class="form-checkbox"&gt;&lt;/span&gt; 多选二
             &lt;/label&gt;
             &lt;label class="checkbox-inline"&gt;
-                &lt;span class="form-checkbox"&gt;&lt;/span&gt; 3
+                &lt;span class="form-checkbox"&gt;&lt;/span&gt; 多选三
             &lt;/label&gt;
         &lt;/div&gt;
     &lt;/div&gt;
@@ -290,15 +394,24 @@ form button.btn-default{
         &lt;label&gt;单选：&lt;/label&gt;
         &lt;div class="radio-btns"&gt;                        
             &lt;label class="radio-inline"&gt;
-                &lt;span class="form-radio"&gt;&lt;/span&gt; 1
+                &lt;span class="form-radio"&gt;&lt;/span&gt; 单选一
             &lt;/label&gt;
             &lt;label class="radio-inline"&gt;
-                &lt;span class="form-radio"&gt;&lt;/span&gt; 2
+                &lt;span class="form-radio"&gt;&lt;/span&gt; 单选二
             &lt;/label&gt;
             &lt;label class="radio-inline"&gt;
-                &lt;span class="form-radio"&gt;&lt;/span&gt; 3
+                &lt;span class="form-radio"&gt;&lt;/span&gt; 单选三
             &lt;/label&gt;
         &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="form-line"&gt;
+        &lt;label&gt;测试主题主题颜色按钮：&lt;/label&gt;
+        &lt;div class="btn btn-default btn-theme"&gt;主题按钮&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="form-line"&gt;
+        &lt;label&gt;表单按钮：&lt;/label&gt;
+        &lt;div class="btn btn-default search-btn"&gt;表单按钮&lt;/div&gt;
+        &lt;div class="btn btn-default"&gt;提交并设置活动商户&lt;/div&gt;
     &lt;/div&gt;
     &lt;button class="btn" type=""&gt;查询按钮&lt;/button&gt;
 &lt;/form&gt;
@@ -309,34 +422,49 @@ form button.btn-default{
 <pre id="foo2">
 /* form */
 form{
-    margin:30px 0;
+    margin:30px 0 50px 0;
+    padding-left:120px; 
 }
 form .form-line *{
     font-size: 14px;
 }
-.form-inline .form-line,{
+.form-inline{
+    padding: 0 13px 0 20px;
+}
+.form-inline .form-line{
     display: inline-block;
     margin: 0;
 }
-.content-h2 .form-line{
-    display: inline-block;
-    margin: 0;
+.form-inline .form-line + .form-line{
+    margin-left: 40px;
+}
+.content-h2 .form-line + .form-line{
+    margin-right: 30px;
 }
 .form-line{
     font-size: 0;
     height: 30px;
     line-height: 30px;
     margin-right: 26px;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
+    vertical-align: top;
 }
 .form-line >label{
-    width: 80px;
+    width: 160px;
     height:30px;
     font-weight: normal;
     vertical-align: top;
     text-align: right;
+    margin-right: 50px;
 }
-
+.content-h2 .form-line >label,
+.form-inline .form-line >label{
+    width: auto;
+    margin-right: 0px;
+}
+.btn .caret{
+    margin-left: 10px;
+}
 .form-line >label + .dropdown{
     display: inline-block;
     height: 30px;
@@ -370,6 +498,7 @@ form .form-line *{
     display: inline-block;
     height: 30px;
     color:#e6e6e6;
+    padding:0 5px;
 }
 .form-line .form-date input[type=text]{
     width: 100%;
@@ -378,7 +507,7 @@ form .form-line *{
     background: url(../../../content/normal/images/clock.png) no-repeat right 5px center;
 }
 /*  */
-form button.btn-default{
+.form-line button.btn-default{
     background: #F7F7F7;
     line-height: 10px;
     font-size: 14px;
@@ -389,8 +518,8 @@ form button.btn-default{
 /*  */
 .form-line input[type=number]{
     width: 50px;
-    height: 25px;
     padding-right: 0;
+    font-size: 12px;
 }
 /*  */
 .form-line textarea{
@@ -413,57 +542,124 @@ form button.btn-default{
     vertical-align: middle;
 
 }
+.form-line .checkbox-btns .checkbox-inline,
+.form-line .radio-btns .radio-inline{
+    padding: 0;
+
+}
+.form-line .checkbox-btns .checkbox-inline + .checkbox-inline,
+.form-line .radio-btns .radio-inline + .radio-inline{
+    margin-left: 50px;
+}
+
 .form-line .checkbox-btns .form-checkbox{
-    background: #fff url(../images/Checkbox-off.png) 0 0 no-repeat;
+    background: #fff url(../../../content/normal/images/Checkbox-off.png) 0 0 no-repeat;
     -webkit-background-size: contain;
     background-size: contain;
 }
 .form-line .checkbox-btns .form-checkbox.active{
-    background: #fff url(../images/Checkbox-on.png) 0 0 no-repeat;
+    background: #fff url(../../../content/normal/images/Checkbox-on.png) 0 0 no-repeat;
     -webkit-background-size: contain;
     background-size: contain;
 }
 .form-line .radio-btns .form-radio{
-    background: #fff url(../images/Radio-button-off.png) 0 0 no-repeat;
+    background: #fff url(../../../content/normal/images/Radio-button-off.png) 0 0 no-repeat;
     -webkit-background-size: contain;
     background-size: contain;
 }
 .form-line .radio-btns .form-radio.active{
-    background: #fff url(../images/Radio-button-on.png) 0 0 no-repeat;
+    background: #fff url(../../../content/normal/images/Radio-button-on.png) 0 0 no-repeat;
     -webkit-background-size: contain;
     background-size: contain;
+}
+.form-line .file-upload{
+    display: inline-block;
+}
+.form-line .file-upload span{
+    display: inline-block;
+    width: 200px;
+    height: 30px;
+    border: 1px solid #c5c5c5;
+}
+.form-line .file-upload input[type=file]{
+    display: inline-block;
+    width: 200px;
+    height: 30px;
+    opacity: 0;
+}
+.form-line .file-upload button{
+    display: inline-block;
+    vertical-align: top;
+    width: 56px;
+    height: 30px;
+    background-color: #f7f7f7;
+    border: 1px solid #c5c5c5;
+}
+/* btn-theme */
+.btn-theme{
+height: 30px;
+    padding: 0px 12px;
+    line-height: 28px;
+    border-radius: 0;
+    filter: progid:DXImageTransform.Microsoft.gradient(startcolorstr=#02c1de,endcolorstr=#44b9eb,gradientType=1);
+    background: -linear-gradient(right,#02c1de,#44b9eb);
+    background: -moz-linear-gradient(right,#02c1de,#44b9eb);
+    background: -webkit-linear-gradient(right,#02c1de,#44b9eb);
+    border-color: #31afe4;
+    color: #fff;
+}
+.btn-theme:hover{
+    border-color: #31afe4;
+    color: #fff;
+    opacity: .7;
+}
+.form-line .btn + .btn{
+    margin-left: 20px;
+}
+.form-inline .search-btn{
+    float: right;
 }
 </pre>
                 </div>
                 <div class="col-sm-12">
                     <h3><span>javascript</span><button class="copy" data-clipboard-target="#foo3"></button></h3>
 <pre id="foo3">
-备注：点击选择后隐藏下拉框，
-      并添加到点击按钮上
-# 下拉框
-$(".form-line .dropdown-menu").on("click","li a",function(event){
-    var dropdown = $(this).parents(".form-line").find('[data-toggle=dropdown]');
-    dropdown.text($(this).text()).parent().removeClass("open");
-});
-# 时间选择
+//备注：点击选择后隐藏下拉框，
+//      并添加到点击按钮上
+// 日期
 $.datetimepicker.setLocale('zh');
 $('#startDate').datetimepicker({        
     timepicker:false,
     format:'Y.m.d',
+    parentID:"html",
     onShow:function( ct ){
+        console.log(123)
         this.setOptions({
             maxDate:$('#endDate').val()?$('#endDate').val():false
         })
     },
 });
+
 $('#endDate').datetimepicker({
     timepicker:false,
     format:'Y.m.d',
+    parentID:"html",
     onShow:function( ct ){
         this.setOptions({
             minDate:$('#startDate').val()?$('#startDate').val():false
         })
     },
+});
+
+// 下拉选项
+var menu = $(".dropdown-menu");
+if($("#right-container .dropdown-menu").length){
+    menu = $("#right-container .dropdown-menu");
+}
+
+menu.on("click","li a",function(event){
+    var dropdown = $(this).parents("ul").prev('[data-toggle=dropdown]');
+    dropdown.html($(this).text()+'<span class="caret"></span>').parent().removeClass("open");
 });
 form_checkbox_change();
 function form_checkbox_change(){
@@ -476,13 +672,18 @@ function form_checkbox_change(){
         $(this).addClass("active").parent().siblings().find(".form-radio").removeClass("active");
     });
 }
+// 上传按钮
+$(".file-upload").on("click","button",uploadBtnFn);
+function uploadBtnFn(){
+    $(this).prev().find("input[type=file]").trigger("click");
+}
 </pre>
                 </div>
             </div>
     </div>
 </div>
 <script type="text/javascript">
-        // 日期
+    // 日期
     $.datetimepicker.setLocale('zh');
     $('#startDate').datetimepicker({        
         timepicker:false,
@@ -508,11 +709,16 @@ function form_checkbox_change(){
     });
 
     // 下拉选项
+    var menu = $(".dropdown-menu");
+    if($("#right-container .dropdown-menu").length){
+        menu = $("#right-container .dropdown-menu");
+    }
     
-    $("#right-container .dropdown-menu").on("click","li a",function(event){
+    menu.on("click","li a",function(event){
         var dropdown = $(this).parents("ul").prev('[data-toggle=dropdown]');
-        dropdown.text($(this).text()).parent().removeClass("open");
+        dropdown.html($(this).text()+'<span class="caret"></span>').parent().removeClass("open");
     });
+    // 
     form_checkbox_change();
     function form_checkbox_change(){
         // 多选
@@ -529,4 +735,5 @@ function form_checkbox_change(){
     function uploadBtnFn(){
         $(this).prev().find("input[type=file]").trigger("click");
     }
+
 </script>

@@ -1,11 +1,23 @@
 
+<link rel="stylesheet" type="text/css" href="../../../content/frame/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="../../../content/normal/css/my-theme.css">
+<link rel="stylesheet" type="text/css" href="../../../content/normal/css/demo.css">
+<script type="text/javascript" src="../../../content/frame/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../content/frame/bootstrap/js/bootstrap.js"></script>
+<script type="text/javascript" src="../../../content/frame/bootstrap/js/my-dropdown.js"></script>
+<script type="text/javascript" src="../../../content/frame/clipboard/clipboard.min.js"></script>
+<script type="text/javascript" src="../../../content/normal/js/v-demo.js"></script>
+<!-- end -->
 <h2 id="demo-express-h1">
      栅格系统
-    <button type="button" class="btn btn-default" onclick="$('.demo').load('views/container/demo/demo.html');">返回</button>
+    <a type="button" class="btn btn-default" href="../../local-index.html">返回</a>
 </h2>
 <!-- css -->
 <style type="text/css" media="screen">
-※ 注：
+/*※ 注：*/
+.content-h1 + .grid.row{
+    margin-top: 30px;
+}
 .grid.row{
     padding-left: 40px;
 }
@@ -119,7 +131,10 @@
                 <div class="col-sm-12">
                     <h3><span>css</span><button class="copy" data-clipboard-target="#foo2"></button></h3>
 <pre id="foo2">
-※ 注：
+<!-- ※ 注： -->
+.content-h1 + .grid.row{
+    margin-top: 30px;
+}
 .grid.row{
     padding-left: 40px;
 }
@@ -146,9 +161,15 @@
                 <div class="col-sm-12">
                     <h3><span>javascript</span><button class="copy" data-clipboard-target="#foo3"></button></h3>
 <pre id="foo3">
-$("#right-container .dropdown-menu").on("click","li a",function(event){
+// 下拉选项
+var menu = $(".dropdown-menu");
+if($("#right-container .dropdown-menu").length){
+    menu = $("#right-container .dropdown-menu");
+}
+
+menu.on("click","li a",function(event){
     var dropdown = $(this).parents("ul").prev('[data-toggle=dropdown]');
-    dropdown.text($(this).text()).parent().removeClass("open");
+    dropdown.html($(this).text()+'<span class="caret"></span>').parent().removeClass("open");
 });
 </pre>
                 </div>
@@ -157,9 +178,13 @@ $("#right-container .dropdown-menu").on("click","li a",function(event){
 </div>
 <script type="text/javascript">
 // 下拉选项
-    
-$("#right-container .dropdown-menu").on("click","li a",function(event){
+var menu = $(".dropdown-menu");
+if($("#right-container .dropdown-menu").length){
+    menu = $("#right-container .dropdown-menu");
+}
+
+menu.on("click","li a",function(event){
     var dropdown = $(this).parents("ul").prev('[data-toggle=dropdown]');
-    dropdown.text($(this).text()).parent().removeClass("open");
+    dropdown.html($(this).text()+'<span class="caret"></span>').parent().removeClass("open");
 });
 </script>

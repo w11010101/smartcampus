@@ -1,12 +1,21 @@
 
+<link rel="stylesheet" type="text/css" href="../../../content/frame/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="../../../content/normal/css/my-theme.css">
+<link rel="stylesheet" type="text/css" href="../../../content/normal/css/demo.css">
+<script type="text/javascript" src="../../../content/frame/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../content/frame/vuejs/vue.js"></script>
+<script type="text/javascript" src="../../../content/frame/clipboard/clipboard.min.js"></script>
+<script type="text/javascript" src="../../../content/normal/js/v-demo.js"></script>
+<!-- end -->
 <h2 id="demo-express-h1">
     分页 
-    <button type="button" class="btn btn-default" onclick="$('.demo').load('views/container/demo/demo.html');">返回</button>
+    <a type="button" class="btn btn-default" href="../../local-index.html">返回</a>
 </h2>
 <!-- css -->
 <style type="text/css" media="screen">
 #paging-app{
     text-align: right;
+    padding-right: 13px;
 }
 .page {
     display: inline-block;
@@ -107,13 +116,13 @@
                         <span class="auxiliary">10</span>
                         <span class="auxiliary">页/</span>
                         <span class="auxiliary auxiliary-last">100条数据</span>
-                        <span class="jump" :class="{disabled:pstart}" @click="{current_page--}"><</span>
+                        <span class="jump" :class="{disabled:pstart}" @click="current_page--"><</span>
                         <span v-show="current_page>5" class="jump" @click="jumpPage(1)">1</span>
                         <span class="ellipsis"  v-show="efont">...</span>
                         <span class="jump" v-for="num in indexs" :class="{bgprimary:current_page==num}" @click="jumpPage(num)">{{num}}</span>
                         <span class="ellipsis"  v-show="ebehind">...</span>
 
-                        <span :class="{disabled:pend}" class="jump" @click="{current_page++}">></span>
+                        <span :class="{disabled:pend}" class="jump" @click="current_page++">></span>
                         <span v-show="current_page<pages-4" class="jump" @click="jumpPage(pages)">{{pages}}</span>
 
                         <span class="jumppoint auxiliary">跳至：</span>
@@ -144,13 +153,13 @@
                 &lt;span class="auxiliary"&gt;10&lt;/span&gt;
                 &lt;span class="auxiliary"&gt;页/&lt;/span&gt;
                 &lt;span class="auxiliary auxiliary-last"&gt;100条数据&lt;/span&gt;
-                &lt;span class="jump" :class="{disabled:pstart}" @click="{current_page--}"&gt;<&lt;/span&gt;
+                &lt;span class="jump" :class="{disabled:pstart}" @click="current_page--"&gt;<&lt;/span&gt;
                 &lt;span v-show="current_page&gt;5" class="jump" @click="jumpPage(1)"&gt;1&lt;/span&gt;
                 &lt;span class="ellipsis"  v-show="efont"&gt;...&lt;/span&gt;
                 &lt;span class="jump" v-for="num in indexs" :class="{bgprimary:current_page==num}" @click="jumpPage(num)"&gt;{{num}}&lt;/span&gt;
                 &lt;span class="ellipsis"  v-show="ebehind"&gt;...&lt;/span&gt;
 
-                &lt;span :class="{disabled:pend}" class="jump" @click="{current_page++}"&gt;>&lt;/span&gt;
+                &lt;span :class="{disabled:pend}" class="jump" @click="current_page++"&gt;>&lt;/span&gt;
                 &lt;span v-show="current_page&lt;pages-4" class="jump" @click="jumpPage(pages)"&gt;{{pages}}&lt;/span&gt;
 
                 &lt;span class="jumppoint auxiliary"&gt;跳至：&lt;/span&gt;
@@ -168,6 +177,7 @@
 <pre id="foo2">
 #paging-app{
     text-align: right;
+    padding-right: 10px;
 }
 .page {
     display: inline-block;
@@ -258,83 +268,15 @@
                 <div class="col-sm-12">
                     <h3><span>javascript</span><button class="copy" data-clipboard-target="#foo3"></button></h3>
 <pre id="foo3">
-var pagingVM = new Vue({
-    el: '#paging-app',
-    data: {
-        current_page: 1, //当前页
-        pages: 50, //总页数
-        changePage:'',//跳转页
-        nowIndex:0
-    },
-    computed:{
-        show:function(){
-            return this.pages && this.pages !=1
-        },
-        pstart: function() {
-            return this.current_page == 1;
-        },
-        pend: function() {
-            return this.current_page == this.pages;
-        },
-        efont: function() {
-            if (this.pages <= 7) return false;
-            return this.current_page > 5
-        },
-        ebehind: function() {
-            if (this.pages <= 7) return false;
-            var nowAy = this.indexs;
-            return nowAy[nowAy.length - 1] != this.pages;
-        },
-        indexs: function() {
-
-            var left = 1,
-            right = this.pages,
-            ar = [];
-            if (this.pages >= 7) {
-                if (this.current_page > 5 && this.current_page < this.pages - 4) {
-                    left = Number(this.current_page) - 3;
-                    right = Number(this.current_page) + 3;
-                } else {
-                    if (this.current_page <= 5) {
-                        left = 1;
-                        right = 7;
-                    } else {
-                        right = this.pages;
-
-                        left = this.pages - 6;
-                    }
-                }
-            }
-           while (left <= right) {
-               ar.push(left);
-               left++;
-           }
-            return ar;
-        },
-    },
-    methods: {
-        jumpPage: function(id) {
-            this.current_page = id;
-        },
-    },
-
-})
-
-</pre>
-                </div>
-            </div>
-    </div>
-</div>
-<script type="text/javascript">
-setTimeout(runPaging,1000);
-function runPaging(){
+// 分页
     var pagingVM = new Vue({
         el: '#paging-app',
         data: {
             current_page: 1, //当前页
-            pages: 50, //总页数
+            pages: 20, //总页数
             changePage:'',//跳转页
-            nowIndex:0
+            nowIndex:0,
+            centerLength:4
         },
         computed:{
             show:function(){
@@ -362,12 +304,16 @@ function runPaging(){
                 ar = [];
                 if (this.pages >= 7) {
                     if (this.current_page > 5 && this.current_page < this.pages - 4) {
-                        left = Number(this.current_page) - 3;
-                        right = Number(this.current_page) + 3;
+                        var CL = this.centerLength;
+                        if(CL%2 == 0){
+                            CL = this.centerLength + 1;
+                        }
+                        left = Number(this.current_page) - (CL-1)/2;
+                        right = Number(this.current_page) + (CL-1)/2;
                     } else {
                         if (this.current_page <= 5) {
                             left = 1;
-                            right = 7;
+                            right = 5;
                         } else {
                             right = this.pages;
 
@@ -375,23 +321,96 @@ function runPaging(){
                         }
                     }
                 }
-
-                console.log(left," ：",right)
-                while (left <= right) {
+               while (left <= right) {
                    ar.push(left);
                    left++;
-                }
+               }
                 return ar;
             },
         },
         methods: {
             jumpPage: function(id) {
                 this.current_page = id;
-                if(this.current_page>this.pages){
-                    console.log("cuowu");
-                }
             },
         },
-    });
+
+    })
+
+</pre>
+                </div>
+            </div>
+    </div>
+</div>
+<script type="text/javascript">
+
+setTimeout(runPaging,1000);
+function runPaging(){
+    // 分页
+    var pagingVM = new Vue({
+        el: '#paging-app',
+        data: {
+            current_page: 1, //当前页
+            pages: 20, //总页数
+            changePage:'',//跳转页
+            nowIndex:0,
+            centerLength:4
+        },
+        computed:{
+            show:function(){
+                return this.pages && this.pages !=1
+            },
+            pstart: function() {
+                return this.current_page == 1;
+            },
+            pend: function() {
+                return this.current_page == this.pages;
+            },
+            efont: function() {
+                if (this.pages <= 7) return false;
+                return this.current_page > 5
+            },
+            ebehind: function() {
+                if (this.pages <= 7) return false;
+                var nowAy = this.indexs;
+                return nowAy[nowAy.length - 1] != this.pages;
+            },
+            indexs: function() {
+
+                var left = 1,
+                right = this.pages,
+                ar = [];
+                if (this.pages >= 7) {
+                    if (this.current_page > 5 && this.current_page < this.pages - 4) {
+                        var CL = this.centerLength;
+                        if(CL%2 == 0){
+                            CL = this.centerLength + 1;
+                        }
+                        left = Number(this.current_page) - (CL-1)/2;
+                        right = Number(this.current_page) + (CL-1)/2;
+                    } else {
+                        if (this.current_page <= 5) {
+                            left = 1;
+                            right = 5;
+                        } else {
+                            right = this.pages;
+
+                            left = this.pages - 6;
+                        }
+                    }
+                }
+               while (left <= right) {
+                   ar.push(left);
+                   left++;
+               }
+                return ar;
+            },
+        },
+        methods: {
+            jumpPage: function(id) {
+                this.current_page = id;
+            },
+        },
+
+    })
 }
 </script>

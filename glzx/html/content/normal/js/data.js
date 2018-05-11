@@ -11,14 +11,14 @@ var data = [
         id:11,
         icon:"",
         nodes:[
-        {
-            level:1,
-            text:"新demo文档",
-            id:111,
-            href:"views/container/demo/demo.html",
-            nid:"demo",
-            nodes:null
-        },
+        // {
+        //     level:1,
+        //     text:"新demo文档",
+        //     id:111,
+        //     href:"views/container/demo/demo.html",
+        //     nid:"demo",
+        //     nodes:null
+        // },
         {
             level:1,
             text:"container-1.html",
@@ -37,12 +37,20 @@ var data = [
         },
         {
             level:1,
-            text:"旧demo文档.html",
-            id:115,
-            href:"views/container/demo-Doc.html",
-            nid:"demo-Doc",
+            text:"modules.html",
+            id:116,
+            href:"views/container/modules.html",
+            nid:"modules",
             nodes:null
         },
+        // {
+        //     level:1,
+        //     text:"旧demo文档.html",
+        //     id:115,
+        //     href:"views/container/demo-Doc.html",
+        //     nid:"demo-Doc",
+        //     nodes:null
+        // },
         {
             level:1,
             text:"子集4",

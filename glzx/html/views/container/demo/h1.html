@@ -1,5 +1,14 @@
+<!-- 本地查看是用 质保城复制功能好用 -->
+<link rel="stylesheet" type="text/css" href="../../../content/frame/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="../../../content/normal/css/my-theme.css">
+<link rel="stylesheet" type="text/css" href="../../../content/normal/css/demo.css">
+<link rel="stylesheet" type="text/css" href="../../../content/frame/jquery.date/jquery.datetimepicker.min.css">
+<script type="text/javascript" src="../../../content/frame/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../content/frame/clipboard/clipboard.min.js"></script>
+<script type="text/javascript" src="../../../content/normal/js/v-demo.js"></script>
+<!-- end -->
 <h2 id="demo-express-h1">大标题 
-    <button type="button" class="btn btn-default" onclick="$('.demo').load('views/container/demo/demo.html');">返回</button>
+    <a type="button" class="btn btn-default" href="../../local-index.html">返回</a>
 </h2>
 <!-- css -->
 <style type="text/css" media="screen">
@@ -21,13 +30,35 @@
         border:0;
         background: url(../../../content/normal/images/refresh.png) no-repeat;
     }
+    .content-h1 .breadcrumb{
+        display: inline-block;
+        background: none;
+        padding: 0;
+    }
+    .content-h1 .breadcrumb a{
+        color: #000;
+    }
+    .content-h1 .breadcrumb>li:before,
+    .content-h1 .breadcrumb>li+li:before{
+        font-family: monospace;
+        font-size: 12px;
+        content:"〉";
+        color: #9f9f9f;
+    }
 </style>
 <!-- html -->
 <div class="demo-express">
     <h3>结果展示</h3>
     <div class="demo-express-bg">
         <!--  -->
-        <h1 class='content-h1'>标题展示 <button class="refresh"></button></h1>
+        <h1 class='content-h1'>标题展示 
+            <ol class="breadcrumb">
+                <li><a href="#">首页</a></li>
+                <li><a href="#">第一层</a></li>
+                <li class="active">第二层</li>
+            </ol>
+            <button class="refresh"></button>
+        </h1>
         <!--  -->
     </div>
 </div>
@@ -40,7 +71,14 @@
                     <h3><span>html</span><button class="copy" data-clipboard-target="#foo1"></button></h3>
 
 <pre id="foo1">
-&lt;h1 class='content-h1'&gt;标题展示 &lt;button class="refresh"&gt;&lt;/button&gt;&lt;/h1&gt;
+&lt;h1 class='content-h1'&gt;标题展示 
+    &lt;ol class="breadcrumb"&gt;
+        &lt;li&gt;&lt;a href="#"&gt;首页&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#"&gt;第一层&lt;/a&gt;&lt;/li&gt;
+        &lt;li class="active"&gt;第二层&lt;/li&gt;
+    &lt;/ol&gt;
+    &lt;button class="refresh"&gt;&lt;/button&gt;
+&lt;/h1&gt;
 </pre>
                 </div>
                 <div class="col-sm-12">
@@ -49,7 +87,7 @@
 .content-h1{
     height: 66px;
     padding: 0 10px 0 38px;
-    background: url(../../normal/images/ico-title.png) no-repeat left center;
+    background: url(../../../content/normal/images/ico-title.png) no-repeat left center;
     line-height: 66px;
     font-size: 24px;
     color:#000;
@@ -62,7 +100,22 @@
     float: right;
     margin-top:21px;
     border:0;
-    background: url(../../normal/images/refresh.png) no-repeat;
+    background: url(../../../content/normal/images/refresh.png) no-repeat;
+}
+.content-h1 .breadcrumb{
+    display: inline-block;
+    background: none;
+    padding: 0;
+}
+.content-h1 .breadcrumb a{
+    color: #000;
+}
+.content-h1 .breadcrumb>li:before,
+.content-h1 .breadcrumb>li+li:before{
+    font-family: monospace;
+    font-size: 12px;
+    content:"〉";
+    color: #9f9f9f;
 }
 </pre>
                 </div>

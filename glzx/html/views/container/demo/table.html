@@ -1,11 +1,20 @@
 
+<link rel="stylesheet" type="text/css" href="../../../content/frame/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="../../../content/normal/css/my-theme.css">
+<link rel="stylesheet" type="text/css" href="../../../content/normal/css/demo.css">
+<link rel="stylesheet" type="text/css" href="../../../content/frame/jquery.date/jquery.datetimepicker.min.css">
+<script type="text/javascript" src="../../../content/frame/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../content/frame/clipboard/clipboard.min.js"></script>
+<script type="text/javascript" src="../../../content/frame/vuejs/vue.js"></script>
+<script type="text/javascript" src="../../../content/normal/js/v-demo.js"></script>
+<!-- end -->
 <h2 id="demo-express-h1">
     table
-    <button type="button" class="btn btn-default" onclick="$('.demo').load('views/container/demo/demo.html');">返回</button>
+    <a type="button" class="btn btn-default" href="../../local-index.html">返回</a>
 </h2>
 <!-- css -->
 <style type="text/css" media="screen">
-
+/* #table */
 #table{
 
 }
@@ -20,9 +29,34 @@
     color:#4A4A4A;
     font-weight: normal;
 }
+#table.table>thead>tr>th .sort{
+    display: inline-block;
+    width: 10px;
+    vertical-align: middle
+}
+#table.table>thead>tr>th .sort button{
+    display: block;
+    width: 10px;
+    height: 10px;
+    border: 0;
+    background: url(../../../content/normal/images/dropdown-arr.png) center no-repeat;
+    -webkit-background-size: contain;
+    background-size: contain;
+}
+#table.table>thead>tr>th .sort .ascending-order{
+    -webkit-transform: rotateZ(180deg);
+    -ms-transform: rotateZ(180deg);
+    -o-transform: rotateZ(180deg);
+    transform: rotateZ(180deg);
+    background-position: center -1px;
+}
+#table.table>thead>tr>th .sort .descending-order{
+    background-position: center -1px;
+}
 #table.table tbody td{
-    height: 40px;
-    line-height: 40px;
+    /*height: 50px;*/
+    line-height: 20px;
+    vertical-align: middle;
 }
 #table.table .table-checkbox{
     display: inline-block;
@@ -34,7 +68,6 @@
     background: url(../../../content/normal/images/Checkbox-off.png) no-repeat center;
     -webkit-background-size: contain;
     background-size: contain;
-    
 }
 #table.table .table-checkbox.active{
     background: url(../../../content/normal/images/Checkbox-off-half.png) no-repeat center;
@@ -75,10 +108,11 @@
 #table.table tbody td.agreed{
     color:#535353;
 }
-@media screen and (min-width: 768px) and (max-width: 1366px){
+@media screen and (min-width: 768px) and (max-width: 1600px){
     .table-responsive {
-        width: 100%;
+        width: calc(100% - 23px);
         margin-bottom: 15px;
+        margin-left: 10px;
         overflow-y: hidden;
         -ms-overflow-style: -ms-autohiding-scrollbar;
         border: 1px solid #ddd;
@@ -99,139 +133,91 @@
         white-space: nowrap;
     }
 }
-
+.table-responsive.table-nothing{
+    position: relative;
+    padding-bottom: 60px;
+}
+.nothing{
+    position: absolute;
+    height: 40px;
+    text-align: center;
+    left: 50%;
+    margin: 10px 0;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
+.nothing span{
+    display: inline-block;
+    height: 40px;
+    line-height: 40px;
+    padding-left: 50px;
+    background: url(../../../content/normal/images/default-none.png) no-repeat left;
+    -webkit-background-size: contain;
+    background-size: contain;
+}
 </style>
 <!-- html -->
 <div class="demo-express">
     <h3>结果展示</h3>
     <div class="demo-express-bg">
-        <div class="table-responsive">
+        <div v-bind:class="{'table-responsive':true,'table-nothing':!arr.length}" id="tableVM">
             <table class="table table-hover table-condensed" id='table'>
                 <thead>
                     <tr>
-                        <th><span class="table-checkbox"></span>部门编号</th>
-                        <th>部门名称</th>
-                        <th>助记码</th>
-                        <th>部门层级</th>
-                        <th>部门所在分区</th>
-                        <th>封面图片</th>
-                        <th>发布时间</th>
-                        <th>就餐详情</th>
-                        <th>限额</th>
-                        <th>就餐折扣</th>
-                        <th>余额</th>
-                        <th>部门状态</th>
-                        <th>操作</th>
+                        <th v-for="(value,key) in tableHead">
+                            <span v-if="typeof value == 'object'?value.checkbox:false" v-html="checkboxDom"></span>
+                            {{value|setSort}}
+                            <span v-if="typeof value == 'object'?value.isSort:false" v-html="sortDom"></span>
+                        </th>
                     </tr>
+                    <!-- <tr>
+                        <th><span class="table-checkbox"></span>{{tableHead.a|setSort}}
+                            <div class="sort">
+                                <button class="ascending-order"></button><button class="descending-order"></button>
+                            </div>
+                        </th>
+                        <th>{{tableHead.b|setSort}}
+                            <div class="sort">
+                                <button class="ascending-order"></button><button class="descending-order"></button>
+                            </div>
+                        </th>
+                        <th>{{tableHead.c|setSort}}</th>
+                        <th>{{tableHead.d|setSort}}</th>
+                        <th>{{tableHead.e|setSort}}</th>
+                        <th>{{tableHead.f|setSort}}</th>
+                        <th>{{tableHead.h|setSort}}</th>
+                        <th>{{tableHead.i|setSort}}</th>
+                        <th>{{tableHead.j|setSort}}</th>
+                        <th>{{tableHead.k|setSort}}</th>
+                        <th>{{tableHead.l|setSort}}</th>
+                        <th>{{tableHead.n|setSort}}</th>
+                        <th>{{tableHead.m|setSort}}</th>
+                    </tr> -->
                 </thead>
                 <tbody>
-                    <tr>
-                        <td><span class="table-checkbox"></span>12345678901234567890</td>
-                        <td>测试角色一</td>
-                        <td>1234567</td>
-                        <td>测试层级一</td>
-                        <td>测试部门所在分区一</td>
-                        <td></td>
-                        <td class="time">2018-12-12 12:12:12</td>
-                        <td>测试就餐详情</td>
-                        <td>1231元</td>
-                        <td>7.77折</td>
-                        <td>12311111</td>
-                        <td>测试部门状态</td>
-                        <td><a href="#">查看</a><a href="#">编辑</a></td>
+                    <tr v-for="item in arr">
+                        <td><span class="table-checkbox"></span>{{item.a}}</td>
+                        <td>{{item.b}}</td>
+                        <td>{{item.c}}</td>
+                        <td>{{item.d}}</td>
+                        <td>{{item.e}}</td>
+                        <td><img v-bind:src="item.f" alt=""></td>
+                        <td class="time">{{item.h}}</td>
+                        <td>{{item.i}}</td>
+                        <td>{{item.j}}</td>
+                        <td>{{item.k}}</td>
+                        <td>{{item.l}}</td>
+                        <td v-bind:class="item.n.type">{{item.n.text}}</td>
+                        <td><a href="#" v-for="e in item.m">{{e}}</a></td>
                     </tr>
-                    <tr>
-                        <td><span class="table-checkbox"></span>12345678901234567890</td>
-                        <td>测试角色二</td>
-                        <td>1234567</td>
-                        <td>11测试层级一</td>
-                        <td>11测试部门所在分区一</td>
-                        <td><img src="../../../content/normal/images/profile-photo.jpg" alt=""></td>
-                        <td class="time">2018-12-12 12:12:12</td>
-                        <td>11测试就餐详情</td>
-                        <td>111231元</td>
-                        <td>7.77折</td>
-                        <td>12311111</td>
-                        <td class="ongoing">进行中</td>
-                        <td><a href="#">查看</a><a href="#">编辑</a></td>
-                    </tr>
-                    <tr>
-                        <td><span class="table-checkbox"></span>12345678901234567890</td>
-                        <td>测试角色三</td>
-                        <td>1234567</td>
-                        <td>11测试层级一</td>
-                        <td>11测试部门所在分区一</td>
-                        <td><img src="../../../content/normal/images/profile-photo.jpg" alt=""></td>
-                        <td class="time">2018-12-12 12:12:12</td>
-                        <td>11测试就餐详情</td>
-                        <td>111231元</td>
-                        <td>7.77折</td>
-                        <td>12311111</td>
-                        <td class="notSarted">未开始</td>
-                        <td><a href="#">查看</a><a href="#">编辑</a></td>
-                    </tr>
-                    <tr>
-                        <td><span class="table-checkbox"></span>12345678901234567890</td>
-                        <td>测试角色四</td>
-                        <td>1234567</td>
-                        <td>11测试层级一</td>
-                        <td>11测试部门所在分区一</td>
-                        <td><img src="../../../content/normal/images/profile-photo.jpg" alt=""></td>
-                        <td class="time">2018-12-12 12:12:12</td>
-                        <td>11测试就餐详情</td>
-                        <td>111231元</td>
-                        <td>7.77折</td>
-                        <td>12311111</td>
-                        <td class="cancelled">已退回</td>
-                        <td><a href="#">查看</a><a href="#">编辑</a></td>
-                    </tr>
-                    <tr>
-                        <td><span class="table-checkbox"></span>12345678901234567890</td>
-                        <td>测试角色五</td>
-                        <td>1234567</td>
-                        <td>11测试层级一</td>
-                        <td>11测试部门所在分区一</td>
-                        <td><img src="../../../content/normal/images/profile-photo.jpg" alt=""></td>
-                        <td class="time">2018-12-12 12:12:12</td>
-                        <td>11测试就餐详情</td>
-                        <td>111231元</td>
-                        <td>7.77折</td>
-                        <td>12311111</td>
-                        <td class="agreed">已审批</td>
-                        <td><a href="#">查看</a><a href="#">编辑</a></td>
-                    </tr>
-                    <tr>
-                        <td><span class="table-checkbox"></span>12345678901234567890</td>
-                        <td>测试角色五</td>
-                        <td>1234567</td>
-                        <td>11测试层级一</td>
-                        <td>11测试部门所在分区一</td>
-                        <td><img src="../../../content/normal/images/profile-photo.jpg" alt=""></td>
-                        <td class="time">2018-12-12 12:12:12</td>
-                        <td>11测试就餐详情</td>
-                        <td>111231元</td>
-                        <td>7.77折</td>
-                        <td>12311111</td>
-                        <td class="started">启用</td>
-                        <td><a href="#">查看</a><a href="#">编辑</a></td>
-                    </tr>
-                    <tr>
-                        <td><span class="table-checkbox"></span>12345678901234567890</td>
-                        <td>测试角色五</td>
-                        <td>1234567</td>
-                        <td>11测试层级一</td>
-                        <td>11测试部门所在分区一</td>
-                        <td><img src="../../../content/normal/images/profile-photo.jpg" alt=""></td>
-                        <td class="time">2018-12-12 12:12:12</td>
-                        <td>11测试就餐详情</td>
-                        <td>111231元</td>
-                        <td>7.77折</td>
-                        <td>12311111</td>
-                        <td class="ban">禁止</td>
-                        <td><a href="#">查看</a><a href="#">编辑</a></td>
-                    </tr>
+                    
                 </tbody>
             </table>
+            <div class="nothing" v-if="!arr.length">
+                <span>暂时无数据</span>
+            </div>
         </div>
         <!--  -->
     </div>
@@ -245,7 +231,7 @@
                     <h3><span>html</span><button class="copy" data-clipboard-target="#foo1"></button></h3>
 
 <pre id="foo1">
-&lt;div class="table-responsive"&gt;
+&lt;div class="table-responsive table-nothing"&gt;
     &lt;table class="table table-hover table-condensed" id='table'&gt;
         &lt;thead&gt;
             &lt;tr&gt;
@@ -266,7 +252,7 @@
         &lt;/thead&gt;
         &lt;tbody&gt;
             &lt;tr&gt;
-                &lt;td&gt;&lt;span class="table-checkbox"&gt;&lt;/span&gt;12345678901234567890&lt;/td&gt;
+                &lt;td&gt;&lt;span class="table-checkbox"&gt;&lt;/span&gt;123&lt;/td&gt;
                 &lt;td&gt;测试角色一&lt;/td&gt;
                 &lt;td&gt;1234567&lt;/td&gt;
                 &lt;td&gt;测试层级一&lt;/td&gt;
@@ -372,12 +358,16 @@
             &lt;/tr&gt;
         &lt;/tbody&gt;
     &lt;/table&gt;
+    &lt;div class="nothing"&gt;
+        &lt;span&gt;暂时无数据&lt;/span&gt;
+    &lt;/div&gt;
 &lt;/div&gt;
 </pre>
                 </div>
                 <div class="col-sm-12">
                     <h3><span>css</span><button class="copy" data-clipboard-target="#foo2"></button></h3>
 <pre id="foo2">
+/* #table */
 #table{
 
 }
@@ -393,8 +383,9 @@
     font-weight: normal;
 }
 #table.table tbody td{
-    height: 40px;
-    line-height: 40px;
+    /*height: 50px;*/
+    line-height: 20px;
+    vertical-align: middle;
 }
 #table.table .table-checkbox{
     display: inline-block;
@@ -403,13 +394,13 @@
     margin: 0;
     vertical-align: middle;
     margin-right: 6px;
-    background: url(../../../content/normal/images/Checkbox-off.png) no-repeat center;
+    background: url(../images/Checkbox-off.png) no-repeat center;
     -webkit-background-size: contain;
     background-size: contain;
     
 }
 #table.table .table-checkbox.active{
-    background: url(../../../content/normal/images/Checkbox-off-half.png) no-repeat center;
+    background: url(../images/Checkbox-off-half.png) no-repeat center;
     -webkit-background-size: contain;
     background-size: contain;
     
@@ -447,10 +438,11 @@
 #table.table tbody td.agreed{
     color:#535353;
 }
-@media screen and (min-width: 768px) and (max-width: 1366px){
+@media screen and (min-width: 768px) and (max-width: 1600px){
     .table-responsive {
-        width: 100%;
+        width: calc(100% - 23px);
         margin-bottom: 15px;
+        margin-left: 10px;
         overflow-y: hidden;
         -ms-overflow-style: -ms-autohiding-scrollbar;
         border: 1px solid #ddd;
@@ -471,7 +463,30 @@
         white-space: nowrap;
     }
 }
-
+.table-responsive.table-nothing{
+    position: relative;
+    padding-bottom: 60px;
+}
+.nothing{
+    position: absolute;
+    height: 40px;
+    text-align: center;
+    left: 50%;
+    margin: 10px 0;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
+.nothing span{
+    display: inline-block;
+    height: 40px;
+    line-height: 40px;
+    padding-left: 50px;
+    background: url(../../../content/normal/images/default-none.png) no-repeat left;
+    -webkit-background-size: contain;
+    background-size: contain;
+}
 </pre>
                 </div>
                 <div class="col-sm-12">
@@ -533,4 +548,225 @@ function table_checkbox_change(){
     });
 }
 table_checkbox_change();
+// 排序
+var arr = [
+    {
+        a:{
+            isSort:true,
+            text:"100",
+        },
+        b:{
+            isSort:true,
+            text:"爱新觉罗·努尔哈赤",
+        },
+        c:"1234567",
+        d:"测试层级一",
+        e:{
+            isSort:true,
+            text:"A1"
+        },
+        f:"测试部区一",
+        h:"2018-12-12 12:12:12",
+        i:"测试就餐详情",
+        j:"1231元",
+        k:"7.77折",
+        l:"12311111",
+        n:{
+            type:"started",
+            text:"启用"
+        },
+        m:["查看","编辑"]
+    },
+    {
+        a:{
+            isSort:true,
+            text:"101",
+        },
+        b:{
+            isSort:true,
+            text:"爱新觉罗·皇太极",
+        },
+        c:"1234567",
+        d:"测试层级一",
+        e:{
+            isSort:true,
+            text:"A2"
+        },
+        f:"../../../content/normal/images/profile-photo.jpg",
+        h:"2018-12-12 12:12:12",
+        i:"测试就餐详情",
+        j:"1231元",
+        k:"7.77折",
+        l:"12311111",
+        n:{
+            type:"ban",
+            text:"禁止"
+        },
+        m:["查看","编辑"]
+    },
+    {
+        a:{
+            isSort:true,
+            text:"112353",
+        },
+        b:{
+            isSort:true,
+            text:"爱新觉罗·福临",
+        },
+        c:"1234567",
+        d:"测试层级一",
+        e:{
+            isSort:true,
+            text:"a1"
+        },
+        f:"../../../content/normal/images/profile-photo.jpg",
+        h:"2018-12-12 12:12:12",
+        i:"测试就餐详情",
+        j:"1231元",
+        k:"7.77折",
+        l:"12311111",
+        n:{
+            type:"agreed",
+            text:"已审批"
+        },
+        m:["查看","编辑"]
+    },
+    {
+        a:{
+            isSort:true,
+            text:"131534534",
+        },
+        b:{
+            isSort:true,
+            text:"爱新觉罗·玄烨",
+        },
+        c:"1234567",
+        d:"测试层级一",
+        e:{
+            isSort:true,
+            text:"a2"
+        },
+        f:"../../../content/normal/images/profile-photo.jpg",
+        h:"2018-12-12 12:12:12",
+        i:"测试就餐详情",
+        j:"1231元",
+        k:"7.77折",
+        l:"12311111",
+        n:{
+            type:"cancelled",
+            text:"已退回"
+        },
+        m:["查看","编辑"]
+    },
+    {
+        a:{
+            isSort:true,
+            text:"1256778980763",
+        },
+        b:{
+            isSort:true,
+            text:"爱新觉罗·胤禛",
+        },
+        c:"1234567",
+        d:"测试层级一",
+        e:{
+            isSort:true,
+            text:"a  1 a"
+        },
+        f:"../../../content/normal/images/profile-photo.jpg",
+        h:"2018-12-12 12:12:12",
+        i:"测试就餐详情",
+        j:"1231元",
+        k:"7.77折",
+        l:"12311111",
+        n:{
+            type:"notSarted",
+            text:"未开始"
+        },
+        m:["查看","编辑"]
+    },
+    {
+        a:{
+            isSort:true,
+            text:"65678987",
+        },
+        b:{
+            isSort:true,
+            text:"爱新觉罗·弘历",
+        },
+        c:"1234567",
+        d:"测试层级一",
+        e:{
+            isSort:true,
+            text:"b  1 b"
+        },
+        f:"../../../content/normal/images/profile-photo.jpg",
+        h:"2018-12-12 12:12:12",
+        i:"测试就餐详情",
+        j:"1231元",
+        k:"7.77折",
+        l:"12311111",
+        n:{
+            type:"ongoing",
+            text:"进行中"
+        },
+        m:["查看","编辑"]
+    },
+]
+var tableHead = {
+        a:{
+            checkbox:true,
+            isSort:true,
+            text:"部门编号",
+        },
+        b:{
+            isSort:true,
+            text:"员工名称",
+        },
+        c:"助记码",
+        d:"部门层级",
+        e:{
+            isSort:true,
+            text:"部门所在分区"
+        },
+        f:"封面图片",
+        h:"发布时间",
+        i:"就餐详情",
+        j:"限额",
+        k:"就餐折扣",
+        l:"余额",
+        n:"部门状态",
+        m:'操作'
+    }
+var tableVM = new Vue({
+    el:"#tableVM",
+    data:{
+        tableHead:tableHead,
+        arr:arr
+    },
+    computed:{
+        sortDom:function(){
+            return `<div class="sort" v-html>
+                        <button class="ascending-order"></button><button class="descending-order"></button>
+                    </div>`;
+        },
+        checkboxDom:function(){
+            return `<span class="table-checkbox"></span>`;
+        }
+    },
+    filters:{
+        setSort:function(event){
+            console.log(typeof event);
+            if(typeof event === "object"){
+                console.log(tableVM);
+                return event.text ;
+            }else{
+                return event;
+            }
+        }
+    },
+    methods:{
+    }
+
+})
 </script>
