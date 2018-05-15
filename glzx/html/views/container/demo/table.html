@@ -12,11 +12,105 @@
     table
     <a type="button" class="btn btn-default" href="../../local-index.html">返回</a>
 </h2>
-<!-- css -->
-<style type="text/css" media="screen">
-/* #table */
-#table{
+<!-- html -->
+<div class="demo-express">
+    <h3>结果展示</h3>
+    <div class="demo-express-bg">
+        <div v-bind:class="{'table-responsive':true,'table-nothing':!arr.length}" id="tableVM">
+            <table class="table table-hover table-condensed" id='table'>
+                <thead>
+                    <tr>
+                        <th v-for="(value,key) in tableHead">
+                            <span v-if="typeof value == 'object'?value.checkbox:false" class="table-checkbox"></span>
+                            {{value|setSort}}
+                            <div class="sort" v-if="typeof value == 'object'?value.isSort:false">
+                                <button class="ascending-order" v-on:click="sortFn('ascend',value,key)"></button>
+                                <button class="descending-order" v-on:click="sortFn('descend',value,key)"></button>
+                            </div>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="item in arr">
+                        <td><span class="table-checkbox"></span>{{item.a.text}}</td>
+                        <td>{{item.b.text}}</td>
+                        <td>{{item.c}}</td>
+                        <td>{{item.d}}</td>
+                        <td>{{item.e.text}}</td>
+                        <td><img v-bind:src="item.f" alt=""></td>
+                        <td class="time">{{item.h}}</td>
+                        <td>{{item.i}}</td>
+                        <td>{{item.j}}</td>
+                        <td>{{item.k}}</td>
+                        <td>{{item.l}}</td>
+                        <td v-bind:class="item.n.type">{{item.n.text}}</td>
+                        <td><a href="#" v-for="e in item.m">{{e}}</a></td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+            <div class="nothing" v-if="!arr.length">
+                <span>暂时无数据</span>
+            </div>
+        </div>
+        <!--  -->
+    </div>
+</div>
+<div class="demo-express">
+    <h3>代码</h3>
+    <div class="demo-express-bg">
+<!-- js -->
+<div class="demo-express-code-box row">
+                <div class="col-sm-12">
+                    <h3><span>html</span><button class="copy" data-clipboard-target="#foo1"></button></h3>
 
+<pre id="foo1">
+&lt;div v-bind:class="{'table-responsive':true,'table-nothing':!arr.length}" id="tableVM"&gt;
+    &lt;table class="table table-hover table-condensed" id='table'&gt;
+        &lt;thead&gt;
+            &lt;tr&gt;
+                &lt;th v-for="(value,key) in tableHead"&gt;
+                    &lt;span v-if="typeof value == 'object'?value.checkbox:false" class="table-checkbox"&gt;&lt;/span&gt;
+                    {{value|setSort}}
+                    &lt;div class="sort" v-if="typeof value == 'object'?value.isSort:false"&gt;
+                        &lt;button class="ascending-order" v-on:click="sortFn('ascend',value,key)"&gt;&lt;/button&gt;
+                        &lt;button class="descending-order" v-on:click="sortFn('descend',value,key)"&gt;&lt;/button&gt;
+                    &lt;/div&gt;
+                &lt;/th&gt;
+            &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody&gt;
+            &lt;tr v-for="item in arr"&gt;
+                &lt;td&gt;&lt;span class="table-checkbox"&gt;&lt;/span&gt;{{item.a.text}}&lt;/td&gt;
+                &lt;td&gt;{{item.b.text}}&lt;/td&gt;
+                &lt;td&gt;{{item.c}}&lt;/td&gt;
+                &lt;td&gt;{{item.d}}&lt;/td&gt;
+                &lt;td&gt;{{item.e.text}}&lt;/td&gt;
+                &lt;td&gt;&lt;img v-bind:src="item.f" alt=""&gt;&lt;/td&gt;
+                &lt;td class="time"&gt;{{item.h}}&lt;/td&gt;
+                &lt;td&gt;{{item.i}}&lt;/td&gt;
+                &lt;td&gt;{{item.j}}&lt;/td&gt;
+                &lt;td&gt;{{item.k}}&lt;/td&gt;
+                &lt;td&gt;{{item.l}}&lt;/td&gt;
+                &lt;td v-bind:class="item.n.type"&gt;{{item.n.text}}&lt;/td&gt;
+                &lt;td&gt;&lt;a href="#" v-for="e in item.m"&gt;{{e}}&lt;/a&gt;&lt;/td&gt;
+            &lt;/tr&gt;
+            
+        &lt;/tbody&gt;
+    &lt;/table&gt;
+    &lt;div class="nothing" v-if="!arr.length"&gt;
+        &lt;span&gt;暂时无数据&lt;/span&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</pre>
+                </div>
+                <div class="col-sm-12">
+                    <h3><span>css</span><button class="copy" data-clipboard-target="#foo2"></button></h3>
+<pre id="foo2">
+/* #table */
+.table-responsive{
+    margin-left: 10px;
+    margin-right: 10px;
 }
 #table thead{
     background: #f1f1f1;
@@ -24,8 +118,8 @@
 }
 #table.table>thead>tr>th{
     border: 0;
-    height: 40px;
-    line-height: 40px;
+    height: 30px;
+    line-height: 30px;
     color:#4A4A4A;
     font-weight: normal;
 }
@@ -54,7 +148,6 @@
     background-position: center -1px;
 }
 #table.table tbody td{
-    /*height: 50px;*/
     line-height: 20px;
     vertical-align: middle;
 }
@@ -110,339 +203,8 @@
 }
 @media screen and (min-width: 768px) and (max-width: 1600px){
     .table-responsive {
-        width: calc(100% - 23px);
+        width: calc(100% - 20px);
         margin-bottom: 15px;
-        margin-left: 10px;
-        overflow-y: hidden;
-        -ms-overflow-style: -ms-autohiding-scrollbar;
-        border: 1px solid #ddd;
-    }
-}
-@media screen and (min-width: 768px) and (max-width: 1600px){
-    .table-responsive>#table>.table {
-        margin-bottom: 0;
-    } 
-}
-@media screen and (min-width: 768px) and (max-width: 1600px){
-    .table-responsive>#table.table>tbody>tr>td,
-    .table-responsive>#table.table>tbody>tr>th,
-    .table-responsive>#table.table>tfoot>tr>td,
-    .table-responsive>#table.table>tfoot>tr>th,
-    .table-responsive>#table.table>thead>tr>td, 
-    .table-responsive>#table.table>thead>tr>th {
-        white-space: nowrap;
-    }
-}
-.table-responsive.table-nothing{
-    position: relative;
-    padding-bottom: 60px;
-}
-.nothing{
-    position: absolute;
-    height: 40px;
-    text-align: center;
-    left: 50%;
-    margin: 10px 0;
-    -webkit-transform: translateX(-50%);
-    -ms-transform: translateX(-50%);
-    -o-transform: translateX(-50%);
-    transform: translateX(-50%);
-}
-.nothing span{
-    display: inline-block;
-    height: 40px;
-    line-height: 40px;
-    padding-left: 50px;
-    background: url(../../../content/normal/images/default-none.png) no-repeat left;
-    -webkit-background-size: contain;
-    background-size: contain;
-}
-</style>
-<!-- html -->
-<div class="demo-express">
-    <h3>结果展示</h3>
-    <div class="demo-express-bg">
-        <div v-bind:class="{'table-responsive':true,'table-nothing':!arr.length}" id="tableVM">
-            <table class="table table-hover table-condensed" id='table'>
-                <thead>
-                    <tr>
-                        <th v-for="(value,key) in tableHead">
-                            <span v-if="typeof value == 'object'?value.checkbox:false" v-html="checkboxDom"></span>
-                            {{value|setSort}}
-                            <span v-if="typeof value == 'object'?value.isSort:false" v-html="sortDom"></span>
-                        </th>
-                    </tr>
-                    <!-- <tr>
-                        <th><span class="table-checkbox"></span>{{tableHead.a|setSort}}
-                            <div class="sort">
-                                <button class="ascending-order"></button><button class="descending-order"></button>
-                            </div>
-                        </th>
-                        <th>{{tableHead.b|setSort}}
-                            <div class="sort">
-                                <button class="ascending-order"></button><button class="descending-order"></button>
-                            </div>
-                        </th>
-                        <th>{{tableHead.c|setSort}}</th>
-                        <th>{{tableHead.d|setSort}}</th>
-                        <th>{{tableHead.e|setSort}}</th>
-                        <th>{{tableHead.f|setSort}}</th>
-                        <th>{{tableHead.h|setSort}}</th>
-                        <th>{{tableHead.i|setSort}}</th>
-                        <th>{{tableHead.j|setSort}}</th>
-                        <th>{{tableHead.k|setSort}}</th>
-                        <th>{{tableHead.l|setSort}}</th>
-                        <th>{{tableHead.n|setSort}}</th>
-                        <th>{{tableHead.m|setSort}}</th>
-                    </tr> -->
-                </thead>
-                <tbody>
-                    <tr v-for="item in arr">
-                        <td><span class="table-checkbox"></span>{{item.a}}</td>
-                        <td>{{item.b}}</td>
-                        <td>{{item.c}}</td>
-                        <td>{{item.d}}</td>
-                        <td>{{item.e}}</td>
-                        <td><img v-bind:src="item.f" alt=""></td>
-                        <td class="time">{{item.h}}</td>
-                        <td>{{item.i}}</td>
-                        <td>{{item.j}}</td>
-                        <td>{{item.k}}</td>
-                        <td>{{item.l}}</td>
-                        <td v-bind:class="item.n.type">{{item.n.text}}</td>
-                        <td><a href="#" v-for="e in item.m">{{e}}</a></td>
-                    </tr>
-                    
-                </tbody>
-            </table>
-            <div class="nothing" v-if="!arr.length">
-                <span>暂时无数据</span>
-            </div>
-        </div>
-        <!--  -->
-    </div>
-</div>
-<div class="demo-express">
-    <h3>代码</h3>
-    <div class="demo-express-bg">
-<!-- js -->
-<div class="demo-express-code-box row">
-                <div class="col-sm-12">
-                    <h3><span>html</span><button class="copy" data-clipboard-target="#foo1"></button></h3>
-
-<pre id="foo1">
-&lt;div class="table-responsive table-nothing"&gt;
-    &lt;table class="table table-hover table-condensed" id='table'&gt;
-        &lt;thead&gt;
-            &lt;tr&gt;
-                &lt;th&gt;&lt;span class="table-checkbox"&gt;&lt;/span&gt;部门编号&lt;/th&gt;
-                &lt;th&gt;部门名称&lt;/th&gt;
-                &lt;th&gt;助记码&lt;/th&gt;
-                &lt;th&gt;部门层级&lt;/th&gt;
-                &lt;th&gt;部门所在分区&lt;/th&gt;
-                &lt;th&gt;封面图片&lt;/th&gt;
-                &lt;th&gt;发布时间&lt;/th&gt;
-                &lt;th&gt;就餐详情&lt;/th&gt;
-                &lt;th&gt;限额&lt;/th&gt;
-                &lt;th&gt;就餐折扣&lt;/th&gt;
-                &lt;th&gt;余额&lt;/th&gt;
-                &lt;th&gt;部门状态&lt;/th&gt;
-                &lt;th&gt;操作&lt;/th&gt;
-            &lt;/tr&gt;
-        &lt;/thead&gt;
-        &lt;tbody&gt;
-            &lt;tr&gt;
-                &lt;td&gt;&lt;span class="table-checkbox"&gt;&lt;/span&gt;123&lt;/td&gt;
-                &lt;td&gt;测试角色一&lt;/td&gt;
-                &lt;td&gt;1234567&lt;/td&gt;
-                &lt;td&gt;测试层级一&lt;/td&gt;
-                &lt;td&gt;测试部门所在分区一&lt;/td&gt;
-                &lt;td&gt;&lt;/td&gt;
-                &lt;td class="time"&gt;2018-12-12 12:12:12&lt;/td&gt;
-                &lt;td&gt;测试就餐详情&lt;/td&gt;
-                &lt;td&gt;1231元&lt;/td&gt;
-                &lt;td&gt;7.77折&lt;/td&gt;
-                &lt;td&gt;12311111&lt;/td&gt;
-                &lt;td&gt;测试部门状态&lt;/td&gt;
-                &lt;td&gt;&lt;a href="#"&gt;查看&lt;/a&gt;&lt;a href="#"&gt;编辑&lt;/a&gt;&lt;/td&gt;
-            &lt;/tr&gt;
-            &lt;tr&gt;
-                &lt;td&gt;&lt;span class="table-checkbox"&gt;&lt;/span&gt;12345678901234567890&lt;/td&gt;
-                &lt;td&gt;测试角色二&lt;/td&gt;
-                &lt;td&gt;1234567&lt;/td&gt;
-                &lt;td&gt;11测试层级一&lt;/td&gt;
-                &lt;td&gt;11测试部门所在分区一&lt;/td&gt;
-                &lt;td&gt;&lt;img src="../../../content/normal/images/profile-photo.jpg" alt=""&gt;&lt;/td&gt;
-                &lt;td class="time"&gt;2018-12-12 12:12:12&lt;/td&gt;
-                &lt;td&gt;11测试就餐详情&lt;/td&gt;
-                &lt;td&gt;111231元&lt;/td&gt;
-                &lt;td&gt;7.77折&lt;/td&gt;
-                &lt;td&gt;12311111&lt;/td&gt;
-                &lt;td class="ongoing"&gt;进行中&lt;/td&gt;
-                &lt;td&gt;&lt;a href="#"&gt;查看&lt;/a&gt;&lt;a href="#"&gt;编辑&lt;/a&gt;&lt;/td&gt;
-            &lt;/tr&gt;
-            &lt;tr&gt;
-                &lt;td&gt;&lt;span class="table-checkbox"&gt;&lt;/span&gt;12345678901234567890&lt;/td&gt;
-                &lt;td&gt;测试角色三&lt;/td&gt;
-                &lt;td&gt;1234567&lt;/td&gt;
-                &lt;td&gt;11测试层级一&lt;/td&gt;
-                &lt;td&gt;11测试部门所在分区一&lt;/td&gt;
-                &lt;td&gt;&lt;img src="../../../content/normal/images/profile-photo.jpg" alt=""&gt;&lt;/td&gt;
-                &lt;td class="time"&gt;2018-12-12 12:12:12&lt;/td&gt;
-                &lt;td&gt;11测试就餐详情&lt;/td&gt;
-                &lt;td&gt;111231元&lt;/td&gt;
-                &lt;td&gt;7.77折&lt;/td&gt;
-                &lt;td&gt;12311111&lt;/td&gt;
-                &lt;td class="notSarted"&gt;未开始&lt;/td&gt;
-                &lt;td&gt;&lt;a href="#"&gt;查看&lt;/a&gt;&lt;a href="#"&gt;编辑&lt;/a&gt;&lt;/td&gt;
-            &lt;/tr&gt;
-            &lt;tr&gt;
-                &lt;td&gt;&lt;span class="table-checkbox"&gt;&lt;/span&gt;12345678901234567890&lt;/td&gt;
-                &lt;td&gt;测试角色四&lt;/td&gt;
-                &lt;td&gt;1234567&lt;/td&gt;
-                &lt;td&gt;11测试层级一&lt;/td&gt;
-                &lt;td&gt;11测试部门所在分区一&lt;/td&gt;
-                &lt;td&gt;&lt;img src="../../../content/normal/images/profile-photo.jpg" alt=""&gt;&lt;/td&gt;
-                &lt;td class="time"&gt;2018-12-12 12:12:12&lt;/td&gt;
-                &lt;td&gt;11测试就餐详情&lt;/td&gt;
-                &lt;td&gt;111231元&lt;/td&gt;
-                &lt;td&gt;7.77折&lt;/td&gt;
-                &lt;td&gt;12311111&lt;/td&gt;
-                &lt;td class="cancelled"&gt;已退回&lt;/td&gt;
-                &lt;td&gt;&lt;a href="#"&gt;查看&lt;/a&gt;&lt;a href="#"&gt;编辑&lt;/a&gt;&lt;/td&gt;
-            &lt;/tr&gt;
-            &lt;tr&gt;
-                &lt;td&gt;&lt;span class="table-checkbox"&gt;&lt;/span&gt;12345678901234567890&lt;/td&gt;
-                &lt;td&gt;测试角色五&lt;/td&gt;
-                &lt;td&gt;1234567&lt;/td&gt;
-                &lt;td&gt;11测试层级一&lt;/td&gt;
-                &lt;td&gt;11测试部门所在分区一&lt;/td&gt;
-                &lt;td&gt;&lt;img src="../../../content/normal/images/profile-photo.jpg" alt=""&gt;&lt;/td&gt;
-                &lt;td class="time"&gt;2018-12-12 12:12:12&lt;/td&gt;
-                &lt;td&gt;11测试就餐详情&lt;/td&gt;
-                &lt;td&gt;111231元&lt;/td&gt;
-                &lt;td&gt;7.77折&lt;/td&gt;
-                &lt;td&gt;12311111&lt;/td&gt;
-                &lt;td class="agreed"&gt;已审批&lt;/td&gt;
-                &lt;td&gt;&lt;a href="#"&gt;查看&lt;/a&gt;&lt;a href="#"&gt;编辑&lt;/a&gt;&lt;/td&gt;
-            &lt;/tr&gt;
-            &lt;tr&gt;
-                &lt;td&gt;&lt;span class="table-checkbox"&gt;&lt;/span&gt;12345678901234567890&lt;/td&gt;
-                &lt;td&gt;测试角色五&lt;/td&gt;
-                &lt;td&gt;1234567&lt;/td&gt;
-                &lt;td&gt;11测试层级一&lt;/td&gt;
-                &lt;td&gt;11测试部门所在分区一&lt;/td&gt;
-                &lt;td&gt;&lt;img src="../../../content/normal/images/profile-photo.jpg" alt=""&gt;&lt;/td&gt;
-                &lt;td class="time"&gt;2018-12-12 12:12:12&lt;/td&gt;
-                &lt;td&gt;11测试就餐详情&lt;/td&gt;
-                &lt;td&gt;111231元&lt;/td&gt;
-                &lt;td&gt;7.77折&lt;/td&gt;
-                &lt;td&gt;12311111&lt;/td&gt;
-                &lt;td class="started"&gt;启用&lt;/td&gt;
-                &lt;td&gt;&lt;a href="#"&gt;查看&lt;/a&gt;&lt;a href="#"&gt;编辑&lt;/a&gt;&lt;/td&gt;
-            &lt;/tr&gt;
-            &lt;tr&gt;
-                &lt;td&gt;&lt;span class="table-checkbox"&gt;&lt;/span&gt;12345678901234567890&lt;/td&gt;
-                &lt;td&gt;测试角色五&lt;/td&gt;
-                &lt;td&gt;1234567&lt;/td&gt;
-                &lt;td&gt;11测试层级一&lt;/td&gt;
-                &lt;td&gt;11测试部门所在分区一&lt;/td&gt;
-                &lt;td&gt;&lt;img src="../../../content/normal/images/profile-photo.jpg" alt=""&gt;&lt;/td&gt;
-                &lt;td class="time"&gt;2018-12-12 12:12:12&lt;/td&gt;
-                &lt;td&gt;11测试就餐详情&lt;/td&gt;
-                &lt;td&gt;111231元&lt;/td&gt;
-                &lt;td&gt;7.77折&lt;/td&gt;
-                &lt;td&gt;12311111&lt;/td&gt;
-                &lt;td class="ban"&gt;禁止&lt;/td&gt;
-                &lt;td&gt;&lt;a href="#"&gt;查看&lt;/a&gt;&lt;a href="#"&gt;编辑&lt;/a&gt;&lt;/td&gt;
-            &lt;/tr&gt;
-        &lt;/tbody&gt;
-    &lt;/table&gt;
-    &lt;div class="nothing"&gt;
-        &lt;span&gt;暂时无数据&lt;/span&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
-</pre>
-                </div>
-                <div class="col-sm-12">
-                    <h3><span>css</span><button class="copy" data-clipboard-target="#foo2"></button></h3>
-<pre id="foo2">
-/* #table */
-#table{
-
-}
-#table thead{
-    background: #f1f1f1;
-
-}
-#table.table>thead>tr>th{
-    border: 0;
-    height: 40px;
-    line-height: 40px;
-    color:#4A4A4A;
-    font-weight: normal;
-}
-#table.table tbody td{
-    /*height: 50px;*/
-    line-height: 20px;
-    vertical-align: middle;
-}
-#table.table .table-checkbox{
-    display: inline-block;
-    width: 16px;
-    height: 16px;  
-    margin: 0;
-    vertical-align: middle;
-    margin-right: 6px;
-    background: url(../images/Checkbox-off.png) no-repeat center;
-    -webkit-background-size: contain;
-    background-size: contain;
-    
-}
-#table.table .table-checkbox.active{
-    background: url(../images/Checkbox-off-half.png) no-repeat center;
-    -webkit-background-size: contain;
-    background-size: contain;
-    
-}   
-#table.table tbody td a{
-    padding: 0;
-    line-height: 40px;
-    color:#3F9EE7;
-}
-#table.table tbody td a + a{
-    margin-left: 18px;
-}
-#table.table tbody td img{
-    width: 50px;
-    height: 50px;
-}
-#table.table tbody td a:hover{
-    text-decoration: none;
-}
-#table.table.table-hover>tbody>tr:hover{
-    background: #FFF7EA;
-}
-#table.table tbody td.time{
-    color:#bdbdbd;
-}
-#table.table tbody td.ongoing,
-#table.table tbody td.notSarted,
-#table.table tbody td.started{
-    color:#2ead88;
-}
-#table.table tbody td.cancelled,
-#table.table tbody td.ban{
-    color:#974343;
-}
-#table.table tbody td.agreed{
-    color:#535353;
-}
-@media screen and (min-width: 768px) and (max-width: 1600px){
-    .table-responsive {
-        width: calc(100% - 23px);
-        margin-bottom: 15px;
-        margin-left: 10px;
         overflow-y: hidden;
         -ms-overflow-style: -ms-autohiding-scrollbar;
         border: 1px solid #ddd;
@@ -517,6 +279,77 @@ function table_checkbox_change(){
     });
 }
 table_checkbox_change();
+// 排序
+// 标题数据
+var tableHead={a:{checkbox:!0,isSort:!0,text:"部门编号"},b:{isSort:!0,text:"员工名称"},c:{isSort:!0,text:"助记码"},d:"部门层级",e:{isSort:!0,text:"部门所在分区"},f:"封面图片",h:"发布时间",i:"就餐详情",j:"限额",k:"就餐折扣",l:"余额",n:"部门状态",m:"操作"};
+//列表数据
+var arr=[{a:{isSort:!0,text:"100"},b:{isSort:!0,text:"爱新觉罗·努尔哈赤"},c:"123",d:"测试层级一",e:{isSort:!0,text:"badsfa"},f:{text:"测试部区一"},h:"2018-12-12 12:12:12",i:"测试就餐详情",j:"1231元",k:"7.77折",l:"12311111",n:{type:"started",text:"启用"},m:["查看","编辑"]},{a:{isSort:!0,text:"11"},b:{isSort:!0,text:"爱新觉罗·皇太极"},c:"134",d:"测试层级一",e:{isSort:!0,text:"xcvgh"},f:"../../../content/normal/images/profile-photo.jpg",h:"2018-12-12 12:12:12",i:"测试就餐详情",j:"1231元",k:"7.77折",l:"12311111",n:{type:"ban",text:"禁止"},m:["查看","编辑"]},{a:{isSort:!0,text:"112353"},b:{isSort:!0,text:"爱新觉罗·福临"},c:"4343",d:"测试层级一",e:{isSort:!0,text:"rdjfkg"},f:"../../../content/normal/images/profile-photo.jpg",h:"2018-12-12 12:12:12",i:"测试就餐详情",j:"1231元",k:"7.77折",l:"12311111",n:{type:"agreed",text:"已审批"},m:["查看","编辑"]},{a:{isSort:!0,text:"131534534"},b:{isSort:!0,text:"爱新觉罗·玄烨"},c:"235",d:"测试层级一",e:{isSort:!0,text:"a2"},f:"../../../content/normal/images/profile-photo.jpg",h:"2018-12-12 12:12:12",i:"测试就餐详情",j:"1231元",k:"7.77折",l:"12311111",n:{type:"cancelled",text:"已退回"},m:["查看","编辑"]},{a:{isSort:!0,text:"1256778980763"},b:{isSort:!0,text:"爱新觉罗·胤禛"},c:"5445",d:"测试层级一",e:{isSort:!0,text:"a  1 a"},f:"../../../content/normal/images/profile-photo.jpg",h:"2018-12-12 12:12:12",i:"测试就餐详情",j:"1231元",k:"7.77折",l:"12311111",n:{type:"notSarted",text:"未开始"},m:["查看","编辑"]},{a:{isSort:!0,text:"65678987"},b:{isSort:!0,text:"爱新觉罗·弘历"},c:"2345",d:"测试层级一",e:{isSort:!0,text:"b  1 b"},f:"../../../content/normal/images/profile-photo.jpg",h:"2018-12-12 12:12:12",i:"测试就餐详情",j:"1231元",k:"7.77折",l:"12311111",n:{type:"ongoing",text:"进行中"},m:["查看","编辑"]}];
+
+var tableVM = new Vue({
+    el:"#tableVM",
+    data:{
+        tableHead:tableHead,
+        arr:arr
+    },
+    computed:{
+
+    },
+    filters:{
+        setSort:function(event){
+            if(typeof event === "object"){
+                return event.text;
+            }else{
+                return event;
+            }
+        }
+    },
+    methods:{
+        sortFn:function(type,event,key){
+            console.log(arguments);
+
+            this.arr.sort(this.compareFn(type,'text',key));
+        },
+        // 比较方法
+        compareFn:function(type,val,key){
+            return function(a,b){
+                var val1,val2;
+                //判断当前是不是对象
+                if(typeof a[key] === "string"){
+                    val1 = a[key];
+                    val2 = b[key];
+                }else if(typeof a[key] === "object"){
+                    val1 = a[key][val];
+                    val2 = b[key][val];
+                }
+                // 统一比较的格式
+                if(!isNaN(Number(val1)) && !isNaN(Number(val2))){
+                    val1 = Number(val1);
+                    val2 = Number(val2);
+                }
+                // 排序
+                if(type === "ascend"){
+                    // 升序
+                    if(val1 < val2){
+                        return -1;
+                    }else if(val1 > val2){
+                        return 1;
+                    }else{
+                        return 0;
+                    }
+                }else{
+                    // 降序
+                    if(val2 < val1){
+                        return -1;
+                    }else if(val2 > val1){
+                        return 1;
+                    }else{
+                        return 0;
+                    }
+                }
+            }
+        }
+    }
+});
 </pre>
                 </div>
             </div>
@@ -549,195 +382,11 @@ function table_checkbox_change(){
 }
 table_checkbox_change();
 // 排序
-var arr = [
-    {
-        a:{
-            isSort:true,
-            text:"100",
-        },
-        b:{
-            isSort:true,
-            text:"爱新觉罗·努尔哈赤",
-        },
-        c:"1234567",
-        d:"测试层级一",
-        e:{
-            isSort:true,
-            text:"A1"
-        },
-        f:"测试部区一",
-        h:"2018-12-12 12:12:12",
-        i:"测试就餐详情",
-        j:"1231元",
-        k:"7.77折",
-        l:"12311111",
-        n:{
-            type:"started",
-            text:"启用"
-        },
-        m:["查看","编辑"]
-    },
-    {
-        a:{
-            isSort:true,
-            text:"101",
-        },
-        b:{
-            isSort:true,
-            text:"爱新觉罗·皇太极",
-        },
-        c:"1234567",
-        d:"测试层级一",
-        e:{
-            isSort:true,
-            text:"A2"
-        },
-        f:"../../../content/normal/images/profile-photo.jpg",
-        h:"2018-12-12 12:12:12",
-        i:"测试就餐详情",
-        j:"1231元",
-        k:"7.77折",
-        l:"12311111",
-        n:{
-            type:"ban",
-            text:"禁止"
-        },
-        m:["查看","编辑"]
-    },
-    {
-        a:{
-            isSort:true,
-            text:"112353",
-        },
-        b:{
-            isSort:true,
-            text:"爱新觉罗·福临",
-        },
-        c:"1234567",
-        d:"测试层级一",
-        e:{
-            isSort:true,
-            text:"a1"
-        },
-        f:"../../../content/normal/images/profile-photo.jpg",
-        h:"2018-12-12 12:12:12",
-        i:"测试就餐详情",
-        j:"1231元",
-        k:"7.77折",
-        l:"12311111",
-        n:{
-            type:"agreed",
-            text:"已审批"
-        },
-        m:["查看","编辑"]
-    },
-    {
-        a:{
-            isSort:true,
-            text:"131534534",
-        },
-        b:{
-            isSort:true,
-            text:"爱新觉罗·玄烨",
-        },
-        c:"1234567",
-        d:"测试层级一",
-        e:{
-            isSort:true,
-            text:"a2"
-        },
-        f:"../../../content/normal/images/profile-photo.jpg",
-        h:"2018-12-12 12:12:12",
-        i:"测试就餐详情",
-        j:"1231元",
-        k:"7.77折",
-        l:"12311111",
-        n:{
-            type:"cancelled",
-            text:"已退回"
-        },
-        m:["查看","编辑"]
-    },
-    {
-        a:{
-            isSort:true,
-            text:"1256778980763",
-        },
-        b:{
-            isSort:true,
-            text:"爱新觉罗·胤禛",
-        },
-        c:"1234567",
-        d:"测试层级一",
-        e:{
-            isSort:true,
-            text:"a  1 a"
-        },
-        f:"../../../content/normal/images/profile-photo.jpg",
-        h:"2018-12-12 12:12:12",
-        i:"测试就餐详情",
-        j:"1231元",
-        k:"7.77折",
-        l:"12311111",
-        n:{
-            type:"notSarted",
-            text:"未开始"
-        },
-        m:["查看","编辑"]
-    },
-    {
-        a:{
-            isSort:true,
-            text:"65678987",
-        },
-        b:{
-            isSort:true,
-            text:"爱新觉罗·弘历",
-        },
-        c:"1234567",
-        d:"测试层级一",
-        e:{
-            isSort:true,
-            text:"b  1 b"
-        },
-        f:"../../../content/normal/images/profile-photo.jpg",
-        h:"2018-12-12 12:12:12",
-        i:"测试就餐详情",
-        j:"1231元",
-        k:"7.77折",
-        l:"12311111",
-        n:{
-            type:"ongoing",
-            text:"进行中"
-        },
-        m:["查看","编辑"]
-    },
-]
-var tableHead = {
-        a:{
-            checkbox:true,
-            isSort:true,
-            text:"部门编号",
-        },
-        b:{
-            isSort:true,
-            text:"员工名称",
-        },
-        c:"助记码",
-        d:"部门层级",
-        e:{
-            isSort:true,
-            text:"部门所在分区"
-        },
-        f:"封面图片",
-        h:"发布时间",
-        i:"就餐详情",
-        j:"限额",
-        k:"就餐折扣",
-        l:"余额",
-        n:"部门状态",
-        m:'操作'
-    }
+// 标题数据
+var tableHead={a:{checkbox:!0,isSort:!0,text:"部门编号"},b:{isSort:!0,text:"员工名称"},c:{isSort:!0,text:"助记码"},d:"部门层级",e:{isSort:!0,text:"部门所在分区"},f:"封面图片",h:"发布时间",i:"就餐详情",j:"限额",k:"就餐折扣",l:"余额",n:"部门状态",m:"操作"};
+//列表数据
+var arr=[{a:{isSort:!0,text:"100"},b:{isSort:!0,text:"爱新觉罗·努尔哈赤"},c:"123",d:"测试层级一",e:{isSort:!0,text:"badsfa"},f:{text:"测试部区一"},h:"2018-12-12 12:12:12",i:"测试就餐详情",j:"1231元",k:"7.77折",l:"12311111",n:{type:"started",text:"启用"},m:["查看","编辑"]},{a:{isSort:!0,text:"11"},b:{isSort:!0,text:"爱新觉罗·皇太极"},c:"134",d:"测试层级一",e:{isSort:!0,text:"xcvgh"},f:"../../../content/normal/images/profile-photo.jpg",h:"2018-12-12 12:12:12",i:"测试就餐详情",j:"1231元",k:"7.77折",l:"12311111",n:{type:"ban",text:"禁止"},m:["查看","编辑"]},{a:{isSort:!0,text:"112353"},b:{isSort:!0,text:"爱新觉罗·福临"},c:"4343",d:"测试层级一",e:{isSort:!0,text:"rdjfkg"},f:"../../../content/normal/images/profile-photo.jpg",h:"2018-12-12 12:12:12",i:"测试就餐详情",j:"1231元",k:"7.77折",l:"12311111",n:{type:"agreed",text:"已审批"},m:["查看","编辑"]},{a:{isSort:!0,text:"131534534"},b:{isSort:!0,text:"爱新觉罗·玄烨"},c:"235",d:"测试层级一",e:{isSort:!0,text:"a2"},f:"../../../content/normal/images/profile-photo.jpg",h:"2018-12-12 12:12:12",i:"测试就餐详情",j:"1231元",k:"7.77折",l:"12311111",n:{type:"cancelled",text:"已退回"},m:["查看","编辑"]},{a:{isSort:!0,text:"1256778980763"},b:{isSort:!0,text:"爱新觉罗·胤禛"},c:"5445",d:"测试层级一",e:{isSort:!0,text:"a  1 a"},f:"../../../content/normal/images/profile-photo.jpg",h:"2018-12-12 12:12:12",i:"测试就餐详情",j:"1231元",k:"7.77折",l:"12311111",n:{type:"notSarted",text:"未开始"},m:["查看","编辑"]},{a:{isSort:!0,text:"65678987"},b:{isSort:!0,text:"爱新觉罗·弘历"},c:"2345",d:"测试层级一",e:{isSort:!0,text:"b  1 b"},f:"../../../content/normal/images/profile-photo.jpg",h:"2018-12-12 12:12:12",i:"测试就餐详情",j:"1231元",k:"7.77折",l:"12311111",n:{type:"ongoing",text:"进行中"},m:["查看","编辑"]}];
+
 var tableVM = new Vue({
     el:"#tableVM",
     data:{
@@ -745,28 +394,62 @@ var tableVM = new Vue({
         arr:arr
     },
     computed:{
-        sortDom:function(){
-            return `<div class="sort" v-html>
-                        <button class="ascending-order"></button><button class="descending-order"></button>
-                    </div>`;
-        },
-        checkboxDom:function(){
-            return `<span class="table-checkbox"></span>`;
-        }
+
     },
     filters:{
         setSort:function(event){
-            console.log(typeof event);
             if(typeof event === "object"){
-                console.log(tableVM);
-                return event.text ;
+                return event.text;
             }else{
                 return event;
             }
         }
     },
     methods:{
-    }
+        sortFn:function(type,event,key){
+            console.log(arguments);
 
-})
+            this.arr.sort(this.compareFn(type,'text',key));
+        },
+        // 比较方法
+        compareFn:function(type,val,key){
+            return function(a,b){
+                var val1,val2;
+                //判断当前是不是对象
+                if(typeof a[key] === "string"){
+                    val1 = a[key];
+                    val2 = b[key];
+                }else if(typeof a[key] === "object"){
+                    val1 = a[key][val];
+                    val2 = b[key][val];
+                }
+                // 统一比较的格式
+                if(!isNaN(Number(val1)) && !isNaN(Number(val2))){
+                    val1 = Number(val1);
+                    val2 = Number(val2);
+                }
+                // 排序
+                if(type === "ascend"){
+                    // 升序
+                    if(val1 < val2){
+                        return -1;
+                    }else if(val1 > val2){
+                        return 1;
+                    }else{
+                        return 0;
+                    }
+                }else{
+                    // 降序
+                    if(val2 < val1){
+                        return -1;
+                    }else if(val2 > val1){
+                        return 1;
+                    }else{
+                        return 0;
+                    }
+                }
+            }
+        }
+    }
+});
 </script>

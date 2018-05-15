@@ -1,0 +1,550 @@
+
+<link rel="stylesheet" type="text/css" href="../../../content/frame/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="../../../content/normal/css/my-theme.css">
+<link rel="stylesheet" type="text/css" href="../../../content/normal/css/demo.css">
+<link rel="stylesheet" type="text/css" href="../../../content/frame/jquery.date/jquery.datetimepicker.min.css">
+<script type="text/javascript" src="../../../content/frame/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../content/frame/jquery.date/jquery.datetimepicker.full.min.js"></script>
+<script type="text/javascript" src="../../../content/frame/clipboard/clipboard.min.js"></script>
+<script type="text/javascript" src="../../../content/frame/bootstrap/js/bootstrap.js"></script>
+<script type="text/javascript" src="../../../content/normal/js/v-demo.js"></script>
+
+<h2 id="demo-express-h1">form-inline
+    <a type="button" class="btn btn-default" href="../../local-index.html">返回</a>
+</h2>
+
+<!-- html -->
+<div class="demo-express">
+    <h3>结果展示</h3>
+    <div class="demo-express-bg">
+        <form class="form-inline">
+            <div class="form-group">
+                <label>部门信息：</label>
+                <input type="text" class="form-control" name="" placeholder="部门编号/名称/助记码">  
+                
+            </div> 
+            <div class="form-group">
+                <label>部门信息：</label>
+                <div class="dropdown">
+                    <button class="btn btn-default dropdown-toggle" type="text" id="dropdownMenu1" data-toggle="dropdown" aspopup="true" aria-expanded="false">
+                    Dropdown
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                        <li><a href="#">Action</a></li>
+                        <li><a href="#">Another action</a></li>
+                        <li><a href="#">Something else here</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#">Separated link</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>就餐时间：</label>
+                <div class="form-date">
+                    <input id="startDate" class="form-control" type="text" placeholder="选择时间">
+                </div>
+                <em> — </em>
+                <div class="form-date">
+                    <input id="endDate" class="form-control" type="text" placeholder="选择时间">
+                </div>
+            </div>
+            <div class="form-group">
+                <label>数字：</label>
+                <input type="number" class="form-control" name="">
+            </div>
+            <div class="form-group form-group-textarea">
+                <label>描述：</label>
+                <textarea class="form-control" rows="2"></textarea>
+            </div>
+            <div class="form-group">
+                <label>开餐编号：</label>
+                <span>123123123</span>
+            </div>
+            <div class="form-group">
+                <label>就餐时间：</label>
+                <span>11:30—13:00</span>
+            </div>
+            <div class="form-group">
+                <label>多选：</label>
+                <div class="checkbox-btns">
+                    <label class="checkbox-inline">
+                        <span class="form-checkbox"></span> 多选一
+                    </label>
+                    <label class="checkbox-inline">
+                        <span class="form-checkbox"></span> 多选二
+                    </label>
+                    <label class="checkbox-inline">
+                        <span class="form-checkbox"></span> 多选三
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>单选：</label>
+                <div class="radio-btns">                        
+                    <label class="radio-inline">
+                        <span class="form-radio"></span> 单选一
+                    </label>
+                    <label class="radio-inline">
+                        <span class="form-radio"></span> 单选二
+                    </label>
+                    <label class="radio-inline">
+                        <span class="form-radio"></span> 单选三
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>测试主题主题颜色按钮：</label>
+                <div class="btn btn-default btn-theme">主题按钮</div>
+                
+            </div>
+            <div class="form-group">
+                <label>表单按钮：</label>
+                <div class="btn btn-default">表单按钮</div>
+                <div class="btn btn-default">提交并设置活动商户</div>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-default search-btn" type="submit">查询按钮</button>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="demo-express">
+    <h3>代码</h3>
+    <div class="demo-express-bg">
+<!-- js -->
+<div class="demo-express-code-box row">
+                <div class="col-sm-12">
+                    <h3><span>plugin</span><button class="copy" data-clipboard-target="#foo"></button></h3>
+<pre id="foo">
+&lt;!-- 日期控件依赖 --&gt;
+&lt;link rel="stylesheet" type="text/css" href="../../../content/frame/jquery.date/jquery.datetimepicker.min.css"&gt;
+&lt;script type="text/javascript" src="../../../content/frame/jquery.date/jquery.datetimepicker.full.min.js"&gt;&lt;/script&gt;
+</pre>
+                </div>
+                <div class="col-sm-12">
+                    <h3><span>html</span><button class="copy" data-clipboard-target="#foo1"></button></h3>
+
+<pre id="foo1">
+※ 注 .form-inline 为bootstrap内联样式（及横向排列）
+&lt;form class="form-inline"&gt;
+    &lt;div class="form-group"&gt;
+        &lt;label&gt;部门信息：&lt;/label&gt;
+        &lt;input type="text" class="form-control" name="" placeholder="部门编号/名称/助记码"&gt;  
+        
+    &lt;/div&gt; 
+    &lt;div class="form-group"&gt;
+        &lt;label&gt;部门信息：&lt;/label&gt;
+        &lt;div class="dropdown"&gt;
+            &lt;button class="btn btn-default dropdown-toggle" type="text" id="dropdownMenu1" data-toggle="dropdown" aspopup="true" aria-expanded="false"&gt;
+            Dropdown
+                &lt;span class="caret"&gt;&lt;/span&gt;
+            &lt;/button&gt;
+            &lt;ul class="dropdown-menu" aria-labelledby="dropdownMenu1"&gt;
+                &lt;li&gt;&lt;a href="#"&gt;Action&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="#"&gt;Another action&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="#"&gt;Something else here&lt;/a&gt;&lt;/li&gt;
+                &lt;li role="separator" class="divider"&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="#"&gt;Separated link&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="form-group"&gt;
+        &lt;label&gt;就餐时间：&lt;/label&gt;
+        &lt;div class="form-date"&gt;
+            &lt;input id="startDate" class="form-control" type="text" placeholder="选择时间"&gt;
+        &lt;/div&gt;
+        &lt;em&gt; — &lt;/em&gt;
+        &lt;div class="form-date"&gt;
+            &lt;input id="endDate" class="form-control" type="text" placeholder="选择时间"&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="form-group"&gt;
+        &lt;label&gt;数字：&lt;/label&gt;
+        &lt;input type="number" class="form-control" name=""&gt;
+    &lt;/div&gt;
+    &lt;div class="form-group form-group-textarea"&gt;
+        &lt;label&gt;描述：&lt;/label&gt;
+        &lt;textarea class="form-control" rows="2"&gt;&lt;/textarea&gt;
+    &lt;/div&gt;
+    &lt;div class="form-group"&gt;
+        &lt;label&gt;开餐编号：&lt;/label&gt;
+        &lt;span&gt;123123123&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div class="form-group"&gt;
+        &lt;label&gt;就餐时间：&lt;/label&gt;
+        &lt;span&gt;11:30—13:00&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div class="form-group"&gt;
+        &lt;label&gt;多选：&lt;/label&gt;
+        &lt;div class="checkbox-btns"&gt;
+            &lt;label class="checkbox-inline"&gt;
+                &lt;span class="form-checkbox"&gt;&lt;/span&gt; 多选一
+            &lt;/label&gt;
+            &lt;label class="checkbox-inline"&gt;
+                &lt;span class="form-checkbox"&gt;&lt;/span&gt; 多选二
+            &lt;/label&gt;
+            &lt;label class="checkbox-inline"&gt;
+                &lt;span class="form-checkbox"&gt;&lt;/span&gt; 多选三
+            &lt;/label&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="form-group"&gt;
+        &lt;label&gt;单选：&lt;/label&gt;
+        &lt;div class="radio-btns"&gt;                        
+            &lt;label class="radio-inline"&gt;
+                &lt;span class="form-radio"&gt;&lt;/span&gt; 单选一
+            &lt;/label&gt;
+            &lt;label class="radio-inline"&gt;
+                &lt;span class="form-radio"&gt;&lt;/span&gt; 单选二
+            &lt;/label&gt;
+            &lt;label class="radio-inline"&gt;
+                &lt;span class="form-radio"&gt;&lt;/span&gt; 单选三
+            &lt;/label&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="form-group"&gt;
+        &lt;label&gt;测试主题主题颜色按钮：&lt;/label&gt;
+        &lt;div class="btn btn-default btn-theme"&gt;主题按钮&lt;/div&gt;
+        
+    &lt;/div&gt;
+    &lt;div class="form-group"&gt;
+        &lt;label&gt;表单按钮：&lt;/label&gt;
+        &lt;div class="btn btn-default"&gt;表单按钮&lt;/div&gt;
+        &lt;div class="btn btn-default"&gt;提交并设置活动商户&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="form-group"&gt;
+        &lt;button class="btn btn-default search-btn" type="submit"&gt;查询按钮&lt;/button&gt;
+    &lt;/div&gt;
+&lt;/form>
+</pre>
+                </div>
+                <div class="col-sm-12">
+                    <h3><span>css</span><button class="copy" data-clipboard-target="#foo2"></button></h3>
+<pre id="foo2">
+/* form 与纵向排列的表单样式基本相同，差别在乎form 的class*/
+form{
+    margin:30px 0 50px 0;
+    padding-left:120px; 
+}
+form .form-group *{
+    font-size: 14px;
+}
+.form-inline{
+    padding: 0 13px 0 20px;
+}
+.form-inline .form-group{
+    display: inline-block;
+    margin: 0;
+}
+.form-inline .form-group + .form-group{
+    margin-left: 40px;
+}
+.form-group{
+    font-size: 0;
+    height: 30px;
+    line-height: 30px;
+    margin-right: 26px;
+    margin-bottom: 20px;
+    vertical-align: top;
+}
+.form-group >label{
+    max-width: 190px;
+    height:30px;
+    font-weight: normal;
+    vertical-align: top;
+    text-align: right;
+    margin-right: 20px;
+    white-space: nowrap;
+    overflow: hidden;
+    -ms-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+}
+.form-control{
+    border-radius: 0px;
+}
+.form-horizontal .control-label{
+    padding-top: 0;
+}
+.content-h2 .form-group >label,
+.form-inline .form-group >label{
+    width: auto;
+    margin-right: 0px;
+}
+.btn .caret{
+    margin-left: 10px;
+}
+.form-group >label + .dropdown{
+    display: inline-block;
+    height: 30px;
+    vertical-align: top;
+}
+.form-group >label + .dropdown [data-toggle=dropdown]{
+    height: 30px;
+    line-height: 16px;
+    border-radius:0;
+    border:1px solid #c5c5c5;
+}
+.form-group input{
+    width: 200px;
+    height: 30px;
+    padding:0 5px;
+    border:1px solid #c5c5c5;
+    outline: none;
+}
+.form-group input::placeholder{
+    color:#8B8B8B;
+}
+
+/* date */
+.form-group .form-date{
+    display: inline-block;
+    width: 120px;
+    position: relative;
+    vertical-align: top
+}
+.form-group .form-date + em{
+    display: inline-block;
+    height: 30px;
+    color:#e6e6e6;
+    padding:0 5px;
+}
+.form-group .form-date input[type=text]{
+    width: 100%;
+}
+.form-group .form-date input[type=text]{
+    background: url(../../../content/normal/images/clock.png) no-repeat right 5px center;
+}
+/*  */
+.form-group button.btn-default{
+    line-height: 10px;
+    font-size: 14px;
+    height: 30px;
+    border-radius:0;
+    border:1px solid #c5c5c5;
+}
+.btn-default.active.focus, .btn-default.active:focus, .btn-default.active:hover, .btn-default:active.focus, .btn-default:active:focus, .btn-default:active:hover, .open>.dropdown-toggle.btn-default.focus, .open>.dropdown-toggle.btn-default:focus, .open>.dropdown-toggle.btn-default:hover{
+    background:#f7f7f7
+}
+/*  */
+.form-group input[type=number]{
+    width: 50px;
+    padding-right: 0;
+    font-size: 12px;
+}
+/*  */
+.form-group textarea{
+    padding: 0 5px;
+    line-height: 20px;
+}
+.form-group.form-group-textarea{
+    height: auto;
+}
+/*  */
+.form-group .checkbox-btns,
+.form-group .radio-btns{
+    display: inline-block;
+}
+.form-group .checkbox-btns .form-checkbox,
+.form-group .radio-btns .form-radio{
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    vertical-align: middle;
+
+}
+.form-group .checkbox-btns .checkbox-inline,
+.form-group .radio-btns .radio-inline{
+    padding: 0;
+
+}
+.form-group .checkbox-btns .checkbox-inline + .checkbox-inline,
+.form-group .radio-btns .radio-inline + .radio-inline{
+    margin-left: 50px;
+}
+
+.form-group .checkbox-btns .form-checkbox{
+    background: #fff url(../../../content/normal/images/Checkbox-off.png) 0 0 no-repeat;
+    -webkit-background-size: contain;
+    background-size: contain;
+}
+.form-group .checkbox-btns .form-checkbox.active{
+    background: #fff url(../../../content/normal/images/Checkbox-on.png) 0 0 no-repeat;
+    -webkit-background-size: contain;
+    background-size: contain;
+}
+.form-group .radio-btns .form-radio{
+    background: #fff url(../../../content/normal/images/Radio-button-off.png) 0 0 no-repeat;
+    -webkit-background-size: contain;
+    background-size: contain;
+}
+.form-group .radio-btns .form-radio.active{
+    background: #fff url(../../../content/normal/images/Radio-button-on.png) 0 0 no-repeat;
+    -webkit-background-size: contain;
+    background-size: contain;
+}
+.form-group .file-upload{
+    display: inline-block;
+}
+.form-group .file-upload span{
+    display: inline-block;
+    width: 200px;
+    height: 30px;
+    border: 1px solid #c5c5c5;
+}
+.form-group .file-upload input[type=file]{
+    display: inline-block;
+    width: 200px;
+    height: 30px;
+    opacity: 0;
+}
+.form-group .file-upload button{
+    display: inline-block;
+    vertical-align: top;
+    width: 56px;
+    height: 30px;
+    background-color: #f7f7f7;
+    border: 1px solid #c5c5c5;
+}
+/* btn-theme */
+.btn-theme{
+    height: 30px;
+    padding: 0px 12px;
+    line-height: 28px;
+    border-radius: 0;
+    filter: progid:DXImageTransform.Microsoft.gradient(startcolorstr=#02c1de,endcolorstr=#44b9eb,gradientType=1);
+    background: -linear-gradient(right,#02c1de,#44b9eb);
+    background: -moz-linear-gradient(right,#02c1de,#44b9eb);
+    background: -webkit-linear-gradient(right,#02c1de,#44b9eb);
+    border-color: #31afe4;
+    color: #fff;
+}
+.btn-theme:hover{
+    border-color: #31afe4;
+    color: #fff;
+    opacity: .7;
+}
+.form-group .btn + .btn{
+    margin-left: 20px;
+}
+.form-inline .search-btn{
+    float: right;
+}
+</pre>
+                </div>
+                <div class="col-sm-12">
+                    <h3><span>javascript</span><button class="copy" data-clipboard-target="#foo3"></button></h3>
+<pre id="foo3">
+//备注：点击选择后隐藏下拉框，
+//      并添加到点击按钮上
+// 日期
+$.datetimepicker.setLocale('zh');
+$('#startDate').datetimepicker({        
+    timepicker:false,
+    format:'Y.m.d',
+    parentID:"html",
+    onShow:function( ct ){
+        console.log(123)
+        this.setOptions({
+            maxDate:$('#endDate').val()?$('#endDate').val():false
+        })
+    },
+});
+
+$('#endDate').datetimepicker({
+    timepicker:false,
+    format:'Y.m.d',
+    parentID:"html",
+    onShow:function( ct ){
+        this.setOptions({
+            minDate:$('#startDate').val()?$('#startDate').val():false
+        })
+    },
+});
+
+// 下拉选项
+var menu = $(".dropdown-menu");
+if($("#right-container .dropdown-menu").length){
+    menu = $("#right-container .dropdown-menu");
+}
+
+menu.on("click","li a",function(event){
+    var dropdown = $(this).parents("ul").prev('[data-toggle=dropdown]');
+    dropdown.html($(this).text()+'<span class="caret"></span>').parent().removeClass("open");
+});
+form_checkbox_change();
+function form_checkbox_change(){
+    // 多选
+    $("form").on("click",".form-checkbox",function(){
+        $(this).toggleClass("active");
+    });
+    // 单选
+    $("form").on("click",".form-radio",function(){
+        $(this).addClass("active").parent().siblings().find(".form-radio").removeClass("active");
+    });
+}
+// 上传按钮
+$(".file-upload").on("click","button",uploadBtnFn);
+function uploadBtnFn(){
+    $(this).prev().find("input[type=file]").trigger("click");
+}
+</pre>
+                </div>
+            </div>
+    </div>
+</div>
+<script type="text/javascript">
+    // 日期
+    $.datetimepicker.setLocale('zh');
+    $('#startDate').datetimepicker({        
+        timepicker:false,
+        format:'Y.m.d',
+        parentID:"html",
+        onShow:function( ct ){
+            console.log(123)
+            this.setOptions({
+                maxDate:$('#endDate').val()?$('#endDate').val():false
+            })
+        },
+    });
+
+    $('#endDate').datetimepicker({
+        timepicker:false,
+        format:'Y.m.d',
+        parentID:"html",
+        onShow:function( ct ){
+            this.setOptions({
+                minDate:$('#startDate').val()?$('#startDate').val():false
+            })
+        },
+    });
+
+    // 下拉选项
+    var menu = $(".dropdown-menu");
+    if($("#right-container .dropdown-menu").length){
+        menu = $("#right-container .dropdown-menu");
+    }
+    
+    menu.on("click","li a",function(event){
+        var dropdown = $(this).parents("ul").prev('[data-toggle=dropdown]');
+        dropdown.html($(this).text()+'<span class="caret"></span>').parent().removeClass("open");
+    });
+    // 
+    form_checkbox_change();
+    function form_checkbox_change(){
+        // 多选
+        $("form").on("click",".form-checkbox",function(){
+            $(this).toggleClass("active");
+        });
+        // 单选
+        $("form").on("click",".form-radio",function(){
+            $(this).addClass("active").parent().siblings().find(".form-radio").removeClass("active");
+        });
+    }
+    // 上传按钮
+    $(".file-upload").on("click","button",uploadBtnFn);
+    function uploadBtnFn(){
+        $(this).prev().find("input[type=file]").trigger("click");
+    }
+
+</script>

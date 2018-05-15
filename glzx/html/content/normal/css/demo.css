@@ -141,15 +141,19 @@ table a{
     padding: 0 10px 0 38px;
     background: url(../../../content/normal/images/ico-title.png) no-repeat left center;
     line-height: 66px;
-    font-size: 24px;
     color:#000;
     margin:0;
     border-bottom:1px solid #979797;
 }
+.content-h1 label{
+   font-size: 24px;
+   font-weight: normal;
+   margin-right: 10px; 
+   margin-bottom: 0;    
+}
 .content-h1 .refresh{
     width: 24px;
     height: 24px;
-    float: right;
     margin-top:21px;
     border:0;
     background: url(../../../content/normal/images/refresh.png) no-repeat;
@@ -173,10 +177,14 @@ table a{
     height: 30px;
     line-height: 30px;
     padding-left: 10px;
-    font-size: 18px;
+    
     border:0;
     position: relative;
     margin: 20px 13px 20px 10px;
+}
+.content-h2 label{
+    font-size: 18px;
+    font-weight: normal;
 }
 .content-h2:before{
     position: absolute;
@@ -191,12 +199,20 @@ table a{
     background: -moz-linear-gradient(top,#06bce1,#5682fd);
     background: -webkit-linear-gradient(top,#06bce1,#5682fd);
 }
-.content-h2 .form-line{
+.content-h2 form{
+    margin:0;
+    height: inherit;
+    margin-right: -15px;
+}
+.content-h2 form .form-group{
     display: inline-block;
     margin: 0;
     vertical-align: top;
 }
-.content-h2 .form-line.form-line-right{
+.content-h2 form .form-group + .form-group{
+    margin-left: 30px;
+}
+.content-h2 .form-group.form-group-right{
     float: right;
 }
 /* form */
@@ -204,23 +220,17 @@ form{
     margin:30px 0 50px 0;
     padding-left:120px; 
 }
-form .form-line *{
+form .form-group *{
     font-size: 14px;
 }
 .form-inline{
     padding: 0 13px 0 20px;
 }
-.form-inline .form-line{
+.form-inline .form-group{
     display: inline-block;
-    margin: 0;
+    margin: 0 40px 20px 0;
 }
-.form-inline .form-line + .form-line{
-    margin-left: 40px;
-}
-.content-h2 .form-line + .form-line{
-    margin-right: 30px;
-}
-.form-line{
+.form-group{
     font-size: 0;
     height: 30px;
     line-height: 30px;
@@ -228,145 +238,157 @@ form .form-line *{
     margin-bottom: 20px;
     vertical-align: top;
 }
-.form-line >label{
-    width: 160px;
+.form-group >label{
+    max-width: 190px;
     height:30px;
     font-weight: normal;
     vertical-align: top;
     text-align: right;
-    margin-right: 50px;
+    margin-right: 20px;
+    white-space: nowrap;
+    overflow: hidden;
+    -ms-text-overflow: ellipsis;
+    text-overflow: ellipsis;
 }
-.content-h2 .form-line >label,
-.form-inline .form-line >label{
+.form-control{
+    border-radius: 0px;
+}
+.form-horizontal .control-label{
+    padding-top: 0;
+}
+.content-h2 .form-group >label,
+.form-inline .form-group >label{
     width: auto;
     margin-right: 0px;
 }
 .btn .caret{
     margin-left: 10px;
 }
-.form-line >label + .dropdown{
+.form-group >label + .dropdown{
     display: inline-block;
     height: 30px;
     vertical-align: top;
 }
-.form-line >label + .dropdown [data-toggle=dropdown]{
+.form-group >label + .dropdown [data-toggle=dropdown]{
     height: 30px;
     line-height: 16px;
     border-radius:0;
     border:1px solid #c5c5c5;
 }
-.form-line input{
+.form-group input{
     width: 200px;
     height: 30px;
     padding:0 5px;
     border:1px solid #c5c5c5;
     outline: none;
 }
-.form-line input::placeholder{
+.form-group input::placeholder{
     color:#8B8B8B;
 }
 
 /* date */
-.form-line .form-date{
+.form-group .form-date{
     display: inline-block;
     width: 120px;
     position: relative;
     vertical-align: top
 }
-.form-line .form-date + em{
+.form-group .form-date + em{
     display: inline-block;
     height: 30px;
     color:#e6e6e6;
     padding:0 5px;
 }
-.form-line .form-date input[type=text]{
+.form-group .form-date input[type=text]{
     width: 100%;
 }
-.form-line .form-date input[type=text]{
+.form-group .form-date input[type=text]{
     background: url(../../../content/normal/images/clock.png) no-repeat right 5px center;
 }
 /*  */
-.form-line button.btn-default{
-    background: #F7F7F7;
+.form-group button.btn-default{
     line-height: 10px;
     font-size: 14px;
     height: 30px;
     border-radius:0;
     border:1px solid #c5c5c5;
 }
+.btn-default.active.focus, .btn-default.active:focus, .btn-default.active:hover, .btn-default:active.focus, .btn-default:active:focus, .btn-default:active:hover, .open>.dropdown-toggle.btn-default.focus, .open>.dropdown-toggle.btn-default:focus, .open>.dropdown-toggle.btn-default:hover{
+    background:#f7f7f7
+}
 /*  */
-.form-line input[type=number]{
+.form-group input[type=number]{
     width: 50px;
     padding-right: 0;
     font-size: 12px;
 }
 /*  */
-.form-line textarea{
+.form-group textarea{
     padding: 0 5px;
     line-height: 20px;
 }
-.form-line.form-line-textarea{
+.form-group.form-group-textarea{
     height: auto;
 }
 /*  */
-.form-line .checkbox-btns,
-.form-line .radio-btns{
+.form-group .checkbox-btns,
+.form-group .radio-btns{
     display: inline-block;
 }
-.form-line .checkbox-btns .form-checkbox,
-.form-line .radio-btns .form-radio{
+.form-group .checkbox-btns .form-checkbox,
+.form-group .radio-btns .form-radio{
     display: inline-block;
     width: 24px;
     height: 24px;
     vertical-align: middle;
 
 }
-.form-line .checkbox-btns .checkbox-inline,
-.form-line .radio-btns .radio-inline{
+.form-group .checkbox-btns .checkbox-inline,
+.form-group .radio-btns .radio-inline{
     padding: 0;
 
 }
-.form-line .checkbox-btns .checkbox-inline + .checkbox-inline,
-.form-line .radio-btns .radio-inline + .radio-inline{
+.form-group .checkbox-btns .checkbox-inline + .checkbox-inline,
+.form-group .radio-btns .radio-inline + .radio-inline{
     margin-left: 50px;
 }
 
-.form-line .checkbox-btns .form-checkbox{
+.form-group .checkbox-btns .form-checkbox{
     background: #fff url(../../../content/normal/images/Checkbox-off.png) 0 0 no-repeat;
     -webkit-background-size: contain;
     background-size: contain;
 }
-.form-line .checkbox-btns .form-checkbox.active{
+.form-group .checkbox-btns .form-checkbox.active{
     background: #fff url(../../../content/normal/images/Checkbox-on.png) 0 0 no-repeat;
     -webkit-background-size: contain;
     background-size: contain;
 }
-.form-line .radio-btns .form-radio{
+.form-group .radio-btns .form-radio{
     background: #fff url(../../../content/normal/images/Radio-button-off.png) 0 0 no-repeat;
     -webkit-background-size: contain;
     background-size: contain;
 }
-.form-line .radio-btns .form-radio.active{
+.form-group .radio-btns .form-radio.active{
     background: #fff url(../../../content/normal/images/Radio-button-on.png) 0 0 no-repeat;
     -webkit-background-size: contain;
     background-size: contain;
 }
-.form-line .file-upload{
+.form-group .file-upload{
     display: inline-block;
 }
-.form-line .file-upload span{
+.form-group .file-upload span{
     display: inline-block;
     width: 200px;
     height: 30px;
     border: 1px solid #c5c5c5;
 }
-.form-line .file-upload input[type=file]{
+.form-group .file-upload input[type=file]{
     display: inline-block;
     width: 200px;
     height: 30px;
     opacity: 0;
 }
-.form-line .file-upload button{
+.form-group .file-upload button{
     display: inline-block;
     vertical-align: top;
     width: 56px;
@@ -392,7 +414,7 @@ form .form-line *{
     color: #fff;
     opacity: .7;
 }
-.form-line .btn + .btn{
+.form-group .btn + .btn{
     margin-left: 20px;
 }
 .form-inline .search-btn{
@@ -513,8 +535,9 @@ form .form-line *{
     border-radius: 0;
 }
 /* #table */
-#table{
-
+.table-responsive{
+    margin-left: 10px;
+    margin-right: 10px;
 }
 #table thead{
     background: #f1f1f1;
@@ -522,13 +545,36 @@ form .form-line *{
 }
 #table.table>thead>tr>th{
     border: 0;
-    height: 40px;
-    line-height: 40px;
+    height: 30px;
+    line-height: 30px;
     color:#4A4A4A;
     font-weight: normal;
 }
+#table.table>thead>tr>th .sort{
+    display: inline-block;
+    width: 10px;
+    vertical-align: middle
+}
+#table.table>thead>tr>th .sort button{
+    display: block;
+    width: 10px;
+    height: 10px;
+    border: 0;
+    background: url(../../../content/normal/images/dropdown-arr.png) center no-repeat;
+    -webkit-background-size: contain;
+    background-size: contain;
+}
+#table.table>thead>tr>th .sort .ascending-order{
+    -webkit-transform: rotateZ(180deg);
+    -ms-transform: rotateZ(180deg);
+    -o-transform: rotateZ(180deg);
+    transform: rotateZ(180deg);
+    background-position: center -1px;
+}
+#table.table>thead>tr>th .sort .descending-order{
+    background-position: center -1px;
+}
 #table.table tbody td{
-    /*height: 50px;*/
     line-height: 20px;
     vertical-align: middle;
 }
@@ -539,13 +585,12 @@ form .form-line *{
     margin: 0;
     vertical-align: middle;
     margin-right: 6px;
-    background: url(../images/Checkbox-off.png) no-repeat center;
+    background: url(../../../content/normal/images/Checkbox-off.png) no-repeat center;
     -webkit-background-size: contain;
     background-size: contain;
-    
 }
 #table.table .table-checkbox.active{
-    background: url(../images/Checkbox-off-half.png) no-repeat center;
+    background: url(../../../content/normal/images/Checkbox-off-half.png) no-repeat center;
     -webkit-background-size: contain;
     background-size: contain;
     
@@ -583,15 +628,10 @@ form .form-line *{
 #table.table tbody td.agreed{
     color:#535353;
 }
-.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th{
-    border-top: 0;
-    border-bottom: 1px solid #ddd;
-}
 @media screen and (min-width: 768px) and (max-width: 1600px){
     .table-responsive {
-        width: calc(100% - 23px);
+        width: calc(100% - 20px);
         margin-bottom: 15px;
-        margin-left: 10px;
         overflow-y: hidden;
         -ms-overflow-style: -ms-autohiding-scrollbar;
         border: 1px solid #ddd;

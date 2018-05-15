@@ -4,6 +4,7 @@
 <link rel="stylesheet" type="text/css" href="../../../content/normal/css/demo.css">
 <script type="text/javascript" src="../../../content/frame/jquery/jquery.min.js"></script>
 <script type="text/javascript" src="../../../content/frame/clipboard/clipboard.min.js"></script>
+<script type="text/javascript" src="../../../content/frame/bootstrap/js/bootstrap.js"></script>
 <script type="text/javascript" src="../../../content/normal/js/v-demo.js"></script>
 <!-- end -->
 <h2 id="demo-express-h1">小标题 
@@ -47,11 +48,38 @@
     <h3>结果展示</h3>
     <div class="demo-express-bg">
         <!--  -->
-        <h2 class='content-h2'>小标题展示
-            <div class="form-line form-line-right">
-                <label>部门信息：</label><input type="number" name="">
-            </div>
-        </h2>
+        <div class="content-h2">
+            <label>标题展示</label>
+            
+            <form class="form-inline pull-right">
+                <div class="form-group">
+                    <label>数字：</label>
+                    <input type="number" class="form-control" name="">
+                </div>
+                <div class="form-group">
+                    <label>部门信息：</label>
+                    <div class="dropdown">
+                        <button class="btn btn-default dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aspopup="true" aria-expanded="false">
+                        Dropdown
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                            <li><a href="#">Action</a></li>
+                            <li><a href="#">Another action</a></li>
+                            <li><a href="#">Something else here</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">Separated link</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="btn btn-default btn-theme">主题按钮</div>
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-default search-btn">查询按钮</button>
+                </div>
+            </form>
+        </div>
         <!--  -->
     </div>
 </div>
@@ -65,11 +93,38 @@
 
 <pre id="foo1">
 ※ form-line-right 靠右对齐
-&lt;h2 class='content-h2'&gt;标题展示
-    &lt;div class="form-line form-line-right"&gt;
-        &lt;label&gt;部门信息：&lt;/label&gt;&lt;input type="number" name=""&gt;
-    &lt;/div&gt;
-&lt;/h2&gt;
+&lt;div class="content-h2"&gt;
+    &lt;label&gt;标题展示&lt;/label&gt;
+    
+    &lt;form class="form-inline pull-right"&gt;
+        &lt;div class="form-group"&gt;
+            &lt;label&gt;数字：&lt;/label&gt;
+            &lt;input type="number" class="form-control" name=""&gt;
+        &lt;/div&gt;
+        &lt;div class="form-group"&gt;
+            &lt;label&gt;部门信息：&lt;/label&gt;
+            &lt;div class="dropdown"&gt;
+                &lt;button class="btn btn-default dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aspopup="true" aria-expanded="false"&gt;
+                Dropdown
+                    &lt;span class="caret"&gt;&lt;/span&gt;
+                &lt;/button&gt;
+                &lt;ul class="dropdown-menu" aria-labelledby="dropdownMenu1"&gt;
+                    &lt;li&gt;&lt;a href="#"&gt;Action&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="#"&gt;Another action&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="#"&gt;Something else here&lt;/a&gt;&lt;/li&gt;
+                    &lt;li role="separator" class="divider"&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="#"&gt;Separated link&lt;/a&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="form-group"&gt;
+            &lt;div class="btn btn-default btn-theme"&gt;主题按钮&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="form-group"&gt;
+            &lt;button class="btn btn-default search-btn"&gt;查询按钮&lt;/button&gt;
+        &lt;/div&gt;
+    &lt;/form&gt;
+&lt;/div&gt;
 </pre>
                 </div>
                 <div class="col-sm-12">
@@ -79,10 +134,14 @@
     height: 30px;
     line-height: 30px;
     padding-left: 10px;
-    font-size: 18px;
+    
     border:0;
     position: relative;
-    margin: 20px 10px;
+    margin: 20px 13px 20px 10px;
+}
+.content-h2 label{
+    font-size: 18px;
+    font-weight: normal;
 }
 .content-h2:before{
     position: absolute;
@@ -97,12 +156,20 @@
     background: -moz-linear-gradient(top,#06bce1,#5682fd);
     background: -webkit-linear-gradient(top,#06bce1,#5682fd);
 }
-.content-h2 .form-line{
+.content-h2 form{
+    margin:0;
+    height: inherit;
+    margin-right: -15px;
+}
+.content-h2 form .form-group{
     display: inline-block;
     margin: 0;
     vertical-align: top;
 }
-.content-h2 .form-line.form-line-right{
+.content-h2 form .form-group + .form-group{
+    margin-left: 30px;
+}
+.content-h2 .form-group.form-group-right{
     float: right;
 }
 </pre>

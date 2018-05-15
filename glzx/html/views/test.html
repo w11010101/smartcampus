@@ -151,7 +151,23 @@
             <!-- Page content -->
             <div id="right-container">
                 <!-- 大标题 -->
-                <h1 class='content-h1'>大标题展示 <button class="refresh"></button></h1>
+                <div class="content-h2">
+                    <label># 大标题 #</label>
+                </div>
+                <div class="content-h1">
+                    <label>标题展示</label>
+                    <ol class="breadcrumb">
+                        <li><a href="#">首页</a></li>
+                        <li><a href="#">第一层</a></li>
+                        <li class="active">第二层</li>
+                    </ol>
+                    <span class="head-tools pull-right">
+                        <button class="refresh"></button>
+                    </span>
+                </div>
+                <div class="content-h2">
+                    <label># 栅格系统 #</label>
+                </div>
                 <!-- 栅格系统 -->
                 <div class="grid row">
                     <div class="col-md-3">
@@ -167,71 +183,201 @@
                         分区编号：<span>20202020</span>
                     </div>
                 </div>
+                <div class="content-h2">
+                    <label># 表单 #</label>
+                </div>
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">部门信息：</label>
+                        <div class="col-sm-5">
+                            <input type="text" class="form-control" name="" placeholder="部门编号/名称/助记码">  
+                        </div>
+                    </div> 
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">部门信息：</label>
+                        <div class="col-sm-5">
+                            <div class="dropdown">
+                                <button class="btn btn-default dropdown-toggle" type="text" id="dropdownMenu1" data-toggle="dropdown" aspopup="true" aria-expanded="false">
+                                Dropdown
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                    <li><a href="#">Action</a></li>
+                                    <li><a href="#">Another action</a></li>
+                                    <li><a href="#">Something else here</a></li>
+                                    <li role="separator" class="divider"></li>
+                                    <li><a href="#">Separated link</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">就餐时间：</label>
+                        <div class="col-sm-5">
+                            <div class="form-date">
+                                <input id="startDate" class="form-control" type="text" placeholder="选择时间">
+                            </div>
+                            <em> — </em>
+                            <div class="form-date">
+                                <input id="endDate" class="form-control" type="text" placeholder="选择时间">
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">数字：</label>
+                        <div class="col-sm-5">
+                            <input type="number" class="form-control" name="">
+                        </div>
+                    </div>
+                    <div class="form-group form-group-textarea">
+                        <label class="col-sm-3 control-label">描述：</label>
+                        <div class="col-sm-5">
+                            <textarea class="form-control" rows="2"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">开餐编号：</label>
+                        <div class="col-sm-5">
+                            <span>123123123</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">就餐时间：</label>
+                        <div class="col-sm-5">
+                            <span>11:30—13:00</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">多选：</label>
+                        <div class="col-sm-5">
+                            <div class="checkbox-btns">
+                                <label class="checkbox-inline">
+                                    <span class="form-checkbox"></span> 多选一
+                                </label>
+                                <label class="checkbox-inline">
+                                    <span class="form-checkbox"></span> 多选二
+                                </label>
+                                <label class="checkbox-inline">
+                                    <span class="form-checkbox"></span> 多选三
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">单选：</label>
+                        <div class="col-sm-5">
+                            <div class="radio-btns">                        
+                                <label class="radio-inline">
+                                    <span class="form-radio"></span> 单选一
+                                </label>
+                                <label class="radio-inline">
+                                    <span class="form-radio"></span> 单选二
+                                </label>
+                                <label class="radio-inline">
+                                    <span class="form-radio"></span> 单选三
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">上传：</label>
+                        <div class="col-sm-5">
+                            <div class="file-upload">
+                                <span><input type="file" name="" class="form-control" id=""></span>
+                                <button class="btn btn-default search-btn" type="submit">上传</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">测试主题主题颜色按钮：</label>
+                        <div class="col-sm-5">
+                            <div class="btn btn-default btn-theme">主题按钮</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">表单按钮：</label>
+                        <div class="col-sm-5">
+                            <div class="btn btn-default">表单按钮</div>
+                            <div class="btn btn-default">提交并设置活动商户</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label"></label>
+                        <div class="col-sm-5">
+                            <button class="btn btn-default search-btn" type="submit">查询按钮</button>
+                        </div>
+                    </div>
+                </form>
                 <!-- 内联表单 -->
+                <div class="content-h2">
+                    <label># 内联表单 #</label>
+                </div>
                 <form class="form-inline">
-                    <div class="form-line">
+                    <div class="form-group">
                         <label>部门信息：</label>
-                        <input type="text" name="" placeholder="部门编号/名称/助记码">
+                        <input type="text" class="form-control" name="" placeholder="部门编号/名称/助记码">  
+                        
+                    </div> 
+                    
+                    <div class="form-group">
+                        <label>数字：</label>
+                        <input type="number" class="form-control" name="">
                     </div>
-                    <div class="form-line form-group">
-                        <label>部门信息：</label>
-                        <div class="dropdown">
-                            <button class="btn btn-default dropdown-toggle" type="text" id="dropdownMenu1" data-toggle="dropdown" aspopup="true" aria-expanded="false">
-                            Dropdown
-                                <span class="caret"></span>
-                            </button>
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                                <li><a href="#">Action</a></li>
-                                <li><a href="#">Another action</a></li>
-                                <li><a href="#">Something else here</a></li>
-                                <li role="separator" class="divider"></li>
-                                <li><a href="#">Separated link</a></li>
-                            </ul>
-                        </div>
+                    <div class="form-group">
+                        <label>开餐编号：</label>
+                        <span>123123123</span>
                     </div>
-                    <div class="form-line">
+                    <div class="form-group">
                         <label>就餐时间：</label>
-                        <div class="form-date">
-                            <input id="startDate" type="text" placeholder="选择时间">
-                        </div>
-                        <em> — </em>
-                        <div class="form-date">
-                            <input id="endDate" type="text" placeholder="选择时间">
-                        </div>
+                        <span>11:30—13:00</span>
                     </div>
-                    <div class="form-line search-btn">
-                        <button class="btn btn-default" type="">查询按钮</button>
+                    
+                    <div class="form-group">
+                        <label>主题颜色按钮：</label>
+                        <div class="btn btn-default btn-theme">主题按钮</div>
+                        
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-default search-btn" type="submit">查询按钮</button>
                     </div>
                 </form>
                 <!--小标题  -->
-                <h2 class='content-h2'>小标题展示
-                    <div class="form-line form-line-right search-btn">
-                        <button class="btn btn-default" type="">11查询按钮</button>
-                    </div>
-                    <div class="form-line form-line-right">
-                        <div class="btn btn-default btn-theme">主题按钮</div>
-                    </div>
-                    <div class="form-line form-group form-line-right">
-                        <label>部门信息：</label>
-                        <div class="dropdown">
-                            <button class="btn btn-default dropdown-toggle" type="text" id="dropdownMenu1" data-toggle="dropdown" aspopup="true" aria-expanded="false">
-                            Dropdown
-                                <span class="caret"></span>
-                            </button>
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                                <li><a href="#">Action</a></li>
-                                <li><a href="#">Another action</a></li>
-                                <li><a href="#">Something else here</a></li>
-                                <li role="separator" class="divider"></li>
-                                <li><a href="#">Separated link</a></li>
-                            </ul>
-                        </div>
-                    </div>
+                <div class="content-h2">
+                    <label>小标题</label>
                     
-                    <div class="form-line form-line-right">
-                        <label>显示条数：</label><input type="number" name="" value="21">
-                    </div>
-                </h2>
+                    <form class="form-inline pull-right">
+                        <div class="form-group">
+                            <label>数字：</label>
+                            <input type="number" class="form-control" name="">
+                        </div>
+                        <div class="form-group">
+                            <label>部门信息：</label>
+                            <div class="dropdown">
+                                <button class="btn btn-default dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aspopup="true" aria-expanded="false">
+                                Dropdown
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                    <li><a href="#">Action</a></li>
+                                    <li><a href="#">Another action</a></li>
+                                    <li><a href="#">Something else here</a></li>
+                                    <li role="separator" class="divider"></li>
+                                    <li><a href="#">Separated link</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="btn btn-default btn-theme">主题按钮</div>
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-default search-btn">查询按钮</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="content-h2">
+                    <label># 表格 #</label>
+                </div>
                 <!-- 表格 table-nothing -->
                 <div class="table-responsive">
                     <table class="table table-hover table-condensed" id='table'>
@@ -365,6 +511,9 @@
                     </div>
                 </div>
                 <!-- 分页 -->
+                <div class="content-h2">
+                    <label># 分页 #</label>
+                </div>
                 <div id="paging-app">
                     <div>
                         <div class="page"  v-show="show">
@@ -389,6 +538,9 @@
                     </div>
                 </div>
                 <!-- 栅格系统 -->
+                <div class="content-h2">
+                    <label># 栅格系统 #</label>
+                </div>
                 <div class="grid row">
                     <div class="col-md-5">
                         部门编号：<span>12312312312</span>
@@ -421,8 +573,14 @@
                     </div>
                 </div>
                 <!-- 图表 -->
+                <div class="content-h2">
+                    <label># 图表 #</label>
+                </div>
                 <div id="myChart" style="width: 1000px;height:700px;"></div>
                 <!-- 卡片 -->
+                <div class="content-h2">
+                    <label># 卡片 #</label>
+                </div>
                 <div class="cards">
                     <div class="item-card">
                         <label for="">
@@ -464,7 +622,6 @@
 
     <script type="text/javascript" src="../content/frame/echarts/echarts.min.js"></script>
     <!-- my js start -->
-    <script type="text/javascript" src="../content/frame/bootstrap/js/my-dropdown.js"></script>
     <script type="text/javascript" src="../content/frame/vuejs/vue.js"></script>
     <script type="text/javascript" src="../content/normal/js/data.js"></script>
     <script type="text/javascript" src="../content/normal/js/v-nav.js"></script>

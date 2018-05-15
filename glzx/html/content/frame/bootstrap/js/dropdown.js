@@ -64,19 +64,7 @@
     var $parent  = getParent($this)
     var isActive = $parent.hasClass('open');
 
-    // clearMenus();
-    
-    var _next = $(e.currentTarget).next('.dropdown-menu');
-
-    if(!_next.find("li").length){
-      // clearMenus();
-    }else{
-
-      $parent.siblings().removeClass('open')
-      $parent.removeClass('open').trigger($.Event('hidden.bs.dropdown', relatedTarget));
-
-    }
-    
+    clearMenus();
 
     if (!isActive) {
       if ('ontouchstart' in document.documentElement && !$parent.closest('.navbar-nav').length) {
@@ -169,7 +157,7 @@
   // ===================================
 
   $(document)
-    // .on('click.bs.dropdown.data-api', clearMenus)
+    .on('click.bs.dropdown.data-api', clearMenus)
     .on('click.bs.dropdown.data-api', '.dropdown form', function (e) { e.stopPropagation() })
     .on('click.bs.dropdown.data-api', toggle, Dropdown.prototype.toggle)
     .on('keydown.bs.dropdown.data-api', toggle, Dropdown.prototype.keydown)

@@ -375,7 +375,6 @@ function runPaging(){
                 return nowAy[nowAy.length - 1] != this.pages;
             },
             indexs: function() {
-
                 var left = 1,
                 right = this.pages,
                 ar = [];
@@ -408,6 +407,7 @@ function runPaging(){
         methods: {
             jumpPage: function(id) {
                 this.current_page = id;
+                console.log(id)
             },
         },
 
