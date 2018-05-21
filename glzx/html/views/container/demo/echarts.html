@@ -1,4 +1,4 @@
-<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+
 <link rel="stylesheet" type="text/css" href="../../../content/frame/bootstrap/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="../../../content/normal/css/my-theme.css">
 <link rel="stylesheet" type="text/css" href="../../../content/normal/css/demo.css">
@@ -20,7 +20,9 @@
 <div class="demo-express">
     <h3>结果展示</h3>
     <div class="demo-express-bg">
+        <div id="myChartPie" style="width: 700px;height:700px;"></div>
         <div id="myChart" style="width: 1000px;height:700px;"></div>
+
         <!--  -->
     </div>
 </div>
@@ -45,244 +47,7 @@
                 <div class="col-sm-12">
                     <h3><span>javascript</span><button class="copy" data-clipboard-target="#foo3"></button></h3>
 <pre id="foo3">
-// echarts
-// 基于准备好的dom，初始化echarts实例
-var myChart = echarts.init(document.getElementById('myChart'));
-// 指定图表的配置项和数据
-var option = {
-    title: {
-        text: '堆叠区域图'
-    },
-    tooltip : {
-        trigger: 'axis',
-        axisPointer: {
-            type: 'cross',
-            label: {
-                backgroundColor: '#6a7985'
-            }
-        }
-    },
-    legend: {
-        bottom:10,
-        itemGap:20,
-        data:[
-            {
-                name:'数据1',
-                icon:"rect"
-            },
-            {
-                name:'数据2',
-                icon:"rect"
-            },
-            {
-                name:'数据3',
-                icon:"rect"
-            },
-            {
-                name:'数据4',
-                icon:"rect"
-            },
-            {
-                name:'数据5',
-                icon:"rect"
-            }]
-    },
-    toolbox: {
-        right:50,
-        feature: {
-            saveAsImage: {},
-            restore:{},
-            magicType:{
-                type: ['line', 'bar'],
-            },
-        }
-    },
-    grid: {
-        left: '3%',
-        right: '4%',
-        bottom: '10%',
-        containLabel: true
-    },
-    xAxis : [
-        {
-            type : 'category',
-            boundaryGap : false,
-            data : ['周一','周二','周三','周四','周五','周六','周日']
-        }
-    ],
-    yAxis : [
-        {
-            type : 'value'
-        }
-    ],
-    series : [
-        {
-            name:'数据1',
-            type:'line',
-            stack: '总量',
-            areaStyle: {
-                color: {
-                    type: 'linear',
-                    x: 0,
-                    y: 0,
-                    x2: 0,
-                    y2: 1,
-                    colorStops: [{
-                        offset: 0, color: '#02a6ff' // 0% 处的颜色
-                    }, {
-                        offset: 1, color: '#8ce6ff' // 100% 处的颜色
-                    }],
-                    globalCoord: false // 缺省为 false
-                }
-            },
-            lineStyle:{
-                color:"#0098eb"
-            },
-            symbolSize:10,
-            itemStyle:{
-                color:"#0098eb"
-            },
-            data:[120, 132, 101, 134, 90, 230, 210]
-        },
-        {
-            name:'数据2',
-            type:'line',
-            stack: '总量',
-            areaStyle: {
-                color: {
-                    type: 'linear',
-                    x: 0,
-                    y: 0,
-                    x2: 0,
-                    y2: 1,
-                    colorStops: [{
-                        offset: 0, color: '#a9f9f8' // 0% 处的颜色
-                    }, {
-                        offset: 1, color: '#5cf0f0' // 100% 处的颜色
-                    }],
-                    globalCoord: false // 缺省为 false
-                }
-            },
-            lineStyle:{
-                color:"#57c7c8"
-            },
-            symbolSize:10,
-            itemStyle:{
-                color:"#57c7c8"
-            },
-            data:[220, 182, 191, 234, 290, 330, 310]
-        },
-        {
-            name:'数据3',
-            type:'line',
-            stack: '总量',
-            areaStyle: {
-                color: {
-                    type: 'linear',
-                    x: 0,
-                    y: 0,
-                    x2: 0,
-                    y2: 1,
-                    colorStops: [{
-                        offset: 0, color: '#ffe47d ' // 0% 处的颜色
-                    }, {
-                        offset: 1, color: '#ffe88a' // 100% 处的颜色
-                    }],
-                    globalCoord: false // 缺省为 false
-                }
-            },
-            lineStyle:{
-                color:"#deae06"
-            },
-            symbolSize:10,
-            itemStyle:{
-                color:"#deae06"
-            },
-            data:[150, 232, 201, 154, 190, 330, 410]
-        },
-        {
-            name:'数据4',
-            type:'line',
-            stack: '总量',
-            areaStyle: {
-                color: {
-                    type: 'linear',
-                    x: 0,
-                    y: 0,
-                    x2: 0,
-                    y2: 1,
-                    colorStops: [{
-                        offset: 0, color: '#feb89f' // 0% 处的颜色
-                    }, {
-                        offset: 1, color: '#ffb99f' // 100% 处的颜色
-                    }],
-                    globalCoord: false // 缺省为 false
-                }
-            },
-            lineStyle:{
-                color:"#e78352"
-            },
-            symbolSize:10,
-            itemStyle:{
-                color:"#e78352"
-            },
-            data:[320, 332, 301, 334, 390, 330, 320]
-        },
-        {
-            name:'数据5',
-            type:'line',
-            stack: '总量',
-            label: {
-                normal: {
-                    show: true,
-                    position: 'top'
-                }
-            },
-            areaStyle: {
-                color: {
-                    type: 'linear',
-                    x: 0,
-                    y: 0,
-                    x2: 0,
-                    y2: 1,
-                    colorStops: [{
-                        offset: 0, color: '#e837aa' // 0% 处的颜色
-                    }, {
-                        offset: 1, color: '#ffb1e5' // 100% 处的颜色
-                    }],
-                    globalCoord: false // 缺省为 false
-                }
-            },
-            lineStyle:{
-                color:"#d02597"
-            },
-            symbolSize:10,
-            itemStyle:{
-                color:"#d02597"
-            },
-            data:[820, 932, 901, 934, 1290, 1330, 1320]
-        }
-    ]
-};
-// 使用刚指定的配置项和数据显示图表。
-myChart.setOption(option);
-// 更改图标类型事件
-myChart.on("magictypechanged",function(params){
-    var newSeies = [];
-    for(var i = 0;i<5;i++){
-        newSeies.push({
-                stack: null,
-                areaStyle: null,
-            });
-    }
-    myChart.setOption({
-        series:newSeies
-    });
-});
-// 重置事件
-myChart.on("restore",function(params){
-    myChart.setOption(option);
-});
+
 </pre>
                 </div>
             </div>
@@ -291,9 +56,10 @@ myChart.on("restore",function(params){
 <script type="text/javascript">
 setTimeout(runEcharts,1000);
 function runEcharts(){
-    var myChart = echarts.init(document.getElementById('myChart'));
+    var myChart = echarts.init(document.getElementById('myChartPie'));
 
     // 指定图表的配置项和数据
+    
     var option = {
         title: {
             text: '堆叠区域图'
@@ -309,7 +75,7 @@ function runEcharts(){
         },
         legend: {
             bottom:10,
-            itemGap:20,
+            itemGap:50,
             data:[
                 {
                     name:'数据1',
@@ -357,7 +123,13 @@ function runEcharts(){
         ],
         yAxis : [
             {
-                type : 'value'
+                type : 'value',
+                axisLine:{
+                    show:false
+                },
+                axisTick:{
+                    show:false
+                }
             }
         ],
         series : [
@@ -486,7 +258,7 @@ function runEcharts(){
                 areaStyle: {
                     color: {
                         type: 'linear',
-                        x: 0,
+                        x: 0, 
                         y: 0,
                         x2: 0,
                         y2: 1,
@@ -512,21 +284,21 @@ function runEcharts(){
     // 使用刚指定的配置项和数据显示图表。
     myChart.setOption(option);
     // 更改图标类型事件
-    myChart.on("magictypechanged",function(params){
-        var newSeies = [];
-        for(var i = 0;i<5;i++){
-            newSeies.push({
-                    stack: null,
-                    areaStyle: null,
-                });
-        }
-        myChart.setOption({
-            series:newSeies
-        });
-    });
-    // 重置事件
-    myChart.on("restore",function(params){
-        myChart.setOption(option);
-    });
+    // myChart.on("magictypechanged",function(params){
+    //     var newSeies = [];
+    //     for(var i = 0;i<5;i++){
+    //         newSeies.push({
+    //                 stack: null,
+    //                 areaStyle: null,
+    //             });
+    //     }
+    //     myChart.setOption({
+    //         series:newSeies
+    //     });
+    // });
+    // // 重置事件
+    // myChart.on("restore",function(params){
+    //     myChart.setOption(option);
+    // });
 }
 </script>

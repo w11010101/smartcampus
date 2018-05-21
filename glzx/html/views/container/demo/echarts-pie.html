@@ -1,0 +1,233 @@
+
+<link rel="stylesheet" type="text/css" href="../../../content/frame/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="../../../content/normal/css/my-theme.css">
+<link rel="stylesheet" type="text/css" href="../../../content/normal/css/demo.css">
+<script type="text/javascript" src="../../../content/frame/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../content/frame/clipboard/clipboard.min.js"></script>
+<script type="text/javascript" src="../../../content/frame/echarts/echarts.min.js"></script>
+<script type="text/javascript" src="../../../content/normal/js/v-demo.js"></script>
+
+
+<h2 id="demo-express-h1">echarts-pie
+    <a type="button" class="btn btn-default" href="../../local-index.html">返回</a>
+</h2>
+<!-- css -->
+<style type="text/css" media="screen">
+#myChartPie{
+    margin: 0 auto;
+}
+
+</style>
+<!-- html -->
+<div class="demo-express">
+    <h3>结果展示</h3>
+    <div class="demo-express-bg">
+        <div id="myChartPie" style="width: 600px;height:300px;"></div>
+
+        <!--  -->
+    </div>
+</div>
+<div class="demo-express">
+    <h3>代码</h3>
+    <div class="demo-express-bg">
+<!-- js -->
+<div class="demo-express-code-box row">
+                <div class="col-sm-12">
+                    <h3><span>html</span><button class="copy" data-clipboard-target="#foo1"></button></h3>
+
+<pre id="foo1">
+&lt;div id="myChart" style="width: 1000px;height:700px;"&gt;&lt;/div&gt;
+</pre>
+                </div>
+                <div class="col-sm-12">
+                    <h3><span>css</span><button class="copy" data-clipboard-target="#foo2"></button></h3>
+<pre id="foo2">
+
+</pre>
+                </div>
+                <div class="col-sm-12">
+                    <h3><span>javascript</span><button class="copy" data-clipboard-target="#foo3"></button></h3>
+<pre id="foo3">
+
+</pre>
+                </div>
+            </div>
+    </div>
+</div>
+<script type="text/javascript">
+setTimeout(runEcharts,1000);
+function runEcharts(){
+    var myChart = echarts.init(document.getElementById('myChartPie'));
+    var data = [
+        {
+            text:"系统通过",
+            value:27
+        },
+        {
+            text:"人工通过",
+            value:10
+        },
+        {
+            text:"不通过",
+            value:10
+        },
+        {
+            text:"未审核",
+            value:10
+        }
+    ]
+    // 求和
+    function getSum(data){
+        var data = data || option.series[0].data;
+        var sum = 0;
+        $.each(data,function(i,e){
+            sum += e.value;
+        });
+        return sum;
+    }
+
+    // 指定图表的配置项和数据
+    var option = {
+        title: {
+            text: '人脸识别分析',
+            left: 'left',
+            textStyle:{
+                fontWeight:"normal",
+                fontSize:15
+            }
+        },
+        tooltip : {
+            trigger: 'item',
+        },
+        legend: {
+            orient: 'vertical',
+            bottom: 10,
+            top: 'middle',
+            left: 'left',
+            itemGap: 30,
+            data: ['系统通过', '人工通过','不通过','未审核']
+        },
+        series : [
+            {
+                type: 'pie',
+                radius : '65%',
+                center: ['290px', '50%'],
+                selectedMode: 'single',
+                data:[
+                    {
+                        value:data[0].value, 
+                        name: data[0].text,
+                        itemStyle:{
+                            color:(function(){
+                                console.log(this.echarts);
+                                var sum = getSum(data);
+                                var c = 360/sum;
+                                c = c.toFixed(2);
+                                var this_c = data[0].value*parseFloat(c);
+                                console.log(this_c+"度");
+                                var colse = {
+                                    type: 'radial',
+                                    x: 0,
+                                    y: 1,
+                                    r: 1,
+                                    colorStops: [{
+                                        offset: 0, color: 'red' // 0% 处的颜色
+                                    }, {
+                                        offset: 1, color: 'blue' // 100% 处的颜色
+                                    }],
+                                    globalCoord: false // 缺省为 false
+                                }
+
+                                if(this_c <= 90){
+                                    
+                                }else if(this_c > 90 && this_c <= 180){
+                                    var percent = ((this_c - 90)/180).toFixed(2);
+                                    console.log('percent = ' , percent);
+                                    var c = 2*Math.sin(this_c/2*Math.PI/180);
+                                    console.log(c);
+                                    var b = c * Math.cos(((180-this_c)/2)*Math.PI/180);
+                                    // console.log(b1)  
+                                    console.log(b/4)                  
+                                    colse.y = 1-b/4
+                                }else if(this_c > 180 && this_c <= 270){
+
+                                }
+                                return colse;
+                            })(),
+                            // color: {
+                            //     type: 'radial',
+                            //     x: 0,
+                            //     y: 0.5,
+                            //     r: 1,
+                            //     colorStops: [{
+                            //         offset: 0, color: 'red' // 0% 处的颜色
+                            //     }, {
+                            //         offset: 1, color: 'blue' // 100% 处的颜色
+                            //     }],
+                            //     globalCoord: true // 缺省为 false
+                            //     // type: 'radial',
+                            //     // x: 0,
+                            //     // y: 0.5,
+                            //     // r: 1,
+                            //     // colorStops: [{
+                            //     //     offset: 0, color: '#8EE7FF' // 0% 处的颜色
+                            //     // }, {
+                            //     //     offset: 1, color: '#00A5FF' // 100% 处的颜色
+                            //     // }],
+                            //     // globalCoord: false // 缺省为 false
+                            // }
+                        }
+                    },
+                    {
+                        value:data[1].value, 
+                        name: data[1].text,
+                        itemStyle:{
+                            color: {
+                                type: 'radial',
+                                x: 0,
+                                y: 0.5,
+                                r: 1,
+                                colorStops: [{
+                                    offset: 0, color: '#CDFFFF' // 0% 处的颜色
+                                }, {
+                                    offset: 1, color: '#00E5E4' // 100% 处的颜色
+                                }],
+                                globalCoord: false // 缺省为 false
+                            }
+                        }
+                    },
+                    {value:data[2].value, name: data[2].text},
+                    {value:data[3].value, name: data[3].text}
+                ],
+                itemStyle: {
+                    emphasis: {
+                        shadowBlur: 10,
+                        shadowOffsetX: 0,
+                        shadowColor: 'rgba(0, 0, 0, 0.5)'
+                    }
+                }
+            }
+        ]
+    };
+    
+    // 使用刚指定的配置项和数据显示图表。
+    myChart.setOption(option);
+    // 更改图标类型事件
+    // myChart.on("magictypechanged",function(params){
+    //     var newSeies = [];
+    //     for(var i = 0;i<5;i++){
+    //         newSeies.push({
+    //                 stack: null,
+    //                 areaStyle: null,
+    //             });
+    //     }
+    //     myChart.setOption({
+    //         series:newSeies
+    //     });
+    // });
+    // // 重置事件
+    // myChart.on("restore",function(params){
+    //     myChart.setOption(option);
+    // });
+}
+</script>
