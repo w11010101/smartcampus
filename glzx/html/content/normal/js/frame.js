@@ -112,6 +112,27 @@ $(function() {
             bottom: 0
         }
      });
+     $(".table-scrollable").niceScroll({
+        cursorcolor: "#4c4c4c",
+        zindex: 999999,
+        bouncescroll: true,
+        cursoropacitymax: 0.3,
+        cursorborder: "",
+        cursorborderradius: 10,
+        cursorwidth: "6px",
+        background: "rgba(0,0,0,.1)",
+        //autohidemode: false,
+        railoffset: {
+            top: 5,
+            left: 0
+        },
+        railpadding: {
+            top: 0,
+            right: 0,
+            left: 0,
+            bottom: 0
+        }
+     });
 
     $("#navigation .dropdown.open").data("closable", false);
     $("#navigation .dropdown").on({

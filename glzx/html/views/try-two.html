@@ -1,0 +1,2004 @@
+<!DOCTYPE html>
+<html>
+  
+  <head>
+    <title>Minimal 1.0 - Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <!-- <link rel="icon" type="image/ico" href="../content/normal/images/favicon.ico" />-->
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="../content/frame/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+    <link rel="stylesheet" href="../content/frame/animate/animate.min.css">
+    <link rel="stylesheet" href="../content/normal/css/theme-two.css">
+    <link rel="stylesheet" href="../content/normal/css/base.css">
+    <!-- my style end -->
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" type="text/css" href="../content/frame/jquery.date/jquery.datetimepicker.min.css"></head>
+  
+  <body class="bg-1">
+    <!-- Wrap all page content here -->
+    <div id="wrap">
+      <!-- Make page fluid -->
+      <div class="row">
+        <!-- Fixed navbar -->
+        <div class="navbar navbar-fixed-top" role="navigation" id="navbar">
+          <!-- .nav-collapse -->
+          <div class="navbar-collapse">
+            <!-- logo-->
+            <div class="navbar-header">
+              <div class="navbar-brand">微校园后台管理系统</div></div>
+            <!-- logo end-->
+            <!-- Quick Actions -->
+            <ul class="nav navbar-nav quick-actions">
+              <li class="dropdown">
+                <a href="#">
+                  <i class="ico-mail"></i>
+                  <span class="label">1</span></a>
+              </li>
+              <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                  <i class="ico-theme"></i>
+                </a>
+                <ul class="dropdown-menu arrow settings">
+                  <li>
+                    <ul id="color-schemes">
+                      <li>
+                        <a href="#" class="bg-1"></a>
+                      </li>
+                      <li>
+                        <a href="#" class="bg-2"></a>
+                      </li>
+                      <li>
+                        <a href="#" class="bg-3"></a>
+                      </li>
+                      <li>
+                        <a href="#" class="bg-4"></a>
+                      </li>
+                      <li>
+                        <a href="#" class="bg-5"></a>
+                      </li>
+                      <li>
+                        <a href="#" class="bg-6"></a>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+              <li class="dropdown user">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                  <span class="profile-photo">
+                    <img src="../content/normal/images/profile-photo.jpg" alt /></span>系统管理员
+                  <i class="ico-arr-dropdown"></i></a>
+                <ul class="dropdown-menu arrow settings">
+                  <li>
+                    <a href="#">
+                      <i class="fa fa-user"></i>基本信息</a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <i class="fa fa-envelope"></i>消息
+                      <span class="badge badge-red" id="user-inbox">3</span></a>
+                  </li>
+                  <li class="divider"></li>
+                  <li>
+                    <a href="#">
+                      <i class="fa fa-power-off"></i>退出系统</a>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a href="#" class="language">英文版</a></li>
+            </ul>
+            <!-- /Quick Actions -->
+            <!-- Search -->
+            <div class="search" id="main-search">
+              <input type="text" placeholder="Search...">
+              <i class="ico-search"></i>
+            </div>
+            <!-- Search end --></div>
+          <!--/.nav-collapse -->
+          <!-- Sidebar -->
+          <div id="vm-nav">
+            <ul id="sidebar" class="nav navbar-nav side-nav collapsed">
+              <li>
+                <div class="sidebar-collapse">
+                  <a href="#">
+                    <i class="ico-bars"></i>
+                  </a>
+                </div>
+              </li>
+              <li class="navigation active">
+                <a href="#" data-toggle="dropdown" set-index="0" class="sidebar-toggle" aria-expanded="true">
+                  <i class="icon-service"></i>
+                  <span>示例管理</span>
+                  <i class="ico-arr-project"></i>
+                </a>
+                <ul class="dropdown-menu">
+                  <li class="active">
+                    <a href="#">
+                      <i class="icon-repair"></i>示例-2层-0</a>
+                  </li>
+                  <li class="dropdown open active">
+                    <a href="#" data-toggle="dropdown" class="dropdown-toggle" aria-expanded="true">
+                      <i class="icon-repair"></i>示例-2层
+                      <b class="ico-arr-dropdown"></b></a>
+                    <ul class="dropdown-menu">
+                      <li class="dropdown">
+                        <a href="#" data-toggle="dropdown" aria-expanded="true" class="dropdown-toggle">示例-3层1
+                          <b class="ico-arr-plus"></b></a>
+                        <ul class="dropdown-menu">
+                          <li class="dropdown open">
+                            <a href="#" data-toggle="dropdown" aria-expanded="true" class="dropdown-toggle">示例-4层1
+                              <b class="ico-arr-plus"></b></a>
+                            <ul class="dropdown-menu active">
+                              <li class="dropdown active">
+                                <a href="#" data-toggle="dropdown" aria-expanded="false" class="dropdown-toggle">示例-5层1-选中
+                                  <!----></a>
+                                <ul class="dropdown-menu"></ul>
+                              </li>
+                              <li class="dropdown open">
+                                <a href="#" data-toggle="dropdown" aria-expanded="true" class="dropdown-toggle">示例-5层2
+                                  <!----></a>
+                                <ul class="dropdown-menu"></ul>
+                              </li>
+                            </ul>
+                          </li>
+                          <li class="dropdown">
+                            <a href="#" data-toggle="dropdown" aria-expanded="false" class="dropdown-toggle">示例-4层2
+                              <!----></a>
+                            <ul class="dropdown-menu"></ul>
+                          </li>
+                        </ul>
+                      </li>
+                      <li class="dropdown">
+                        <a href="#" data-toggle="dropdown" aria-expanded="false" class="dropdown-toggle">示例-3层2
+                          <b class="ico-arr-plus"></b></a>
+                        <ul class="dropdown-menu">
+                          <li class="dropdown">
+                            <a href="#" data-toggle="dropdown" aria-expanded="false" class="dropdown-toggle">示例-4层1
+                              <b class="ico-arr-plus"></b></a>
+                            <ul class="dropdown-menu">
+                              <li class="dropdown">
+                                <a href="#" data-toggle="dropdown" aria-expanded="false" class="dropdown-toggle">示例-5层1
+                                  <!----></a>
+                                <ul class="dropdown-menu"></ul>
+                              </li>
+                              <li class="dropdown">
+                                <a href="#" data-toggle="dropdown" aria-expanded="false" class="dropdown-toggle">示例-5层2
+                                  <!----></a>
+                                <ul class="dropdown-menu"></ul>
+                              </li>
+                            </ul>
+                          </li>
+                          <li class="dropdown">
+                            <a href="#" data-toggle="dropdown" aria-expanded="false" class="dropdown-toggle">示例-4层2
+                              <!----></a>
+                            <ul class="dropdown-menu"></ul>
+                          </li>
+                        </ul>
+                      </li>
+                      <li class="dropdown">
+                        <a href="#" data-toggle="dropdown" aria-expanded="false" class="dropdown-toggle">示例-3层3
+                          <!----></a>
+                        <ul class="dropdown-menu"></ul>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="dropdown">
+                    <a href="#" data-toggle="dropdown" class="dropdown-toggle">
+                      <i class="icon-repair"></i>示例-sub2
+                      <b class="ico-arr-dropdown"></b></a>
+                    <ul class="dropdown-menu">
+                      <li class="dropdown">
+                        <a href="#" data-toggle="dropdown" aria-expanded="false" class="dropdown-toggle">示例-sub2-sub
+                          <!----></a>
+                        <ul class="dropdown-menu"></ul>
+                      </li>
+                      <li class="dropdown">
+                        <a href="#" data-toggle="dropdown" aria-expanded="false" class="dropdown-toggle">示例-sub2-sub
+                          <!----></a>
+                        <ul class="dropdown-menu"></ul>
+                      </li>
+                      <li class="dropdown">
+                        <a href="#" data-toggle="dropdown" aria-expanded="false" class="dropdown-toggle">示例-sub2-sub
+                          <!----></a>
+                        <ul class="dropdown-menu"></ul>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="dropdown">
+                    <a href="#" data-toggle="dropdown" class="dropdown-toggle">
+                      <i class="icon-repair"></i>示例-sub3
+                      <b class="ico-arr-dropdown"></b></a>
+                    <ul class="dropdown-menu">
+                      <li class="dropdown">
+                        <a href="#" data-toggle="dropdown" aria-expanded="false" class="dropdown-toggle">示例-sub3-sub
+                          <!----></a>
+                        <ul class="dropdown-menu"></ul>
+                      </li>
+                      <li class="dropdown">
+                        <a href="#" data-toggle="dropdown" aria-expanded="false" class="dropdown-toggle">示例-sub3-sub
+                          <!----></a>
+                        <ul class="dropdown-menu"></ul>
+                      </li>
+                      <li class="dropdown">
+                        <a href="#" data-toggle="dropdown" aria-expanded="false" class="dropdown-toggle">示例-sub3-sub
+                          <!----></a>
+                        <ul class="dropdown-menu"></ul>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+              <li class="navigation">
+                <a href="#" data-toggle="dropdown" set-index="1" class="sidebar-toggle">
+                  <i class="icon-service"></i>
+                  <span>运维管理</span>
+                  <i class="ico-arr-project"></i>
+                </a>
+                <ul class="dropdown-menu">
+                  <li class="dropdown">
+                    <a href="#" data-toggle="dropdown" class="dropdown-toggle">
+                      <i class="icon-repair"></i>运维管理-sub1
+                      <b class="ico-arr-dropdown"></b></a>
+                    <ul class="dropdown-menu">
+                      <li class="dropdown">
+                        <a href="#" data-toggle="dropdown" aria-expanded="false" class="dropdown-toggle">运维管理-sub2-sub
+                          <!----></a>
+                        <ul class="dropdown-menu"></ul>
+                      </li>
+                      <li class="dropdown">
+                        <a href="#" data-toggle="dropdown" aria-expanded="false" class="dropdown-toggle">运维管理-sub2-sub
+                          <!----></a>
+                        <ul class="dropdown-menu"></ul>
+                      </li>
+                      <li class="dropdown">
+                        <a href="#" data-toggle="dropdown" aria-expanded="false" class="dropdown-toggle">运维管理-sub2-sub
+                          <!----></a>
+                        <ul class="dropdown-menu"></ul>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="dropdown">
+                    <a href="#" data-toggle="dropdown" class="dropdown-toggle">
+                      <i class="icon-repair"></i>运维管理-sub2
+                      <b class="ico-arr-dropdown"></b></a>
+                    <ul class="dropdown-menu">
+                      <li class="dropdown">
+                        <a href="#" data-toggle="dropdown" aria-expanded="false" class="dropdown-toggle">运维管理-sub2-sub
+                          <!----></a>
+                        <ul class="dropdown-menu"></ul>
+                      </li>
+                      <li class="dropdown">
+                        <a href="#" data-toggle="dropdown" aria-expanded="false" class="dropdown-toggle">运维管理-sub2-sub
+                          <!----></a>
+                        <ul class="dropdown-menu"></ul>
+                      </li>
+                      <li class="dropdown">
+                        <a href="#" data-toggle="dropdown" aria-expanded="false" class="dropdown-toggle">运维管理-sub2-sub
+                          <!----></a>
+                        <ul class="dropdown-menu"></ul>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="dropdown">
+                    <a href="#" data-toggle="dropdown" class="dropdown-toggle">
+                      <i class="icon-repair"></i>运维管理-sub3
+                      <b class="ico-arr-dropdown"></b></a>
+                    <ul class="dropdown-menu">
+                      <li class="dropdown">
+                        <a href="#" data-toggle="dropdown" aria-expanded="false" class="dropdown-toggle">运维管理-sub3-sub
+                          <!----></a>
+                        <ul class="dropdown-menu"></ul>
+                      </li>
+                      <li class="dropdown">
+                        <a href="#" data-toggle="dropdown" aria-expanded="false" class="dropdown-toggle">运维管理-sub3-sub
+                          <!----></a>
+                        <ul class="dropdown-menu"></ul>
+                      </li>
+                      <li class="dropdown">
+                        <a href="#" data-toggle="dropdown" aria-expanded="false" class="dropdown-toggle">运维管理-sub3-sub
+                          <!----></a>
+                        <ul class="dropdown-menu"></ul>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="dropdown">
+                    <a href="#" data-toggle="dropdown" class="dropdown-toggle">
+                      <i class="icon-repair"></i>运维管理-sub4
+                      <b class="ico-arr-dropdown"></b></a>
+                    <ul class="dropdown-menu">
+                      <li class="dropdown">
+                        <a href="#" data-toggle="dropdown" aria-expanded="false" class="dropdown-toggle">运维管理-sub4-sub
+                          <!----></a>
+                        <ul class="dropdown-menu"></ul>
+                      </li>
+                      <li class="dropdown">
+                        <a href="#" data-toggle="dropdown" aria-expanded="false" class="dropdown-toggle">运维管理-sub4-sub
+                          <!----></a>
+                        <ul class="dropdown-menu"></ul>
+                      </li>
+                      <li class="dropdown">
+                        <a href="#" data-toggle="dropdown" aria-expanded="false" class="dropdown-toggle">运维管理-sub4-sub
+                          <!----></a>
+                        <ul class="dropdown-menu"></ul>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+              <li class="navigation">
+                <a href="#" data-toggle="dropdown" set-index="2" class="sidebar-toggle">
+                  <i class="icon-service"></i>
+                  <span>智慧食堂</span>
+                  <i class="ico-arr-project"></i>
+                </a>
+                <ul class="dropdown-menu">
+                  <li class="dropdown">
+                    <a href="#" data-toggle="dropdown" class="dropdown-toggle">
+                      <i class="icon-repair"></i>智慧食堂-sub1
+                      <b class="ico-arr-dropdown"></b></a>
+                    <ul class="dropdown-menu">
+                      <li class="dropdown">
+                        <a href="#" data-toggle="dropdown" aria-expanded="false" class="dropdown-toggle">智慧食堂-sub2-sub
+                          <!----></a>
+                        <ul class="dropdown-menu"></ul>
+                      </li>
+                      <li class="dropdown">
+                        <a href="#" data-toggle="dropdown" aria-expanded="false" class="dropdown-toggle">智慧食堂-sub2-sub
+                          <!----></a>
+                        <ul class="dropdown-menu"></ul>
+                      </li>
+                      <li class="dropdown">
+                        <a href="#" data-toggle="dropdown" aria-expanded="false" class="dropdown-toggle">智慧食堂-sub2-sub
+                          <!----></a>
+                        <ul class="dropdown-menu"></ul>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="dropdown">
+                    <a href="#" data-toggle="dropdown" class="dropdown-toggle">
+                      <i class="icon-repair"></i>智慧食堂-sub2
+                      <b class="ico-arr-dropdown"></b></a>
+                    <ul class="dropdown-menu"></ul>
+                  </li>
+                </ul>
+              </li>
+              <li class="navigation">
+                <a href="#" data-toggle="dropdown" set-index="3" class="sidebar-toggle">
+                  <i class="icon-service"></i>
+                  <span>APP管理</span>
+                  <i class="ico-arr-project"></i>
+                </a>
+                <ul class="dropdown-menu">
+                  <li class="dropdown">
+                    <a href="#" data-toggle="dropdown" class="dropdown-toggle">
+                      <i class="icon-repair"></i>APP管理-sub0</a>
+                  </li>
+                  <li class="dropdown">
+                    <a href="#" data-toggle="dropdown" class="dropdown-toggle">
+                      <i class="icon-repair"></i>APP管理-sub1
+                      <b class="ico-arr-dropdown"></b></a>
+                    <ul class="dropdown-menu">
+                      <li class="dropdown">
+                        <a href="#" data-toggle="dropdown" aria-expanded="false" class="dropdown-toggle">树形标题一
+                          <!----></a>
+                        <ul class="dropdown-menu">
+                          <li>树形孙标题三</li>
+                          <li>树形孙标题三</li></ul>
+                      </li>
+                      <li class="dropdown">
+                        <a href="#" data-toggle="dropdown" aria-expanded="false" class="dropdown-toggle">树形标题二
+                          <!----></a>
+                        <ul class="dropdown-menu"></ul>
+                      </li>
+                      <li class="dropdown">
+                        <a href="#" data-toggle="dropdown" aria-expanded="false" class="dropdown-toggle">树形标题三
+                          <!----></a>
+                        <ul class="dropdown-menu"></ul>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="dropdown">
+                    <a href="#" data-toggle="dropdown" class="dropdown-toggle">
+                      <i class="icon-repair"></i>APP管理-sub2
+                      <b class="ico-arr-dropdown"></b></a>
+                    <ul class="dropdown-menu"></ul>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+            <!--<div class="sidebar-collapse sec-sidebar-collapse" id="sec-sidebar">
+            <a href="#">
+            <i class="ico-arr-collapse"></i></a>
+            </div>-->
+            <div class="product-nav">
+              <div id="sec-sidebar" class="sec-sidebar">
+                <h1 class="h1">示例管理</h1>
+                <ul class="nav navbar-nav sec-side-nav">
+                  <li class="navigation dropdown">
+                    <a href="#" set-index="0" class="sidebar-toggle">
+                      <i class="ico-arr-down-black"></i>示例-2层</a>
+                    <ul class="dropdown-menu">
+                      <li class="active">
+                        <a href="#">树形标12312题一</a></li>
+                    </ul>
+                  </li>
+                  <li class="navigation" id="navigation1">
+                    <a href="#" class="sidebar-toggle" data-toggle="#navigation1">
+                      <i class="ico-arr-down-black"></i>树形标题二</a>
+                    <ul class="menu">
+                      <li class="active">
+                        <a href="">树形子标题一</a></li>
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">树形子标题二-sub
+                          <b class="ico-arr-plus-black"></b></a>
+                        <ul class="dropdown-menu">
+                          <li class="dropdown">
+                            <a href="#" data-toggle="dropdown" class="dropdown-toggle">
+                              <i class="icon-repair"></i>示例-sub2
+                              <b class="ico-arr-dropdown"></b></a>
+                            <ul class="dropdown-menu">
+                              <li class="dropdown">
+                                <a href="#" data-toggle="dropdown" aria-expanded="false" class="dropdown-toggle">示例-sub2-sub
+                                  <!----></a>
+                                <ul class="dropdown-menu"></ul>
+                              </li>
+                              <li class="dropdown">
+                                <a href="#" data-toggle="dropdown" aria-expanded="false" class="dropdown-toggle">示例-sub2-sub
+                                  <!----></a>
+                                <ul class="dropdown-menu"></ul>
+                              </li>
+                              <li class="dropdown">
+                                <a href="#" data-toggle="dropdown" aria-expanded="false" class="dropdown-toggle">示例-sub2-sub
+                                  <!----></a>
+                                <ul class="dropdown-menu"></ul>
+                              </li>
+                            </ul>
+                          </li>
+                          <li>
+                            <a href="">树形孙标题二</a></li>
+                          <li>
+                            <a href="">树形孙标题三</a></li>
+                        </ul>
+                      </li>
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">树形子标题三
+                          <b class="ico-arr-plus-black"></b></a>
+                        <ul class="dropdown-menu">
+                          <li>
+                            <a href="">树形孙标题一</a></li>
+                          <li>
+                            <a href="">树形孙标题二</a></li>
+                          <li>
+                            <a href="">树形孙标题三</a></li>
+                          <li>
+                            <a href="">树形孙标题一</a></li>
+                          <li>
+                            <a href="">树形孙标题二</a></li>
+                          <li>
+                            <a href="">树形孙标题三</a></li>
+                          <li>
+                            <a href="">树形孙标题一</a></li>
+                          <li>
+                            <a href="">树形孙标题二</a></li>
+                          <li>
+                            <a href="">树形孙标题三</a></li>
+                          <li>
+                            <a href="">树形孙标题二</a></li>
+                          <li>
+                            <a href="">树形孙标题三</a></li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="navigation dropdown">
+                    <a href="#" set-index="1" class="sidebar-toggle">
+                      <i class="ico-arr-down-black"></i>示例-sub2</a>
+                    <ul class="dropdown-menu">
+                      <li class="active">
+                        <a href="#">树形标12312题一</a></li>
+                    </ul>
+                  </li>
+                  <li class="navigation dropdown">
+                    <a href="#" set-index="2" class="sidebar-toggle">
+                      <i class="ico-arr-down-black"></i>示例-sub3</a>
+                    <ul class="dropdown-menu">
+                      <li class="active">
+                        <a href="#">树形标12312题一</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+              <div class="sidebar-collapse sec-sidebar-collapse">
+                <a href="#">
+                  <i class="ico-arr-collapse"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Fixed navbar end -->
+
+
+
+
+        
+        <!-- Page content -->
+        <div id="content" class="col-md-12">
+          <!-- page header -->
+          <!-- 大标题 -->
+          <!--<h1 class='content-h1'>大标题展示 <button class="refresh"></button></h1>-->
+          <div class="pageheader">
+            <h1>
+              <i class="h1-title"></i>大标题展示</h1>
+            <!--如果有个别页面要显示面包屑的 start-->
+            <div class="breadcrumbs">
+              <ol class="breadcrumb">
+                <li>
+                  <a href="">子栏目</a></li>
+                <li class="active">具体页面名称</li></ol>
+            </div>
+            <!--如果有个别页面要显示面包屑的 end-->
+            <div class="pull-right">
+              <a href="" id="refresh-toggler" class="refresh" title="刷新">
+                <i class="icon-refresh"></i>
+              </a>
+            </div>
+          </div>
+          <!-- /page header -->
+          <div class="main">
+            <div class="searcharea">
+              <form class="form-inline">
+                <div class="form-group">
+                  <label>部门信息：</label>
+                  <input class="form-control" type="text" name="" placeholder="部门编号/名称/助记码"></div>
+                <div class="form-group">
+                  <label>部门信息：</label>
+                  <select name="" id="" class="form-control">
+                    <option>全部</option>
+                    <option>中国银行</option>
+                    <option>银联在线</option>
+                    <option>手机银联</option></select>
+                </div>
+                <div class="form-group">
+                  <label>就餐时间：</label>
+                  <span class="form-date">
+                    <input id="startDate" type="text" placeholder="选择时间"></span>
+                  <em>—</em>
+                  <span class="form-date">
+                    <input id="endDate" type="text" placeholder="选择时间"></span>
+                </div>
+                <button class="btn btn-default" type="">查询按钮</button></form>
+            </div>
+            <div class="row">
+              <h2 class="content-h2 col-md-2">小标题展示</h2>
+              <div class="form-inline form-inline-table col-md-9 pull-right">
+                <div class="form-group">
+                  <label>显示条数：</label>
+                  <select name="" id="" class="form-control">
+                    <option>10</option>
+                    <option>20</option>
+                    <option>50</option>
+                    <option>100</option></select>
+                </div>
+                <div class="form-group">
+                  <label>排列方式：</label>
+                  <select name="" id="" class="form-control">
+                    <option>默认</option>
+                    <option>按数量</option>
+                    <option>按金额</option>
+                    <option>按状态</option></select>
+                </div>
+                <button class="btn btn-default" type="">导出终端列表</button>
+                <button class="btn btn-default btn-primary" type="">添加新终端</button></div>
+            </div>
+            <!-- 表格 table -->
+            <div class="table-scrollable no-wrap">
+              <table class="table table-striped  table-hover" id="table">
+                <thead>
+                  <tr>
+                    <th>
+                        <div class="checkbox">
+                            <label>
+                            <input type="checkbox" value="">
+                            </label>
+                        </div>
+                    </th>
+                    <th>部门编号</th>
+                    <th>部门名称</th>
+                    <th>助记码</th>
+                    <th>部门层级</th>
+                    <th>部门所在分区</th>
+                    <th>封面图片</th>
+                    <th>发布时间</th>
+                    <th>就餐详情</th>
+                    <th class="right">限额</th>
+                    <th class="right">就餐折扣</th>
+                    <th class="right">余额</th>
+                    <th>部门状态</th>
+                    <th>操作</th></tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                        <div class="checkbox">
+                            <label>
+                            <input type="checkbox" value="">
+                            </label>
+                        </div>
+                    </td>
+                    <td>12345678901234567890</td>
+                    <td>测试角色一</td>
+                    <td>1234567</td>
+                    <td>测试层级一</td>
+                    <td>测试部门所在分区一</td>
+                    <td>
+                      <span class="photo">
+                        <img src="../content/normal/images/profile-photo.jpg" alt=""></span>
+                    </td>
+                    <td class="time">2018-12-12 12:12:12</td>
+                    <td>测试就餐详情</td>
+                    <td class="right">111231元</td>
+                    <td class="right">7.77折</td>
+                    <td class="right">12311111</td>
+                    <td>
+                      <span class="text-muted">测试部门状态</span></td>
+                    <td>
+                      <a href="#">查看</a>
+                      <a href="#">编辑</a></td>
+                  </tr>
+                  <tr>
+                    <td>
+                        <div class="checkbox">
+                            <label>
+                            <input type="checkbox" value="">
+                            </label>
+                        </div>
+                    </td>
+                    <td>12345678901234567890</td>
+                    <td>测试角色二</td>
+                    <td>1234567</td>
+                    <td>11测试层级一</td>
+                    <td>11测试部门所在分区一</td>
+                    <td>
+                      <span class="photo">
+                        <img src="../content/normal/images/profile-photo.jpg" alt=""></span>
+                    </td>
+                    <td class="time">2018-12-12 12:12:12</td>
+                    <td>11测试就餐详情</td>
+                    <td class="right">111231元</td>
+                    <td class="right">7.77折</td>
+                    <td class="right">12311111</td>
+                    <td>
+                      <span class="text-warning">进行中</span></td>
+                    <td>
+                      <a href="#">查看</a>
+                      <a href="#">编辑</a></td>
+                  </tr>
+                  <tr>
+                    <td>
+                        <div class="checkbox">
+                            <label>
+                            <input type="checkbox" value="">
+                            </label>
+                        </div>
+                    </td>
+                    <td>12345678901234567890</td>
+                    <td>测试角色三</td>
+                    <td>1234567</td>
+                    <td>11测试层级一</td>
+                    <td>11测试部门所在分区一</td>
+                    <td>
+                      <span class="photo">
+                        <img src="../content/normal/images/profile-photo.jpg" alt=""></span>
+                    </td>
+                    <td class="time">2018-12-12 12:12:12</td>
+                    <td>11测试就餐详情</td>
+                    <td class="right">111231元</td>
+                    <td class="right">7.77折</td>
+                    <td class="right">12311111</td>
+                    <td>
+                      <span class="text-danger">未开始</span></td>
+                    <td>
+                      <a href="#">查看</a>
+                      <a href="#">编辑</a></td>
+                  </tr>
+                  <tr>
+                    <td>
+                        <div class="checkbox">
+                            <label>
+                            <input type="checkbox" value="">
+                            </label>
+                        </div>
+                    </td>
+                    <td>12345678901234567890</td>
+                    <td>测试角色四</td>
+                    <td>1234567</td>
+                    <td>11测试层级一</td>
+                    <td>11测试部门所在分区一</td>
+                    <td>
+                      <span class="photo">
+                        <img src="../content/normal/images/profile-photo.jpg" alt=""></span>
+                    </td>
+                    <td class="time">2018-12-12 12:12:12</td>
+                    <td>11测试就餐详情</td>
+                    <td class="right">111231元</td>
+                    <td class="right">7.77折</td>
+                    <td class="right">12311111</td>
+                    <td>
+                      <span class="text-primary">已退回</span></td>
+                    <td>
+                      <a href="#">查看</a>
+                      <a href="#">编辑</a></td>
+                  </tr>
+                  <tr>
+                    <td>
+                        <div class="checkbox">
+                            <label>
+                            <input type="checkbox" value="">
+                            </label>
+                        </div>
+                    </td>
+                    <td>12345678901234567890</td>
+                    <td>测试角色五</td>
+                    <td>1234567</td>
+                    <td>11测试层级一</td>
+                    <td>11测试部门所在分区一</td>
+                    <td>
+                      <span class="photo">
+                        <img src="../content/normal/images/profile-photo.jpg" alt=""></span>
+                    </td>
+                    <td class="time">2018-12-12 12:12:12</td>
+                    <td>11测试就餐详情</td>
+                    <td class="right">111231元</td>
+                    <td class="right">7.77折</td>
+                    <td class="right">12311111</td>
+                    <td>
+                      <span class="text-success">已审批</span></td>
+                    <td>
+                      <a href="#">查看</a>
+                      <a href="#">编辑</a></td>
+                  </tr>
+                  <tr>
+                    <td>
+                        <div class="checkbox">
+                            <label>
+                            <input type="checkbox" value="">
+                            </label>
+                        </div>
+                    </td>
+                    <td>12345678901234567890</td>
+                    <td>测试角色五</td>
+                    <td>1234567</td>
+                    <td>11测试层级一</td>
+                    <td>11测试部门所在分区一</td>
+                    <td>
+                      <span class="photo">
+                        <img src="../content/normal/images/profile-photo.jpg" alt=""></span>
+                    </td>
+                    <td class="time">2018-12-12 12:12:12</td>
+                    <td>11测试就餐详情</td>
+                    <td class="right">111231元</td>
+                    <td class="right">7.77折</td>
+                    <td class="right">12311111</td>
+                    <td>
+                      <span class="text-success">启用</span></td>
+                    <td>
+                      <a href="#">查看</a>
+                      <a href="#">编辑</a></td>
+                  </tr>
+                  <tr>
+                    <td>
+                        <div class="checkbox">
+                            <label>
+                            <input type="checkbox" value="">
+                            </label>
+                        </div>
+                    </td>
+                    <td>12345678901234567890</td>
+                    <td>测试角色五</td>
+                    <td>1234567</td>
+                    <td>11测试层级一</td>
+                    <td>11测试部门所在分区一</td>
+                    <td>
+                      <span class="photo">
+                        <img src="../content/normal/images/profile-photo.jpg" alt=""></span>
+                    </td>
+                    <td class="time">2018-12-12 12:12:12</td>
+                    <td>11测试就餐详情</td>
+                    <td class="right">111231元</td>
+                    <td class="right">7.77折</td>
+                    <td class="right">12311111</td>
+                    <td>
+                      <span class="text-danger">禁止</span></td>
+                    <td>
+                      <a href="#">查看</a>
+                      <a href="#">编辑</a></td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="nothing" style="display:none">
+                <i class="icon-none"></i>
+                <span>暂时无数据</span></div>
+            </div>
+            <!-- 分页 -->
+            <div id="paging-app">
+              <div>
+                <div class="page" v-show="show">
+                  <div class="pagelist">
+                    <span class="auxiliary">共</span>
+                    <span class="auxiliary">10</span>
+                    <span class="auxiliary">页/</span>
+                    <span class="auxiliary auxiliary-last">100条数据</span>
+                    <span class="jump" :class="{disabled:pstart}" @click="current_page--">
+                      <</span>
+                        <span v-show="current_page>5" class="jump" @click="jumpPage(1)">1</span>
+                        <span class="ellipsis" v-show="efont">...</span>
+                        <span class="jump" v-for="num in indexs" :class="{bgprimary:current_page==num}" @click="jumpPage(num)">{{num}}</span>
+                        <span class="ellipsis" v-show="ebehind">...</span>
+                        <span :class="{disabled:pend}" class="jump" @click="current_page++">></span>
+                        <span v-show="current_page<pages-4" class="jump" @click="jumpPage(pages)">{{pages}}</span>
+                        <span class="jumppoint auxiliary">跳至：</span>
+                        <span class="jumpinp ">
+                          <input type="text" v-model="changePage"></span>
+                        <span class="jumppoint auxiliary">页</span>
+                        <span class="jump gobtn auxiliary" @click="jumpPage(changePage)">GO</span></div>
+                </div>
+              </div>
+            </div>
+            <!-- /row -->
+
+            <div class="clearfix height30"></div>
+            <h2 class="content-h2">例：无数据状态</h2>
+            <div class="table-scrollable no-wrap">
+              <table class="table table-striped  table-hover" id="table">
+                <thead>
+                  <tr>
+                    <th>对比照片</th>
+                    <th>底库照片</th>
+                    <th>FaceID</th>
+                    <th>识别时间</th>
+                    <th>应用名称</th>
+                    <th>相似度</th>
+                    <th>问题类别</th>
+                    <th>备注</th>
+                    <th>处理状态</th>
+                    <th>操作</th></tr>
+                </thead>
+              </table>
+              <div class="nothing">
+                <i class="icon-none"></i>
+                <span>暂时无数据</span></div>
+            </div>
+
+            <div class="clearfix height30"></div>
+            <h2 class="content-h2">例：不断行文本--会有滚动条情况</h2>
+            <div class="table-responsive table-scrollable no-wrap">
+              <table class="table table-striped table-hover table-condensed" id="table">
+                <thead>
+                  <tr>
+                    <th>对比照片</th>
+                    <th>底库照片</th>
+                    <th>FaceID</th>
+                    <th>识别时间</th>
+                    <th>应用名称</th>
+                    <th>相似度</th>
+                    <th>问题类别</th>
+                    <th>备注</th>
+                    <th>处理状态</th>
+                    <th>操作</th></tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <span class="photo">
+                        <img src="../content/normal/images/profile-photo.jpg" alt=""></span>
+                    </td>
+                    <td>
+                      <span class="photo">
+                        <img src="../content/normal/images/profile-photo.jpg" alt=""></span>
+                    </td>
+                    <td class="time">2018-12-12 12:12:12</td>
+                    <td class="time">2018-12-12 12:12:12</td>
+                    <td>人脸识别</td>
+                    <td class="right">98%</td>
+                    <td>检测不到人脸</td>
+                    <td>备注：关于表格的使用方法class="text-danger"禁止</td>
+                    <td>
+                      <span class="text-danger">禁止</span></td>
+                    <td>
+                      <a href="#" id="a-edit">处理</a></td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span class="photo">
+                        <img src="../content/normal/images/profile-photo.jpg" alt=""></span>
+                    </td>
+                    <td>
+                      <span class="photo">
+                        <img src="../content/normal/images/profile-photo.jpg" alt=""></span>
+                    </td>
+                    <td class="time">2018-12-12 12:12:12</td>
+                    <td class="time">2018-12-12 12:12:12</td>
+                    <td>人脸识别</td>
+                    <td class="right">98%</td>
+                    <td>检测不到人脸</td>
+                    <td>备注：关于表格的使用方法class="text-danger"禁止</td>
+                    <td>
+                      <span class="text-danger">禁止</span></td>
+                    <td>
+                      <a href="#" id="a-edit">处理</a></td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span class="photo">
+                        <img src="../content/normal/images/profile-photo.jpg" alt=""></span>
+                    </td>
+                    <td>
+                      <span class="photo">
+                        <img src="../content/normal/images/profile-photo.jpg" alt=""></span>
+                    </td>
+                    <td class="time">2018-12-12 12:12:12</td>
+                    <td class="time">2018-12-12 12:12:12</td>
+                    <td>人脸识别</td>
+                    <td class="right">98%</td>
+                    <td>检测不到人脸</td>
+                    <td>备注：关于表格的使用方法class="text-danger"禁止</td>
+                    <td>
+                      <span class="text-danger">禁止</span></td>
+                    <td>
+                      <a href="#" id="a-edit">处理</a></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="clearfix height30"></div>
+            <h2 class="content-h2">例：默认断行文本</h2>
+            <div class="table-responsive table-scrollable">
+              <table class="table table-striped table-hover" id="table">
+                <thead>
+                  <tr>
+                    <th>FaceID</th>
+                    <th>识别时间</th>
+                    <th>应用名称</th>
+                    <th>应用名称2</th>
+                    <th>相似度</th>
+                    <th>问题类别</th>
+                    <th>备注</th>
+                    <th>处理状态</th>
+                    <th>操作</th></tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="time">2018-12-12 12:12:12</td>
+                    <td class="time">2018-12-12 12:12:12</td>
+                    <td>人脸识别</td>
+                    <td>人脸识别2</td>
+                    <td class="right">98%</td>
+                    <td>检测不到人脸</td>
+                    <td>备注：关于表格的使用方法class="text-danger"禁止</td>
+                    <td>
+                      <span class="text-danger">禁止</span></td>
+                    <td>
+                      <a href="#" id="a-edit">处理</a></td>
+                  </tr>
+                  <tr>
+                    <td class="time">2018-12-12 12:12:12</td>
+                    <td class="time">2018-12-12 12:12:12</td>
+                    <td>人脸识别</td>
+                    <td>人脸识别2</td>
+                    <td class="right">98%</td>
+                    <td>检测不到人脸</td>
+                    <td>备注：关于表格的使用方法class="text-danger"禁止</td>
+                    <td>
+                      <span class="text-danger">禁止</span></td>
+                    <td>
+                      <a href="#" id="a-edit">处理</a></td>
+                  </tr>
+                  <tr>
+                    <td class="time">2018-12-12 12:12:12</td>
+                    <td class="time">2018-12-12 12:12:12</td>
+                    <td>人脸识别</td>
+                    <td>人脸识别2</td>
+                    <td class="right">98%</td>
+                    <td>检测不到人脸</td>
+                    <td>备注：关于表格的使用方法class="text-danger"禁止</td>
+                    <td>
+                      <span class="text-danger">禁止</span></td>
+                    <td>
+                      <a href="#" id="a-edit">处理</a></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="clearfix height30"></div>
+            <h2 class="content-h2">例：默认不断行文本-普通表格（ no-wrap ）</h2>
+            <div class="table-responsive table-scrollable no-wrap">
+              <table class="table table-striped table-hover" id="table">
+                <thead>
+                  <tr>
+                    <th>FaceID</th>
+                    <th>识别时间</th>
+                    <th>应用名称</th>
+                    <th>相似度</th>
+                    <th>问题类别</th>
+                    <th>备注</th>
+                    <th>处理状态</th>
+                    <th>操作</th></tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="time">2018-12-12 12:12:12</td>
+                    <td class="time">2018-12-12 12:12:12</td>
+                    <td>人脸识别</td>
+                    <td class="right">98%</td>
+                    <td>检测不到人脸</td>
+                    <td>备注：关于表格的使用方法class="text-danger"禁止</td>
+                    <td>
+                      <span class="text-danger">禁止</span></td>
+                    <td>
+                      <a href="#" id="a-edit">处理</a></td>
+                  </tr>
+                  <tr>
+                    <td class="time">2018-12-12 12:12:12</td>
+                    <td class="time">2018-12-12 12:12:12</td>
+                    <td>人脸识别</td>
+                    <td class="right">98%</td>
+                    <td>检测不到人脸</td>
+                    <td>备注：关于表格的使用方法class="text-danger"禁止</td>
+                    <td>
+                      <span class="text-danger">禁止</span></td>
+                    <td>
+                      <a href="#" id="a-edit">处理</a></td>
+                  </tr>
+                  <tr>
+                    <td class="time">2018-12-12 12:12:12</td>
+                    <td class="time">2018-12-12 12:12:12</td>
+                    <td>人脸识别</td>
+                    <td class="right">98%</td>
+                    <td>检测不到人脸</td>
+                    <td>备注：关于表格的使用方法class="text-danger"禁止</td>
+                    <td>
+                      <span class="text-danger">禁止</span></td>
+                    <td>
+                      <a href="#" id="a-edit">处理</a></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="clearfix height30"></div>
+            <h2 class="content-h2">例：默认不断行文本-紧凑表格（ no-wrap table-condensed）</h2>
+            <div class="table-responsive table-scrollable no-wrap">
+              <table class="table table-striped table-hover table-condensed" id="table">
+                <thead>
+                  <tr>
+                    <th>FaceID</th>
+                    <th>识别时间</th>
+                    <th>应用名称</th>
+                    <th>相似度</th>
+                    <th>问题类别</th>
+                    <th>备注</th>
+                    <th>处理状态</th>
+                    <th>操作</th></tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="time">2018-12-12 12:12:12</td>
+                    <td class="time">2018-12-12 12:12:12</td>
+                    <td>人脸识别</td>
+                    <td class="right">98%</td>
+                    <td>检测不到人脸</td>
+                    <td>备注：关于表格的使用方法</td>
+                    <td>
+                      <span class="text-muted">温和状态-如需弱化的处理</span></td>
+                    <td>
+                      <a href="#" id="a-edit">处理</a></td>
+                  </tr>
+                  <tr>
+                    <td class="time">2018-12-12 12:12:12</td>
+                    <td class="time">2018-12-12 12:12:12</td>
+                    <td>人脸识别</td>
+                    <td class="right">98%</td>
+                    <td>检测不到人脸</td>
+                    <td>备注：关于表格的使用方法</td>
+                    <td>
+                      <span class="text-primary">首要状态-如重点提示</span></td>
+                    <td>
+                      <a href="#" id="a-edit">处理</a></td>
+                  </tr>
+                  <tr>
+                    <td class="time">2018-12-12 12:12:12</td>
+                    <td class="time">2018-12-12 12:12:12</td>
+                    <td>人脸识别</td>
+                    <td class="right">98%</td>
+                    <td>检测不到人脸</td>
+                    <td>备注：关于表格的使用方法</td>
+                    <td>
+                      <span class="text-success">成功状态</span></td>
+                    <td>
+                      <a href="#" id="a-edit">处理</a></td>
+                  </tr>
+                  <tr>
+                    <td class="time">2018-12-12 12:12:12</td>
+                    <td class="time">2018-12-12 12:12:12</td>
+                    <td>人脸识别</td>
+                    <td class="right">98%</td>
+                    <td>检测不到人脸</td>
+                    <td>备注：关于表格的使用方法</td>
+                    <td>
+                      <span class="text-info">一般状态</span></td>
+                    <td>
+                      <a href="#" id="a-edit">处理</a></td>
+                  </tr>
+                  <tr>
+                    <td class="time">2018-12-12 12:12:12</td>
+                    <td class="time">2018-12-12 12:12:12</td>
+                    <td>人脸识别</td>
+                    <td class="right">98%</td>
+                    <td>检测不到人脸</td>
+                    <td>备注：关于表格的使用方法</td>
+                    <td>
+                      <span class="text-warning">警报状态-如进行中</span></td>
+                    <td>
+                      <a href="#" id="a-edit">处理</a></td>
+                  </tr>
+                  <tr>
+                    <td class="time">2018-12-12 12:12:12</td>
+                    <td class="time">2018-12-12 12:12:12</td>
+                    <td>人脸识别</td>
+                    <td class="right">98%</td>
+                    <td>检测不到人脸</td>
+                    <td>备注：关于表格的使用方法</td>
+                    <td>
+                      <span class="text-danger">危险状态-如未开始或拒绝</span></td>
+                    <td>
+                      <a href="#" id="a-edit">处理</a></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="clearfix height30"></div>
+            <h2 class="content-h2 text-danger">例：待补充可以单元格排序的表格</h2>
+            <div class="table-scrollable no-wrap">
+              <table class="table table-striped table-hover tablesorter" id="table">
+                <thead>
+                  <tr>
+                    <th>
+                        <div class="checkbox">
+                            <label>
+                            <input type="checkbox" value="">
+                            </label>
+                        </div>
+                    </th>
+                    <th>部门编号</th>
+                    <th>部门名称</th>
+                    <th>助记码</th>
+                    <th>部门层级</th>
+                    <th>部门所在分区</th>
+                    <th>封面图片</th>
+                    <th>发布时间</th>
+                    <th>就餐详情</th>
+                    <th class="right">限额</th>
+                    <th class="right">就餐折扣</th>
+                    <th class="right">余额</th>
+                    <th>部门状态</th>
+                    <th>操作</th></tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                        <div class="checkbox">
+                            <label>
+                            <input type="checkbox" value="">
+                            </label>
+                        </div>
+                    </td>
+                    <td>12345678901234567890</td>
+                    <td>测试角色一</td>
+                    <td>1234567</td>
+                    <td>测试层级一</td>
+                    <td>测试部门所在分区一</td>
+                    <td>
+                      <span class="photo">
+                        <img src="../content/normal/images/profile-photo.jpg" alt=""></span>
+                    </td>
+                    <td class="time">2018-12-12 12:12:12</td>
+                    <td>测试就餐详情</td>
+                    <td class="right">111231元</td>
+                    <td class="right">7.77折</td>
+                    <td class="right">12311111</td>
+                    <td>
+                      <span class="text-muted">测试部门状态</span></td>
+                    <td>
+                      <a href="#">查看</a>
+                      <a href="#">编辑</a></td>
+                  </tr>
+                  <tr>
+                    <td>
+                        <div class="checkbox">
+                            <label>
+                            <input type="checkbox" value="">
+                            </label>
+                        </div>
+                    </td>
+                    <td>12345678901234567890</td>
+                    <td>测试角色二</td>
+                    <td>1234567</td>
+                    <td>11测试层级一</td>
+                    <td>11测试部门所在分区一</td>
+                    <td>
+                      <span class="photo">
+                        <img src="../content/normal/images/profile-photo.jpg" alt=""></span>
+                    </td>
+                    <td class="time">2018-12-12 12:12:12</td>
+                    <td>11测试就餐详情</td>
+                    <td class="right">111231元</td>
+                    <td class="right">7.77折</td>
+                    <td class="right">12311111</td>
+                    <td>
+                      <span class="text-warning">进行中</span></td>
+                    <td>
+                      <a href="#">查看</a>
+                      <a href="#">编辑</a></td>
+                  </tr>
+                  <tr>
+                    <td>
+                        <div class="checkbox">
+                            <label>
+                            <input type="checkbox" value="">
+                            </label>
+                        </div>
+                    </td>
+                    <td>12345678901234567890</td>
+                    <td>测试角色三</td>
+                    <td>1234567</td>
+                    <td>11测试层级一</td>
+                    <td>11测试部门所在分区一</td>
+                    <td>
+                      <span class="photo">
+                        <img src="../content/normal/images/profile-photo.jpg" alt=""></span>
+                    </td>
+                    <td class="time">2018-12-12 12:12:12</td>
+                    <td>11测试就餐详情</td>
+                    <td class="right">111231元</td>
+                    <td class="right">7.77折</td>
+                    <td class="right">12311111</td>
+                    <td>
+                      <span class="text-danger">未开始</span></td>
+                    <td>
+                      <a href="#">查看</a>
+                      <a href="#">编辑</a></td>
+                  </tr>
+                  <tr>
+                    <td>
+                        <div class="checkbox">
+                            <label>
+                            <input type="checkbox" value="">
+                            </label>
+                        </div>
+                    </td>
+                    <td>12345678901234567890</td>
+                    <td>测试角色四</td>
+                    <td>1234567</td>
+                    <td>11测试层级一</td>
+                    <td>11测试部门所在分区一</td>
+                    <td>
+                      <span class="photo">
+                        <img src="../content/normal/images/profile-photo.jpg" alt=""></span>
+                    </td>
+                    <td class="time">2018-12-12 12:12:12</td>
+                    <td>11测试就餐详情</td>
+                    <td class="right">111231元</td>
+                    <td class="right">7.77折</td>
+                    <td class="right">12311111</td>
+                    <td>
+                      <span class="text-primary">已退回</span></td>
+                    <td>
+                      <a href="#">查看</a>
+                      <a href="#">编辑</a></td>
+                  </tr>
+                  <tr>
+                    <td>
+                        <div class="checkbox">
+                            <label>
+                            <input type="checkbox" value="">
+                            </label>
+                        </div>
+                    </td>
+                    <td>12345678901234567890</td>
+                    <td>测试角色五</td>
+                    <td>1234567</td>
+                    <td>11测试层级一</td>
+                    <td>11测试部门所在分区一</td>
+                    <td>
+                      <span class="photo">
+                        <img src="../content/normal/images/profile-photo.jpg" alt=""></span>
+                    </td>
+                    <td class="time">2018-12-12 12:12:12</td>
+                    <td>11测试就餐详情</td>
+                    <td class="right">111231元</td>
+                    <td class="right">7.77折</td>
+                    <td class="right">12311111</td>
+                    <td>
+                      <span class="text-success">已审批</span></td>
+                    <td>
+                      <a href="#">查看</a>
+                      <a href="#">编辑</a></td>
+                  </tr>
+                  <tr>
+                    <td>
+                        <div class="checkbox">
+                            <label>
+                            <input type="checkbox" value="">
+                            </label>
+                        </div>
+                    </td>
+                    <td>12345678901234567890</td>
+                    <td>测试角色五</td>
+                    <td>1234567</td>
+                    <td>11测试层级一</td>
+                    <td>11测试部门所在分区一</td>
+                    <td>
+                      <span class="photo">
+                        <img src="../content/normal/images/profile-photo.jpg" alt=""></span>
+                    </td>
+                    <td class="time">2018-12-12 12:12:12</td>
+                    <td>11测试就餐详情</td>
+                    <td class="right">111231元</td>
+                    <td class="right">7.77折</td>
+                    <td class="right">12311111</td>
+                    <td>
+                      <span class="text-success">启用</span></td>
+                    <td>
+                      <a href="#">查看</a>
+                      <a href="#">编辑</a></td>
+                  </tr>
+                  <tr>
+                    <td>
+                        <div class="checkbox">
+                            <label>
+                            <input type="checkbox" value="">
+                            </label>
+                        </div>
+                    </td>
+                    <td>12345678901234567890</td>
+                    <td>测试角色五</td>
+                    <td>1234567</td>
+                    <td>11测试层级一</td>
+                    <td>11测试部门所在分区一</td>
+                    <td>
+                      <span class="photo">
+                        <img src="../content/normal/images/profile-photo.jpg" alt=""></span>
+                    </td>
+                    <td class="time">2018-12-12 12:12:12</td>
+                    <td>11测试就餐详情</td>
+                    <td class="right">111231元</td>
+                    <td class="right">7.77折</td>
+                    <td class="right">12311111</td>
+                    <td>
+                      <span class="text-danger">禁止</span></td>
+                    <td>
+                      <a href="#">查看</a>
+                      <a href="#">编辑</a></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="clearfix height30"></div>
+            <h2 class="content-h2">例：人脸识别中用到的表格下部分</h2>
+            <div class="table-responsive table-scrollable no-wrap">
+                <table class="table table-striped table-hover" id="table">
+                  <thead>
+                    <tr>
+                      <th>对比照片</th>
+                      <th>底库照片</th>
+                      <th>FaceID</th>
+                      <th>识别时间</th>
+                      <th>应用名称</th>
+                      <th>AuthKey</th>
+                      <th>相似度</th>
+                      <th>问题类别</th>
+                      <th>备注</th>
+                      <th>处理状态</th>
+                      <th>操作</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="zoom">
+                        <span class="photo">
+                          <a href="../content/normal/images/1cun.jpg"><img src="../content/normal/images/1cun.jpg" ></a>
+                        </span>
+                      </td>
+                      <td class="zoom">
+                        <span class="photo">
+                            <a href="../content/normal/images/1cun.jpg"><img src="../content/normal/images/1cun.jpg" ></a>
+                        </span>
+                      </td>
+                      <td class="time">2018-12-12 12:12:12</td>
+                      <td class="time">2018-12-12 12:12:12</td>
+                      <td>人脸识别</td>
+                      <td class="numdisapy">
+                          <span id="showDiv" class="showDiv" style="display:none;">
+                                334354546
+                            <a onclick="numDisplay()"><i class="icon-hidden">隐藏</i></a>
+                          </span>
+                          <span id="hiddenDiv" class="hiddenDiv">
+                                *********
+                            <a onclick="numDisplay()"><i class="icon-show">显示</i></a>
+                          </span>
+                      </td>
+                      <td class="right">98%</td>
+                      <td>检测不到人脸</td>
+                      <td>备注：关于表格的使用方法class="text-danger"禁止</td>
+                      <td>
+                        <span class="text-danger">禁止</span></td>
+                      <td>
+                        <a href="#" id="a-edit">处理</a></td>
+                    </tr>
+                    <tr>
+                        <td class="zoom">
+                            <span class="photo">
+                                <a href="../content/normal/images/1cun.jpg"><img src="../content/normal/images/1cun.jpg" ></a>
+                            </span>
+                        </td>
+                        <td class="zoom">
+                            <span class="photo">
+                                <a href="../content/normal/images/1cun.jpg"><img src="../content/normal/images/1cun.jpg" ></a>
+                            </span>
+                        </td>
+                      <td class="time">2018-12-12 12:12:12</td>
+                      <td class="time">2018-12-12 12:12:12</td>
+                      <td>人脸识别</td>
+                      <td class="numdisapy">
+                          <span id="showDiv" class="showDiv" style="display:none;">
+                                334354546
+                            <a onclick="numDisplay()"><i class="icon-hidden">隐藏</i></a>
+                          </span>
+                          <span id="hiddenDiv" class="hiddenDiv">
+                                *********
+                            <a onclick="numDisplay()"><i class="icon-show">显示</i></a>
+                          </span>
+                      </td>
+                      <td class="right">98%</td>
+                      <td>检测不到人脸</td>
+                      <td>备注：关于表格的使用方法class="text-danger"禁止</td>
+                      <td>
+                        <span class="text-danger">禁止</span></td>
+                      <td>
+                        <a href="#" id="a-edit">处理</a></td>
+                    </tr>
+                    <tr>
+                        <td class="zoom">
+                            <span class="photo">
+                                <a href="../content/normal/images/1cun.jpg"><img src="../content/normal/images/1cun.jpg" ></a>
+                            </span>
+                        </td>
+                        <td class="zoom">
+                            <span class="photo">
+                                <a href="../content/normal/images/1cun.jpg"><img src="../content/normal/images/1cun.jpg" ></a>
+                            </span>
+                        </td>
+                      <td class="time">2018-12-12 12:12:12</td>
+                      <td class="time">2018-12-12 12:12:12</td>
+                      <td>人脸识别</td>
+                      <td class="numdisapy">
+                          <span id="showDiv" class="showDiv" style="display:none;">
+                                334354546
+                            <a onclick="numDisplay()"><i class="icon-hidden">隐藏</i></a>
+                          </span>
+                          <span id="hiddenDiv" class="hiddenDiv">
+                                *********
+                            <a onclick="numDisplay()"><i class="icon-show">显示</i></a>
+                          </span>
+                      </td>
+                      <td class="right">98%</td>
+                      <td>检测不到人脸</td>
+                      <td>备注：关于表格的使用方法class="text-danger"禁止</td>
+                      <td>
+                        <span class="text-danger">禁止</span></td>
+                      <td>
+                        <a href="#" id="a-edit">处理</a></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            <!-- 分页 -->
+            <div id="paging-app">
+              <div>
+                <div class="page" v-show="show">
+                  <div class="pagelist">
+                    <span class="auxiliary">共</span>
+                    <span class="auxiliary">10</span>
+                    <span class="auxiliary">页/</span>
+                    <span class="auxiliary auxiliary-last">100条数据</span>
+                    <span class="jump" :class="{disabled:pstart}" @click="current_page--">
+                      <</span>
+                        <span v-show="current_page>5" class="jump" @click="jumpPage(1)">1</span>
+                        <span class="ellipsis" v-show="efont">...</span>
+                        <span class="jump" v-for="num in indexs" :class="{bgprimary:current_page==num}" @click="jumpPage(num)">{{num}}</span>
+                        <span class="ellipsis" v-show="ebehind">...</span>
+                        <span :class="{disabled:pend}" class="jump" @click="current_page++">></span>
+                        <span v-show="current_page<pages-4" class="jump" @click="jumpPage(pages)">{{pages}}</span>
+                        <span class="jumppoint auxiliary">跳至：</span>
+                        <span class="jumpinp ">
+                          <input type="text" v-model="changePage"></span>
+                        <span class="jumppoint auxiliary">页</span>
+                        <span class="jump gobtn auxiliary" @click="jumpPage(changePage)">GO</span></div>
+                </div>
+              </div>
+            </div>
+            <div id="unidentifieds-handle" class="form-inline">
+              <div class="form-group">
+                <label>问题类别:</label>
+                <select v-model="" class="form-control">
+                  <option value="0">全部</option>
+                  <option value="1">误报</option>
+                  <option value="2">底库照片质量</option>
+                  <option value="4">识别时遮挡干扰</option>
+                  <option value="8">曝光过度</option>
+                  <option value="16">曝光不足</option>
+                  <option value="32">网络延迟</option>
+                  <option value="64">未信息采集</option>
+                  <option value="128">识别算法有误</option></select>
+              </div>
+              <div class="form-group">
+                <label>备注:</label>
+                <input type="text" v-model="" class="form-control"></div>
+              <button class="btn btn-default">处理</button>
+              <button class="btn btn-default">返回</button></div>
+          </div>
+          <!-- /content container --></div>
+        <!-- Page content end --></div>
+      <!-- Make page fluid--></div>
+    <!-- Wrap all page content end -->
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script type="text/javascript" src="../content/frame/jquery/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script type="text/javascript" src="../content/frame/bootstrap/js/bootstrap.js"></script>
+    
+    
+    <!-- my js start -->
+    <script type="text/javascript" src="../content/frame/bootstrap/js/my-dropdown.js"></script>
+    <script type="text/javascript" src="../content/frame/vuejs/ vue.js"></script>
+    <script type="text/javascript" src="../content/normal/js/ data.js"></script>
+    <script type="text/javascript" src="../content/normal/js /v-nav.js"></script>
+    <!-- my js end -->
+
+    <script type="text/javascript" src="../content/frame/nicescroll/jquery.nicescroll.min.js"></script>
+
+
+    <script type="text/javascript" src="../content/frame/jquery.date/jquery.datetimepicker.full.min.js"></script>
+
+    <script type="text/javascript" src="../content/normal/js/frame.js"></script>
+
+    <script>
+        // 下拉选项
+        var menu = $(".dropdown-menu");
+        if($("#right-container .dropdown-menu").length){
+            menu = $("#right-container .dropdown-menu");
+        }
+        
+        menu.on("click","li a",function(event){
+            var dropdown = $(this).parents("ul").prev('[data-toggle=dropdown]');
+            dropdown.html($(this).text()+'<span class="caret"></span>').parent().removeClass("open");
+        });
+        // 日期
+        $.datetimepicker.setLocale('zh');
+        $('#startDate').datetimepicker({        
+            timepicker:false,
+            format:'Y.m.d',
+            parentID:"html",
+            onShow:function( ct ){
+                console.log(123)
+                this.setOptions({
+                    maxDate:$('#endDate').val()?$('#endDate').val():false
+                })
+            },
+        });
+    
+        $('#endDate').datetimepicker({
+            timepicker:false,
+            format:'Y.m.d',
+            parentID:"html",
+            onShow:function( ct ){
+                this.setOptions({
+                    minDate:$('#startDate').val()?$('#startDate').val():false
+                })
+            },
+        });
+        // 分页
+        var pagingVM = new Vue({
+            el: '#paging-app',
+            data: {
+                current_page: 1, //当前页
+                pages: 20, //总页数
+                changePage:'',//跳转页
+                nowIndex:0,
+                centerLength:4
+            },
+            computed:{
+                show:function(){
+                    return this.pages && this.pages !=1
+                },
+                pstart: function() {
+                    return this.current_page == 1;
+                },
+                pend: function() {
+                    return this.current_page == this.pages;
+                },
+                efont: function() {
+                    if (this.pages <= 7) return false;
+                    return this.current_page > 5
+                },
+                ebehind: function() {
+                    if (this.pages <= 7) return false;
+                    var nowAy = this.indexs;
+                    return nowAy[nowAy.length - 1] != this.pages;
+                },
+                indexs: function() {
+    
+                    var left = 1,
+                    right = this.pages,
+                    ar = [];
+                    if (this.pages >= 7) {
+                        if (this.current_page > 5 && this.current_page < this.pages - 4) {
+                            var CL = this.centerLength;
+                            if(CL%2 == 0){
+                                CL = this.centerLength + 1;
+                            }
+                            left = Number(this.current_page) - (CL-1)/2;
+                            right = Number(this.current_page) + (CL-1)/2;
+                        } else {
+                            if (this.current_page <= 5) {
+                                left = 1;
+                                right = 5;
+                            } else {
+                                right = this.pages;
+    
+                                left = this.pages - 6;
+                            }
+                        }
+                    }
+                   while (left <= right) {
+                       ar.push(left);
+                       left++;
+                   }
+                    return ar;
+                },
+            },
+            methods: {
+                jumpPage: function(id) {
+                    this.current_page = id;
+                },
+            },
+    
+        })
+        // 多选
+        /*function table_checkbox_change(){
+            $("#table").on("click",".table-checkbox",function(){
+                var table = $("#table");
+                $(this).toggleClass("active");
+    
+                if($("tbody .table-checkbox").length == $("tbody .table-checkbox.active").length){
+                    $("thead .table-checkbox").addClass("active");
+                }else{
+                    $("thead .table-checkbox").removeClass("active");
+                }
+            });
+    
+            $("#table").on("click","thead .table-checkbox",function(){
+                var table = $("#table");
+                $(this).toggleClass("active");
+                if($(this).hasClass("active")){
+                    $("tbody .table-checkbox").addClass("active");
+                }else{
+                    $("tbody .table-checkbox").removeClass("active");
+                }
+                
+            });
+        }
+        table_checkbox_change();*/
+        // echarts
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('myChart'));
+        // 指定图表的配置项和数据
+        var option = {
+            title: {
+                text: '堆叠区域图'
+            },
+            tooltip : {
+                trigger: 'axis',
+                axisPointer: {
+                    type: 'cross',
+                    label: {
+                        backgroundColor: '#6a7985'
+                    }
+                }
+            },
+            legend: {
+                bottom:10,
+                itemGap:20,
+                data:[
+                    {
+                        name:'数据1',
+                        icon:"rect"
+                    },
+                    {
+                        name:'数据2',
+                        icon:"rect"
+                    },
+                    {
+                        name:'数据3',
+                        icon:"rect"
+                    },
+                    {
+                        name:'数据4',
+                        icon:"rect"
+                    },
+                    {
+                        name:'数据5',
+                        icon:"rect"
+                    }]
+            },
+            toolbox: {
+                right:50,
+                feature: {
+                    saveAsImage: {},
+                    restore:{},
+                    magicType:{
+                        type: ['line', 'bar'],
+                    },
+                }
+            },
+            grid: {
+                left: '3%',
+                right: '4%',
+                bottom: '10%',
+                containLabel: true
+            },
+            xAxis : [
+                {
+                    type : 'category',
+                    boundaryGap : false,
+                    data : ['周一','周二','周三','周四','周五','周六','周日']
+                }
+            ],
+            yAxis : [
+                {
+                    type : 'value'
+                }
+            ],
+            series : [
+                {
+                    name:'数据1',
+                    type:'line',
+                    stack: '总量',
+                    areaStyle: {
+                        color: {
+                            type: 'linear',
+                            x: 0,
+                            y: 0,
+                            x2: 0,
+                            y2: 1,
+                            colorStops: [{
+                                offset: 0, color: '#02a6ff' // 0% 处的颜色
+                            }, {
+                                offset: 1, color: '#8ce6ff' // 100% 处的颜色
+                            }],
+                            globalCoord: false // 缺省为 false
+                        }
+                    },
+                    lineStyle:{
+                        color:"#0098eb"
+                    },
+                    symbolSize:10,
+                    itemStyle:{
+                        color:"#0098eb"
+                    },
+                    data:[120, 132, 101, 134, 90, 230, 210]
+                },
+                {
+                    name:'数据2',
+                    type:'line',
+                    stack: '总量',
+                    areaStyle: {
+                        color: {
+                            type: 'linear',
+                            x: 0,
+                            y: 0,
+                            x2: 0,
+                            y2: 1,
+                            colorStops: [{
+                                offset: 0, color: '#a9f9f8' // 0% 处的颜色
+                            }, {
+                                offset: 1, color: '#5cf0f0' // 100% 处的颜色
+                            }],
+                            globalCoord: false // 缺省为 false
+                        }
+                    },
+                    lineStyle:{
+                        color:"#57c7c8"
+                    },
+                    symbolSize:10,
+                    itemStyle:{
+                        color:"#57c7c8"
+                    },
+                    data:[220, 182, 191, 234, 290, 330, 310]
+                },
+                {
+                    name:'数据3',
+                    type:'line',
+                    stack: '总量',
+                    areaStyle: {
+                        color: {
+                            type: 'linear',
+                            x: 0,
+                            y: 0,
+                            x2: 0,
+                            y2: 1,
+                            colorStops: [{
+                                offset: 0, color: '#ffe47d ' // 0% 处的颜色
+                            }, {
+                                offset: 1, color: '#ffe88a' // 100% 处的颜色
+                            }],
+                            globalCoord: false // 缺省为 false
+                        }
+                    },
+                    lineStyle:{
+                        color:"#deae06"
+                    },
+                    symbolSize:10,
+                    itemStyle:{
+                        color:"#deae06"
+                    },
+                    data:[150, 232, 201, 154, 190, 330, 410]
+                },
+                {
+                    name:'数据4',
+                    type:'line',
+                    stack: '总量',
+                    areaStyle: {
+                        color: {
+                            type: 'linear',
+                            x: 0,
+                            y: 0,
+                            x2: 0,
+                            y2: 1,
+                            colorStops: [{
+                                offset: 0, color: '#feb89f' // 0% 处的颜色
+                            }, {
+                                offset: 1, color: '#ffb99f' // 100% 处的颜色
+                            }],
+                            globalCoord: false // 缺省为 false
+                        }
+                    },
+                    lineStyle:{
+                        color:"#e78352"
+                    },
+                    symbolSize:10,
+                    itemStyle:{
+                        color:"#e78352"
+                    },
+                    data:[320, 332, 301, 334, 390, 330, 320]
+                },
+                {
+                    name:'数据5',
+                    type:'line',
+                    stack: '总量',
+                    label: {
+                        normal: {
+                            show: true,
+                            position: 'top'
+                        }
+                    },
+                    areaStyle: {
+                        color: {
+                            type: 'linear',
+                            x: 0,
+                            y: 0,
+                            x2: 0,
+                            y2: 1,
+                            colorStops: [{
+                                offset: 0, color: '#e837aa' // 0% 处的颜色
+                            }, {
+                                offset: 1, color: '#ffb1e5' // 100% 处的颜色
+                            }],
+                            globalCoord: false // 缺省为 false
+                        }
+                    },
+                    lineStyle:{
+                        color:"#d02597"
+                    },
+                    symbolSize:10,
+                    itemStyle:{
+                        color:"#d02597"
+                    },
+                    data:[820, 932, 901, 934, 1290, 1330, 1320]
+                }
+            ]
+        };
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+        // 更改图标类型事件
+        myChart.on("magictypechanged",function(params){
+            var newSeies = [];
+            for(var i = 0;i<5;i++){
+                newSeies.push({
+                        stack: null,
+                        areaStyle: null,
+                    });
+            }
+            myChart.setOption({
+                series:newSeies
+            });
+        });
+        // 重置事件
+        myChart.on("restore",function(params){
+            myChart.setOption(option);
+        });
+  
+
+        ////////以下单独写的，具体使用场景单摘出来可与其他文件合并
+        //关于有数字显示与隐藏的块
+        function numDisplay()
+        {
+        var show = document.getElementById("showDiv");
+        var hidden = document.getElementById("hiddenDiv");
+          if(show.style.display=="none")
+          {
+              show.style.display = "inline-block";
+              hidden.style.display="none";
+          }
+          else
+          {
+              show.style.display = "none";
+              hidden.style.display="inline-block";
+          }
+        };
+
+        //表格中鼠标移动放大图像
+        $(function(){
+            $(".zoom a ").hover(function(){
+                $(this).append("<p id='pic'><img src='"+this.href+"' id='pic1'></p>");
+                $(".zoom a").mousemove(function(e){
+                    $("#pic").css({
+                        "top":(e.pageY+10)+"px",
+                        "left":(e.pageX+20)+"px"
+                    }).fadeIn("fast");
+                    // $("#pic").fadeIn("fast");
+                });
+            },function(){
+                $("#pic").remove();
+            });
+        });
+
+
+         /* $(function(){
+        $(".table a").hover(function(){
+            $(this).append("<p id='pic'><img src='"+this.href+"' id='pic1'></p>");
+            $(".table a").mousemove(function(e){
+                $("#pic").css({
+                    "top":(e.pageY+10)+"px",
+                    "left":(e.pageX+20)+"px"
+                }).fadeIn("fast");
+                // $("#pic").fadeIn("fast");
+            });
+        },function(){
+            $("#pic").remove();
+        });
+    });*/
+    </script>
+</body>
+</html>
