@@ -1,0 +1,36 @@
+.navbar .navbar-header .navbar-brand {
+	font-weight:300;
+	font-size:18px;
+	color:#fff;
+	padding:0 0 0 20px;
+	text-indent:0;
+	overflow:hidden;
+	width:260px;
+	height:50px;
+	line-height:50px;
+	background:none;
+}
+
+.side-nav > li > a.sidebar-toggle,
+.side-nav > li.navigation > .dropdown-menu > li > a{
+    font-weight:normal;
+}
+
+
+
+.side-nav > li > a.sidebar-toggle > i.icon-service {display:inline-block;}
+.side-nav > li.navigation .dropdown-menu > li > a [class*="icon-"]{display:none;}
+.side-nav > li.navigation > .dropdown-menu > li > a{padding-left:55px;background:url(../images/ico-arr-right-big.png) no-repeat 30px center;}
+.side-nav.collapsed > li.navigation .sidebar-toggle span{display:none;}
+body .side-nav.collapsed > li.navigation .sidebar-toggle [class*="icon-"] {margin-top:13px;}
+.side-nav.collapsed .navigation .ico-arr-project {display:none;}
+.side-nav.collapsed .navigation.active .ico-arr-project {display:block;}
+
+/*个性化*/
+.table.table-canci > tbody > tr > td,
+.table.table-canci > tbody > tr > th {
+	padding:15px 15px;
+	border:none;
+}
+.gray{color:#ccc;}
+th.opration{width:20%;min-width:144px;}

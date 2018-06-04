@@ -1,0 +1,151 @@
+
+<link rel="stylesheet" type="text/css" href="../../../content/frame/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="../../../content/normal/css/my-theme.css">
+<link rel="stylesheet" type="text/css" href="../../../content/normal/css/demo.css">
+<!-- requireJs -->
+<!-- <script type="text/javascript" src="../../../content/frame/requireJs/require.min.js"></script> -->
+<!--  -->
+<script type="text/javascript" src="../../../content/frame/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../content/frame/clipboard/clipboard.min.js"></script>
+<script type="text/javascript" src="../../../content/normal/js/v-demo.js"></script>
+<!-- end -->
+<h2 id="demo-express-h1">
+    二级多选框 checkboxs
+    <a type="button" class="btn btn-default" href="../../local-index.html">返回</a>
+</h2>
+<!-- html -->
+<div class="demo-express">
+    <h3>结果展示</h3>
+    <div class="demo-express-bg">
+        <form action="" method="" class="form-horizontal" accept-charset="utf-8">
+            <div class="form-group level-checkbox">
+                <label class="col-sm-3 control-label">授权：</label>
+                <div class="col-sm-7">
+                    <div class="checkbox-btns">
+                        <label class="checkbox-inline">
+                            <span class="form-checkbox"></span> 一级权限
+                        </label>
+                        <div class="checkbox-childs">
+                            <label class="checkbox-inline">
+                                <span class="form-checkbox"></span> 多选一
+                            </label>
+                            <label class="checkbox-inline">
+                                <span class="form-checkbox"></span> 多选一二
+                            </label>
+                            <label class="checkbox-inline">
+                                <span class="form-checkbox"></span> 多选三
+                            </label>
+                            <label class="checkbox-inline disabled">
+                                <span class="form-checkbox"></span> 默认
+                            </label>
+                            <label class="checkbox-inline">
+                                <span class="form-checkbox"></span> 多选一
+                            </label>
+                            <label class="checkbox-inline">
+                                <span class="form-checkbox"></span> 多选二
+                            </label>
+                            <label class="checkbox-inline">
+                                <span class="form-checkbox"></span> 多选三
+                            </label>
+                            <label class="checkbox-inline disabled">
+                                <span class="form-checkbox"></span> 默认
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="demo-express">
+    <h3>代码</h3>
+    <div class="demo-express-bg">
+        <div class="demo-express-code-box row">
+            <!-- plugin -->
+            <div class="col-sm-12">
+                <h3><span>plugin</span><button class="copy" data-clipboard-target="#plugin"></button></h3>
+<pre id="plugin">
+&lt;script type="text/javascript" src="../../../content/normal/js/checkbox.js"&gt;&lt;/script&gt;
+</pre>
+            </div>
+            <!-- html -->
+            <div class="col-sm-12">
+                <h3><span>html</span><button class="copy" data-clipboard-target="#foo1"></button></h3>
+<pre id="foo1">
+&lt;form action="" method="" class="form-horizontal" accept-charset="utf-8"&gt;
+    &lt;div class="form-group level-checkbox"&gt;
+        &lt;label class="col-sm-3 control-label"&gt;授权：&lt;/label&gt;
+        &lt;div class="col-sm-7"&gt;
+            &lt;div class="checkbox-btns"&gt;
+                &lt;label class="checkbox-inline"&gt;
+                    &lt;span class="form-checkbox"&gt;&lt;/span&gt; 一级权限
+                &lt;/label&gt;
+                &lt;div class="checkbox-childs"&gt;
+                    &lt;label class="checkbox-inline"&gt;
+                        &lt;span class="form-checkbox"&gt;&lt;/span&gt; 多选一
+                    &lt;/label&gt;
+                    &lt;label class="checkbox-inline"&gt;
+                        &lt;span class="form-checkbox"&gt;&lt;/span&gt; 多选一二
+                    &lt;/label&gt;
+                    &lt;label class="checkbox-inline"&gt;
+                        &lt;span class="form-checkbox"&gt;&lt;/span&gt; 多选三
+                    &lt;/label&gt;
+                    &lt;label class="checkbox-inline disabled"&gt;
+                        &lt;span class="form-checkbox"&gt;&lt;/span&gt; 默认
+                    &lt;/label&gt;
+                    &lt;label class="checkbox-inline"&gt;
+                        &lt;span class="form-checkbox"&gt;&lt;/span&gt; 多选一
+                    &lt;/label&gt;
+                    &lt;label class="checkbox-inline"&gt;
+                        &lt;span class="form-checkbox"&gt;&lt;/span&gt; 多选二
+                    &lt;/label&gt;
+                    &lt;label class="checkbox-inline"&gt;
+                        &lt;span class="form-checkbox"&gt;&lt;/span&gt; 多选三
+                    &lt;/label&gt;
+                    &lt;label class="checkbox-inline disabled"&gt;
+                        &lt;span class="form-checkbox"&gt;&lt;/span&gt; 默认
+                    &lt;/label&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/form&gt;
+</pre>
+            </div>
+            <!-- css -->
+            <div class="col-sm-12">
+                <h3><span>css</span><button class="copy" data-clipboard-target="#foo2"></button></h3>
+<pre id="foo2">
+.form-group .checkbox-childs{
+    padding-left: 30px;
+}
+</pre>
+            </div>
+            <!-- javascript -->
+            <div class="col-sm-12">
+                <h3><span>javascript</span><button class="copy" data-clipboard-target="#foo3"></button></h3>
+<pre id="foo3">
+$(".form-group").selectCheckbox({
+    ele:".checkbox-inline",
+    selectType:"levelSelect",
+    onclickCB:function(){
+        console.log(arguments)
+    }
+});
+</pre>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="../../../content/normal/js/checkbox.js"></script>
+<script type="text/javascript">
+    
+$(".form-group").selectCheckbox({
+    ele:".checkbox-inline",
+    selectType:"levelSelect",
+    onclickCB:function(){
+        console.log(arguments)
+    }
+});
+
+</script>

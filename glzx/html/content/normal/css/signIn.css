@@ -1,0 +1,163 @@
+.signIn{
+    position: absolute;
+    left:50%;
+    top:10%;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
+.signIn .logo{
+    margin-bottom: 25px;
+}
+.signIn .logo img{
+    width: 300px;
+}
+.signIn .signIn-content{
+    width:1000px;
+    -webkit-box-shadow: 0 0 20px 0px #d6d6d6;
+    box-shadow: 0 0 20px 0px #d6d6d6;
+    font-size: 0;
+}
+.signIn-content > div{
+    display: inline-block;
+    vertical-align: top;
+}
+.signIn-content .signIn-content-left{
+    width: 650px;
+    height: 400px;
+    overflow: hidden;
+    position: relative;
+}
+.signIn-content .signIn-content-right{
+    width: 350px;
+    padding: 0px 15px;
+}
+.signIn .signIn-content .propagate-imgs{
+    height: 464px;
+    position: absolute;
+    top:0;
+    left:50%;
+    transform: translateX(-50%);
+}
+.signIn .signIn-content .signIn-content-title{
+    height: 50px;
+    line-height: 50px;
+    border-bottom: 1px solid #ededed;
+    color:#000;
+    font-size: 16px;
+    margin: 0;
+}
+.signIn .signIn-content .signIn-content-title a{
+    color:#1cdfe4;
+    font-size: 14px;
+    padding-right: 30px;
+    float: right;
+}
+.signIn .unit-logo {
+    width: 280px;
+    height: 65px;
+    margin: 20px auto 0;
+    border: 1px solid #e4e4e4;
+    background: url(../images/units.png) center no-repeat;
+    overflow: hidden;
+}
+.signIn .unit-logo img{
+    height: 65px;
+    display: block;
+    margin: 0 auto;
+}
+.signIn .form-horizontal{
+    width: 280px;
+    margin: 0 auto;
+    margin-top:15px;
+}
+.signIn .form-horizontal .form-group input{
+    height: 35px;
+    width:280px;
+    margin: 0 auto;
+}
+input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill{
+    background: #fff!important;
+}
+.signIn .form-horizontal .form-group.yzm {
+    font-size: 0;
+}
+.signIn .form-horizontal .form-group.yzm >div{
+    height: 40px;
+}
+.signIn .form-horizontal .form-group.yzm input{
+    width: 135px;
+}
+.signIn .form-horizontal .form-group.yzm img{
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+.signIn .form-horizontal .form-group.yzm .changeYZM{
+    line-height: 40px;
+    font-size: 14px;
+    color:#39cde5;
+    display: block;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+.signIn .form-horizontal .form-group.yzm .changeYZM:hover{
+    text-decoration: none;
+}
+.signIn .form-horizontal .form-group .signIn-btn{
+    display: block;
+    width: 280px;
+    height: 35px;
+    border-radius: 5rem;
+    color:#fff;
+    line-height: 35px;
+    font-size: 18px;
+    margin: 0 auto;
+    background: -webkit-linear-gradient(left, #44b9eb, #00c1de);
+    background: -moz-linear-gradient(left, #44b9eb, #00c1de);
+    background: -o-linear-gradient(left, #44b9eb, #00c1de);
+    background: linear-gradient(left, #44b9eb, #00c1de);
+    box-shadow: 0;
+    border:0;
+}
+.otherSignIn{
+    width: 280px;
+    margin: 20px auto 0;
+    font-size: 14px;
+    
+}
+.otherSignIn label{
+    font-weight: bold;
+    line-height: 30px;
+}
+.otherSignIn ul{
+    list-style: none;
+    height: 30px;
+    margin-bottom: 0;
+    padding: 0;
+    text-align: right;
+}
+.otherSignIn ul li{
+    width: 30px;
+    height: inherit;
+    display: inline-block;
+    margin-right: 5px;
+}
+.otherSignIn a{
+    display: block;
+    height: inherit;
+    overflow: hidden;
+}
+.otherSignIn a .WB_loginButton{
+    opacity: 0;
+}
+.otherSignIn .qq_login{
+    background: url(../images/signIn-icon.png) no-repeat;
+}
+.otherSignIn .wx_login{
+    background: url(../images/signIn-icon.png) no-repeat -30px 0;
+}
+.otherSignIn .wb_login{
+    background: url(../images/signIn-icon.png) no-repeat -60px 0;
+}

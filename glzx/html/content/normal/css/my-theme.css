@@ -60,3 +60,6 @@ header ul.dropdown-menu > li a{
     overflow-x: hidden;
     overflow-y: auto; 
 }
+body .side-nav.collapsed .navigation.open .sidebar-toggle{
+    background-color: rgba(5,201,238,0.9);
+}

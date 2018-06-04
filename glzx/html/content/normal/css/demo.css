@@ -232,7 +232,7 @@ form .form-group *{
 }
 .form-group{
     font-size: 0;
-    height: 30px;
+    /*height: 30px;*/
     line-height: 30px;
     margin-right: 26px;
     margin-bottom: 20px;
@@ -338,73 +338,66 @@ form .form-group *{
 .form-group .checkbox-btns .form-checkbox,
 .form-group .radio-btns .form-radio{
     display: inline-block;
-    width: 22px;
-    height: 22px;
+    width: 20px;
+    height: 20px;
     vertical-align: middle;
+    margin-right: 6px;
+    margin-left: 1px;
+}
+.form-group .checkbox-btns .disabled,
+.form-group .radio-btns .disabled{
+    color:#ccc;
 }
 .form-group .checkbox-btns .disabled .form-checkbox,
 .form-group .radio-btns .disabled .form-radio{
+    width: 20px;
+    height: 20px;
     border: 1px solid rgba(2,2,2,.1);
+    border-radius: 4px;
+
+}
+.form-group .radio-btns .disabled .form-radio{
+    border-radius: 50%;
 }
 .form-group .checkbox-btns .disabled .form-checkbox:before,
 .form-group .radio-btns .disabled .form-radio:before{
-    background: rgba(2,2,2,.1);
+    background: rgba(2,2,2,0);
 }
 .form-group .checkbox-btns .checkbox-inline,
 .form-group .radio-btns .radio-inline{
     padding: 0;
-
-}
-.form-group .checkbox-btns .checkbox-inline + .checkbox-inline,
-.form-group .radio-btns .radio-inline + .radio-inline{
-    margin-left: 30px;
+    margin-right: 30px;
+    margin-left: 0;
 }
 
-.form-group .checkbox-btns .form-checkbox{
+.form-group .checkbox-btns .checkbox-inline:not(.disabled) .form-checkbox{
     width: 20px;
     height: 20px;
-    background: #fff;
-    border: 1px solid rgba(2,2,2,.3);
-    border-radius: 4px;
+    background: url(../../normal/images/checkbox-off.png) no-repeat center;
     overflow: hidden;
-    margin-right: 6px;
-    margin-left: 1px;
 }
-.form-group .checkbox-btns .form-checkbox:before{
-    content: " ";
-    display: block;
-    width: 12px;
-    height: 12px;
-    margin:3px auto;
-    border-radius: 4px;
-    background: rgba(2,2,2,.3);
-}
-.form-group .checkbox-btns .form-checkbox.active{
-    border: 1px solid #0090c9;
-}
-.form-group .checkbox-btns .form-checkbox.active:before{
-    background-color: #0090c9;
+.form-group .checkbox-btns .checkbox-inline.active .form-checkbox{
+    background: url(../../normal/images/checkbox-on.png) no-repeat center;
 }
 .form-group .radio-btns .form-radio{
     background: #fff;
     border: 1px solid rgba(2,2,2,.3);
     border-radius: 50%;
     overflow: hidden;
-    margin-right: 5px;
 }
 .form-group .radio-btns .form-radio:before{
     content: " ";
     display: block;
-    width: 14px;
-    height: 14px;
+    width: 12px;
+    height: 12px;
     margin:3px auto;
     border-radius: 50%;
     background: rgba(2,2,2,.3);
 }
-.form-group .radio-btns .form-radio.active{
+.form-group .radio-btns .radio-inline.active .form-radio{
     border: 1px solid #0090c9;
 }
-.form-group .radio-btns .form-radio.active:before{
+.form-group .radio-btns .radio-inline.active .form-radio:before{
     background-color: #0090c9;
 }
 .form-group .file-upload{
@@ -429,6 +422,9 @@ form .form-group *{
     height: 30px;
     background-color: #f7f7f7;
     border: 1px solid #c5c5c5;
+}
+.form-group .checkbox-childs{
+    padding-left: 30px;
 }
 /* btn-theme */
 .btn-theme{
@@ -817,4 +813,187 @@ form .form-group *{
 }
 .item-card >div.time{
     background: url(../../../content/normal/images/clock.png) center left no-repeat;
+}
+
+/* heightchart */
+#myChartPie,#myChartPie-2{
+    margin: 0 auto;
+}
+/* #myChartPie*/
+.highcharts-title{
+    padding-left: 10px;
+    line-height: 20px;
+    font-size: 14px!important;
+    position: relative;
+}
+.highcharts-title:before{
+    position: absolute;
+    content:" ";
+    left:0;
+    width: 4px;
+    height: 16px;
+    background: -webkit-linear-gradient(#1ac3e4,#5981fd); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(#1ac3e4,#5981fd); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(#1ac3e4,#5981fd); /* Firefox 3.6 - 15 */
+    background: linear-gradient(#1ac3e4,#5981fd); /* 标准的语法 */
+}
+.highcharts-color-0 .highcharts-point,
+.highcharts-color-1 .highcharts-point,
+.highcharts-color-2 .highcharts-point,
+.highcharts-color-3 .highcharts-point{
+    display: none;
+}
+.highcharts-color-0:before,
+.highcharts-color-1:before,
+.highcharts-color-2:before,
+.highcharts-color-3:before{
+    position: absolute;
+    content:" ";
+    left:0;
+    top:5px;
+    width: 25px;
+    height: 12px;
+}
+/* #myChartPie*/
+#myChartPie .highcharts-color-0:before{
+    background: -webkit-linear-gradient(left,#00E5E4,#CDFFFF);
+    background: -o-linear-gradient(left,#00E5E4,#CDFFFF);
+    background: -moz-linear-gradient(left,#00E5E4,#CDFFFF);
+    background: linear-gradient(left,#00E5E4,#CDFFFF);
+}
+#myChartPie .highcharts-color-1:before{
+    background: -webkit-linear-gradient(left,#FFDD6D,#FFF6AF);
+    background: -o-linear-gradient(left,#FFDD6D,#FFF6AF);
+    background: -moz-linear-gradient(left,#FFDD6D,#FFF6AF);
+    background: linear-gradient(left,#FFDD6D,#FFF6AF);
+}
+#myChartPie .highcharts-color-2:before{
+    background: -webkit-linear-gradient(left,#FFB99D,#FBB8A3);
+    background: -o-linear-gradient(left,#FFB99D,#FBB8A3);
+    background: -moz-linear-gradient(left,#FFB99D,#FBB8A3);
+    background: linear-gradient(left,#FFB99D,#FBB8A3);
+}
+
+#myChartPie .highcharts-color-3:before{
+    background: -webkit-linear-gradient(45deg,#8EE7FF,#00A5FF);
+    background: -o-linear-gradient(45deg,#8EE7FF,#00A5FF);
+    background: -moz-linear-gradient(45deg,#8EE7FF,#00A5FF);
+    background: linear-gradient(45deg,#8EE7FF,#00A5FF);
+}
+#myChartPie .highcharts-data-label-connector{
+    stroke-width: 2px;
+}
+#myChartPie .highcharts-data-label-connector.highcharts-color-0{
+    stroke:#4BEFEE;
+}
+#myChartPie .highcharts-data-label-connector.highcharts-color-1{
+    stroke:#FFE37C;
+}
+#myChartPie .highcharts-data-label-connector.highcharts-color-2{
+    stroke:#FEB89E;
+}
+#myChartPie .highcharts-data-label-connector.highcharts-color-3{
+    stroke:#23B6FF;
+}
+/* myChartPie-2*/
+#myChartPie-2 .highcharts-color-0:before{
+    background: -webkit-linear-gradient(left,#CDFFFF,#73A373);
+    background: -o-linear-gradient(left,#CDFFFF,#73A373);
+    background: -moz-linear-gradient(left,#CDFFFF,#73A373);
+    background: linear-gradient(left,#CDFFFF,#73A373);
+}
+#myChartPie-2 .highcharts-color-1:before{
+    background: -webkit-linear-gradient(left,#BFBFBF,#F5F5F3);
+    background: -o-linear-gradient(left,#BFBFBF,#F5F5F3);
+    background: -moz-linear-gradient(left,#BFBFBF,#F5F5F3);
+    background: linear-gradient(left,#BFBFBF,#F5F5F3);
+}
+#myChartPie-2 .highcharts-color-2:before{
+    background: -webkit-linear-gradient(left,#35E8EF,#73B9BC);
+    background: -o-linear-gradient(left,#35E8EF,#73B9BC);
+    background: -moz-linear-gradient(left,#35E8EF,#73B9BC);
+    background: linear-gradient(left,#35E8EF,#73B9BC);
+}
+#myChartPie-2 .highcharts-data-label-connector.highcharts-color-0{
+    stroke:#7AAB7F;
+}
+#myChartPie-2 .highcharts-data-label-connector.highcharts-color-1{
+    stroke:#FFE37C;
+}
+#myChartPie-2 .highcharts-data-label-connector.highcharts-color-2{
+    stroke:#50D3D9;
+}
+/**/
+#myChartPie .highcharts-color-0.highcharts-legend-item-hidden:before,
+#myChartPie .highcharts-color-1.highcharts-legend-item-hidden:before,
+#myChartPie .highcharts-color-2.highcharts-legend-item-hidden:before,
+#myChartPie .highcharts-color-3.highcharts-legend-item-hidden:before,
+#myChartPie-2 .highcharts-color-0.highcharts-legend-item-hidden:before,
+#myChartPie-2 .highcharts-color-1.highcharts-legend-item-hidden:before,
+#myChartPie-2 .highcharts-color-2.highcharts-legend-item-hidden:before{
+    background: #ddd;
+}
+
+
+/* myChartPieLine */
+#myEChartPie + div{
+    text-align: center;
+    color:#005ac2;
+    margin-bottom: 20px;
+}
+.echartsLegend{
+    text-align: center;
+    height: 20px;
+    line-height: 20px;
+}
+.echartsLegend span{
+    font-size: 12px;
+}
+.echartsLegend span:hover{
+    cursor:pointer;
+}
+.echartsLegend span:before{
+    content: "";
+    display: inline-block;
+    vertical-align: top;
+    width: 26px;
+    height: 20px;
+    background: red;
+    margin-right: 10px;
+}
+.echartsLegend span+span{
+    margin-left: 50px;
+}
+.echartsLegend span:nth-child(1):before{
+    background: #08a8ff;
+}
+.echartsLegend span:nth-child(2):before{
+    background: #62dfb3;
+}
+.echartsLegend span:nth-child(3):before{
+    background: #ffc001;
+}
+.echartsLegend span.selectHide{
+    color:#ccc;
+}
+.echartsLegend span.selectHide:before{
+    background: #ddd;
+}
+
+/* */
+.myTooltip .title{
+    height: 35px;
+    line-height: 35px;
+    padding-left: 10px;
+    padding-top: 2px;
+    background: #259beb;
+    color:#fff;
+    font-style: 12px;
+    font-weight: normal;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+}
+.myTooltip .myTooltipBox{
+    padding: 10px;
+    margin-top: -20px;
 }

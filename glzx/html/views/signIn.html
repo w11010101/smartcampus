@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:wb="http://open.weibo.com/wb">
+<head>
+    <meta charset="UTF-8">
+    <title>登录</title>
+    <link rel="stylesheet" type="text/css" href="../content/frame/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../content/normal/css/base.css">
+    <link rel="stylesheet" type="text/css" href="../content/normal/css/signIn.css">
+    <script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js?appkey=" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript" src="../content/frame/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="../content/frame/bootstrap/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="signIn siginIn-container">
+        <!-- logo -->
+        <div class="logo">
+            <img src="../content/normal/images/signIn-logo.png" alt="">
+        </div>
+        <!-- content -->
+        <div class="signIn-content">
+            <div class="signIn-content-left">
+                <img src="../content/normal/images/signIn-img-1.jpg" alt="" class="propagate-imgs">
+            </div>
+            <div class="signIn-content-right">
+                <h2 class="signIn-content-title">
+                    登录 <a href="#">我不是在校人员</a>
+                </h2>
+                <!--  unit logo -->
+                
+                <div class="unit-logo">
+                    <img src="../content/normal/images/unit-logo.png" alt="">
+                </div>
+                <!-- signIn form -->
+                <form method="post" class="form-horizontal">
+                    <div class="form-group">
+                        <input type="text"  class="form-control" placeholder="请输入用户名">
+                    </div>
+                    <div class="form-group">
+                        <input type="password"  class="form-control" placeholder="请输入密码">
+                    </div>
+                    <div class="form-group yzm">
+                        <div class="col-sm-6">
+                            <input type="text"  class="form-control" placeholder="请输入验证码">
+                        </div>
+                        <div class="col-sm-4">
+                            <img class="" src="../content/normal/images/yzm.png" alt="">
+                        </div>
+                        <div class="col-sm-2">
+                            <a href="#" class="changeYZM">换一个</a>
+                        </div>                        
+                    </div>
+                    <div class="form-group">
+                        <button type="" class="signIn-btn">登 录</button>
+                    </div>
+                </form>
+                <!-- other signIn -->
+                <div class="otherSignIn">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <label>其他方式登录:</label>
+                        </div>
+                        <div class="col-sm-6">
+                            <ul>
+                                <li>
+                                    <a href="#" class="qq_login">
+                                        
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="wx_login">
+                                        
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="wb_login">
+                                        <wb:login-button type="3,2" onlogin="login" onlogout="logout">登录按钮</wb:login-button>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    <script type="text/javascript">
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,179 @@
+/* heightchart */
+#myChartPie,#myChartPie-2{
+    margin: 0 auto;
+}
+/* #myChartPie*/
+.highcharts-title{
+    padding-left: 10px;
+    line-height: 20px;
+    font-size: 14px!important;
+    position: relative;
+}
+.highcharts-color-0 .highcharts-point,
+.highcharts-color-1 .highcharts-point,
+.highcharts-color-2 .highcharts-point,
+.highcharts-color-3 .highcharts-point{
+    display: none;
+}
+.highcharts-color-0:before,
+.highcharts-color-1:before,
+.highcharts-color-2:before,
+.highcharts-color-3:before{
+    position: absolute;
+    content:" ";
+    left:0;
+    top:5px;
+    width: 25px;
+    height: 12px;
+}
+/* #myChartPie*/
+#myChartPie .highcharts-color-0:before{
+   
+	background: -webkit-linear-gradient(45deg,#8EE7FF,#00A5FF);
+    background: -o-linear-gradient(45deg,#8EE7FF,#00A5FF);
+    background: -moz-linear-gradient(45deg,#8EE7FF,#00A5FF);
+    background: linear-gradient(45deg,#8EE7FF,#00A5FF);
+}
+#myChartPie .highcharts-color-1:before{
+	background: -webkit-linear-gradient(left,#00E5E4,#CDFFFF);
+    background: -o-linear-gradient(left,#00E5E4,#CDFFFF);
+    background: -moz-linear-gradient(left,#00E5E4,#CDFFFF);
+	background: linear-gradient(left,#00E5E4,#CDFFFF);
+   
+}
+#myChartPie .highcharts-color-2:before{
+	background: -webkit-linear-gradient(left,#FFDD6D,#FFF6AF);
+    background: -o-linear-gradient(left,#FFDD6D,#FFF6AF);
+    background: -moz-linear-gradient(left,#FFDD6D,#FFF6AF);
+    background: linear-gradient(left,#FFDD6D,#FFF6AF);
+}
+
+#myChartPie .highcharts-color-3:before{
+	background: -webkit-linear-gradient(left,#FFB99D,#FBB8A3);
+    background: -o-linear-gradient(left,#FFB99D,#FBB8A3);
+    background: -moz-linear-gradient(left,#FFB99D,#FBB8A3);
+	background: linear-gradient(left,#FFB99D,#FBB8A3);
+}
+#myChartPie .highcharts-data-label-connector{
+    stroke-width: 2px;
+}
+#myChartPie .highcharts-data-label-connector.highcharts-color-0{
+    stroke:#4BEFEE;
+}
+#myChartPie .highcharts-data-label-connector.highcharts-color-1{
+    stroke:#FFE37C;
+}
+#myChartPie .highcharts-data-label-connector.highcharts-color-2{
+    stroke:#FEB89E;
+}
+#myChartPie .highcharts-data-label-connector.highcharts-color-3{
+    stroke:#23B6FF;
+}
+/* myChartPie-2*/
+#myChartPie-2 .highcharts-color-0:before{
+    background: -webkit-linear-gradient(left,#CDFFFF,#73A373);
+    background: -o-linear-gradient(left,#CDFFFF,#73A373);
+    background: -moz-linear-gradient(left,#CDFFFF,#73A373);
+    background: linear-gradient(left,#CDFFFF,#73A373);
+}
+#myChartPie-2 .highcharts-color-1:before{
+	background: -webkit-linear-gradient(left,#35E8EF,#73B9BC);
+    background: -o-linear-gradient(left,#35E8EF,#73B9BC);
+    background: -moz-linear-gradient(left,#35E8EF,#73B9BC);
+    background: linear-gradient(left,#35E8EF,#73B9BC);
+}
+#myChartPie-2 .highcharts-color-2:before{
+	background: -webkit-linear-gradient(left,#BFBFBF,#F5F5F3);
+    background: -o-linear-gradient(left,#BFBFBF,#F5F5F3);
+    background: -moz-linear-gradient(left,#BFBFBF,#F5F5F3);
+	background: linear-gradient(left,#BFBFBF,#F5F5F3);
+}
+#myChartPie-2 .highcharts-data-label-connector.highcharts-color-0{
+    stroke:#7AAB7F;
+}
+#myChartPie-2 .highcharts-data-label-connector.highcharts-color-1{
+    stroke:#FFE37C;
+}
+#myChartPie-2 .highcharts-data-label-connector.highcharts-color-2{
+    stroke:#50D3D9;
+}
+/**/
+#myChartPie .highcharts-color-0.highcharts-legend-item-hidden:before,
+#myChartPie .highcharts-color-1.highcharts-legend-item-hidden:before,
+#myChartPie .highcharts-color-2.highcharts-legend-item-hidden:before,
+#myChartPie .highcharts-color-3.highcharts-legend-item-hidden:before,
+#myChartPie-2 .highcharts-color-0.highcharts-legend-item-hidden:before,
+#myChartPie-2 .highcharts-color-1.highcharts-legend-item-hidden:before,
+#myChartPie-2 .highcharts-color-2.highcharts-legend-item-hidden:before{
+    background: #ddd;
+}
+
+
+
+/**/
+#myEChartPie + div{
+    text-align: center;
+    color:#005ac2;
+    margin-bottom: 20px;
+}
+.echartsLegend{
+    height: 20px;
+	line-height: 20px;
+	
+	text-align:center;
+	padding-left:20px;
+}
+.echartsLegend span{
+    font-size: 14px;display:inline-block;
+}
+.echartsLegend span:hover{
+    cursor:pointer;
+}
+.echartsLegend span:before{
+    content: "";
+    display: inline-block;
+    vertical-align: top;
+    width: 26px;
+    height: 20px;
+    background: red;
+    margin-right: 10px;
+}
+.echartsLegend span{
+    margin-right:30px;margin-bottom:10px;
+}
+.echartsLegend span:last-child{margin-right:0;}
+.echartsLegend span:nth-child(1):before{
+    background: #08a8ff;
+}
+.echartsLegend span:nth-child(2):before{
+    background: #62dfb3;
+}
+.echartsLegend span:nth-child(3):before{
+    background: #ffc001;
+}
+.echartsLegend span.selectHide{
+    color:#ccc;
+}
+.echartsLegend span.selectHide:before{
+    background: #ddd;
+}
+
+
+.myTooltip .title{
+    height: 35px;
+    line-height: 35px;
+    padding-left: 10px;
+    padding-top: 2px;
+    background: #259beb;
+    color:#fff;
+    font-style: 12px;
+    font-weight: normal;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+}
+.myTooltip .myTooltipBox{
+    padding: 10px;
+    margin-top: -20px;
+    font-size:14px;
+    line-height:26px;
+}

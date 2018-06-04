@@ -1,0 +1,595 @@
+
+<link rel="stylesheet" type="text/css" href="../../../content/frame/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="../../../content/normal/css/my-theme.css">
+<link rel="stylesheet" type="text/css" href="../../../content/normal/css/demo.css">
+<script type="text/javascript" src="../../../content/frame/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../content/frame/clipboard/clipboard.min.js"></script>
+<script type="text/javascript" src="../../../content/frame/echarts/echarts.min.js"></script>
+<script type="text/javascript" src="../../../content/normal/js/v-demo.js"></script>
+
+
+<h2 id="demo-express-h1">echarts-pie
+    <a type="button" class="btn btn-default" href="../../local-index.html">返回</a>
+</h2>
+<!-- html -->
+<div class="demo-express">
+    <h3>结果展示</h3>
+    <div class="demo-express-bg">
+        <!-- myChartPie -->
+        <div class="content-h2">
+            <label>识别准确率</label>
+        </div>
+        <div class="row">
+            <div class="col-sm-5">
+                <!-- myEChartPie -->
+                <div id="myEChartPie" style="width: 100%;height:300px;"></div>
+                <div class="">
+                    <a href="#">未识别统计</a> &gt;
+                </div>
+            </div>
+            <div class="col-sm-7">
+                <!-- myEChartBar -->
+                <div id="myEChartBar" style="width: 80%;height:300px;"></div>
+                <div class="echartsLegend" style="width: 80%;">
+                    <span>总是别人次</span>
+                    <span>正确识别认次</span>
+                    <span>未识别人次</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="demo-express">
+    <h3>代码</h3>
+    <div class="demo-express-bg">
+<!-- js -->
+<div class="demo-express-code-box row">
+    <div class="col-sm-12">
+        <h3>
+            <span>plugin</span>
+            <button class="copy" data-clipboard-target="#plugin"></button>
+        </h3>
+<pre id="plugin">
+&lt;script type="text/javascript" src="../../../content/frame/echarts/echarts.min.js"&gt;&lt;/script&gt;
+</pre>
+    </div>
+                <div class="col-sm-12">
+                    <h3><span>html</span><button class="copy" data-clipboard-target="#foo1"></button></h3>
+
+<pre id="foo1">
+&lt;div class="content-h2"&gt;
+    &lt;label&gt;识别准确率&lt;/label&gt;
+&lt;/div&gt;
+&lt;div class="row"&gt;
+    &lt;div class="col-sm-5"&gt;
+        &lt;!-- myEChartPie --&gt;
+        &lt;div id="myEChartPie" style="width: 100%;height:300px;"&gt;&lt;/div&gt;
+        &lt;div class=""&gt;
+            &lt;a href="#"&gt;未识别统计&lt;/a&gt; &gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="col-sm-7"&gt;
+        &lt;!-- myEChartBar --&gt;
+        &lt;div id="myEChartBar" style="width: 80%;height:300px;"&gt;&lt;/div&gt;
+        &lt;div class="echartsLegend" style="width: 80%;"&gt;
+            &lt;span&gt;总是别人次&lt;/span&gt;
+            &lt;span&gt;正确识别认次&lt;/span&gt;
+            &lt;span&gt;未识别人次&lt;/span&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</pre>
+                </div>
+                <div class="col-sm-12">
+                    <h3><span>css</span><button class="copy" data-clipboard-target="#foo2"></button></h3>
+<pre id="foo2">
+#myEChartPie + div{
+    text-align: center;
+    color:#005ac2;
+    margin-bottom: 20px;
+}
+.echartsLegend{
+    text-align: center;
+    height: 20px;
+    line-height: 20px;
+}
+.echartsLegend span{
+    font-size: 12px;
+}
+.echartsLegend span:hover{
+    cursor:pointer;
+}
+.echartsLegend span:before{
+    content: "";
+    display: inline-block;
+    vertical-align: top;
+    width: 26px;
+    height: 20px;
+    background: red;
+    margin-right: 10px;
+}
+.echartsLegend span+span{
+    margin-left: 50px;
+}
+.echartsLegend span:nth-child(1):before{
+    background: #08a8ff;
+}
+.echartsLegend span:nth-child(2):before{
+    background: #62dfb3;
+}
+.echartsLegend span:nth-child(3):before{
+    background: #ffc001;
+}
+.echartsLegend span.selectHide{
+    color:#ccc;
+}
+.echartsLegend span.selectHide:before{
+    background: #ddd;
+}
+</pre>
+                </div>
+                <div class="col-sm-12">
+                    <h3><span>javascript</span><button class="copy" data-clipboard-target="#foo3"></button></h3>
+<pre id="foo3">
+      // myEChartPie ==============================================
+    var pieData = {
+        data:[
+            {
+                text:"识别准确率",
+                value:1000
+            },
+            {
+                text:"识别失败",
+                value:50
+            },
+        ]
+    }
+    var myEChartPie = echarts.init(document.getElementById("myEChartPie"));
+    var pieOption = {
+        series: [
+            {
+                name:'访问来源',
+                type:'pie',
+                radius: ['50%', '70%'],
+                avoidLabelOverlap: false,
+                label: {
+                    normal: {
+                        show: false,
+                        position: 'center'
+                    },
+                    emphasis: {
+                        show: true,
+                        textStyle: {
+                            fontSize: '30',
+                            fontWeight: 'bold'
+                        }
+                    }
+                },
+                labelLine: {
+                    normal: {
+                        show: false
+                    }
+                },
+                silent:true,
+                data:[
+                    {
+                        value:pieData.data[0].value, 
+                        name:pieData.data[0].text,
+                        // selected:true,
+                        label:{
+                            show:true,
+                            formatter: (function(){
+                                var name = pieData.data[0].text;
+                                var val = pieData.data[0].value;
+                                var sum = 0;
+                                $.each(pieData.data,function(i,e){
+                                    console.log(e);
+                                    sum += e.value
+                                });
+                                console.log((val/sum*100).toFixed(2))
+                                return [
+                                    '{name|'+name+'：}\n',
+                                    '{val|'+(val/sum*100).toFixed(2)+'}',
+                                    '{percent|%}'
+                                    ].join("")
+                                console.log(sum)
+                            })(),
+                            rich: {
+                                name: {
+                                    color:'#4A4A4A',
+                                    fontSize:14,
+                                },
+                                val: {
+                                    fontSize:32,
+                                    color:'#000',
+                                    height:55
+                                },
+                                percent:{
+                                    fontSize:24,
+                                    color:'#000',
+                                    verticalAlign: 'bottom',
+                                    height:47,
+                                }
+                            }
+                        },
+                        itemStyle:{
+                            color:'#FFC001'
+                        }
+                    },
+                    {
+                        value:pieData.data[1].value, 
+                        name:pieData.data[1].text,
+                        itemStyle:{
+                            color:'#D8D8D8'
+                        }
+                    },
+                ]
+            }
+        ]
+    };
+    myEChartPie.setOption(pieOption);
+
+    // myEChartBar ==============================================
+    var xAxisData = ['总是别人次','正确识别认次','未识别人次'];
+    var lineData = {
+         data:[
+            {
+                text:"总是别人次",
+                value:4000,
+                radial:['#00a5ff','#8de7ff']           
+            },
+            {
+                text:"正确识别认次",
+                value:1900,
+                radial:['#0ad98c','#5fdfb2']
+            },
+            {
+                text:"未识别人次",
+                value:100,
+                radial:['#ffc201','#ffe102']
+            },
+        ],
+        value:[4000,1900,100]
+    }
+    // 
+    function lineSetData(data){
+        if(!data&&!data.data) return false;
+        var arr = [];
+        var nullData = {
+                value:0,
+                itemStyle:{
+                    opacity:0
+                }
+            }
+        for(var i = 0;i<data.data.length;i++){
+            var evt = data.data[i];
+            arr.push({
+                name:evt.text,
+                type: 'bar',
+                label:{
+                    show:true,
+                    color:'#9b9b9b',
+                    position:'top'
+                },
+                barWidth:50,
+                barGap:'-150%',
+                itemStyle: {
+                    normal: {
+                        color: new echarts.graphic.LinearGradient(
+                            0, 0, 0, 1,
+                            [
+                                {offset: 0, color: evt.radial[0]},
+                                {offset: 1, color: evt.radial[1]}
+                            ]
+                        )
+                    },
+                },
+                data:(function(){
+                    var DataArr = [];
+                    for(var j = 0;j<data.data.length;j++){
+                        if(i == j){
+                            DataArr.push({
+                                name:evt.text,
+                                value:evt.value
+                            });
+                        }else{
+                            DataArr.push(nullData);
+                        }
+                    }
+                    return DataArr;
+                })(),
+            })
+        }
+        return arr;
+    }
+    //
+    var myEChartBar = echarts.init(document.getElementById("myEChartBar"));
+    var lineOption = {
+        legend:{
+            show:false
+        },
+        xAxis: {
+            show:false,
+            data: xAxisData,  
+            axisTick:{
+                show:false,
+            },
+            axisLabel:{
+                show:false,
+            },
+            splitLine: {
+                show:false,
+            },
+        },
+        yAxis: {
+            axisLine: {
+                show: false
+            },
+            axisTick: {
+                show: false
+            },
+            axisLabel: {
+                textStyle: {
+                    color: '#9b9b9b',
+                    fontSize:12
+                }
+            },
+            max: function(value) {
+                return value.max * 1.5;
+            }
+        },
+        series: lineSetData(lineData)
+    };
+    myEChartBar.setOption(lineOption);
+    // 自己写的切换dom
+    $(".echartsLegend span").on("click",function(){
+        myEChartBar.dispatchAction({
+            type: 'legendToggleSelect',
+            name: $(this).text()
+        });
+    });
+    // echart events
+    myEChartBar.on('legendselectchanged', function (params) {
+        $.each($(".echartsLegend span"),function(i,e){
+            if(e.innerText == params.name){
+                if(params.selected[params.name]){
+                    $(e).removeClass("selectHide");
+                }else{
+                    $(e).addClass("selectHide");
+                }
+            }
+        })
+    });       
+</pre>
+                </div>
+            </div>
+    </div>
+</div>
+<script type="text/javascript">
+    // myEChartPie ==============================================
+    var pieData = {
+        data:[
+            {
+                text:"识别准确率",
+                value:1000
+            },
+            {
+                text:"识别失败",
+                value:50
+            },
+        ]
+    }
+    var myEChartPie = echarts.init(document.getElementById("myEChartPie"));
+    var pieOption = {
+        series: [
+            {
+                name:'访问来源',
+                type:'pie',
+                radius: ['50%', '70%'],
+                avoidLabelOverlap: false,
+                label: {
+                    normal: {
+                        show: false,
+                        position: 'center'
+                    },
+                    emphasis: {
+                        show: true,
+                        textStyle: {
+                            fontSize: '30',
+                            fontWeight: 'bold'
+                        }
+                    }
+                },
+                labelLine: {
+                    normal: {
+                        show: false
+                    }
+                },
+                silent:true,
+                data:[
+                    {
+                        value:pieData.data[0].value, 
+                        name:pieData.data[0].text,
+                        label:{
+                            show:true,
+                            formatter: (function(){
+                                var name = pieData.data[0].text;
+                                var val = pieData.data[0].value;
+                                var sum = 0;
+                                $.each(pieData.data,function(i,e){
+                                    console.log(e);
+                                    sum += e.value
+                                });
+                                return [
+                                    '{name|'+name+'：}\n',
+                                    '{val|'+(val/sum*100).toFixed(2)+'}',
+                                    '{percent|%}'
+                                    ].join("");
+                            })(),
+                            rich: {
+                                name: {
+                                    color:'#4A4A4A',
+                                    fontSize:14,
+                                },
+                                val: {
+                                    fontSize:32,
+                                    color:'#000',
+                                    height:55
+                                },
+                                percent:{
+                                    fontSize:24,
+                                    color:'#000',
+                                    verticalAlign: 'bottom',
+                                    height:47,
+                                }
+                            }
+                        },
+                        itemStyle:{
+                            color:'#FFC001'
+                        }
+                    },
+                    {
+                        value:pieData.data[1].value, 
+                        name:pieData.data[1].text,
+                        itemStyle:{
+                            color:'#D8D8D8'
+                        }
+                    },
+                ]
+            }
+        ]
+    };
+    myEChartPie.setOption(pieOption);
+
+    // myEChartBar ==============================================
+    var xAxisData = ['总是别人次','正确识别认次','未识别人次'];
+    var lineData = {
+        data:[
+            {
+                text:"总是别人次",
+                value:4000,
+                radial:['#00a5ff','#8de7ff']           
+            },
+            {
+                text:"正确识别认次",
+                value:1900,
+                radial:['#0ad98c','#5fdfb2']
+            },
+            {
+                text:"未识别人次",
+                value:1000,
+                radial:['#ffc201','#ffe102']
+            },
+        ],
+        value:[4000,1900,1000]
+    }
+    // 
+    function lineSetData(data){
+        if(!data&&!data.data) return false;
+        var arr = [];
+        var nullData = {
+                value:0,
+                itemStyle:{
+                    opacity:0
+                }
+            }
+        for(var i = 0;i<data.data.length;i++){
+            var evt = data.data[i];
+            arr.push({
+                name:evt.text,
+                type: 'bar',
+                label:{
+                    show:true,
+                    color:'#9b9b9b',
+                    position:'top'
+                },
+                barWidth:50,
+                barGap:'-150%',
+                itemStyle: {
+                    normal: {
+                        color: new echarts.graphic.LinearGradient(
+                            0, 0, 0, 1,
+                            [
+                                {offset: 0, color: evt.radial[0]},
+                                {offset: 1, color: evt.radial[1]}
+                            ]
+                        )
+                    },
+                },
+                data:(function(){
+                    var DataArr = [];
+                    for(var j = 0;j<data.data.length;j++){
+                        if(i == j){
+                            DataArr.push({
+                                name:evt.text,
+                                value:evt.value
+                            });
+                        }else{
+                            DataArr.push(nullData);
+                        }
+                    }
+                    return DataArr;
+                })(),
+            })
+        }
+        return arr;
+    }
+    //
+    var myEChartBar = echarts.init(document.getElementById("myEChartBar"));
+    var lineOption = {
+        legend:{
+            show:false
+        },
+        xAxis: {
+            show:false,
+            data: xAxisData,  
+            axisTick:{
+                show:false,
+            },
+            axisLabel:{
+                show:false,
+            },
+            splitLine: {
+                show:false,
+            },
+        },
+        yAxis: {
+            axisLine: {
+                show: false
+            },
+            axisTick: {
+                show: false
+            },
+            axisLabel: {
+                textStyle: {
+                    color: '#9b9b9b',
+                    fontSize:12
+                }
+            },
+            max: function(value) {
+                return value.max * 1.5;
+            }
+        },
+        series: lineSetData(lineData)
+    };
+    myEChartBar.setOption(lineOption);
+    // 自己写的切换dom
+    $(".echartsLegend span").on("click",function(){
+        myEChartBar.dispatchAction({
+            type: 'legendToggleSelect',
+            name: $(this).text()
+        });
+    });
+    // echart events
+    myEChartBar.on('legendselectchanged', function (params) {
+        $.each($(".echartsLegend span"),function(i,e){
+            if(e.innerText == params.name){
+                if(params.selected[params.name]){
+                    $(e).removeClass("selectHide");
+                }else{
+                    $(e).addClass("selectHide");
+                }
+            }
+        })
+    });
+</script>

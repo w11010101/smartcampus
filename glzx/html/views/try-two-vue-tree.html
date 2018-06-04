@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html>
+  
+  <head>
+    <title>Minimal 1.0 - Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <!-- <link rel="icon" type="image/ico" href="../content/normal/images/favicon.ico" />-->
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="../content/frame/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+    <link rel="stylesheet" href="../content/frame/animate/animate.min.css">
+    <link rel="stylesheet" href="../content/normal/css/theme-two.css">
+    <link rel="stylesheet" href="../content/normal/css/base.css">
+    <!-- my style end -->
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" type="text/css" href="../content/frame/jquery.date/jquery.datetimepicker.min.css">
+  </head>
+
+
+  <body class="bg-1">
+    <!-- Wrap all page content here -->
+    <div id="wrap">
+      <!-- Make page fluid -->
+      <div class="row">
+        <!-- Fixed navbar -->
+        <div class="navbar navbar-fixed-top" role="navigation" id="navbar">
+          <!-- .nav-collapse -->
+          <div class="navbar-collapse">
+            <!-- logo-->
+            <div class="navbar-header">
+              <div class="navbar-brand">微校园后台管理系统</div></div>
+            <!-- logo end-->
+            <!-- Quick Actions -->
+            <ul class="nav navbar-nav quick-actions">
+              <li class="dropdown">
+                <a href="#">
+                  <i class="ico-mail"></i>
+                  <span class="label">1</span></a>
+              </li>
+              <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                  <i class="ico-theme"></i>
+                </a>
+                <ul class="dropdown-menu arrow settings">
+                  <li>
+                    <ul id="color-schemes">
+                      <li>
+                        <a href="#" class="bg-1"></a>
+                      </li>
+                      <li>
+                        <a href="#" class="bg-2"></a>
+                      </li>
+                      <li>
+                        <a href="#" class="bg-3"></a>
+                      </li>
+                      <li>
+                        <a href="#" class="bg-4"></a>
+                      </li>
+                      <li>
+                        <a href="#" class="bg-5"></a>
+                      </li>
+                      <li>
+                        <a href="#" class="bg-6"></a>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+              <li class="dropdown user">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                  <span class="profile-photo">
+                    <img src="../content/normal/images/profile-photo.jpg" alt /></span>系统管理员
+                  <i class="ico-arr-dropdown"></i></a>
+                <ul class="dropdown-menu arrow settings">
+                  <li>
+                    <a href="#">
+                      <i class="fa fa-user"></i>基本信息</a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <i class="fa fa-envelope"></i>消息
+                      <span class="badge badge-red" id="user-inbox">3</span></a>
+                  </li>
+                  <li class="divider"></li>
+                  <li>
+                    <a href="#">
+                      <i class="fa fa-power-off"></i>退出系统</a>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a href="#" class="language">英文版</a></li>
+            </ul>
+            <!-- /Quick Actions -->
+            <!-- Search -->
+            <div class="search" id="main-search">
+              <input type="text" placeholder="Search...">
+              <i class="ico-search"></i>
+            </div>
+            <!-- Search end --></div>
+          <!--/.nav-collapse -->
+          <!-- Sidebar -->
+          <div id="vm-nav">
+            <ul id="sidebar" class="nav navbar-nav side-nav collapsed">
+              <li>
+                <div class="sidebar-collapse">
+                  <a href="#">
+                    <i class="ico-bars"></i>
+                  </a>
+                </div>
+              </li>
+              <li class="navigation active">
+                <a href="#" data-toggle="dropdown" set-index="0" class="sidebar-toggle" aria-expanded="true">
+                  <i class="icon-service"></i>
+                  <span>示例管理</span>
+                  <i class="ico-arr-project"></i>
+                </a>
+                <ul class="dropdown-menu">
+                  <li class="active">
+                    <a href="#">
+                      <i class="icon-repair"></i>示例-2层-0</a>
+                  </li>
+                  <li class="dropdown open active">
+                    <a href="#" data-toggle="dropdown" class="dropdown-toggle" aria-expanded="true">
+                      <i class="icon-repair"></i>示例-2层
+                      <b class="ico-arr-dropdown"></b></a>
+                    <ul class="dropdown-menu">
+                      <li class="dropdown">
+                        <a href="#" data-toggle="dropdown" aria-expanded="true" class="dropdown-toggle">示例-3层1
+                          <b class="ico-arr-plus"></b></a>
+                        <ul class="dropdown-menu">
+                          <li class="dropdown open">
+                            <a href="#" data-toggle="dropdown" aria-expanded="true" class="dropdown-toggle">示例-4层1
+                              <b class="ico-arr-plus"></b></a>
+                            <ul class="dropdown-menu active">
+                              <li class="dropdown active">
+                                <a href="#" data-toggle="dropdown" aria-expanded="false" class="dropdown-toggle">示例-5层1-选中
+                                  <!----></a>
+                                <ul class="dropdown-menu"></ul>
+                              </li>
+                              <li class="dropdown open">
+                                <a href="#" data-toggle="dropdown" aria-expanded="true" class="dropdown-toggle">示例-5层2
+                                  <!----></a>
+                                <ul class="dropdown-menu"></ul>
+                              </li>
+                            </ul>
+                          </li>
+                          <li class="dropdown">
+                            <a href="#" data-toggle="dropdown" aria-expanded="false" class="dropdown-toggle">示例-4层2
+                              <!----></a>
+                            <ul class="dropdown-menu"></ul>
+                          </li>
+                        </ul>
+                      </li>
+                      <li class="dropdown">
+                        <a href="#" data-toggle="dropdown" aria-expanded="false" class="dropdown-toggle">示例-3层2
+                          <b class="ico-arr-plus"></b></a>
+                        <ul class="dropdown-menu">
+                          <li class="dropdown">
+                            <a href="#" data-toggle="dropdown" aria-expanded="false" class="dropdown-toggle">示例-4层1
+                              <b class="ico-arr-plus"></b></a>
+                            <ul class="dropdown-menu">
+                              <li class="dropdown">
+                                <a href="#" data-toggle="dropdown" aria-expanded="false" class="dropdown-toggle">示例-5层1
+                                  <!----></a>
+                                <ul class="dropdown-menu"></ul>
+                              </li>
+                              <li class="dropdown">
+                                <a href="#" data-toggle="dropdown" aria-expanded="false" class="dropdown-toggle">示例-5层2
+                                  <!----></a>
+                                <ul class="dropdown-menu"></ul>
+                              </li>
+                            </ul>
+                          </li>
+                          <li class="dropdown">
+                            <a href="#" data-toggle="dropdown" aria-expanded="false" class="dropdown-toggle">示例-4层2
+                              <!----></a>
+                            <ul class="dropdown-menu"></ul>
+                          </li>
+                        </ul>
+                      </li>
+                      <li class="dropdown">
+                        <a href="#" data-toggle="dropdown" aria-expanded="false" class="dropdown-toggle">示例-3层3
+                          <!----></a>
+                        <ul class="dropdown-menu"></ul>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="dropdown">
+                    <a href="#" data-toggle="dropdown" class="dropdown-toggle">
+                      <i class="icon-repair"></i>示例-sub2
+                      <b class="ico-arr-dropdown"></b></a>
+                    <ul class="dropdown-menu">
+                      <li class="dropdown">
+                        <a href="#" data-toggle="dropdown" aria-expanded="false" class="dropdown-toggle">示例-sub2-sub
+                          <!----></a>
+                        <ul class="dropdown-menu"></ul>
+                      </li>
+                      <li class="dropdown">
+                        <a href="#" data-toggle="dropdown" aria-expanded="false" class="dropdown-toggle">示例-sub2-sub
+                          <!----></a>
+                        <ul class="dropdown-menu"></ul>
+                      </li>
+                      <li class="dropdown">
+                        <a href="#" data-toggle="dropdown" aria-expanded="false" class="dropdown-toggle">示例-sub2-sub
+                          <!----></a>
+                        <ul class="dropdown-menu"></ul>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="dropdown">
+                    <a href="#" data-toggle="dropdown" class="dropdown-toggle">
+                      <i class="icon-repair"></i>示例-sub3
+                      <b class="ico-arr-dropdown"></b></a>
+                    <ul class="dropdown-menu">
+                      <li class="dropdown">
+                        <a href="#" data-toggle="dropdown" aria-expanded="false" class="dropdown-toggle">示例-sub3-sub
+                          <!----></a>
+                        <ul class="dropdown-menu"></ul>
+                      </li>
+                      <li class="dropdown">
+                        <a href="#" data-toggle="dropdown" aria-expanded="false" class="dropdown-toggle">示例-sub3-sub
+                          <!----></a>
+                        <ul class="dropdown-menu"></ul>
+                      </li>
+                      <li class="dropdown">
+                        <a href="#" data-toggle="dropdown" aria-expanded="false" class="dropdown-toggle">示例-sub3-sub
+                          <!----></a>
+                        <ul class="dropdown-menu"></ul>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+              <li class="navigation">
+                <a href="#" data-toggle="dropdown" set-index="1" class="sidebar-toggle">
+                  <i class="icon-service"></i>
+                  <span>运维管理</span>
+                  <i class="ico-arr-project"></i>
+                </a>
+                <ul class="dropdown-menu">
+                  <li class="dropdown">
+                    <a href="#" data-toggle="dropdown" class="dropdown-toggle">
+                      <i class="icon-repair"></i>运维管理-sub1
+                      <b class="ico-arr-dropdown"></b></a>
+                    <ul class="dropdown-menu">
+                      <li class="dropdown">
+                        <a href="#" data-toggle="dropdown" aria-expanded="false" class="dropdown-toggle">运维管理-sub2-sub
+                          <!----></a>
+                        <ul class="dropdown-menu"></ul>
+                      </li>
+                      <li class="dropdown">
+                        <a href="#" data-toggle="dropdown" aria-expanded="false" class="dropdown-toggle">运维管理-sub2-sub
+                          <!----></a>
+                        <ul class="dropdown-menu"></ul>
+                      </li>
+                      <li class="dropdown">
+                        <a href="#" data-toggle="dropdown" aria-expanded="false" class="dropdown-toggle">运维管理-sub2-sub
+                          <!----></a>
+                        <ul class="dropdown-menu"></ul>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="dropdown">
+                    <a href="#" data-toggle="dropdown" class="dropdown-toggle">
+                      <i class="icon-repair"></i>运维管理-sub2
+                      <b class="ico-arr-dropdown"></b></a>
+                    <ul class="dropdown-menu">
+                      <li class="dropdown">
+                        <a href="#" data-toggle="dropdown" aria-expanded="false" class="dropdown-toggle">运维管理-sub2-sub
+                          <!----></a>
+                        <ul class="dropdown-menu"></ul>
+                      </li>
+                      <li class="dropdown">
+                        <a href="#" data-toggle="dropdown" aria-expanded="false" class="dropdown-toggle">运维管理-sub2-sub
+                          <!----></a>
+                        <ul class="dropdown-menu"></ul>
+                      </li>
+                      <li class="dropdown">
+                        <a href="#" data-toggle="dropdown" aria-expanded="false" class="dropdown-toggle">运维管理-sub2-sub
+                          <!----></a>
+                        <ul class="dropdown-menu"></ul>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="dropdown">
+                    <a href="#" data-toggle="dropdown" class="dropdown-toggle">
+                      <i class="icon-repair"></i>运维管理-sub3
+                      <b class="ico-arr-dropdown"></b></a>
+                    <ul class="dropdown-menu">
+                      <li class="dropdown">
+                        <a href="#" data-toggle="dropdown" aria-expanded="false" class="dropdown-toggle">运维管理-sub3-sub
+                          <!----></a>
+                        <ul class="dropdown-menu"></ul>
+                      </li>
+                      <li class="dropdown">
+                        <a href="#" data-toggle="dropdown" aria-expanded="false" class="dropdown-toggle">运维管理-sub3-sub
+                          <!----></a>
+                        <ul class="dropdown-menu"></ul>
+                      </li>
+                      <li class="dropdown">
+                        <a href="#" data-toggle="dropdown" aria-expanded="false" class="dropdown-toggle">运维管理-sub3-sub
+                          <!----></a>
+                        <ul class="dropdown-menu"></ul>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="dropdown">
+                    <a href="#" data-toggle="dropdown" class="dropdown-toggle">
+                      <i class="icon-repair"></i>运维管理-sub4
+                      <b class="ico-arr-dropdown"></b></a>
+                    <ul class="dropdown-menu">
+                      <li class="dropdown">
+                        <a href="#" data-toggle="dropdown" aria-expanded="false" class="dropdown-toggle">运维管理-sub4-sub
+                          <!----></a>
+                        <ul class="dropdown-menu"></ul>
+                      </li>
+                      <li class="dropdown">
+                        <a href="#" data-toggle="dropdown" aria-expanded="false" class="dropdown-toggle">运维管理-sub4-sub
+                          <!----></a>
+                        <ul class="dropdown-menu"></ul>
+                      </li>
+                      <li class="dropdown">
+                        <a href="#" data-toggle="dropdown" aria-expanded="false" class="dropdown-toggle">运维管理-sub4-sub
+                          <!----></a>
+                        <ul class="dropdown-menu"></ul>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+              <li class="navigation">
+                <a href="#" data-toggle="dropdown" set-index="2" class="sidebar-toggle">
+                  <i class="icon-service"></i>
+                  <span>智慧食堂</span>
+                  <i class="ico-arr-project"></i>
+                </a>
+                <ul class="dropdown-menu">
+                  <li class="dropdown">
+                    <a href="#" data-toggle="dropdown" class="dropdown-toggle">
+                      <i class="icon-repair"></i>智慧食堂-sub1
+                      <b class="ico-arr-dropdown"></b></a>
+                    <ul class="dropdown-menu">
+                      <li class="dropdown">
+                        <a href="#" data-toggle="dropdown" aria-expanded="false" class="dropdown-toggle">智慧食堂-sub2-sub
+                          <!----></a>
+                        <ul class="dropdown-menu"></ul>
+                      </li>
+                      <li class="dropdown">
+                        <a href="#" data-toggle="dropdown" aria-expanded="false" class="dropdown-toggle">智慧食堂-sub2-sub
+                          <!----></a>
+                        <ul class="dropdown-menu"></ul>
+                      </li>
+                      <li class="dropdown">
+                        <a href="#" data-toggle="dropdown" aria-expanded="false" class="dropdown-toggle">智慧食堂-sub2-sub
+                          <!----></a>
+                        <ul class="dropdown-menu"></ul>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="dropdown">
+                    <a href="#" data-toggle="dropdown" class="dropdown-toggle">
+                      <i class="icon-repair"></i>智慧食堂-sub2
+                      <b class="ico-arr-dropdown"></b></a>
+                    <ul class="dropdown-menu"></ul>
+                  </li>
+                </ul>
+              </li>
+              <li class="navigation">
+                <a href="#" data-toggle="dropdown" set-index="3" class="sidebar-toggle">
+                  <i class="icon-service"></i>
+                  <span>APP管理</span>
+                  <i class="ico-arr-project"></i>
+                </a>
+                <ul class="dropdown-menu">
+                  <li class="dropdown">
+                    <a href="#" data-toggle="dropdown" class="dropdown-toggle">
+                      <i class="icon-repair"></i>APP管理-sub0</a>
+                  </li>
+                  <li class="dropdown">
+                    <a href="#" data-toggle="dropdown" class="dropdown-toggle">
+                      <i class="icon-repair"></i>APP管理-sub1
+                      <b class="ico-arr-dropdown"></b></a>
+                    <ul class="dropdown-menu">
+                      <li class="dropdown">
+                        <a href="#" data-toggle="dropdown" aria-expanded="false" class="dropdown-toggle">树形标题一
+                          <!----></a>
+                        <ul class="dropdown-menu">
+                          <li>树形孙标题三</li>
+                          <li>树形孙标题三</li></ul>
+                      </li>
+                      <li class="dropdown">
+                        <a href="#" data-toggle="dropdown" aria-expanded="false" class="dropdown-toggle">树形标题二
+                          <!----></a>
+                        <ul class="dropdown-menu"></ul>
+                      </li>
+                      <li class="dropdown">
+                        <a href="#" data-toggle="dropdown" aria-expanded="false" class="dropdown-toggle">树形标题三
+                          <!----></a>
+                        <ul class="dropdown-menu"></ul>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="dropdown">
+                    <a href="#" data-toggle="dropdown" class="dropdown-toggle">
+                      <i class="icon-repair"></i>APP管理-sub2
+                      <b class="ico-arr-dropdown"></b></a>
+                    <ul class="dropdown-menu"></ul>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+            <!--<div class="sidebar-collapse sec-sidebar-collapse" id="sec-sidebar">
+            <a href="#">
+            <i class="ico-arr-collapse"></i></a>
+            </div>-->
+            <div class="product-nav">
+              <div id="sec-sidebar" class="sec-sidebar">
+                <h1 class="h1">示例管理</h1>
+                <ul class="nav navbar-nav sec-side-nav">
+                  <li class="navigation dropdown">
+                    <a href="#" set-index="0" class="sidebar-toggle">
+                      <i class="ico-arr-down-black"></i>示例-2层</a>
+                    <ul class="dropdown-menu">
+                      <li class="active">
+                        <a href="#">树形标12312题一</a></li>
+                    </ul>
+                  </li>
+                  <li class="navigation" id="navigation1">
+                    <a href="#" class="sidebar-toggle" data-toggle="#navigation1">
+                      <i class="ico-arr-down-black"></i>树形标题二</a>
+                    <ul class="menu">
+                      <li class="active">
+                        <a href="">树形子标题一</a></li>
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">树形子标题二-sub
+                          <b class="ico-arr-plus-black"></b></a>
+                        <ul class="dropdown-menu">
+                          <li class="dropdown">
+                            <a href="#" data-toggle="dropdown" class="dropdown-toggle">
+                              <i class="icon-repair"></i>示例-sub2
+                              <b class="ico-arr-dropdown"></b></a>
+                            <ul class="dropdown-menu">
+                              <li class="dropdown">
+                                <a href="#" data-toggle="dropdown" aria-expanded="false" class="dropdown-toggle">示例-sub2-sub
+                                  <!----></a>
+                                <ul class="dropdown-menu"></ul>
+                              </li>
+                              <li class="dropdown">
+                                <a href="#" data-toggle="dropdown" aria-expanded="false" class="dropdown-toggle">示例-sub2-sub
+                                  <!----></a>
+                                <ul class="dropdown-menu"></ul>
+                              </li>
+                              <li class="dropdown">
+                                <a href="#" data-toggle="dropdown" aria-expanded="false" class="dropdown-toggle">示例-sub2-sub
+                                  <!----></a>
+                                <ul class="dropdown-menu"></ul>
+                              </li>
+                            </ul>
+                          </li>
+                          <li>
+                            <a href="">树形孙标题二</a></li>
+                          <li>
+                            <a href="">树形孙标题三</a></li>
+                        </ul>
+                      </li>
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">树形子标题三
+                          <b class="ico-arr-plus-black"></b></a>
+                        <ul class="dropdown-menu">
+                          <li>
+                            <a href="">树形孙标题一</a></li>
+                          <li>
+                            <a href="">树形孙标题二</a></li>
+                          <li>
+                            <a href="">树形孙标题三</a></li>
+                          <li>
+                            <a href="">树形孙标题一</a></li>
+                          <li>
+                            <a href="">树形孙标题二</a></li>
+                          <li>
+                            <a href="">树形孙标题三</a></li>
+                          <li>
+                            <a href="">树形孙标题一</a></li>
+                          <li>
+                            <a href="">树形孙标题二</a></li>
+                          <li>
+                            <a href="">树形孙标题三</a></li>
+                          <li>
+                            <a href="">树形孙标题二</a></li>
+                          <li>
+                            <a href="">树形孙标题三</a></li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="navigation dropdown">
+                    <a href="#" set-index="1" class="sidebar-toggle">
+                      <i class="ico-arr-down-black"></i>示例-sub2</a>
+                    <ul class="dropdown-menu">
+                      <li class="active">
+                        <a href="#">树形标12312题一</a></li>
+                    </ul>
+                  </li>
+                  <li class="navigation dropdown">
+                    <a href="#" set-index="2" class="sidebar-toggle">
+                      <i class="ico-arr-down-black"></i>示例-sub3</a>
+                    <ul class="dropdown-menu">
+                      <li class="active">
+                        <a href="#">树形标12312题一</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+              <div class="sidebar-collapse sec-sidebar-collapse">
+                <a href="#">
+                  <i class="ico-arr-collapse"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Fixed navbar end -->
+
+
+
+        <!-- Page content -->
+        <div id="content" class="col-md-12">
+            <!-- page header -->
+            <!-- 大标题 -->
+            <!--<h1 class='content-h1'>大标题展示 <button class="refresh"></button></h1>-->
+            <div class="pageheader">
+              <h1>
+                <i class="h1-title"></i>基于VUE-iView实现的树</h1>
+              <!--如果有个别页面要显示面包屑的 start-->
+              <div class="breadcrumbs">
+                <ol class="breadcrumb">
+                  <li>
+                    <a href="">子栏目</a></li>
+                  <li class="active">具体页面名称</li></ol>
+              </div>
+              <!--如果有个别页面要显示面包屑的 end-->
+              <div class="pull-right">
+                <a href="" id="refresh-toggler" class="refresh" title="刷新">
+                  <i class="icon-refresh"></i>
+                </a>
+              </div>
+            </div>
+            <!-- /page header -->
+            <div class="main">
+            
+     
+                <div id="tree">
+                    <tree :data="data2" show-checkbox></tree>
+                </div>
+  
+            </div>
+            <!-- /content container --></div>
+        <!-- Page content end --></div>
+      <!-- Make page fluid--></div>
+
+      <!-- Wrap all page content end -->
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script type="text/javascript" src="../content/frame/jquery/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script type="text/javascript" src="../content/frame/bootstrap/js/bootstrap.js"></script>
+    
+    
+    <!-- my js start -->
+    <script type="text/javascript" src="../content/frame/bootstrap/js/my-dropdown.js"></script>
+    <script type="text/javascript" src="../content/frame/vuejs/vue.js"></script>
+    <!-- my js end -->
+
+    <script type="text/javascript" src="../content/frame/nicescroll/jquery.nicescroll.min.js"></script>
+
+
+
+    <script type="text/javascript" src="../content/normal/js/frame.js"></script>
+
+    <script src="../content/frame/iview/iview.min.js"></script>
+    <link rel="stylesheet" href="../content/frame/iview/iview.css">
+
+
+    <script>
+                          
+        var Main = {
+            data () {
+                return {
+                    data2: [
+                        {
+                            title: 'parent 1',
+                            expand: true,
+                            children: [
+                                {
+                                    title: 'parent 1-1',
+                                    expand: true,
+                                    children: [
+                                        {
+                                            title: 'leaf 1-1-1'
+                                        },
+                                        {
+                                            title: 'leaf 1-1-2',
+                                            disabled: true
+                                        }
+                                    ]
+                                },
+                                {
+                                    title: 'parent 1-2',
+                                    expand: true,
+                                    children: [
+                                        {
+                                            title: 'leaf 1-2-1'
+                                        },
+                                        {
+                                            title: 'leaf 1-2-1'
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            }
+        }
+    
+    var Component = Vue.extend(Main)
+    new Component().$mount('#tree')
+    </script>
+</body>
+</html>

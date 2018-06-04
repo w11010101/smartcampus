@@ -19,8 +19,10 @@
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     <![endif]-->
-    <link rel="stylesheet" type="text/css" href="../content/frame/jquery.date/jquery.datetimepicker.min.css"></head>
-  
+    <link rel="stylesheet" type="text/css" href="../content/frame/jquery.date/jquery.datetimepicker.min.css">
+  </head>
+
+
   <body class="bg-1">
     <!-- Wrap all page content here -->
     <div id="wrap">
@@ -566,8 +568,6 @@
                   <span class="red">*</span>部门信息：</label>
                 <div class="col-md-4">
                   <input class="form-control" type="text" name="" placeholder="部门编号/名称/助记码">
-                  
-                  
                 </div>
                 <!--如果要把这个说明字段文字加在本行，就如下代码 （相应字色加样式标签如“red”）-->
                 <div class="help-block col-md-reset">
@@ -606,6 +606,18 @@
                   <span class="form-date">
                     <input id="endDate" type="text" placeholder="选择时间" class="form-control"></span>
                 </div>
+              </div>
+              <div class="form-group">
+                <label class="col-md-3 control-label">
+                  <span class="red">*</span>默认网关：</label>
+                <div class="col-md-4">
+                  <input class="form-control input-mask-netnumber" type="text" id="form-field-mask-1" />
+                </div>
+                <!--下面这句真实使用时可不用，我测试用的-->
+                <div class="help-block col-md-reset">
+                  <div id="info"></div>
+                </div>
+                <!--上面这句真实使用时可不用，我测试用的-->
               </div>
               <div class="form-group">
                 <label class="col-md-3 control-label">
@@ -718,14 +730,30 @@
                     <input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3">单选三</label></div>
               </div>
               <div class="form-group">
+                <label class="col-md-3 control-label">bootstrap样式按钮：</label>
+                <div class="col-md-4">            
+										<input type="file" class="filestyle" data-icon="false">
+                </div>
+              </div>
+
+              <div class="form-group">
+                  <label class="col-md-3 control-label">上传图片：</label>
+                  <div class="col-md-4">            
+                      <input id="fileUpload" type="file" class="filestyle" data-icon="false" accept="image/gif,image/jpeg,image/jpg,image/png,image/svg">
+                      <!--以上 accept="image/gif,image/jpeg,image/jpg,image/png,image/svg"  是表示限制仅上传图片类文件用的，若用别的方法限定此处也可以不加-->
+                      <div id="image-holder"></div>
+                  </div>
+                  <div class="help-block col-md-reset">请选择1寸照片比例的图片</div>
+                </div>
+              <!--<div class="form-group">
                 <label class="col-md-3 control-label">上传：</label>
                 <div class="col-md-4">
                   <div class="file-upload">
                     <span>
                       <input type="file" name="" class="form-control" id=""></span>
-                    <!--<button class="btn btn-default" type="submit">上传</button>--></div>
+                  </div>
                 </div>
-              </div>
+              </div>-->
               <div class="form-group">
                 <label class="col-md-3 control-label">测试主题颜色按钮：</label>
                 <div class="col-md-9">
@@ -738,12 +766,60 @@
                   <div class="btn btn-danger">（危险）Danger</div>
                   <div class="btn btn-link">（链接）Link</div></div>
               </div>
+
+              <!--<form id="demoform" action="#" method="post">
+                <select multiple="multiple" size="10" name="duallistbox_demo1[]">
+                  <option value="option1">Option 1</option>
+                  <option value="option2">Option 2</option>
+                  <option value="option3" selected="selected">Option 3</option>
+                  <option value="option4">Option 4</option>
+                  <option value="option5">Option 5</option>
+                  <option value="option6" selected="selected">Option 6</option>
+                  <option value="option7">Option 7</option>
+                  <option value="option8">Option 8</option>
+                  <option value="option9">Option 9</option>
+                  <option value="option0">Option 10</option>
+                </select>
+                <br>
+                <button type="submit" class="btn btn-default btn-block">Submit data</button>
+              </form>
+            -->
+              <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-top" for="duallist">jquery双向选择： </label>
+
+                <div class="col-sm-8">
+                  <select multiple="multiple" size="10" name="duallistbox_demo1[]" id="duallist">
+                    <option value="option1">张三（234567）</option>
+                    <option value="option2">李四（456677）</option>
+                    <option value="option3" selected="selected">王五（789043)</option>
+                    <option value="option4">赵六（456677）</option>
+                    <option value="option5">李四（456677）</option>
+                    <option value="option6">赵六（456677）</option>
+                    <option value="option7">王五（789043)</option>
+                    <option value="option8">李四（456677）</option>
+                    <option value="option9">赵六（456677）</option>
+                    <option value="option0">赵六（456677）</option>
+                  </select>
+                  <!--使用时注意在底部加js和引用js
+                    <script src="../content/frame/bootstrap-duallistbox/jquery.bootstrap-duallistbox.js"></script>
+
+                    //jquery双向select选择
+                    var demo1 = $('select[name="duallistbox_demo1[]"]').bootstrapDualListbox();
+                  -->
+                </div>
+              </div>
               <div class="form-actions">
                 <div class="col-md-offset-3 col-md-8">
                   <button type="submit" id="submitBtn-app" class="btn btn-lg btn-default btn-primary">保存</button>
                   <button id="cancelBtn" type="reset" class="btn btn-lg btn-default">重置</button></div>
               </div>
             </form>
+
+
+
+
+
+
             <div class="clearfix height30"></div>
             <h2 class="content-h2">例：# 栅格系统-4列 #</h2>
             <!-- 栅格系统 -->
@@ -770,6 +846,9 @@
               <div class="col-md-4">分区编号：
                 <span>20202020</span></div>
             </div>
+
+
+
             <div class="clearfix height30"></div>
             <h2 class="content-h2">例：# 内联表单 #</h2>
             <form class="form-inline">
@@ -785,11 +864,6 @@
               <div class="form-group">
                 <label>就餐时间：</label>
                 <span>11:30—13:00</span></div>
-              <!--<div class="form-group">
-              <label>主题颜色按钮：</label>
-              <div class="btn btn-default btn-theme">主题按钮</div></div>
-              <div class="form-group">
-              <button class="btn btn-default" type="submit">查询按钮</button></div>-->
               <div class="form-group">
                 <label>FaceID：</label>
                 <input type="text" v-model="queryBy.faceid" name="" placeholder="请输入FaceID" class="form-control"></div>
@@ -830,6 +904,8 @@
                 <button class="btn btn-default" type="">查询按钮</button>
                 <button class="btn btn-default" type="">其他按钮</button></div>
             </form>
+
+
             <div class="clearfix height30"></div>
             <h2 class="content-h2">例：# 内联表单-对齐式 #</h2>
             <form class="form-inline form-inline-alignment">
@@ -890,6 +966,8 @@
                 <button class="btn btn-default" type="">查询按钮</button>
                 <button class="btn btn-default" type="">其他按钮</button></div>
             </form>
+
+
             <div class="clearfix height30"></div>
             <h2 class="content-h2">例：# 查询条件独立成行 #</h2>
             <div class="searcharea">
@@ -1177,6 +1255,14 @@
 
     <script type="text/javascript" src="../content/normal/js/frame.js"></script>
 
+
+
+    <script type="text/javascript" src="../content/frame/bootstrap/js/bootstrap-filestyle.js"></script>
+    <script src="../content/frame/bootstrap-duallistbox/jquery.bootstrap-duallistbox.js"></script>
+    <script src="../content/frame/jquery/jquery.maskedinput.min.js"></script>
+
+
+
     <script>
         // 下拉选项
         var menu = $(".dropdown-menu");
@@ -1212,337 +1298,64 @@
                 })
             },
         });
-        // 分页
-        var pagingVM = new Vue({
-            el: '#paging-app',
-            data: {
-                current_page: 1, //当前页
-                pages: 20, //总页数
-                changePage:'',//跳转页
-                nowIndex:0,
-                centerLength:4
-            },
-            computed:{
-                show:function(){
-                    return this.pages && this.pages !=1
-                },
-                pstart: function() {
-                    return this.current_page == 1;
-                },
-                pend: function() {
-                    return this.current_page == this.pages;
-                },
-                efont: function() {
-                    if (this.pages <= 7) return false;
-                    return this.current_page > 5
-                },
-                ebehind: function() {
-                    if (this.pages <= 7) return false;
-                    var nowAy = this.indexs;
-                    return nowAy[nowAy.length - 1] != this.pages;
-                },
-                indexs: function() {
-    
-                    var left = 1,
-                    right = this.pages,
-                    ar = [];
-                    if (this.pages >= 7) {
-                        if (this.current_page > 5 && this.current_page < this.pages - 4) {
-                            var CL = this.centerLength;
-                            if(CL%2 == 0){
-                                CL = this.centerLength + 1;
-                            }
-                            left = Number(this.current_page) - (CL-1)/2;
-                            right = Number(this.current_page) + (CL-1)/2;
-                        } else {
-                            if (this.current_page <= 5) {
-                                left = 1;
-                                right = 5;
-                            } else {
-                                right = this.pages;
-    
-                                left = this.pages - 6;
-                            }
-                        }
-                    }
-                   while (left <= right) {
-                       ar.push(left);
-                       left++;
-                   }
-                    return ar;
-                },
-            },
-            methods: {
-                jumpPage: function(id) {
-                    this.current_page = id;
-                },
-            },
-    
-        })
-        // 多选
-        function table_checkbox_change(){
-            $("#table").on("click",".table-checkbox",function(){
-                var table = $("#table");
-                $(this).toggleClass("active");
-    
-                if($("tbody .table-checkbox").length == $("tbody .table-checkbox.active").length){
-                    $("thead .table-checkbox").addClass("active");
-                }else{
-                    $("thead .table-checkbox").removeClass("active");
-                }
-            });
-    
-            $("#table").on("click","thead .table-checkbox",function(){
-                var table = $("#table");
-                $(this).toggleClass("active");
-                if($(this).hasClass("active")){
-                    $("tbody .table-checkbox").addClass("active");
-                }else{
-                    $("tbody .table-checkbox").removeClass("active");
-                }
-                
-            });
-        }
-        table_checkbox_change();
-        // echarts
-        // 基于准备好的dom，初始化echarts实例
-        var myChart = echarts.init(document.getElementById('myChart'));
-        // 指定图表的配置项和数据
-        var option = {
-            title: {
-                text: '堆叠区域图'
-            },
-            tooltip : {
-                trigger: 'axis',
-                axisPointer: {
-                    type: 'cross',
-                    label: {
-                        backgroundColor: '#6a7985'
-                    }
-                }
-            },
-            legend: {
-                bottom:10,
-                itemGap:20,
-                data:[
-                    {
-                        name:'数据1',
-                        icon:"rect"
-                    },
-                    {
-                        name:'数据2',
-                        icon:"rect"
-                    },
-                    {
-                        name:'数据3',
-                        icon:"rect"
-                    },
-                    {
-                        name:'数据4',
-                        icon:"rect"
-                    },
-                    {
-                        name:'数据5',
-                        icon:"rect"
-                    }]
-            },
-            toolbox: {
-                right:50,
-                feature: {
-                    saveAsImage: {},
-                    restore:{},
-                    magicType:{
-                        type: ['line', 'bar'],
-                    },
-                }
-            },
-            grid: {
-                left: '3%',
-                right: '4%',
-                bottom: '10%',
-                containLabel: true
-            },
-            xAxis : [
-                {
-                    type : 'category',
-                    boundaryGap : false,
-                    data : ['周一','周二','周三','周四','周五','周六','周日']
-                }
-            ],
-            yAxis : [
-                {
-                    type : 'value'
-                }
-            ],
-            series : [
-                {
-                    name:'数据1',
-                    type:'line',
-                    stack: '总量',
-                    areaStyle: {
-                        color: {
-                            type: 'linear',
-                            x: 0,
-                            y: 0,
-                            x2: 0,
-                            y2: 1,
-                            colorStops: [{
-                                offset: 0, color: '#02a6ff' // 0% 处的颜色
-                            }, {
-                                offset: 1, color: '#8ce6ff' // 100% 处的颜色
-                            }],
-                            globalCoord: false // 缺省为 false
-                        }
-                    },
-                    lineStyle:{
-                        color:"#0098eb"
-                    },
-                    symbolSize:10,
-                    itemStyle:{
-                        color:"#0098eb"
-                    },
-                    data:[120, 132, 101, 134, 90, 230, 210]
-                },
-                {
-                    name:'数据2',
-                    type:'line',
-                    stack: '总量',
-                    areaStyle: {
-                        color: {
-                            type: 'linear',
-                            x: 0,
-                            y: 0,
-                            x2: 0,
-                            y2: 1,
-                            colorStops: [{
-                                offset: 0, color: '#a9f9f8' // 0% 处的颜色
-                            }, {
-                                offset: 1, color: '#5cf0f0' // 100% 处的颜色
-                            }],
-                            globalCoord: false // 缺省为 false
-                        }
-                    },
-                    lineStyle:{
-                        color:"#57c7c8"
-                    },
-                    symbolSize:10,
-                    itemStyle:{
-                        color:"#57c7c8"
-                    },
-                    data:[220, 182, 191, 234, 290, 330, 310]
-                },
-                {
-                    name:'数据3',
-                    type:'line',
-                    stack: '总量',
-                    areaStyle: {
-                        color: {
-                            type: 'linear',
-                            x: 0,
-                            y: 0,
-                            x2: 0,
-                            y2: 1,
-                            colorStops: [{
-                                offset: 0, color: '#ffe47d ' // 0% 处的颜色
-                            }, {
-                                offset: 1, color: '#ffe88a' // 100% 处的颜色
-                            }],
-                            globalCoord: false // 缺省为 false
-                        }
-                    },
-                    lineStyle:{
-                        color:"#deae06"
-                    },
-                    symbolSize:10,
-                    itemStyle:{
-                        color:"#deae06"
-                    },
-                    data:[150, 232, 201, 154, 190, 330, 410]
-                },
-                {
-                    name:'数据4',
-                    type:'line',
-                    stack: '总量',
-                    areaStyle: {
-                        color: {
-                            type: 'linear',
-                            x: 0,
-                            y: 0,
-                            x2: 0,
-                            y2: 1,
-                            colorStops: [{
-                                offset: 0, color: '#feb89f' // 0% 处的颜色
-                            }, {
-                                offset: 1, color: '#ffb99f' // 100% 处的颜色
-                            }],
-                            globalCoord: false // 缺省为 false
-                        }
-                    },
-                    lineStyle:{
-                        color:"#e78352"
-                    },
-                    symbolSize:10,
-                    itemStyle:{
-                        color:"#e78352"
-                    },
-                    data:[320, 332, 301, 334, 390, 330, 320]
-                },
-                {
-                    name:'数据5',
-                    type:'line',
-                    stack: '总量',
-                    label: {
-                        normal: {
-                            show: true,
-                            position: 'top'
-                        }
-                    },
-                    areaStyle: {
-                        color: {
-                            type: 'linear',
-                            x: 0,
-                            y: 0,
-                            x2: 0,
-                            y2: 1,
-                            colorStops: [{
-                                offset: 0, color: '#e837aa' // 0% 处的颜色
-                            }, {
-                                offset: 1, color: '#ffb1e5' // 100% 处的颜色
-                            }],
-                            globalCoord: false // 缺省为 false
-                        }
-                    },
-                    lineStyle:{
-                        color:"#d02597"
-                    },
-                    symbolSize:10,
-                    itemStyle:{
-                        color:"#d02597"
-                    },
-                    data:[820, 932, 901, 934, 1290, 1330, 1320]
-                }
-            ]
-        };
-        // 使用刚指定的配置项和数据显示图表。
-        myChart.setOption(option);
-        // 更改图标类型事件
-        myChart.on("magictypechanged",function(params){
-            var newSeies = [];
-            for(var i = 0;i<5;i++){
-                newSeies.push({
-                        stack: null,
-                        areaStyle: null,
-                    });
-            }
-            myChart.setOption({
-                series:newSeies
-            });
-        });
-        // 重置事件
-        myChart.on("restore",function(params){
-            myChart.setOption(option);
-        });
     </script>
+    
+    <script>
 
+    //关于图片上传缩略图的显示
+    $("#fileUpload").on('change', function () {
+      if (typeof (FileReader) != "undefined") {
+          var image_holder = $("#image-holder");
+          image_holder.empty();
+
+          var reader = new FileReader();
+          reader.onload = function (e) {
+              $("<img />", {
+                  "src": e.target.result,
+                  "class": "thumb-image"
+              }).appendTo(image_holder);
+
+          }
+          image_holder.show();
+          reader.readAsDataURL($(this)[0].files[0]);
+      } else {
+          alert("你的浏览器不支持FileReader.");
+      }
+    });
+    
+
+    //jquery双向select选择
+    var demo1 = $('select[name="duallistbox_demo1[]"]').bootstrapDualListbox();
+</script>
+<!--<script>
+  $(function (){
+      $("#phone").mask("999-999-9999");
+      $("#phone").blur(function() {
+          $("#info").html("手机号为: " + this.value);
+      });
+  });
+  jQuery(function($){
+   $.mask.definitions['~']='[+-]';
+   $("#eyescript").mask("~9.99 ~9.99 999");
+});
+  </script>-->
+  <script type="text/javascript">
+    jQuery(function($) {
+      
+      //tooltip 用的
+      $('[data-rel=tooltip]').tooltip({container:'body'});
+      $('[data-rel=popover]').popover({container:'body'});
+    
+      //maskinput 默认网关的格式限定，自行修改
+      $.mask.definitions['~']='[+-]';
+      $('.input-mask-netnumber').mask('999 : 999 : 999 : 999'), { placeholder: " " };
+       $("input").blur(function() {
+            $("#info").html(" " + $(this).mask());
+        }).dblclick(function() {
+            $(this).unmask();
+        });
+    });
+
+  </script>
 </body>
 </html>

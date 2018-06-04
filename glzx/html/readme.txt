@@ -43,4 +43,16 @@
 5、修改表格，增加排序功能；
 6、删除my-dropdown.js
 7、新增form-inline.html(内联表单)
-
+============ 2018.5.25 ============
+1、修改自己的form表单的部分css和dom
+2、删除index.html和nva-index.html
+3、新增图表（local-index.html查看）
+4、新增highcharts.js
+============ 2018.5.30 ============
+1、删除demo-Doc.html和demo.html
+2、修改form.html部分css
+3、添加signIn.html 登录页
+4、新增层级多选功能
+5、修改之前表单的多选js，并封装js与checkbox.js
+============ 2018.6.1 ============
+1、添加requirejs，来实现前端模块开发；详细使用参考test.html

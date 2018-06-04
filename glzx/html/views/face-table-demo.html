@@ -654,7 +654,7 @@
                           <td class="time">2018-12-12 12:12:12</td>
                           <td>人脸识别</td>
                           <td class="numdisapy">
-                            <span id="showDiv" class="showDiv" style="display:none;">334354546
+                            <span id="showDiv" class="showDiv" style="display:none;">334354546334354546334354546334354546
                               <a onclick="numDisplay()">
                                 <i class="icon-hidden">隐藏</i></a>
                             </span>
@@ -665,7 +665,7 @@
                           </td>
                           <td class="right">98%</td>
                           <td>检测不到人脸</td>
-                          <td>备注：关于表格的使用方法class="text-danger"禁止</td>
+                          <td class="linefeed">备注：关于表格的使用方法class="text-danger"禁止</td>
                           <td>
                             <span class="text-danger">禁止</span></td>
                           <td>
@@ -699,7 +699,7 @@
                           </td>
                           <td class="right">98%</td>
                           <td>检测不到人脸</td>
-                          <td>备注：关于表格的使用方法class="text-danger"禁止</td>
+                          <td class="linefeed">备注：关于表格的使用方法class="text-danger"禁止</td>
                           <td>
                             <span class="text-danger">禁止</span></td>
                           <td>
@@ -733,7 +733,7 @@
                           </td>
                           <td class="right">98%</td>
                           <td>检测不到人脸</td>
-                          <td>备注：关于表格的使用方法class="text-danger"禁止</td>
+                          <td class="linefeed">备注：关于表格的使用方法class="text-danger"禁止</td>
                           <td>
                             <span class="text-danger">禁止</span></td>
                           <td>
@@ -849,6 +849,21 @@
                     <i class="icon-info"></i>若提示需在下一行就采用这种结构</div>
                 </div>
                 <div class="form-group">
+                  <label class="col-md-3 control-label">bootstrap样式按钮：</label>
+                  <div class="col-md-4">            
+                      <input type="file" class="filestyle" data-icon="false">
+                  </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">上传图片：</label>
+                    <div class="col-md-4">            
+                        <input id="fileUpload" type="file" class="filestyle" data-icon="false" accept="image/gif,image/jpeg,image/jpg,image/png,image/svg">
+                        <!--以上 accept="image/gif,image/jpeg,image/jpg,image/png,image/svg"  是表示限制仅上传图片类文件用的，若用别的方法限定此处也可以不加-->
+                        <div id="image-holder"></div>
+                    </div>
+                    <div class="help-block col-md-reset">请选择1寸照片比例的图片</div>
+                </div>
+                <div class="form-group">
                   <label class="col-md-3 control-label" for="">状态：</label>
                   <div class="col-md-4">
                     <div class="radio-inline">
@@ -888,6 +903,12 @@
                     <button type="submit" class="btn btn-lg btn-default btn-primary" id="btnEmpty">保存</button>
                     <button id="btnClear" type="reset" class="btn btn-lg btn-default">重置</button></div>
                 </div>
+                <div class="clearfix height30"></div>
+                <div class="form-actions">
+                  <div class="col-md-offset-3 col-md-8">
+                    <a href="" class="btn btn-lg btn-default btn-primary" id="btnEmpty">保存</a>
+                    <a href="" class="btn btn-lg btn-default">重置</a></div>
+                </div>
               </form>
 
 
@@ -911,6 +932,7 @@
               <button type="button" class="btn btn-default" data-toggle="modal" href="#static">带两类按钮的弹窗</button>
               <button type="button" class="btn btn-default" data-toggle="modal" href="#static2">带一个按钮的弹窗</button>
               <button type="button" class="btn btn-default" data-toggle="modal" href="#static3">小弹窗</button>
+              <button type="button" class="btn btn-default" data-toggle="modal" href="#static4">alert弹窗</button>
               <div id="static" class="modal fade modal-big" tabindex="-1" data-backdrop="static" data-keyboard="false">
                 <div class="modal-dialog">
                   <div class="modal-content">
@@ -986,6 +1008,22 @@
                   </div>
                 </div>
               </div>
+              <div id="static4" class="modal fade" tabindex="-1" data-backdrop="static" data-keyboard="false">
+                  <div class="modal-dialog noborder">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="btn close" data-dismiss="modal" aria-hidden="true"></button>
+                        <!--如果不需标题则没有下面这条-->
+                        <h4 class="modal-title">localhost:8080显示</h4></div>
+                      <div class="modal-body">
+                        <p>确定删除吗？</p>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" data-dismiss="modal" class="btn btn-primary">确定</button>
+                        <button type="button" data-dismiss="modal" class="btn btn-default">取消</button></div>
+                    </div>
+                  </div>
+                </div>
               <!-- /content container --></div>
             <!-- Page content end --></div>
           <!-- Make page fluid--></div>
@@ -1020,6 +1058,7 @@
 
       <script type="text/javascript" src="../content/frame/smoke/js/smoke.js"></script>
     
+      <script type="text/javascript" src="../content/frame/bootstrap/js/bootstrap-filestyle.js"></script>
 
       <script>
     
@@ -1115,8 +1154,30 @@
                   icon: 'glyphicon-time',
                   permanent: true
                 });
-              });
+              })
+        </script>
 
+        <script>
+           //关于图片上传缩略图的显示
+           $("#fileUpload").on('change', function () {
+              if (typeof (FileReader) != "undefined") {
+                  var image_holder = $("#image-holder");
+                  image_holder.empty();
+
+                  var reader = new FileReader();
+                  reader.onload = function (e) {
+                      $("<img />", {
+                          "src": e.target.result,
+                          "class": "thumb-image"
+                      }).appendTo(image_holder);
+
+                  }
+                  image_holder.show();
+                  reader.readAsDataURL($(this)[0].files[0]);
+              } else {
+                  alert("你的浏览器不支持FileReader.");
+              }
+            });
         </script>
 </body>
 </html>

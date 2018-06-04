@@ -1,4 +1,5 @@
-// $(function(){
+function runNavVue(Vue){
+
     // from in data.js
     console.log(data);
     
@@ -96,12 +97,6 @@
         computed:{
             
         },
-        methods:{
-            // subJump:function(){
-            //     var $this = $(this.$el);
-            //     navVM.jumpPage($this);
-            // }
-        }
     });
     // sec-Sidebar  product
     Vue.component("dropdown-product-menu",{
@@ -136,13 +131,6 @@
             fn1:function(){
             },
         },
-        methods:{
-            subClick:function(){
-                var $this = $(this.$el);
-                console.log($this);
-                $this.parents(".navigation").addClass("open");
-            }
-        }
     });
     Vue.component("dropdown-product-sub-list",{
         props:["subtodo",'index'],
@@ -175,8 +163,7 @@
                 this.$nextTick(function () {
                     // DOM 现在更新了
                     // `this` 绑定到当前实例
-                    console.log("watch")
-                    $("#sidebar .navigation").eq(0).addClass("active");
+                    $("#sidebar .navigation").eq(0).addClass("open");
                 })
             }
         },
@@ -188,7 +175,6 @@
                 var nid = node.attr("nid");
                 this.setActive(this.navData,setId);
                 var href = node.attr("action");
-                console.log(setId);
                 if(!href) return false;
                 // 判断，如果nid对应的右侧div不存在，则创建
                 var parent = $("#right-container");
@@ -198,7 +184,6 @@
                     parent.append("<div id='" + nid + "' ></div>");
                     page = parent.find("#" + nid);
                 }
-                console.log(page)
                 if(!page.attr("loaded")){
                     console.log("loaded");
                     page.load(href).attr("loaded",true);
@@ -207,12 +192,8 @@
             },
             toggleDropdown:function(node){
                 var sidebar = node.parents("#sidebar");
-                console.log(sidebar)
                 // 当屏幕小鱼1024时，会添加classname 'collapsed';
                 if(sidebar.hasClass("collapsed")){
-                    console.log("you",node);
-                    node.parents(".navigation").addClass("active").siblings().removeClass("active");
-                    // navVM.activeNav = navVM.navData[parseInt(node.attr("setid") - 1)];
                     navVM.activeNav = navVM.navData[node.parent().index() - 1];
                 }else{
 
@@ -222,19 +203,14 @@
 
                 for(var i=0;i<arr.length;i++){
                     navVM.$set(arr[i],"active",null);
-                    // console.log(arr[i].id,": ",setId)
                     if(arr[i].id == setId){
 
                         console.log("这里 ",arr[i])
                         navVM.$set(arr[i],"active",true);
                         
                         this.$nextTick(function(){
-                            $("#sidebar .dropdown.active").parents(".dropdown").addClass("open").siblings().removeClass("open");
-                            $("#sidebar .dropdown.active").parents(".navigation").addClass("open").siblings().removeClass("open");
-                            $(".product-nav .dropdown.active").parents(".dropdown").addClass("open");
-                            $(".product-nav .dropdown.active").parents(".navigation").removeClass('menu-hide').siblings().addClass("menu-hide");
-                        })
-                        // return false;
+                            // $(".product-nav .dropdown.active").parents(".navigation").removeClass('menu-hide').siblings().addClass("menu-hide");
+                        });
                     }else{
                         
                         if(arr[i]['nodes']){
@@ -252,5 +228,5 @@
     }   
     postData();
 
-// })
+}
 
