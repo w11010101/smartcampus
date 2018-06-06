@@ -1,18 +1,21 @@
 require.config({
     baseUrl:'../content/frame',
     paths:{
+        // 
         'jquery':'./jquery/jquery.min',
-        'bootstrap':'./bootstrap/js/bootstrap',
+        'bootstrapJs':'./bootstrap/js/bootstrap',
         'vue':'./vuejs/vue',
         'jquery-mousewheel':'./jquery.date/jquery-mousewheel',
         'dateTime':'./jquery.date/jquery.datetimepicker.full',
+        // my js
         'test':'../normal/js/test',
-        'checkbox':'../normal/js/checkbox'
-    }
+        'checkbox':'../normal/js/checkbox',
+        'navVue':'../normal/js/v-nav'
+    },
 });
-require(['jquery','bootstrap','vue','test','checkbox'],function($,_b,Vue,test,_c){
-    console.log(test);
-    test.start('!!注意这里 :')
+require(['jquery','bootstrapJs','vue','test','checkbox','navVue'],function($,_bootstrapJs,Vue,test,_checkbox,_navVue){
+
+    test.start('!!注意这里 :');
     
     // nav 导航 ---------------------------------------
     // 非模块开发用法，若要用requirejs，请遵行该规范；尽量避免此种引用 

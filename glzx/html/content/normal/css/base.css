@@ -555,7 +555,10 @@ fieldset[disabled] .form-control {
 	
 }
 input[type=number].form-control {
-	width:60px;float:left;margin-right:10px;
+	width:60px;/*float:left;*/margin-right:10px;
+}
+.form-horizontal input[type=number].form-control {
+	float:left;
 }
 .form-horizontal label.radio-inline,.form-horizontal label.checkbox-inline,label.radio-inline,label.checkbox-inline {
 	padding-left:20px;
@@ -1193,6 +1196,7 @@ input[type=checkbox].ace.ace-switch.ace-switch+.lbl {
 	position:absolute;
 	bottom:-9px;
 	right:-6px;
+	z-index:-1;
 }
 .card:after {
 	clear:both;
@@ -1204,6 +1208,7 @@ input[type=checkbox].ace.ace-switch.ace-switch+.lbl {
 	position:absolute;
 	bottom:-11px;
 	left:-3px;
+	z-index:-1;
 }
 /*这些宽度可调整为采用栅格时显示的效果，则适时调整掉此些宽度*/
 .card-2,.card-3,.card-4,.card-5,.card-10 {
@@ -1213,6 +1218,7 @@ input[type=checkbox].ace.ace-switch.ace-switch+.lbl {
 .card-4,.card-5 {
 	min-width:300px;
 }
+.card-4 {min-width:330px;}
 .card-6 {
 	width:16.8%;
 	min-width:170px;
@@ -1228,6 +1234,119 @@ input[type=checkbox].ace.ace-switch.ace-switch+.lbl {
 .card-10 {
 	min-width:330px;
 }
+/*关于卡片的各种状态*/
+.card label {
+	display:none;
+}
+.card[class*="forward-"]:before, .card[class*="forward-"]:after{
+	display:inline-block;
+}
+.card [class*="forwardlabel-"] {
+	display:inline-block;
+}
+[class*="forward-"] label,[class*="forwardlabel-"] {
+	display:inline-block;
+	position:absolute;
+	left:0;
+	top:0;
+	content:'';
+	width:47px;
+	height:20px;
+}
+[class*="forwardlabel-"] {
+	left:-3px;
+	top:6px;
+}
+[class*="forward-"] label:after,[class*="forward-"] label span,[class*="forwardlabel-"]:after,[class*="forwardlabel-"] span {
+	position:absolute;
+	content:'';
+	top:6px;
+}
+[class*="forward-"] label:after,[class*="forwardlabel-"]:after {
+	width:47px;
+	height:20px;
+	left:-3px;
+}
+[class*="forward-"] label span,[class*="forwardlabel-"] span {
+	color:#fff;
+	left:2px;
+	font-size:12px;
+	line-height:16px;
+	-webkit-transform-origin-x:0;
+	-webkit-transform:scale(0.9);
+	z-index:100;
+}
+[class*="forwardlabel-"] span {
+	top:0;
+	left:4px;
+}
+[class*="forward-"]:before {
+	position:absolute;
+	content:'';
+	display:block;
+	bottom:-5px;
+	left:-1px;
+	right:-1px;
+	width:auto;
+	height:6px;
+	z-index:1;
+}
+.card-8[class*="forward-"]:before {
+	top:0;
+	bottom:auto;
+}
+.card-8[class*="forward-"] label:after,.card-8[class*="forward-"] label span {
+	top:12px;
+}
+[class*="forwardlabel-b-"] {
+	left:auto;
+	right:0;
+	top:auto;
+	bottom:10px;
+	width:44px;
+}
+[class*="forwardlabel-b-"]:after {
+	transform:rotate(-180deg);
+	-ms-transform:rotate(-180deg);
+	-moz-transform:rotate(-180deg);
+	-webkit-transform:rotate(-180deg);
+	-o-transform:rotate(-180deg);
+	width:44px;
+	left:0;
+	bottom:0;
+}
+.forwardlabel-b-1:after {
+	background:url(../images/forward-1.png) no-repeat right 0;
+}
+.forwardlabel-b-2:after {
+	background:url(../images/forward-2.png) no-repeat right 0;
+}
+.forwardlabel-b-3:after {
+	background:url(../images/forward-3.png) no-repeat right 0;
+}
+[class*="forwardlabel-b-"] span {
+	top:10px;
+	left:8px;
+}
+.forward-1 label:after,.forwardlabel-1 {
+	background:url(../images/forward-1.png) no-repeat 0 0;
+}
+.forward-1:before {
+	background:#FFBC00;
+}
+.forward-2 label:after,.forwardlabel-2 {
+	background:url(../images/forward-2.png) no-repeat 0 0;
+}
+.forward-2:before {
+	background:#00EAC7;
+}
+.forward-3 label:after,.forwardlabel-3 {
+	background:url(../images/forward-3.png) no-repeat 0 0;
+}
+.forward-3:before {
+	background:#45C4FF;
+}
+
 .card.alert {
 	margin-bottom:25px;
 	border-radius:2px;
@@ -1307,6 +1426,7 @@ input[type=checkbox].ace.ace-switch.ace-switch+.lbl {
 }
 .operation-list span {
 	padding:0 5px;
+	color:#00C1DE;
 }
 .close {
 	float:right;
@@ -1344,6 +1464,10 @@ button.close {
 	padding-bottom:10px;
 	margin-bottom:10px;
 }
+.card-1 dt{line-height:250%;}
+.card-1{padding-left:10px;padding-right:10px;}
+.card-1 dl{margin:0 15px;;}
+.card-1 .operation-list{margin-bottom:-20px;}
 .card-3 dt:before,.card-4 dt:before {
 	background:#DFDFDF;
 	height:1px;
@@ -1665,4 +1789,28 @@ button.close {
   .marginl10{margin-left:10px;}
   .marginl20{margin-left:20px;}
   .marginb10{margin-bottom:10px;}
+  .marginb20{margin-bottom:20px;}
+
   .margint10{margin-top:10px;}
+  .form-inline .form-group.marginr0{margin-right:0;margin-left:-5px;}
+
+
+  .userlist{border-left:1px dashed #ccc; padding-left:35px;}
+  .userlist h3{line-height:200%;font-size:16px;display:inline;margin-bottom:20px;}
+  .userlist {width:390px;}
+  .userlist .card-4{margin-top:10px;}
+  .userlist .card-4:before, .userlist .card-4:after{display:none;}
+  .userlist [class*="forward-"]:before, .userlist [class*="forward-"]:after{display:inline-block;}
+  .card-1 .operation-list{padding:0 4px;}
+  .userlist .form-control{width:212px;}
+
+  .card.cur:after,
+  .card.cur:hover:after{top:0;bottom:0;left:0;width:8px;height:auto;background:#19BEE3;z-index:10;}
+  .card.cur:hover{background:transparent;}
+
+  #div-oidc-rolesetting-roles{margin-right:400px;}
+
+  #div-oidc-rolesetting-role-users{height:calc(100vw - 50px);height:370px;;overflow:auto;margin-right:-10px;padding-left:2px;}
+  
+
+  .btn-sm{font-size:14px;padding:0 10px;height:30px;line-height:28px;border-radius:4px;}

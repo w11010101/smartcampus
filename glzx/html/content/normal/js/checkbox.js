@@ -50,10 +50,9 @@
     SelectCheckbox.prototype.onSelect = function(el,callback){
         var _this = this;
         $(el).on("click",function(){
-            if(!$(this).hasClass("disabled")){
+            if(!$(this).hasClass("disabled") && !$(this).hasClass("default")){
                 $(this).toggleClass("active");
             }
-            
             callback?callback(_this.callback(el)):{};
         });
         return $(el);
@@ -68,15 +67,15 @@
                 $(this).toggleClass("active");
             }
             if($(labelEle).hasClass("active")){
-                $(childELE).addClass("active");
+                $(childELE).not('.disabled,.default').addClass("active");
             }else{
-                $(childELE).removeClass("active");
+                $(childELE).not('.disabled,.default').removeClass("active");
             }
             
         });
         // 子级
         this.onSelect(childELE,function(items){
-            if(items.length == $(childELE).not(".disabled,.default").length){
+            if(items.length == $(childELE).not(".disabled").length){
                 $(labelEle).addClass("active");
             }else{
                 if($(labelEle).hasClass("active")){
