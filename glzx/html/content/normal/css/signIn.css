@@ -79,6 +79,16 @@
     margin: 0 auto;
     border-radius: 0
 }
+.signIn .form-horizontal .form-group input[type=checkbox]{
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    vertical-align: middle;
+    position: static;
+}
+.form-horizontal .checkbox, .form-horizontal .checkbox-inline, .form-horizontal .radio, .form-horizontal .radio-inline{
+    padding-top: 0;
+}
 input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill{
     background: #fff!important;
 }
@@ -171,76 +181,11 @@ input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill{
     font-size: 14px;
     margin: 0;
     line-height: 40px;
-    /*padding:0 6px;*/
-}
-.authorize-box .form-horizontal{
-    margin-top: 0;
-}
-.form-group .checkbox-btns,
-.form-group .radio-btns{
-    display: inline-block;
-}
-.form-group .checkbox-btns .form-checkbox,
-.form-group .radio-btns .form-radio{
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    vertical-align: middle;
-    margin-right: 6px;
-    margin-left: 1px;
-}
-.form-group .checkbox-btns .disabled,
-.form-group .radio-btns .disabled{
-    color:#ccc;
-}
-.form-group .checkbox-btns .disabled .form-checkbox,
-.form-group .radio-btns .disabled .form-radio{
-    width: 20px;
-    height: 20px;
-    border: 1px solid rgba(2,2,2,.1);
-    border-radius: 4px;
-
-}
-.form-group .radio-btns .disabled .form-radio{
-    border-radius: 50%;
-}
-.form-group .checkbox-btns .disabled .form-checkbox:before,
-.form-group .radio-btns .disabled .form-radio:before{
-    background: rgba(2,2,2,0);
-}
-.form-group .checkbox-btns .checkbox-inline,
-.form-group .radio-btns .radio-inline{
-    padding: 0;
-    margin-right: 30px;
-    margin-left: 0;
-}
-
-.form-group .checkbox-btns .checkbox-inline:not(.disabled) .form-checkbox{
-    width: 20px;
-    height: 20px;
-    background: url(../../normal/images/checkbox-off.png) no-repeat center;
-    overflow: hidden;
-}
-.form-group .checkbox-btns .checkbox-inline.active .form-checkbox{
-    background: url(../../normal/images/checkbox-on.png) no-repeat center;
-}
-.form-group .checkbox-btns .checkbox-inline.default{
-    opacity: 0.6;
-}
-.form-group .checkbox-btns .checkbox-inline.default .form-checkbox{
-    background: url(../../normal/images/checkbox-on.png) no-repeat center;
-}
-.authorize-box .checkbox-btns {
-    display: block;
-
+    border-bottom: 1px solid #ccc;
 }
 .authorize-box .checkbox-inline{
     display: block;
     line-height: 40px;
-}
-.authorize-box .checkbox-btns > .checkbox-inline{
-    border-top: 1px solid #ccc;
-    border-bottom: 1px solid #ccc;
     margin: 0;
 }
 .form-group .btn{

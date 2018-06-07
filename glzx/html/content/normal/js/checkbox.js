@@ -17,6 +17,7 @@
         // Node/CommonJS style for Browserify
         module.exports = factory;
     } else {
+        // export {factory};
         // Browser globals
         factory(jQuery);
     }
@@ -49,17 +50,19 @@
     // 普通选择多选
     SelectCheckbox.prototype.onSelect = function(el,callback){
         var _this = this;
-        $(el).on("click",function(){
+        console.log(12);
+
+        $(el).on("click",function(event){
             if(!$(this).hasClass("disabled") && !$(this).hasClass("default")){
                 $(this).toggleClass("active");
             }
             callback?callback(_this.callback(el)):{};
         });
-        return $(el);
+        // return $(el);
     }
 
     // 层级选择多选
-    SelectCheckbox.prototype.levelSelect = function(labelEle,childELE,callback){  
+    SelectCheckbox.prototype.levelSelect = function(labelEle,childEle,callback){  
         var _this = this;      
         // 父级
         $(labelEle).on("click",function(){
@@ -67,22 +70,23 @@
                 $(this).toggleClass("active");
             }
             if($(labelEle).hasClass("active")){
-                $(childELE).not('.disabled,.default').addClass("active");
+                $(childEle).not('.disabled,.default').addClass("active");
             }else{
-                $(childELE).not('.disabled,.default').removeClass("active");
+                $(childEle).not('.disabled,.default').removeClass("active");
             }
             
         });
         // 子级
-        this.onSelect(childELE,function(items){
-            if(items.length == $(childELE).not(".disabled").length){
+        
+        this.onSelect(childEle,function(items){
+            if(items.length == $(childEle).not(".disabled").length){
                 $(labelEle).addClass("active");
             }else{
                 if($(labelEle).hasClass("active")){
                     $(labelEle).removeClass("active");
                 }
             }
-            callback?callback(_this.callback(childELE)):{};
+            callback?callback(_this.callback(childEle)):{};
         }); 
     }
     // callback

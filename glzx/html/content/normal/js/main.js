@@ -7,13 +7,15 @@ require.config({
         'vue':'./vuejs/vue',
         'jquery-mousewheel':'./jquery.date/jquery-mousewheel',
         'dateTime':'./jquery.date/jquery.datetimepicker.full',
+
         // my js
         'test':'../normal/js/test',
         'checkbox':'../normal/js/checkbox',
-        'navVue':'../normal/js/v-nav'
+        'navVue':'../normal/js/v-nav',
+        'frame':"../normal/js/frame"
     },
 });
-require(['jquery','bootstrapJs','vue','test','checkbox','navVue'],function($,_bootstrapJs,Vue,test,_checkbox,_navVue){
+require(['jquery','bootstrapJs','vue','test','checkbox','navVue','frame'],function($,_bootstrapJs,Vue,test,_checkbox,_navVue,_frame){
 
     test.start('!!注意这里 :');
     
@@ -108,4 +110,8 @@ require(['jquery','bootstrapJs','vue','test','checkbox','navVue'],function($,_bo
         ele:".radio-inline",
         selectType:"onRadioSelect"
     });
+
+    // 左侧导航展示 ---------------------------------------
+    runFrame($);
+
 });

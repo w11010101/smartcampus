@@ -63,3 +63,23 @@ header ul.dropdown-menu > li a{
 body .side-nav.collapsed .navigation.open .sidebar-toggle{
     background-color: rgba(5,201,238,0.9);
 }
+.side-nav > li > a.sidebar-toggle .ico-arr-dropdown,
+.side-nav > li > a.sidebar-toggle .icon-repair
+{
+    display: none
+}
+.side-nav > li.navigation > .dropdown-menu > li.dropdown.open > ul.dropdown-menu > li a,
+.navbar-nav.sec-side-nav .menu > li > a{
+    background:none;
+}
+.navbar-nav.sec-side-nav > li.navigation .menu li.dropdown.open ul.dropdown-menu li a{
+    padding-left: 54px;
+    background:none;
+}
+.dropdown-menu>.active>a, .dropdown-menu>.active>a:focus, .dropdown-menu>.active>a:hover{
+    color:#575757;
+}
+.navbar-nav.sec-side-nav > li.navigation .menu li.dropdown.open ul.dropdown-menu li.active a, 
+.navbar-nav.sec-side-nav > li.navigation .menu li.dropdown.open ul.dropdown-menu li.active a:hover{
+    background: rgba(255,255,255,1);
+}

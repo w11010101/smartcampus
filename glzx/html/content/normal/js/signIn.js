@@ -1,11 +1,3 @@
-// 多选 ---------------------------------------
-$(".form-group").selectCheckbox({
-    ele:".checkbox-inline",
-    selectType:"levelSelect",
-    onclickCB:function(){
-        console.log(arguments)
-    }
-});
 // 登陆
 $(".signIn-btn").on("click",function(event){
 

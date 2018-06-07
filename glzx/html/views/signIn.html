@@ -9,7 +9,6 @@
     <script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js?appkey=" type="text/javascript" charset="utf-8"></script>
     <script type="text/javascript" src="../content/frame/jquery/jquery.min.js"></script>
     <script type="text/javascript" src="../content/frame/bootstrap/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="../content/normal/js/checkbox.js"></script>
 </head>
 <body>
     <div class="signIn siginIn-container">
@@ -95,29 +94,21 @@
                         <div class="form-group level-checkbox">
                             <div class="checkbox-btns">
                                 <label class="checkbox-inline">
-                                    <span class="form-checkbox"></span> 全选
+                                    <input type="checkbox" name="abc1"> 多选一
                                 </label>
-                                <div class="checkbox-childs">
-                                    <label class="checkbox-inline">
-                                        <span class="form-checkbox"></span> 多选一
-                                    </label>
-                                    <label class="checkbox-inline">
-                                        <span class="form-checkbox"></span> 多选二
-                                    </label>
-                                    <label class="checkbox-inline">
-                                        <span class="form-checkbox"></span> 多选三
-                                    </label>
-                                    <label class="checkbox-inline active default">
-                                        <span class="form-checkbox"></span> 默认
-                                    </label>
-                                    <label class="checkbox-inline disabled">
-                                        <span class="form-checkbox"></span> 禁止
-                                    </label>
-                                </div>
+                                <label class="checkbox-inline">
+                                    <input type="checkbox" name="abc2"> 多选二
+                                </label>
+                                <label class="checkbox-inline">
+                                    <input type="checkbox" name="abc3"> 多选三
+                                </label>
+                                <label class="checkbox-inline active default">
+                                    <input type="checkbox" name="abc4" checked disabled > 默认
+                                </label>
                             </div>
                         </div>
                         <div class="form-group text-center">
-                            <button type="button" class="btn btn-info sure-btn">允许</button>
+                            <button type="submit" class="btn btn-info sure-btn">允许</button>
                             <button type="button" class="btn btn-default cancel-btn">取消</button>
                         </div>
                     </form>

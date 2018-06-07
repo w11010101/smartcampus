@@ -5,53 +5,87 @@ function runNavVue(Vue){
     
     // vue ================================
     Vue.component("dropdown-menu",{
-        props:["todo","index"],
-        template:`<a href="#" v-bind:action="todo.href" v-bind:nid="todo.nid" class="sidebar-toggle" data-toggle="dropdown" v-on:click=subToggleDropdown v-bind:setid="todo.id">
-                    <i class="icon-service"></i><span>{{todo.text}}</span><i class="ico-arr-project"></i>
+        props:["todo","index","isNodes"],
+        template:`<a href="#" v-bind:action="todo.href" v-bind:nid="todo.nid" v-bind:nodess = 'typeof isNodes'v-bind:class="isNodes?'dropdown-toggle':'sidebar-toggle'" data-toggle="dropdown" v-on:click=subToggleDropdown v-bind:setid="todo.id">
+                    <i class="icon-service" v-if="isNodes"></i>
+                    <i class="icon-repair" v-else></i>
+                    <span>{{todo.text}}</span>
+                    <i class="ico-arr-project" v-if="isNodes"></i>
+                    <b class="ico-arr-dropdown" v-else-if="!isNodes && todo['nodes']&&todo['nodes'].length"></b>
                 </a>`,
-        computed:{
-            fn1:function(){
-            }
-        },
         methods:{
             subToggleDropdown:function(){
+                
                 var $this = $(this.$el);
-                navVM.toggleDropdown($this);
+                if($this.hasClass("sidebar-toggle")){
+                    console.log("点击0",$this);
+                    navVM.toggleDropdown($this);
+                }else{
+                    console.log("点击")
+                    if($this.next(".dropdown-menu").find("li").length){
+                        $this.parents(".navigation").addClass("open");
+                    }else{
+                        navVM.jumpPage($this);
+                    }
+                }
+                
+
+                
             }
         }
     });
     // 子集
+    // <dropdown-sub-menu v-bind:todo ='subtodo'></dropdown-sub-menu>
+    // <dropdown-child-list class="dropdown" v-if="subtodo.nodes" v-for="event in subtodo.nodes" v-bind:subtodo ='event'></dropdown-child-list>
+    // <dropdown-sub-list class="dropdown" v-if="subtodo.nodes" v-for="event in subtodo.nodes" v-bind:subtodo ='event'></dropdown-sub-list>
     Vue.component("dropdown-sub-list",{
-        props:["subtodo",'index'],
-        // "dropdown"+(subtodo.active?"active":"")
-        template:`<li v-bind:class="{active:subtodo.active}" >
-                    <dropdown-sub-menu v-bind:todo ='subtodo'></dropdown-sub-menu>
+        props:["subtodo",'index','isNodes'],
+        template:`<li v-bind:class="subtodo.active && 'active'" >
+                    <dropdown-menu v-bind:todo ='subtodo' v-bind:index="index" v-bind:isNodes='isNodes' v-if="!isNodes"></dropdown-menu>
+                    <dropdown-child-a v-bind:todo ='subtodo' v-bind:type="subtodo.nodes?'menu':'href'" v-else></dropdown-child-a>
                     <ul class="dropdown-menu" v-if="subtodo.nodes&&subtodo.nodes.length">
-                        <dropdown-child-list class="dropdown" v-if="subtodo.nodes" v-for="event in subtodo.nodes" v-bind:subtodo ='event'></dropdown-child-list>
+                        <dropdown-sub-list class="dropdown" v-if="subtodo.nodes" v-for="event in subtodo.nodes" v-bind:subtodo ='event' v-bind:isNodes="event.nodes?true:false"></dropdown-sub-list>
                     </ul>
                 </li>`,
         computed:{
-            fn1:function(){
-                console.log(this.subtodo);
-                console.log(this.index);
-            },
         },
-    })
-    Vue.component("dropdown-sub-menu",{
-        props:["todo"],
-        template:`<a href="#" v-bind:action="todo.href" v-bind:nid="todo.nid" class="dropdown-toggle" v-bind:setid="todo.id" data-toggle="dropdown" v-on:click="subClick">
-                        <i class="icon-repair" ></i>{{todo.text}}<b class="ico-arr-dropdown" v-if="todo['nodes']&&todo['nodes'].length"></b>
-                    </a>`,
+    });
+    // 子集以下
+    Vue.component("dropdown-child-a",{
+        props:["todo",'type'],
+        template:`<a href="#" v-bind:action="type=='href'?todo.href:''" v-bind:nid="todo.nid" data-toggle="dropdown" v-bind:setid="todo.id" class="dropdown-toggle" aria-expanded="false" v-on:click="subJump">                    
+                    {{todo.text}}
+                    <b class="ico-arr-plus" v-if="type=='menu'"></b>
+                </a>`,
         computed:{
-            fn1:function(){
-            },
+            
+        },
+        methods:{
+            subJump:function(){
+                var $this = $(this.$el);
+                if($this.attr("action")){
+                    navVM.jumpPage($this);
+                }
+                
+            }
+        }
+    });
+    // sec-Sidebar  product ================================================
+    Vue.component("dropdown-product-a",{
+        props:["todo","index"],
+        template:`<a href="#" v-bind:action="todo.href" v-bind:nid="todo.nid"  v-bind:class="todo.nodes?'sidebar-toggle':''" v-bind:setid="todo.id" v-on:click="subClick">
+                    <i class="ico-arr-down-black" v-if='todo.nodes'></i>
+                    {{todo.text}}
+                </a>`,
+        computed:{
+            
         },
         methods:{
             subClick:function(){
                 var $this = $(this.$el);
-                console.log("点击")
-                if($this.next(".dropdown-menu").find("li").length){
-                    $this.parents(".navigation").addClass("open");
+                if($this.hasClass('sidebar-toggle')){
+                    $this.parents(".navigation").siblings().addClass("menu-hide").find(".menu").slideUp(200);
+                    $this.next(".menu").slideToggle(200).parents(".navigation").toggleClass("menu-hide");
                 }else{
                     navVM.jumpPage($this);
                 }
@@ -59,52 +93,14 @@ function runNavVue(Vue){
             }
         }
     });
-    // 子集以下
-    Vue.component("dropdown-child-list",{
-        props:["subtodo",'index'],
-        template:`<li v-bind:class="{active:subtodo.active}">
-                    <dropdown-child-menu v-bind:todo ='subtodo' v-if="subtodo.nodes"></dropdown-child-menu>
-                    <dropdown-child-a v-bind:todo ='subtodo' v-else></dropdown-child-a>
-                    <ul class="dropdown-menu" v-if="subtodo.nodes&&subtodo.nodes.length">
-                        <dropdown-child-list class="dropdown" v-if="subtodo.nodes" v-for="event in subtodo.nodes" v-bind:subtodo ='event'></dropdown-child-list>
-                    </ul>
-                </li>`,
-        computed:{
-            fn1:function(){
-                console.log(this.subtodo);
-                console.log(this.index);
-            },
-        },
-    })
-    Vue.component("dropdown-child-a",{
+
+    Vue.component("dropdown-product-sub-menu",{
         props:["todo"],
-        template:`<a href="#" v-bind:action="todo.href" v-bind:nid="todo.nid" data-toggle="dropdown" v-bind:setid="todo.id" abc class="dropdown-toggle" aria-expanded="false" v-on:click="subJump">
-                {{todo.text}}</a>`,
+        template:`<a data-toggle="dropdown" class="dropdown-toggle" v-on:click="subClick(this)">
+                {{todo.text}}
+                <b class="ico-arr-plus-black"></b>
+            </a>`,
         computed:{
-            
-        },
-        methods:{
-            subJump:function(){
-                var $this = $(this.$el);
-                navVM.jumpPage($this);
-            }
-        }
-    });
-    Vue.component("dropdown-child-menu",{
-        props:["todo"],
-        template:`<a href='#' data-toggle="dropdown" class="dropdown-toggle" aria-expanded="false" >
-                {{todo.text}}<b class="ico-arr-plus" ></b></a>`,
-        computed:{
-            
-        },
-    });
-    // sec-Sidebar  product
-    Vue.component("dropdown-product-menu",{
-        props:["todo","index"],
-        template:`<a href="#" v-bind:action="todo.href" v-bind:nid="todo.nid"  class="sidebar-toggle" v-bind:setid="todo.id" v-on:click="subClick">
-                <i class="ico-arr-down-black" ></i>{{todo.text}}</a>`,
-        computed:{
-            
         },
         methods:{
             subClick:function(){
@@ -114,27 +110,9 @@ function runNavVue(Vue){
             }
         }
     });
-    Vue.component("dropdown-product-a",{
-        props:["todo","index"],
-        template:`<a href="#" v-bind:action="todo.href" v-bind:nid="todo.nid" v-bind:setid="todo.id" v-on:click="subJump(this)">{{todo.text}}</a>`,
-        methods:{
-            subJump:function(){
-                var $this = $(this.$el);
-                navVM.jumpPage($this);
-            }
-        }
-    });
-    Vue.component("dropdown-product-sub-menu",{
-        props:["todo"],
-        template:`<a data-toggle="dropdown" class="dropdown-toggle" v-on:click="subClick(this)">{{todo.text}}<b class="ico-arr-plus-black"></b></a>`,
-        computed:{
-            fn1:function(){
-            },
-        },
-    });
     Vue.component("dropdown-product-sub-list",{
         props:["subtodo",'index'],
-        template:`<li v-bind:class="{'active':subtodo.active}">
+        template:`<li v-bind:class="subtodo.active && 'active'">
                     <dropdown-product-sub-menu v-bind:todo ='subtodo' v-bind:index="index" v-if="subtodo.nodes"></dropdown-product-sub-menu>
                     <dropdown-product-a v-bind:todo ='subtodo' v-bind:index="index"  v-else></dropdown-product-a>
                     <ul class="dropdown-menu" v-if="subtodo.nodes&&subtodo.nodes.length">
@@ -142,14 +120,10 @@ function runNavVue(Vue){
                     </ul>
                 </li>`,
         computed:{
-            fn1:function(){
-                console.log(this.subtodo);
-                console.log(this.index);
-            },
         },
     })
     // vue 实例
-    var navVM = new Vue({
+    window.navVM = new Vue({
         el:"#vm-nav",
         data:{
             navData:"",
@@ -160,11 +134,6 @@ function runNavVue(Vue){
             navData:function(event){
                 console.log(navVM);
                 navVM.activeNav = event[0];
-                this.$nextTick(function () {
-                    // DOM 现在更新了
-                    // `this` 绑定到当前实例
-                    $("#sidebar .navigation").eq(0).addClass("open");
-                })
             }
         },
         computed:{
@@ -204,18 +173,11 @@ function runNavVue(Vue){
                 for(var i=0;i<arr.length;i++){
                     navVM.$set(arr[i],"active",null);
                     if(arr[i].id == setId){
-
-                        console.log("这里 ",arr[i])
+                        console.log("这里 ",arr[i]);
                         navVM.$set(arr[i],"active",true);
-                        
-                        this.$nextTick(function(){
-                            // $(".product-nav .dropdown.active").parents(".navigation").removeClass('menu-hide').siblings().addClass("menu-hide");
-                        });
                     }else{
-                        
                         if(arr[i]['nodes']){
                             this.setActive(arr[i]['nodes'],setId);
-                            // return false;
                         }
                     }
                 }
