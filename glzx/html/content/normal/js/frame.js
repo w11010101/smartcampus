@@ -31,7 +31,7 @@ var widthLess1024 = function() {
     }
 };
 // 手风琴点击事件
-function runFrame($){
+// function runFrame($){
     $(".quick-actions .dropdown").on("show.bs.dropdown", function(d) {
         console.log(7)
         console.log("quick-actions .dropdown")
@@ -234,4 +234,4 @@ function runFrame($){
         var e = $("body").attr("class").split(" ").pop();
         $("body").removeClass(e).addClass(d)
     });
-}
+// }

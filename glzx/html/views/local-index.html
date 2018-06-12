@@ -25,7 +25,148 @@
   <link rel="stylesheet" type="text/css" href="../content/frame/jquery.date/jquery.datetimepicker.min.css">
 
 </head>
+<style type="text/css" media="screen">
+    .right-page-content{
+        color:#fff;
+        font-size: 100px;
+    }
+    .navbar-nav.side-nav.collapsed > li.navigation >.dropdown-menu{
+        display: none;
+    }
+    .node-sidebar,.list-group-item{
+        background: none;
+        border:none;
+    }
+    .node-sidebar{
+        color:#fff;
+    }
+    .node-sidebar:not(.node-disabled):hover{
 
+    }
+    .navbar-nav.side-nav > li.navigation >.dropdown-menu li a{
+        padding-left:34px;
+    }
+    .navbar-nav.side-nav li.navigation a:hover,
+    .product-nav a:hover{
+        cursor: pointer;
+    }
+    .navbar-nav.side-nav > li.navigation .dropdown-menu .dropdown-menu li a{
+        padding-left: 51px;
+    }
+    .navbar-nav.side-nav > li.navigation >.dropdown-menu > li.dropdown.open > ul.dropdown-menu > li > ul.dropdown-menu > li a,
+    .navbar-nav.side-nav > li.navigation .dropdown-menu .dropdown-menu .dropdown-menu li a{
+        padding-left: 64px;
+        background: none
+    }
+    .navbar-nav.side-nav > li.navigation >.dropdown-menu > li.dropdown.open > ul.dropdown-menu > li > ul.dropdown-menu > li> ul.dropdown-menu > li a ,
+    .navbar-nav .dropdown-menu .dropdown-menu .dropdown-menu .dropdown-menu li a{
+        padding-left: 77px;
+    }
+    .dropdown-menu>li>a:focus, .dropdown-menu>li>a:hover{
+        background: none;
+    }
+    .navbar-nav.side-nav {
+        width:230px;
+    }
+    .navbar-nav.side-nav:before {
+        width:230px;
+    }
+    .dropdown, .dropup{
+        
+    }
+    .navbar-nav .open .dropdown-menu>li>a{
+        line-height: 30px;
+    }
+    .navigation > ul.dropdown-menu>li a{
+        padding: 0 15px;
+    }
+    .navbar-nav [class*="icon-"], .navbar-nav [class*="ico-"]{
+        vertical-align:middle;
+    }
+    .nav.navbar-nav.side-nav.collapsed + .product-nav{
+        width: 180px;
+        margin-left: 50px;
+    }
+    .nav.navbar-nav.side-nav.closed.collapsed + .product-nav{
+        width: 0px;
+    }
+    .product-nav > .sec-sidebar{
+        width: inherit;
+    }
+    .product-nav > .sec-sidebar h1{
+        width: inherit;
+    }
+    .navbar-nav.sec-side-nav{
+        width: inherit;
+    }
+    ul.dropdown-menu{
+        min-width: inherit;
+    }
+    .product-nav .menu li a {
+        padding-left: 35px;
+        display: block;
+        position: relative;
+        line-height: 30px;
+    }
+    .navbar-nav.sec-side-nav .ico-arr-plus-black{
+        top:5px;
+        left:20px;
+    }
+    .navbar-nav.sec-side-nav .dropdown-menu >li >a .ico-arr-plus-black{
+        top:8px;
+        left:25px;
+    }
+    .navbar-nav.sec-side-nav .dropdown-menu >li > .dropdown-menu >li >a .ico-arr-plus-black{
+        top:8px;
+        left:30px;
+    }
+    .navbar-nav.sec-side-nav > li.navigation .menu li.dropdown.open ul.dropdown-menu li.dropdown ul.dropdown-menu> li > a{
+        padding-left: 54px;
+    }
+    .navbar-nav.sec-side-nav > li.navigation .menu li.dropdown.open ul.dropdown-menu li.dropdown ul.dropdown-menu> li > ul.dropdown-menu> li > a{
+        padding-left: 60px;
+    }
+    .navbar-nav .open .dropdown-menu>li>a{
+
+    }
+    .sec-sidebar-collapse{
+        left:180px;
+        border-radius:6px;
+        border-top-left-radius:0;
+        border-bottom-left-radius:0;
+    }
+    .sec-sidebar-collapse:hover{
+        left:180px;
+    }
+    .navigation.menu-hide .ico-arr-down-black {
+        transform:rotate(180deg);
+        -ms-transform:rotate(-90deg);
+        -moz-transform:rotate(-90deg);
+        -webkit-transform:rotate(-90deg);
+        -o-transform:rotate(-90deg);
+        -webkit-transition:all 0.1s linear;
+        -moz-transition:all 0.1s linear;
+        transition:all 0.1s linear;
+    }
+    body .navbar-nav.side-nav.collapsed .navigation.active .sidebar-toggle{
+        background-color: rgba(5,201,238,0.9);
+    }
+    .navigation.menu-hide .menu{
+        display: none;
+    }
+    nav .open>.dropdown-menu{
+        margin-left:20px; 
+    }
+    .dropdown.open .ico-arr-plus-black {
+        background: url(../images/ico-arr-plus-black.png) no-repeat 0 0;
+    }
+    .dropdown.open > a .ico-arr-plus-black{
+        background-image: url(../images/ico-arr-minus-black.png);
+    }
+    .side-nav > li.navigation .dropdown-menu .dropdown.open >a b.ico-arr-plus{
+        background-image: url(../images/ico-arr-minus.png);
+    }
+</style>
 <body class="bg-1">
     <!-- Wrap all page content here -->
     <div id="wrap">
@@ -111,28 +252,24 @@
                                 </a>
                             </div>
                         </li>
-                        <li class="navigation" v-for="(e,i) in navData">
+                        <li v-bind:class="'navigation ' + (e.active?'active':'')" v-for="(e,i) in navData">
                             <dropdown-menu v-bind:todo ='e' v-bind:index="i"></dropdown-menu>
                             <ul class="dropdown-menu">
-                                <dropdown-sub-list class="dropdown" v-if="e.nodes" v-for="sub in e.nodes" v-bind:subtodo ='sub' v-bind:index ='i'></dropdown-sub-list>
+                                <dropdown-sub-list class="dropdown" v-if="e.nodes" v-for="sub in e.nodes" v-bind:subtodo ='sub' v-bind:index ='i' v-bind:isNodes="e.nodes?true:false"></dropdown-sub-list>
                             </ul>
                         </li>
                     </ul>
-                    <!-- Sidebar end -->
-
-
-                    <!-- sec-Sidebar -->
                     <div class="product-nav">
                         <div class="sec-sidebar" id="sec-sidebar">
                             <h1 class="h1">{{activeNav.text}}</h1>
                             <ul class="nav navbar-nav sec-side-nav">
                                 <li v-for="(event,index) in activeNav.nodes" class="navigation menu-hide">
+                                    <dropdown-product-a v-bind:todo ='event' v-bind:index="index" v-bind:level=1></dropdown-product-a>
                                     <dropdown-product-menu v-bind:todo ='event' v-bind:index="index"  v-if="event.nodes"></dropdown-product-menu>
                                     <dropdown-product-a v-bind:todo ='event' v-bind:index="index"  v-else></dropdown-product-a>
                                     <ul class="menu">
                                         <li v-for="(item,index) in event.nodes"  v-bind:class="{'dropdown':true,active:item.active}">
-                                            <dropdown-product-sub-menu v-bind:todo ='item' v-bind:index="index" v-if="item.nodes"></dropdown-product-sub-menu>
-                                            <dropdown-product-a v-bind:todo ='item' v-bind:index="index"  v-else></dropdown-product-a>
+                                            <dropdown-product-a v-bind:todo ='item' v-bind:setid="item.id" v-bind:level=2></dropdown-product-a>
                                             <ul class="dropdown-menu">
                                                 <dropdown-product-sub-list v-if="item.nodes" v-for="sub in item.nodes" v-bind:subtodo ='sub' v-bind:index ='index'></dropdown-product-sub-list>
                                             </ul>

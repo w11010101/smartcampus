@@ -1,0 +1,155 @@
+
+<link rel="stylesheet" type="text/css" href="../../../content/frame/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="../../../content/normal/css/my-theme.css">
+<link rel="stylesheet" type="text/css" href="../../../content/normal/css/demo.css">
+<link rel="stylesheet" type="text/css" href="../../../content/frame/iview/iview.css">
+<script type="text/javascript" src="../../../content/frame/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../content/frame/clipboard/clipboard.min.js"></script>
+<script type="text/javascript" src="../../../content/normal/js/v-demo.js"></script>
+<script type="text/javascript" src="../../../content/frame/vuejs/vue.js"></script>
+<script type="text/javascript" src="../../../content/frame/iview/iview.js"></script>
+<!-- end -->
+<h2 id="demo-express-h1">
+     
+    <a type="button" class="btn btn-default" href="../../local-index.html">返回</a>
+</h2>
+<!-- css -->
+<style type="text/css" media="screen">
+.layout-con{
+        height: 100%;
+        width: 100%;
+    }
+    .menu-item span{
+        display: inline-block;
+        overflow: hidden;
+        width: 69px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        vertical-align: bottom;
+        transition: width .2s ease .2s;
+    }
+    .menu-item i{
+        transform: translateX(0px);
+        transition: font-size .2s ease, transform .2s ease;
+        vertical-align: middle;
+        font-size: 16px;
+    }
+    .collapsed-menu span{
+        width: 0px;
+        transition: width .2s ease;
+    }
+    .collapsed-menu i{
+        transform: translateX(5px);
+        transition: font-size .2s ease .2s, transform .2s ease .2s;
+        vertical-align: middle;
+        font-size: 22px;
+    }
+
+</style>
+<!-- html -->
+<div class="demo-express">
+    <h3>结果展示</h3>
+    <div class="demo-express-bg">
+        <div id="app">
+            <template>
+                <i-menu active-name="1-2" :open-names="['1']">
+                    <submenu name="1">
+                        <template slot="title">
+                            <icon type="ios-analytics"></icon>
+                            Navigation One
+                        </template>
+                        <menu-group title="Item 1">
+                            <menu-item name="1-1">Option 1</menu-item>
+                            <menu-item name="1-2">Option 2</menu-item>
+                        </menu-group>
+                        <menu-group title="Item 2">
+                            <menu-item name="1-3">Option 3</menu-item>
+                            <menu-item name="1-4">Option 4</menu-item>
+                        </menu-group>
+                    </submenu>
+                    <submenu name="2">
+                        <template slot="title">
+                            <icon type="ios-filing"></icon>
+                            Navigation Two
+                        </template>
+                        <menu-item name="2-1">Option 5</menu-item>
+                        <menu-item name="2-2">Option 6</menu-item>
+                        <submenu name="3">
+                            <template slot="title">Submenu</template>
+                            <menu-item name="3-1">Option 7</menu-item>
+                            <menu-item name="3-2">Option 8</menu-item>
+                        </submenu>
+                    </submenu>
+                    <submenu name="4">
+                        <template slot="title">
+                            <icon type="ios-gear"></icon>
+                            Navigation Three
+                        </template>
+                        <menu-item name="4-1">Option 9</menu-item>
+                        <menu-item name="4-2">Option 10</menu-item>
+                        <menu-item name="4-3">Option 11</menu-item>
+                        <menu-item name="4-4">Option 12</menu-item>
+                    </submenu>
+                </i-menu>
+            </template>
+        </div>
+        <!--  -->
+    </div>
+</div>
+<div class="demo-express">
+    <h3>代码</h3>
+    <div class="demo-express-bg">
+        <div class="demo-express-code-box row">
+            <!-- plugin -->
+            <div class="col-sm-12">
+                <h3><span>plugin</span><button class="copy" data-clipboard-target="#plugin"></button></h3>
+<pre id="plugin">
+
+</pre>
+            </div>
+            <!-- html -->
+            <div class="col-sm-12">
+                <h3><span>html</span><button class="copy" data-clipboard-target="#html"></button></h3>
+<pre id="html">
+
+</pre>
+            </div>
+            <!-- css -->
+            <div class="col-sm-12">
+                <h3><span>css</span><button class="copy" data-clipboard-target="#css"></button></h3>
+<pre id="css">
+
+</pre>
+            </div>
+            <!-- javascript -->
+            <div class="col-sm-12">
+                <h3><span>javascript</span><button class="copy" data-clipboard-target="#javascript"></button></h3>
+<pre id="javascript">
+
+</pre>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    var Main = {
+        data () {
+            return {
+                visible: false
+            }
+        },
+        methods: {
+            show: function () {
+                this.visible = true;
+            }
+        }
+    }
+
+    var vm = new Vue({
+        el:"#app",
+        mixins:[Main],
+        data:{
+            name:"wangchi"
+        }
+    })
+</script>

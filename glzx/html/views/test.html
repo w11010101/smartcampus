@@ -13,8 +13,10 @@
     <link rel="stylesheet" href="../content/normal/css/theme.css" >
     <!-- my style start -->
     <link rel="stylesheet" href="../content/normal/css/my-theme.css" >
-    <link rel="stylesheet" href="../content/normal/css/nav-style.css" >
+    
     <link rel="stylesheet" href="../content/normal/css/demo.css">
+    <link rel="stylesheet" href="../content/frame/iview/iview.css">
+    <link rel="stylesheet" href="../content/normal/css/nav-style.css" >
     <!-- my style end -->
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -100,55 +102,27 @@
                     </div>
                     <!-- Search end -->
                 </div>
-                <!--/.nav-collapse -->
-                <!-- Sidebar -->
-                <div id="vm-nav" >
-                    <ul class="nav navbar-nav side-nav" id="sidebar">
-                        <li>
-                            <div class="sidebar-collapse">
-                                <a href="#">
-                                    <i class="ico-bars"></i>
-                                </a>
-                            </div>
-                        </li>
-                        <li class="navigation" v-for="(e,i) in navData">
-                            <dropdown-menu v-bind:todo ='e' v-bind:index="i"></dropdown-menu>
-                            <ul class="dropdown-menu">
-                                <dropdown-sub-list class="dropdown" v-if="e.nodes" v-for="sub in e.nodes" v-bind:subtodo ='sub' v-bind:index ='i' v-bind:isNodes="e.nodes?true:false"></dropdown-sub-list>
-                            </ul>
-                        </li>
-                    </ul>
-                    <!-- Sidebar end -->
-
-
-                    <!-- sec-Sidebar -->
-                    <div class="product-nav">
-                        <div class="sec-sidebar" id="sec-sidebar">
-                            <h1 class="h1">{{activeNav.text}}</h1>
-                            <ul class="nav navbar-nav sec-side-nav">
-                                <li v-for="(event,index) in activeNav.nodes" class="navigation menu-hide">
-                                    <dropdown-product-a v-bind:todo ='event' v-bind:index="index"></dropdown-product-a>
-                                    <!-- <dropdown-product-menu v-bind:todo ='event' v-bind:index="index"  v-if="event.nodes"></dropdown-product-menu>
-                                    <dropdown-product-a v-bind:todo ='event' v-bind:index="index"  v-else></dropdown-product-a> -->
-                                    <ul class="menu">
-                                        <li v-for="(item,index) in event.nodes"  v-bind:class="{'dropdown':true,active:item.active}">
-                                            <!-- <dropdown-product-a v-bind:todo ='item' v-bind:index="index"></dropdown-product-a> -->
-                                            <dropdown-product-sub-menu v-bind:todo ='item' v-bind:index="index" v-if="item.nodes"></dropdown-product-sub-menu>
-                                            <dropdown-product-a v-bind:todo ='item' v-bind:index="index"  v-else></dropdown-product-a>
-                                            <ul class="dropdown-menu">
-                                                <dropdown-product-sub-list v-if="item.nodes" v-for="sub in item.nodes" v-bind:subtodo ='sub' v-bind:index ='index'></dropdown-product-sub-list>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="sidebar-collapse sec-sidebar-collapse">
-                            <a href="#"><i class="ico-arr-collapse"></i></a>
-                        </div>
-                    </div>
-                </div>
             </div>
+            <!-- nav -->
+            <nav id="navApp" v-cloak>
+                <!--  -->
+                <sider ref="side1" hide-trigger collapsible :collapsed-width="60" v-model="isCollapsed" width="230px" class="navMenu" :style="{position: 'fixed', height: '100vh',top: '50px', left: 0, overflow: 'auto'}">
+                    <icon @click.native="collapsedSider" :class="rotateIcon" :style="{margin: '20px 20px 0'}" type="navicon-round" size="24"></icon>
+                    <i-menu active-name="1" :open-names="['1']" width="auto" :class="menuitemClasses" accordion @on-select="jumpPage" @on-open-change="collapsedMenuShow">
+                        <menu-parts v-for="data in navData" :data='data'></menu-parts>
+                    </i-menu>
+                </sider>
+                <!--  -->
+                <i-menu ref="side2" width="170px" class="collapsedMenu" accordion @on-select="jumpPage" @on-open-change="collapsedMenuShow">
+                    <menu-item name="2" class="collapsedMenu-title" >
+                        {{collapsedMenuTitle}}
+                    </menu-item>                    
+                    <menu-parts v-for="data in activeNav" :data='data' v-if="data.nodes && data.nodes.length"></menu-parts>
+                    <menu-item v-for="data in activeNav" :name="data['href']?data.href+'|'+data.nid:data.text+'|'+data.id" v-if="!data.nodes">
+                        <span>{{data.text}}</span>
+                    </menu-item>
+                </i-menu>
+            </nav>
             <!-- Fixed navbar end -->
             <!-- Page content -->
             <div id="right-container">
@@ -156,12 +130,12 @@
                 <div class="content-h2">
                     <label># 大标题 #</label>
                 </div>
-                <div class="content-h1">
+                <div class="content-h1" id="h1-app" v-cloak>
                     <label>标题展示</label>
-                    <ol class="breadcrumb">
-                        <li><a href="#">首页</a></li>
-                        <li><a href="#">第一层</a></li>
-                        <li class="active">第二层</li>
+                    <ol class="breadcrumb" >
+                        <li v-for='(item,index) in breadcrumbArr' :class="{'active':index == breadcrumbArr.length-1}">
+                            <a href="#">{{item.match(/active/)?item.split('|')[0]:item}}</a>
+                        </li>
                     </ol>
                     <span class="head-tools pull-right">
                         <button class="refresh"></button>
@@ -619,6 +593,5 @@
     <script type="text/javascript" data-main="../content/normal/js/main.js" src="../content/frame/requireJs/require.min.js"></script>
     <!-- 非模块开发用法，若要用requirejs，请遵行该规范；尽量避免此种引用  -->
     <script type="text/javascript" src="../content/normal/js/data.js"></script>
-    <!-- <script type="text/javascript" src="../content/normal/js/frame.js"></script> -->
 </body>
 </html>

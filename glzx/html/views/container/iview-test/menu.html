@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <!-- <link rel="stylesheet" type="text/css" href="../../../content/frame/iview/iview.css">
+    <script type="text/javascript" src="../../../content/frame/vuejs/vue.js"></script>
+    <script type="text/javascript" src="../../../content/frame/iview/iview.js"></script> -->
+    <link rel="stylesheet" type="text/css" href="http://unpkg.com/iview/dist/styles/iview.css">
+    <script type="text/javascript" src="http://vuejs.org/js/vue.min.js"></script>
+    <script type="text/javascript" src="http://unpkg.com/iview/dist/iview.min.js"></script>
+</head>
+<style type="text/css" media="screen">
+    .layout-con{
+        height: 100%;
+        width: 100%;
+    }
+    .menu-item span{
+        display: inline-block;
+        overflow: hidden;
+        width: 69px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        vertical-align: bottom;
+        transition: width .2s ease .2s;
+    }
+    .menu-item i{
+        transform: translateX(0px);
+        transition: font-size .2s ease, transform .2s ease;
+        vertical-align: middle;
+        font-size: 16px;
+    }
+    .collapsed-menu span{
+        width: 0px;
+        transition: width .2s ease;
+    }
+    .collapsed-menu i{
+        transform: translateX(5px);
+        transition: font-size .2s ease .2s, transform .2s ease .2s;
+        vertical-align: middle;
+        font-size: 22px;
+    }
+</style>
+<body>
+    <div id="app">
+        <template>
+            <!-- <i-menu active-name="1-2" :open-names="['1']">
+                <submenu name="1">
+                    <template slot="title">
+                        <icon type="ios-analytics"></icon>
+                        Navigation One
+                    </template>
+                    <menu-group title="Item 1">
+                        <menu-item name="1-1">Option 1</menu-item>
+                        <menu-item name="1-2">Option 2</menu-item>
+                    </menu-group>
+                    <menu-group title="Item 2">
+                        <menu-item name="1-3">Option 3</menu-item>
+                        <menu-item name="1-4">Option 4</menu-item>
+                    </menu-group>
+                </submenu>
+                <submenu name="2">
+                    <template slot="title">
+                        <icon type="ios-filing"></icon>
+                        Navigation Two
+                    </template>
+                    <menu-item name="2-1">Option 5</menu-item>
+                    <menu-item name="2-2">Option 6</menu-item>
+                    <submenu name="3">
+                        <template slot="title">Submenu</template>
+                        <menu-item name="3-1">Option 7</menu-item>
+                        <menu-item name="3-2">Option 8</menu-item>
+                    </submenu>
+                </submenu>
+                <submenu name="4">
+                    <template slot="title">
+                        <icon type="ios-gear"></icon>
+                        Navigation Three
+                    </template>
+                    <menu-item name="4-1">Option 9</menu-item>
+                    <menu-item name="4-2">Option 10</menu-item>
+                    <menu-item name="4-3">Option 11</menu-item>
+                    <menu-item name="4-4">Option 12</menu-item>
+                </submenu>
+            </i-menu> -->
+            <!--  -->
+           <!--  <i-button @click="show">Click me!</i-button>
+            <Modal v-model="visible" title="Welcome">Welcome to iView</Modal> -->
+            <!--  -->
+            <!-- <Transfer
+                :data="data1"
+                :target-keys="targetKeys1"
+                :render-format="render1"
+                @on-change="handleChange1"></Transfer> -->
+        </template>
+        <!--  -->
+        <div class="layout">
+            <layout :style="{minHeight: '100vh'}">
+                <i-header :style="{background: '#fff', boxShadow: '0 2px 3px 2px rgba(0,0,0,.1)'}">header</i-header>
+                
+                <layout>
+                    <sider collapsible :collapsed-width="78" v-model="isCollapsed">
+                    <i-menu active-name="1-2" theme="dark" width="auto" :class="menuitemClasses">
+                        <menu-item name="1-1">
+                            <icon type="ios-navigate"></icon>
+                            <span>Option 1</span>
+                        </menu-item>
+                        <menu-item name="1-2">
+                            <icon type="search"></icon>
+                            <span>Option 2</span>
+                        </menu-item>
+                        <menu-item name="1-3">
+                            <icon type="settings"></icon>
+                            <span>Option 3</span>
+                        </menu-item>
+                    </i-menu>
+                </sider>
+                    <i-content :style="{padding: '0 16px 16px'}">
+                        <breadcrumb :style="{margin: '16px 0'}">
+                            <breadcrumb-item>Home</breadcrumb-item>
+                            <breadcrumb-item>Components</breadcrumb-item>
+                            <breadcrumb-item>Layout</breadcrumb-item>
+                        </breadcrumb>
+                        <!-- <card>
+                            <div style="height: 600px">Content</div>
+                        </card> -->
+                        <div id="app2">
+                            <div>
+                                {{name}}
+                            </div>
+                        </div>
+                    </i-content>
+                </layout>
+            </layout>
+        </div>    
+        
+    </div>
+    <!-- <div id="app1">
+        <template>
+            <Transfer
+            :data="data1"
+            :target-keys="targetKeys1"
+            :render-format="render1"
+            @on-change="handleChange1"></Transfer>
+        </template>        
+    </div> -->
+</body>
+<script type="text/javascript">
+    var Main = {
+        data () {
+            return {
+                visible: false
+            }
+        },
+        methods: {
+            show: function () {
+                this.visible = true;
+            }
+        }
+    }
+    //=============================================
+    var b = {
+        mixins:[Main],
+        data () {
+            return {
+                data1: this.getMockData(),
+                targetKeys1: this.getTargetKeys()
+            }
+        },
+        methods: {
+            getMockData () {
+                let mockData = [];
+                for (let i = 1; i <= 20; i++) {
+                    mockData.push({
+                        key: i.toString(),
+                        label: 'Content ' + i,
+                        description: 'The desc of content  ' + i,
+                        disabled: Math.random() * 3 < 1
+                    });
+                }
+                return mockData;
+            },
+            getTargetKeys () {
+                return this.getMockData()
+                        .filter(() => Math.random() * 2 > 1)
+                        .map(item => item.key);
+            },
+            render1 (item) {
+                return item.label;
+            },
+            handleChange1 (newTargetKeys, direction, moveKeys) {
+                console.log(newTargetKeys);
+                console.log(direction);
+                console.log(moveKeys);
+                this.targetKeys1 = newTargetKeys;
+            }
+        }
+    }
+    //=============================================
+    var layout = {
+        mixins:[b],
+        data () {
+            return {
+                isCollapsed: false
+            };
+        },
+        computed: {
+            menuitemClasses: function () {
+                return [
+                    'menu-item',
+                    this.isCollapsed ? 'collapsed-menu' : ''
+                ]
+            }
+        }
+    }
+
+    var app2 = {
+        data(){
+            return {
+                name:"wangchi 1"
+            }
+        }
+    }
+
+    var vm = new Vue({
+        el:"#app",
+        mixins:[layout,app2],
+        
+    });
+
+    // var vm2 = new Vue({
+    //     el:"#app2",
+    //     data:{
+    //     ;    name:"wangchi"
+    //     }
+    // })
+</script>
+</html>
