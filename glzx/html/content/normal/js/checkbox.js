@@ -50,8 +50,6 @@
     // 普通选择多选
     SelectCheckbox.prototype.onSelect = function(el,callback){
         var _this = this;
-        console.log(12);
-
         $(el).on("click",function(event){
             if(!$(this).hasClass("disabled") && !$(this).hasClass("default")){
                 $(this).toggleClass("active");

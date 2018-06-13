@@ -1,5 +1,4 @@
 define(['dateTime'],function(mousewheel,dateTime){
-    console.log(mousewheel);
     // 日期
     $.datetimepicker.setLocale('zh');
     $('#startDate').datetimepicker({        

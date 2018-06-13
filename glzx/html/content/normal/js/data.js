@@ -1,5 +1,6 @@
 // data
-var data = [{
+var data = [
+    {
         level: 0,
         text: '示例管理',
         id: 1,
@@ -236,7 +237,7 @@ var data = [{
                 id: 31,
                 nodes: [{
                         level: 1,
-                        text: "智慧食堂-sub2-sub",
+                        text: "智慧食堂-sub1-sub",
                         id: 311,
                         nodes: null
                     },
@@ -248,7 +249,7 @@ var data = [{
                     },
                     {
                         level: 1,
-                        text: "智慧食堂-sub2-sub",
+                        text: "智慧食堂-sub3-sub",
                         id: 313,
                         nodes: null
                     },

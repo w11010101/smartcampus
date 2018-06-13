@@ -393,7 +393,8 @@
                   <button class="btn btn-default">按已输入的角色名创建新角色</button></div>
                 <div>
                 <div class="clearfix height10"></div>
-                  <div id="div-oidc-rolesetting-roles">
+                <!--注：id="div-oidc-rolesetting-roles" 当右侧有内容时加class="collapsed"，无时则不加class-->
+                  <div id="div-oidc-rolesetting-roles" class="collapsed">
                     <div class="card card-1 alert">
                       <dl>
                         <dt>
@@ -410,6 +411,30 @@
                       <dl>
                         <dt>
                           <big>大连海事大学校管1</big></dt>
+                        <dd>所属：</dd>
+                        <dd>备注：</dd></dl>
+                      <div class="operation-list">
+                        <span>用户</span>
+                        <span>维护</span>
+                        <span>删除</span>
+                        <span>开启</span></div>
+                    </div>
+                    <div class="card card-1 alert">
+                      <dl>
+                        <dt>
+                          <big>大连海事大学校管0</big></dt>
+                        <dd>所属：</dd>
+                        <dd>备注：</dd></dl>
+                      <div class="operation-list">
+                        <span>用户</span>
+                        <span>维护</span>
+                        <span>删除</span>
+                        <span>开启</span></div>
+                    </div>
+                    <div class="card card-1 alert">
+                      <dl>
+                        <dt>
+                          <big>大连海事大学校管0</big></dt>
                         <dd>所属：</dd>
                         <dd>备注：</dd></dl>
                       <div class="operation-list">
@@ -701,7 +726,16 @@
                       <button id="btnEmpty" class="btn btn-lg btn-default btn-primary">保存</button>
                       <button id="btnClear" type="reset" class="btn btn-lg btn-default">关闭</button></div>-->
                   </div>
-                  <div id="div-oidc-rolesetting-rolefunc" style="display: none;">
+
+
+
+                  <div id="div-oidc-rolesetting-rolefunc" class="pull-right userlist" style="display:none;">
+                      <div class="clearfix marginb20">
+                          <h3>大连海事大学校管2</h3>
+                      </div>
+                      <div id="tree">
+                          <tree :data="data2" show-checkbox></tree>
+                      </div>
                     <div id="treea" tid="div-oidc-rolesetting-rolesysfunc-tree">
                       <div class="ivu-tree">
                         <ul class="ivu-tree-children" data-old-padding-top="" data-old-padding-bottom="" style="" visible="visible" data-old-overflow="">
@@ -734,6 +768,12 @@
                     </div>                      
                   </div>
                 </div>
+             
+             
+             
+             
+             
+                <div class="clearfix"></div>
               </div>
 
           
@@ -752,7 +792,7 @@
     
     <!-- my js start -->
     <script type="text/javascript" src="../content/frame/bootstrap/js/my-dropdown.js"></script>
-    <script type="text/javascript" src="../content/frame/vuejs/ vue.js"></script>
+    <script type="text/javascript" src="../content/frame/vuejs/vue.js"></script>
     <script type="text/javascript" src="../content/normal/js/ data.js"></script>
     <script type="text/javascript" src="../content/normal/js /v-nav.js"></script>
     <!-- my js end -->
@@ -800,5 +840,56 @@
         }
     });
   </script>
+
+
+<script src="../content/frame/iview/iview.min.js"></script>
+<link rel="stylesheet" href="../content/frame/iview/iview.css">
+
+
+<script>
+                      
+    var Main = {
+        data () {
+            return {
+                data2: [
+                    {
+                        title: 'parent 1',
+                        expand: true,
+                        children: [
+                            {
+                                title: 'parent 1-1',
+                                expand: true,
+                                children: [
+                                    {
+                                        title: 'leaf 1-1-1'
+                                    },
+                                    {
+                                        title: 'leaf 1-1-2',
+                                        disabled: true
+                                    }
+                                ]
+                            },
+                            {
+                                title: 'parent 1-2',
+                                expand: true,
+                                children: [
+                                    {
+                                        title: 'leaf 1-2-1'
+                                    },
+                                    {
+                                        title: 'leaf 1-2-1'
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    }
+
+var Component = Vue.extend(Main)
+new Component().$mount('#tree')
+</script>
 </body>
 </html>

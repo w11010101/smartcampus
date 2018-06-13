@@ -1779,38 +1779,107 @@ button.close {
 
 
 
-  .form-group.width-half{width:50%;float:left;}
-  .form-group.width-half [class*="col-md-"]{margin-left:5px;margin-right:-5px;}
-  .form-group.width-third{width:33.33%;float:left;}
-  .form-group.width-third [class*="col-md-"]{margin-left:5px;margin-right:-5px;}
-  th.time{width:125px;}
-  th.week{min-width:180px;}
-
-  .marginl10{margin-left:10px;}
-  .marginl20{margin-left:20px;}
-  .marginb10{margin-bottom:10px;}
-  .marginb20{margin-bottom:20px;}
-
-  .margint10{margin-top:10px;}
-  .form-inline .form-group.marginr0{margin-right:0;margin-left:-5px;}
-
-
-  .userlist{border-left:1px dashed #ccc; padding-left:35px;}
-  .userlist h3{line-height:200%;font-size:16px;display:inline;margin-bottom:20px;}
-  .userlist {width:390px;}
-  .userlist .card-4{margin-top:10px;}
-  .userlist .card-4:before, .userlist .card-4:after{display:none;}
-  .userlist [class*="forward-"]:before, .userlist [class*="forward-"]:after{display:inline-block;}
-  .card-1 .operation-list{padding:0 4px;}
-  .userlist .form-control{width:212px;}
-
-  .card.cur:after,
-  .card.cur:hover:after{top:0;bottom:0;left:0;width:8px;height:auto;background:#19BEE3;z-index:10;}
-  .card.cur:hover{background:transparent;}
-
-  #div-oidc-rolesetting-roles{margin-right:400px;}
-
-  #div-oidc-rolesetting-role-users{height:calc(100vw - 50px);height:370px;;overflow:auto;margin-right:-10px;padding-left:2px;}
-  
-
-  .btn-sm{font-size:14px;padding:0 10px;height:30px;line-height:28px;border-radius:4px;}
+.form-group.width-half {
+	width:50%;
+	float:left;
+}
+.form-group.width-half [class*="col-md-"] {
+	margin-left:5px;
+	margin-right:-5px;
+}
+.form-group.width-third {
+	width:33.33%;
+	float:left;
+}
+.form-group.width-third [class*="col-md-"] {
+	margin-left:5px;
+	margin-right:-5px;
+}
+th.time {
+	width:125px;
+}
+th.week {
+	min-width:180px;
+}
+.marginl10 {
+	margin-left:10px;
+}
+.marginl20 {
+	margin-left:20px;
+}
+.marginb10 {
+	margin-bottom:10px;
+}
+.marginb20 {
+	margin-bottom:20px;
+}
+.margint10 {
+	margin-top:10px;
+}
+.form-inline .form-group.marginr0 {
+	margin-right:0;
+	margin-left:-5px;
+}
+.userlist {
+	border-left:1px dashed #ccc;
+	padding-left:35px;
+}
+.userlist h3 {
+	line-height:200%;
+	font-size:16px;
+	display:inline;
+	margin-bottom:20px;
+}
+.userlist {
+	width:390px;
+}
+.userlist .card-4 {
+	margin-top:10px;
+}
+.userlist .card-4:before,.userlist .card-4:after {
+	display:none;
+}
+.userlist [class*="forward-"]:before,.userlist [class*="forward-"]:after {
+	display:inline-block;
+}
+.card-1 .operation-list {
+	padding:0 4px;
+}
+.userlist .form-control {
+	width:212px;
+}
+.card.cur:after,.card.cur:hover:after {
+	top:0;
+	bottom:0;
+	left:0;
+	width:8px;
+	height:auto;
+	background:#19BEE3;
+	z-index:10;
+}
+.card.cur:hover {
+	background:transparent;
+}
+#div-oidc-rolesetting-roles {
+	}#div-oidc-rolesetting-roles.collapsed {
+	width:calc(100% - 400px);
+	float:left;
+}
+#div-oidc-rolesetting-role-users,#div-oidc-rolesetting-rolefunc {
+	height:370px;
+	overflow:auto;
+}
+.btn-sm {
+	font-size:14px;
+	padding:0 10px;
+	height:30px;
+	line-height:28px;
+	border-radius:4px;
+}
+/*reset*/
+  .side-nav.collapsed > li.navigation .sidebar-toggle span {
+	overflow:hidden;
+	white-space:nowrap;
+	text-overflow:ellipsis;
+	width:100%;
+}

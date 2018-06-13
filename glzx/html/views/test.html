@@ -113,7 +113,7 @@
                     </i-menu>
                 </sider>
                 <!--  -->
-                <i-menu ref="side2" width="170px" class="collapsedMenu" accordion @on-select="jumpPage" @on-open-change="collapsedMenuShow">
+                <i-menu ref="side2" width="170px" class="collapsedMenu" accordion @on-select="jumpPage" @on-open-change="collapsedMenuShow" :open-names="openSubMenuID">
                     <menu-item name="2" class="collapsedMenu-title" >
                         {{collapsedMenuTitle}}
                     </menu-item>                    
