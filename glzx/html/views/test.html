@@ -108,12 +108,12 @@
                 <!--  -->
                 <sider ref="side1" hide-trigger collapsible :collapsed-width="60" v-model="isCollapsed" width="230px" class="navMenu" :style="{position: 'fixed', height: '100vh',top: '50px', left: 0, overflow: 'auto'}">
                     <icon @click.native="collapsedSider" :class="rotateIcon" :style="{margin: '20px 20px 0'}" type="navicon-round" size="24"></icon>
-                    <i-menu active-name="1" :open-names="['1']" width="auto" :class="menuitemClasses" accordion @on-select="jumpPage" @on-open-change="collapsedMenuShow">
+                    <i-menu active-name="1"  width="auto" :class="menuitemClasses" accordion @on-select="jumpPage" @on-open-change="collapsedMenuShow">
                         <menu-parts v-for="data in navData" :data='data'></menu-parts>
                     </i-menu>
                 </sider>
                 <!--  -->
-                <i-menu ref="side2" width="170px" class="collapsedMenu" accordion @on-select="jumpPage" @on-open-change="collapsedMenuShow" :open-names="openSubMenuID">
+                <i-menu ref="side2" width="170px" class="collapsedMenu" accordion @on-select="jumpPage">
                     <menu-item name="2" class="collapsedMenu-title" >
                         {{collapsedMenuTitle}}
                     </menu-item>                    

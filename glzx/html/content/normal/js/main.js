@@ -16,21 +16,18 @@ require.config({
     },
 });
 require(['jquery','bootstrapJs','vue','iview','getBreadcrumb','test','checkbox'],function($,_bootstrapJs,Vue,iview,getBreadcrumb,test,_checkbox){
-
     test.start('!!注意这里 :');
-    
-    // nav 导航 ---------------------------------------
     // 非模块开发用法，若要用requirejs，请遵行该规范；尽量避免此种引用 
-    // runNavVue(Vue); //废弃
-    // var arr=[{text:"第一层",id:1,nodes:[{text:"第一层 1-1",id:11,nodes:[{text:"第一层 1-1-1",id:111},{text:"第一层 1-1-2",id:112},{text:"第一层 1-1-3",id:113}]},{text:"第一层 1-2",id:12,nodes:[{text:"第一层 1-2-1",id:121},{text:"第一层 1-2-2",id:122},{text:"第一层 1-2-3",id:123}]}]},{text:"第二层",id:2,nodes:[{text:"第二层 2-1",id:21,nodes:[{text:"第二层 2-1-1",id:211},{text:"第二层 2-1-2",id:212},{text:"第二层 2-1-3",id:213}]},{text:"第二层 2-2",id:22,nodes:[{text:"第二层 2-2-1",id:221},{text:"第二层 2-2-2",id:222},{text:"第二层 2-2-3",id:223}]},{text:"第二层 2-3",id:23,nodes:[{text:"第二层 2-3-1",id:231},{text:"第二层 2-3-2",id:232},{text:"第二层 2-3-3",id:233}]}]}];
-    // console.log(new getBreadcrumb(arr,1));
-    // var Breadcrumb = new getBreadcrumb(data,11);
-    // console.log(Breadcrumb)
+    // runNavVue(Vue); //废弃】
+
+    // 实例 获取面包屑组件 breadcrumb
+    var breadcrumb = new getBreadcrumb();
+    // console.log(breadcrumb.init(data,11))
     Vue.use(iview);
 
     Vue.component("menu-parts",{
         props:["data"],
-        template:`<submenu :name="JSON.stringify(data.nodes)+'|'+data.id" v-if="data.nodes && data.nodes.length" :title='data.text' >
+        template:`<submenu :name="data.id" v-if="data.nodes && data.nodes.length" :title='data.text' >
                     <template slot="title" >
                         <icon :type="data.icon" v-if="data.icon"></icon>
                         <span>{{data.text}}</span>
@@ -95,28 +92,10 @@ require(['jquery','bootstrapJs','vue','iview','getBreadcrumb','test','checkbox']
             collapsedMenuTitle:'',
             activeNavIndex:'',
             name:'',
+            openSubMenuID:[],
             breadcrumbArr:[]
         },
         mixins:[Main],
-        watch:{
-            activeNavIndex:{
-                handler:function(){
-                    console.log("run ? ");
-                    this.activeNav = '';
-                    if(!this.activeNav){
-                        var item = this.name[0];
-                        var itemArr = item.split("|");
-                        var subMenuArr = JSON.parse(itemArr[0]);
-                        this.activeNav = [];    // 重置dom
-                    } 
-                    
-                    this.$nextTick(function(){
-                        this.activeNav = subMenuArr;
-                    })
-                },
-                deep:true
-            },
-        },
         methods:{
             // 点击页面跳转
             jumpPage:function(name){
@@ -139,19 +118,27 @@ require(['jquery','bootstrapJs','vue','iview','getBreadcrumb','test','checkbox']
                     console.log("loaded");
                     page.load(href).attr("loaded",true);
                 }
-                var Breadcrumb = new getBreadcrumb(data,subMenuId)
+
+                var Breadcrumb = breadcrumb.init(data,subMenuId).breadcrumbsArr;
                 console.log('面包屑 = ',Breadcrumb);
                 _this.setBreadcrumb(Breadcrumb);
             },
             // 
             collapsedMenuShow:function(name){
                 console.log('collapsedMenuShow = ',name);
-                this.name = name;
-
+                // this.name = name;
+                var this_breadcrumb = breadcrumb.init(data,name[0]);
+                var childNodes = this_breadcrumb.currentNodesChilds;
+                console.log(this_breadcrumb);
+                this.activeNav = [];
                 this.$nextTick(function(){
                     var openNode = $("#navApp").find(".ivu-menu-opened");
-                    console.log(openNode);
-                    this.activeNavIndex = openNode.index();     // 通过修改当前点击的nav的下标，再通过watch监听，改变activeNav值
+                    // console.log(openNode);
+                    // var current = openNode.eq(openNode.length - 1);
+                    // console.log(current)
+                    this.openSubMenuID = JSON.stringify(this_breadcrumb.idsArr);
+                    this.activeNav = childNodes;
+                    // this.activeNavIndex = name[0];     // 通过修改当前点击的nav的下标，再通过watch监听，改变activeNav值
                     this.collapsedMenuTitle = openNode.attr("title");
                 });
             },
@@ -166,7 +153,7 @@ require(['jquery','bootstrapJs','vue','iview','getBreadcrumb','test','checkbox']
 
         }
     });
-    // h1 ---------------------------------------
+    // right-contianer h1 ---------------------------------------
     window.headerVm = new Vue({
         el:"#h1-app",
         data:{
@@ -266,216 +253,4 @@ require(['jquery','bootstrapJs','vue','iview','getBreadcrumb','test','checkbox']
         ele:".radio-inline",
         selectType:"onRadioSelect"
     });
-
-    // 
-    window.getNode = function (data,obj,Id){
-       
-        for(var i = 0; i < data.length; i++){
-            // var arr = [data[i].text];
-            if(data[i].id == Id){
-                obj['nodes'] = [];
-                obj['nodes'].push(data[i]);
-                obj['breadcrumb'].push({
-                    id:data[i].id,
-                    text:data[i].text
-                });
-            }else{
-
-                if(data[i].nodes && data[i].nodes.length){
-                    if(!obj['breadcrumb']){
-                        obj['breadcrumb'] = [];
-                    }
-
-                    obj['breadcrumb'].push({
-                        id:data[i].id,
-                        text:data[i].text
-                    });
-                    arr = getNode(data[i].nodes,obj,Id);
-                    
-                }
-                
-            }
-
-            // console.log(arr);
-        }
-        return obj;
-    }
-    // var arr = [
-    //     {
-    //         text:"第一层",
-    //         id:1,
-    //         nodes:[
-    //             {
-    //                 text:"第一层 1-1",
-    //                 id:11,
-    //                 nodes:[
-    //                     {
-    //                         text:"第一层 1-1-1",
-    //                         id:111,
-    //                     },
-    //                     {
-    //                         text:"第一层 1-1-2",
-    //                         id:112,
-    //                     },
-    //                     {
-    //                         text:"第一层 1-1-3",
-    //                         id:113,
-    //                     }
-    //                 ]
-    //             },
-    //             {
-    //                 text:"第一层 1-2",
-    //                 id:12,
-    //                 nodes:[
-    //                     {
-    //                         text:"第一层 1-2-1",
-    //                         id:121,
-    //                     },
-    //                     {
-    //                         text:"第一层 1-2-2",
-    //                         id:122,
-    //                     },
-    //                     {
-    //                         text:"第一层 1-2-3",
-    //                         id:123,
-    //                     }
-    //                 ]
-    //             }
-    //         ]
-    //     },
-    //     {
-    //         text:"第二层",
-    //         id:2,
-    //         nodes:[
-    //             {
-    //                 text:"第二层 2-1",
-    //                 id:21,
-    //                 nodes:[
-    //                     {
-    //                         text:"第二层 2-1-1",
-    //                         id:211,
-    //                     },
-    //                     {
-    //                         text:"第二层 2-1-2",
-    //                         id:212,
-    //                     },
-    //                     {
-    //                         text:"第二层 2-1-3",
-    //                         id:213,
-    //                     }
-    //                 ]
-    //             },
-    //             {
-    //                 text:"第二层 2-2",
-    //                 id:22,
-    //                 nodes:[
-    //                     {
-    //                         text:"第二层 2-2-1",
-    //                         id:221,
-    //                     },
-    //                     {
-    //                         text:"第二层 2-2-2",
-    //                         id:222,
-    //                     },
-    //                     {
-    //                         text:"第二层 2-2-3",
-    //                         id:223,
-    //                     }
-    //                 ]
-    //             },
-    //             {
-    //                 text:"第二层 2-3",
-    //                 id:23,
-    //                 nodes:[
-    //                     {
-    //                         text:"第二层 2-3-1",
-    //                         id:231,
-    //                     },
-    //                     {
-    //                         text:"第二层 2-3-2",
-    //                         id:232,
-    //                     },
-    //                     {
-    //                         text:"第二层 2-3-3",
-    //                         id:233,
-    //                     }
-    //                 ]
-    //             }
-    //         ]
-    //     },
-    // ]
-    // 根据树形结构，来获取子节点的面包屑路径
-    // function getBreadcrumb(arr,selectedID){
-    //     var data = arr;
-    //     var json = [];
-    //     var topID = [];
-    //     for(var j = 0;j<arr.length;j++){
-    //         topID.push(arr[j].id);
-    //     }
-    //     // console.log('selectedID = ' ,selectedID,'---------------------------------------------');
-    //     function getNodeParent(arr,selectedID){
-            
-    //         var i = 0;
-    //         var l = arr.length;
-    //         while (i<l){
-    //             // console.log('json = ',json )
-    //             if(arr[i].id === selectedID){
-    //                 // 如果相同
-    //                 json.unshift(arr[i].text);
-    //                 if(json.indexOf(arr[i].text)<0){
-    //                     json.unshift(arr[i].text);
-    //                 }
-    //                 // console.log('相同 = ','---------------------------------------------');
-    //                 break;
-    //             }else{
-    //                 // console.log('不相同');
-    //                 // 如果不相同
-    //                 if(arr[i].nodes && arr[i].nodes.length){
-    //                     var state = isParent(arr[i].nodes,selectedID);
-    //                     if(state){
-    //                         if(json.indexOf(arr[i].text)<0){
-    //                             json.unshift(arr[i].text);
-    //                         }
-                            
-    //                         // console.log("有",json,arr[i].text);
-
-    //                         if(topID.indexOf(arr[i].id)<0){
-    //                             // console.log('不是顶层',data);
-    //                             getNodeParent(data,arr[i].id)
-    //                         }
-    //                         break;
-    //                     }else{
-    //                         // console.log("没有",arr[i].nodes,selectedID);
-    //                         getNodeParent(arr[i].nodes,selectedID);
-    //                     }
-    //                 }
-    //             }
-
-    //             i++;
-    //         }
-    //         return json;
-    //     }
-    //     // 判断是否是父级
-    //     function isParent(arr,selectedID){
-            
-    //         var i = 0;
-    //         var state;
-    //         while(i<arr.length){
-    //             if(arr[i].id === selectedID){
-    //                 // console.log('true ? ');
-    //                 if(json.indexOf(arr[i].text)<0){
-    //                     json.unshift(arr[i].text);
-    //                 }
-    //                 state = true;
-    //                 break;
-    //             }
-    //             i++;
-    //         }
-    //         return state;
-    //     }
-    //     return getNodeParent(arr,selectedID);
-
-    // }
-    // console.log(getBreadcrumb(arr,232));
-    // console.log(getNode(data,[],221));
 });

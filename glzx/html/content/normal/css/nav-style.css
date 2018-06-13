@@ -51,6 +51,9 @@ html{
 .menu-icon {
     transition: all .3s;
 }
+.menu-icon:hover{
+    cursor:pointer;
+}
 .rotate-icon{
     transform: rotate(-90deg);
 }
