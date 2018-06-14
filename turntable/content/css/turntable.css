@@ -1,0 +1,28 @@
+#turntable{
+	text-align: center;
+
+}
+#turntable .content{
+	width: 450px;
+	min-height: 450px;
+	margin: 0 auto;
+	position: relative;
+
+}
+#turntable .content >div{
+	position: absolute;
+	top: 0;
+	left:50%;
+	margin-left:-225px;
+	-webkit-transition: all 3s ease-in-out;
+	-o-transition: all 3s ease-in-out;
+	transition: all 3s ease-in-out;
+}
+#turntable .content >div.pointer{
+	top:50%;
+	margin-top:-114px;
+	margin-left:-87px;
+}
+#turntable .content >div.bg{
+	transform: rotate(323deg);
+}
