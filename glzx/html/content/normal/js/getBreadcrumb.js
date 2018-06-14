@@ -32,6 +32,8 @@
         // run
         this.init = function(arr,selectedID){
             breadcrumbs = [];
+            idsArr = [];
+            nodeArr = [];
             //
             selectedID = typeof selectedID === "string"?parseInt(selectedID):selectedID;
             data = arr;    // 原始数据

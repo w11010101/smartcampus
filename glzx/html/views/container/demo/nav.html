@@ -1,99 +1,69 @@
-
+<meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="../../../content/frame/bootstrap/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="../../../content/normal/css/my-theme.css">
 <link rel="stylesheet" type="text/css" href="../../../content/normal/css/demo.css">
+
 <link rel="stylesheet" type="text/css" href="../../../content/frame/iview/iview.css">
+<link rel="stylesheet" type="text/css" href="../../../content/normal/css/nav-style.css">
 <script type="text/javascript" src="../../../content/frame/jquery/jquery.min.js"></script>
 <script type="text/javascript" src="../../../content/frame/clipboard/clipboard.min.js"></script>
 <script type="text/javascript" src="../../../content/normal/js/v-demo.js"></script>
 <script type="text/javascript" src="../../../content/frame/vuejs/vue.js"></script>
 <script type="text/javascript" src="../../../content/frame/iview/iview.js"></script>
+<script type="text/javascript" src="../../../content/normal/js/data.js"></script>
+<!-- <script type="text/javascript" src="../../../content/frame/js-cookie/js-cookie.js"></script> -->
+<script type="text/javascript" src="../../../content/normal/js/getBreadcrumb.js"></script>
 <!-- end -->
 <h2 id="demo-express-h1">
-     
+    nav
     <a type="button" class="btn btn-default" href="../../local-index.html">返回</a>
 </h2>
-<!-- css -->
 <style type="text/css" media="screen">
-.layout-con{
-        height: 100%;
-        width: 100%;
-    }
-    .menu-item span{
+    #btnVm{
         display: inline-block;
-        overflow: hidden;
-        width: 69px;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        vertical-align: bottom;
-        transition: width .2s ease .2s;
+        width: 200px;
+        margin: 0 auto;
+        vertical-align: top;
     }
-    .menu-item i{
-        transform: translateX(0px);
-        transition: font-size .2s ease, transform .2s ease;
-        vertical-align: middle;
-        font-size: 16px;
+    .btns{
+        padding: 0px 10px;
     }
-    .collapsed-menu span{
-        width: 0px;
-        transition: width .2s ease;
+    button{
+        padding: 0px 5px;
+        margin: 5px;
     }
-    .collapsed-menu i{
-        transform: translateX(5px);
-        transition: font-size .2s ease .2s, transform .2s ease .2s;
-        vertical-align: middle;
-        font-size: 22px;
-    }
-
 </style>
 <!-- html -->
 <div class="demo-express">
     <h3>结果展示</h3>
     <div class="demo-express-bg">
-        <div id="app">
-            <template>
-                <i-menu active-name="1-2" :open-names="['1']">
-                    <submenu name="1">
-                        <template slot="title">
-                            <icon type="ios-analytics"></icon>
-                            Navigation One
-                        </template>
-                        <menu-group title="Item 1">
-                            <menu-item name="1-1">Option 1</menu-item>
-                            <menu-item name="1-2">Option 2</menu-item>
-                        </menu-group>
-                        <menu-group title="Item 2">
-                            <menu-item name="1-3">Option 3</menu-item>
-                            <menu-item name="1-4">Option 4</menu-item>
-                        </menu-group>
-                    </submenu>
-                    <submenu name="2">
-                        <template slot="title">
-                            <icon type="ios-filing"></icon>
-                            Navigation Two
-                        </template>
-                        <menu-item name="2-1">Option 5</menu-item>
-                        <menu-item name="2-2">Option 6</menu-item>
-                        <submenu name="3">
-                            <template slot="title">Submenu</template>
-                            <menu-item name="3-1">Option 7</menu-item>
-                            <menu-item name="3-2">Option 8</menu-item>
-                        </submenu>
-                    </submenu>
-                    <submenu name="4">
-                        <template slot="title">
-                            <icon type="ios-gear"></icon>
-                            Navigation Three
-                        </template>
-                        <menu-item name="4-1">Option 9</menu-item>
-                        <menu-item name="4-2">Option 10</menu-item>
-                        <menu-item name="4-3">Option 11</menu-item>
-                        <menu-item name="4-4">Option 12</menu-item>
-                    </submenu>
+        <div id="navApp" v-cloak style="position:relative;height:50vh">
+            <!--  -->
+            <sider ref="side1" hide-trigger collapsible :collapsed-width="60" v-model="isCollapsed" width="230px" class="navMenu" :style="{position: 'absolute', height: '50vh',top: '0', left: 0, overflow: 'auto'}">
+                <icon @click.native="collapsedSider" :class="rotateIcon" :style="{margin: '20px 20px 0'}" type="navicon-round" size="24"></icon>
+                <i-menu  width="auto" :open-names="openSubMenuID" :class="menuitemClasses" accordion @on-select="jumpPage" @on-open-change="collapsedMenuShow">
+                    <menu-parts v-for="data in navData" :data='data' :key="data.id"></menu-parts>
                 </i-menu>
-            </template>
+            </sider>
+            <!-- :open-names="[11,114]" -->
+            <i-menu ref="side2" width="170px" class="collapsedMenu" accordion @on-select="jumpPage">
+                <menu-item name="2" class="collapsedMenu-title" >
+                    {{collapsedMenuTitle}}
+                </menu-item>                    
+                <menu-parts v-for="data in activeNav"  :key="data.id" :data='data' v-if="data.nodes && data.nodes.length"></menu-parts>
+                <menu-item v-for="data in activeNav" :key="data.id" :name="data['href']?data.href+'|'+data.nid:data.text+'|'+data.id" v-if="!data.nodes">
+                    <span>{{data.text}}</span>
+                </menu-item>
+            </i-menu>
         </div>
         <!--  -->
+        <div id="btnVm">
+            <!--  -->
+            <div class="btns">
+                <button v-for="(item,index) in btns" @click="changeNav" :opens="openName(index)" >{{item}}</button>
+                
+            </div>
+        </div>
     </div>
 </div>
 <div class="demo-express">
@@ -111,45 +81,347 @@
             <div class="col-sm-12">
                 <h3><span>html</span><button class="copy" data-clipboard-target="#html"></button></h3>
 <pre id="html">
-
+&lt;!-- 由于要展示在模板上的原因，部分html，css，js有略微改动，完整可参考test.html --&gt;
+&lt;div id="navApp" v-cloak style="position:relative;height:50vh"&gt;
+    &lt;!--  --&gt;
+    &lt;sider ref="side1" hide-trigger collapsible :collapsed-width="60" v-model="isCollapsed" width="230px" class="navMenu" :style="{position: 'absolute', height: '50vh',top: '0', left: 0, overflow: 'auto'}"&gt;
+        &lt;icon @click.native="collapsedSider" :class="rotateIcon" :style="{margin: '20px 20px 0'}" type="navicon-round" size="24"&gt;&lt;/icon&gt;
+        &lt;i-menu  width="auto" :open-names="openSubMenuID" :class="menuitemClasses" accordion @on-select="jumpPage" @on-open-change="collapsedMenuShow"&gt;
+            &lt;menu-parts v-for="data in navData" :data='data' :key="data.id"&gt;&lt;/menu-parts&gt;
+        &lt;/i-menu&gt;
+    &lt;/sider&gt;
+    &lt;!-- :open-names="[11,114]" --&gt;
+    &lt;i-menu ref="side2" width="170px" class="collapsedMenu" accordion @on-select="jumpPage"&gt;
+        &lt;menu-item name="2" class="collapsedMenu-title" &gt;
+            {{collapsedMenuTitle}}
+        &lt;/menu-item&gt;                    
+        &lt;menu-parts v-for="data in activeNav"  :key="data.id" :data='data' v-if="data.nodes && data.nodes.length"&gt;&lt;/menu-parts&gt;
+        &lt;menu-item v-for="data in activeNav" :key="data.id" :name="data['href']?data.href+'|'+data.nid:data.text+'|'+data.id" v-if="!data.nodes"&gt;
+            &lt;span&gt;{{data.text}}&lt;/span&gt;
+        &lt;/menu-item&gt;
+    &lt;/i-menu&gt;
+&lt;/div&gt;
 </pre>
             </div>
             <!-- css -->
             <div class="col-sm-12">
                 <h3><span>css</span><button class="copy" data-clipboard-target="#css"></button></h3>
 <pre id="css">
-
+&lt;link rel="stylesheet" type="text/css" href="../../../content/normal/css/nav-style.css"&gt;
 </pre>
             </div>
             <!-- javascript -->
             <div class="col-sm-12">
                 <h3><span>javascript</span><button class="copy" data-clipboard-target="#javascript"></button></h3>
 <pre id="javascript">
+    var breadcrumb = new breadcrumb();
+    console.log(breadcrumb);
 
+    Vue.component("menu-parts",{
+        props:["data"],
+        template:`<submenu :name="data.id" v-if="data.nodes && data.nodes.length" :title='data.text' :aaaa = "data.id">
+                    <template slot="title" >
+                        <icon :type="data.icon" v-if="data.icon"></icon>
+                        <span>{{data.text}}</span>
+                    </template>
+                    <menu-item v-for="item in data.nodes" :key="item.id" :name="item['href']?item.href+'|'+item.nid+'|'+item.id:item.text+'|'+item.id+'|'+item.id" v-if="!item.nodes" >
+                        <span>{{item.text}}</span>
+                    </menu-item>
+                    <menu-parts v-if="data.nodes && data.nodes.length" v-for="item in data.nodes" :key="'sub-'+item.id" :data='item'></menu-parts>
+                </submenu>
+                `,
+    });
+    var Main = {
+        data () {
+            return {
+                isCollapsed: false,
+                navData:data
+            }
+        },
+        computed: {
+            menuitemClasses: function () {
+                return [
+                    'menu-item',
+                    this.isCollapsed ? 'collapsed-menu' : ''
+                ]
+            },
+            rotateIcon: function () {
+                return [
+                    'menu-icon',
+                    this.isCollapsed ? 'rotate-icon' : ''
+                ];
+            },
+            
+        },
+        methods: {
+            collapsedSider: function() {
+                this.$refs.side1.toggleCollapse();
+                if(this.$refs.side1.$el){
+                    this.$refs.side1.$el.style.width = "60px";
+
+                }else{
+                    this.$refs.side1.$el.style.width = "230px";
+                }
+            }
+        }
+    }
+
+    window.navVm = new Vue({
+        el:'#navApp',
+        data:{
+            activeNav:'',
+            collapsedMenuTitle:'',
+            activeNavIndex:'',
+            name:'',
+            openSubMenuID:[],
+            breadcrumbArr:[]
+        },
+        mixins:[Main],
+        mounted(){
+            console.log('abc')
+        },
+        methods:{
+            // 点击页面跳转
+            jumpPage:function(name){
+                var arr = name.split("|");
+                var href = arr[0];
+                var nid = arr[1];
+                var subMenuId = arr[2];
+                var _this = this;
+                // 判断，如果nid对应的右侧div不存在，则创建
+                var parent = $("#right-container");
+                var page = parent.find("#" + nid);
+
+                if (page.length == 0) {
+                    parent.append("<div id='" + nid + "' ></div>");
+                    page = parent.find("#" + nid);
+                }
+
+                if(!page.attr("loaded")){
+                    console.log("loaded");
+                    page.load(href).attr("loaded",true);
+                }
+
+                var Breadcrumb = breadcrumb.init(data,subMenuId).breadcrumbsArr;
+                console.log('面包屑 = ',Breadcrumb);
+                _this.setBreadcrumb(Breadcrumb);
+            },
+            // 
+            collapsedMenuShow:function(name){
+                
+                console.log('collapsedMenuShow = ' , name)
+                var this_breadcrumb = breadcrumb.init(data,name[0]);
+                var childNodes = this_breadcrumb.currentNodesChilds;
+                this.activeNav = [];
+                this.$nextTick(function(){
+                    var openNode = $("#navApp").find(".ivu-menu-opened");
+                    var arr = [];
+                    var this_idsArr = breadcrumb.init(data,name[name.length-1]).idsArr;
+                    for(var i = 0;i<this_idsArr.length;i++){
+                        arr.push(this_idsArr[i]);
+                    }
+                    this.openSubMenuID = arr;
+                    this.activeNav = childNodes;
+
+                    if(openNode.attr("title")){
+                       this.collapsedMenuTitle = openNode.attr("title");
+                    }
+                    
+                });
+            },
+
+            // set 面包屑
+            setBreadcrumb:function(breadcrumbArr){
+                // 设置面包屑
+                // headerVm.breadcrumbArr = breadcrumbArr;
+                return false;
+                
+            }
+
+        }
+    });
 </pre>
             </div>
         </div>
     </div>
 </div>
 <script type="text/javascript">
+    
+    var btnVM = new Vue({
+        el:"#btnVM",
+        data:{
+            btns:['1','2','1-11-111','1-11-14','2-21-211','2-22-222','3-32'],
+            names:''
+        },
+        computed:{
+            
+        },
+
+        methods:{
+            changeNav:function(){
+                var opens = event.target.getAttribute("opens")
+                console.log(event.target);
+                console.log(opens);
+                navVm.openSubMenuID = JSON.parse(opens)
+
+            },
+            openName:function(index){
+                var arr = [];
+                // return this.btns[index].split("-");
+                var ids = this.btns[index].split("-");
+                for(var i in ids){
+                    // console.log(ids[i]);
+                    arr.push(parseInt(ids[i]))
+                }
+                return JSON.stringify(arr);
+            }
+        }
+    })
+    // 实例 获取面包屑组件 breadcrumb
+    var breadcrumb = new breadcrumb();
+    console.log(breadcrumb);
+
+    Vue.component("menu-parts",{
+        props:["data"],
+        template:`<submenu :name="data.id" v-if="data.nodes && data.nodes.length" :title='data.text' :aaaa = "data.id">
+                    <template slot="title" >
+                        <icon :type="data.icon" v-if="data.icon"></icon>
+                        <span>{{data.text}}</span>
+                    </template>
+                    <menu-item v-for="item in data.nodes" :key="item.id" :name="item['href']?item.href+'|'+item.nid+'|'+item.id:item.text+'|'+item.id+'|'+item.id" v-if="!item.nodes" >
+                        <span>{{item.text}}</span>
+                    </menu-item>
+                    <menu-parts v-if="data.nodes && data.nodes.length" v-for="item in data.nodes" :key="'sub-'+item.id" :data='item'></menu-parts>
+                </submenu>
+                `,
+    });
     var Main = {
         data () {
             return {
-                visible: false
+                isCollapsed: false,
+                navData:data
             }
         },
+        computed: {
+            menuitemClasses: function () {
+                return [
+                    'menu-item',
+                    this.isCollapsed ? 'collapsed-menu' : ''
+                ]
+            },
+            rotateIcon: function () {
+                return [
+                    'menu-icon',
+                    this.isCollapsed ? 'rotate-icon' : ''
+                ];
+            },
+            
+        },
         methods: {
-            show: function () {
-                this.visible = true;
+            collapsedSider: function() {
+                this.$refs.side1.toggleCollapse();
+                if(this.$refs.side1.$el){
+                    this.$refs.side1.$el.style.width = "60px";
+
+                }else{
+                    this.$refs.side1.$el.style.width = "230px";
+                }
             }
         }
     }
 
-    var vm = new Vue({
-        el:"#app",
-        mixins:[Main],
+    window.navVm = new Vue({
+        el:'#navApp',
         data:{
-            name:"wangchi"
+            activeNav:'',
+            collapsedMenuTitle:'',
+            activeNavIndex:'',
+            name:'',
+            openSubMenuID:[],
+            breadcrumbArr:[]
+        },
+        mixins:[Main],
+        mounted(){
+            console.log('abc')
+        },
+        methods:{
+            // 点击页面跳转
+            jumpPage:function(name){
+                var arr = name.split("|");
+                var href = arr[0];
+                var nid = arr[1];
+                var subMenuId = arr[2];
+                var _this = this;
+                // 判断，如果nid对应的右侧div不存在，则创建
+                var parent = $("#right-container");
+                var page = parent.find("#" + nid);
+
+                if (page.length == 0) {
+                    parent.append("<div id='" + nid + "' ></div>");
+                    page = parent.find("#" + nid);
+                }
+
+                if(!page.attr("loaded")){
+                    console.log("loaded");
+                    page.load(href).attr("loaded",true);
+                }
+
+                var Breadcrumb = breadcrumb.init(data,subMenuId).breadcrumbsArr;
+                console.log('面包屑 = ',Breadcrumb);
+                _this.setBreadcrumb(Breadcrumb);
+            },
+            // 
+            collapsedMenuShow:function(name){
+
+                console.log('collapsedMenuShow = ' , name)
+                var this_breadcrumb = breadcrumb.init(data,name[0]);
+                var childNodes = this_breadcrumb.currentNodesChilds;
+                this.activeNav = [];
+                this.$nextTick(function(){
+                    var openNode = $("#navApp").find(".ivu-menu-opened");
+                    var arr = [];
+                    var this_idsArr = breadcrumb.init(data,name[name.length-1]).idsArr;
+                    for(var i = 0;i<this_idsArr.length;i++){
+                        arr.push(this_idsArr[i]);
+                    }
+                    this.openSubMenuID = arr;
+                    this.activeNav = childNodes;
+
+                    if(openNode.attr("title")){
+                       this.collapsedMenuTitle = openNode.attr("title");
+                    }
+                    
+                });
+            },
+
+            // set 面包屑
+            setBreadcrumb:function(breadcrumbArr){
+                // 设置面包屑
+                // headerVm.breadcrumbArr = breadcrumbArr;
+                return false;
+                
+            }
+
         }
-    })
+    });
+    // var Main = {
+    //     data () {
+    //         return {
+    //             visible: false
+    //         }
+    //     },
+    //     methods: {
+    //         show: function () {
+    //             this.visible = true;
+    //         }
+    //     }
+    // }
+
+    // var vm = new Vue({
+    //     el:"#app",
+    //     mixins:[Main],
+    //     data:{
+    //         name:"wangchi"
+    //     }
+    // })
 </script>

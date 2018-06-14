@@ -22,7 +22,7 @@ require(['jquery','bootstrapJs','vue','iview','getBreadcrumb','test','checkbox']
 
     // 实例 获取面包屑组件 breadcrumb
     var breadcrumb = new getBreadcrumb();
-    // console.log(breadcrumb.init(data,11))
+    console.log(breadcrumb);
     Vue.use(iview);
 
     Vue.component("menu-parts",{
@@ -32,23 +32,12 @@ require(['jquery','bootstrapJs','vue','iview','getBreadcrumb','test','checkbox']
                         <icon :type="data.icon" v-if="data.icon"></icon>
                         <span>{{data.text}}</span>
                     </template>
-                    <menu-item v-for="item in data.nodes" :name="item['href']?item.href+'|'+item.nid+'|'+item.id:item.text+'|'+item.id+'|'+item.id" v-if="!item.nodes" >
+                    <menu-item v-for="item in data.nodes" :key="item.id" :name="item['href']?item.href+'|'+item.nid+'|'+item.id:item.text+'|'+item.id+'|'+item.id" v-if="!item.nodes" >
                         <span>{{item.text}}</span>
                     </menu-item>
-                    <menu-parts v-if="data.nodes && data.nodes.length" v-for="item in data.nodes" :data='item'></menu-parts>
+                    <menu-parts v-if="data.nodes && data.nodes.length" v-for="item in data.nodes" :key="'sub-'+item.id" :data='item'></menu-parts>
                 </submenu>
                 `,
-        // template:`<submenu :name="JSON.stringify(data.nodes)+'|'+data.id" v-if="data.nodes && data.nodes.length" :title='data.text' >
-        //             <template slot="title" >
-        //                 <icon :type="data.icon" v-if="data.icon"></icon>
-        //                 <span>{{data.text}}</span>
-        //             </template>
-        //             <menu-item v-for="item in data.nodes" :name="item['href']?item.href+'|'+item.nid+'|'+item.text:item.text+'|'+item.id+'|'+item.text" v-if="!item.nodes" >
-        //                 <span>{{item.text}}</span>
-        //             </menu-item>
-        //             <menu-parts v-if="data.nodes && data.nodes.length" v-for="item in data.nodes" :data='item'></menu-parts>
-        //         </submenu>
-        //         `,
     });
     var Main = {
         data () {
@@ -99,7 +88,6 @@ require(['jquery','bootstrapJs','vue','iview','getBreadcrumb','test','checkbox']
         methods:{
             // 点击页面跳转
             jumpPage:function(name){
-                console.log('jumpPage = ',name);
                 var arr = name.split("|");
                 var href = arr[0];
                 var nid = arr[1];
@@ -125,21 +113,22 @@ require(['jquery','bootstrapJs','vue','iview','getBreadcrumb','test','checkbox']
             },
             // 
             collapsedMenuShow:function(name){
-                console.log('collapsedMenuShow = ',name);
-                // this.name = name;
                 var this_breadcrumb = breadcrumb.init(data,name[0]);
                 var childNodes = this_breadcrumb.currentNodesChilds;
-                console.log(this_breadcrumb);
                 this.activeNav = [];
                 this.$nextTick(function(){
                     var openNode = $("#navApp").find(".ivu-menu-opened");
-                    // console.log(openNode);
-                    // var current = openNode.eq(openNode.length - 1);
-                    // console.log(current)
-                    this.openSubMenuID = JSON.stringify(this_breadcrumb.idsArr);
+                    var arr = [];
+                    var this_idsArr = breadcrumb.init(data,name[name.length-1]).idsArr;
+                    for(var i = 0;i<this_idsArr.length;i++){
+                        arr.push(this_idsArr[i]);
+                    }
+                    this.openSubMenuID = arr;
                     this.activeNav = childNodes;
-                    // this.activeNavIndex = name[0];     // 通过修改当前点击的nav的下标，再通过watch监听，改变activeNav值
-                    this.collapsedMenuTitle = openNode.attr("title");
+                    if(openNode.attr("title")){
+                        this.collapsedMenuTitle = openNode.attr("title");
+                    }
+                    
                 });
             },
 
