@@ -13,7 +13,7 @@ app.use(express.static("js"));
 app.use(express.static("css"));
 
 app.get("/index",function(request,response){
-    response.sendFile(__dirname+"/views/index.html");
+    response.sendFile(__dirname+"/views/test.html");
 });
 
 var server = app.listen("8082",function(){

@@ -55,84 +55,84 @@ var widthLess1024 = function() {
     });
 
     //美化滚动条
-    // $("#sidebar").css("width","230px");
-    // $("#sidebar").niceScroll({
-    //     cursorcolor: "#000000",
-    //     zindex: 999999,
-    //     bouncescroll: true,
-    //     cursoropacitymax: 0.3,
-    //     cursorborder: "",
-    //     cursorborderradius: 10,
-    //     cursorwidth: "6px",
-    //     railalign: "right",
-    //     railoffset: {
-    //         top: 50,
-    //         right:0
-    //     },
-    //     railpadding: {
-    //         top: 0,
-    //         right: 2,
-    //         left: 2,
-    //         bottom: 0
-    //     }
-    // });
-    // $("#sec-sidebar").css("width","180px").niceScroll({
-    //     cursorcolor: "#000000",
-    //     zindex: 999999,
-    //     bouncescroll: true,
-    //     cursoropacitymax: 0.05,
-    //     cursorborder: "",
-    //     cursorborderradius: 4,
-    //     cursorwidth: "7px",
-    //     railalign: "right",
-    //     background: "rgba(0,0,0,.1)",
-    //     railoffset: {
-    //         top: 55,
-    //         left: 0
-    //     }
-    // });
-    // $("#content,#right-container").niceScroll({
-    //     cursorcolor: "#4c4c4c",
-    //     zindex: 999999,
-    //     bouncescroll: true,
-    //     cursoropacitymax: 0.3,
-    //     cursorborder: "",
-    //     cursorborderradius: 10,
-    //     cursorwidth: "6px",
-    //     background: "rgba(0,0,0,.1)",
-    //     //autohidemode: false,
-    //     railoffset: {
-    //         top: 5,
-    //         left: 0
-    //     },
-    //     railpadding: {
-    //         top: 0,
-    //         right: 2,
-    //         left: 2,
-    //         bottom: 0
-    //     }
-    // });
-    // $(".table-scrollable").niceScroll({
-    //     cursorcolor: "#4c4c4c",
-    //     zindex: 999999,
-    //     bouncescroll: true,
-    //     cursoropacitymax: 0.3,
-    //     cursorborder: "",
-    //     cursorborderradius: 10,
-    //     cursorwidth: "6px",
-    //     background: "rgba(0,0,0,.1)",
-    //     //autohidemode: false,
-    //     railoffset: {
-    //         top: 5,
-    //         left: 0
-    //     },
-    //     railpadding: {
-    //         top: 0,
-    //         right: 0,
-    //         left: 0,
-    //         bottom: 0
-    //     }
-    // });
+     $("#sidebar").css("width","230px");
+     $("#sidebar").niceScroll({
+         cursorcolor: "#000000",
+         zindex: 999999,
+         bouncescroll: true,
+         cursoropacitymax: 0.3,
+         cursorborder: "",
+         cursorborderradius: 10,
+         cursorwidth: "6px",
+         railalign: "right",
+          railoffset: {
+             top: 50,
+            right:0
+         },
+         railpadding: {
+             top: 0,
+             right: 2,
+             left: 2,
+             bottom: 0
+        }
+     });
+     $("#sec-sidebar").css("width","180px").niceScroll({
+        cursorcolor: "#000000",
+        zindex: 999999,
+        bouncescroll: true,
+        cursoropacitymax: 0.05,
+        cursorborder: "",
+        cursorborderradius: 4,
+        cursorwidth: "7px",
+        railalign: "right",
+        background: "rgba(0,0,0,.1)",
+        railoffset: {
+            top: 55,
+            left: 0
+         }
+     });
+     $("#content,#right-container").niceScroll({
+        cursorcolor: "#4c4c4c",
+        zindex: 999999,
+        bouncescroll: true,
+        cursoropacitymax: 0.3,
+        cursorborder: "",
+        cursorborderradius: 10,
+        cursorwidth: "6px",
+        background: "rgba(0,0,0,.1)",
+        //autohidemode: false,
+        railoffset: {
+            top: 5,
+            left: 0
+        },
+        railpadding: {
+            top: 0,
+            right: 2,
+            left: 2,
+            bottom: 0
+        }
+    });
+     $(".table-scrollable").niceScroll({
+        cursorcolor: "#4c4c4c",
+        zindex: 999999,
+        bouncescroll: true,
+        cursoropacitymax: 0.3,
+        cursorborder: "",
+        cursorborderradius: 10,
+        cursorwidth: "6px",
+        background: "rgba(0,0,0,.1)",
+        //autohidemode: false,
+        railoffset: {
+            top: 5,
+            left: 0
+        },
+        railpadding: {
+            top: 0,
+            right: 0,
+            left: 0,
+            bottom: 0
+       }
+     });
 
     $("#navigation .dropdown.open").data("closable", false);
     $("#navigation .dropdown").on({

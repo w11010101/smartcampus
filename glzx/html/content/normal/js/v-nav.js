@@ -1,290 +1,150 @@
-// function runNavVue(Vue){
-
-    // from in data.js
-    console.log(data);
-    
-    // vue ================================
-    Vue.component("dropdown-menu",{
-        props:["todo","index","isNodes"],
-        template:`<a href="#" v-bind:action="todo.href" v-bind:nid="todo.nid" v-bind:nodess = 'typeof isNodes'v-bind:class="isNodes?'dropdown-toggle':'sidebar-toggle'" data-toggle="dropdown" v-on:click=subToggleDropdown v-bind:setid="todo.id">
-                    <i class="icon-service" v-if="isNodes"></i>
-                    <i class="icon-repair" v-else></i>
-                    <span>{{todo.text}}</span>
-                    <i class="ico-arr-project" v-if="isNodes"></i>
-                    <b class="ico-arr-dropdown" v-else-if="!isNodes && todo['nodes']&&todo['nodes'].length"></b>
-                </a>`,
-        methods:{
-            subToggleDropdown:function(){
+define(function(){
+    // 封装之前写好的的iview的nav导航
+    function runNavVm($,Vue,breadcrumb){
+        Vue.component("menu-parts",{
+            props:["data"],
+            template:`<submenu :name="data.id" v-if="data.nodes && data.nodes.length" :title='data.text' >
+                        <template slot="title" >
+                            <icon :type="data.icon" v-if="data.icon"></icon>
+                            <span>{{data.text}}</span>
+                        </template>
+                        <menu-item v-for="item in data.nodes" :key="item.id" :name="item['href']?item.href+'|'+item.nid+'|'+item.id:item.text+'|'+item.id+'|'+item.id" v-if="!item.nodes" >
+                            <span>{{item.text}}</span>
+                        </menu-item>
+                        <menu-parts v-if="data.nodes && data.nodes.length" v-for="item in data.nodes" :key="'sub-'+item.id" :data='item'></menu-parts>
+                    </submenu>
+                    `,
+        });
+        var Main = {
+            data () {
+                return {
+                    isCollapsed: false,
+                    navData:data
+                }
+            },
+            mounted:function(){
+                console.log('mounted : this.navData = ' , this.navData);
+                console.log('mounted : this.el = ' , this.$el);
+            },
+            computed: {
+                menuitemClasses: function () {
+                    return [
+                        'menu-item',
+                        this.isCollapsed ? 'collapsed-menu' : ''
+                    ]
+                },
+                rotateIcon: function () {
+                    return [
+                        'menu-icon',
+                        this.isCollapsed ? 'rotate-icon' : ''
+                    ];
+                },
                 
-                var $this = $(this.$el);
-                if($this.hasClass("sidebar-toggle")){
-                    console.log("点击0",$this);
-                    navVM.toggleDropdown($this);
-                }else{
-                    console.log("点击")
-                    if($this.next(".dropdown-menu").find("li").length){
-                        $this.parents(".navigation").addClass("open");
+            },
+            methods: {
+                collapsedSider: function() {
+                    this.$refs.side1.toggleCollapse();
+                    if(this.$refs.side1.$el){
+                        this.$refs.side1.$el.style.width = "60px";
+
                     }else{
-                        navVM.jumpPage($this);
+                        this.$refs.side1.$el.style.width = "230px";
                     }
                 }
-                
-
-                
             }
         }
-    });
-    // 子集
-    // <dropdown-sub-menu v-bind:todo ='subtodo'></dropdown-sub-menu>
-    // <dropdown-child-list class="dropdown" v-if="subtodo.nodes" v-for="event in subtodo.nodes" v-bind:subtodo ='event'></dropdown-child-list>
-    // <dropdown-sub-list class="dropdown" v-if="subtodo.nodes" v-for="event in subtodo.nodes" v-bind:subtodo ='event'></dropdown-sub-list>
-    Vue.component("dropdown-sub-list",{
-        props:["subtodo",'index','isNodes'],
-        template:`<li v-bind:class="subtodo.active?'active':''"  >
-                    <dropdown-menu v-bind:todo ='subtodo' v-bind:index="index" v-bind:isNodes='isNodes' v-if="!isNodes"></dropdown-menu>
-                    <dropdown-child-a v-bind:todo ='subtodo' v-bind:type="subtodo.nodes?'menu':'href'" v-else></dropdown-child-a>
-                    <ul class="dropdown-menu" v-if="subtodo.nodes&&subtodo.nodes.length">
-                        <dropdown-sub-list class="dropdown" v-if="subtodo.nodes" v-for="event in subtodo.nodes" v-bind:subtodo ='event' v-bind:isNodes="event.nodes?true:false"></dropdown-sub-list>
-                    </ul>
-                </li>`,
-        computed:{
-        },
-    });
-    // 子集以下
-    Vue.component("dropdown-child-a",{
-        props:["todo",'type'],
-        template:`<a href="#" v-bind:action="type=='href'?todo.href:''" v-bind:nid="todo.nid" data-toggle="dropdown" v-bind:setid="todo.id" class="dropdown-toggle" aria-expanded="false" v-on:click="subJump">                    
-                    {{todo.text}}
-                    <b class="ico-arr-plus" v-if="type=='menu'"></b>
-                </a>`,
-        computed:{
-            
-        },
-        methods:{
-            subJump:function(){
-                var $this = $(this.$el);
-                if($this.attr("action")){
-                    navVM.jumpPage($this);
-                }
-                
-            }
-        }
-    });
-    // sec-Sidebar  product ================================================
-    Vue.component("dropdown-product-a",{
-        props:["todo","index",'level'],
-        template:`<a href="#" 
-                v-bind:action="todo.href" 
-                v-bind:nid="todo.nid"  
-                v-bind:data-toggle="(level >= 2 && todo.nodes)?'dropdown':''" 
-                v-bind:class="(level >= 2 && todo.nodes)?'dropdown-toggle':'sidebar-toggle'" 
-                v-bind:setid="todo.id" 
-                v-on:click="subClick">
-                    <i class="ico-arr-down-black" v-if='level < 2 && todo.nodes'></i>
-                    {{todo.text}}
-                    <b class="ico-arr-plus-black" v-if='level >= 2 && todo.nodes'></b>
-                </a>
-                `,
-        computed:{
-            
-        },
-        methods:{
-            subClick:function(){
-                var $this = $(this.$el);
-                if(!$this.attr("action") || $this.hasClass('dropdown-toggle')){
-                    $this.parents(".navigation").siblings().addClass("menu-hide").find(".menu").slideUp(200);
-                    $this.next(".menu").slideToggle(200).parents(".navigation").toggleClass("menu-hide");
-                }else {
-                    navVM.jumpPage($this);
-                }
-                
-            }
-        }
-    });
-
-    // Vue.component("dropdown-product-sub-menu",{
-    //     props:["todo"],
-    //     template:`<a
-    //             data-toggle="dropdown" 
-    //             class="dropdown-toggle" 
-    //             v-on:click="subClick(this)">
-    //                 {{todo.text}}
-    //                 <b class="ico-arr-plus-black"></b>
-    //             </a>`,
-    //     computed:{
-    //     },
-    //     methods:{
-    //         subClick:function(){
-    //             var $this = $(this.$el);
-    //             $this.parents(".navigation").siblings().addClass("menu-hide").find(".menu").slideUp(200);
-    //             $this.next(".menu").slideToggle(200).parents(".navigation").toggleClass("menu-hide");
-    //         }
-    //     }
-    // });
-    //<dropdown-product-sub-menu v-bind:todo ='subtodo' v-bind:setid="subtodo.id" v-if="subtodo.nodes"></dropdown-product-sub-menu>
-    Vue.component("dropdown-product-sub-list",{
-        props:["subtodo",'index'],
-        template:`<li v-bind:class="{'dropdown':true,active:subtodo.active}">
-                    
-                    <dropdown-product-a v-bind:todo ='subtodo' v-bind:setid="subtodo.id" v-bind:level=3></dropdown-product-a>
-                    <ul class="dropdown-menu" v-if="subtodo.nodes&&subtodo.nodes.length">
-                        <dropdown-product-sub-list class="dropdown" v-if="subtodo.nodes" v-for="sub in subtodo.nodes" v-bind:subtodo ='sub' v-bind:index ='index'></dropdown-product-sub-list>
-                    </ul>
-                </li>`,
-        computed:{
-        },
-    })
-    // vue 实例
-    var navVM = new Vue({
-        el:"#vm-nav",
-        data:{
-            navData:"",
-            activeNav:'',
-            current_nav:"",
-            message:"message"
-        },
-        // watch:{
-        //     // navData:function(event){
-        //     //     console.log(event);
-        //     //     navVM.activeNav = event[0];
-        //     // }
-        // // },
-        // // mounted:function(){
-        // //     // this.$nextTick(function(){
-
-        //         // var activeId = this.activeNav.id;
-        //         // console.log(this.activeNav)
-        //         // this.setActive(this.navData,activeId);
-        // //     // });
-           
-        // },
-        // beforeCreate: function() {
-        //   console.group('------beforeCreate创建前状态------');
-        //   console.log("%c%s", "color:red" , "el     : " + this.$el); //undefined
-        //   console.log("%c%s", "color:red","data   : " + this.$data); //undefined 
-        //   console.log("%c%s", "color:red","message: " + this.message) 
-        //   console.log("%c%s", "color:red","navData: " + this.navData)
-        // },
-        created: function() {
-          console.group('------created创建完毕状态------');
-          console.log("%c%s", "color:red","el     : " + this.$el); //undefined
-          console.log("%c%s", "color:red","data   : " + this.$data); //已被初始化 
-          console.log("%c%s", "color:red","message: " + this.message); //已被初始化
-          this.navData = data;
-          this.activeNav = this.navData[0];
-          console.log("%c%s", "color:red","navData: " + this.navData)
-         
-          
-        },
-        beforeMount: function() {
-          console.group('------beforeMount挂载前状态------');
-          console.log("%c%s", "color:red","el     : " + (this.$el)); //已被初始化
-          console.log(this.$el);
-          console.log("%c%s", "color:red","data   : " + this.$data); //已被初始化  
-          console.log("%c%s", "color:red","message: " + this.message); //已被初始化  
-          console.log("%c%s", "color:red","navData: " + this.navData)
-           var activeId = this.activeNav.id;
-            console.log(this.activeNav)
-            this.setActive(this.navData,activeId);
-        },
-        // mounted: function() {
-        //   console.group('------mounted 挂载结束状态------');
-        //   console.log("%c%s", "color:red","el     : " + this.$el); //已被初始化
-        //   console.log(this.$el);    
-        //   console.log("%c%s", "color:red","data   : " + this.$data); //已被初始化
-        //   console.log("%c%s", "color:red","message: " + this.message); //已被初始化 
-        //   console.log("%c%s", "color:red","navData: " + this.navData)
-        // },
-        // beforeUpdate: function () {
-        //   console.group('beforeUpdate 更新前状态===============》');
-        //   console.log("%c%s", "color:red","el     : " + this.$el);
-        //   console.log(this.$el);   
-        //   console.log("%c%s", "color:red","data   : " + this.$data); 
-        //   console.log("%c%s", "color:red","message: " + this.message); 
-        //   console.log("%c%s", "color:red","navData: " + this.navData)
-        // },
-        // updated: function () {
-        //   console.group('updated 更新完成状态===============》');
-        //   console.log("%c%s", "color:red","el     : " + this.$el);
-        //   console.log(this.$el); 
-        //   console.log("%c%s", "color:red","data   : " + this.$data); 
-        //   console.log("%c%s", "color:red","message: " + this.message); 
-        //   console.log("%c%s", "color:red","navData: " + this.navData)
-        // },
-        // beforeDestroy: function () {
-        //   console.group('beforeDestroy 销毁前状态===============》');
-        //   console.log("%c%s", "color:red","el     : " + this.$el);
-        //   console.log(this.$el);    
-        //   console.log("%c%s", "color:red","data   : " + this.$data); 
-        //   console.log("%c%s", "color:red","message: " + this.message); 
-        //   console.log("%c%s", "color:red","navData: " + this.navData)
-        // },
-        // destroyed: function () {
-        //   console.group('destroyed 销毁完成状态===============》');
-        //   console.log("%c%s", "color:red","el     : " + this.$el);
-        //   console.log(this.$el);  
-        //   console.log("%c%s", "color:red","data   : " + this.$data); 
-        //   console.log("%c%s", "color:red","message: " + this.message)
-        //   console.log("%c%s", "color:red","navData: " + this.navData)
-        // },
-        computed:{
-        },
-        methods:{
-            jumpPage:function(node){
-                var setId = node.attr("setid");
-                var nid = node.attr("nid");
-                this.setActive(this.navData,setId);
-                var href = node.attr("action");
-                if(!href) return false;
-                // 判断，如果nid对应的右侧div不存在，则创建
-                var parent = $("#right-container");
-                var page = parent.find("#" + nid);
-
-                if (page.length == 0) {
-                    parent.append("<div id='" + nid + "' ></div>");
-                    page = parent.find("#" + nid);
-                }
-                if(!page.attr("loaded")){
-                    console.log("loaded");
-                    page.load(href).attr("loaded",true);
-                }
-                page.show(0).siblings().hide(0);
+        window.navVm = new Vue({
+            el:'#navApp',
+            data:{
+                activeNav:'',
+                collapsedMenuTitle:'',
+                activeNavIndex:'',
+                name:'',
+                openSubMenuID:[],
+                breadcrumbArr:[]
             },
-            toggleDropdown:function(node){
-                var sidebar = node.parents("#sidebar");
-                // 当屏幕小鱼1024时，会添加classname 'collapsed';
-                if(sidebar.hasClass("collapsed")){
-                    navVM.activeNav = navVM.navData[node.parent().index() - 1];
-                }else{
+            mixins:[Main],
+            methods:{
+                // 点击页面跳转
+                jumpPage:function(name){
+                    var arr = name.split("|");
+                    var href = arr[0];
+                    var nid = arr[1];
+                    var subMenuId = arr[2];
+                    var _this = this;
+                    // 判断，如果nid对应的右侧div不存在，则创建
+                    var parent = $("#right-container");
+                    var page = parent.find("#" + nid);
 
-                }
-            },
-            setActive:function(arr,setId){
-                arr = arr?arr:this.navData;
-                // console.log(event);
-                // // setId = setId?setId:$event
-                for(var i=0;i<arr.length;i++){
+                    if (page.length == 0) {
+                        parent.append("<div id='" + nid + "' action="+href+" ></div>");
+                        page = parent.find("#" + nid);
+                    }
 
-                    this.$set(arr[i],"active",null);
+                    if(!page.attr("loaded")){
+                        console.log("loaded:",href);
+                        page.load(href).attr("loaded",true);
+                    }
 
-                    if(arr[i].id === setId){
-                        console.log("这里 ",arr[i]);
-                        this.$set(arr[i],"active",true);
+                    $("#"+nid).show(0).addClass("show").siblings().not('.content-h1').hide(0).removeClass("show");
 
-                    }else{
-                        if(arr[i]['nodes']){
-                            this.setActive(arr[i]['nodes'],setId);
+                    var Breadcrumb = breadcrumb.init(data,subMenuId).breadcrumbsArr;
+                    console.log('面包屑 = ',Breadcrumb);
+                    _this.setBreadcrumb(Breadcrumb);
+                },
+                // 
+                collapsedMenuShow:function(name){
+                    var this_breadcrumb = breadcrumb.init(data,name[0]);
+                    var childNodes = this_breadcrumb.currentNodesChilds;
+                    this.activeNav = [];
+                    this.$nextTick(function(){
+                        var openNode = $("#navApp").find(".ivu-menu-opened");
+                        var arr = [];
+                        var this_idsArr = breadcrumb.init(data,name[name.length-1]).idsArr;
+                        for(var i = 0;i<this_idsArr.length;i++){
+                            arr.push(this_idsArr[i]);
                         }
-                    }
+                        this.openSubMenuID = arr;
+                        this.activeNav = childNodes;
+                        if(openNode.attr("title")){
+                            this.collapsedMenuTitle = openNode.attr("title");
+                        }
+                        
+                    });
+                },
+
+                // set 面包屑
+                setBreadcrumb:function(breadcrumbArr){
+                    // 设置面包屑
+                    headerVm.breadcrumbArr = breadcrumbArr;
+                    return false;
+                    
+                }
+
+            }
+        });
+
+        // right-container h1 面包屑---------------------------------------
+        var headerVm = new Vue({
+            el:"#h1-app",
+            data:{
+                breadcrumbArr:''
+            },
+            watch:{
+                breadcrumbArr:function(){
+
+                }
+            },
+            methods:{
+                refreshFn:function(){
+                    var activeView = $("#right-container .show");
+                    console.log(activeView)
+                    activeView.load(activeView.attr("action"),function(){
+                        console.log('success')
+                    })
                 }
             }
-        }
-    });
-
-    function postData(){
-        // navVM.navData = data;
-    }   
-    postData();
-
-// }
-
+        })
+    }
+    return runNavVm;
+})

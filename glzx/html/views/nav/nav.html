@@ -1,54 +1,19 @@
-<!--/.nav-collapse -->
-<!-- Sidebar -->
-<link rel="stylesheet" href="../../content/normal/css/nav-style.css">
-<script type="text/javascript" src="../../content/normal/js/data.js"></script>
-
-<div id="vm-nav" >
-    <ul class="nav navbar-nav side-nav" id="sidebar">
-        <li>
-            <div class="sidebar-collapse">
-                <a href="#">
-                    <i class="ico-bars"></i>
-                </a>
-            </div>
-        </li>
-        <li class="navigation" v-for="(e,i) in navData">
-            <dropdown-menu v-bind:todo ='e' v-bind:index="i"></dropdown-menu>
-            <ul class="dropdown-menu" v-if="e.nodes&&e.nodes.length">
-                <dropdown-sub-list class="dropdown" v-if="e.nodes" v-for="sub in e.nodes" v-bind:subtodo ='sub' v-bind:index ='i'></dropdown-sub-list>
-            </ul>
-        </li>
-    </ul>
-    <!-- Sidebar end -->
-
-
-    <!-- sec-Sidebar -->
-    <div class="product-nav">
-        <div class="sec-sidebar" id="sec-sidebar">
-            <h1 class="h1">{{activeNav.text}}</h1>
-            <ul class="nav navbar-nav sec-side-nav">
-                <li v-for="(event,index) in activeNav.nodes" class="navigation menu-hide">
-                    <dropdown-product-menu v-bind:todo ='event' v-bind:index="index"  v-if="event.nodes"></dropdown-product-menu>
-                    <dropdown-product-a v-bind:todo ='event' v-bind:index="index"  v-else></dropdown-product-a>
-                    <ul class="menu">
-                        <li v-for="(item,index) in event.nodes"  v-bind:class="{'dropdown':true,active:item.active}">
-                            <dropdown-product-sub-menu v-bind:todo ='item' v-bind:index="index" v-if="item.nodes"></dropdown-product-sub-menu>
-                            <dropdown-product-a v-bind:todo ='item' v-bind:index="index"  v-else></dropdown-product-a>
-                            <ul class="dropdown-menu" v-if="item.nodes&&item.nodes">
-                                <dropdown-product-sub-list v-for="sub in item.nodes" v-bind:subtodo ='sub' v-bind:index ='index'></dropdown-product-sub-list>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-        <div class="sidebar-collapse sec-sidebar-collapse">
-            <a href="#"><i class="ico-arr-collapse"></i></a>
-        </div>
-    </div>
-
-</div>
-
-<script type="text/javascript" src="../../content/normal/js/v-nav.js"></script>
-<script type="text/javascript" src="../../content/frame/bootstrap/js/my-dropdown.js"></script>
-<script type="text/javascript" src="../../content/normal/js/frame.js"></script>
+<link rel="stylesheet" href="../content/frame/iview/iview.css">
+<link rel="stylesheet" href="../content/normal/css/nav-style.css" >
+<!--  -->
+<sider ref="side1" hide-trigger collapsible :collapsed-width="60" v-model="isCollapsed" width="230px" class="navMenu" :style="{position: 'fixed', height: '100vh',top: '50px', left: 0, overflow: 'auto'}">
+    <icon @click.native="collapsedSider" :class="rotateIcon" :style="{margin: '20px 20px 0'}" type="navicon-round" size="24"></icon>
+    <i-menu active-name="1" width="auto" :class="menuitemClasses" accordion @on-select="jumpPage" @on-open-change="collapsedMenuShow">
+        <menu-parts v-for="data in navData" :data='data' :key="data.id"></menu-parts>
+    </i-menu>
+</sider>
+<!--  -->
+<i-menu ref="side2" width="170px" class="collapsedMenu" accordion @on-select="jumpPage">
+    <menu-item name="2" class="collapsedMenu-title" >
+        {{collapsedMenuTitle}}
+    </menu-item>                    
+    <menu-parts v-for="data in activeNav" :key="data.id" :data='data' v-if="data.nodes && data.nodes.length"></menu-parts>
+    <menu-item v-for="data in activeNav" :key="data.id" :name="data['href']?data.href+'|'+data.nid:data.text+'|'+data.id" v-if="!data.nodes">
+        <span>{{data.text}}</span>
+    </menu-item>
+</i-menu>

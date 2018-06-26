@@ -21,7 +21,7 @@
         // Browser globals
         factory(jQuery);
     }
-}(function($,win,doc,undefined){
+}(function($){
     'use strict';
     // 
     function SelectCheckbox(el,option){
@@ -106,6 +106,7 @@
         });
     }
     // 
+    console.log($)
     $.fn.selectCheckbox = function(option){
 
         var selectCheckbox = new SelectCheckbox(this,option);
