@@ -6,72 +6,119 @@
      * @param  {Object} option      相关配置项
      * @return {Array}  arr         返回一个正序数组，如果没有则返回一个空数组
      */
-    function getBreadcrumb(arr,selectedID,option){
+
+    function getBreadcrumb(option){
         'use strict';
+        var breadcrumbs = [],   // 节点数据集合
+            topID = [],         // 顶层id集合
+            data = '',          // 原始数据
+            nodeArr = [],       // 节点集合
+            idsArr = [],        // 节点id集合
+            currentNode = '',   // 当前节点
+            currentNodesChilds = '' // 当前节点的子节点集合
         // 默认配置项
-        this.option = {
+        
+        var _default = {
            nodesName:"nodes",   // 默认子节点的集合为nodes
-           param:'id'   // 默认根据id属性来查找
+           paramName:'id'   // 默认根据id属性来查找
         }
         // 修改默认配置项
-        for(var item in option){
-            this.option[item] = option[item];
+        if(option){
+            for(var item in option){
+                if(option[item]){
+                   _default[item] = option[item]; 
+                }
+            } 
         }
-        //
-        selectedID = typeof selectedID === "string"?parseInt(selectedID):selectedID;
-        this.data = arr;    // 原始数据
-        this.nodeArr = [];  // 节点数据集合
-        this.topID = [];    // 顶层id集合
-        for(var j = 0;j<arr.length;j++){
-            this.topID.push(arr[j].id);
+        this.abc = 123
+
+        // run
+        this.init = function(arr,selectedID){
+            breadcrumbs = [];
+            idsArr = [];
+            nodeArr = [];
+            selectedID = typeof selectedID === "string"?selectedID:selectedID?selectedID.toString():null;
+            data = arr;    // 原始数据
+            
+            for(var j = 0;j<arr.length;j++){
+                topID.push(arr[j][_default.paramName]);
+            }
+            var _get = getNodeParent(arr,selectedID);
+            return {
+                breadcrumbsArr:_get.bs,
+                nodesArr:_get.ns,
+                idsArr:_get.ids,
+                currentNode:_get.cn,
+                currentNodesChilds:_get.cnc
+            }
         }
+
         // 获取节点父级
-        this.getNodeParent = function (arr,selectedID){
+        function getNodeParent (arr,selectedID){
             var i = 0;
             var l = arr.length;
             while (i<l){
+                var _parame = typeof arr[i][_default.paramName] === "string"?arr[i][_default.paramName]:arr[i][_default.paramName].toString();
                 
-                if(arr[i].id === selectedID){
+                if(_parame === selectedID){
                     // 如果相同 ，就插入arr，并终止；
-                    // this.nodeArr.unshift(arr[i].text);
-                    if(this.nodeArr.indexOf(arr[i].text)<0){
-                        this.nodeArr.unshift(arr[i].text);
+                    if(breadcrumbs.indexOf(arr[i].text)<0){
+                        breadcrumbs.unshift(arr[i].text);
+                        nodeArr.unshift(arr[i]);
+                        idsArr.unshift(_parame);
+                        currentNode = arr[i];
+                        currentNodesChilds = arr[i][_default.nodesName]&&arr[i][_default.nodesName].length?arr[i][_default.nodesName]:'';
                     }
                     break;
                 }else{
                     // 如果不相同 ，就判断子集
-                    if(arr[i][this.option.nodesName] && arr[i][this.option.nodesName].length){
+                    if(arr[i][_default.nodesName] && arr[i][_default.nodesName].length){
                         // 如果有子集
-                        var state = this.isParent(arr[i][this.option.nodesName],selectedID);
+                        var state = isParent(arr[i][_default.nodesName],selectedID);
                         if(state){
                             // 获取当前的父节点，如果在数组里已经存在就不添加
-                            if(this.nodeArr.indexOf(arr[i].text)<0){
-                                this.nodeArr.unshift(arr[i].text);
+                            if(breadcrumbs.indexOf(arr[i].text)<0){
+                                breadcrumbs.unshift(arr[i].text);
+                                nodeArr.unshift(arr[i]);
+                                idsArr.unshift(_parame);
                             }
                             // 如果当前不是顶层，则继续调用
-                            if(this.topID.indexOf(arr[i].id)<0){
-                                this.getNodeParent(this.data,arr[i].id)
+                            if(topID.indexOf(_parame)<0){
+                                getNodeParent(data,_parame)
                             }
                             break;
                         }else{
                             // 如果没有继续调用
-                            this.getNodeParent(arr[i][this.option.nodesName],selectedID);
+                            getNodeParent(arr[i][_default.nodesName],selectedID);
                         }
                     }
                 }
 
                 i++;
             }
-            return this.nodeArr;
+            // return breadcrumbs;
+            return {
+                bs:breadcrumbs,
+                ns:nodeArr,
+                ids:idsArr,
+                cn:currentNode,
+                cnc:currentNodesChilds
+            }
         }
+
         // 判断是否是父级节点，返回 boolean
-        this.isParent = function (arr,selectedID){
+        function isParent(arr,selectedID){
             var i = 0;
             var state;
             while(i<arr.length){
-                if(arr[i].id === selectedID){
-                    if(this.nodeArr.indexOf(arr[i].text)<0){
-                        this.nodeArr.unshift(arr[i].text);
+                var _parame = typeof arr[i][_default.paramName] === "string"?arr[i][_default.paramName]:arr[i][_default.paramName].toString();
+                if(_parame === selectedID){
+                    if(breadcrumbs.indexOf(arr[i].text)<0){
+                        breadcrumbs.unshift(arr[i].text);
+                        nodeArr.unshift(arr[i]);
+                        idsArr.unshift(_parame);
+                        currentNode = arr[i];
+                        currentNodesChilds = arr[i][_default.nodesName]&&arr[i][_default.nodesName].length?arr[i][_default.nodesName]:'';
                     }
                     state = true;
                     break;
@@ -80,16 +127,25 @@
             }
             return state;
         }
-        return this.getNodeParent(arr,selectedID);
+
+        // 公有方法
+        return {
+            init:this.init,
+            getName:this.getName
+        }
+    }
+
+    getBreadcrumb.prototype.getName = function(name){
+        console.log(name)
     }
 
     var breadcrumb = getBreadcrumb;
     if(typeof define === 'function' && define.amd){
         define(function(){
-            return getBreadcrumb;
+            return breadcrumb;
         });
     }else if(typeof exports === 'object' && typeof module !== 'undefined'){
-        module.exports = getBreadcrumb;
+        module.exports = breadcrumb;
     }else{
         this.breadcrumb = breadcrumb;
     }

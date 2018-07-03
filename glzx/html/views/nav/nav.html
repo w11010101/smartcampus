@@ -1,9 +1,9 @@
-<link rel="stylesheet" href="../content/frame/iview/iview.css">
-<link rel="stylesheet" href="../content/normal/css/nav-style.css" >
+<!-- <link rel="stylesheet" href="../content/frame/iview/iview.css"> -->
+<!-- <link rel="stylesheet" href="../content/normal/css/nav-style.css" > -->
 <!--  -->
-<sider ref="side1" hide-trigger collapsible :collapsed-width="60" v-model="isCollapsed" width="230px" class="navMenu" :style="{position: 'fixed', height: '100vh',top: '50px', left: 0, overflow: 'auto'}">
+<sider hide-trigger collapsible :collapsed-width="60" v-model="isCollapsed" width="230px" class="navMenu" :style="{position: 'fixed', height: '100vh',top: '50px', left: 0, overflow: 'auto'}">
     <icon @click.native="collapsedSider" :class="rotateIcon" :style="{margin: '20px 20px 0'}" type="navicon-round" size="24"></icon>
-    <i-menu active-name="1" width="auto" :class="menuitemClasses" accordion @on-select="jumpPage" @on-open-change="collapsedMenuShow">
+    <i-menu ref="side1" :open-names="open" :active-name="active" width="auto" :class="menuitemClasses" accordion @on-select="jumpPage" @on-open-change="collapsedMenuShow">
         <menu-parts v-for="data in navData" :data='data' :key="data.id"></menu-parts>
     </i-menu>
 </sider>
@@ -17,3 +17,7 @@
         <span>{{data.text}}</span>
     </menu-item>
 </i-menu>
+<!--  -->
+<div id="div1" style="position: absolute;color:#fff;font-size: 16px;">
+    div1
+</div> 

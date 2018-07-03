@@ -105,3 +105,15 @@ html{
     font-size: 20px;
     background: #ECECEC
 }
+/*第二层*/
+.navMenu .ivu-menu >.ivu-menu-submenu>.ivu-menu{
+    
+}
+/*第三层*/
+.navMenu .ivu-menu >.ivu-menu-submenu>.ivu-menu>.ivu-menu-submenu>.ivu-menu{
+    background: #004c72;
+}
+/*第四层*/
+.navMenu .ivu-menu >.ivu-menu-submenu>.ivu-menu>.ivu-menu-submenu>.ivu-menu>.ivu-menu-submenu>.ivu-menu{
+    background: #1b6183;
+}

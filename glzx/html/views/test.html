@@ -12,8 +12,6 @@
     <link rel="stylesheet" href="../content/frame/animate/animate.min.css" >
     <link rel="stylesheet" href="../content/normal/css/theme.css" >
     <!-- my style start -->
-    <link rel="stylesheet" href="../content/normal/css/my-theme.css" >
-    
     <link rel="stylesheet" href="../content/normal/css/demo.css">
     
     <!-- my style end -->
@@ -120,8 +118,16 @@
                     <span class="head-tools pull-right">
                         <button class="refresh" @click="refreshFn"></button>
                     </span>
-                </div>
 
+
+                </div>
+                <!--  -->
+
+                <div id="btns">
+                    <button class="openList" style="padding: 5px 10px;margin-bottom: 10px;">展开 [1,11] ,及示例管理——示例——2层</button>
+                    <br>
+                    <button class="activeItem" style="padding: 5px 10px;margin-bottom: 10px;">打开 id为112的页面（container-1.html）</button>
+                </div>
                 
                 <!-- 图表 -->
                 <div class="content-h2">
@@ -130,7 +136,9 @@
                 <div id="chartBox">
                     
                 </div>
-                
+                <div id="date">
+                    
+                </div>
             </div>  
         </div>
         <!-- Page content end -->
@@ -139,5 +147,18 @@
     <script type="text/javascript" data-main="../content/normal/js/main.js" src="../content/frame/requireJs/require.min.js"></script>
     <!-- 非模块开发用法，若要用requirejs，请遵行该规范；尽量避免此种引用  -->
     <script type="text/javascript" src="../content/normal/js/data.js"></script>
+    <script type="text/javascript">
+        var openList = document.querySelector('.openList');
+        var activeItem = document.querySelector('.activeItem');
+        var activeItem = document.querySelector('.activeItem');
+        //  展开菜单
+        openList.addEventListener("click",function(){
+            navVm.open = [1,11];
+        });
+        // 选中摸个页面
+        activeItem.addEventListener("click",function(){
+            navVm.active = 112;
+        });
+    </script>
 </body>
 </html>

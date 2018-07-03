@@ -17,14 +17,17 @@
             currentNode = '',   // 当前节点
             currentNodesChilds = '' // 当前节点的子节点集合
         // 默认配置项
+        
         var _default = {
            nodesName:"nodes",   // 默认子节点的集合为nodes
-           param:'id'   // 默认根据id属性来查找
+           paramName:'id'   // 默认根据id属性来查找
         }
         // 修改默认配置项
         if(option){
-           for(var item in option){
-                _default[item] = option[item];
+            for(var item in option){
+                if(option[item]){
+                   _default[item] = option[item]; 
+                }
             } 
         }
         this.abc = 123
@@ -34,14 +37,12 @@
             breadcrumbs = [];
             idsArr = [];
             nodeArr = [];
-            //
-            selectedID = typeof selectedID === "string"?parseInt(selectedID):selectedID;
+            selectedID = typeof selectedID === "string"?selectedID:selectedID?selectedID.toString():null;
             data = arr;    // 原始数据
             
             for(var j = 0;j<arr.length;j++){
-                topID.push(arr[j].id);
+                topID.push(arr[j][_default.paramName]);
             }
-
             var _get = getNodeParent(arr,selectedID);
             return {
                 breadcrumbsArr:_get.bs,
@@ -54,19 +55,19 @@
 
         // 获取节点父级
         function getNodeParent (arr,selectedID){
-
             var i = 0;
             var l = arr.length;
             while (i<l){
+                var _parame = typeof arr[i][_default.paramName] === "string"?arr[i][_default.paramName]:arr[i][_default.paramName].toString();
                 
-                if(arr[i].id === selectedID){
+                if(_parame === selectedID){
                     // 如果相同 ，就插入arr，并终止；
                     if(breadcrumbs.indexOf(arr[i].text)<0){
                         breadcrumbs.unshift(arr[i].text);
                         nodeArr.unshift(arr[i]);
-                        idsArr.unshift(arr[i].id);
+                        idsArr.unshift(_parame);
                         currentNode = arr[i];
-                        currentNodesChilds = arr[i].nodes&&arr[i].nodes.length?arr[i].nodes:'';
+                        currentNodesChilds = arr[i][_default.nodesName]&&arr[i][_default.nodesName].length?arr[i][_default.nodesName]:'';
                     }
                     break;
                 }else{
@@ -79,11 +80,11 @@
                             if(breadcrumbs.indexOf(arr[i].text)<0){
                                 breadcrumbs.unshift(arr[i].text);
                                 nodeArr.unshift(arr[i]);
-                                idsArr.unshift(arr[i].id);
+                                idsArr.unshift(_parame);
                             }
                             // 如果当前不是顶层，则继续调用
-                            if(topID.indexOf(arr[i].id)<0){
-                                getNodeParent(data,arr[i].id)
+                            if(topID.indexOf(_parame)<0){
+                                getNodeParent(data,_parame)
                             }
                             break;
                         }else{
@@ -110,13 +111,14 @@
             var i = 0;
             var state;
             while(i<arr.length){
-                if(arr[i].id === selectedID){
+                var _parame = typeof arr[i][_default.paramName] === "string"?arr[i][_default.paramName]:arr[i][_default.paramName].toString();
+                if(_parame === selectedID){
                     if(breadcrumbs.indexOf(arr[i].text)<0){
                         breadcrumbs.unshift(arr[i].text);
                         nodeArr.unshift(arr[i]);
-                        idsArr.unshift(arr[i].id);
+                        idsArr.unshift(_parame);
                         currentNode = arr[i];
-                        currentNodesChilds = arr[i].nodes&&arr[i].nodes.length?arr[i].nodes:'';
+                        currentNodesChilds = arr[i][_default.nodesName]&&arr[i][_default.nodesName].length?arr[i][_default.nodesName]:'';
                     }
                     state = true;
                     break;

@@ -19,7 +19,6 @@ var data = [
                         href: "views/container/container-1.html",
                         nid: "container-1",
                         nodes: null,
-                        a:"示例管理,示例-2层,container-1.html"
                     },
                     {
                         level: 1,
@@ -46,7 +45,22 @@ var data = [
                                 text: "子集4-1",
                                 id: 1141,
                                 href: "container-4-1",
-                                nodes: null
+                                nodes: [{
+                                        level: 2,
+                                        text: "子集5-1",
+                                        id: 11411,
+                                        href: "container-4-1",
+                                        nodes: null
+                                    },
+                                    {
+                                        level: 2,
+                                        text: "子集5-2",
+                                        id: 11421,
+                                        href: "container-4-2",
+                                        nodes: null
+                                    },
+                                ]
+
                             },
                             {
                                 level: 2,

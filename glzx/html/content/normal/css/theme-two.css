@@ -39,8 +39,14 @@ body.modal-open {
 
 /*theme*/
 body.bg-1 .navbar {
-	background:-webkit-linear-gradient(-45deg,#0083C1 0%,#7CD1F5 100%);
-	background:linear-gradient(to -45deg,#0083C1 0%,#7CD1F5 100%);
+	/*background:-webkit-linear-gradient(-45deg,#0083C1 0%,#7CD1F5 100%);
+	background:linear-gradient(to -45deg,#0083C1 0%,#7CD1F5 100%);*/
+
+	background: -moz-linear-gradient(-45deg, #0083C1 0%, #7CD1F5 100%);
+	background:-webkit-linear-gradient(-45deg,#0083C1 0%,#7CD1F5 100%);/* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(-45deg, #0083C1 0%,#7CD1F5 100%);/* Opera 11.1 - 12.0 */
+    background: -ms-linear-gradient(-45deg, #0083C1 0%,#7CD1F5 100%);/* Firefox 3.6 - 15 */
+	background: linear-gradient(to -45deg, #0083C1 0%,#7CD1F5 100%);/* 标准的语法（必须放在最后） */
 }
 body.bg-2 .navbar {
 	background-image:url(../images/noise.png),url(../images/backgrounds/1-1.jpg);
@@ -53,8 +59,14 @@ background:-webkit-linear-gradient(-45deg,#01E2DD 0%,#02CCFC 100%);
 	*/
 }
 body.bg-3 .navbar {
-	background:-webkit-linear-gradient(-45deg,#26BFA0 0%,#19F1D5 100%);
-	background:linear-gradient(to -45deg,#26BFA0 0%,#19F1D5 100%);
+	/*background:-webkit-linear-gradient(-45deg,#26BFA0 0%,#19F1D5 100%);
+	background:linear-gradient(to -45deg,#26BFA0 0%,#19F1D5 100%);*/
+
+	background: -moz-linear-gradient(-45deg, #26BFA0 0%, #19F1D5 100%);
+	background:-webkit-linear-gradient(-45deg,#26BFA0 0%,#19F1D5 100%);/* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(-45deg, #26BFA0 0%,#19F1D5 100%);/* Opera 11.1 - 12.0 */
+    background: -ms-linear-gradient(-45deg, #26BFA0 0%,#19F1D5 100%);/* Firefox 3.6 - 15 */
+	background: linear-gradient(to -45deg, #26BFA0 0%,#19F1D5 100%);/* 标准的语法（必须放在最后） */
 }
 body.bg-4 .navbar {
 	background-image:url(../images/noise.png),url(../images/backgrounds/4-1.jpg);
@@ -69,8 +81,13 @@ body.bg-5 .navbar {
 	background-size:auto,cover;
 }
 body.bg-6 .navbar {
-	background:-webkit-linear-gradient(-45deg,#5781FE 0%,#00C1DE 100%);
-	background:linear-gradient(to -45deg,#5781FE 0%,#00C1DE 100%);
+	/*background:-webkit-linear-gradient(-45deg,#5781FE 0%,#00C1DE 100%);
+	background:linear-gradient(to -45deg,#5781FE 0%,#00C1DE 100%);*/
+	background: -moz-linear-gradient(-45deg, #5781FE 0%, #00C1DE 100%);
+	background:-webkit-linear-gradient(-45deg,#5781FE 0%,#00C1DE 100%);/* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(-45deg, #5781FE 0%,#00C1DE 100%);/* Opera 11.1 - 12.0 */
+    background: -ms-linear-gradient(-45deg, #5781FE 0%,#00C1DE 100%);/* Firefox 3.6 - 15 */
+	background: linear-gradient(to -45deg, #5781FE 0%,#00C1DE 100%);/* 标准的语法（必须放在最后） */
 }
 body.no-bg .navbar {
 	background:none;
@@ -116,10 +133,14 @@ body.bg-6 .side-nav.collapsed .navigation.active .sidebar-toggle {
 body.bg-1 .side-nav:before {
 	background:-webkit-linear-gradient(-45deg,#015075 0%,#015075 100%);
 	background:linear-gradient(to -45deg,#015075 0%,#015075 100%);
+	background:#015075;
 }
 body.bg-2 .side-nav:before {
-	background:-webkit-linear-gradient(-45deg,#01E2DD 0%,#02CCFC 100%);
-	background:linear-gradient(to -45deg,#01E2DD 0%,#02CCFC 100%);
+	background: -moz-linear-gradient(-45deg, #01E2DD 0%, #02CCFC 100%);
+	background:-webkit-linear-gradient(-45deg,#01E2DD 0%,#02CCFC 100%);/* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(-45deg, #01E2DD 0%,#02CCFC 100%);/* Opera 11.1 - 12.0 */
+    background: -ms-linear-gradient(-45deg, #01E2DD 0%,#02CCFC 100%);/* Firefox 3.6 - 15 */
+	background: linear-gradient(to -45deg, #01E2DD 0%,#02CCFC 100%);/* 标准的语法（必须放在最后） */
 }
 body.bg-3 .side-nav:before {
 	background:#1C2D49;
