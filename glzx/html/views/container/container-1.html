@@ -1,6 +1,52 @@
+
 <div class="">
     <br>
     contianer-1.html<br> 
     <a href="#" action="views/container/dome-Doc" nid="dome-Doc" onclick="navVM.jumpPage($(this));" set-id="111">跳转到dome-Doc.html</a><br>   
     <a href="#" action="views/container/container-2" nid="container-2" onclick="navVM.jumpPage($(this));" set-id="113">跳转到container-2.html</a>
+
 </div>
+<form class="form-horizontal">
+    <div class="form-group">
+        <label class="col-sm-3 control-label"></div>
+        <div class="col-sm-5">
+            <div class="form-date">
+                <input id="container-1-startDate" class="form-control" type="text" placeholder="选择时间">
+            </div>
+            <div> — </div>
+            <div class="form-date">
+                <input id="container-1-endDate" class="form-control" type="text" placeholder="选择时间">
+            </div>
+        </div>
+    </div>
+<form>
+<script type="text/javascript">
+    require(['jquery.datetimepicker'],function(){
+        $.datetimepicker.setLocale('zh');
+        $('#container-1-startDate').datetimepicker({        
+            timepicker:false,
+            format:'Y.m.d',
+            parentID:"html",
+            onShow:function( ct ){
+                console.log(123)
+                this.setOptions({
+                    maxDate:$('#container-1-endDate').val()?$('#container-1-endDate').val():false
+                })
+            },
+        });
+
+        $('#container-1-endDate').datetimepicker({
+            timepicker:false,
+            format:'Y.m.d',
+            parentID:"html",
+            onShow:function( ct ){
+                this.setOptions({
+                    minDate:$('#container-1-startDate').val()?$('#container-1-startDate').val():false
+                })
+            },
+        });
+    })
+    // require([],function(contianer){
+    //     console.log(contianer)
+    // });
+</script>

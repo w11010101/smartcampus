@@ -11,6 +11,7 @@ require.config({
         'jquery.datetimepicker':'./jquery.date/jquery.datetimepicker.full',
         'echarts':'./echarts/echarts.min',
         'domready':'./domready/domReady',
+        // 'domready':'https://cdn.bootcss.com/require-domReady/2.0.1/domReady'
         // my js
         'breadcrumb':'../normal/js/getBreadcrumb',
         'test':'../normal/js/test',
@@ -18,16 +19,19 @@ require.config({
     },
     map:{
         "*":{
-            "mycss":"./requireJs/css.min"
+            "css":"./requireJs/css.min"
         }
     },
     shim:{
         'bootstrap':{
-            deps:['jquery'],
+            deps:['css!../frame/bootstrap/css/bootstrap.min','jquery'],
             exports:"bootstrap"
         },
         'v-nav':{
-            deps:['mycss!../frame/iview/iview.css','mycss!../normal/css/nav-style.css']
+            deps:['css!../frame/iview/iview.css','css!../normal/css/nav-style.css']
+        },
+        'jquery.datetimepicker':{
+            deps:['css!./jquery.date/jquery.datetimepicker.min']
         }
     }
 });
@@ -37,10 +41,10 @@ require(['jquery','vue','bootstrap','iview','breadcrumb','v-nav'],
     // 实例 获取面包屑组件 breadcrumb
     // 可以通过option进行面包屑配置；支持2个参数，
     var option = {
-        nodesName:"nodes",   // 默认子节点的集合为nodes
-        paramName:'id'   // 默认根据id属性来查找
+        // nodesName:"nodes",   // 默认子节点的集合为nodes
+        paramName:'href'   // 默认根据id属性来查找
     }
-    
+    console.log('main ：' ,$("#div1"));
     // console.log('breadcrumb:',breadcrumb);
     // 加载 nav 导航
     Vue.use(iview);
@@ -56,6 +60,28 @@ require(['jquery','vue','bootstrap','iview','breadcrumb','v-nav'],
     $("#chartBox").load('./views/container/echarts-line.html',function(){
         $(this).addClass('show').attr('action','./views/container/echarts-line.html');
     });
+
+    // 
+    var openList = document.querySelector('.openList');
+    var activeItem = document.querySelector('.activeItem');
+    var activeItem = document.querySelector('.activeItem');
+
+    var _breadcrumb = new breadcrumb({
+        paramName:"href"
+    });
+    var targetNode = _breadcrumb.init(data,'views/container/container-1.html')
+    // console.log(targetNode);
+    //  展开菜单
+    openList.addEventListener("click",function(){
+        navVm.open = [1,11];
+    });
+    // 选中摸个页面
+    activeItem.addEventListener("click",function(){
+        // console.log(targetNode)
+        // console.log('views/container/container-1.html')
+        navVm.active = 'views/container/container-1.html';
+
+    });    
 });
 
 

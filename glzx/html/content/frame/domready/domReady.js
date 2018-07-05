@@ -102,6 +102,7 @@ define(function () {
      * @param {Function} callback
      */
     function domReady(callback) {
+        console.log('isPageLoaded = ',isPageLoaded);
         if (isPageLoaded) {
             callback(doc);
         } else {

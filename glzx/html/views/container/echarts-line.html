@@ -19,12 +19,26 @@
 </style>
 <!--  -->
 <div id="myChartLine" style="width:1000px ;height:400px;margin:0 auto;"></div>
-
+<form class="form-horizontal">
+    <div class="form-group">
+        <label class="col-sm-3 control-label"></div>
+        <div class="col-sm-5">
+            <div class="form-date">
+                <input id="startDate" class="form-control" type="text" placeholder="选择时间">
+            </div>
+            <div> — </div>
+            <div class="form-date">
+                <input id="endDate" class="form-control" type="text" placeholder="选择时间">
+            </div>
+        </div>
+    </div>
+<form>
+<div id="div2">
+    div2
+</div>
 
 <script type="text/javascript">
     require(['../normal/js/checkbox-line'],function(line){
-        console.log('line :',line);
         line();
-    })
-    
+    });
 </script>

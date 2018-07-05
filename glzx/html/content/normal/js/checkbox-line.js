@@ -1,5 +1,30 @@
-define(['jquery','echarts'],function($,echarts){
+define(['jquery','echarts',"jquery.datetimepicker"],function($,echarts,_date){
     function runEcharts(){
+        // 日期
+        $.datetimepicker.setLocale('zh');
+        $('#startDate').datetimepicker({        
+            timepicker:false,
+            format:'Y.m.d',
+            parentID:"html",
+            onShow:function( ct ){
+                console.log(123)
+                this.setOptions({
+                    maxDate:$('#endDate').val()?$('#endDate').val():false
+                })
+            },
+        });
+
+        $('#endDate').datetimepicker({
+            timepicker:false,
+            format:'Y.m.d',
+            parentID:"html",
+            onShow:function( ct ){
+                this.setOptions({
+                    minDate:$('#startDate').val()?$('#startDate').val():false
+                })
+            },
+        });
+
         var months = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24];
         var monthsData = [
             {

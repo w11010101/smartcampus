@@ -58,7 +58,8 @@
             var i = 0;
             var l = arr.length;
             while (i<l){
-                var _parame = typeof arr[i][_default.paramName] === "string"?arr[i][_default.paramName]:arr[i][_default.paramName].toString();
+                var thisNode = arr[i][_default.paramName];
+                var _parame = thisNode?typeof thisNode === "string"?thisNode:thisNode.toString():arr[i].id;
                 
                 if(_parame === selectedID){
                     // 如果相同 ，就插入arr，并终止；
@@ -66,6 +67,7 @@
                         breadcrumbs.unshift(arr[i].text);
                         nodeArr.unshift(arr[i]);
                         idsArr.unshift(_parame);
+                        console.log(_parame)
                         currentNode = arr[i];
                         currentNodesChilds = arr[i][_default.nodesName]&&arr[i][_default.nodesName].length?arr[i][_default.nodesName]:'';
                     }
@@ -111,7 +113,8 @@
             var i = 0;
             var state;
             while(i<arr.length){
-                var _parame = typeof arr[i][_default.paramName] === "string"?arr[i][_default.paramName]:arr[i][_default.paramName].toString();
+                var thisNode = arr[i][_default.paramName];
+                var _parame = thisNode?typeof thisNode === "string"?thisNode:thisNode.toString():arr[i].id;
                 if(_parame === selectedID){
                     if(breadcrumbs.indexOf(arr[i].text)<0){
                         breadcrumbs.unshift(arr[i].text);

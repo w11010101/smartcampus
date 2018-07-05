@@ -1,21 +1,23 @@
-define(['domready!','jquery','vue','breadcrumb'],function(doc,$,Vue,breadcrumb){
-    console.log($("#div1"));
-    console.log($(doc).find("#div1"))
+define(['domready','jquery','vue','breadcrumb'],function(domReady,$,Vue,breadcrumb){
     // 封装之前写好的的iview的nav导航
     function runNavVm(callback){
-        var b = new breadcrumb();
+        var b = new breadcrumb({
+            paramName:"href"
+        });
         breadcrumb = b;
-        
+        //This function is called once the DOM is ready,
+        //notice the value for 'domReady!' is the current
+        //document.
         Vue.component("menu-parts",{
             props:["data"],
-            template:`<submenu :name="data.id" v-if="data.nodes && data.nodes.length" :title='data.text' >
+            template:`<submenu :name="data.href || data.id" v-if="data.nodes && data.nodes.length" :title='data.text' >
                         <template slot="title" >
                             <icon :type="data.icon" v-if="data.icon"></icon>
                             <span>{{data.text}}</span>
                         </template>
                         <menu-item v-for="item in data.nodes" 
                             :key="item.id"  
-                            :name="item.id"
+                            :name="item.href||item.id"
                             v-if="!item.nodes || !item.nodes.length" >
                             <span>{{item.text}}</span>
                         </menu-item>
@@ -35,6 +37,7 @@ define(['domready!','jquery','vue','breadcrumb'],function(doc,$,Vue,breadcrumb){
                 var d = data;
                 // var d = [{"id":"oidc","code":null,"level":0,"text":"统一认证授权","nid":"oidc","icon":null,"href":null,"inDomain":true,"fType":0,"nodes":[{"id":"5ebaba3b78ddf2906e43706217137edfc6ccc5af","code":null,"level":1,"text":"权限设置","nid":"5ebaba3b78ddf2906e43706217137edfc6ccc5af","icon":"service-ico","href":"/oidc/RoleSetting4Manager/","inDomain":true,"fType":2,"nodes":[{"id":"85db867185d4691f936d468a91f1d4bc9df47403","code":null,"level":2,"text":"设置角色","nid":"85db867185d4691f936d468a91f1d4bc9df47403","icon":"service-ico","href":"/oidc/RoleSetting4Manager/Index","inDomain":true,"fType":3,"nodes":[]}]},{"id":"d425ff30c56e2a86ffd1186c264752c65cb3d07a","code":null,"level":1,"text":"授权设置","nid":"d425ff30c56e2a86ffd1186c264752c65cb3d07a","icon":"service-ico","href":"/oidc/OrgSystemSetting4Manager/","inDomain":true,"fType":2,"nodes":[{"id":"b625771ac0500b1e17a448e59a3858216d578ba1","code":null,"level":2,"text":"为机构授权系统","nid":"b625771ac0500b1e17a448e59a3858216d578ba1","icon":"service-ico","href":"/oidc/OrgSystemSetting4Manager/Index","inDomain":true,"fType":3,"nodes":[]}]},{"id":"67c1e4833d3a8a93481ccd53b89e13dcb863a009","code":null,"level":1,"text":"权限管理","nid":"67c1e4833d3a8a93481ccd53b89e13dcb863a009","icon":"service-ico","href":"/oidc/RoleSetting/","inDomain":true,"fType":2,"nodes":[{"id":"5d13fecae249da5bf956392284ff4cd94c61e46f","code":null,"level":2,"text":"管理校级角色","nid":"5d13fecae249da5bf956392284ff4cd94c61e46f","icon":"service-ico","href":"/oidc/RoleSetting/Index","inDomain":true,"fType":3,"nodes":[]}]},{"id":"65489f64af857ae8fd17084390a8bab8635a9260","code":null,"level":1,"text":"认证终端管理","nid":"65489f64af857ae8fd17084390a8bab8635a9260","icon":"service-ico","href":"/oidc/AppClientManagement/","inDomain":true,"fType":2,"nodes":[{"id":"902a70121c5f428b456f0392279b069b02e689a1","code":null,"level":2,"text":"认证终端","nid":"902a70121c5f428b456f0392279b069b02e689a1","icon":"service-ico","href":"/oidc/AppClientManagement/Index","inDomain":true,"fType":2,"nodes":[]}]}]}]
                 this.navData = d;
+                
             },
             computed: {
                 menuitemClasses: function () {
@@ -101,14 +104,15 @@ define(['domready!','jquery','vue','breadcrumb'],function(doc,$,Vue,breadcrumb){
                     console.log('name = ',name);
                     var currentSubMenu = breadcrumb.init(this.navData,name);
                     var currentNode = currentSubMenu.currentNode;
-
+                    console.log('currentSubMenu = ',currentSubMenu);
+                    console.log('currentNode = ',currentNode);
                     var href = currentNode.href;
                     var nid = currentNode.nid;
                     var _this = this;
                     // 判断，如果nid对应的右侧div不存在，则创建
                     var parent = $("#right-container");
                     var page = parent.find("#" + nid);
-
+                    console.log("nid = ", nid)
                     if (page.length == 0) {
                         parent.append("<div id='" + nid + "' action="+href+" ></div>");
                         page = parent.find("#" + nid);
