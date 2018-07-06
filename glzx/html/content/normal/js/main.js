@@ -11,9 +11,10 @@ require.config({
         'jquery.datetimepicker':'./jquery.date/jquery.datetimepicker.full',
         'echarts':'./echarts/echarts.min',
         'domready':'./domready/domReady',
+        'jquery.bootstrap-duallistbox':'./bootstrap-duallistbox/jquery.bootstrap-duallistbox',
         // 'domready':'https://cdn.bootcss.com/require-domReady/2.0.1/domReady'
         // my js
-        'breadcrumb':'../normal/js/getBreadcrumb',
+        'breadcrumb':'../normal/js/getBreadcrumb.min',
         'test':'../normal/js/test',
         'v-nav':'../normal/js/v-nav',   //引入 nav导航js
     },
@@ -31,7 +32,11 @@ require.config({
             deps:['css!../frame/iview/iview.css','css!../normal/css/nav-style.css']
         },
         'jquery.datetimepicker':{
-            deps:['css!./jquery.date/jquery.datetimepicker.min']
+            deps:['css!./jquery.date/jquery.datetimepicker.min','jquery'],
+            // exports:"jquery.datetimepicker"
+        },
+        'jquery.bootstrap-duallistbox':{
+            deps:['jquery','css!./bootstrap-duallistbox/bootstrap-duallistbox']
         }
     }
 });
@@ -76,12 +81,12 @@ require(['jquery','vue','bootstrap','iview','breadcrumb','v-nav'],
         navVm.open = [1,11];
     });
     // 选中摸个页面
-    activeItem.addEventListener("click",function(){
-        // console.log(targetNode)
-        // console.log('views/container/container-1.html')
-        navVm.active = 'views/container/container-1.html';
+    // activeItem.addEventListener("click",function(){
+    //     // console.log(targetNode)
+    //     // console.log('views/container/container-1.html')
+    //     navVm.active = 'views/container/container-1.html';
 
-    });    
+    // });    
 });
 
 

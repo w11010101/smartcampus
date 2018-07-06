@@ -1,44 +1,98 @@
 <!--  -->
 <style type="text/css" media="screen">
-.myTooltip .title{
+.myTooltip .title {
     height: 35px;
     line-height: 35px;
     padding-left: 10px;
     padding-top: 2px;
     background: #259beb;
-    color:#fff;
+    color: #fff;
     font-style: 12px;
     font-weight: normal;
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
 }
-.myTooltip .myTooltipBox{
+
+.myTooltip .myTooltipBox {
     padding: 10px;
     margin-top: -20px;
 }
 </style>
 <!--  -->
-<div id="myChartLine" style="width:1000px ;height:400px;margin:0 auto;"></div>
+<!-- <div id="myChartLine" style="width:1000px ;height:400px;margin:0 auto;"></div> -->
 <form class="form-horizontal">
     <div class="form-group">
-        <label class="col-sm-3 control-label"></div>
-        <div class="col-sm-5">
-            <div class="form-date">
-                <input id="startDate" class="form-control" type="text" placeholder="选择时间">
-            </div>
-            <div> — </div>
-            <div class="form-date">
-                <input id="endDate" class="form-control" type="text" placeholder="选择时间">
-            </div>
+        <label class="col-sm-3 control-label">
+    </div>
+    <div class="col-sm-5">
+        <div class="form-date">
+            <input id="startDate" class="form-control" type="text" placeholder="选择时间">
+        </div>
+        <div> — </div>
+        <div class="form-date">
+            <input id="endDate" class="form-control" type="text" placeholder="选择时间">
         </div>
     </div>
-<form>
+</form>
 <div id="div2">
     div2
 </div>
 
-<script type="text/javascript">
-    require(['../normal/js/checkbox-line'],function(line){
-        line();
-    });
+<div id="app" v-cloak>
+    <ul class="nav nav-tabs in">
+        <li class="active">
+            <a data-toggle="tab" @click="change(1)">人工审核</a>
+        </li>
+        <li class="">
+            <a data-toggle="tab" @click="change(2)">人工通过</a>
+        </li>
+    </ul>
+    <h1>{{h1}}</h1>
+    <div class="tab-content">
+        <!-- <template v-if="loginType">
+            <label>Username</label>
+            <input placeholder="Enter your username" key="username-input">
+        </template>
+        <template v-else>
+            <label>Email</label>
+            <input placeholder="Enter your email address" key="email-input">
+        </template> -->
+        <!-- <h2>{{h2}}</h2>
+        <button @click.prevent="toggle">toggle btn </button> -->
+        <template>
+            <div class="tab-pane fade active in"  v-show="show">
+                <label>Username</label>
+                <input placeholder="Enter your username">
+                <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-top" for="duallist">jquery双向选择： </label>
+                <div class="col-sm-8">
+                    <select multiple="multiple" size="10" name="duallistbox_demo1[]" id="duallist">
+                        <option value="option1">张三（234567）</option>
+                        <option value="option2">李四（456677）</option>
+                        <option value="option3" selected="selected">王五（789043)</option>
+                        <option value="option4">赵六（456677）</option>
+                        <option value="option5">李四（456677）</option>
+                        <option value="option6">赵六（456677）</option>
+                        <option value="option7">王五（789043)</option>
+                        <option value="option8">李四（456677）</option>
+                        <option value="option9">赵六（456677）</option>
+                        <option value="option0">赵六（456677）</option>
+                    </select>
+                </div>
+            </div>
+            </div>
+        </template>
+        <template >
+            <div class="tab-pane fade active in" v-show="!show">
+                <label>Email</label>
+                <input placeholder="Enter your email address">
+            </div>
+        </template>
+    </div>
+</div>
+
+<script type="text/javascript" async>
+require(['../normal/js/checkbox-line'], function(line) {
+    line();
+});
 </script>

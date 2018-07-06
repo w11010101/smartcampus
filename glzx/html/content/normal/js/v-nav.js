@@ -1,3 +1,4 @@
+
 define(['domready','jquery','vue','breadcrumb'],function(domReady,$,Vue,breadcrumb){
     // 封装之前写好的的iview的nav导航
     function runNavVm(callback){

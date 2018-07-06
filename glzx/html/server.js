@@ -18,7 +18,9 @@ app.get("/index",function(request,response){
 app.get("/",function(request,response){
     response.sendFile(__dirname+"/views/local-index.html");
 });
-
+app.get("/data",function(request,response){
+    response.sendFile(__dirname+"/views/local-index.html");
+});
 var server = app.listen("8082",function(){
     var host = server.address().address;
     var port = server.address().port;
