@@ -6,7 +6,6 @@ var bodyParser = require('body-parser');
 var multer = require('multer');
 var router = express.Router();
 
-
 app.use(express.static(__dirname));
 app.use(express.static("views/"));
 app.use(express.static("content/"));
