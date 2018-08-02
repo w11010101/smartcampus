@@ -1,5 +1,110 @@
+;(function(global,factory){
+	if(typeof define === 'function'){
+		define(function(){
+			return factory;
+		});
+	}else if(typeof exports === 'object'){
+		module.exports = factory;
+	}else{
+		// console.log(factory);
+		global.PopupMobile = factory;
+	}
+})(this,function(option){
+	function Popup(option){
+		this.option = {
+			defauleStyle:'transition:all .2s ease ;display:block;transform:translateY(300px);'
+		}
+		if(!option) {
+			throw 'option 不存在';
+		} else{
+			if(option['data']){
+				this.init(option);
+			}else{
+				throw '弹出所需要得data 数组不存在';
+			}
+		}
+
+		var _default = {
+			data:[]
+		}
+
+		option.calback?option.calback({a:1,b:2}):null;
+
+		// return document.querySelector(option.id);
+	}
+
+	Popup.prototype.init = function(option){
+		console.log('option = ', option);
+		var body = document.querySelector('body');
+		// 追加弹出层dom结构
+		
+		body.insertAdjacentHTML('beforeend',this.createHtml(option));
+		
+
+		this.togglePopup('show');
+	}
+	Popup.prototype.togglePopup = function(isShow,type){
+		console.log('isShow = ', isShow);
+		var mask = document.querySelector('.popup-mask');
+		var popup = document.querySelector('.popup-box');
+		if(isShow == 'show'){
+			console.log(mask);
+			mask.style.display = 'block';
+			// var style = popup.style;
+			// popup.style['transition'] = 'all .3s ease-in 1s';
+			setTimeout(function(){
+				popup.style['transform'] = 'translateY(0)';
+			},10)
+			
+
+			// console.log(style['transform'])
+			// popup.style = '';
+			// // popup.style = 'transform:translateY();';
+			// // mask.style.transition = 'display:none';
+		}else if(isShow == 'hide'){
+
+		}
+	}
+	
+	// html
+	Popup.prototype.createHtml = function(option){
+		var popupHtml = null;
+		var popupContent = '<div class="popup-content"><ul>';
+		var html = [];
+		
+		switch (option.type){
+			case 'change':
+				var imgUrl = '../../../content/style/common/images/';
+				for (var i in option.data) {
+					var item = option.data[i];
+					console.log(item);
+					html.push('<li><img src="' + imgUrl+item.icon + '" alt="">' + item.name + '</li>');
+				}
+			break;
+		}
+		popupContent += html.join('');
+		popupContent += '</ul></div>';
+
+		return popupHtml = '<div class="popup-box popup-'+option.type+'" style="'+this.option.defauleStyle+'">'+popupContent+'</div>'+mask();
+	}
+
+	// mask
+	function mask(){
+		var maskNode = document.querySelector('.popup-mask');
+		console.log(maskNode);
+		return !maskNode?'<div class="popup-mask"></div>':'';
+	}
+	return new Popup(option);
+
+})
+// ****************************************************************************************************************************
+// ****************************************************************************************************************************
+// ****************************************************************************************************************************
+// ****************************************************************************************************************************
+// ****************************************************************************************************************************
+// ****************************************************************************************************************************
 // 校园卡对象 
-var campus = function () {
+function campus() {
 	var that = this;
 	// console.log(option);
 	/*
@@ -73,66 +178,66 @@ var campus = function () {
 		$("body").append('<div class="popup-box"></div>'+mask);
 		var box = $(".popup-box").addClass("popup-"+option.type);
 		switch (option.type) {
-		case "keyboard":
-			// 键盘
-			
-			box.append(this.keyboard(option));
-			this.keyboardEvent(function (e) {
-				callback(e);
-			});
-			break;
-		case "info":
-			// 支付信息
-			box.append(this.info(option));
-			this.infoEvent(function (e) {
+			case "keyboard":
+				// 键盘
+				
+				box.append(this.keyboard(option));
+				this.keyboardEvent(function (e) {
 					callback(e);
-				}, option.flow) // 默认更改支付方式会继续调用change
-			break;
-		case "change":
-			// 更换支付方式
-			box.append(this.change(option));
-			// 和选择一样
-			this.selectsEvent(function (e) {
-				callback(e);
-			}, option.flow); // 默认更改支付方式会继续调用info
+				});
+				break;
+			case "info":
+				// 支付信息
+				box.append(this.info(option));
+				this.infoEvent(function (e) {
+						callback(e);
+					}, option.flow) // 默认更改支付方式会继续调用change
+				break;
+			case "change":
+				// 更换支付方式
+				box.append(this.change(option));
+				// 和选择一样
+				this.selectsEvent(function (e) {
+					callback(e);
+				}, option.flow); // 默认更改支付方式会继续调用info
 
-			break;
-		case "select":
-			// 选择列表
-			box.append(this.selects(option));
-			$(".popup-content .smart-loading").remove();
-			var arr = option.value;
-			for (var i in arr) {
-				var val = typeof arr[i] == "object" ? arr[i].name : arr[i];
-				var key = typeof arr[i] == "object" ? arr[i].key : arr[i];
-				$(".popup-content ul").append('<li key="' + key + '" >' + val + '</li>');
-			}
-			this.selectsEvent(function (e) {
-				callback(e);
-			})
-			break;
-		case "alert":
-			// 选择列表
-			box.append(this.alert(option));
-			// 配置css
-			var boxStyle = option.boxStyle;
-			if (boxStyle) $(".popup-alert").css(boxStyle);
-			var img = option.title["img"];
-			if (img) $(".popup-alert img").css(option.title.imgStyle);
-			var content = option.content.contentStyle;
-			if (content) $(".popup-alert p,.popup-alert h2").css(content);
-			this.alertEvent(function(e){
-				callback(e);
-			});
-			break;
-		case "selectBtns":
-			// 选择列表
-			box.append(this.selectBtns(option));
+				break;
+			case "select":
+				// 选择列表
+				box.append(this.selects(option));
+				$(".popup-content .smart-loading").remove();
+				var arr = option.value;
+				for (var i in arr) {
+					var val = typeof arr[i] == "object" ? arr[i].name : arr[i];
+					var key = typeof arr[i] == "object" ? arr[i].key : arr[i];
+					$(".popup-content ul").append('<li key="' + key + '" >' + val + '</li>');
+				}
+				this.selectsEvent(function (e) {
+					callback(e);
+				})
+				break;
+			case "alert":
+				// 选择列表
+				box.append(this.alert(option));
+				// 配置css
+				var boxStyle = option.boxStyle;
+				if (boxStyle) $(".popup-alert").css(boxStyle);
+				var img = option.title["img"];
+				if (img) $(".popup-alert img").css(option.title.imgStyle);
+				var content = option.content.contentStyle;
+				if (content) $(".popup-alert p,.popup-alert h2").css(content);
+				this.alertEvent(function(e){
+					callback(e);
+				});
+				break;
+			case "selectBtns":
+				// 选择列表
+				box.append(this.selectBtns(option));
 
-			this.selectBtnsEvent(function (e) {
-				callback(e);
-			})
-			break;
+				this.selectBtnsEvent(function (e) {
+					callback(e);
+				})
+				break;
 		}
 		
 		// 添加取消按钮

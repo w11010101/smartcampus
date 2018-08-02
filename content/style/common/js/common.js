@@ -1,127 +1,124 @@
 $(function() {
-        // 选择器
-        var Objs = {
-                switch: $(".smart-switch div"), // 开关按钮
-                tergetPage: $(".smart-content ul li[set-terget],*[set-terget]"), // 点击跳转页面事件
-                checkList: $(".smart-list-check li"), // 点击单选
-                sure: $(".smart-icon-sure"), // 列表选中 
-                eye: $(".smart-icon-eye"), // 表单后的眼睛
-            }
-            // 动态设置attr
-        var Attr = {
-                setStatus: "set-status",
-            }
-            // 动态设置class
-        var Class = {
-                active: "smart-active"
-            }
-            // 开关按钮事件
-        Objs.switch.on("click", function() {
-                var thisP = $(this).parent();
-                thisP.toggleClass(Class.active).attr(Attr.setStatus, thisP.hasClass(Class.active) ? "on" : "off");
-                if (thisP.attr("set-status") == "on") {
-                    thisP.parent().next().slideDown(200);
-                } else {
-                    thisP.parent().next().slideUp(200);
-                }
-
-            })
-            // li点击跳转页面事件
-        Objs.tergetPage.on("click", function() {
-        	var href = $(this).attr("set-terget");
-            if (href.indexOf(".html") > 0) {
-                smartObj.jump(href);
-            }
-        });
-        // li点击选择
-        Objs.checkList.on("click", function() {
-            Objs.sure.removeClass(Class.active);
-            $(".smart-icon-sure", this).toggleClass(Class.active);
-            setTimeout(function() {
-                window.history.back();
-            }, 200)
-        });
-        // 输入框显示
-        Objs.eye.on("click", function() {
-            var that = $(this);
-            if (that.hasClass("smart-icon-eye-clear")) { //  清空
-                that.prev("input").val("");
-                that.removeClass("smart-icon-eye-clear");
-                $(".smart-btn").removeAttr("style");
+    // 选择器
+    var Objs = {
+            switch: $(".smart-switch div"), // 开关按钮
+            tergetPage: $(".smart-content ul li[set-terget],*[set-terget]"), // 点击跳转页面事件
+            checkList: $(".smart-list-check li"), // 点击单选
+            sure: $(".smart-icon-sure"), // 列表选中 
+            eye: $(".smart-icon-eye"), // 表单后的眼睛
+        }
+        // 动态设置attr
+    var Attr = {
+            setStatus: "set-status",
+        }
+        // 动态设置class
+    var Class = {
+            active: "smart-active"
+        }
+        // 开关按钮事件
+    Objs.switch.on("click", function() {
+            var thisP = $(this).parent();
+            thisP.toggleClass(Class.active).attr(Attr.setStatus, thisP.hasClass(Class.active) ? "on" : "off");
+            if (thisP.attr("set-status") == "on") {
+                thisP.parent().next().slideDown(200);
             } else {
-                that.toggleClass("smart-icon-eye-hide");
-                if (!that.hasClass("smart-icon-eye-hide")) { // 隐藏还是显示
-                    that.prev("input").attr("type", "tel");
-                } else {
-                    that.prev("input").attr("type", "password");
-                }
+                thisP.parent().next().slideUp(200);
             }
-        });
-        var arr = [];
-        // var sum = 0;
-        $(".smart-input,input[type=number],input[type=password]").on("keyup", function(e) {
-            if (e.keyCode != 8) {
-                // 不是删除键 
-                var l = $(".smart-input").length;
-                if (this.value.length != 0) {
-                    $(this).next().addClass("smart-icon-eye-clear");
-                    if ($(".smart-icon-eye-clear").length == l) { // input都填写了
-                        $(".smart-btn,.smart-container-sure-btn").addClass("active");
-                    } else {
 
-                    }
-                    // $(".smart-container-sure-btn").removeClass("active");
-                }
-            } else {
-                // 删除键
-                if (this.value.length == 0) {
-                    $(".smart-btn,.smart-container-sure-btn").removeClass("active");
-                    $(this).next().removeClass("smart-icon-eye-clear");
-                }
-            }
         })
-        // 隐藏筛选
-        $(".smart-screen-mask").on("click", function() {
-        	$(".smart-popup,.set-popup").slideUp(200,function(){
-        		$(".smart-popup,.set-popup").remove();
-        	})
-        	$(".smart-screen-mask").fadeOut(200);
-        })
-        // 转账支付
-
-        $(".smart-container-sure-btn").on("click", function() {
-            if ($("body").hasClass('first-start')) {
-                // 第一次进入转账
-                var val = $(".smart-account-input").val();
-                if (val.length != 0) {
-                    if (val.length < 6) {
-                        campus.tips("卡号长度不够！");
-                        return;
-                    }
-                    $(this).removeClass("active");
-                    $("body").removeClass("first-start").addClass('old-start');
-                    // $(".smart-account-input").attr("readonly","readonly");
-                    $(".smart-account-input").attr("disabled","disabled");
-                    $(".smart-content .smart-account em").text($(".smart-account-input").val());
-
-                } else {
-                    campus.tips("不能为空");
-                }
+        // li点击跳转页面事件
+    Objs.tergetPage.on("click", function() {
+    	var href = $(this).attr("set-terget");
+        if (href.indexOf(".html") > 0) {
+            smartObj.jump(href);
+        }
+    });
+    // li点击选择
+    Objs.checkList.on("click", function() {
+        Objs.sure.removeClass(Class.active);
+        $(".smart-icon-sure", this).toggleClass(Class.active);
+        setTimeout(function() {
+            window.history.back();
+        }, 200)
+    });
+    // 输入框显示
+    Objs.eye.on("click", function() {
+        var that = $(this);
+        if (that.hasClass("smart-icon-eye-clear")) { //  清空
+            that.prev("input").val("");
+            that.removeClass("smart-icon-eye-clear");
+            $(".smart-btn").removeAttr("style");
+        } else {
+            that.toggleClass("smart-icon-eye-hide");
+            if (!that.hasClass("smart-icon-eye-hide")) { // 隐藏还是显示
+                that.prev("input").attr("type", "tel");
             } else {
-                if ($(".smart-payment-box input").val().length) {
-                    
-                    param.money = $(".smart-payment-box input").val();
-                    
-                    info(param);
-
-                    $(".smart-screen-mask").show(0);
-                } else {
-                    smartObj.tips("金额不能为空");
-                }
-
+                that.prev("input").attr("type", "password");
             }
-        });
+        }
+    });
+    var arr = [];
+    // var sum = 0;
+    $(".smart-input,input[type=number],input[type=password]").on("keyup", function(e) {
+        if (e.keyCode != 8) {
+            // 不是删除键 
+            var l = $(".smart-input").length;
+            if (this.value.length != 0) {
+                $(this).next().addClass("smart-icon-eye-clear");
+                if ($(".smart-icon-eye-clear").length == l) { // input都填写了
+                    $(".smart-btn,.smart-container-sure-btn").addClass("active");
+                } else {
+
+                }
+                // $(".smart-container-sure-btn").removeClass("active");
+            }
+        } else {
+            // 删除键
+            if (this.value.length == 0) {
+                $(".smart-btn,.smart-container-sure-btn").removeClass("active");
+                $(this).next().removeClass("smart-icon-eye-clear");
+            }
+        }
     })
+    // 隐藏筛选
+    $(".smart-screen-mask").on("click", function() {
+    	$(".smart-popup,.set-popup").slideUp(200,function(){
+    		$(".smart-popup,.set-popup").remove();
+    	})
+    	$(".smart-screen-mask").fadeOut(200);
+    })
+    // 转账支付
+
+    $(".smart-container-sure-btn").on("click", function() {
+        if ($("body").hasClass('first-start')) {
+            // 第一次进入转账
+            var val = $(".smart-account-input").val();
+            if (val.length != 0) {
+                if (val.length < 6) {
+                    campus.tips("卡号长度不够！");
+                    return;
+                }
+                $(this).removeClass("active");
+                $("body").removeClass("first-start").addClass('old-start');
+                // $(".smart-account-input").attr("readonly","readonly");
+                $(".smart-account-input").attr("disabled","disabled");
+                $(".smart-content .smart-account em").text($(".smart-account-input").val());
+
+            } else {
+                campus.tips("不能为空");
+            }
+        } else {
+            if ($(".smart-payment-box input").val().length) {
+                param.money = $(".smart-payment-box input").val();
+                info(param);
+                $(".smart-screen-mask").show(0);
+            } else {
+                campus.tips("无效金额！");
+            }
+
+        }
+    });
+})
 var param = {};
 function load_charts_bar() {
     var objs = document.querySelectorAll(".smart-accordion-bar");
@@ -300,6 +297,7 @@ function change(obj) {
         flow: $(obj).attr("popupFlow") || false,
         cancel:true
     };
+    
     campus.popup(option, function(data) {
         console.log(data);
     });

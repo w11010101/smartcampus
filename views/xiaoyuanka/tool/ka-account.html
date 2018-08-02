@@ -49,6 +49,12 @@
                         <span id="account-change" class="set-change" onclick="change(this);" popupType="change">校园卡</span>
                     </div>
                 </div>
+                <div class="form-group icon-tzjt x-xian">
+                    <label for="inputPassword3" class="col-xs-3 control-label">校一卡通1</label>
+                    <div class="col-xs-9">
+                        <span id="account-change1" class="set-change" " popupType="change">校园卡1</span>
+                    </div>
+                </div>
                 <div class="form-group smart-payment-box">
                     <label for="inputPassword3" class="col-xs-3 control-label">转账金额</label>
                     <div class="col-xs-9">
@@ -70,7 +76,7 @@
 </body>
 <script type="text/javascript" src="../../../content/style/frame/jquery/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="../../../content/style/frame/jquery/toast/js/jquery.toast.js"></script>
-<script type="text/javascript" src="../../../content/style/common/js/popup.js"></script>
+<script type="text/javascript" src="../../../content/style/common/js/popup-new.js"></script>
 <script type="text/javascript" src="../../../content/style/common/js/common.js"></script>
 <script type="text/javascript">
     $(".form-control").on("keyup",function(){
@@ -78,6 +84,32 @@
             $(".con-btn").removeClass("btn-hui").attr("onclick","info(this);");
         }
     });
-
+    $('#account-change1').on('click',popupFn);
+    function popupFn(){
+        
+        var popupMobile = new PopupMobile({
+            id:'account-change',
+            data:[{
+                code:1,
+                name:'支付宝',
+                icon:'zfb.png'
+            },{
+                code:2,
+                name:'信用卡',
+                icon:'wallet-2.png'
+            },{
+                code:3,
+                name:'微信',
+                icon:'wallet-1.png'
+            },{
+                code:4,
+                name:'中国银行',
+                icon:'BOC.png'
+            }
+            ],
+            type:'change'
+        });
+        console.log(popupMobile);
+    }
 </script>
 </html>
