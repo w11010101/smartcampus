@@ -292,8 +292,8 @@ function change(obj) {
     var option = {
         type: $(obj).attr("popupType"),
         title: "更换支付方式",
-        value: ["校园卡", "电子账户", "中国银行", "支付宝", "微信支付", "百度钱包"],
-        payType:[],
+        value: [{key:123,name:"校园卡"}, "电子账户", "中国银行", "支付宝", "微信支付", "百度钱包"],
+        payType:[1,2,3,4,5,6],
         flow: $(obj).attr("popupFlow") || false,
         cancel:true
     };

@@ -50,9 +50,13 @@
                     </div>
                 </div>
                 <div class="form-group icon-tzjt x-xian">
-                    <label for="inputPassword3" class="col-xs-3 control-label">校一卡通1</label>
                     <div class="col-xs-9">
-                        <span id="account-change1" class="set-change" " popupType="change">校园卡1</span>
+                        <span id="account-change1" class="set-change" popupType="change">change</span>
+                    </div>
+                </div>
+                <div class="form-group icon-tzjt x-xian">
+                    <div class="col-xs-9">
+                        <span id="account-keyboard" class="set-change" popupType="change">keyboard</span>
                     </div>
                 </div>
                 <div class="form-group smart-payment-box">
@@ -84,32 +88,50 @@
             $(".con-btn").removeClass("btn-hui").attr("onclick","info(this);");
         }
     });
-    $('#account-change1').on('click',popupFn);
-    function popupFn(){
-        
-        var popupMobile = new PopupMobile({
-            id:'account-change',
+    // 
+    $('#account-change1').on('click',changeFn);
+    function changeFn(){
+        var popupMobile = PopupMobile({
+            // id:'account-change',
             data:[{
-                code:1,
-                name:'支付宝',
-                icon:'zfb.png'
-            },{
-                code:2,
-                name:'信用卡',
-                icon:'wallet-2.png'
-            },{
-                code:3,
-                name:'微信',
-                icon:'wallet-1.png'
-            },{
-                code:4,
-                name:'中国银行',
-                icon:'BOC.png'
-            }
+                    code:1,
+                    name:'支付宝',
+                    icon:'zfb.png'
+                },{
+                    code:2,
+                    name:'信用卡',
+                    icon:'wallet-2.png'
+                },{
+                    code:3,
+                    name:'微信',
+                    icon:'wallet-1.png'
+                },{
+                    code:4,
+                    name:'中国银行',
+                    icon:'BOC.png'
+                }
             ],
-            type:'change'
+            type:'change',
+            selectCallBack:function(event){
+                console.log(event)
+            }
         });
-        console.log(popupMobile);
+    }
+    $('#account-keyboard').on('click',keyboardFn);
+    function keyboardFn(){
+        var popupMobile = PopupMobile({
+            id:'account-change',
+            
+            type:'keyboard',
+            selectCallBack:function(event){
+                console.log(event)
+            }
+        });
+    }
+    'use strict';
+    var arr = [1,2,3];
+    for(var i = 0 ;i<100;i++){
+        console.log(arr[i])
     }
 </script>
 </html>
